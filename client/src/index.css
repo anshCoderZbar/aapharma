@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("fonts/Product-Sans-Regular.ttf") format("opentype");
+}
+@font-face {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("fonts/Product-Sans-Bold.ttf") format("opentype");
+}
+html,
+body {
+  overflow-x: hidden;
+  scroll-padding-top: 100px;
+  font-family: "Product Sans";
+}
+
+.container-fluid {
+  padding-left: 100px !important;
+  padding-right: 100px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Product Sans";
+}
+
+p {
+  font-family: "Product Sans";
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+input:focus {
+  outline: none;
+}
+
+select {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("./assets/down-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 91% !important;
+  background-position-y: 50% !important;
+  outline: none;
+  font-family: "Product Sans";
+}
+
+.primary_buttton {
+  border-radius: 12px;
+  background: #2a3072;
+  padding: 15px 32px;
+  color: #fff;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  transition: 0.3s ease-in-out;
+  outline: none;
+}
+
+.primary_buttton:hover {
+  background-color: #34caff;
+  padding-right: 42px;
+  color: #2a3072;
+}
+
+.primary_btn_outline {
+  background: transparent;
+  border: 1px solid #34caff;
+  color: #34caff;
+  padding: 12px 25px;
+  border-radius: 14px;
+  font-size: 17px;
+  font-family: "Product Sans";
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.primary_btn_outline:hover {
+  background-color: #34caff;
+  color: #2a3072;
+  padding-right: 42px;
+}
+.primary_btn_outline span {
+  line-height: 0;
+  display: none;
+  margin-left: 10px;
+}
+
+.primary_btn_outline:hover span {
+  display: block;
+}
+
+.add_to_cart {
+  color: #2a3072;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  padding: 14px;
+  justify-content: center;
+  border: 1px solid #2a3072;
+  border-radius: 15px;
+  transition: 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.add_to_cart:hover {
+  background-color: #34caff;
+  border: 1px solid #34caff;
+  color: #fff;
+}
+
+.main_top_heading {
+  color: #2e2e2e;
+  font-size: 56px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+@media screen and (max-width: 1700px) {
+  .container-fluid {
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .container-fluid {
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+  }
+  .primary_buttton {
+    padding: 16px 27px;
+    font-size: 16px;
+  }
+  .primary_btn_outline {
+    font-size: 15px;
+  }
+  .primary_select {
+    padding: 12px;
+    font-size: 16px;
+  }
+  .add_to_cart {
+    font-size: 17px;
+    padding: 12px;
+  }
+  .main_top_heading {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .container-fluid {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+  .primary_buttton {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+  .add_to_cart {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .main_top_heading {
+    font-size: 45px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .container-fluid {
+    padding: 0 50px !important ;
+  }
+
+  .primary_btn_outline {
+    padding: 9px 24px;
+  }
+  .primary_buttton {
+    padding: 11px 22px;
+    font-size: 14px;
+  }
+  .main_top_heading {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .container-fluid {
+    padding: 0 40px !important ;
+  }
+  .primary_buttton {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+  .add_to_cart {
+    margin-top: 12px;
+  }
+  .main_top_heading {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .container-fluid {
+    padding: 0 30px !important ;
+  }
+
+  .primary_btn_outline {
+    font-size: 16px;
+  }
+  .main_top_heading {
+    font-size: 35px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .container-fluid {
+    padding: 0 15px !important ;
+  }
+
+  .primary_btn_outline {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+
+  .add_to_cart {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .catalog_content select {
+    font-size: 14px;
+  }
+  .main_top_heading {
+    font-size: 30px;
+  }
+}

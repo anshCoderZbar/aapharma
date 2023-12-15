@@ -1,0 +1,28 @@
+.home_banner_input {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 11px;
+}
+
+.clients_image {
+  min-width: 70px;
+  max-width: 70px;
+}
+
+.preview-image {
+  max-width: 100px;
+}
+
+.input_banners {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 11px;
+}
+
+.width_fit {
+  width: fit-content;
+}
+
+.timeline_desc p {
+  margin-bottom: 0px !important;
+}
