@@ -4,6 +4,7 @@ import "swiper/css";
 import { GetSettings } from "rest/main";
 import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
+import "./App.css";
 
 function App() {
   const settings = GetSettings();

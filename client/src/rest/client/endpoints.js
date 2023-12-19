@@ -18,4 +18,5 @@ export const API_ENDPOINTS = {
   getAboutBanner: "/about-us",
   getAboutUsCard: "/about-us-cards",
   getTimeline: "/timeline/all",
+  contactUs: "/contact-form",
 };

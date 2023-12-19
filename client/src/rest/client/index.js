@@ -34,6 +34,9 @@ class Client {
     getAboutUsCard: () => HttpClient.get(API_ENDPOINTS.getAboutUsCard),
     getTimeline: () => HttpClient.get(API_ENDPOINTS.getTimeline),
   };
+  contact = {
+    contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),
+  };
 }
 
 const client = new Client();
