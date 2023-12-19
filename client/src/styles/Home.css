@@ -1,7 +1,7 @@
 /*====== banner ====== */
 
 .home_banner {
-  width: calc(100% - 60px);
+  width: calc(100% - 5%);
   min-height: 700px;
   background-repeat: no-repeat;
   display: flex;
@@ -9,6 +9,7 @@
   position: relative;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  background-size: cover;
 }
 
 .banner_content {
