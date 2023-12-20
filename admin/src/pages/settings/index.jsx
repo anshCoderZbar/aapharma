@@ -48,6 +48,7 @@ export default function Settings() {
     defaultValues.headerlogo = getSettings?.data?.data?.headerlogo;
     defaultValues.footerlogo = getSettings?.data?.data?.footerlogo;
     defaultValues.favicon = getSettings?.data?.data?.favicon;
+    defaultValues.contactDescription = getSettings?.data?.data?.contacttext;
     getSettings?.data?.data?.headerlogo &&
       getSettings?.data?.data?.footerlogo &&
       getSettings?.data?.data?.favicon &&
@@ -67,6 +68,7 @@ export default function Settings() {
     formData.append("address", data?.address);
     formData.append("phone", data?.phone);
     formData.append("email", data?.email);
+    formData.append("contacttext", data?.contactDescription);
     formData.append("footerText", data?.footerText);
     formData.append("headerlogo", data?.headerlogo[0]);
     formData.append("footerlogo", data?.footerlogo[0]);
@@ -215,6 +217,23 @@ export default function Settings() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
+            <div className="mb-3 col-md-6">
+              <label htmlFor="contactDescription" className="form-label">
+                Contact Description
+              </label>
+              <textarea
+                type="text"
+                name="contactDescription"
+                rows={5}
+                className="form-control form_input"
+                placeholder="Contact Description"
+                {...register("contactDescription", { required: true })}
+              />
+              {errors?.contactDescription && (
+                <p className="errorMessage">Field is required</p>
+              )}
+            </div>
+
             <div className="mb-3 col-md-6">
               <label htmlFor="footerlogo" className="form-label">
                 Footer Logo
