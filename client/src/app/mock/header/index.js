@@ -4,22 +4,22 @@ export const HeaderData = [
   {
     id: 1,
     name: "About us",
-    slug: "/about-us",
+    slug: "#",
     menu: [
       {
         id: 1,
         name: "History",
-        slug: "#",
+        slug: "/about-us",
       },
       {
         id: 2,
         name: "Personnel",
-        slug: "#",
+        slug: "/personnel",
       },
       {
         id: 3,
         name: "Operating Philospphy",
-        slug: "#",
+        slug: "/operating-philosophy",
       },
       {
         id: 4,
@@ -31,12 +31,12 @@ export const HeaderData = [
   {
     id: 2,
     name: "Services",
-    slug: "#",
+    slug: "/services",
     menu: [
       {
         id: 1,
         name: "Custom Chemical Synthesis",
-        slug: "#",
+        slug: "/custom-chemical-synthesis",
       },
       {
         id: 2,

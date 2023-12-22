@@ -1,5 +1,4 @@
 /* testimonials */
-
 .testimonial_page h1 {
   text-align: center;
   padding-top: 40px;
@@ -233,182 +232,6 @@
 
 /* contact page */
 
-/* about us page */
-.about_us_page {
-  margin-top: 9.5rem;
-}
-
-.about_banner {
-  width: 100%;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: cover !important;
-  border-radius: 40px;
-  padding: 40px 60px;
-}
-
-.about_banner h1 {
-  margin-bottom: 25px;
-}
-
-.about_banner p {
-  max-width: 650px;
-  color: #2e2e2e;
-  font-family: "Product Sans";
-  font-size: 18px;
-  margin-bottom: 25px;
-}
-
-.about_icons {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  z-index: 2;
-  width: max-content;
-}
-
-.about_icons::before {
-  content: "";
-  background-color: #fff;
-  height: 1px;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(0%, -50%);
-  z-index: -1;
-}
-
-.about_icons span {
-  width: 64px;
-  height: 64px;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 35px;
-}
-
-.about_us_content {
-  max-width: 1130px;
-  margin: 50px auto 50px auto;
-}
-
-.about_us_content p {
-  color: #2e2e2e;
-  text-align: center;
-  font-family: "Product Sans";
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.about_details_card_1,
-.about_details_card_2,
-.about_details_card_3 {
-  background: linear-gradient(rgba(42, 48, 114, 0.9), rgba(42, 48, 114, 0.9)),
-    url("assets/about_bg_mg.jpg");
-  background-size: auto;
-  background-repeat: no-repeat;
-  padding: 50px 50px;
-  border-radius: 30px;
-  height: 100%;
-}
-
-.about_details_card_1 {
-  background-position: left;
-}
-
-.about_details_card_2 {
-  background-position: center;
-}
-
-.about_details_card_3 {
-  background-position: right;
-}
-
-.card_body h4 {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 40px;
-}
-
-.card_list {
-  margin-top: 45px;
-  margin-left: 20px;
-}
-
-.card_list li {
-  color: #fff;
-  font-family: "Product Sans";
-  font-size: 18px;
-  font-weight: 400;
-  text-transform: capitalize;
-  margin-top: 25px;
-}
-
-.about_timeling {
-  margin: 5rem 0 5rem 0;
-}
-
-.about_timeling h3 {
-  color: #2e2e2e;
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
-
-.abt_swiper_btns {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.abt_swiper_btns button {
-  border-radius: 11px;
-  background: #f7f7f7;
-  padding: 8px 15px;
-  outline: none;
-  border: none;
-  color: rgba(46, 46, 46, 0.5);
-  font-family: "Product Sans";
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.timeline_card {
-  position: relative;
-  border-radius: 20px;
-  background: #f7f7f7;
-  padding: 50px 40px;
-  min-height: 500px;
-  width: 100%;
-  margin-top: 40px;
-}
-
-.timeline_card p {
-  color: #2e2e2e;
-  font-family: "Product Sans";
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.timeline_card .year {
-  position: absolute;
-  right: 5%;
-  bottom: 2%;
-}
-
-.timeline_card .year span {
-  color: rgba(0, 0, 0, 0.1);
-  text-align: right;
-  font-family: "Product Sans";
-  font-size: 50px;
-  font-style: normal;
-  font-weight: 700;
-}
-
 @media only screen and (max-width: 1600px) {
   .testimonial_page h1 {
     padding-top: 35px;
@@ -452,64 +275,6 @@
   .submit-btn {
     font-size: 16px;
   }
-
-  .about_banner {
-    padding: 36px 52px;
-  }
-
-  .about_banner h1 {
-    margin-bottom: 20px;
-  }
-  .about_banner p {
-    font-size: 17px;
-  }
-
-  .about_icons span {
-    width: 58px;
-    height: 58px;
-  }
-
-  .about_us_page {
-    margin-top: 8.5rem;
-  }
-  .about_us_content {
-    margin: 40px auto 40px auto;
-  }
-  .about_us_content p {
-    font-size: 30px;
-  }
-  .about_details_card_1,
-  .about_details_card_2,
-  .about_details_card_3 {
-    padding: 40px 40px;
-  }
-
-  .card_body img {
-    height: 20px;
-    width: 20px;
-  }
-
-  .card_body img {
-    height: 70px;
-    width: 70px;
-  }
-
-  .card_body h4 {
-    font-size: 22px;
-    margin-top: 30px;
-  }
-  .card_list {
-    margin-top: 35px;
-  }
-
-  .card_list li {
-    font-size: 17px;
-    margin-top: 21px;
-  }
-
-  .card_list {
-    margin-top: 26px;
-  }
 }
 
 @media only screen and (max-width: 1400px) {
@@ -546,52 +311,6 @@
   .details_content a::after {
     width: 480px;
   }
-
-  .about_us_page {
-    margin-top: 7.5rem;
-  }
-  .about_banner h1 {
-    margin-bottom: 15px;
-  }
-  .about_banner p {
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-
-  .about_banner {
-    padding: 33px 40px;
-  }
-  .about_icons span {
-    width: 50px;
-    height: 50px;
-  }
-  .about_icons span img {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-  }
-  .about_us_content {
-    margin: 30px auto 30px auto;
-  }
-  .about_us_content p {
-    font-size: 26px;
-  }
-
-  .about_details_card_1,
-  .about_details_card_2,
-  .about_details_card_3 {
-    padding: 32px 32px;
-  }
-
-  .card_body img {
-    height: 60px;
-    width: 60px;
-  }
-
-  .card_body h4 {
-    font-size: 20px;
-    margin-top: 26px;
-  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -606,45 +325,6 @@
 
   .clients_details {
     margin-bottom: 51px;
-  }
-
-  .about_us_page {
-    margin-top: 6.5rem;
-  }
-
-  .about_banner {
-    padding: 27px 31px;
-  }
-
-  .about_banner h1 {
-    margin-bottom: 12px;
-  }
-
-  .about_banner p {
-    max-width: 500px;
-  }
-
-  .about_us_content p {
-    font-size: 23px;
-  }
-  .about_details_card_1,
-  .about_details_card_2,
-  .about_details_card_3 {
-    padding: 25px 25px;
-  }
-  .card_body img {
-    height: 50px;
-    width: 50px;
-  }
-  .card_body h4 {
-    margin-top: 26px;
-  }
-  .card_list {
-    margin-top: 20px;
-  }
-  .card_list li {
-    font-size: 15px;
-    margin-top: 17px;
   }
 }
 
@@ -677,34 +357,6 @@
 
   .contact-form h2 {
     margin-bottom: 23px;
-  }
-
-  .about_us_content {
-    margin: 25px auto 25px auto;
-  }
-  .about_us_content p {
-    font-size: 20px;
-  }
-
-  .about_details_card_3 {
-    margin-top: 20px;
-  }
-
-  .card_list li {
-    font-size: 15px;
-    margin-top: 16px;
-  }
-
-  .card_body h4 {
-    margin-top: 20px;
-  }
-
-  .card_list {
-    margin-top: 24px;
-  }
-  .card_list li {
-    font-size: 15px;
-    margin-top: 15px;
   }
 }
 
@@ -768,44 +420,6 @@
 
   .contact-form {
     padding-bottom: 50px;
-  }
-
-  .about_banner {
-    padding: 23px 26px;
-  }
-  .about_banner h1 {
-    margin-bottom: 10px;
-  }
-  .about_banner p {
-    font-size: 15px;
-    margin-bottom: 10px;
-  }
-  .about_icons span {
-    width: 43px;
-    height: 43px;
-  }
-  .about_us_content {
-    margin: 20px auto 20px auto;
-  }
-  .about_us_content p {
-    font-size: 18px;
-  }
-  .card_body img {
-    height: 45px;
-    width: 45px;
-  }
-
-  .card_body h4 {
-    font-size: 18px;
-    margin-top: 24px;
-  }
-
-  .card_list {
-    margin-top: 20px;
-  }
-  .card_list li {
-    font-size: 15px;
-    margin-top: 13px;
   }
 }
 
@@ -872,53 +486,5 @@
   .tab_btn {
     font-size: 14px;
     padding: 8px 12px;
-  }
-  .about_us_page {
-    margin-top: 6rem;
-  }
-  .about_banner {
-    padding: 20px 22px;
-  }
-
-  .about_banner p {
-    font-size: 14px;
-  }
-
-  .about_us_content p {
-    font-size: 16px;
-  }
-
-  .card_body img {
-    height: 40px;
-    width: 40px;
-  }
-
-  .about_details_card_1,
-  .about_details_card_2,
-  .about_details_card_3 {
-    padding: 20px 20px;
-  }
-
-  .card_body h4 {
-    font-size: 16px;
-    margin-top: 18px;
-  }
-
-  .card_list {
-    margin-top: 15px;
-  }
-
-  .card_list li {
-    font-size: 14px;
-    margin-top: 13px;
-  }
-
-  .about_details_card_2 {
-    margin-top: 15px;
-    height: auto;
-  }
-  .about_details_card_3 {
-    margin-top: 15px;
-    height: auto;
   }
 }

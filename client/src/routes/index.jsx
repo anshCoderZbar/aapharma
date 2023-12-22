@@ -8,7 +8,11 @@ import { Catalog } from "pages/catalog";
 import { CatalogDetails } from "pages/catalog/CatalogDetails";
 import { TestimonialsPage } from "pages/testimonials";
 import { Contact } from "pages/contact";
-import { AboutUs } from "pages/about-us";
+import { AboutUs } from "pages/about-us/AboutUs";
+import Personnel from "pages/about-us/Personnel";
+import OperatingPhilosophy from "pages/about-us/OperatingPhilosophy";
+import ServicesPage from "pages/services/Services";
+import CustomChemicalSynthesis from "pages/services/CustomChemicalSynthesis";
 
 export const AllRoutes = () => {
   return (
@@ -60,6 +64,38 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <AboutUs />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/personnel"
+            element={
+              <PublicRoutes>
+                <Personnel />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/operating-philosophy"
+            element={
+              <PublicRoutes>
+                <OperatingPhilosophy />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <PublicRoutes>
+                <ServicesPage />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/custom-chemical-synthesis"
+            element={
+              <PublicRoutes>
+                <CustomChemicalSynthesis />
               </PublicRoutes>
             }
           />

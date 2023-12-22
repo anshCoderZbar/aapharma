@@ -7,6 +7,7 @@ import {
 } from "rest/about";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import "styles/About.css";
 
 export const AboutUs = () => {
   const getBanner = GetAboutBannerMutation();
@@ -151,20 +152,44 @@ export const AboutUs = () => {
             {getTimeLine?.data?.data?.length >= 1 &&
               getTimeLine?.data?.data?.map((data, i) => {
                 return (
-                  <button onClick={() => goToSlide(i)}>{data?.heading}</button>
+                  <button
+                    key={i}
+                    className={swipeIndex === i ? "btn_active" : ""}
+                    onClick={() => {
+                      goToSlide(i);
+                      setSwipeIndex(i);
+                    }}
+                  >
+                    {data?.heading}
+                  </button>
                 );
               })}
           </div>
+          {console.log(swipeIndex)}
           <Swiper
             ref={swiperRef}
             spaceBetween={30}
             onSlideChange={handleSlideChange}
-            slidesPerView={3.4}
+            slidesPerView={1}
+            breakpoints={{
+              470: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              991: {
+                slidesPerView: 2.2,
+              },
+              1199: {
+                slidesPerView: 3.5,
+              },
+            }}
           >
             {getTimeLine?.data?.data?.length >= 1 &&
-              getTimeLine?.data?.data?.map((data) => {
+              getTimeLine?.data?.data?.map((data, i) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={i}>
                     <div className="timeline_card">
                       <div
                         dangerouslySetInnerHTML={{ __html: data?.description }}

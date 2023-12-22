@@ -3,22 +3,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 @font-face {
   font-family: "Product Sans";
   font-style: normal;
   font-weight: 400;
   src: local(""), url("fonts/Product-Sans-Regular.ttf") format("opentype");
 }
+
 @font-face {
   font-family: "Product Sans";
   font-style: normal;
   font-weight: 700;
   src: local(""), url("fonts/Product-Sans-Bold.ttf") format("opentype");
 }
+
 html,
 body {
   overflow-x: hidden;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 130px;
   font-family: "Product Sans";
 }
 
@@ -45,6 +48,7 @@ li {
   margin: 0;
   padding: 0;
 }
+
 input:focus {
   outline: none;
 }
@@ -99,6 +103,7 @@ select {
   color: #2a3072;
   padding-right: 42px;
 }
+
 .primary_btn_outline span {
   line-height: 0;
   display: none;
@@ -136,6 +141,7 @@ select {
   font-weight: 700;
   text-transform: capitalize;
 }
+
 .error-message {
   text-align: left !important;
   margin-bottom: 10px !important;
@@ -163,43 +169,53 @@ input[type="number"] {
     padding-right: 70px !important;
   }
 }
+
 @media screen and (max-width: 1600px) {
   .container-fluid {
     padding-left: 70px !important;
     padding-right: 70px !important;
   }
+
   .primary_buttton {
     padding: 16px 27px;
     font-size: 16px;
   }
+
   .primary_btn_outline {
     font-size: 15px;
   }
+
   .primary_select {
     padding: 12px;
     font-size: 16px;
   }
+
   .add_to_cart {
     font-size: 17px;
     padding: 12px;
   }
+
   .main_top_heading {
     font-size: 50px;
   }
 }
+
 @media screen and (max-width: 1400px) {
   .container-fluid {
     padding-left: 60px !important;
     padding-right: 60px !important;
   }
+
   .primary_buttton {
     padding: 14px 24px;
     font-size: 14px;
   }
+
   .add_to_cart {
     font-size: 16px;
     padding: 10px;
   }
+
   .main_top_heading {
     font-size: 45px;
   }
@@ -207,50 +223,59 @@ input[type="number"] {
 
 @media only screen and (max-width: 1200px) {
   .container-fluid {
-    padding: 0 50px !important ;
+    padding: 0 50px !important;
   }
 
   .primary_btn_outline {
     padding: 9px 24px;
   }
+
   .primary_buttton {
     padding: 11px 22px;
     font-size: 14px;
   }
+
   .main_top_heading {
     font-size: 40px;
   }
 }
+
 @media only screen and (max-width: 991px) {
   .container-fluid {
-    padding: 0 40px !important ;
+    padding: 0 40px !important;
   }
+
   .primary_buttton {
     padding: 8px 15px;
     font-size: 14px;
   }
+
   .add_to_cart {
     margin-top: 12px;
   }
+
   .main_top_heading {
     font-size: 40px;
   }
 }
+
 @media only screen and (max-width: 767px) {
   .container-fluid {
-    padding: 0 30px !important ;
+    padding: 0 30px !important;
   }
 
   .primary_btn_outline {
     font-size: 16px;
   }
+
   .main_top_heading {
     font-size: 35px;
   }
 }
+
 @media only screen and (max-width: 575px) {
   .container-fluid {
-    padding: 0 15px !important ;
+    padding: 0 15px !important;
   }
 
   .primary_btn_outline {
@@ -266,6 +291,7 @@ input[type="number"] {
   .catalog_content select {
     font-size: 14px;
   }
+
   .main_top_heading {
     font-size: 30px;
   }
