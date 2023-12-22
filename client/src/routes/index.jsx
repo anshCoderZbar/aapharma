@@ -13,6 +13,7 @@ import Personnel from "pages/about-us/Personnel";
 import OperatingPhilosophy from "pages/about-us/OperatingPhilosophy";
 import ServicesPage from "pages/services/Services";
 import CustomChemicalSynthesis from "pages/services/CustomChemicalSynthesis";
+import CaseStudy from "pages/services/CaseStudy";
 
 export const AllRoutes = () => {
   return (
@@ -96,6 +97,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <CustomChemicalSynthesis />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/case-study"
+            element={
+              <PublicRoutes>
+                <CaseStudy />
               </PublicRoutes>
             }
           />

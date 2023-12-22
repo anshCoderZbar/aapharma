@@ -218,6 +218,102 @@
   padding-left: 120px;
 }
 
+/* custom-chemical-synthesis */
+
+/* case-study */
+
+.case_study_head {
+  margin-top: 150px;
+}
+
+.case_tabs_button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  height: 100%;
+  margin: 40px 0 50px 0;
+}
+
+.case_tabs_button button {
+  border-radius: 20px;
+  background: #F7F7F7;
+  color: #2E2E2E;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  align-items: center;
+  border: none;
+}
+
+.case_btn_active {
+  background-color: #2A3072 !important;
+  color: #fff !important;
+  animation: open-desc .4s linear forwards;
+}
+
+.case_tab_img img {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+}
+
+.tab_flex_row {
+  align-items: center;
+  padding: 0 80px;
+}
+
+.case_tab_content h5 {
+  color: #666;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38px;
+  max-width: 796px;
+  margin: 0 auto 15px auto;
+}
+
+.case_tab_content p {
+  color: #666;
+  font-family: "Product Sans";
+  font-size: 24px;
+  line-height: 38px;
+  font-weight: 400;
+  max-width: 796px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: baseline;
+}
+
+.case_tab_content p::before {
+  content: "\2022";
+  color: #666;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 25px;
+  font-size: 26px;
+}
+
+.case_bottom_banner {
+  border-radius: 40px;
+  background: rgba(93, 205, 246, 0.1);
+  margin: 50px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.case_bottom_banner img {
+  max-width: 1100px;
+  width: 100%;
+}
+
+
 @keyframes open-desc {
   0% {
     opacity: 0;
