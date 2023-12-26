@@ -313,6 +313,285 @@
   width: 100%;
 }
 
+/* case-study */
+
+/* research-and-development */
+.research_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.research_banner h1 {
+  max-width: 100% !important;
+  color: #fff !important;
+  text-align: center;
+}
+
+.research_banner p {
+  max-width: 1400px !important;
+  color: #fff !important;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.research_btn_section {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  margin: 35px 0 35px 0;
+
+}
+
+.research_btn_section button {
+  width: 100%;
+  flex: 0 24%;
+  border-radius: 20px;
+  background: #2A3072;
+  border-style: none;
+  padding: 15px 15px;
+  color: #FFF;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-weight: 400;
+  transition: 0.3s ease-in-out;
+}
+
+.research_btn_section button:hover {
+  background-color: #34caff;
+}
+
+.research_details_sec {
+  background-color: #2a30720d;
+  padding: 130px 0;
+}
+
+.res_sec {
+  align-items: center;
+}
+
+.research_content h2 {
+  color: #2E2E2E;
+  font-family: "Product Sans";
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 57px;
+  text-transform: capitalize;
+}
+
+
+.research_content p {
+  color: #2E2E2E;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.research_img {
+  padding-left: 40px;
+}
+
+.research_img img {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.research_tabs {
+  margin: 60px 0 60px 0;
+}
+
+.tabs_imgs {
+  margin: 40px 0 40px 0;
+}
+
+.tabs_imgs img {
+  margin: auto;
+  width: 100%;
+  display: block;
+}
+
+.bottom_res p {
+  margin-bottom: 15px;
+  margin-top: 90px;
+  color: #000;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+/* carbohydrates */
+.carbohydrate_banner {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-radius: 20px;
+  align-items: center;
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.carbohydrate_banner h1 {
+  color: #fff !important;
+  max-width: 100% !important;
+}
+
+.img1 img {
+  height: 205px;
+  position: absolute !important;
+  bottom: 0;
+  left: 0;
+  padding-left: 30px;
+}
+
+.img2 img {
+  height: 205px;
+  position: absolute !important;
+  bottom: 0;
+  right: 0;
+  padding-right: 30px;
+}
+
+.carbohydrates_details_sec p {
+  margin-bottom: 0;
+  color: #000;
+  text-align: center;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+/* carbohydrates */
+
+/* sevices-1 */
+.table {
+  border-collapse: separate;
+}
+
+
+
+.service_desc h3 {
+  display: block;
+  color: #000;
+  text-align: center;
+  font-family: "Product Sans";
+  font-size: 40px;
+  font-weight: 700;
+  max-width: 1130px;
+  margin: 50px auto 30px auto;
+}
+
+.service_desc p {
+  max-width: 1416px;
+  display: block;
+  color: #2E2E2E;
+  text-align: center;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
+  margin: auto;
+}
+
+.service_top_sec {
+  background-color: #F7F7F7;
+}
+
+
+.service_table {
+  background-color: #2A3072 !important;
+  width: auto;
+  text-align: center;
+  color: #fff !important;
+  height: 100%;
+  border-radius: 8px;
+  border-spacing: 10px;
+}
+
+.service_table:first-child {
+  border: 0;
+}
+
+.service_table:last-child {
+  border: 0;
+}
+
+.table>thead {
+  vertical-align: middle;
+}
+
+.service_table_body {
+  text-align: center;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+  background-color: #EFEFEF;
+}
+
+.service_table_body td {
+  padding: 12px 15px;
+  color: #2A3072 !important;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Product Sans";
+}
+
+.table_desc {
+  text-align: center;
+  color: #000;
+  text-align: center;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+
+.sevice_detail {
+  margin: 50px 0;
+}
+
+.service_list_card {
+  background-color: #2A3072;
+  padding: 40px 40px;
+  border-radius: 20px;
+}
+
+.service_list_card_body h3 {
+  color: #FFF;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.service_list_card_body ul {
+  list-style: none;
+}
+
+.service_list_card_body ul li {
+  color: #FFF;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.service_list_card_body ul li::before {
+  content: "\2022";
+  color: #D9D9D9;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 25px;
+  font-size: 26px;
+}
 
 @keyframes open-desc {
   0% {
@@ -385,6 +664,108 @@
   .chem_1 {
     font-size: 17px;
     margin-top: 15px;
+  }
+
+  .case_study_head {
+    margin-top: 135px;
+  }
+
+  .case_tabs_button {
+    gap: 15px;
+    margin: 35px 0 45px 0;
+  }
+
+  .case_tabs_button button {
+    font-size: 17px;
+    padding: 12px;
+  }
+
+  .case_tab_content h5 {
+    font-size: 22px;
+    line-height: 36px;
+    max-width: 790px;
+    margin: 0 auto 13px auto;
+  }
+
+  .case_tab_content p {
+    font-size: 22px;
+    line-height: 36px;
+  }
+
+  .case_bottom_banner img {
+    max-width: 1000px;
+  }
+
+  .case_bottom_banner {
+    margin: 45px 0 45px 0;
+  }
+
+  .research_btn_section button {
+    padding: 13px 13px;
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .research_btn_section {
+    margin: 30px 0 30px 0;
+  }
+
+  .research_details_sec {
+    padding: 110px 0;
+  }
+
+  .research_content h2 {
+    font-size: 40px;
+    line-height: 53px;
+  }
+
+  .research_content p {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .research_tabs {
+    margin: 50px 0 50px 0;
+  }
+
+  .tabs_imgs {
+    margin: 35px 0 35px 0;
+  }
+
+  .bottom_res p {
+    margin-top: 80px;
+  }
+
+  .service_desc h3 {
+    font-size: 36px;
+    margin: 45px auto 25px auto;
+  }
+
+  .service_desc p {
+    max-width: 1370px;
+    font-size: 17px;
+  }
+
+  .table_desc {
+    font-size: 22px;
+    margin-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .sevice_detail {
+    margin: 45px 0;
+  }
+
+  .service_list_card {
+    padding: 30px 30px;
+  }
+
+  .service_list_card_body h3 {
+    font-size: 21px;
+  }
+
+  .service_list_card_body ul li {
+    font-size: 17px;
   }
 }
 
@@ -467,6 +848,119 @@
   .lists_chemical .chem_1:nth-child(even) {
     padding-left: 100px;
   }
+
+  .case_study_head {
+    margin-top: 120px;
+  }
+
+  .case_tabs_button {
+    margin: 30px 0 40px 0;
+  }
+
+  .case_tabs_button button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .case_tab_img img {
+    max-width: 300px;
+  }
+
+  .case_tab_content h5 {
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+  .case_tab_content p {
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+  .case_bottom_banner {
+    margin: 40px 0 40px 0;
+  }
+
+
+  .case_bottom_banner img {
+    max-width: 900px;
+  }
+
+  .research_btn_section {
+    margin: 25px 0 25px 0;
+  }
+
+  .research_btn_section button {
+    font-size: 20px;
+  }
+
+  .research_details_sec {
+    padding: 90px 0;
+  }
+
+  .research_content h2 {
+    font-size: 34px;
+    line-height: 47px;
+  }
+
+  .research_content p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .research_img {
+    padding-left: 20px;
+  }
+
+  .research_tabs {
+    margin: 40px 0 40px 0;
+  }
+
+  .tabs_imgs {
+    margin: 30px 0 30px 0;
+  }
+
+  .bottom_res p {
+    margin-top: 70px;
+    font-size: 17px;
+    line-height: 26px;
+    margin-bottom: 13px;
+  }
+
+  .carbohydrate_banner h1 {
+    font-size: 35px !important;
+  }
+
+  .service_desc h3 {
+    font-size: 32px;
+    margin: 40px auto 20px auto;
+  }
+
+  .service_desc p {
+    max-width: 1180px;
+    font-size: 16px;
+  }
+
+  .table_desc {
+    font-size: 20px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .sevice_detail {
+    margin: 40px 0;
+  }
+
+  .service_list_card_body h3 {
+    font-size: 19px;
+  }
+
+  .service_list_card {
+    padding: 22px 22px;
+  }
+
+  .service_list_card_body ul li {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 1199px) {
@@ -531,7 +1025,116 @@
     margin: 35px 0 35px 0;
     padding: 35px 60px;
   }
+
+  .case_study_head {
+    margin-top: 110px;
+  }
+
+  .case_tabs_button {
+    margin: 25px 0 35px 0;
+  }
+
+  .case_tab_content h5 {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .case_tab_content p {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .case_tab_img img {
+    max-width: 250px;
+  }
+
+  .case_bottom_banner img {
+    max-width: 800px;
+  }
+
+  .case_bottom_banner {
+    margin: 35px 0 35px 0;
+  }
+
+  .research_btn_section button {
+    font-size: 18px;
+    padding: 11px 11px;
+    border-radius: 15px;
+  }
+
+  .research_details_sec {
+    padding: 70px 0;
+  }
+
+  .research_content h2 {
+    font-size: 29px;
+    line-height: 44px;
+  }
+
+  .res_sec {
+    flex-direction: column-reverse !important;
+  }
+
+  .research_details_sec {
+    padding: 50px 0;
+  }
+
+  .research_img img {
+    max-width: 700px;
+  }
+
+  .research_content h2 {
+    font-size: 26px;
+    line-height: 25px;
+    margin-top: 30px;
+  }
+
+  .research_tabs {
+    margin: 30px 0 30px 0;
+  }
+
+  .tabs_imgs {
+    margin: 25px 0 25px 0;
+  }
+
+  .bottom_res p {
+    margin-top: 60px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px;
+  }
+
+  .carbohydrate_banner h1 {
+    font-size: 28px !important;
+  }
+
+  .service_desc h3 {
+    font-size: 28px;
+    margin: 35px auto 15px auto;
+  }
+
+  .table_desc {
+    font-size: 18px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .sevice_detail {
+    margin: 35px 0;
+  }
+
+  .service_list_card_body h3 {
+    font-size: 18px;
+  }
+
+  .service_list_card {
+    margin-top: 15px;
+    padding: 20px 20px;
+  }
+
 }
+
+
 
 @media only screen and (max-width: 991px) {
   .serv_sec {
@@ -569,6 +1172,121 @@
 
   .lists_chemical .chem_1:nth-child(even) {
     padding-left: 80px;
+  }
+
+  .case_study_head {
+    margin-top: 100px;
+  }
+
+  .case_tabs_button {
+    margin: 20px 0 30px 0;
+  }
+
+  .case_tabs_button button {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .case_tab_content h5 {
+    font-size: 17px;
+    line-height: 27px;
+  }
+
+  .case_tab_content p {
+    font-size: 17px;
+    line-height: 27px;
+  }
+
+  .case_bottom_banner img {
+    max-width: 700px;
+  }
+
+  .tab_flex_row {
+    align-items: center;
+    padding: 0 60px;
+  }
+
+  .case_tab_content h5 {
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 7px;
+  }
+
+  .case_tab_content p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .case_bottom_banner {
+    margin: 25px 0 25px 0;
+  }
+
+  .research_btn_section button {
+    flex: 0 1 48%;
+  }
+
+  .research_btn_section button {
+    font-size: 17px;
+  }
+
+  .research_btn_section {
+    margin: 15px 0 15px 0;
+  }
+
+  .research_details_sec {
+    padding: 40px 0;
+  }
+
+  .research_img img {
+    max-width: 550px;
+  }
+
+  .research_content h2 {
+    font-size: 24px;
+    line-height: 25px;
+    margin-top: 30px;
+  }
+
+  .research_tabs {
+    margin: 20px 0 20px 0;
+  }
+
+  .tabs_imgs {
+    margin: 20px 0 20px 0;
+  }
+
+  .bottom_res p {
+    margin-top: 40px;
+  }
+
+  .carbohydrate_banner h1 {
+    max-width: 50% !important;
+    font-size: 30px !important;
+    text-align: center;
+  }
+
+  .service_desc h3 {
+    font-size: 24px;
+    margin: 30px auto 12px auto;
+  }
+
+  .table_desc {
+    font-size: 17px;
+    margin-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .sevice_detail {
+    margin: 30px 0;
+  }
+
+  .service_list_card {
+    margin-top: 10px;
+  }
+
+  .service_list_card_body h3 {
+    font-size: 17px;
   }
 }
 
@@ -637,6 +1355,90 @@
     font-size: 15px;
     margin-top: 5px;
   }
+
+  .case_tab_img img {
+    max-width: 250px;
+    display: block;
+    margin: auto;
+  }
+
+  .case_tabs_button {
+    flex-wrap: wrap;
+  }
+
+  .case_tabs_button button {
+    font-size: 14px;
+    padding: 15px;
+    flex: 48%;
+    border-radius: 11px;
+  }
+
+  .tab_flex_row {
+    align-items: center;
+    padding: 0 0px;
+  }
+
+  .research_banner {
+    height: 100%;
+  }
+
+  .research_btn_section button {
+    font-size: 16px;
+  }
+
+  .research_details_sec {
+    padding: 30px 0;
+  }
+
+  .research_content h2 {
+    font-size: 22px;
+  }
+
+  .research_content p {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .research_tabs {
+    margin: 15px 0 15px 0;
+  }
+
+  .tabs_imgs {
+    margin: 15px 0 15px 0;
+  }
+
+  .bottom_res p {
+    margin-top: 27px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .carbohydrate_banner h1 {
+    font-size: 23px !important;
+  }
+
+  .service_desc h3 {
+    font-size: 20px;
+    margin: 25px auto 10px auto;
+  }
+
+  .service_desc p {
+    font-size: 15px;
+  }
+
+  .table_desc {
+    font-size: 16px;
+    margin-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .service_list_card_body ul li {
+    font-size: 15px;
+  }
+
+  .sevice_detail {
+    margin: 25px 0;
+  }
 }
 
 @media only screen and (max-width: 660px) {
@@ -703,5 +1505,108 @@
   .chem_1 {
     font-size: 14px;
     margin-top: 3px;
+  }
+
+  .case_tabs_button {
+    margin: 15px 0 25px 0;
+  }
+
+  .case_tabs_button button {
+    border-radius: 11px;
+  }
+
+  .case_tab_content h5 {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .case_tab_content p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .case_bottom_banner {
+    margin: 15px 0 20px 0;
+    border-radius: 20px;
+  }
+
+  .research_btn_section button {
+    font-size: 14px;
+    padding: 10px 10px;
+    border-radius: 10px;
+  }
+
+  .research_details_sec {
+    padding: 25px 0;
+  }
+
+  .research_content h2 {
+    font-size: 20px;
+    margin-top: 23px;
+  }
+
+  .research_content p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .research_tabs_btn button {
+    flex: 100%;
+  }
+
+  .research_tabs {
+    margin: 10px 0 10px 0;
+  }
+
+  .tabs_imgs {
+    margin: 10px 0 10px 0;
+  }
+
+  .bottom_res p {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .img1 img {
+    height: 160px;
+    padding-left: 10px;
+  }
+
+  .img2 img {
+    height: 160px;
+    padding-right: 10px;
+  }
+
+  .carbohydrate_banner h1 {
+    font-size: 20px !important;
+  }
+
+  .service_desc h3 {
+    font-size: 18px;
+    margin: 20px auto 10px auto;
+  }
+
+  .service_desc p {
+    font-size: 14px;
+  }
+
+
+  .table_desc {
+    font-size: 15px;
+    margin-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .service_list_card_body h3 {
+    font-size: 16px;
+  }
+
+  .service_list_card_body ul li {
+    font-size: 14px;
+  }
+
+  .sevice_detail {
+    margin: 20px 0;
   }
 }

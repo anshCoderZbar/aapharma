@@ -28,28 +28,35 @@
   font-weight: 400;
   line-height: 29px;
 }
+
 /* banner */
+
 
 @media screen and (max-width: 1600px) {
   .banner_head {
     padding: 36px 52px;
     height: 290px;
   }
+
   .banner_head h1 {
     font-size: 50px;
   }
+
   .banner_head p {
     font-size: 17px;
   }
 }
+
 @media screen and (max-width: 1400px) {
   .banner_head {
     padding: 33px 40px;
     height: 250px;
   }
+
   .banner_head h1 {
     font-size: 45px;
   }
+
   .banner_head p {
     font-size: 16px;
     max-width: 520px;
@@ -60,37 +67,46 @@
   .banner_head {
     padding: 27px 31px;
   }
+
   .banner_head h1 {
     font-size: 40px;
   }
+
   .banner_head p {
     max-width: 500px;
     line-height: 25px;
   }
 }
+
 @media only screen and (max-width: 991px) {
   .banner_head h1 {
     font-size: 40px;
   }
 }
+
 @media only screen and (max-width: 767px) {
   .banner_head {
     padding: 23px 26px;
   }
+
   .banner_head h1 {
     font-size: 35px;
   }
+
   .banner_head p {
     font-size: 15px;
   }
 }
+
 @media only screen and (max-width: 575px) {
   .banner_head {
     padding: 20px 22px;
   }
+
   .banner_head h1 {
     font-size: 30px;
   }
+
   .banner_head p {
     font-size: 14px;
     line-height: 23px;

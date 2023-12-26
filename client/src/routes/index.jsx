@@ -14,6 +14,10 @@ import OperatingPhilosophy from "pages/about-us/OperatingPhilosophy";
 import ServicesPage from "pages/services/Services";
 import CustomChemicalSynthesis from "pages/services/CustomChemicalSynthesis";
 import CaseStudy from "pages/services/CaseStudy";
+import ResearchAndDevelopement from "pages/services/ResearchAndDevelopement";
+import Carbohydrates from "pages/services/Carbohydrates";
+import Services1 from "pages/services/Services1";
+import Whitepaper from "pages/resources/Whitepaper";
 
 export const AllRoutes = () => {
   return (
@@ -105,6 +109,38 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <CaseStudy />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/research-and-development"
+            element={
+              <PublicRoutes>
+                <ResearchAndDevelopement />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/custom-synthesis-of-complex-carbohydrates"
+            element={
+              <PublicRoutes>
+                <Carbohydrates />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/sevices-1"
+            element={
+              <PublicRoutes>
+                <Services1 />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/whitepaper"
+            element={
+              <PublicRoutes>
+                <Whitepaper />
               </PublicRoutes>
             }
           />
