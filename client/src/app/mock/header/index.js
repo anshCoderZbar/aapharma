@@ -68,7 +68,7 @@ export const HeaderData = [
   {
     id: 3,
     name: "Capabilities",
-    slug: "#",
+    slug: "/capabilities",
     menu: [
       {
         id: 1,
@@ -100,12 +100,12 @@ export const HeaderData = [
   {
     id: 4,
     name: "Resources",
-    slug: "#",
+    slug: "/resources",
     menu: [
       {
         id: 1,
         name: "Whitepapers",
-        slug: "#",
+        slug: "/whitepaper",
       },
       {
         id: 2,

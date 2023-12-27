@@ -232,6 +232,83 @@
 
 /* contact page */
 
+/* employement page */
+.employement_banner h1 {
+  max-width: 410px !important;
+}
+
+.employment_content {
+  padding: 40px 0 70px 0;
+}
+
+.employement_details p {
+  color: #2E2E2E;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  margin-bottom: 0;
+}
+
+.employement_details ul {
+  padding-top: 15px;
+  list-style: none;
+}
+
+.employement_details ul li {
+  color: #2E2E2E;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.employement_details ul li::before {
+  content: "\2022";
+  color: #2E2E2E;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 25px;
+  font-size: 26px;
+}
+
+.apply_box {
+  height: 100%;
+  width: 100%;
+  background-color: #2a3072;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 50px;
+  border-radius: 20px;
+}
+
+.apply_box_content p {
+  color: #FFF;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38px;
+  margin-bottom: 0;
+}
+
+
+.apply_box_content button {
+  border-radius: 16px;
+  background-color: #34CAFF;
+  color: #2a3072;
+  border: 0;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 35px;
+}
+
+/* employement page */
+
 @media only screen and (max-width: 1600px) {
   .testimonial_page h1 {
     padding-top: 35px;
@@ -275,6 +352,36 @@
   .submit-btn {
     font-size: 16px;
   }
+
+  .employment_content {
+    padding: 35px 0 60px 0;
+  }
+
+  .employement_details p {
+    font-size: 17px;
+    line-height: 27px;
+  }
+
+  .employement_details ul {
+    padding-top: 10px;
+  }
+
+  .employement_details ul li {
+    font-size: 17px;
+  }
+
+  .apply_box {
+    padding: 40px 40px;
+  }
+
+  .apply_box_content p {
+    font-size: 22px;
+    line-height: 35px;
+  }
+
+  .apply_box_content button {
+    font-size: 17px;
+  }
 }
 
 @media only screen and (max-width: 1400px) {
@@ -311,6 +418,23 @@
   .details_content a::after {
     width: 480px;
   }
+
+  .employment_content {
+    padding: 30px 0 50px 0;
+  }
+
+  .apply_box {
+    padding: 30px 30px;
+  }
+
+  .apply_box_content p {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .apply_box_content button {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -325,6 +449,29 @@
 
   .clients_details {
     margin-bottom: 51px;
+  }
+
+  .employement_details p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .employement_details ul li {
+    font-size: 16px;
+  }
+
+  .employement_details ul li::before {
+    min-width: 23px;
+    font-size: 24px;
+  }
+
+  .apply_box {
+    padding: 25px 25px;
+  }
+
+  .apply_box_content p {
+    font-size: 18px;
+    line-height: 30px;
   }
 }
 
@@ -357,6 +504,29 @@
 
   .contact-form h2 {
     margin-bottom: 23px;
+  }
+
+  .employment_content {
+    padding: 20px 0 41px 0;
+  }
+
+  .employement_details ul li::before {
+    min-width: 20px;
+    font-size: 23px;
+  }
+
+  .apply_box {
+    margin-top: 25px;
+    padding: 20px 20px;
+  }
+
+  .apply_box_content p {
+    font-size: 17px;
+    line-height: 25px;
+  }
+
+  .apply_box_content button {
+    margin-top: 30px;
   }
 }
 
@@ -420,6 +590,34 @@
 
   .contact-form {
     padding-bottom: 50px;
+  }
+
+  .employement_details p {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .employement_details ul li {
+    font-size: 15px;
+  }
+
+  .employement_details ul li::before {
+    min-width: 20px;
+    font-size: 20px;
+  }
+
+  .apply_box_content p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .apply_box {
+    margin-top: 20px;
+    padding: 15px 15px;
+  }
+
+  .apply_box_content button {
+    font-size: 15px;
   }
 }
 
@@ -486,5 +684,37 @@
   .tab_btn {
     font-size: 14px;
     padding: 8px 12px;
+  }
+
+  .employement_details p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .employment_content {
+    padding: 15px 0 41px 0;
+  }
+
+  .employement_details ul li {
+    font-size: 14px;
+  }
+
+  .employement_details ul li::before {
+    min-width: 18px;
+    font-size: 18px;
+  }
+
+  .apply_box_content p {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .apply_box {
+    margin-top: 15px;
+    padding: 10px 10px;
+  }
+
+  .apply_box_content button {
+    font-size: 14px;
   }
 }

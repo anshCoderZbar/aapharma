@@ -18,6 +18,9 @@ import ResearchAndDevelopement from "pages/services/ResearchAndDevelopement";
 import Carbohydrates from "pages/services/Carbohydrates";
 import Services1 from "pages/services/Services1";
 import Whitepaper from "pages/resources/Whitepaper";
+import Employement from "pages/contact/Employement";
+import Resources from "pages/resources/Resources";
+import Capabilities from "pages/capabilities/Capabilities";
 
 export const AllRoutes = () => {
   return (
@@ -137,10 +140,34 @@ export const AllRoutes = () => {
             }
           />
           <Route
+            path="/resources"
+            element={
+              <PublicRoutes>
+                <Resources />
+              </PublicRoutes>
+            }
+          />
+          <Route
             path="/whitepaper"
             element={
               <PublicRoutes>
                 <Whitepaper />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/employement"
+            element={
+              <PublicRoutes>
+                <Employement />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/capabilities"
+            element={
+              <PublicRoutes>
+                <Capabilities />
               </PublicRoutes>
             }
           />
