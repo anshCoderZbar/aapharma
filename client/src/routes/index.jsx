@@ -21,6 +21,10 @@ import Whitepaper from "pages/resources/Whitepaper";
 import Employement from "pages/contact/Employement";
 import Resources from "pages/resources/Resources";
 import Capabilities from "pages/capabilities/Capabilities";
+import ChemistryExpertise from "pages/capabilities/ChemistryExpertise";
+import LabEquipment from "pages/capabilities/LabEquipment";
+import AnalyticalInstrumentation from "pages/capabilities/AnalyticalInstrumentation";
+import Accreditations from "pages/capabilities/Accreditations";
 
 export const AllRoutes = () => {
   return (
@@ -168,6 +172,38 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <Capabilities />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/chemistry-expertise"
+            element={
+              <PublicRoutes>
+                <ChemistryExpertise />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/lab-equipment"
+            element={
+              <PublicRoutes>
+                <LabEquipment />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/analytical-instrumentation"
+            element={
+              <PublicRoutes>
+                <AnalyticalInstrumentation />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/accreditations"
+            element={
+              <PublicRoutes>
+                <Accreditations />
               </PublicRoutes>
             }
           />

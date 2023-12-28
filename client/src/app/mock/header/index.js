@@ -73,17 +73,17 @@ export const HeaderData = [
       {
         id: 1,
         name: "Chemistry Expertise",
-        slug: "#",
+        slug: "/chemistry-expertise",
       },
       {
         id: 2,
         name: "Lab Equipment",
-        slug: "#",
+        slug: "/lab-equipment",
       },
       {
         id: 3,
         name: "Analytical Instrumentation",
-        slug: "#",
+        slug: "/analytical-instrumentation",
       },
       {
         id: 4,
@@ -93,7 +93,7 @@ export const HeaderData = [
       {
         id: 5,
         name: "Accreditations",
-        slug: "#",
+        slug: "/accreditations",
       },
     ],
   },
