@@ -61,4 +61,11 @@ export const API_ENDPOINTS = {
   singleTimeline: "/timeline/one",
   updateTimeline: "/timeline/update",
   deleteTimeline: "/timeline/delete",
+  personnelBanner: "/teambanner",
+  personnelCharacterized: "/p-characteristics",
+  getTeamMember: "/team/all",
+  addTeamMember: "/team/new",
+  singleTeamMember: "/team/one",
+  updateTeamMember: "/team/update",
+  deleteTeamMember: "/team/delete",
 };

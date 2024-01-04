@@ -39,6 +39,11 @@ import AboutCardDetails from "pages/about/AboutDetails";
 import AboutTimeline from "pages/about/AboutTimeline";
 import AddTimeline from "app/common/about/AddTimeline";
 import { EditTimeline } from "app/common/about/EditTimeline";
+import PersonnelBanner from "pages/personnel/PersonnelBanner";
+import PersonnelCharacterized from "pages/personnel/PersonnelCharacterized";
+import OurTeam from "pages/personnel/OurTeam";
+import AddTeamMember from "app/common/personnel/AddTeamMember";
+import EditTeamMember from "app/common/personnel/EditTeamMember";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -283,6 +288,46 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditTimeline />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "personnel-banner",
+      element: (
+        <PrivateRoutes>
+          <PersonnelBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "personnel-characterized",
+      element: (
+        <PrivateRoutes>
+          <PersonnelCharacterized />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "our-team",
+      element: (
+        <PrivateRoutes>
+          <OurTeam />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "add-team-members",
+      element: (
+        <PrivateRoutes>
+          <AddTeamMember />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "edit-team-members/:id",
+      element: (
+        <PrivateRoutes>
+          <EditTeamMember />
         </PrivateRoutes>
       ),
     },

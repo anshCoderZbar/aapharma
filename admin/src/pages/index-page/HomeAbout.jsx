@@ -10,6 +10,7 @@ import { TextEditor } from "components/ui/TextEditor";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { GetHomeCompanyMission } from "rest/home";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
+import { ErrorComponent } from "components/Alerts/Error";
 
 export default function HomeAbout() {
   const {
@@ -88,6 +89,9 @@ export default function HomeAbout() {
   return (
     <div className="home_about_page">
       <PageWrapper slug="home-about" name="Home About" />
+      {getHomeCompanyMission?.isError && (
+        <ErrorComponent message="OOPS ! something went wrong please try again later" />
+      )}
       {getHomeCompanyMission?.isPending ? (
         <ComponentLoader />
       ) : (

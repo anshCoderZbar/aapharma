@@ -116,8 +116,25 @@ class Client {
     deleteTimeline: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteTimeline, params),
   };
+  personnel = {
+    createPersonnelBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.personnelBanner, params),
+    getPersonnelBanner: () => HttpClient.get(API_ENDPOINTS.personnelBanner),
+    createPersonnelCharacterized: (params) =>
+      HttpClient.post(API_ENDPOINTS.personnelCharacterized, params),
+    getPersonnelCharacterized: () =>
+      HttpClient.get(API_ENDPOINTS.personnelCharacterized),
+    addTeamMember: (params) =>
+      HttpClient.post(API_ENDPOINTS.addTeamMember, params),
+    getTeamMember: () => HttpClient.get(API_ENDPOINTS.getTeamMember),
+    singleTeamMember: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleTeamMember, params),
+    editTeamMember: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateTeamMember, params),
+    deleteTeamMember: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteTeamMember, params),
+  };
 }
-
 const client = new Client();
 
 export default client;

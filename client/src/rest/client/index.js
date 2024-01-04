@@ -33,6 +33,10 @@ class Client {
     getAboutBanner: () => HttpClient.get(API_ENDPOINTS.getAboutBanner),
     getAboutUsCard: () => HttpClient.get(API_ENDPOINTS.getAboutUsCard),
     getTimeline: () => HttpClient.get(API_ENDPOINTS.getTimeline),
+    getPersonnelBanner: () => HttpClient.get(API_ENDPOINTS.personnelBanner),
+    getPersonnelCharacterized: () =>
+      HttpClient.get(API_ENDPOINTS.personnelCharacterized),
+    getTeamMember: () => HttpClient.get(API_ENDPOINTS.getTeamMember),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

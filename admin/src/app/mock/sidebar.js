@@ -4,6 +4,7 @@ import {
   ImagePlus,
   Info,
   LayoutDashboard,
+  PersonStanding,
   Settings,
 } from "lucide-react";
 
@@ -102,6 +103,28 @@ export const SidebarData = [
         id: 3,
         subMenuName: "About Timeline",
         slug: "about-timeline",
+      },
+    ],
+  },
+  {
+    name: "Personnel",
+    slug: "#",
+    icon: <PersonStanding />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Personnel Banner",
+        slug: "personnel-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Personnel Characterized ",
+        slug: "personnel-characterized",
+      },
+      {
+        id: 3,
+        subMenuName: "Our Team",
+        slug: "our-team",
       },
     ],
   },

@@ -255,6 +255,7 @@
   font-size: 24px;
   font-weight: 700;
   transition: color 0.3s;
+  text-transform: capitalize;
 }
 
 .member_details p {
@@ -263,6 +264,7 @@
   font-family: "Product Sans";
   font-size: 16px;
   font-weight: 400;
+  text-transform: capitalize;
 }
 
 .member_details ul {
@@ -394,10 +396,12 @@
   left: 2%;
   transform: translate(-50%, 0%);
 }
+
 .circle_6 {
   bottom: 0%;
   left: 20%;
 }
+
 .circle_7 {
   bottom: 0%;
   right: 20%;
@@ -421,6 +425,7 @@
   max-width: 360px;
   padding: 0 15px;
 }
+
 @media only screen and (max-width: 1600px) {
   .about_banner {
     padding: 36px 52px;
@@ -522,19 +527,23 @@
     font-size: 22px;
     line-height: 35px;
   }
+
   .outer_diagram {
     width: 650px;
     height: 630px;
     border-image-width: 87px;
   }
+
   .inner_circle {
     width: 400px;
     height: 400px;
   }
+
   .inner_circle p {
     font-size: 22px;
     line-height: 36px;
   }
+
   .outer__circle {
     width: 80px;
     height: 80px;
@@ -661,14 +670,17 @@
     height: 580px;
     border-image-width: 82px;
   }
+
   .inner_circle {
     width: 380px;
     height: 380px;
   }
+
   .inner_circle p {
     font-size: 20px;
     line-height: 33px;
   }
+
   .outer__circle {
     width: 74px;
     height: 74px;
@@ -756,15 +768,18 @@
     line-height: 28px;
     max-width: 930px;
   }
+
   .outer_diagram {
     width: 550px;
     height: 530px;
     border-image-width: 75px;
   }
+
   .inner_circle {
     width: 350px;
     height: 350px;
   }
+
   .inner_circle p {
     font-size: 18px;
     line-height: 30px;
@@ -826,15 +841,18 @@
     line-height: 25px;
     max-width: 733px;
   }
+
   .outer_diagram {
     width: 450px;
     height: 420px;
     border-image-width: 59px;
   }
+
   .inner_circle {
     width: 280px;
     height: 280px;
   }
+
   .outer__circle {
     width: 66px;
     height: 66px;
@@ -921,14 +939,17 @@
     line-height: 23px;
     max-width: 100%;
   }
+
   .outer__circle img {
     width: 30px;
   }
+
   .outer_diagram {
     width: 400px;
     height: 380px;
     border-image-width: 54px;
   }
+
   .outer__circle {
     width: 55px;
     height: 55px;
@@ -938,6 +959,7 @@
     font-size: 16px;
     line-height: 24px;
   }
+
   .operating_diagram {
     margin-bottom: 42px;
     margin-top: 52px;
@@ -1043,6 +1065,7 @@
     height: 295px;
     border-image-width: 42px;
   }
+
   .inner_circle {
     width: 215px;
     height: 215px;
@@ -1052,13 +1075,16 @@
     font-size: 14px;
     line-height: 19px;
   }
+
   .outer__circle {
     width: 45px;
     height: 45px;
   }
+
   .outer__circle img {
     width: 25px;
   }
+
   .operating_diagram {
     margin-bottom: 31px;
     margin-top: 43px;

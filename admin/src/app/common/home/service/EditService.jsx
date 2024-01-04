@@ -26,13 +26,13 @@ export default function EditService() {
     defaultValues.icon = getSingleService?.data?.data[0]?.icon;
     defaultValues.featuredImage =
       getSingleService?.data?.data[0]?.featuredImage;
-    reset(defaultValues);
     getSingleService?.data?.data[0]?.featuredImage &&
       getSingleService?.data?.data[0]?.icon &&
       setImages({
         defaultImage: `${getSingleService?.data?.baseUrl}/${getSingleService?.data?.data[0]?.featuredImage}`,
         defaultIcon: `${getSingleService?.data?.baseUrl}/${getSingleService?.data?.data[0]?.icon}`,
       });
+    reset(defaultValues);
   }, [getSingleService?.data?.data]);
 
   const updateService = UpdateSingleServices();

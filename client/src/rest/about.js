@@ -24,3 +24,29 @@ export const GetAboutTimelineMutation = () => {
   });
   return aboutTimeline;
 };
+
+// personnel
+
+export const GetPeronnelBanner = () => {
+  const getBanner = useQuery({
+    queryKey: ["get-personnel-banner"],
+    queryFn: () => client.about.getPersonnelBanner(),
+  });
+  return getBanner;
+};
+
+export const GetPersonnelCharacterized = () => {
+  const getCharacterized = useQuery({
+    queryKey: ["get-personnel-characterized"],
+    queryFn: () => client.about.getPersonnelCharacterized(),
+  });
+  return getCharacterized;
+};
+
+export const GetTeamMemberMutation = () => {
+  const getTeamMember = useQuery({
+    queryKey: ["get-all-personnel-team-members"],
+    queryFn: () => client.about.getTeamMember(),
+  });
+  return getTeamMember;
+};

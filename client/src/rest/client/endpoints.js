@@ -19,4 +19,7 @@ export const API_ENDPOINTS = {
   getAboutUsCard: "/about-us-cards",
   getTimeline: "/timeline/all",
   contactUs: "/contact-form",
+  personnelBanner: "/teambanner",
+  personnelCharacterized: "/p-characteristics",
+  getTeamMember: "/team/all",
 };

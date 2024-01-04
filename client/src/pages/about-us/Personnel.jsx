@@ -5,17 +5,42 @@ import { Banner } from "app/components/Ui/Banner";
 
 import "styles/About.css";
 import banner from "assets/page-banners/personnel_banner.jpg";
+import {
+  GetPeronnelBanner,
+  GetPersonnelCharacterized,
+  GetTeamMemberMutation,
+} from "rest/about";
 
 export default function Personnel() {
+  const getPersonnelBanner = GetPeronnelBanner();
+  const getPersonnelCharacterizedData = GetPersonnelCharacterized();
+  const getTeamMembers = GetTeamMemberMutation();
+
   return (
     <div className="personnel_page">
       <Banner
-        heading="Personnel"
-        description="AAPharmaSyn owes all success to its employees. Company invests and encourages employee development and is always seeking motivated and talented scientists to join the team."
-        background={`url(${banner})`}
+        heading={
+          getPersonnelBanner?.data?.data?.heading
+            ? getPersonnelBanner?.data?.data?.heading
+            : ""
+        }
+        description={
+          getPersonnelBanner?.data?.data?.description
+            ? getPersonnelBanner?.data?.data?.description
+            : ""
+        }
+        background={`url(${
+          getPersonnelBanner?.data?.data?.image
+            ? getPersonnelBanner?.data?.data?.image
+            : banner
+        })`}
       />
       <div className="about_us_content">
-        <p>AAPharmaSyn culture is characterized by:</p>
+        <p>
+          {getPersonnelCharacterizedData?.data?.data?.heading
+            ? getPersonnelCharacterizedData?.data?.data?.heading
+            : ""}
+        </p>
       </div>
       <div className="culture_chracter">
         <div className="container-fluid">
@@ -23,36 +48,42 @@ export default function Personnel() {
             <div className="col-12 col-sm-6 col-lg-4">
               <div className="personel_card">
                 <img
-                  src={require("assets/personel_icon1.png")}
+                  src={getPersonnelCharacterizedData?.data?.data?.icon1}
                   alt="personel icons"
                 />
                 <div className="personel_card_body">
-                  <h4>Autonomy</h4>
-                  <p>Empowerment to make and own decisions</p>
+                  <h4>{getPersonnelCharacterizedData?.data?.data?.title1}</h4>
+                  <p>
+                    {getPersonnelCharacterizedData?.data?.data?.description1}
+                  </p>
                 </div>
               </div>
             </div>
             <div className="col-12 col-sm-6 col-lg-4">
               <div className="personel_card">
                 <img
-                  src={require("assets/personel_icon2.png")}
+                  src={getPersonnelCharacterizedData?.data?.data?.icon2}
                   alt="personel icons"
                 />
                 <div className="personel_card_body">
-                  <h4>Competence Seeking</h4>
-                  <p>Evergreen commitment to value adding self-improvement</p>
+                  <h4>{getPersonnelCharacterizedData?.data?.data?.title2}</h4>
+                  <p>
+                    {getPersonnelCharacterizedData?.data?.data?.description2}
+                  </p>
                 </div>
               </div>
             </div>
             <div className="col-12 col-sm-6 col-lg-4">
               <div className="personel_card">
                 <img
-                  src={require("assets/personel_icon3.png")}
+                  src={getPersonnelCharacterizedData?.data?.data?.icon3}
                   alt="personel icons"
                 />
                 <div className="personel_card_body">
-                  <h4>Engagement</h4>
-                  <p>Recognition & acknowledgement of contributions</p>
+                  <h4>{getPersonnelCharacterizedData?.data?.data?.title3}</h4>
+                  <p>
+                    {getPersonnelCharacterizedData?.data?.data?.description3}
+                  </p>
                 </div>
               </div>
             </div>
@@ -63,28 +94,28 @@ export default function Personnel() {
         <div className="container-fluid">
           <h2 className="main_top_heading text-center">Our Team</h2>
           <div className="team_details">
-            {TeamDetails?.map((data) => {
+            {getTeamMembers?.data?.data?.map((data) => {
               return (
                 <div key={data?.id} className="team_card">
                   <div className="over_hid">
-                    <img src={data.memImg} alt="team member" />
+                    <img src={data.image} alt="team member" />
                   </div>
                   <div className="member_details">
                     <h3>{data.name}</h3>
                     <p>{data.designation}</p>
                     <ul>
                       <li>
-                        <a href="#">
+                        <a target="_blank" rel="noreffer" href={data?.skill}>
                           <BriefcaseIcon />
                         </a>
                       </li>
                       <li>
-                        <a href="#">
+                        <a target="_blank" rel="noreffer" href={data?.study}>
                           <GraduationCap />
                         </a>
                       </li>
                       <li>
-                        <a href="#">
+                        <a href={`tel:${data.contact}`}>
                           <Phone />
                         </a>
                       </li>
@@ -99,54 +130,3 @@ export default function Personnel() {
     </div>
   );
 }
-
-const TeamDetails = [
-  {
-    id: 1,
-    memImg: require("assets/team_1.png"),
-    name: "Ruslan Pryadun",
-    designation: "President",
-  },
-  {
-    id: 2,
-    memImg: require("assets/team_2.png"),
-    name: "Paul Kim",
-    designation: "Director of Medicinal Chemistry",
-  },
-  {
-    id: 3,
-    memImg: require("assets/team_3.png"),
-    name: "Aristobulo Loaiza",
-    designation: "Aristobulo Loaiza",
-  },
-  {
-    id: 4,
-    memImg: require("assets/team_4.png"),
-    name: "Volker Bornemann",
-    designation: "Senior Advisor",
-  },
-  {
-    id: 5,
-    memImg: require("assets/team_1.png"),
-    name: "Ruslan Pryadun",
-    designation: "President",
-  },
-  {
-    id: 6,
-    memImg: require("assets/team_2.png"),
-    name: "Paul Kim",
-    designation: "Director of Medicinal Chemistry",
-  },
-  {
-    id: 7,
-    memImg: require("assets/team_3.png"),
-    name: "Aristobulo Loaiza",
-    designation: "Aristobulo Loaiza",
-  },
-  {
-    id: 8,
-    memImg: require("assets/team_4.png"),
-    name: "Volker Bornemann",
-    designation: "Senior Advisor",
-  },
-];
