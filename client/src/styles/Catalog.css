@@ -134,11 +134,13 @@
   max-height: 180px;
   min-height: 180px;
 }
+
 .compount_img_details ul {
   list-style: none;
   padding: 10px 19px;
   position: relative;
 }
+
 .compount_img_details ul:after {
   content: "";
   position: absolute;
@@ -149,6 +151,7 @@
   background: #666666;
   height: 93%;
 }
+
 .compount_img_details ul li {
   display: flex;
   justify-content: space-between;
@@ -183,20 +186,25 @@
   bottom: 19px;
   background-color: #f7f7f7;
 }
+
 .cstm_mrg {
   margin-top: 30px !important;
 }
+
 .compount_img {
   background-color: #fff;
   border-radius: 15px;
   padding: 20px;
 }
+
 .compount_img {
   width: 100%;
 }
+
 .mxs {
   width: 100%;
 }
+
 /* catalog Main Card */
 
 /* home page catalog card */
@@ -212,7 +220,7 @@
   box-shadow: 0 0px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.catalog_card > img {
+.catalog_card>img {
   display: block;
   margin: auto;
   width: 100%;
@@ -257,6 +265,7 @@
   margin-top: 25px;
   width: 100%;
 }
+
 .order_btn svg {
   margin-right: 10px;
 }
@@ -397,7 +406,7 @@
   font-weight: 700;
 }
 
-.catalog_details_vss > p {
+.catalog_details_vss>p {
   max-width: 670px;
   color: #666;
   font-family: "Product Sans";
@@ -475,7 +484,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   background: #f7f7f7;
   height: 386px;
   border-radius: 20px;
@@ -485,13 +494,18 @@
 }
 
 .information_box ul li {
-  color: #666;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.information_box ul li {
+  color: #333da9;
   font-family: "Product Sans";
-  font-size: 20px;
+  font-size: 19px;
   font-style: normal;
   font-weight: 400;
   cursor: pointer;
   transition: 0.5s;
+  padding-bottom: 8px;
 }
 
 .information_box ul li:hover {
@@ -503,39 +517,65 @@
   transition: all 0.5s;
 }
 
+.description a {
+  background-color: #2a3072;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.description a:hover {
+  background: #34caff;
+  transition: 0.3s;
+}
+
 /* responsive */
 
 @media only screen and (max-width: 1700px) {
   .compount_img_details ul {
     padding: 10px 13px;
   }
+
   .compount_img_details ul li .detail_type,
   .compount_img_details ul li .detail_desc {
     font-size: 16px;
   }
+
   .add_to_cart {
     font-size: 17px;
   }
+
   .cart-img {
     width: 20px;
   }
+
   .catalog_content p {
     font-size: 17px;
   }
+
   .stock span {
     font-size: 17px;
     margin-left: 8px;
   }
+
   .cstm_mrg {
     margin-top: 22px !important;
   }
+
   .order_btn a {
     font-size: 17px;
   }
+
   .stock img {
     width: 23px;
   }
 }
+
 @media only screen and (max-width: 1600px) {
   .catalog_banner_heading h1 {
     font-size: 40px;
@@ -619,7 +659,7 @@
     font-size: 17px;
   }
 
-  .catalog_details_vss > p {
+  .catalog_details_vss>p {
     font-size: 17px;
     margin-top: 30px;
   }
@@ -741,7 +781,7 @@
     font-size: 36px;
   }
 
-  .catalog_details_vss > p {
+  .catalog_details_vss>p {
     font-size: 16px;
     margin-top: 17px;
   }
@@ -749,6 +789,7 @@
   .information_box {
     margin-bottom: 50px;
   }
+
   .compount_img_details ul li .detail_type,
   .compount_img_details ul li .detail_desc {
     font-size: 16px;
@@ -762,17 +803,21 @@
     position: relative;
   }
 }
+
 @media only screen and (max-width: 1300px) {
   .stock img {
     width: 20px;
   }
+
   .stock span {
     margin-left: 5px;
   }
+
   .add_to_cart {
     font-size: 16px;
   }
 }
+
 @media only screen and (max-width: 1200px) {
   .catalog_banner_heading {
     min-height: 250px;
@@ -831,9 +876,11 @@
   .catalog_banner_heading_single h1 {
     margin: 15px auto 30px auto;
   }
+
   .catalog_single_banner::after {
     height: 65%;
   }
+
   .cata_main_mrt {
     position: relative;
     bottom: 0;
@@ -841,6 +888,7 @@
     width: 100%;
     padding-bottom: 16px;
   }
+
   .compount_img_details ul:after {
     content: "";
     position: absolute;
@@ -852,12 +900,15 @@
     left: 0;
     top: auto;
   }
+
   .filter_left-list li {
     font-size: 15px;
   }
+
   .filter_left-list li span svg {
     width: 17px;
   }
+
   .compount_img_details ul li .detail_type,
   .compount_img_details ul li .detail_desc {
     font-size: 16px;
@@ -897,9 +948,11 @@
   .catalog_detail_img img {
     max-width: 370px;
   }
+
   .catalog_quantity_price {
     padding: 15px 0;
   }
+
   .catalog_single_banner {
     padding-bottom: 35px;
   }
@@ -953,32 +1006,40 @@
     height: 250px;
     width: auto;
   }
+
   .compount_img {
     padding: 10px;
   }
+
   .order_btn {
     margin-top: 0;
   }
+
   .add_to_cart {
     font-size: 14px;
     padding: 10px;
   }
+
   .cart-img {
     width: 18px;
     margin-right: 6px !important;
     position: relative;
     bottom: 1px;
   }
+
   .form-check .form-check-input {
     margin-top: 3px;
   }
+
   .catalog_content select {
     padding: 10px 11px;
     font-size: 16px;
   }
+
   .catalog_content select {
     background-size: 15px;
   }
+
   .filter_left-list {
     display: flex;
     flex-wrap: wrap;
@@ -986,10 +1047,12 @@
     justify-content: space-around;
     margin-bottom: 12px;
   }
+
   .filter_right select {
     margin-left: 12px;
     background-size: 13px;
   }
+
   .catalog_banner_content p {
     display: block !important;
     margin-top: 10px;
@@ -1030,16 +1093,18 @@
   .catalog_banner_heading_single {
     padding-top: 20px;
   }
+
   .catalog_options h3,
   .catalog_price h3 {
     font-size: 17px;
   }
+
   .catalog_details_list ul li .detail_type_1,
   .catalog_details_list ul li .detail_desc_1 {
     font-size: 15px;
   }
 
-  .catalog_details_vss > p {
+  .catalog_details_vss>p {
     font-size: 15px;
     margin-top: 15px;
   }
@@ -1066,21 +1131,26 @@
   .information_box ul li {
     font-size: 15px;
   }
+
   .inner_filter_dropdown {
     top: 58%;
   }
+
   .form-check {
     margin-bottom: 0;
   }
+
   .inner_list li label {
     font-size: 14px;
     position: relative;
     top: 1px;
   }
+
   .inner_list {
     display: flex;
     flex-wrap: wrap;
   }
+
   .inner_list li {
     margin-right: 7px;
   }
