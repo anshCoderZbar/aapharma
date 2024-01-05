@@ -34,6 +34,7 @@ h1,
   line-height: 1.1;
   color: #566a7f;
 }
+
 h1,
 .h1 {
   font-size: calc(1.3625rem + 1.35vw);
@@ -81,4 +82,63 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+
+.data-table-extensions-action {
+  display: none !important;
+}
+
+.data-table-extensions-filter label {
+  display: none !important;
+}
+
+.data-table-extensions {
+  padding: 0 !important;
+}
+
+.data-table-extensions-filter input {
+  background-color: #fff !important;
+  padding: 5px 8px !important;
+  border-radius: 5px;
+  border-bottom: 0 !important;
+}
+
+.data-table-extensions-filter input::placeholder::before {
+  color: #666;
+  content: "helo" !important;
+}
+
+
+.data-table-extensions::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  padding: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.data-table-extensions {
+  position: relative;
+}
+
+.data-table-extensions>.data-table-extensions-filter {
+  float: left;
+  z-index: 2;
+  position: relative;
+  top: 15px;
+  left: 15px;
+}
+
+.data-table-extensions-filter input {
+  background-color: #fff !important;
+  padding: 5px 8px !important;
+  border-radius: 5px;
+  border: 1px solid #efefef !important;
 }

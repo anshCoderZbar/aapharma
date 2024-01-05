@@ -134,6 +134,12 @@ class Client {
     deleteTeamMember: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteTeamMember, params),
   };
+  operatingPhilosophy = {
+    createOperatingPhilosophy: (params) =>
+      HttpClient.post(API_ENDPOINTS.operatingPhilosophy, params),
+    getOperatingPhilosophy: () =>
+      HttpClient.get(API_ENDPOINTS.operatingPhilosophy),
+  };
 }
 const client = new Client();
 

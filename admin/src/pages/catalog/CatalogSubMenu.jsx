@@ -27,19 +27,15 @@ export const CatalogSubMenu = () => {
 
   const catalogColumns = [
     {
-      name: "SR.NO",
-      selector: (row, i) => i + 1,
-    },
-    {
       name: "Sort No",
       selector: (row) => row.sortNo,
     },
     {
-      name: "main category",
+      name: "Master Category",
       selector: (row) => row.categoryName,
     },
     {
-      name: "heading",
+      name: "Sub Category",
       selector: (row) => row.heading,
     },
     {
@@ -47,7 +43,7 @@ export const CatalogSubMenu = () => {
       cell: (row) => (
         <span
           className="editbtn"
-          onClick={() => navigate(`/catalogL2/${row?.id}`)}
+          onClick={() => navigate(`/sub-category/${row?.id}`)}
         >
           <Edit2 row={row} />
         </span>
@@ -99,7 +95,7 @@ export const CatalogSubMenu = () => {
           columns={catalogColumns}
           data={fetchSubCatalogs?.data?.data?.sort((a, b) => b?.id - a?.id)}
           pagination
-          paginationPerPage={5}
+          paginationPerPage={10}
           striped
           customStyles={tableCustomStyles}
         />

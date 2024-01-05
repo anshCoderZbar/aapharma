@@ -9,6 +9,9 @@ import { tableCustomStyles } from "app/mock/catalog";
 import { Edit2, Trash2 } from "lucide-react";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { DeleteArticle } from "rest/home";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
+import { ComponentLoader } from "components/Loader/ComponentLoader";
 
 export default function HomeArticle() {
   const navigate = useNavigate();
@@ -74,19 +77,30 @@ export default function HomeArticle() {
   return (
     <div className="home_page_article">
       <PageWrapper slug="home-article" name="Home article" />
-      <div className="d-flex justify-content-end mb-4 add_catalog_btn ">
-        <Button onClick={() => navigate("/home-add-article")}>
-          Add Articles
-        </Button>
-      </div>
-      <DataTable
-        columns={articleColumns}
-        data={allArticles?.data?.data?.sort((a, b) => b?.id - a?.id)}
-        pagination
-        paginationPerPage={5}
-        striped
-        customStyles={tableCustomStyles}
-      />
+
+      {allArticles?.isPending ? (
+        <ComponentLoader />
+      ) : (
+        <>
+          <div className="d-flex justify-content-end mb-4 add_catalog_btn ">
+            <Button onClick={() => navigate("/home-add-article")}>
+              Add Articles
+            </Button>
+          </div>
+          <DataTableExtensions
+            columns={articleColumns}
+            data={allArticles?.data?.data?.sort((a, b) => b?.id - a?.id)}
+            filterPlaceholder="Search"
+          >
+            <DataTable
+              pagination
+              paginationPerPage={10}
+              striped
+              customStyles={tableCustomStyles}
+            />
+          </DataTableExtensions>
+        </>
+      )}
     </div>
   );
 }

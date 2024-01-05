@@ -55,7 +55,7 @@ export const ArticleForm = ({
       </div>
       <div className="mb-3 col-md-6">
         <label htmlFor="articleImage" className="form-label">
-          Article Image
+          Article Image (590px * 410px)
         </label>
         <FormInput
           type="file"

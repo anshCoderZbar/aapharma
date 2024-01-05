@@ -13,6 +13,9 @@ export const CatalogForm = ({
   isSuperSubCategoryEnable,
   superSubCategory,
   subCatalogFilterIdLev1,
+  heading1,
+  heading2,
+  heading3,
 }) => {
   const [superSubCat, setSuperSubCat] = useState("");
   const filterSuperSubCategory = superSubCategory?.filter((data) => {
@@ -45,7 +48,7 @@ export const CatalogForm = ({
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="heading" className="form-label">
-                Heading
+                {heading1}
               </label>
               <FormInput
                 type="text"
@@ -61,7 +64,7 @@ export const CatalogForm = ({
             {isSubCategoryEnable && (
               <div className="mb-3 col-md-6">
                 <label htmlFor="selectSubCategory" className="form-label">
-                  Main Category
+                  {heading2}
                 </label>
                 <select
                   className="form-select text-capitalize"
@@ -71,7 +74,7 @@ export const CatalogForm = ({
                     onChange: (e) => setSuperSubCat(e.target.value),
                   })}
                 >
-                  <option value={""}>Select Main Category</option>
+                  <option value={""}>Select Master Category</option>
                   {subCategory?.map((category, i) => {
                     return (
                       <option key={i} value={category?.id}>
@@ -88,7 +91,7 @@ export const CatalogForm = ({
             {isSuperSubCategoryEnable && (
               <div className="mb-3 col-md-6">
                 <label htmlFor="selectSuperSubCategory" className="form-label">
-                  Sub Category
+                  {heading3}
                 </label>
                 <select
                   className="form-select text-capitalize"
@@ -108,7 +111,7 @@ export const CatalogForm = ({
                   ) : (
                     <option disabled value={""}>
                       {superSubCat.length < 1
-                        ? "Please Select Main Category First"
+                        ? "Please Select Master Category First"
                         : "Sub Category Not Present"}
                     </option>
                   )}

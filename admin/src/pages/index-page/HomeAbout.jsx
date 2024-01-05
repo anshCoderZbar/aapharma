@@ -111,9 +111,10 @@ export default function HomeAbout() {
                 <p className="errorMessage">Main Heading is required</p>
               )}
             </div>
+
             <div className="mb-3 col-md-6">
               <label htmlFor="featuredImage" className="form-label">
-                Feature Image
+                Featured Image (721px * 856px)
               </label>
               <FormInput
                 type="file"
@@ -148,7 +149,7 @@ export default function HomeAbout() {
                 )}
               </div>
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-4 col-12">
               <label htmlFor={`description`} className="form-label">
                 Description
               </label>
@@ -179,34 +180,40 @@ export default function HomeAbout() {
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="mainHeading" className="form-label">
-                Icon 1
+                Icon 1 (50px * 50px)
               </label>
-              <FormInput
-                type="file"
-                name="icon1"
-                placeholder="icon1"
-                {...register("icon1", {
-                  required: !filePreviews?.icon1Preview && !icons?.icon1,
-                  onChange: (e) => handleFileChange(e, "icon1"),
-                })}
-              />
-              {errors?.icon1 && (
-                <p className="errorMessage">Icon is required</p>
-              )}
-              {filePreviews?.icon1Preview && (
-                <img
-                  src={filePreviews.icon1Preview}
-                  alt="Featured Image Preview"
-                  style={{ maxWidth: "100px" }}
-                />
-              )}
-              {!filePreviews.icon1Preview && icons?.icon1 && (
-                <img
-                  src={icons?.icon1}
-                  alt="Featured Image Preview"
-                  style={{ maxWidth: "100px" }}
-                />
-              )}
+              <div className="main_icons">
+                <div className="icon__img">
+                  <FormInput
+                    type="file"
+                    name="icon1"
+                    placeholder="icon1"
+                    {...register("icon1", {
+                      required: !filePreviews?.icon1Preview && !icons?.icon1,
+                      onChange: (e) => handleFileChange(e, "icon1"),
+                    })}
+                  />
+                  {errors?.icon1 && (
+                    <p className="errorMessage">Icon is required</p>
+                  )}
+                </div>
+                <div className="icon__preview">
+                  {filePreviews?.icon1Preview && (
+                    <img
+                      src={filePreviews.icon1Preview}
+                      alt="Featured Image Preview"
+                      style={{ maxWidth: "100px" }}
+                    />
+                  )}
+                  {!filePreviews.icon1Preview && icons?.icon1 && (
+                    <img
+                      src={icons?.icon1}
+                      alt="Featured Image Preview"
+                      style={{ maxWidth: "100px" }}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="mainHeading" className="form-label">
@@ -224,34 +231,40 @@ export default function HomeAbout() {
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="mainHeading" className="form-label">
-                Icon 2
+                Icon 2 (50px * 50px)
               </label>
-              <FormInput
-                type="file"
-                name="icon2"
-                placeholder="icon2"
-                {...register("icon2", {
-                  required: !filePreviews?.icon2Preview && !icons?.icon2,
-                  onChange: (e) => handleFileChange(e, "icon2"),
-                })}
-              />
-              {errors?.icon2 && (
-                <p className="errorMessage">Icon is required</p>
-              )}
-              {filePreviews?.icon2Preview && (
-                <img
-                  src={filePreviews.icon2Preview}
-                  alt="Featured Image Preview"
-                  style={{ maxWidth: "100px" }}
-                />
-              )}
-              {!filePreviews.icon2Preview && icons?.icon2 && (
-                <img
-                  src={icons?.icon2}
-                  alt="Featured Image Preview"
-                  style={{ maxWidth: "100px" }}
-                />
-              )}
+              <div className="main_icons">
+                <div className="icon__img">
+                  <FormInput
+                    type="file"
+                    name="icon2"
+                    placeholder="icon2"
+                    {...register("icon2", {
+                      required: !filePreviews?.icon2Preview && !icons?.icon2,
+                      onChange: (e) => handleFileChange(e, "icon2"),
+                    })}
+                  />
+                  {errors?.icon2 && (
+                    <p className="errorMessage">Icon is required</p>
+                  )}
+                </div>
+                <div className="icon__preview">
+                  {filePreviews?.icon2Preview && (
+                    <img
+                      src={filePreviews.icon2Preview}
+                      alt="Featured Image Preview"
+                      style={{ maxWidth: "100px" }}
+                    />
+                  )}
+                  {!filePreviews.icon2Preview && icons?.icon2 && (
+                    <img
+                      src={icons?.icon2}
+                      alt="Featured Image Preview"
+                      style={{ maxWidth: "100px" }}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="mainHeading" className="form-label">
@@ -269,34 +282,40 @@ export default function HomeAbout() {
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="mainHeading" className="form-label">
-                Icon 3
+                Icon 3 (50px * 50px)
               </label>
-              <FormInput
-                type="file"
-                name="icon3"
-                placeholder="icon3"
-                {...register("icon3", {
-                  required: !filePreviews?.icon3Preview && !icons?.icon3,
-                  onChange: (e) => handleFileChange(e, "icon3"),
-                })}
-              />
-              {errors?.icon2 && (
-                <p className="errorMessage">Icon is required</p>
-              )}
-              {filePreviews?.icon3Preview && (
-                <img
-                  src={filePreviews.icon3Preview}
-                  alt="Featured Image Preview"
-                  style={{ maxWidth: "100px" }}
-                />
-              )}
-              {!filePreviews.icon3Preview && icons?.icon3 && (
-                <img
-                  src={icons?.icon3}
-                  alt="Featured Image Preview"
-                  style={{ maxWidth: "100px" }}
-                />
-              )}
+              <div className="main_icons">
+                <div className="icon__img">
+                  <FormInput
+                    type="file"
+                    name="icon3"
+                    placeholder="icon3"
+                    {...register("icon3", {
+                      required: !filePreviews?.icon3Preview && !icons?.icon3,
+                      onChange: (e) => handleFileChange(e, "icon3"),
+                    })}
+                  />
+                  {errors?.icon2 && (
+                    <p className="errorMessage">Icon is required</p>
+                  )}
+                </div>
+                <div className="icon__preview">
+                  {filePreviews?.icon3Preview && (
+                    <img
+                      src={filePreviews.icon3Preview}
+                      alt="Featured Image Preview"
+                      style={{ maxWidth: "100px" }}
+                    />
+                  )}
+                  {!filePreviews.icon3Preview && icons?.icon3 && (
+                    <img
+                      src={icons?.icon3}
+                      alt="Featured Image Preview"
+                      style={{ maxWidth: "100px" }}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
             {companyMisson?.isPending ? (
               <div>

@@ -117,3 +117,28 @@ export const DeleteTeamMemberMutation = () => {
   });
   return deleteMemberMutation;
 };
+
+// operating philosophy
+
+export const OperatingPhilosophyMutation = () => {
+  const { notify } = useNotifications();
+  const operatingMutation = useMutation({
+    mutationFn: (data) =>
+      client.operatingPhilosophy.createOperatingPhilosophy(data),
+    onSuccess: () => {
+      notify("Data Added Successfully", "success");
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return operatingMutation;
+};
+
+export const GetOperatingPhilosophyMutation = () => {
+  const getOperatingMutation = useQuery({
+    queryKey: ["get-operating-philosophy"],
+    queryFn: () => client.operatingPhilosophy.getOperatingPhilosophy(),
+  });
+  return getOperatingMutation;
+};

@@ -64,7 +64,7 @@ export const UpdateCatalogL1 = (id) => {
       }),
     onSuccess: () => {
       notify("Category Updated successfully", "success");
-      navigate("/catalogL1");
+      navigate("/master-category");
     },
     onError: (error) => {
       notify(
@@ -186,7 +186,7 @@ export const UpdateCatalogL2 = (id) => {
         data?.message ? data?.message : "Category created successfully",
         "success"
       );
-      navigate("/catalogL2");
+      navigate("/sub-category");
     },
     onError: (error) => {
       notify(
@@ -271,7 +271,7 @@ export const UpdateCatalogL3 = (id) => {
         data?.message ? data?.message : "Category created successfully",
         "success"
       );
-      navigate("/catalogL3");
+      navigate("/sub-child-category");
     },
     onError: (error) => {
       notify(

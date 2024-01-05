@@ -44,6 +44,8 @@ import PersonnelCharacterized from "pages/personnel/PersonnelCharacterized";
 import OurTeam from "pages/personnel/OurTeam";
 import AddTeamMember from "app/common/personnel/AddTeamMember";
 import EditTeamMember from "app/common/personnel/EditTeamMember";
+import OperatingPhilosophy from "pages/operating-philosophy/OperatingPhilosophy";
+import HomeServiceContent from "pages/index-page/HomeServiceContent";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -88,6 +90,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <AddService />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/home-service-content",
+      element: (
+        <PrivateRoutes>
+          <HomeServiceContent />
         </PrivateRoutes>
       ),
     },
@@ -172,7 +182,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/catalogL1",
+      path: "/master-category",
       element: (
         <PrivateRoutes>
           <Catalog />
@@ -180,7 +190,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/catalogL1/:id",
+      path: "/master-category/:id",
       element: (
         <PrivateRoutes>
           <EditCatalog />
@@ -188,7 +198,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/catalogL2",
+      path: "/sub-category",
       element: (
         <PrivateRoutes>
           <CatalogSubMenu />
@@ -196,7 +206,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/catalogL2/:id",
+      path: "/sub-category/:id",
       element: (
         <PrivateRoutes>
           <EditSubCatalog />
@@ -204,7 +214,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/catalogL3",
+      path: "/sub-child-category",
       element: (
         <PrivateRoutes>
           <CatalogSuperSubMenu />
@@ -212,7 +222,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/catalogL3/:id",
+      path: "/sub-child-category/:id",
       element: (
         <PrivateRoutes>
           <EditSuperSubCatalog />
@@ -220,7 +230,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/chemical",
+      path: "/product-master",
       element: (
         <PrivateRoutes>
           <ChemicalPage />
@@ -292,7 +302,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "personnel-banner",
+      path: "/personnel-banner",
       element: (
         <PrivateRoutes>
           <PersonnelBanner />
@@ -300,7 +310,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "personnel-characterized",
+      path: "/personnel-characterized",
       element: (
         <PrivateRoutes>
           <PersonnelCharacterized />
@@ -308,7 +318,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "our-team",
+      path: "/our-team",
       element: (
         <PrivateRoutes>
           <OurTeam />
@@ -316,7 +326,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "add-team-members",
+      path: "/add-team-members",
       element: (
         <PrivateRoutes>
           <AddTeamMember />
@@ -324,10 +334,18 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "edit-team-members/:id",
+      path: "/edit-team-members/:id",
       element: (
         <PrivateRoutes>
           <EditTeamMember />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/operating-philosophy",
+      element: (
+        <PrivateRoutes>
+          <OperatingPhilosophy />
         </PrivateRoutes>
       ),
     },

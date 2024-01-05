@@ -37,6 +37,8 @@ class Client {
     getPersonnelCharacterized: () =>
       HttpClient.get(API_ENDPOINTS.personnelCharacterized),
     getTeamMember: () => HttpClient.get(API_ENDPOINTS.getTeamMember),
+    getOperatingPhilosophy: () =>
+      HttpClient.get(API_ENDPOINTS.operatingPhilosophy),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

@@ -4,24 +4,33 @@ import { Banner } from "app/components/Ui/Banner";
 
 import "styles/About.css";
 import bgBanner from "assets/page-banners/operating_philosophy_banner.jpg";
+import { GetOperatingPhilosophyMutation } from "rest/about";
 
 export default function OperatingPhilosophy() {
+  const getOperatingPhilosophy = GetOperatingPhilosophyMutation();
+  console.log();
   return (
     <div className="operating_philosophy_page">
       <Banner
-        heading="Operating Philosophy"
-        description="We love what we do and would not want to do anything else. If that changes for any of us, we make room for others to come in and replace us."
-        background={`linear-gradient(rgba(52, 202, 255, 0.85), rgba(52, 202, 255, 0.85)),url(${bgBanner})`}
+        heading={
+          getOperatingPhilosophy?.data?.data?.heading &&
+          getOperatingPhilosophy?.data?.data?.heading
+        }
+        description={
+          getOperatingPhilosophy?.data?.data?.description &&
+          getOperatingPhilosophy?.data?.data?.description
+        }
+        background={`linear-gradient(rgba(52, 202, 255, 0.85), rgba(52, 202, 255, 0.85)),url(${
+          getOperatingPhilosophy?.data?.data?.image &&
+          getOperatingPhilosophy?.data?.data?.image
+        })`}
         extra="operat_banner"
       />
       <div className="operating_content">
         <div className="container-fluid">
           <p>
-            We are convinced that exceptional service comes from people who are
-            excited, engaged and personally vested in the outcome. Especially
-            poignant in creative endeavors where no “playbook” exists, great
-            work comes from an intrinsically generated sense of purpose. To that
-            end our operating philosophy is simple:
+            {getOperatingPhilosophy?.data?.data?.diagramHeading &&
+              getOperatingPhilosophy?.data?.data?.diagramHeading}
           </p>
         </div>
       </div>
@@ -51,8 +60,8 @@ export default function OperatingPhilosophy() {
             </div>
             <div className="inner_circle">
               <p>
-                Every employee shares and operates by a set of core values which
-                are used extensively in making decisions.
+                {getOperatingPhilosophy?.data?.data?.diagramDescription &&
+                  getOperatingPhilosophy?.data?.data?.diagramDescription}
               </p>
             </div>
           </div>

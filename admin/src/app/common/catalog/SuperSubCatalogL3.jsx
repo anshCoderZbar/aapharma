@@ -36,6 +36,9 @@ export const SuperSubCatalogL3 = () => {
       isSuperSubCategoryEnable={true}
       superSubCategory={fetchAllSubCatalogs?.data?.data}
       isLoading={addSuperSubCatalog?.isPending}
+      heading1="Sub Child Category"
+      heading2="Master Category"
+      heading3="Sub Category"
     />
   );
 };

@@ -51,7 +51,7 @@ export default function EditClient() {
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
             <div className="mb-3 col-md-6">
               <label htmlFor="mainHeading" className="form-label">
-                Image
+                Image (150px * 100px)
               </label>
               <FormInput
                 type="file"

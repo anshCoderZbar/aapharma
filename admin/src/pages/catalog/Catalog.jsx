@@ -31,15 +31,11 @@ export const Catalog = () => {
 
   const catalogColumns = [
     {
-      name: "SR.NO",
-      selector: (row, i) => i + 1,
-    },
-    {
       name: "Sort No",
       selector: (row) => row?.sortNo,
     },
     {
-      name: "name",
+      name: "Master Category",
       selector: (row) => row.heading,
     },
     {
@@ -47,7 +43,7 @@ export const Catalog = () => {
       cell: (row) => (
         <span
           className="editbtn"
-          onClick={() => navigate(`/catalogL1/${row?.id}`)}
+          onClick={() => navigate(`/master-category/${row?.id}`)}
         >
           <Edit2 row={row} />
         </span>
@@ -98,7 +94,7 @@ export const Catalog = () => {
           columns={catalogColumns}
           data={fetchCatalogs?.data?.data?.sort((a, b) => b?.id - a?.id)}
           pagination
-          paginationPerPage={5}
+          paginationPerPage={10}
           striped
           customStyles={tableCustomStyles}
         />

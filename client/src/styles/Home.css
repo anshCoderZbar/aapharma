@@ -34,6 +34,7 @@
   position: relative;
   margin-bottom: 10px;
 }
+
 .banner_content span {
   color: #2a3072;
   font-size: 24px;
@@ -42,6 +43,7 @@
   display: block;
   margin-bottom: 16px;
 }
+
 .banner_content h1::after {
   content: "";
   border-radius: 21px;
@@ -81,9 +83,11 @@
 .home_banner_social ul li a:hover {
   color: #34caff;
 }
+
 .swiper-wrapper {
   padding: 15px 2px;
 }
+
 /*====== banner ====== */
 
 /*====== mission ====== */
@@ -258,6 +262,7 @@
   text-transform: capitalize;
   margin-bottom: 13px;
 }
+
 .catalog_nav_arows {
   display: flex;
   gap: 10px;
@@ -279,13 +284,18 @@
 
 /*====== vision ====== */
 .vision_banner {
-  /* background-image: url("../assets/home/vision.png"); */
+  width: calc(100% - 5%);
   min-height: 700px;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center;
+  background-size: cover;
   justify-content: center;
   flex-direction: column;
   display: flex;
+  position: relative;
+  right: -5%;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
 }
 
 .vision_content h2 {
@@ -357,7 +367,7 @@
 
 .latest_articles .swiper-pagination-fraction,
 .swiper-pagination-custom,
-.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-horizontal>.swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   width: auto !important;
 }
@@ -479,17 +489,21 @@
   .banner_content p {
     font-size: 20px;
   }
+
   .banner_content span {
     font-size: 20px;
   }
+
   .banner_content h1 {
     font-size: 55px;
     max-width: 662px;
   }
+
   .home_banner_social ul {
     padding: 17px 24px;
     gap: 18px;
   }
+
   .home_banner_social {
     bottom: -5%;
     right: 6%;
@@ -561,10 +575,7 @@
   }
 
   .vision_banner {
-    width: calc(100% - 60px);
-    border-radius: 0 40px 40px 0;
     min-height: 550px;
-    background-position: center;
   }
 
   .vision_content h2 {
@@ -620,7 +631,7 @@
 }
 
 @media only screen and (max-width: 1199px) {
-  .nav-right > ul {
+  .nav-right>ul {
     gap: 13px;
   }
 
@@ -629,17 +640,21 @@
     font-size: 15px;
     border-radius: 8px;
   }
-  .nav-right > ul li a {
+
+  .nav-right>ul li a {
     gap: 1px;
   }
+
   .nav-right-li a span svg {
     width: 16px;
   }
+
   .search_input input {
     border-radius: 8px;
     width: 100%;
     padding: 8px 12px;
   }
+
   .home_banner {
     min-height: 450px;
     width: calc(100% - 50px);
@@ -653,9 +668,11 @@
   .banner_content p {
     font-size: 16px;
   }
+
   .banner_content span {
     font-size: 16px;
   }
+
   .company_misson {
     padding: 70px 0 70px 0;
   }
@@ -717,7 +734,6 @@
 
   .vision_banner {
     min-height: 450px;
-    width: calc(100% - 50px);
   }
 
   .vision_content h2 {
@@ -791,6 +807,7 @@
   .page {
     margin-top: 90px;
   }
+
   .header {
     padding: 20px 0;
   }
@@ -856,6 +873,7 @@
     max-width: 500px;
     margin: 0 auto 28px auto;
   }
+
   .service_card ul {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
@@ -873,6 +891,7 @@
   .catalog {
     padding: 60px 0;
   }
+
   .catalog h2 {
     font-size: 25px;
   }
@@ -954,23 +973,28 @@
     bottom: -7%;
     right: 6%;
   }
+
   .home_banner_social ul {
     padding: 12px 20px;
     gap: 15px;
   }
+
   .banner_content h1::after {
     background: #2e2e2e;
     width: 3px;
     left: -19px;
   }
+
   .primary_buttton {
     padding: 10px 20px;
     font-size: 14px;
     border-radius: 6px;
   }
+
   .home_banner_social {
     border-radius: 11px;
   }
+
   .mission_icon_box p {
     font-size: 16px;
   }
@@ -1015,6 +1039,7 @@
   .vision_banner {
     min-height: 350px;
     width: 100%;
+    right: 0;
     border-radius: 0;
   }
 
@@ -1099,9 +1124,11 @@
     font-size: 30px;
     margin-bottom: 6px;
   }
+
   .banner_content span {
     font-size: 14px;
   }
+
   .home_banner_social ul {
     padding: 12px 28px;
     gap: 19px;
@@ -1173,10 +1200,12 @@
   .service_card ul li br {
     display: none;
   }
+
   .service_card ul li {
     padding: 15px 22px;
     font-size: 15px;
   }
+
   .service_btn {
     margin-top: 20px;
   }

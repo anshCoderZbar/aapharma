@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { Edit2, Trash2 } from "lucide-react";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { DeleteClientMutation } from "rest/home";
+import { ComponentLoader } from "components/Loader/ComponentLoader";
 
 export default function HomeClient() {
   const navigate = useNavigate();
@@ -89,7 +90,7 @@ export default function HomeClient() {
         <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
           <div className="mb-3 col-md-6">
             <label htmlFor="mainHeading" className="form-label">
-              Image
+              Image (150px * 100px)
             </label>
             <FormInput
               type="file"
@@ -113,14 +114,18 @@ export default function HomeClient() {
         </form>
       </div>
 
-      <DataTable
-        columns={clientColumns}
-        data={allClients?.data?.data?.sort((a, b) => b?.id - a?.id)}
-        pagination
-        paginationPerPage={5}
-        striped
-        customStyles={tableCustomStyles}
-      />
+      {allClients?.isPending ? (
+        <ComponentLoader />
+      ) : (
+        <DataTable
+          columns={clientColumns}
+          data={allClients?.data?.data?.sort((a, b) => b?.id - a?.id)}
+          pagination
+          paginationPerPage={10}
+          striped
+          customStyles={tableCustomStyles}
+        />
+      )}
     </div>
   );
 }

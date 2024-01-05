@@ -22,4 +22,5 @@ export const API_ENDPOINTS = {
   personnelBanner: "/teambanner",
   personnelCharacterized: "/p-characteristics",
   getTeamMember: "/team/all",
+  operatingPhilosophy: "/operating-philosophy",
 };

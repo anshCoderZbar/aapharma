@@ -26,3 +26,29 @@
 .timeline_desc p {
   margin-bottom: 0px !important;
 }
+
+.listing_card {
+  background-clip: padding-box;
+  box-shadow: 0 2px 6px 0 rgba(67, 89, 113, .12);
+  border: 0 solid #d9dee3 !important;
+  border-radius: 0.5rem;
+}
+
+.listing_card span {
+  color: #566a7f !important;
+}
+
+.listing_card h3 {
+  margin-top: 10px;
+  color: #566a7f !important;
+}
+
+.icon__img {
+  flex: 0 80%;
+}
+
+.main_icons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}

@@ -10,6 +10,9 @@ import { tableCustomStyles } from "app/mock/catalog";
 import { Edit2, Trash2 } from "lucide-react";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { DeleteTestimonial } from "rest/home";
+import { ComponentLoader } from "components/Loader/ComponentLoader";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 
 export default function HomeTestimonial() {
   const navigate = useNavigate();
@@ -75,19 +78,29 @@ export default function HomeTestimonial() {
   return (
     <div className="home_page_testimonial">
       <PageWrapper slug="home-testimonial" name="Home Testimonial" />
-      <div className="d-flex justify-content-end mb-4 add_catalog_btn ">
-        <Button onClick={() => navigate("/home-add-testimonial")}>
-          Add Testimonial
-        </Button>
-      </div>
-      <DataTable
-        columns={testimonialColumns}
-        data={allTestimonail?.data?.data?.sort((a, b) => b?.id - a?.id)}
-        pagination
-        paginationPerPage={5}
-        striped
-        customStyles={tableCustomStyles}
-      />
+      {allTestimonail?.isPending ? (
+        <ComponentLoader />
+      ) : (
+        <>
+          <div className="d-flex justify-content-end mb-4 add_catalog_btn ">
+            <Button onClick={() => navigate("/home-add-testimonial")}>
+              Add Testimonial
+            </Button>
+          </div>
+          <DataTableExtensions
+            columns={testimonialColumns}
+            data={allTestimonail?.data?.data?.sort((a, b) => b?.id - a?.id)}
+            filterPlaceholder="Search"
+          >
+            <DataTable
+              pagination
+              paginationPerPage={10}
+              striped
+              customStyles={tableCustomStyles}
+            />
+          </DataTableExtensions>
+        </>
+      )}
     </div>
   );
 }

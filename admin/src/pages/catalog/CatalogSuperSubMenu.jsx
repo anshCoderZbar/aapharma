@@ -26,23 +26,19 @@ export default function CatalogSuperSubMenu() {
 
   const catalogColumns = [
     {
-      name: "SR.NO",
-      selector: (row, i) => i + 1,
-    },
-    {
       name: "sort no",
       selector: (row) => row.sortNo,
     },
     {
-      name: "heading",
+      name: "Sub Child Category",
       selector: (row) => row.heading,
     },
     {
-      name: "main category",
+      name: "Master Category",
       selector: (row) => row.categoryName,
     },
     {
-      name: "sub category",
+      name: "Sub Category",
       selector: (row) => row.subcategoryName,
     },
     {
@@ -52,7 +48,7 @@ export default function CatalogSuperSubMenu() {
           className="editbtn"
           onClick={() =>
             navigate({
-              pathname: `/catalogL3/${row?.id}`,
+              pathname: `/sub-child-category/${row?.id}`,
               search: `?catalogId=${row?.catalog}`,
             })
           }
@@ -108,7 +104,7 @@ export default function CatalogSuperSubMenu() {
           columns={catalogColumns}
           data={fetchSuperSubCatalog?.data?.data?.sort((a, b) => b?.id - a?.id)}
           pagination
-          paginationPerPage={5}
+          paginationPerPage={10}
           striped
           customStyles={tableCustomStyles}
         />

@@ -78,7 +78,7 @@ export const HomeBanner = () => {
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="heading" className="form-label">
-                Heading
+                Sub Heading
               </label>
               <FormInput
                 type="text"
@@ -92,7 +92,7 @@ export const HomeBanner = () => {
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="bannerImage" className="form-label">
-                Heading
+                Banner (2500px * 1080px)
               </label>
               <FormInput
                 type="file"

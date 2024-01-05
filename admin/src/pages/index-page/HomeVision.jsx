@@ -68,7 +68,7 @@ export default function HomeVision() {
           </div>
           <div className="mb-3 col-md-6">
             <label htmlFor="image" className="form-label">
-              Image
+              Banner (2500px * 1080px)
             </label>
             <FormInput
               type="file"
@@ -86,14 +86,14 @@ export default function HomeVision() {
               <img
                 src={previewImage}
                 alt="Featured Image Preview"
-                style={{ maxWidth: "100px" }}
+                style={{ maxWidth: "300px", marginTop: "10px" }}
               />
             )}
             {!previewImage && imageUrl && (
               <img
                 src={imageUrl}
                 alt="Featured Image Preview"
-                style={{ maxWidth: "100px" }}
+                style={{ maxWidth: "300px", marginTop: "10px" }}
               />
             )}
           </div>

@@ -21,7 +21,7 @@ export const Articles = () => {
         allArticles?.data?.data?.map((article, i) => {
           return (
             <SwiperSlide key={i}>
-              <div className="row align-items-center mt-3">
+              <div className="row mt-3">
                 <div className="col-lg-6">
                   <div className="articles_content">
                     <h3>{article?.heading}</h3>

@@ -4,6 +4,7 @@ import {
   ImagePlus,
   Info,
   LayoutDashboard,
+  LightbulbIcon,
   PersonStanding,
   Settings,
 } from "lucide-react";
@@ -31,26 +32,31 @@ export const SidebarData = [
       },
       {
         id: 3,
-        subMenuName: "Services ",
-        slug: "home-services",
+        subMenuName: "Services Content",
+        slug: "home-service-content",
       },
       {
         id: 4,
+        subMenuName: "Add Services ",
+        slug: "home-services",
+      },
+      {
+        id: 5,
         subMenuName: "Vision",
         slug: "home-vision",
       },
       {
-        id: 5,
+        id: 6,
         subMenuName: "Clients",
         slug: "home-client",
       },
       {
-        id: 6,
+        id: 7,
         subMenuName: "Testimonial",
         slug: "home-testimonial",
       },
       {
-        id: 7,
+        id: 8,
         subMenuName: "Article",
         slug: "home-article",
       },
@@ -64,24 +70,24 @@ export const SidebarData = [
     subMenu: [
       {
         id: 1,
-        subMenuName: "category 1",
-        slug: "catalogL1",
+        subMenuName: "Master Category",
+        slug: "master-category",
       },
       {
         id: 2,
-        subMenuName: "category 2",
-        slug: "catalogL2",
+        subMenuName: "Sub Category",
+        slug: "sub-category",
       },
       {
         id: 3,
-        subMenuName: "category 3",
-        slug: "catalogL3",
+        subMenuName: "Sub Child Category",
+        slug: "sub-child-category",
       },
     ],
   },
   {
-    name: "Chemical Editor",
-    slug: "chemical",
+    name: "Product Master",
+    slug: "product-master",
     icon: <Biohazard />,
   },
   {
@@ -127,6 +133,11 @@ export const SidebarData = [
         slug: "our-team",
       },
     ],
+  },
+  {
+    name: "Operating Philosophy",
+    slug: "operating-philosophy",
+    icon: <LightbulbIcon />,
   },
   {
     name: "Settings",

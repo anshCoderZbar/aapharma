@@ -50,3 +50,13 @@ export const GetTeamMemberMutation = () => {
   });
   return getTeamMember;
 };
+
+// operating philosophy
+
+export const GetOperatingPhilosophyMutation = () => {
+  const getOperatingMutation = useQuery({
+    queryKey: ["get-operating-philosophy"],
+    queryFn: () => client.about.getOperatingPhilosophy(),
+  });
+  return getOperatingMutation;
+};

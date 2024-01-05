@@ -15,7 +15,6 @@ export const TestimonialForm = ({
   isLoading,
   authorImg,
 }) => {
-  console.log(authorImg);
   const allClients = AllClientMutation();
 
   const [previewImage, setPreviewImage] = useState("");
@@ -70,7 +69,7 @@ export const TestimonialForm = ({
       </div>
       <div className="mb-3 col-md-6">
         <label htmlFor="authorImage" className="form-label">
-          Author Image
+          Author Image (50px * 50px)
         </label>
         <FormInput
           type="file"

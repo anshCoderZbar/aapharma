@@ -68,4 +68,5 @@ export const API_ENDPOINTS = {
   singleTeamMember: "/team/one",
   updateTeamMember: "/team/update",
   deleteTeamMember: "/team/delete",
+  operatingPhilosophy: "/operating-philosophy",
 };

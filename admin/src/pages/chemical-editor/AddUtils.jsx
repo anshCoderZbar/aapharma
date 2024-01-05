@@ -47,7 +47,6 @@ export default function AddUtils() {
     const newArray = [...inputs];
     newArray.splice(index, 1);
     setInputs(newArray);
-
     const headingKey = `heading_${index + 1}`;
     const attachmentsKey = `attachments_${index + 1}`;
     const descriptionKey = `description_${index + 1}`;
