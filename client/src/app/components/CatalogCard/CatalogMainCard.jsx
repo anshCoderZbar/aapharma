@@ -31,6 +31,8 @@ export const CatalogMainCard = ({ chemicals }) => {
       {chemicals?.data?.length <= 0 && <h3>No record found</h3>}
       <div className="row">
         {chemicals?.data?.slice(startIndex, endIndex)?.map((compounts, i) => {
+          console.log();
+
           return (
             <div key={i} className="col-md-6 ">
               <div className="catalog_main_bg">
@@ -44,36 +46,22 @@ export const CatalogMainCard = ({ chemicals }) => {
                     </div>
                     <div className="compount_img_details">
                       <ul>
-                        <li>
-                          <p className="detail_type">Product Class</p>
-                          <p className="detail_desc">
-                            {compounts?.productClass}
-                          </p>
-                        </li>
-                        <li>
-                          <p className="detail_type">CLogP</p>
-                          <p className="detail_desc">{compounts?.clogP}</p>
-                        </li>
-                        <li>
-                          <p className="detail_type">MV</p>
-                          <p className="detail_desc">{compounts?.mv}</p>
-                        </li>
-                        <li>
-                          <p className="detail_type">hbd</p>
-                          <p className="detail_desc">{compounts?.hbd}</p>
-                        </li>
-                        <li>
-                          <p className="detail_type">hba</p>
-                          <p className="detail_desc">{compounts?.hba}</p>
-                        </li>
-                        <li>
-                          <p className="detail_type">rotb</p>
-                          <p className="detail_desc">{compounts?.rotb}</p>
-                        </li>
-                        <li>
-                          <p className="detail_type">fap3</p>
-                          <p className="detail_desc">{compounts?.fap3}</p>
-                        </li>
+                        {JSON.parse(compounts.catalog_details).length >= 1
+                          ? JSON.parse(compounts.catalog_details).map(
+                              (details, i) => {
+                                return (
+                                  <li key={i}>
+                                    <p className="detail_type">
+                                      {details?.label}
+                                    </p>
+                                    <p className="detail_desc">
+                                      {details?.description}
+                                    </p>
+                                  </li>
+                                );
+                              }
+                            )
+                          : ""}
                       </ul>
                     </div>
                   </div>
@@ -82,43 +70,48 @@ export const CatalogMainCard = ({ chemicals }) => {
                       <p
                         className="mt-0"
                         dangerouslySetInnerHTML={{
-                          __html: compounts?.description?.length>=300?compounts?.description?.slice(0,300)+".....":compounts?.description,
+                          __html:
+                            compounts?.description?.length >= 300
+                              ? compounts?.description?.slice(0, 300) + "....."
+                              : compounts?.description,
                         }}
                       />
                       <div className="cata_main_mrt nm_x">
                         <div className="d-flex justify-content-between mxs">
-                        <select>
-                          <option value="1">1g-81$</option>
-                          <option value="2">2g-82$</option>
-                          <option value="3">3g-83$</option>
-                        </select>
-                        {true ? (
-                          <div className="d-flex align-items-center stock">
-                            <img src={inStock} alt="stock" />
-                            <span style={{ color: "#1aa338" }}>In Stock</span>
-                          </div>
-                        ) : (
-                          <div className="d-flex align-items-center stock">
-                            <img src={outStock} alt="stock" />
-                            <span style={{ color: "#FC0D1B" }}>
-                              Out of stock
-                            </span>
-                          </div>
-                        )}
+                          <select>
+                            <option value="1">1g-81$</option>
+                            <option value="2">2g-82$</option>
+                            <option value="3">3g-83$</option>
+                          </select>
+                          {true ? (
+                            <div className="d-flex align-items-center stock">
+                              <img src={inStock} alt="stock" />
+                              <span style={{ color: "#1aa338" }}>In Stock</span>
+                            </div>
+                          ) : (
+                            <div className="d-flex align-items-center stock">
+                              <img src={outStock} alt="stock" />
+                              <span style={{ color: "#FC0D1B" }}>
+                                Out of stock
+                              </span>
+                            </div>
+                          )}
                         </div>
                         <div className="order_btn">
-                        {true ? (
-                          <AddtoCart />
-                        ) : (
-                          <button className="add_to_cart">Make Inquiry</button>
-                        )}
-                        <Link
-                          to={`/catalog/${compounts?.id}`}
-                          className="cstm_mrg"
-                        >
-                          Details
-                        </Link>
-                      </div>
+                          {true ? (
+                            <AddtoCart />
+                          ) : (
+                            <button className="add_to_cart">
+                              Make Inquiry
+                            </button>
+                          )}
+                          <Link
+                            to={`/catalog/${compounts?.id}`}
+                            className="cstm_mrg"
+                          >
+                            Details
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

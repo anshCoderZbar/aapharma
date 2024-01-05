@@ -12,6 +12,9 @@ export const CatalogDetails = () => {
 
   const getUtility = GetUtility(id);
   const [filteredUtils, setFilteredUtils] = useState([]);
+
+  const [price, setPrice] = useState("");
+
   useEffect(() => {
     setFilteredUtils(getUtility?.isPending ? [] : [getUtility?.data?.data[0]]);
   }, [getUtility?.data?.data]);
@@ -23,7 +26,9 @@ export const CatalogDetails = () => {
     setFilteredUtils(filterRes);
   };
 
-  console.log(filteredUtils);
+  const handlePriceChange = (e) => {
+    setPrice(e?.target?.value);
+  };
 
   return (
     <div className="catalog__page">
@@ -33,12 +38,12 @@ export const CatalogDetails = () => {
             <div className="catalog_banner_content">
               <p className="d-flex justify-content-center align-items-center gap-2">
                 Catalogs <ChevronsRight />
-                <p
+                {/* <p
                   className="mt-0"
                   dangerouslySetInnerHTML={{
                     __html: singleChemical?.data?.data?.description,
                   }}
-                />
+                /> */}
               </p>
               <h1>{singleChemical?.data?.data?.heading}</h1>
             </div>
@@ -54,67 +59,50 @@ export const CatalogDetails = () => {
                 <div className="catalog_details_vss">
                   <div className="catalog_details_list">
                     <ul>
-                      <li>
-                        <p className="detail_type_1">Product Class</p>
-                        <p className="detail_desc_1">
-                          {singleChemical?.data?.data?.productClass}
-                        </p>
-                      </li>
-                      <li>
-                        <p className="detail_type_1">CLogP</p>
-                        <p className="detail_desc_1">
-                          {singleChemical?.data?.data?.clogP}
-                        </p>
-                      </li>
-                      <li>
-                        <p className="detail_type_1">MV</p>
-                        <p className="detail_desc_1">
-                          {singleChemical?.data?.data?.mv}
-                        </p>
-                      </li>
-                      <li>
-                        <p className="detail_type_1">hbd</p>
-                        <p className="detail_desc_1">
-                          {singleChemical?.data?.data?.hbd}
-                        </p>
-                      </li>
-                      <li>
-                        <p className="detail_type_1">hba</p>
-                        <p className="detail_desc_1">
-                          {singleChemical?.data?.data?.hba}
-                        </p>
-                      </li>
-                      <li>
-                        <p className="detail_type_1">rotb</p>
-                        <p className="detail_desc_1">
-                          {singleChemical?.data?.data?.rotb}
-                        </p>
-                      </li>
-                      <li>
-                        <p className="detail_type_1">fap3</p>
-                        <p className="detail_desc_1">
-                          {singleChemical?.data?.data?.fap3}
-                        </p>
-                      </li>
+                      {singleChemical?.data?.data.catalog_details
+                        ? JSON.parse(
+                            singleChemical?.data?.data.catalog_details
+                          ).map((details, i) => {
+                            return (
+                              <li key={i}>
+                                <p className="detail_type">{details?.label}</p>
+                                <p className="detail_desc">
+                                  {details?.description}
+                                </p>
+                              </li>
+                            );
+                          })
+                        : ""}
                     </ul>
                   </div>
-                  <p>
-                    This compounds has uses in synthesis of potential drug
-                    candidates and as a negative control in biochemicals assays.
-                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: singleChemical?.data?.data?.description,
+                    }}
+                  />
+
                   <div className="catalog_quantity_price">
                     <div className="catalog_options">
                       <h3>Quantity</h3>
-                      <select>
-                        <option>Choose an option</option>
+                      <select onChange={handlePriceChange}>
                         <option value="1">Default Sorting</option>
-                        <option value="2">Default Sorting 1</option>
-                        <option value="3">Default Sorting 2</option>
+                        {singleChemical?.data?.data.catalog_quantity_price
+                          ?.length >= 1
+                          ? JSON.parse(
+                              singleChemical?.data?.data.catalog_quantity_price
+                            ).map((details, i) => {
+                              return (
+                                <option value={details?.price} key={i}>
+                                  {details?.quantity}
+                                </option>
+                              );
+                            })
+                          : null}
                       </select>
                     </div>
                     <div className="catalog_price">
                       <h3>Price</h3>
-                      <span>${singleChemical?.data?.data?.price}</span>
+                      <span>$ {price}</span>
                     </div>
                   </div>
                   <AddtoCart extra="add_to_cart_btn" />

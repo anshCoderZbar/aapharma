@@ -24,11 +24,11 @@ export default function EditChemical() {
 
   const [searchParams] = useSearchParams();
 
-  const [loading, setLoading] = useState(true);
-
   const [currentMolecule, setCurrentMolecule] = useState("");
   const [img, setImg] = useState("");
   const [base64Img, setBase64Img] = useState();
+  const [inputs, setInputs] = useState([]);
+  const [priceInputs, setPriceInputs] = useState([]);
 
   const fetchSingleChemical = FetchSingleChemical(id);
 
@@ -42,7 +42,8 @@ export default function EditChemical() {
     formState: { errors },
     reset,
     control,
-  } = useForm({ resolver: yupResolver(chemicalSchema) });
+    getValues,
+  } = useForm();
 
   async function blobToBase64(blob) {
     return new Promise((resolve, _) => {
@@ -53,7 +54,6 @@ export default function EditChemical() {
   }
 
   img && blobToBase64(img).then((base64String) => setBase64Img(base64String));
-
   useEffect(() => {
     const defaultValues = {};
     defaultValues.sortNo = fetchSingleChemical?.data?.data?.sortNo;
@@ -70,6 +70,26 @@ export default function EditChemical() {
     defaultValues.rotb = fetchSingleChemical?.data?.data?.rotb;
     defaultValues.fap3 = fetchSingleChemical?.data?.data?.fap3;
     defaultValues.price = fetchSingleChemical?.data?.data?.price;
+    const catalogDetails = fetchSingleChemical?.data?.data?.catalog_details;
+
+    if (catalogDetails) {
+      const parsedCatalogDetails = JSON.parse(catalogDetails);
+      const newInputs = parsedCatalogDetails.map((data, i) => {
+        defaultValues[`label_${i + 1}`] = data?.label;
+        defaultValues[`description_${i + 1}`] = data?.description;
+      });
+      setInputs(newInputs);
+    }
+    const priceDetails =
+      fetchSingleChemical?.data?.data?.catalog_quantity_price;
+    if (priceDetails) {
+      const parsedPriceDetails = JSON.parse(priceDetails);
+      const priceInputs = parsedPriceDetails.map((data, i) => {
+        defaultValues[`quantity_${i + 1}`] = data?.quantity;
+        defaultValues[`price_${i + 1}`] = data?.price;
+      });
+      setPriceInputs(priceInputs);
+    }
     reset({ ...defaultValues });
   }, [fetchSingleChemical?.data?.data]);
 
@@ -86,15 +106,43 @@ export default function EditChemical() {
       formData.append("catalog2", data?.subCategory);
       formData.append("catalog3", data?.superCategory);
       formData.append("description", data?.description);
-      formData.append("productClass", data?.productClass);
-      formData.append("clogP", data?.clogP);
-      formData.append("mv", data?.mv);
-      formData.append("hbd", data?.hbd);
-      formData.append("hba", data?.hba);
-      formData.append("rotb", data?.rotb);
-      formData.append("fap3", data?.fap3);
-      formData.append("price", data?.price);
       formData.append("molecule", currentMolecule);
+
+      const organizedData = [];
+      Object.keys(data).forEach((key) => {
+        if (key.includes("label")) {
+          const labelNumber = key.split("_")[1];
+          const descriptionKey = `description_${labelNumber}`;
+          if (data[descriptionKey]) {
+            organizedData.push({
+              label: data[key],
+              description: data[descriptionKey],
+            });
+          }
+        }
+      });
+
+      formData.append(
+        "catalog_details",
+        organizedData?.length >= 1 && JSON.stringify(organizedData)
+      );
+      const organizedPriceData = [];
+      Object.keys(data).forEach((key) => {
+        if (key.includes("quantity")) {
+          const quantityNumber = key.split("_")[1];
+          const priceKey = `price_${quantityNumber}`;
+          if (data[priceKey]) {
+            organizedPriceData.push({
+              quantity: data[key],
+              price: data[priceKey],
+            });
+          }
+        }
+      });
+      formData.append(
+        "catalog_quantity_price",
+        organizedPriceData?.length >= 1 && JSON.stringify(organizedPriceData)
+      );
       updateChemical.mutate(formData);
     }
     return;
@@ -129,6 +177,12 @@ export default function EditChemical() {
             subChemicalFilterId={searchParams.get("sub-cat")}
             subSuperChemicalFilterId={searchParams.get("super-sub-cat")}
             isLoading={updateChemical?.isPending}
+            getValues={getValues}
+            reset={reset}
+            inputs={inputs}
+            setInputs={setInputs}
+            priceInputs={priceInputs}
+            setPriceInputs={setPriceInputs}
           />
         </div>
       )}

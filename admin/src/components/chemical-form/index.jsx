@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextEditor } from "components/ui/TextEditor";
 import { FormInput } from "components/ui/FormInput";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
+import { X } from "lucide-react";
 
 export const ChemicalForm = ({
   onSubmit,
@@ -15,9 +16,48 @@ export const ChemicalForm = ({
   mainCategoryFilterId,
   subChemicalFilterId,
   subSuperChemicalFilterId,
+  getValues,
+  reset,
+  inputs,
+  setInputs,
+  priceInputs,
+  setPriceInputs,
 }) => {
   const [superSubCat, setSuperSubCat] = useState("");
   const [searchLastLevCat, setSearchLastLevCat] = useState("");
+
+  const handleAddInputs = (e) => {
+    setInputs([...inputs, { label: "", description: "" }]);
+  };
+
+  const handleAddPriceInputs = (e) => {
+    setPriceInputs([...priceInputs, { quantity: "", price: "" }]);
+  };
+
+  const handleDeleteInput = (index) => {
+    const newArray = [...inputs];
+    newArray.splice(index, 1);
+    setInputs(newArray);
+    const labelKey = `label_${index + 1}`;
+    const descriptionKey = `description_${index + 1}`;
+    const newFormData = { ...getValues() };
+    delete newFormData[labelKey];
+    delete newFormData[descriptionKey];
+    reset(newFormData);
+  };
+
+  const handlePriceDeleteInput = (index) => {
+    const newPriceArray = [...priceInputs];
+    newPriceArray.splice(index, 1);
+    setPriceInputs(newPriceArray);
+    const quantityKey = `quantity_${index + 1}`;
+    const priceKey = `price_${index + 1}`;
+    const newFormData = { ...getValues() };
+    delete newFormData[quantityKey];
+    delete newFormData[priceKey];
+    reset(newFormData);
+  };
+
   const filterSuperSubCategory = subCategoryData?.filter((data) => {
     return (
       Number.parseInt(data?.catalog) ===
@@ -47,10 +87,10 @@ export const ChemicalForm = ({
                 type="text"
                 name="sortNo"
                 placeholder="Sort no"
-                {...register("sortNo")}
+                {...register("sortNo", { required: true })}
               />
               {errors?.sortNo && (
-                <p className="errorMessage">{errors?.sortNo?.message}</p>
+                <p className="errorMessage">Field is required</p>
               )}
             </div>
             <div className="mb-3 col-md-6">
@@ -61,10 +101,10 @@ export const ChemicalForm = ({
                 type="text"
                 name="heading"
                 placeholder="Heading"
-                {...register("heading")}
+                {...register("heading", { required: true })}
               />
               {errors?.heading && (
-                <p className="errorMessage">{errors?.heading?.message}</p>
+                <p className="errorMessage">Field is required</p>
               )}
             </div>
             <div className="mb-3 col-md-6">
@@ -74,26 +114,26 @@ export const ChemicalForm = ({
               <TextEditor
                 control={control}
                 name="description"
-                {...register("description")}
+                {...register("description", { required: true })}
               />
               {errors?.description && (
-                <p className="errorMessage">{errors?.description?.message}</p>
+                <p className="errorMessage">Field is required</p>
               )}
             </div>
-
             <div className="mb-3 col-md-4">
               <label htmlFor="mainCategory" className="form-label">
-                Main Category
+                Master Category
               </label>
               <select
                 className="form-select text-capitalize"
                 name="mainCategory"
                 aria-label="Default select example"
                 {...register("mainCategory", {
+                  required: true,
                   onChange: (e) => setSuperSubCat(e.target.value),
                 })}
               >
-                <option value={""}>Select Main Category</option>
+                <option value={""}>Select Master Category</option>
                 {mainCategoryData?.map((category, i) => {
                   return (
                     <option key={i} value={category?.id}>
@@ -102,8 +142,8 @@ export const ChemicalForm = ({
                   );
                 })}
               </select>
-              {errors?.subCategory && (
-                <p className="errorMessage">{errors?.subCategory?.message}</p>
+              {errors?.mainCategory && (
+                <p className="errorMessage">Field is required</p>
               )}
             </div>
             <div className="mb-3 col-md-4">
@@ -115,6 +155,7 @@ export const ChemicalForm = ({
                 name="subCategory"
                 aria-label="Default select example"
                 {...register("subCategory", {
+                  required: true,
                   onChange: (e) => setSearchLastLevCat(e.target.value),
                 })}
               >
@@ -130,28 +171,26 @@ export const ChemicalForm = ({
                 ) : (
                   <option disabled value={""}>
                     {superSubCat.length < 1
-                      ? "Please Select Main Category First"
+                      ? "Please Select Master Category First"
                       : "Sub Category Not Present"}
                   </option>
                 )}
               </select>
-              {errors?.subSuperCategory && (
-                <p className="errorMessage">
-                  {errors?.subSuperCategory?.message}
-                </p>
+              {errors?.subCategory && (
+                <p className="errorMessage">Field is required</p>
               )}
             </div>
             <div className="mb-3 col-md-4">
               <label htmlFor="superCategory" className="form-label">
-                Super Sub Category
+                Sub Child Category
               </label>
               <select
                 className="form-select text-capitalize"
                 name="superCategory"
                 aria-label="Default select example"
-                {...register("superCategory")}
+                {...register("superCategory", { required: true })}
               >
-                <option value={""}>Select Super Sub Category</option>
+                <option value={""}>Select Sub Child Category</option>
                 {filterSuperSubLastCategory?.length >= 1 ? (
                   filterSuperSubLastCategory?.map((subCategory, i) => {
                     return (
@@ -163,126 +202,144 @@ export const ChemicalForm = ({
                 ) : (
                   <option disabled value={""}>
                     {searchLastLevCat.length < 1
-                      ? "Please Select Main Category First"
+                      ? "Please Select Master Category First"
                       : "Sub Category Not Present"}
                   </option>
                 )}
               </select>
               {errors?.superCategory && (
-                <p className="errorMessage">{errors?.superCategory?.message}</p>
+                <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="productClass" className="form-label">
-                Product Class
-              </label>
-              <FormInput
-                type="text"
-                name="productClass"
-                placeholder="Product Class"
-                {...register("productClass")}
-              />
-              {errors?.productClass && (
-                <p className="errorMessage">{errors?.productClass?.message}</p>
-              )}
+            <div className="">
+              <div className="col-md-8">
+                {inputs?.map((inputElm, index) => {
+                  return (
+                    <div key={index} className="row">
+                      {inputs?.length > 1 ? (
+                        <div
+                          onClick={() => handleDeleteInput(index)}
+                          className="d-flex justify-content-end"
+                        >
+                          <span className="btn btn-danger">
+                            <X />
+                          </span>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <div className="mb-3 col-md-6">
+                        <label
+                          htmlFor={`label_${index + 1}`}
+                          className="form-label"
+                        >
+                          label
+                        </label>
+                        <FormInput
+                          type="text"
+                          name={`label_${index + 1}`}
+                          placeholder="label"
+                          {...register(`label_${index + 1}`, {
+                            required: true,
+                          })}
+                        />
+                        {errors[`label_${index + 1}`] && (
+                          <p className="errorMessage">field is required</p>
+                        )}
+                      </div>
+                      <div className="mb-3 col-md-6">
+                        <label
+                          htmlFor={`description_${index + 1}`}
+                          className="form-label"
+                        >
+                          Description
+                        </label>
+                        <FormInput
+                          type="text"
+                          placeholder="description"
+                          name={`description_${index + 1}`}
+                          {...register(`description_${index + 1}`, {
+                            required: true,
+                          })}
+                        />
+                        {errors[`description_${index + 1}`] && (
+                          <p className="errorMessage">field is required</p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="col-md-4 d-flex align-items-center">
+                <span onClick={handleAddInputs} className="btn btn-danger">
+                  Add More
+                </span>
+              </div>
             </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="clogP" className="form-label">
-                ClogP
-              </label>
-              <FormInput
-                type="text"
-                name="clogP"
-                placeholder="ClogP"
-                {...register("clogP")}
-              />
-              {errors?.clogP && (
-                <p className="errorMessage">{errors?.clogP?.message}</p>
-              )}
-            </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="mv" className="form-label">
-                MV
-              </label>
-              <FormInput
-                type="text"
-                name="mv"
-                placeholder="MV"
-                {...register("mv")}
-              />
-              {errors?.mv && (
-                <p className="errorMessage">{errors?.mv?.message}</p>
-              )}
-            </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="hbd" className="form-label">
-                HBD
-              </label>
-              <FormInput
-                type="text"
-                name="hbd"
-                placeholder="HBD"
-                {...register("hbd")}
-              />
-              {errors?.hbd && (
-                <p className="errorMessage">{errors?.hbd?.message}</p>
-              )}
-            </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="hba" className="form-label">
-                HBA
-              </label>
-              <FormInput
-                type="text"
-                name="hba"
-                placeholder="HBA"
-                {...register("hba")}
-              />
-              {errors?.hba && (
-                <p className="errorMessage">{errors?.hba?.message}</p>
-              )}
-            </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="rotb" className="form-label">
-                Rotb
-              </label>
-              <FormInput
-                type="text"
-                name="rotb"
-                placeholder="Rotb"
-                {...register("rotb")}
-              />
-              {errors?.rotb && (
-                <p className="errorMessage">{errors?.rotb?.message}</p>
-              )}
-            </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="fap3" className="form-label">
-                Fap3
-              </label>
-              <FormInput
-                type="text"
-                name="fap3"
-                placeholder="Fap3"
-                {...register("fap3")}
-              />
-              {errors?.fap3 && (
-                <p className="errorMessage">{errors?.fap3?.message}</p>
-              )}
-            </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="price" className="form-label">
-                Price
-              </label>
-              <FormInput
-                type="text"
-                name="price"
-                placeholder="Price"
-                {...register("price")}
-              />
-              {errors?.price && (
-                <p className="errorMessage">{errors?.price?.message}</p>
-              )}
+            <div className="">
+              <div className="col-md-8 mt-2">
+                {priceInputs?.map((inputElm, index) => {
+                  return (
+                    <div key={index} className="row">
+                      {priceInputs?.length > 1 ? (
+                        <div
+                          onClick={() => handlePriceDeleteInput(index)}
+                          className="d-flex justify-content-end"
+                        >
+                          <span className="btn btn-danger">
+                            <X />
+                          </span>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <div className="mb-3 col-md-6">
+                        <label
+                          htmlFor={`quantity_${index + 1}`}
+                          className="form-label"
+                        >
+                          Quantity
+                        </label>
+                        <FormInput
+                          type="text"
+                          name={`quantity_${index + 1}`}
+                          placeholder="quantity"
+                          {...register(`quantity_${index + 1}`, {
+                            required: true,
+                          })}
+                        />
+                        {errors[`quantity_${index + 1}`] && (
+                          <p className="errorMessage">field is required</p>
+                        )}
+                      </div>
+                      <div className="mb-3 col-md-6">
+                        <label
+                          htmlFor={`price_${index + 1}`}
+                          className="form-label"
+                        >
+                          Price
+                        </label>
+                        <FormInput
+                          type="text"
+                          placeholder="price"
+                          name={`price_${index + 1}`}
+                          {...register(`price_${index + 1}`, {
+                            required: true,
+                          })}
+                        />
+                        {errors[`price_${index + 1}`] && (
+                          <p className="errorMessage">field is required</p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="col-md-4 d-flex align-items-center">
+                <span onClick={handleAddPriceInputs} className="btn btn-danger">
+                  Add More
+                </span>
+              </div>
             </div>
           </div>
           {isLoading ? (
@@ -297,3 +354,93 @@ export const ChemicalForm = ({
     </div>
   );
 };
+
+{
+  /*
+<div className="mb-3 col-md-4">
+<label htmlFor="mv" className="form-label">
+  MV
+</label>
+<FormInput
+  type="text"
+  name="mv"
+  placeholder="MV"
+  {...register("mv")}
+/>
+{errors?.mv && (
+  <p className="errorMessage">{errors?.mv?.message}</p>
+)}
+</div>
+<div className="mb-3 col-md-4">
+<label htmlFor="hbd" className="form-label">
+  HBD
+</label>
+<FormInput
+  type="text"
+  name="hbd"
+  placeholder="HBD"
+  {...register("hbd")}
+/>
+{errors?.hbd && (
+  <p className="errorMessage">{errors?.hbd?.message}</p>
+)}
+</div>
+<div className="mb-3 col-md-4">
+<label htmlFor="hba" className="form-label">
+  HBA
+</label>
+<FormInput
+  type="text"
+  name="hba"
+  placeholder="HBA"
+  {...register("hba")}
+/>
+{errors?.hba && (
+  <p className="errorMessage">{errors?.hba?.message}</p>
+)}
+</div>
+<div className="mb-3 col-md-4">
+<label htmlFor="rotb" className="form-label">
+  Rotb
+</label>
+<FormInput
+  type="text"
+  name="rotb"
+  placeholder="Rotb"
+  {...register("rotb")}
+/>
+{errors?.rotb && (
+  <p className="errorMessage">{errors?.rotb?.message}</p>
+)}
+</div>
+<div className="mb-3 col-md-4">
+<label htmlFor="fap3" className="form-label">
+  Fap3
+</label>
+<FormInput
+  type="text"
+  name="fap3"
+  placeholder="Fap3"
+  {...register("fap3")}
+/>
+{errors?.fap3 && (
+  <p className="errorMessage">{errors?.fap3?.message}</p>
+)}
+</div> 
+
+ <div className="mb-3 col-md-4">
+              <label htmlFor="price" className="form-label">
+                Price
+              </label>
+              <FormInput
+                type="text"
+                name="price"
+                placeholder="Price"
+                {...register("price")}
+              />
+              {errors?.price && (
+                <p className="errorMessage">{errors?.price?.message}</p>
+              )}
+            </div>
+*/
+}

@@ -49,12 +49,9 @@ export default function ChemicalPage() {
       name: "Super Sub Category",
       selector: (row) => row?.supsubcategoryName,
     },
+
     {
-      name: "Product Class",
-      selector: (row) => row.productClass,
-    },
-    {
-      name: "Product Class",
+      name: "Utils",
       cell: (row) => (
         <span
           onClick={() =>
@@ -128,7 +125,7 @@ export default function ChemicalPage() {
           columns={chemicalColumns}
           data={fetchChemical?.data?.data?.sort((a, b) => b?.id - a?.id)}
           pagination
-          paginationPerPage={5}
+          paginationPerPage={10}
           striped
           customStyles={tableCustomStyles}
         />

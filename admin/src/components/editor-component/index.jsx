@@ -37,7 +37,6 @@ export const EditorComponent = ({
   useEffect(() => {
     setInterval(async () => {
       const updatedMolecule = await ketcherRef.current.getMolfile();
-      console.log("useEffect triggered");
       setCurrentMolecule(
         updatedMolecule.length >= 1 ? updatedMolecule : initialMolecule
       );

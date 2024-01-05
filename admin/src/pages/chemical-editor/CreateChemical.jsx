@@ -21,11 +21,15 @@ export default function CreateChemical() {
     formState: { errors },
     control,
     reset,
-  } = useForm({ resolver: yupResolver(chemicalSchema) });
+    getValues,
+  } = useForm();
+  // } = useForm({ resolver: yupResolver(chemicalSchema) });
 
   const [currentMolecule, setCurrentMolecule] = useState("");
   const [img, setImg] = useState("");
   const [base64Img, setBase64Img] = useState();
+  const [inputs, setInputs] = useState([{ label: "", description: "" }]);
+  const [priceInputs, setPriceInputs] = useState([{ quantity: "", price: "" }]);
 
   const fetchCatalogs = FetchAllCatalogsL1();
   const fetchAllSubCatalogs = FetchAllCatalogsL2();
@@ -52,15 +56,43 @@ export default function CreateChemical() {
     formData.append("catalog2", data?.subCategory);
     formData.append("catalog3", data?.superCategory);
     formData.append("description", data?.description);
-    formData.append("productClass", data?.productClass);
-    formData.append("clogP", data?.clogP);
-    formData.append("mv", data?.mv);
-    formData.append("hbd", data?.hbd);
-    formData.append("hba", data?.hba);
-    formData.append("rotb", data?.rotb);
-    formData.append("fap3", data?.fap3);
-    formData.append("price", data?.price);
     formData.append("molecule", currentMolecule);
+
+    const organizedData = [];
+    Object.keys(data).forEach((key) => {
+      if (key.includes("label")) {
+        const labelNumber = key.split("_")[1];
+        const descriptionKey = `description_${labelNumber}`;
+        if (data[descriptionKey]) {
+          organizedData.push({
+            label: data[key],
+            description: data[descriptionKey],
+          });
+        }
+      }
+    });
+    const organizedPriceData = [];
+    Object.keys(data).forEach((key) => {
+      if (key.includes("quantity")) {
+        const quantityNumber = key.split("_")[1];
+        const priceKey = `price_${quantityNumber}`;
+        if (data[priceKey]) {
+          organizedPriceData.push({
+            quantity: data[key],
+            price: data[priceKey],
+          });
+        }
+      }
+    });
+    formData.append(
+      "catalog_details",
+      organizedData?.length >= 1 && JSON.stringify(organizedData)
+    );
+    formData.append(
+      "catalog_quantity_price",
+      organizedPriceData?.length >= 1 && JSON.stringify(organizedPriceData)
+    );
+
     createChemical.mutate(formData);
   };
 
@@ -81,6 +113,12 @@ export default function CreateChemical() {
           subCategoryData={fetchAllSubCatalogs?.data?.data}
           superSubCategoryData={fetchAllSuperSubCatalogs?.data?.data}
           isLoading={createChemical?.isPending}
+          getValues={getValues}
+          reset={reset}
+          inputs={inputs}
+          setInputs={setInputs}
+          priceInputs={priceInputs}
+          setPriceInputs={setPriceInputs}
         />
         {/* <img src={base64Img} alt="Base64 Image" /> */}
       </div>

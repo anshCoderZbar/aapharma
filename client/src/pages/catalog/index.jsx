@@ -11,7 +11,6 @@ export const Catalog = () => {
   const allChemicalProducts = AllChemical();
   const [categoryCheck] = useAtom(categoryChecked);
   const [filteredData] = useAtom(filteredCatalogs);
-
   return (
     <div className="catalog_page">
       <div className="catalog_banner">
