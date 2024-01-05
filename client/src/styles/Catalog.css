@@ -491,6 +491,7 @@
   margin-bottom: 90px;
   max-width: 380px;
   padding: 20px;
+  margin-right: 20px;
 }
 
 .information_box ul li {
@@ -794,6 +795,15 @@
   .compount_img_details ul li .detail_desc {
     font-size: 16px;
   }
+
+  .information_box ul li {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .information_box ul {
+    width: 338px;
+  }
 }
 
 @media only screen and (max-width: 1500px) {
@@ -960,6 +970,10 @@
   .information_box {
     margin-bottom: 35px;
   }
+
+  .information_box ul {
+    max-width: 249px;
+  }
 }
 
 @media only screen and (max-width: 880px) {
@@ -1003,9 +1017,10 @@
   }
 
   .information_box {
-    height: 250px;
+    height: auto;
     width: auto;
   }
+
 
   .compount_img {
     padding: 10px;
@@ -1153,6 +1168,17 @@
 
   .inner_list li {
     margin-right: 7px;
+  }
+
+  .information_box {
+    display: block;
+  }
+
+  .information_box ul {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 25px;
+    height: auto;
   }
 }
 

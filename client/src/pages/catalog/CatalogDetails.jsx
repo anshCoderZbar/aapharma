@@ -85,7 +85,7 @@ export const CatalogDetails = () => {
                     <div className="catalog_options">
                       <h3>Quantity</h3>
                       <select onChange={handlePriceChange}>
-                        <option value="1">Default Sorting</option>
+                        <option value="1">Select Quantity</option>
                         {singleChemical?.data?.data.catalog_quantity_price
                           ?.length >= 1
                           ? JSON.parse(
