@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import "styles/main.css";
 import { PageWrapper } from "components/ui/PageWrapper";
 import { useNavigate } from "react-router-dom";
 import { Button } from "components/ui/Button";
@@ -11,6 +10,11 @@ import DataTable from "react-data-table-component";
 import { GetAboutTimelineMutation } from "rest/about";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { DeleteTimelineMutation } from "rest/about";
+import { InfoComponent } from "components/Alerts/Info";
+import { ErrorComponent } from "components/Alerts/Error";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "styles/main.css";
+import "react-data-table-component-extensions/dist/index.css";
 
 export default function AboutTimeline() {
   const navigate = useNavigate();
@@ -72,23 +76,34 @@ export default function AboutTimeline() {
   ];
   return (
     <div className="timeline_page">
-      <PageWrapper slug="about-timeline" name="About Card" />
+      <PageWrapper slug="about-timeline" name="About Timeline" />
+
       <div className="d-flex justify-content-end mb-4 add_catalog_btn mt-4">
         <Button onClick={() => navigate("/about-add-timeline")}>
           Add Services
         </Button>
       </div>
+      {getTimeline?.isError && (
+        <ErrorComponent message="OOPS ! something went wrong please try again later" />
+      )}
+      {getTimeline?.data?.data?.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
       {getTimeline?.isPending ? (
         <ComponentLoader />
       ) : (
-        <DataTable
+        <DataTableExtensions
           columns={aboutTimeline}
           data={getTimeline?.data?.data?.sort((a, b) => b?.id - a?.id)}
-          pagination
-          paginationPerPage={5}
-          striped
-          customStyles={tableCustomStyles}
-        />
+          filterPlaceholder="Search"
+        >
+          <DataTable
+            pagination
+            paginationPerPage={10}
+            striped
+            customStyles={tableCustomStyles}
+          />
+        </DataTableExtensions>
       )}
     </div>
   );

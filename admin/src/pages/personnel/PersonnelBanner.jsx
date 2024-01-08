@@ -59,6 +59,37 @@ export default function PersonnelBanner() {
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
             <div className="mb-3 col-md-6">
+              <label htmlFor="personnelBanner" className="form-label">
+                Personnel Banner (1540px * 305px)
+              </label>
+              <FormInput
+                type="file"
+                name="personnelBanner"
+                placeholder="personnelBanner"
+                {...register("personnelBanner", {
+                  required: !perviewImages && !defaultImg,
+                  onChange: (e) => handleChange(e),
+                })}
+              />
+              {errors?.personnelBanner && (
+                <p className="errorMessage">Field is required</p>
+              )}
+              {perviewImages && (
+                <img
+                  src={perviewImages}
+                  alt="personnel banner Preview"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
+                />
+              )}
+              {!perviewImages && defaultImg && (
+                <img
+                  src={defaultImg}
+                  alt="personnel banner Preview"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
+                />
+              )}
+            </div>
+            <div className="mb-3 col-md-6">
               <label htmlFor="mainHeading" className="form-label">
                 Main Heading
               </label>
@@ -88,37 +119,7 @@ export default function PersonnelBanner() {
                 <p className="errorMessage">Description is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
-              <label htmlFor="personnelBanner" className="form-label">
-                Personnel Banner
-              </label>
-              <FormInput
-                type="file"
-                name="personnelBanner"
-                placeholder="personnelBanner"
-                {...register("personnelBanner", {
-                  required: !perviewImages && !defaultImg,
-                  onChange: (e) => handleChange(e),
-                })}
-              />
-              {errors?.personnelBanner && (
-                <p className="errorMessage">Field is required</p>
-              )}
-              {perviewImages && (
-                <img
-                  src={perviewImages}
-                  alt="personnel banner Preview"
-                  className="preview-image"
-                />
-              )}
-              {!perviewImages && defaultImg && (
-                <img
-                  src={defaultImg}
-                  alt="personnel banner Preview"
-                  className="preview-image"
-                />
-              )}
-            </div>
+
             {personnelBanner?.isPending ? (
               <div>
                 <ButtonLoader />

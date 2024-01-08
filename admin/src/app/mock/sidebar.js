@@ -9,13 +9,17 @@ import {
   Settings,
 } from "lucide-react";
 
+import { v4 as uuidv4 } from "uuid";
+
 export const SidebarData = [
   {
-    name: "dashboard",
+    id: uuidv4(),
+    name: "Dashboard",
     slug: "dashboard",
     icon: <LayoutDashboard />,
   },
   {
+    id: uuidv4(),
     name: "Home",
     slug: "#",
     icon: <Image />,
@@ -64,6 +68,7 @@ export const SidebarData = [
   },
 
   {
+    id: uuidv4(),
     name: "Catalog",
     slug: "#",
     icon: <ImagePlus />,
@@ -86,11 +91,13 @@ export const SidebarData = [
     ],
   },
   {
-    name: "Product Master",
-    slug: "product-master",
+    id: uuidv4(),
+    name: "Product Management",
+    slug: "product-management",
     icon: <Biohazard />,
   },
   {
+    id: uuidv4(),
     name: "About Us",
     slug: "#",
     icon: <Info />,
@@ -113,6 +120,7 @@ export const SidebarData = [
     ],
   },
   {
+    id: uuidv4(),
     name: "Personnel",
     slug: "#",
     icon: <PersonStanding />,
@@ -135,11 +143,13 @@ export const SidebarData = [
     ],
   },
   {
+    id: uuidv4(),
     name: "Operating Philosophy",
     slug: "operating-philosophy",
     icon: <LightbulbIcon />,
   },
   {
+    id: uuidv4(),
     name: "Settings",
     slug: "settings",
     icon: <Settings />,

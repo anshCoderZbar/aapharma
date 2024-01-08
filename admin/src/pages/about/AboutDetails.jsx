@@ -199,7 +199,7 @@ export default function AboutCardDetails() {
             <div className="row">
               <div className="mb-3 col-md-6">
                 <label htmlFor="icon1" className="form-label">
-                  Icon 1
+                  Icon 1 (90px * 90 px)
                 </label>
                 <FormInput
                   type="file"
@@ -217,14 +217,14 @@ export default function AboutCardDetails() {
                   <img
                     src={perviewImages?.icon1}
                     alt="icon1 Preview"
-                    className="preview-image bg-info"
+                    className="preview-image mt-2 bg-info"
                   />
                 )}
                 {!perviewImages?.icon1 && defaultImages?.img1 && (
                   <img
                     src={defaultImages?.img1}
                     alt="icon1 Preview"
-                    className="preview-image bg-info"
+                    className="preview-image mt-2 bg-info"
                   />
                 )}
               </div>
@@ -286,7 +286,7 @@ export default function AboutCardDetails() {
             <div className="row mt-4">
               <div className="mb-3 col-md-6">
                 <label htmlFor="icon2" className="form-label">
-                  Icon 2
+                  Icon 2 (90px * 90 px)
                 </label>
                 <FormInput
                   type="file"
@@ -304,14 +304,14 @@ export default function AboutCardDetails() {
                   <img
                     src={perviewImages.icon2}
                     alt="Icon 2 Preview"
-                    className="preview-image bg-info"
+                    className="preview-image mt-2 bg-info"
                   />
                 )}
                 {!perviewImages?.icon2 && defaultImages?.img2 && (
                   <img
                     src={defaultImages?.img2}
                     alt="icon1 Preview"
-                    className="preview-image bg-info"
+                    className="preview-image mt-2 bg-info"
                   />
                 )}
               </div>
@@ -361,20 +361,20 @@ export default function AboutCardDetails() {
                     )}
                   </div>
                 ))}
-                <div className="add_catalog_btn">
-                  <span
-                    onClick={() => handleAdd("list2")}
-                    className="btn btn-primary d-grid primary-bg-color outline-0 border-0 py-2 width_fit"
-                  >
-                    Add More
-                  </span>
-                </div>
+              </div>
+              <div className="add_catalog_btn ">
+                <span
+                  onClick={() => handleAdd("list2")}
+                  className="btn btn-primary d-grid primary-bg-color outline-0 border-0 py-2 width_fit"
+                >
+                  Add More
+                </span>
               </div>
             </div>
             <div className="row mt-4">
               <div className="mb-3 col-md-6">
                 <label htmlFor="icon3" className="form-label">
-                  Icon 3
+                  Icon 3 (90px * 90 px)
                 </label>
                 <FormInput
                   type="file"
@@ -392,14 +392,14 @@ export default function AboutCardDetails() {
                   <img
                     src={perviewImages.icon3}
                     alt="Icon 3 Preview"
-                    className="preview-image bg-info"
+                    className="preview-image mt-2 bg-info"
                   />
                 )}
                 {!perviewImages?.icon3 && defaultImages?.img3 && (
                   <img
                     src={defaultImages?.img3}
                     alt="icon3 Preview"
-                    className="preview-image bg-info"
+                    className="preview-image mt-2 bg-info"
                   />
                 )}
               </div>
@@ -449,14 +449,14 @@ export default function AboutCardDetails() {
                     )}
                   </div>
                 ))}
-                <div className="add_catalog_btn">
-                  <span
-                    onClick={() => handleAdd("list3")}
-                    className="btn btn-primary d-grid primary-bg-color outline-0 border-0 py-2 width_fit"
-                  >
-                    Add More
-                  </span>
-                </div>
+              </div>
+              <div className="add_catalog_btn">
+                <span
+                  onClick={() => handleAdd("list3")}
+                  className="btn btn-primary d-grid primary-bg-color outline-0 border-0 py-2 width_fit"
+                >
+                  Add More
+                </span>
               </div>
             </div>
             {createAboutCard?.isPending ? (

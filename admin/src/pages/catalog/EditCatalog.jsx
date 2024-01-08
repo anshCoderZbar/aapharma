@@ -9,6 +9,7 @@ import { CatalogForm } from "components/catalog-form";
 import { FetchSingleCatalog } from "rest/catalog";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { UpdateCatalogL1 } from "rest/catalog";
+import { ErrorComponent } from "components/Alerts/Error";
 
 export default function EditCatalog() {
   const { id } = useParams();
@@ -39,6 +40,9 @@ export default function EditCatalog() {
   return (
     <div className="edit_catalog_page">
       <PageWrapper slug="Catalog" name="Catalog" />
+      {fetchSingleCatalog?.error ? (
+        <ErrorComponent message="OOPS ! something went wrong" />
+      ) : null}
       {fetchSingleCatalog?.isPending ? (
         <div className="d-flex justify-content-center">
           <ComponentLoader />

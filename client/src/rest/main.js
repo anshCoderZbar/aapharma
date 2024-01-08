@@ -1,5 +1,5 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
 import client from "./client";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { formState } from "app/common/contact/state";
 
 export const GetSettings = () => {

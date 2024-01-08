@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextEditor } from "components/ui/TextEditor";
 import { FormInput } from "components/ui/FormInput";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
-import { X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 
 export const ChemicalForm = ({
   onSubmit,
@@ -79,20 +79,6 @@ export const ChemicalForm = ({
       <div className="catalog_single_page_inputs">
         <form onSubmit={onSubmit}>
           <div className="row">
-            <div className="mb-3 col-12">
-              <label htmlFor="sortNo" className="form-label">
-                Sort no
-              </label>
-              <FormInput
-                type="text"
-                name="sortNo"
-                placeholder="Sort no"
-                {...register("sortNo", { required: true })}
-              />
-              {errors?.sortNo && (
-                <p className="errorMessage">Field is required</p>
-              )}
-            </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="heading" className="form-label">
                 Heading
@@ -108,6 +94,21 @@ export const ChemicalForm = ({
               )}
             </div>
             <div className="mb-3 col-md-6">
+              <label htmlFor="sortNo" className="form-label">
+                Sort no
+              </label>
+              <FormInput
+                type="text"
+                name="sortNo"
+                placeholder="Sort no"
+                {...register("sortNo", { required: true })}
+              />
+              {errors?.sortNo && (
+                <p className="errorMessage">Field is required</p>
+              )}
+            </div>
+
+            <div className="mb-3 col-md-12">
               <label htmlFor="hba" className="form-label">
                 Description
               </label>
@@ -211,24 +212,13 @@ export const ChemicalForm = ({
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="">
-              <div className="col-md-8">
+            <div className="col-md-12">
+              <div className="rows_content">
+                <h3>Product Class And Compount Management</h3>
                 {inputs?.map((inputElm, index) => {
                   return (
                     <div key={index} className="row">
-                      {inputs?.length > 1 ? (
-                        <div
-                          onClick={() => handleDeleteInput(index)}
-                          className="d-flex justify-content-end"
-                        >
-                          <span className="btn btn-danger">
-                            <X />
-                          </span>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-3 col-md-5">
                         <label
                           htmlFor={`label_${index + 1}`}
                           className="form-label"
@@ -247,7 +237,7 @@ export const ChemicalForm = ({
                           <p className="errorMessage">field is required</p>
                         )}
                       </div>
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-3 col-md-5">
                         <label
                           htmlFor={`description_${index + 1}`}
                           className="form-label"
@@ -266,34 +256,35 @@ export const ChemicalForm = ({
                           <p className="errorMessage">field is required</p>
                         )}
                       </div>
+                      <div className="col-md-2 d-flex align-items-end">
+                        {inputs?.length > 1 ? (
+                          <div onClick={() => handleDeleteInput(index)}>
+                            <span className="btn btn-danger btn_cross_vv">
+                              <X />
+                            </span>
+                          </div>
+                        ) : null}
+                        <div className="add_btn">
+                          <span
+                            onClick={handleAddInputs}
+                            className="btn btn-success btn_cross_vv2"
+                          >
+                            <Plus />
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
               </div>
-              <div className="col-md-4 d-flex align-items-center">
-                <span onClick={handleAddInputs} className="btn btn-danger">
-                  Add More
-                </span>
-              </div>
             </div>
-            <div className="">
-              <div className="col-md-8 mt-2">
+            <div className="col-md-12">
+              <div className="rows_content">
+                <h3>Quantity And Price Management</h3>
                 {priceInputs?.map((inputElm, index) => {
                   return (
                     <div key={index} className="row">
-                      {priceInputs?.length > 1 ? (
-                        <div
-                          onClick={() => handlePriceDeleteInput(index)}
-                          className="d-flex justify-content-end"
-                        >
-                          <span className="btn btn-danger">
-                            <X />
-                          </span>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-3 col-md-5">
                         <label
                           htmlFor={`quantity_${index + 1}`}
                           className="form-label"
@@ -312,7 +303,7 @@ export const ChemicalForm = ({
                           <p className="errorMessage">field is required</p>
                         )}
                       </div>
-                      <div className="mb-3 col-md-6">
+                      <div className="mb-3 col-md-5">
                         <label
                           htmlFor={`price_${index + 1}`}
                           className="form-label"
@@ -320,7 +311,7 @@ export const ChemicalForm = ({
                           Price
                         </label>
                         <FormInput
-                          type="text"
+                          type="number"
                           placeholder="price"
                           name={`price_${index + 1}`}
                           {...register(`price_${index + 1}`, {
@@ -331,14 +322,26 @@ export const ChemicalForm = ({
                           <p className="errorMessage">field is required</p>
                         )}
                       </div>
+                      <div className="col-md-2 d-flex align-items-end">
+                        {priceInputs?.length > 1 ? (
+                          <div onClick={() => handlePriceDeleteInput(index)}>
+                            <span className="btn btn-danger btn_cross_vv">
+                              <X />
+                            </span>
+                          </div>
+                        ) : null}
+                        <div className="add_btn">
+                          <span
+                            onClick={handleAddPriceInputs}
+                            className="btn btn-success btn_cross_vv2"
+                          >
+                            <Plus />
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
-              </div>
-              <div className="col-md-4 d-flex align-items-center">
-                <span onClick={handleAddPriceInputs} className="btn btn-danger">
-                  Add More
-                </span>
               </div>
             </div>
           </div>

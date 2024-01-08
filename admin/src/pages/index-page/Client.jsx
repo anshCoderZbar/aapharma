@@ -12,6 +12,8 @@ import { Edit2, Trash2 } from "lucide-react";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { DeleteClientMutation } from "rest/home";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
+import { ErrorComponent } from "components/Alerts/Error";
+import { InfoComponent } from "components/Alerts/Info";
 
 export default function HomeClient() {
   const navigate = useNavigate();
@@ -86,6 +88,12 @@ export default function HomeClient() {
   return (
     <div className="client_page">
       <PageWrapper slug="home-client" name="Home Client" />
+      {allClients?.data?.data?.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
+      {allClients?.isError && (
+        <ErrorComponent message="OOPS ! something went wrong please try again later" />
+      )}
       <div className="home_banner_input mb-3">
         <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
           <div className="mb-3 col-md-6">

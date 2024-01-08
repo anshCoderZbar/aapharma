@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { UpdateCatalogL2 } from "rest/catalog";
 import { FetchSubSingleCatalog } from "rest/catalog";
 import { FetchAllCatalogsL1 } from "rest/catalog";
+import { ErrorComponent } from "components/Alerts/Error";
 
 export default function EditSubCatalog() {
   const { id } = useParams();
@@ -42,6 +43,9 @@ export default function EditSubCatalog() {
   return (
     <div>
       <PageWrapper slug="catalogL2" name="Catalog Edit Sub Menu" />
+      {fetchSubSingleCatalog?.error ? (
+        <ErrorComponent message="OOPS ! something went wrong" />
+      ) : null}
       {fetchSubSingleCatalog?.isPending ? (
         <ComponentLoader />
       ) : (

@@ -73,7 +73,7 @@ export default function OperatingPhilosophy() {
           </div>
           <div className="mb-3 col-md-6">
             <label htmlFor="operatingBanner" className="form-label">
-              Operating Banner
+              Operating Banner (1540px * 305px)
             </label>
             <FormInput
               type="file"
@@ -91,14 +91,14 @@ export default function OperatingPhilosophy() {
               <img
                 src={perviewImages}
                 alt="operating banner Preview"
-                className="preview-image"
+                style={{ maxWidth: "300px", marginTop: "10px" }}
               />
             )}
             {!perviewImages && defaultImg && (
               <img
                 src={defaultImg}
                 alt="operating banner Preview"
-                className="preview-image"
+                style={{ maxWidth: "300px", marginTop: "10px" }}
               />
             )}
           </div>

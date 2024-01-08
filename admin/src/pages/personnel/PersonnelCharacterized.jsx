@@ -89,7 +89,7 @@ export default function PersonnelCharacterized() {
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
             <div className="col-12">
-              <div className="mb-3 col-6">
+              <div className="mb-4 col-6">
                 <label htmlFor="heading" className="form-label">
                   Main Heading
                 </label>
@@ -135,7 +135,7 @@ export default function PersonnelCharacterized() {
             <div className="col-12">
               <div className="mb-3 col-md-6">
                 <label htmlFor="icon1" className="form-label">
-                  Icon 1
+                  Icon 1 (90px * 90px)
                 </label>
                 <FormInput
                   type="file"
@@ -153,14 +153,14 @@ export default function PersonnelCharacterized() {
                   <img
                     src={filePreviews.icon1Preview}
                     alt="Featured Image Preview"
-                    style={{ maxWidth: "100px" }}
+                    style={{ maxWidth: "100px", marginTop: "10px" }}
                   />
                 )}
                 {!filePreviews.icon1Preview && icons?.icon1 && (
                   <img
                     src={icons?.icon1}
                     alt="Featured Image Preview"
-                    style={{ maxWidth: "100px" }}
+                    style={{ maxWidth: "100px", marginTop: "10px" }}
                   />
                 )}
               </div>
@@ -196,7 +196,7 @@ export default function PersonnelCharacterized() {
             <div className="col-12">
               <div className="mb-3 col-md-6">
                 <label htmlFor="icon2" className="form-label">
-                  Icon 2
+                  Icon 2 (90px * 90px)
                 </label>
                 <FormInput
                   type="file"
@@ -214,14 +214,14 @@ export default function PersonnelCharacterized() {
                   <img
                     src={filePreviews.icon2Preview}
                     alt="Featured Image Preview"
-                    style={{ maxWidth: "100px" }}
+                    style={{ maxWidth: "100px", marginTop: "10px" }}
                   />
                 )}
                 {!filePreviews.icon2Preview && icons?.icon2 && (
                   <img
                     src={icons?.icon2}
                     alt="Featured Image Preview"
-                    style={{ maxWidth: "100px" }}
+                    style={{ maxWidth: "100px", marginTop: "10px" }}
                   />
                 )}
               </div>
@@ -257,7 +257,7 @@ export default function PersonnelCharacterized() {
             <div className="col-12">
               <div className="mb-3 col-md-6">
                 <label htmlFor="icon3" className="form-label">
-                  Icon 3
+                  Icon 3 (90px * 90px)
                 </label>
                 <FormInput
                   type="file"
@@ -275,14 +275,14 @@ export default function PersonnelCharacterized() {
                   <img
                     src={filePreviews.icon3Preview}
                     alt="Featured Image Preview"
-                    style={{ maxWidth: "100px" }}
+                    style={{ maxWidth: "100px", marginTop: "10px" }}
                   />
                 )}
                 {!filePreviews.icon3Preview && icons?.icon3 && (
                   <img
                     src={icons?.icon3}
                     alt="Featured Image Preview"
-                    style={{ maxWidth: "100px" }}
+                    style={{ maxWidth: "100px", marginTop: "10px" }}
                   />
                 )}
               </div>

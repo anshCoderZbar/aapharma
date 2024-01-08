@@ -12,6 +12,8 @@ import { DeleteArticle } from "rest/home";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
+import { ErrorComponent } from "components/Alerts/Error";
+import { InfoComponent } from "components/Alerts/Info";
 
 export default function HomeArticle() {
   const navigate = useNavigate();
@@ -77,6 +79,12 @@ export default function HomeArticle() {
   return (
     <div className="home_page_article">
       <PageWrapper slug="home-article" name="Home article" />
+      {allArticles?.data?.data?.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
+      {allArticles?.isError && (
+        <ErrorComponent message="OOPS ! something went wrong please try again later" />
+      )}
 
       {allArticles?.isPending ? (
         <ComponentLoader />

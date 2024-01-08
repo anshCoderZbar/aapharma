@@ -17,6 +17,7 @@ import { Edit2, Trash2 } from "lucide-react";
 import { DeleteService } from "rest/home";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import { InfoComponent } from "components/Alerts/Info";
 
 export default function HomeService() {
   const navigate = useNavigate();
@@ -92,6 +93,9 @@ export default function HomeService() {
       {allServices?.isError && (
         <ErrorComponent message="OOPS! some error occured" />
       )}
+      {allServices?.data?.data?.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
       {allServices?.isPending ? (
         <ComponentLoader />
       ) : (

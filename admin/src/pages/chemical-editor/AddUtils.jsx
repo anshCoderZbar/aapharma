@@ -139,15 +139,7 @@ export default function AddUtils() {
         <form onSubmit={handleSubmit(onSubmit)}>
           {inputs?.map((inputElm, index) => {
             return (
-              <div key={index} className="row">
-                <div
-                  onClick={() => handleDeleteInput(index)}
-                  className="d-flex justify-content-end"
-                >
-                  <span className="btn btn-danger">
-                    <X />
-                  </span>
-                </div>
+              <div key={index} className="row cxxxz">
                 <div className="mb-3 col-md-6">
                   <label
                     htmlFor={`heading_${index + 1}`}
@@ -166,57 +158,72 @@ export default function AddUtils() {
                   )}
                 </div>
                 <div className="mb-3 col-md-6">
-                  <label
-                    htmlFor={`attachments_${index + 1}`}
-                    className="form-label"
-                  >
-                    Attachments
-                  </label>
-                  <FormInput
-                    type="file"
-                    name={`attachments_${index + 1}`}
-                    placeholder="attachments"
-                    accept="application/pdf"
-                    {...register(`attachments_${index + 1}`)}
-                    onChange={(e) => handleFileInputChange(e, index)}
-                  />
-
-                  {filePreviews[index] && (
-                    <div className="mt-2">
-                      <img
-                        src={require("assets/pdf.png")}
-                        alt="File Preview"
-                        className="pdf_img"
-                      />
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href={filePreviews[index]}
-                        className="view"
+                  <div className="Attachments-x">
+                    <div className="luxa_x cv-x">
+                      <label
+                        htmlFor={`attachments_${index + 1}`}
+                        className="form-label"
                       >
-                        View
-                      </a>
-                    </div>
-                  )}
-                  {!filePreviews[index] && onlinePdf?.length >= 1 && (
-                    <div className="mt-2">
-                      <img
-                        src={require("assets/pdf.png")}
-                        alt="File Preview"
-                        className="pdf_img"
+                        Attachments
+                      </label>
+                      <FormInput
+                        type="file"
+                        name={`attachments_${index + 1}`}
+                        placeholder="attachments"
+                        accept="application/pdf"
+                        {...register(`attachments_${index + 1}`)}
+                        onChange={(e) => handleFileInputChange(e, index)}
                       />
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href={onlinePdf[index]}
-                        className="view"
-                      >
-                        View
-                      </a>
                     </div>
-                  )}
+                    <div className="luxa_x cv-x2">
+                      {filePreviews[index] && (
+                        <div className="mt-2">
+                          <img
+                            src={require("assets/pdf.png")}
+                            alt="File Preview"
+                            className="pdf_img"
+                          />
+                          <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={filePreviews[index]}
+                            className="view"
+                          >
+                            View
+                          </a>
+                        </div>
+                      )}
+                      {!filePreviews[index] && onlinePdf?.length >= 1 && (
+                        <div className="mt-2">
+                          <img
+                            src={require("assets/pdf.png")}
+                            alt="File Preview"
+                            className="pdf_img"
+                          />
+                          <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={onlinePdf[index]}
+                            className="view"
+                          >
+                            View
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                    <div className="luxa_x cv-x2">
+                      <div
+                        onClick={() => handleDeleteInput(index)}
+                        className="d-flex justify-content-end"
+                      >
+                        <span className="btn btn-danger">
+                          <X />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="mb-3 col-md-6">
+                <div className="mb-3 col-md-12">
                   <label
                     htmlFor={`description_${index + 1}`}
                     className="form-label"
@@ -237,18 +244,28 @@ export default function AddUtils() {
               </div>
             );
           })}
-          <div className="d-flex justify-content-end">
-            <span onClick={handleAddInputs} className="btn btn-danger">
-              Add More
-            </span>
-          </div>
-          {addUtility?.isPending ? (
-            <ButtonLoader />
-          ) : (
-            <div className="mb-3 col-12">
-              <input type="submit" value="submit" className="input_submit" />
+          <div className="row">
+            <div className="col-6">
+              {addUtility?.isPending ? (
+                <ButtonLoader />
+              ) : (
+                <div className="mb-3 col-12">
+                  <input
+                    type="submit"
+                    value="submit"
+                    className="input_submit"
+                  />
+                </div>
+              )}
             </div>
-          )}
+            <div className="col-6">
+              <div className="d-flex justify-content-end">
+                <span onClick={handleAddInputs} className="btn btn-success">
+                  Add More
+                </span>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     </div>

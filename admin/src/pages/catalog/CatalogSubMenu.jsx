@@ -12,6 +12,8 @@ import { InfoComponent } from "components/Alerts/Info";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { tableCustomStyles } from "app/mock/catalog";
 import { DeleteCatalogL2 } from "rest/catalog";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 
 export const CatalogSubMenu = () => {
   const navigate = useNavigate();
@@ -73,32 +75,33 @@ export const CatalogSubMenu = () => {
   return (
     <div className="catalog_page">
       <PageWrapper slug="catalogL2" name="Catalog Sub Menu" />
-
-      <SubCatalogL2 />
-
-      <hr className="my-5" />
-      <hr className="my-5" />
       {fetchSubCatalogs?.error ? (
         <ErrorComponent message="OOPS ! something went wrong" />
-      ) : (
-        ""
-      )}
+      ) : null}
       {fetchSubCatalogs?.data?.data.length < 1 ? (
         <InfoComponent message={"Please Add Data to Display"} />
       ) : null}
+      <SubCatalogL2 />
+      <hr className="my-5" />
+      <hr className="my-5" />
+
       {fetchSubCatalogs?.isPending ? (
         <div className="d-flex justify-content-center">
           <ComponentLoader />
         </div>
       ) : (
-        <DataTable
+        <DataTableExtensions
           columns={catalogColumns}
           data={fetchSubCatalogs?.data?.data?.sort((a, b) => b?.id - a?.id)}
-          pagination
-          paginationPerPage={10}
-          striped
-          customStyles={tableCustomStyles}
-        />
+          filterPlaceholder="Search"
+        >
+          <DataTable
+            pagination
+            paginationPerPage={10}
+            striped
+            customStyles={tableCustomStyles}
+          />
+        </DataTableExtensions>
       )}
     </div>
   );

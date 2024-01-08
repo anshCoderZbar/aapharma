@@ -65,7 +65,7 @@ export default function AboutBanner() {
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
             <div className="mb-3 col-md-6">
               <label htmlFor="aboutBanner" className="form-label">
-                About Banner
+                About Banner (1540px * 545 px)
               </label>
               <FormInput
                 type="file"
@@ -83,14 +83,14 @@ export default function AboutBanner() {
                 <img
                   src={perviewImages}
                   alt="about banner Preview"
-                  className="preview-image"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
                 />
               )}
               {!perviewImages && defaultImg && (
                 <img
                   src={defaultImg}
                   alt="about banner Preview"
-                  className="preview-image"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
                 />
               )}
             </div>

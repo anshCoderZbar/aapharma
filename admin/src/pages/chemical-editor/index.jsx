@@ -17,6 +17,8 @@ import { ErrorComponent } from "components/Alerts/Error";
 import { InfoComponent } from "components/Alerts/Info";
 import { DeleteChemical } from "rest/chemical";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 
 export default function ChemicalPage() {
   const navigate = useNavigate();
@@ -51,7 +53,7 @@ export default function ChemicalPage() {
     },
 
     {
-      name: "Utils",
+      name: "Additional Info",
       cell: (row) => (
         <span
           onClick={() =>
@@ -59,7 +61,7 @@ export default function ChemicalPage() {
           }
           className="utils_btn"
         >
-          Add Utils
+          Additional Info
         </span>
       ),
     },
@@ -103,7 +105,7 @@ export default function ChemicalPage() {
   ];
 
   return (
-    <div>
+    <div className="child">
       <PageWrapper slug="chemical" name="Chemical" />
       <div className="d-flex justify-content-end mb-4 add_catalog_btn">
         <Button onClick={() => navigate("/chemical-editor")}>
@@ -121,14 +123,20 @@ export default function ChemicalPage() {
       {fetchChemical?.isPending ? (
         <ComponentLoader />
       ) : (
-        <DataTable
-          columns={chemicalColumns}
-          data={fetchChemical?.data?.data?.sort((a, b) => b?.id - a?.id)}
-          pagination
-          paginationPerPage={10}
-          striped
-          customStyles={tableCustomStyles}
-        />
+        <div className="table-responsive">
+          <DataTableExtensions
+            columns={chemicalColumns}
+            data={fetchChemical?.data?.data?.sort((a, b) => b?.id - a?.id)}
+            filterPlaceholder="Search"
+          >
+            <DataTable
+              pagination
+              paginationPerPage={10}
+              striped
+              customStyles={tableCustomStyles}
+            />
+          </DataTableExtensions>
+        </div>
       )}
     </div>
   );

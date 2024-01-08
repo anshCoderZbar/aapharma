@@ -12,6 +12,8 @@ import { Edit2, Trash2 } from "lucide-react";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { useNavigate } from "react-router-dom";
 import { DeleteCatalogL3 } from "rest/catalog";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 
 export default function CatalogSuperSubMenu() {
   const navigate = useNavigate();
@@ -82,32 +84,34 @@ export default function CatalogSuperSubMenu() {
   return (
     <div className="catalog_page">
       <PageWrapper slug="catalogL2" name="Catalog Super Sub Menu" />
+      {fetchSuperSubCatalog?.error ? (
+        <ErrorComponent message="OOPS ! something went wrong" />
+      ) : null}
+      {fetchSuperSubCatalog?.data?.data.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
       <SuperSubCatalogL3 />
 
       <hr className="my-5" />
       <hr className="my-5" />
 
-      {fetchSuperSubCatalog?.error ? (
-        <ErrorComponent message="OOPS ! something went wrong" />
-      ) : (
-        ""
-      )}
-      {fetchSuperSubCatalog?.data?.data.length < 1 ? (
-        <InfoComponent message={"Please Add Data to Display"} />
-      ) : null}
       {fetchSuperSubCatalog?.isPending ? (
         <div className="d-flex justify-content-center">
           <ComponentLoader />
         </div>
       ) : (
-        <DataTable
+        <DataTableExtensions
           columns={catalogColumns}
           data={fetchSuperSubCatalog?.data?.data?.sort((a, b) => b?.id - a?.id)}
-          pagination
-          paginationPerPage={10}
-          striped
-          customStyles={tableCustomStyles}
-        />
+          filterPlaceholder="Search"
+        >
+          <DataTable
+            pagination
+            paginationPerPage={10}
+            striped
+            customStyles={tableCustomStyles}
+          />
+        </DataTableExtensions>
       )}
     </div>
   );

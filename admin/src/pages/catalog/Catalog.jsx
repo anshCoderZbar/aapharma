@@ -16,6 +16,8 @@ import { InfoComponent } from "components/Alerts/Info";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { DeleteCatalogL1 } from "rest/catalog";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 
 export const Catalog = () => {
   const navigate = useNavigate();
@@ -74,30 +76,33 @@ export const Catalog = () => {
   return (
     <div className="catalog_page">
       <PageWrapper slug="catalogL1" name="Catalog" />
-      <AddCatalogL1 />
-      <hr className="my-5" />
-      <hr className="my-5" />
       {fetchCatalogs?.error ? (
         <ErrorComponent message="OOPS ! something went wrong" />
-      ) : (
-        ""
-      )}
+      ) : null}
       {fetchCatalogs?.data?.data.length < 1 ? (
         <InfoComponent message={"Please Add Data to Display"} />
       ) : null}
+      <AddCatalogL1 />
+      <hr className="my-5" />
+      <hr className="my-5" />
+
       {fetchCatalogs?.isPending ? (
         <div className="d-flex justify-content-center">
           <ComponentLoader />
         </div>
       ) : (
-        <DataTable
+        <DataTableExtensions
           columns={catalogColumns}
           data={fetchCatalogs?.data?.data?.sort((a, b) => b?.id - a?.id)}
-          pagination
-          paginationPerPage={10}
-          striped
-          customStyles={tableCustomStyles}
-        />
+          filterPlaceholder="Search"
+        >
+          <DataTable
+            pagination
+            paginationPerPage={10}
+            striped
+            customStyles={tableCustomStyles}
+          />
+        </DataTableExtensions>
       )}
     </div>
   );

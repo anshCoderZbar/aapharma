@@ -13,6 +13,8 @@ import { DeleteTestimonial } from "rest/home";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
+import { InfoComponent } from "components/Alerts/Info";
+import { ErrorComponent } from "components/Alerts/Error";
 
 export default function HomeTestimonial() {
   const navigate = useNavigate();
@@ -78,6 +80,13 @@ export default function HomeTestimonial() {
   return (
     <div className="home_page_testimonial">
       <PageWrapper slug="home-testimonial" name="Home Testimonial" />
+
+      {allTestimonail?.isError && (
+        <ErrorComponent message="OOPS ! something went wrong please try again later" />
+      )}
+      {allTestimonail?.data?.data?.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
       {allTestimonail?.isPending ? (
         <ComponentLoader />
       ) : (

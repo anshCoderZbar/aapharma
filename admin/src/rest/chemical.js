@@ -27,7 +27,7 @@ export const CreateChemicalFn = (reset) => {
         fap3: "",
         price: "",
       });
-      navigate("/product-master");
+      navigate("/product-management");
       queryClient.invalidateQueries({ queryKey: ["fetch-chemical"] });
     },
     onError: (error) => {
@@ -78,7 +78,7 @@ export const UpdateChemical = () => {
     mutationFn: (data) => client.chemical.updateChemical(data),
     onSuccess: (data) => {
       notify("Chemical updated successfully", "success");
-      navigate("/product-master");
+      navigate("/product-management");
     },
     onError: (error) => {
       notify(
@@ -100,7 +100,7 @@ export const CreateUtility = () => {
     mutationFn: (data) => client.chemical.createUtility(data),
     onSuccess: () => {
       notify("Utility Created successfully", "success");
-      navigate("/product-master");
+      navigate("/product-management");
     },
     onError: (error) => {
       console.log(error);

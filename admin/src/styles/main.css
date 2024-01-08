@@ -52,3 +52,106 @@
   gap: 15px;
   flex-wrap: wrap;
 }
+
+.Attachments-x {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.luxa_x.cv-x {
+  flex: 0 72%;
+}
+
+.luxa_x.cv-x2 {
+  flex: 0 13%;
+}
+
+.cxxxz {
+  border-bottom: 1px dashed #919191;
+  margin-bottom: 30px;
+  padding-bottom: 27px;
+}
+
+@media screen and (max-width:991px) {
+  .luxa_x.cv-x {
+    flex: 0 1 62%;
+  }
+
+}
+
+@media screen and (max-width:767px) {
+  .Attachments-x {
+    flex-wrap: wrap;
+  }
+
+  .luxa_x.cv-x {
+    flex: 0 1 100%;
+  }
+
+  .luxa_x.cv-x2 {
+    flex: 0 1 25%;
+    display: flex;
+  }
+
+  .luxa_x.cv-x2 .btn.btn-danger {
+    position: relative;
+    top: 5px;
+    padding: 4px;
+  }
+
+  .luxa_x.cv-x2:last-child {
+    justify-content: flex-end;
+  }
+}
+
+.childrens {
+  overflow: hidden;
+}
+
+.form-select,
+.form-control {
+  font-size: 14px !important;
+}
+
+.form-label {
+  color: #0b0f40;
+  font-weight: 500;
+}
+
+.btn.btn-danger.btn_cross_vv {
+  position: relative;
+  bottom: 14px;
+  padding: 5px;
+}
+
+.btn.btn-danger.btn_cross_vv svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn.btn-success.btn_cross_vv2 {
+  position: relative;
+  bottom: 14px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.btn.btn-success.btn_cross_vv2 svg {
+  width: 20px;
+  height: 20px;
+}
+
+.rows_content {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  border-top: 1px dashed #919191;
+  padding: 15px 0 0 0;
+}
+
+.rows_content h3 {
+  color: #0b0f40;
+  margin-bottom: 20px;
+  font-size: 18px;
+  margin-top: 15px;
+}

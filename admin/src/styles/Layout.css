@@ -5,6 +5,7 @@
   grid-template-columns: 280px 1fr;
   grid-template-rows: 80px 1fr;
 }
+
 /* layout */
 
 /* sidebar */
@@ -22,9 +23,11 @@
   top: 0;
   transition: 0.3s ease-in-out;
 }
+
 .menu {
   top: 60px;
 }
+
 .menu_icon {
   position: absolute;
   right: -20px;
@@ -37,10 +40,12 @@
   background-color: #2a3072;
   color: #fff;
 }
+
 .logo img {
   width: 190px;
   margin: 10px 0 30px 8px;
 }
+
 .side_row {
   padding: 25px;
   width: 100%;
@@ -57,26 +62,31 @@
   letter-spacing: -0.05px;
   color: #a1acb8;
 }
+
 .nav-links ul {
   padding: 0;
   margin: 0;
   list-style: none;
   margin-top: 15px;
 }
+
 .icon,
 .sidebar_icon {
   font-size: 25px;
   stroke: var(--gray-800);
   line-height: 0;
 }
+
 .sidebar_icon_active {
   stroke: #fff !important;
 }
+
 .nav-links ul li {
   padding: 14px 11px;
   border-radius: 8px;
   transition: 0.2s ease-in-out;
 }
+
 .nav-links ul li a {
   text-decoration: none;
   font-size: 15px;
@@ -86,21 +96,28 @@
   top: 1px;
   color: #697a8d;
   font-weight: 500;
+  display: flex;
+  gap: 11px;
 }
 
 .side_active {
   background-color: #34caff !important;
-  color: #2a3072 !important;
+  color: #ffffff !important;
+  border-radius: 5px !important;
 }
+
 .side_active a {
-  color: #2a3072 !important;
+  color: #ffffff !important;
 }
+
 .side_active .icon {
   color: #2a3072 !important;
 }
+
 .side_sec {
   margin-top: 24px;
 }
+
 .side_btn {
   border: none;
   background-color: transparent;
@@ -132,7 +149,6 @@
 }
 
 .submenu_vs {
-  border-radius: 0 !important;
   padding: 7px 9px !important;
 }
 
@@ -233,6 +249,7 @@
 .dashboard_active {
   transform: translateX(0%) !important;
 }
+
 .calander_page {
   overflow: hidden;
 }
@@ -247,6 +264,7 @@
   line-height: 20px;
   padding: 15px 20px;
 }
+
 .logout_btn button span {
   margin-right: 10px;
   line-height: 0;
@@ -259,29 +277,76 @@
   margin: 20px;
 }
 
+/* sidebar */
+.accordion.b-yxs .accordion-item {
+  border: 0;
+  border-radius: 6px;
+}
+
+.accordion.b-yxs .accordion-button:focus {
+  z-index: 3;
+  border-color: #34caff;
+  outline: 0;
+  box-shadow: none;
+
+}
+
+.accordion.b-yxs .accordion-button:not(.collapsed) {
+  background-color: #34caff;
+  border-radius: 6px;
+  color: #ffff;
+}
+
+.accordion.b-yxs .accordion-button {
+  padding: 14px 11px;
+  display: flex;
+  gap: 12px;
+  color: #697a8d;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.accordion.b-yxs ul {
+  margin: 0;
+}
+
+.accordion.b-yxs .accordion-body {
+  padding: 6px 10px;
+}
+
+/* sidebar */
+
+
+
 /* responsive css */
 @media only screen and (max-width: 1550px) {
   .dashboard_sidebar {
     width: 240px;
   }
+
   .web_layout {
     grid-template-rows: 62px 1fr;
     grid-template-columns: 240px 1fr;
   }
+
   .header {
     padding: 0 20px;
   }
+
   .logo img {
     width: 160px;
     margin: 10px 0 15px 0;
   }
+
   .nav-links p {
     margin: 10px 9px 6px 10px;
   }
+
   .icon {
     font-size: 20px;
     color: var(--gray-800);
   }
+
   .nav-links ul li a {
     font-size: 13px;
   }
@@ -289,15 +354,19 @@
   .side_btn {
     font-size: 13px;
   }
+
   .bell_icon {
     font-size: 20px;
   }
+
   .head-input input::placeholder {
     font-size: 12px;
   }
+
   .profile h3 {
     font-size: 13px;
   }
+
   .profile p {
     font-size: 11px;
     text-align: left;
@@ -308,13 +377,16 @@
   .web_layout {
     grid-template-columns: 0px 1fr;
   }
+
   .menu_icon {
     display: block;
   }
+
   .dashboard_sidebar {
     transform: translateX(-100%);
     box-shadow: 0 3px 6px rgb(0 0 0 / 0%), 0 3px 6px rgb(0 0 0 / 3%);
   }
+
   .header {
     padding: 0 20px;
     box-shadow: 0 3px 6px rgb(0 0 0 / 0%), 0 3px 6px rgb(0 0 0 / 3%);
@@ -322,19 +394,23 @@
     width: 100%;
     border-radius: 0;
   }
+
   .side_sec {
     margin-top: 17px;
   }
+
   .nav-links ul {
     margin-top: 2px;
   }
 }
+
 @media only screen and (max-width: 767px) {
   .search_icon {
     position: relative;
     pointer-events: all;
     cursor: pointer;
   }
+
   .go_back_icon {
     position: absolute;
     z-index: 99;
@@ -343,24 +419,30 @@
     line-height: 0;
     top: 3px;
   }
+
   .head-input input {
     position: relative;
     border: none;
     padding: 0 0 0 30px;
   }
+
   .header {
     padding: 0 10px;
   }
+
   .profile p {
     font-size: 11px;
   }
+
   .img-box {
     width: 36px;
     height: 36px;
   }
+
   .bell_icon::after {
     display: none;
   }
+
   .header_right {
     gap: 30px;
   }

@@ -251,14 +251,14 @@ export default function Settings() {
                 <img
                   src={imagePreview.footerlogo}
                   alt="Footer Logo Preview"
-                  className="preview-image"
+                  className="preview-image bg-secondary"
                 />
               )}
               {!imagePreview?.footerlogo && logos.footer && (
                 <img
                   src={logos.footer}
                   alt="Footer Logo Preview"
-                  className="preview-image"
+                  className="preview-image bg-secondary"
                 />
               )}
               {errors?.footerlogo && (

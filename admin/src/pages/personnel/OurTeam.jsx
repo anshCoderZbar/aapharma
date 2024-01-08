@@ -10,6 +10,8 @@ import { GetTeamMemberMutation } from "rest/personnel";
 import { DeleteTeamMemberMutation } from "rest/personnel";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
 
 export default function OurTeam() {
   const [id, setId] = useState("");
@@ -83,14 +85,18 @@ export default function OurTeam() {
       {getAllTeamMember?.isPending ? (
         <ComponentLoader />
       ) : (
-        <DataTable
+        <DataTableExtensions
           columns={teamMembersColumns}
           data={getAllTeamMember?.data?.data?.sort((a, b) => b?.id - a?.id)}
-          pagination
-          paginationPerPage={5}
-          striped
-          customStyles={tableCustomStyles}
-        />
+          filterPlaceholder="Search"
+        >
+          <DataTable
+            pagination
+            paginationPerPage={10}
+            striped
+            customStyles={tableCustomStyles}
+          />
+        </DataTableExtensions>
       )}
     </div>
   );

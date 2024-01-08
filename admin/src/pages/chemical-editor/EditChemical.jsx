@@ -16,7 +16,6 @@ import { FetchAllCatalogsL2 } from "rest/catalog";
 import { FetchAllCatalogsL3 } from "rest/catalog";
 import { FetchSingleChemical } from "rest/chemical";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
-import { chemicalSchema } from "app/common/chemical/validation";
 import { UpdateChemical } from "rest/chemical";
 
 export default function EditChemical() {
@@ -164,7 +163,6 @@ export default function EditChemical() {
                 : ""
             }
           />
-
           <ChemicalForm
             onSubmit={handleSubmit(onSubmit)}
             register={register}

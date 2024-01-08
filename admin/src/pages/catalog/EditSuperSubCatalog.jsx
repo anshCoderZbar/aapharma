@@ -10,6 +10,7 @@ import { UpdateCatalogL3 } from "rest/catalog";
 import { FetchSuperSubSingleCatalog } from "rest/catalog";
 import { FetchAllCatalogsL2 } from "rest/catalog";
 import { FetchAllCatalogsL1 } from "rest/catalog";
+import { ErrorComponent } from "components/Alerts/Error";
 
 export default function EditSubCatalog() {
   const { id } = useParams();
@@ -46,6 +47,9 @@ export default function EditSubCatalog() {
   return (
     <>
       <PageWrapper slug="catalogL2" name="Catalog Edit Supers Sub Menu" />
+      {fetchSuperSubSingleCatalog?.error ? (
+        <ErrorComponent message="OOPS ! something went wrong" />
+      ) : null}
       {false ? (
         <ComponentLoader />
       ) : (

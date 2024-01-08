@@ -51,8 +51,8 @@ export const Header = () => {
               <button
                 onClick={() => {
                   removeToken();
-                  navigate("/login");
                   removeAuth();
+                  navigate("/login");
                   window.location.reload();
                 }}
               >

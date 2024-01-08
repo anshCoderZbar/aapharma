@@ -230,7 +230,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/product-master",
+      path: "/product-management",
       element: (
         <PrivateRoutes>
           <ChemicalPage />

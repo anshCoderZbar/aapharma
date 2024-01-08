@@ -98,7 +98,7 @@ export const TeamMemberForm = (props) => {
         </div>
         <div className="mb-3 col-md-6">
           <label htmlFor="memberImage" className="form-label">
-            Member Image
+            Member Image (395px * 385px)
           </label>
           <FormInput
             type="file"
