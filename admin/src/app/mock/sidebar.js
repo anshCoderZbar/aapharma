@@ -152,8 +152,20 @@ export const SidebarData = [
   {
     id: uuidv4(),
     name: "Chemical Synthesis",
-    slug: "chemical-synthesis",
+    slug: "#",
     icon: <FlaskConical />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "chemical synthesis",
+        slug: "chemical-synthesis",
+      },
+      {
+        id: 2,
+        subMenuName: "expertise includes",
+        slug: "expertise-includes",
+      },
+    ],
   },
   {
     id: uuidv4(),

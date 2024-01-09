@@ -46,7 +46,10 @@ import AddTeamMember from "app/common/personnel/AddTeamMember";
 import EditTeamMember from "app/common/personnel/EditTeamMember";
 import OperatingPhilosophy from "pages/operating-philosophy/OperatingPhilosophy";
 import HomeServiceContent from "pages/index-page/HomeServiceContent";
-import ChemicalSynthesis from "pages/chemical-synthesis";
+import ChemicalSynthesis from "pages/chemical-synthesis/ChemicalSynthesis";
+import AddChemicalSynthesis from "pages/chemical-synthesis/AddChemicalSynthesis";
+import EditChemicalSynthesis from "pages/chemical-synthesis/EditChemicalSynthesis";
+import ExpertiseIncludes from "pages/chemical-synthesis/ExpertiseIncludes";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -355,6 +358,30 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ChemicalSynthesis />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-chemical-synthesis",
+      element: (
+        <PrivateRoutes>
+          <AddChemicalSynthesis />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-chemical-synthesis/:id",
+      element: (
+        <PrivateRoutes>
+          <EditChemicalSynthesis />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/expertise-includes",
+      element: (
+        <PrivateRoutes>
+          <ExpertiseIncludes />
         </PrivateRoutes>
       ),
     },

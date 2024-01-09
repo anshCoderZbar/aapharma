@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { FormInput } from "components/ui/FormInput";
 import { PageWrapper } from "components/ui/PageWrapper";
 import { TextEditor } from "components/ui/TextEditor";
-import { utilsSchema } from "app/common/chemical/validation";
 import { X } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { CreateUtility } from "rest/chemical";

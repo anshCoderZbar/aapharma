@@ -186,8 +186,6 @@ export default function AboutCardDetails() {
     createAboutCard.mutate(formData);
   };
 
-  console.log(defaultImages);
-
   return (
     <div className="about-us">
       <PageWrapper slug="about-card-details" name="About Card" />

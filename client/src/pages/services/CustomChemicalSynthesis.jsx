@@ -2,18 +2,31 @@ import React, { useRef, useState } from "react";
 
 import "styles/Services.css";
 import banner from "assets/page-banners/custom_chemical_synthesis_banner.jpg";
+import {
+  GetCustomChemicalSynthesisMutation,
+  GetExpertiesIncludesMutation,
+  GetSingleChemicalSynthesisMutation,
+} from "rest/service";
 
 export default function CustomChemicalSynthesis() {
   const myRef = useRef(null);
   const [active, setActive] = useState(0);
+  const getChemicalSynthesisMutation = GetCustomChemicalSynthesisMutation();
+  const getSingleChemicalSynthesis = GetSingleChemicalSynthesisMutation();
+  const getExpertiesIncludes = GetExpertiesIncludesMutation();
 
-  const handleCardClick = (i) => {
-    setActive(i);
+  const handleCardClick = (id) => {
+    setActive(id);
+    const formData = new FormData();
+    formData.append("customchemicalsynthesisId", id);
+    getSingleChemicalSynthesis?.mutate(formData);
     if (myRef.current) {
       const element = myRef.current;
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  console.log();
   return (
     <div className="custom_chemical_synthesis_page">
       <div className="container-fluid">
@@ -22,36 +35,35 @@ export default function CustomChemicalSynthesis() {
             Custom Chemical Synthesis
           </h1>
           <div className="chemical_synthesis_card">
-            {cardData?.map((elm, i) => {
+            {getChemicalSynthesisMutation?.data?.data?.map((elm) => {
               return (
                 <div
-                  onClick={() => handleCardClick(i)}
+                  onClick={() => handleCardClick(elm?.id)}
                   key={elm?.id}
                   className={`card_outer ${
-                    active === i ? "chemical_card_active" : ""
+                    active === elm?.id ? "chemical_card_active" : ""
                   }`}
                 >
                   <div className="card_inner_body">
-                    <img src={elm?.img} alt="icon" />
+                    <img src={elm?.image} alt="icon" />
                     <p>{elm?.heading}</p>
                   </div>
                 </div>
               );
             })}
           </div>
-          {cardData?.map(
-            (data, i) =>
-              active === i && (
-                <div
-                  ref={myRef}
-                  key={i}
-                  className={`${
-                    active === i ? "openAnimation" : ""
-                  } service_description chem_desc`}
-                >
-                  <p>{data?.desc}</p>
-                </div>
-              )
+          {getSingleChemicalSynthesis?.data?.data && (
+            <div
+              ref={myRef}
+              key={getSingleChemicalSynthesis?.data?.data?.id}
+              className={`${
+                active === getSingleChemicalSynthesis?.data?.data?.id
+                  ? "openAnimation"
+                  : ""
+              } service_description chem_desc`}
+            >
+              <p>{getSingleChemicalSynthesis?.data?.data?.description}</p>
+            </div>
           )}
         </div>
         <div
@@ -61,16 +73,20 @@ export default function CustomChemicalSynthesis() {
           }}
         >
           <h2 className="main_top_heading text-white">
-            Our custom synthesis expertise includes
+            {getExpertiesIncludes?.data?.data?.heading &&
+              getExpertiesIncludes?.data?.data?.heading}
           </h2>
           <div className="lists_chemical">
-            {listsData?.map((list, i) => {
-              return (
-                <div key={i} className="chem_1">
-                  <span>{list.heading}</span>
-                </div>
-              );
-            })}
+            {getExpertiesIncludes?.data?.data?.expertiseList &&
+              getExpertiesIncludes?.data?.data?.expertiseList
+                ?.split("@@")
+                ?.map((elm, i) => {
+                  return (
+                    <div key={i} className="chem_1">
+                      <span>{elm}</span>
+                    </div>
+                  );
+                })}
           </div>
         </div>
       </div>

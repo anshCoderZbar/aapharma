@@ -69,4 +69,10 @@ export const API_ENDPOINTS = {
   updateTeamMember: "/team/update",
   deleteTeamMember: "/team/delete",
   operatingPhilosophy: "/operating-philosophy",
+  getCustomChemicalSynthesis: "/customchemicalsynthesis/all",
+  createCustomChemicalSynthesis: "/customchemicalsynthesis/new",
+  singleCustomChemicalSynthesis: "/customchemicalsynthesis/one",
+  updateCustomChemicalSynthesis: "/customchemicalsynthesis/update",
+  deleteCustomChemicalSynthesis: "/customchemicalsynthesis/delete",
+  expertiseIncludes: "/expertiseincludes",
 };

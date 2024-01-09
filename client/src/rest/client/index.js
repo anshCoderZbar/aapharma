@@ -40,6 +40,13 @@ class Client {
     getOperatingPhilosophy: () =>
       HttpClient.get(API_ENDPOINTS.operatingPhilosophy),
   };
+  services = {
+    getCustomChemicalSynthesis: () =>
+      HttpClient.get(API_ENDPOINTS.getCustomChemicalSynthesis),
+    getSingleChemicalSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleCustomChemicalSynthesis, params),
+    getExpertiseIncludes: () => HttpClient.get(API_ENDPOINTS.expertiseIncludes),
+  };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),
   };

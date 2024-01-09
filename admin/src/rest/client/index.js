@@ -140,6 +140,21 @@ class Client {
     getOperatingPhilosophy: () =>
       HttpClient.get(API_ENDPOINTS.operatingPhilosophy),
   };
+  chemicalSynthesis = {
+    createCustomChemicalSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.createCustomChemicalSynthesis, params),
+    getCustomChemicalSynthesis: () =>
+      HttpClient.get(API_ENDPOINTS.getCustomChemicalSynthesis),
+    getSingleChemicalSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleCustomChemicalSynthesis, params),
+    updateCustomChemicalSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateCustomChemicalSynthesis, params),
+    deleteCustomChemicalSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteCustomChemicalSynthesis, params),
+    expertiseIncludes: (params) =>
+      HttpClient.post(API_ENDPOINTS.expertiseIncludes, params),
+    getExpertiseIncludes: () => HttpClient.get(API_ENDPOINTS.expertiseIncludes),
+  };
 }
 const client = new Client();
 
