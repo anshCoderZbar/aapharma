@@ -46,6 +46,7 @@ import AddTeamMember from "app/common/personnel/AddTeamMember";
 import EditTeamMember from "app/common/personnel/EditTeamMember";
 import OperatingPhilosophy from "pages/operating-philosophy/OperatingPhilosophy";
 import HomeServiceContent from "pages/index-page/HomeServiceContent";
+import ChemicalSynthesis from "pages/chemical-synthesis";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -346,6 +347,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <OperatingPhilosophy />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/chemical-synthesis",
+      element: (
+        <PrivateRoutes>
+          <ChemicalSynthesis />
         </PrivateRoutes>
       ),
     },

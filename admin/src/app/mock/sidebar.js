@@ -1,5 +1,6 @@
 import {
   Biohazard,
+  FlaskConical,
   Image,
   ImagePlus,
   Info,
@@ -147,6 +148,12 @@ export const SidebarData = [
     name: "Operating Philosophy",
     slug: "operating-philosophy",
     icon: <LightbulbIcon />,
+  },
+  {
+    id: uuidv4(),
+    name: "Chemical Synthesis",
+    slug: "chemical-synthesis",
+    icon: <FlaskConical />,
   },
   {
     id: uuidv4(),
