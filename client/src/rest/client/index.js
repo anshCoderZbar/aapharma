@@ -39,6 +39,8 @@ class Client {
     getTeamMember: () => HttpClient.get(API_ENDPOINTS.getTeamMember),
     getOperatingPhilosophy: () =>
       HttpClient.get(API_ENDPOINTS.operatingPhilosophy),
+    getOperatingPhilosophyDiagram: () =>
+      HttpClient.get(API_ENDPOINTS.operatingPhilosophyDiagram),
   };
   services = {
     getCustomChemicalSynthesis: () =>

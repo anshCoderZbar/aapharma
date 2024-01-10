@@ -53,16 +53,28 @@ export const AboutUs = () => {
           </p>
           <div className="about_icons">
             <span>
-              <img src={AboutIcons.ICON_1} alt="banner_icons" />
+              <img
+                src={getBanner?.data?.data.icon1 && getBanner?.data?.data.icon1}
+                alt="banner_icons"
+              />
             </span>
             <span>
-              <img src={AboutIcons.ICON_2} alt="banner_icons" />
+              <img
+                src={getBanner?.data?.data.icon2 && getBanner?.data?.data.icon2}
+                alt="banner_icons"
+              />
             </span>
             <span>
-              <img src={AboutIcons.ICON_3} alt="banner_icons" />
+              <img
+                src={getBanner?.data?.data.icon3 && getBanner?.data?.data.icon3}
+                alt="banner_icons"
+              />
             </span>
             <span>
-              <img src={AboutIcons.ICON_4} alt="banner_icons" />
+              <img
+                src={getBanner?.data?.data.icon4 && getBanner?.data?.data.icon4}
+                alt="banner_icons"
+              />
             </span>
           </div>
         </div>

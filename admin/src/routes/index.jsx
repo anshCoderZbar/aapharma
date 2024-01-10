@@ -50,6 +50,7 @@ import ChemicalSynthesis from "pages/chemical-synthesis/ChemicalSynthesis";
 import AddChemicalSynthesis from "pages/chemical-synthesis/AddChemicalSynthesis";
 import EditChemicalSynthesis from "pages/chemical-synthesis/EditChemicalSynthesis";
 import ExpertiseIncludes from "pages/chemical-synthesis/ExpertiseIncludes";
+import EditOperatingDiagram from "app/common/operating-philosophy/EditOperatingDiagram";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -350,6 +351,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <OperatingPhilosophy />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-operating-diagram/:id",
+      element: (
+        <PrivateRoutes>
+          <EditOperatingDiagram />
         </PrivateRoutes>
       ),
     },

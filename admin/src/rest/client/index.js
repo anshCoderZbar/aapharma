@@ -139,6 +139,12 @@ class Client {
       HttpClient.post(API_ENDPOINTS.operatingPhilosophy, params),
     getOperatingPhilosophy: () =>
       HttpClient.get(API_ENDPOINTS.operatingPhilosophy),
+    getOperatingPhilosophyDiagram: () =>
+      HttpClient.get(API_ENDPOINTS.operatingPhilosophyDiagram),
+    singleOperatingPhilosophyDiagram: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleOperatingPhilosophyDiagram, params),
+    editSingleOperatingPhilosophyDiagram: (params) =>
+      HttpClient.post(API_ENDPOINTS.editOperatingPhilosophyDiagram, params),
   };
   chemicalSynthesis = {
     createCustomChemicalSynthesis: (params) =>

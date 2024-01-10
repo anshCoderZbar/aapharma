@@ -375,7 +375,7 @@
 
 .latest_articles .swiper-pagination-fraction,
 .swiper-pagination-custom,
-.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   width: auto !important;
   position: absolute;
@@ -426,12 +426,16 @@
   text-transform: capitalize;
 }
 
-.clients_logo {
+/* .clients_logo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   place-items: center;
   gap: 15px;
   margin-top: 50px;
+} */
+
+.clients .swiper-slide {
+  text-align: center !important;
 }
 
 /*====== clients ====== */
@@ -645,7 +649,7 @@
 }
 
 @media only screen and (max-width: 1199px) {
-  .nav-right>ul {
+  .nav-right > ul {
     gap: 13px;
   }
 
@@ -655,7 +659,7 @@
     border-radius: 8px;
   }
 
-  .nav-right>ul li a {
+  .nav-right > ul li a {
     gap: 1px;
   }
 

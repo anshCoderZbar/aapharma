@@ -60,3 +60,11 @@ export const GetOperatingPhilosophyMutation = () => {
   });
   return getOperatingMutation;
 };
+
+export const GetOperatingPhilosophyDiagram = () => {
+  const getOperatingDiagramMutation = useQuery({
+    queryKey: ["get-operating-philosophy-diagram"],
+    queryFn: () => client.about.getOperatingPhilosophyDiagram(),
+  });
+  return getOperatingDiagramMutation;
+};

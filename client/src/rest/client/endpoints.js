@@ -23,6 +23,7 @@ export const API_ENDPOINTS = {
   personnelCharacterized: "/p-characteristics",
   getTeamMember: "/team/all",
   operatingPhilosophy: "/operating-philosophy",
+  operatingPhilosophyDiagram: "/operatingphilosophygraph/all",
   getCustomChemicalSynthesis: "/customchemicalsynthesis/all",
   singleCustomChemicalSynthesis: "/customchemicalsynthesis/one",
   expertiseIncludes: "/expertiseincludes",

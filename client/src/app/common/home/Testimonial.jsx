@@ -9,7 +9,7 @@ export const Testimonials = () => {
 
   return (
     <Swiper
-      slidesPerView={1}
+      slidesPerView={2}
       spaceBetween={30}
       loop={true}
       breakpoints={{

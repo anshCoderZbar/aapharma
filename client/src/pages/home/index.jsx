@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Linkedin, MoveRightIcon, Twitter, Youtube } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Services } from "app/common/home/Services";
 import { Testimonials } from "app/common/home/Testimonial";
@@ -16,6 +17,7 @@ import {
 import "styles/Home.css";
 import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
+import { Autoplay } from "swiper/modules";
 
 export const Home = () => {
   const [allDetails] = useAtom(allSettings);
@@ -193,12 +195,43 @@ export const Home = () => {
       <div className="clients">
         <h2>Current and legacy clients</h2>
         <div className="container">
-          <div className="clients_logo">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={0}
+            modules={[Autoplay]}
+            loop={true}
+            speed={1500}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              470: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              991: {
+                slidesPerView: 4,
+              },
+              1199: {
+                slidesPerView: 5,
+              },
+              1300: {
+                slidesPerView: 6,
+              },
+            }}
+          >
             {allClients?.data?.data?.length >= 1 &&
               allClients?.data?.data?.map((logo, i) => {
-                return <img key={i} src={logo?.image} alt="clients" />;
+                return (
+                  <SwiperSlide key={i}>
+                    <img key={i} src={logo?.image} alt="clients" />
+                  </SwiperSlide>
+                );
               })}
-          </div>
+          </Swiper>
         </div>
       </div>
       <div className="testimonials_section">

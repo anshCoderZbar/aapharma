@@ -6,6 +6,7 @@ import { FormInput } from "components/ui/FormInput";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { OperatingPhilosophyMutation } from "rest/personnel";
 import { GetOperatingPhilosophyMutation } from "rest/personnel";
+import OperatingDiagram from "app/common/operating-philosophy/OperatingDiagram";
 
 export default function OperatingPhilosophy() {
   const {
@@ -41,7 +42,6 @@ export default function OperatingPhilosophy() {
     setDefaultImg(getOperatingPhilosophy?.data?.data?.image);
     reset(defaultValues);
   }, [getOperatingPhilosophy?.data?.data]);
-  console.log(getOperatingPhilosophy?.data?.data);
 
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -52,6 +52,7 @@ export default function OperatingPhilosophy() {
     formData.append("diagramDescription", data?.diagramDescription);
     operatingPhilosophyMutation.mutate(formData);
   };
+
   return (
     <>
       <PageWrapper slug="operating-philosophy" name="Operating Philosophy" />
@@ -134,11 +135,14 @@ export default function OperatingPhilosophy() {
               <p className="errorMessage">Diagram Heading is required</p>
             )}
           </div>
-          <div className="mb-3 col-md-6">
+          <div className="page_head">
+            <h2>Diagram</h2>
+          </div>
+          <div className="mb-3 col-12">
             <label htmlFor="diagramDescription" className="form-label">
               Diagram Description
             </label>
-            <textarea
+            <FormInput
               type="text"
               name="diagramDescription"
               rows={5}
@@ -161,6 +165,7 @@ export default function OperatingPhilosophy() {
             </div>
           )}
         </form>
+        <OperatingDiagram />
       </div>
     </>
   );

@@ -368,6 +368,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.3s linear;
+}
+
+.outer__circle:hover {
+  background-color: #34caff;
 }
 
 .circle_1 {
@@ -424,6 +429,18 @@
   line-height: 38px;
   max-width: 360px;
   padding: 0 15px;
+}
+
+.inner_hover_content h3 {
+  text-align: center;
+  color: #fff;
+  font-size: 25px !important;
+  line-height: 25px !important;
+  margin-bottom: 18px;
+}
+.inner_hover_content p {
+  font-size: 16px !important;
+  line-height: 28px !important;
 }
 
 @media only screen and (max-width: 1600px) {

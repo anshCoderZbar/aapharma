@@ -142,3 +142,40 @@ export const GetOperatingPhilosophyMutation = () => {
   });
   return getOperatingMutation;
 };
+
+export const GetOperatingPhilosophyDiagram = () => {
+  const getOperatingDiagramMutation = useQuery({
+    queryKey: ["get-operating-philosophy-diagram"],
+    queryFn: () => client.operatingPhilosophy.getOperatingPhilosophyDiagram(),
+  });
+  return getOperatingDiagramMutation;
+};
+
+export const GetSingleOperatingPhilosophyDiagram = (data) => {
+  const getOperatingDiagramMutation = useQuery({
+    queryKey: ["get-single-operating-philosophy-diagram"],
+    queryFn: () =>
+      client.operatingPhilosophy.singleOperatingPhilosophyDiagram(data),
+  });
+  return getOperatingDiagramMutation;
+};
+
+export const EditOperatingPhilosophyDiagramMutation = () => {
+  const { notify } = useNotifications();
+  const navigate = useNavigate();
+  const operatingMutation = useMutation({
+    mutationFn: (data) =>
+      client.operatingPhilosophy.editSingleOperatingPhilosophyDiagram(data),
+    onSuccess: () => {
+      notify("Data Edited Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-operating-philosophy-diagram"],
+      });
+      navigate("/operating-philosophy");
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return operatingMutation;
+};
