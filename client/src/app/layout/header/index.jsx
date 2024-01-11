@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import "styles/Layout.css";
@@ -12,6 +12,7 @@ import { allSettings } from "store/SettingsStore";
 
 export const Header = () => {
   const navRef = useRef(null);
+  const submenuRef = useRef(null);
   const navigate = useNavigate();
   const [allDetails] = useAtom(allSettings);
   const [active, setActive] = useState(false);
@@ -19,9 +20,35 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(-1);
 
-  const handleClick = (i) => {
-    setSelected(i);
+  const handleMenuClick = (i) => {
+    if (i === selected) {
+      setOpen(!open);
+      if (!open) {
+        setSelected(-1);
+      }
+    } else {
+      setSelected(i);
+      setOpen(true);
+    }
   };
+
+  const handleDocumentClick = (event) => {
+    if (navRef.current && !navRef.current.contains(event.target)) {
+      const isInsideSubMenu = event.target.closest(".dropdown__list");
+
+      if (!isInsideSubMenu || !open) {
+        setOpen(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
 
   useOutsideClick(navRef, active, () => {
     setActive(false);
@@ -71,22 +98,7 @@ export const Header = () => {
                   return (
                     <li
                       className="nav-right-li"
-                      onMouseEnter={
-                        data?.menu
-                          ? () => {
-                              setOpen(true);
-                              handleClick(i);
-                            }
-                          : null
-                      }
-                      onMouseLeave={
-                        data?.menu
-                          ? () => {
-                              setOpen(false);
-                              handleClick(-1);
-                            }
-                          : null
-                      }
+                      onClick={() => handleMenuClick(i)}
                       key={data?.id}
                     >
                       <Link to={data?.slug}>
@@ -105,8 +117,8 @@ export const Header = () => {
                           </span>
                         )}
                       </Link>
-                      {data?.menu && (
-                        <div className="dropdown vP_csPc">
+                      {data?.menu && selected !== -1 && (
+                        <div ref={submenuRef} className="dropdown vP_csPc">
                           <ul
                             className={`dropdown__list ${
                               open ? "dropdown__list--active" : ""
@@ -121,7 +133,13 @@ export const Header = () => {
                                       data?.id === 5 ? "" : "m_xLx"
                                     }`}
                                   >
-                                    <Link to={menu?.slug}> {menu?.name}</Link>
+                                    <Link
+                                      onClick={() => setActive(false)}
+                                      to={menu?.slug}
+                                    >
+                                      {" "}
+                                      {menu?.name}
+                                    </Link>
                                     {menu?.catalogItems && (
                                       <ul className="acc_types accordion accordion-flush">
                                         {menu?.catalogItems?.map((elm) => {
