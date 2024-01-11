@@ -52,6 +52,15 @@ class Client {
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),
   };
+  caseStudy = {
+    getCaseStudy: () => HttpClient.get(API_ENDPOINTS.caseStudyTabs),
+    singleCaseStudyTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleCaseStudyTabs, params),
+    getCaseStudyGraphContent: () =>
+      HttpClient.get(API_ENDPOINTS.caseStudyGraphContent),
+    getCaseStudyDiagramData: () =>
+      HttpClient.get(API_ENDPOINTS.getCaseStudyDiagramData),
+  };
 }
 
 const client = new Client();

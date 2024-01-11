@@ -27,4 +27,8 @@ export const API_ENDPOINTS = {
   getCustomChemicalSynthesis: "/customchemicalsynthesis/all",
   singleCustomChemicalSynthesis: "/customchemicalsynthesis/one",
   expertiseIncludes: "/expertiseincludes",
+  caseStudyTabs: "/casestudymain/all",
+  singleCaseStudyTabs: "/casestudymain/one",
+  caseStudyGraphContent: "/case_study_graph_center",
+  getCaseStudyDiagramData: "/case_study_graph/all",
 };

@@ -161,6 +161,23 @@ class Client {
       HttpClient.post(API_ENDPOINTS.expertiseIncludes, params),
     getExpertiseIncludes: () => HttpClient.get(API_ENDPOINTS.expertiseIncludes),
   };
+  caseStudy = {
+    getCaseStudy: () => HttpClient.get(API_ENDPOINTS.caseStudyTabs),
+    singleCaseStudyTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleCaseStudyTabs, params),
+    editCaseStudyTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.editCaseStudyTabs, params),
+    getCaseStudyGraphContent: () =>
+      HttpClient.get(API_ENDPOINTS.caseStudyGraphContent),
+    editCaseStudyGraphContent: (params) =>
+      HttpClient.post(API_ENDPOINTS.caseStudyGraphContent, params),
+    getCaseStudyDiagramData: () =>
+      HttpClient.get(API_ENDPOINTS.getCaseStudyDiagramData),
+    singleCaseStudyDiagramData: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleCaseStudyDiagramData, params),
+    editCaseStudyDiagramData: (params) =>
+      HttpClient.post(API_ENDPOINTS.editCaseStudyDiagramData, params),
+  };
 }
 const client = new Client();
 

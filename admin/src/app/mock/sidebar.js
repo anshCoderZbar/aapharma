@@ -1,5 +1,6 @@
 import {
   Biohazard,
+  Castle,
   FlaskConical,
   Image,
   ImagePlus,
@@ -164,6 +165,29 @@ export const SidebarData = [
         id: 2,
         subMenuName: "expertise includes",
         slug: "expertise-includes",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Case Study",
+    slug: "#",
+    icon: <Castle />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Case Study Tabs",
+        slug: "case-study-tabs",
+      },
+      {
+        id: 2,
+        subMenuName: "Case Study Diagram Content",
+        slug: "case-graph-content",
+      },
+      {
+        id: 3,
+        subMenuName: "Case Study Diagram",
+        slug: "case-study-diagram",
       },
     ],
   },

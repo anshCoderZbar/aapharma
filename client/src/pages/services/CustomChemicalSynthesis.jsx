@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "styles/Services.css";
 import banner from "assets/page-banners/custom_chemical_synthesis_banner.jpg";
@@ -7,18 +7,50 @@ import {
   GetExpertiesIncludesMutation,
   GetSingleChemicalSynthesisMutation,
 } from "rest/service";
+import axios from "axios";
+import { API_ENDPOINTS } from "rest/client/endpoints";
 
 export default function CustomChemicalSynthesis() {
   const myRef = useRef(null);
-  const [active, setActive] = useState(0);
   const getChemicalSynthesisMutation = GetCustomChemicalSynthesisMutation();
   const getSingleChemicalSynthesis = GetSingleChemicalSynthesisMutation();
   const getExpertiesIncludes = GetExpertiesIncludesMutation();
+  const [active, setActive] = useState(null);
+  const [initialData, setInitialData] = useState({});
+
+  useEffect(() => {
+    setActive(getChemicalSynthesisMutation?.data?.data[0]?.id);
+  }, [getChemicalSynthesisMutation?.data?.data]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    if (active) {
+      axios
+        .post(
+          `${process.env.REACT_APP_BASE_URL}${API_ENDPOINTS.singleCustomChemicalSynthesis}`,
+          { customchemicalsynthesisId: active },
+          { signal }
+        )
+        .then((res) => {
+          setInitialData(res?.data?.data);
+        })
+        .catch((err) => {
+          return;
+        });
+    }
+    return () => {
+      abortController.abort();
+    };
+  }, [active]);
 
   const handleCardClick = (id) => {
     setActive(id);
     const formData = new FormData();
-    formData.append("customchemicalsynthesisId", id);
+    formData.append(
+      "customchemicalsynthesisId",
+      id ? id : getChemicalSynthesisMutation?.data?.data[0]?.id
+    );
     getSingleChemicalSynthesis?.mutate(formData);
     if (myRef.current) {
       const element = myRef.current;
@@ -26,7 +58,6 @@ export default function CustomChemicalSynthesis() {
     }
   };
 
-  console.log();
   return (
     <div className="custom_chemical_synthesis_page">
       <div className="container-fluid">
@@ -52,7 +83,7 @@ export default function CustomChemicalSynthesis() {
               );
             })}
           </div>
-          {getSingleChemicalSynthesis?.data?.data && (
+          {(getSingleChemicalSynthesis?.data?.data || initialData) && (
             <div
               ref={myRef}
               key={getSingleChemicalSynthesis?.data?.data?.id}
@@ -62,7 +93,11 @@ export default function CustomChemicalSynthesis() {
                   : ""
               } service_description chem_desc`}
             >
-              <p>{getSingleChemicalSynthesis?.data?.data?.description}</p>
+              <p>
+                {getSingleChemicalSynthesis?.data?.data?.description
+                  ? getSingleChemicalSynthesis?.data?.data?.description
+                  : initialData?.description}
+              </p>
             </div>
           )}
         </div>
@@ -93,105 +128,3 @@ export default function CustomChemicalSynthesis() {
     </div>
   );
 }
-
-const cardData = [
-  {
-    id: 1,
-    img: require("assets/chemical_icon_1.png"),
-    heading: "Lead generation / Lead optimization",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,1",
-  },
-  {
-    id: 2,
-    img: require("assets/chemical_icon_2.png"),
-    heading:
-      "New chemical entities including libraries for structure activity relationship (SAR) analysis",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,2",
-  },
-  {
-    id: 3,
-    img: require("assets/chemical_icon_3.png"),
-    heading: "Reference compounds",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,3",
-  },
-  {
-    id: 4,
-    img: require("assets/chemical_icon_4.png"),
-    heading: "API impurities",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,4",
-  },
-  {
-    id: 5,
-    img: require("assets/chemical_icon_5.png"),
-    heading: "Reagents for R&D projects (e.g. from patents or publications)",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,5",
-  },
-  {
-    id: 6,
-    img: require("assets/chemical_icon_6.png"),
-    heading: "Stable isotope labeled compounds ( e.g. D, 13C, 15N)",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,6",
-  },
-  {
-    id: 7,
-    img: require("assets/chemical_icon_7.png"),
-    heading: "Route scouting",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,7",
-  },
-  {
-    id: 8,
-    img: require("assets/chemical_icon_8.png"),
-    heading: "Synthetic methodology development",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,8",
-  },
-  {
-    id: 9,
-    img: require("assets/chemical_icon_9.png"),
-    heading: "Scaffold and building block design",
-    desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,9    ",
-  },
-];
-
-const listsData = [
-  {
-    heading:
-      "Synthesis, purification, and characterization of organic molecules",
-  },
-  {
-    heading: "Photochemistry",
-  },
-  {
-    heading:
-      "Suzuki, Stille, Sonogashire, Buchwald-Hartwig and other coupling reactions",
-  },
-  {
-    heading: "Chiral synthesis and separations",
-  },
-  {
-    heading: "Catalytic hydrogenations",
-  },
-  {
-    heading: "Heterocyclic chemistry",
-  },
-  {
-    heading: "Multi-step synthesis",
-  },
-  {
-    heading: "Fluorescent dye design, development, and synthesis",
-  },
-  {
-    heading: "Pressure reactions",
-  },
-  {
-    heading: "Targeted stable isotopic labeling",
-  },
-  {
-    heading: "Organometallic chemistry",
-  },
-  {
-    heading: "Distillations",
-  },
-  {
-    heading: "Sulfonations",
-  },
-];

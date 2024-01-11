@@ -78,4 +78,11 @@ export const API_ENDPOINTS = {
   updateCustomChemicalSynthesis: "/customchemicalsynthesis/update",
   deleteCustomChemicalSynthesis: "/customchemicalsynthesis/delete",
   expertiseIncludes: "/expertiseincludes",
+  caseStudyTabs: "/casestudymain/all",
+  singleCaseStudyTabs: "/casestudymain/one",
+  editCaseStudyTabs: "/casestudymain/update",
+  caseStudyGraphContent: "/case_study_graph_center",
+  getCaseStudyDiagramData: "/case_study_graph/all",
+  singleCaseStudyDiagramData: "/case_study_graph/one",
+  editCaseStudyDiagramData: "/case_study_graph/update",
 };

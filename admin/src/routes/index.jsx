@@ -51,6 +51,11 @@ import AddChemicalSynthesis from "pages/chemical-synthesis/AddChemicalSynthesis"
 import EditChemicalSynthesis from "pages/chemical-synthesis/EditChemicalSynthesis";
 import ExpertiseIncludes from "pages/chemical-synthesis/ExpertiseIncludes";
 import EditOperatingDiagram from "app/common/operating-philosophy/EditOperatingDiagram";
+import CaseStudyTabs from "pages/case-study/CaseStudyTabs";
+import EditCaseTabs from "pages/case-study/EditCaseTabs";
+import CaseStudyGraphContent from "pages/case-study/CaseStudyGraphContent";
+import CaseStudyDiagram from "pages/case-study/CaseStudyDiagram";
+import EditCaseStudyDiagram from "pages/case-study/EditCaseStudyDiagram";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -391,6 +396,46 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ExpertiseIncludes />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/case-study-tabs",
+      element: (
+        <PrivateRoutes>
+          <CaseStudyTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-case-tabs/:id",
+      element: (
+        <PrivateRoutes>
+          <EditCaseTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/case-graph-content",
+      element: (
+        <PrivateRoutes>
+          <CaseStudyGraphContent />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/case-study-diagram",
+      element: (
+        <PrivateRoutes>
+          <CaseStudyDiagram />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-case-diagram/:id",
+      element: (
+        <PrivateRoutes>
+          <EditCaseStudyDiagram />
         </PrivateRoutes>
       ),
     },
