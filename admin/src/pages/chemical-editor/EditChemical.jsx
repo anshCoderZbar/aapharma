@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import React, { useEffect, useState } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 import "styles/editor.css";
 
@@ -12,8 +11,6 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { ChemicalForm } from "components/chemical-form";
 
 import { FetchAllCatalogsL1 } from "rest/catalog";
-import { FetchAllCatalogsL2 } from "rest/catalog";
-import { FetchAllCatalogsL3 } from "rest/catalog";
 import { FetchSingleChemical } from "rest/chemical";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { UpdateChemical } from "rest/chemical";
@@ -28,12 +25,21 @@ export default function EditChemical() {
   const [base64Img, setBase64Img] = useState();
   const [inputs, setInputs] = useState([]);
   const [priceInputs, setPriceInputs] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [subChild, setSubChild] = useState([
+    { name: "", value: "" },
+    { name: "", value: "" },
+    { name: "", value: "" },
+  ]);
+  const [subCategoryData, setSubCategoryData] = useState([
+    { name: "", value: "" },
+    { name: "", value: "" },
+    { name: "", value: "" },
+  ]);
 
   const fetchSingleChemical = FetchSingleChemical(id);
 
   const fetchCatalogs = FetchAllCatalogsL1();
-  const fetchAllSubCatalogs = FetchAllCatalogsL2();
-  const fetchAllSuperSubCatalogs = FetchAllCatalogsL3();
 
   const {
     register,
@@ -58,19 +64,13 @@ export default function EditChemical() {
     defaultValues.sortNo = fetchSingleChemical?.data?.data?.sortNo;
     defaultValues.heading = fetchSingleChemical?.data?.data?.heading;
     defaultValues.description = fetchSingleChemical?.data?.data?.description;
-    defaultValues.productClass = fetchSingleChemical?.data?.data?.productClass;
     defaultValues.mainCategory = fetchSingleChemical?.data?.data?.catalog;
     defaultValues.subCategory = fetchSingleChemical?.data?.data?.catalog2;
     defaultValues.superCategory = fetchSingleChemical?.data?.data?.catalog3;
-    defaultValues.clogP = fetchSingleChemical?.data?.data?.clogP;
-    defaultValues.mv = fetchSingleChemical?.data?.data?.mv;
-    defaultValues.hbd = fetchSingleChemical?.data?.data?.hbd;
-    defaultValues.hba = fetchSingleChemical?.data?.data?.hba;
-    defaultValues.rotb = fetchSingleChemical?.data?.data?.rotb;
-    defaultValues.fap3 = fetchSingleChemical?.data?.data?.fap3;
-    defaultValues.price = fetchSingleChemical?.data?.data?.price;
     const catalogDetails = fetchSingleChemical?.data?.data?.catalog_details;
-
+    const arrayOfStrings = fetchSingleChemical?.data?.data?.catalog.split("@@");
+    const arrayOfNumbers = arrayOfStrings?.map((str) => Number(str));
+    arrayOfNumbers && setSelectedCategories(arrayOfNumbers);
     if (catalogDetails) {
       const parsedCatalogDetails = JSON.parse(catalogDetails);
       const newInputs = parsedCatalogDetails.map((data, i) => {
@@ -89,6 +89,7 @@ export default function EditChemical() {
       });
       setPriceInputs(priceInputs);
     }
+
     reset({ ...defaultValues });
   }, [fetchSingleChemical?.data?.data]);
 
@@ -101,7 +102,9 @@ export default function EditChemical() {
       formData.append("sortNo", data?.sortNo);
       formData.append("image", base64Img);
       formData.append("heading", data?.heading);
-      formData.append("catalog", data?.mainCategory);
+      selectedCategories?.forEach((data) => {
+        formData.append("catalog[]", data);
+      });
       formData.append("catalog2", data?.subCategory);
       formData.append("catalog3", data?.superCategory);
       formData.append("description", data?.description);
@@ -169,10 +172,6 @@ export default function EditChemical() {
             errors={errors}
             control={control}
             mainCategoryData={fetchCatalogs?.data?.data}
-            subCategoryData={fetchAllSubCatalogs?.data?.data}
-            superSubCategoryData={fetchAllSuperSubCatalogs?.data?.data}
-            mainCategoryFilterId={searchParams.get("main-cat")}
-            subChemicalFilterId={searchParams.get("sub-cat")}
             subSuperChemicalFilterId={searchParams.get("super-sub-cat")}
             isLoading={updateChemical?.isPending}
             getValues={getValues}
@@ -181,9 +180,24 @@ export default function EditChemical() {
             setInputs={setInputs}
             priceInputs={priceInputs}
             setPriceInputs={setPriceInputs}
+            mainCategoryFilterId={searchParams.get("main-cat")}
+            subChemicalFilterId={searchParams.get("sub-cat")}
+            superChemicalFilterId={searchParams.get("super-sub-cat")}
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+            subChild={subChild}
+            setSubChild={setSubChild}
+            subCategoryData={subCategoryData}
+            setSubCategoryData={setSubCategoryData}
           />
         </div>
       )}
     </div>
   );
 }
+
+// subCategoryData={fetchAllSubCatalogs?.data?.data}
+// superSubCategoryData={fetchAllSuperSubCatalogs?.data?.data}
+
+// subCategoryData,
+// superSubCategoryData,

@@ -57,7 +57,10 @@ export default function ChemicalPage() {
       cell: (row) => (
         <span
           onClick={() =>
-            navigate({ pathname: "/add-utils", search: `id=${row?.id}` })
+            navigate({
+              pathname: "/add-utils",
+              search: `id=${row?.id}`,
+            })
           }
           className="utils_btn"
         >
@@ -74,7 +77,10 @@ export default function ChemicalPage() {
           onClick={() =>
             navigate({
               pathname: `/edit-chemical/${row?.id}`,
-              search: `main-cat=${row?.catalog}&sub-cat=${row?.catalog2}&super-sub-cat=${row?.catalog3}`,
+              search: `main-cat=${row?.catalog?.replaceAll(
+                "@@",
+                ","
+              )}&sub-cat=${row?.catalog2}&super-sub-cat=${row?.catalog3}`,
             })
           }
         >

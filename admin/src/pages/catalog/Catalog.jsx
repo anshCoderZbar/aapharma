@@ -93,7 +93,7 @@ export const Catalog = () => {
       ) : (
         <DataTableExtensions
           columns={catalogColumns}
-          data={fetchCatalogs?.data?.data?.sort((a, b) => b?.id - a?.id)}
+          data={fetchCatalogs?.data?.data}
           filterPlaceholder="Search"
         >
           <DataTable

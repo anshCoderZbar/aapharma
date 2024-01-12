@@ -34,6 +34,10 @@ class Client {
       HttpClient.post(API_ENDPOINTS.updateCatalogL3, { ...params }),
     deleteCatalogL3: (id) =>
       HttpClient.post(API_ENDPOINTS.deleteCatalogL3, { id: id }),
+    filterSubCategory: (params) =>
+      HttpClient.post(API_ENDPOINTS.filterSubCategory, params),
+    filterSubChildCategory: (params) =>
+      HttpClient.post(API_ENDPOINTS.filterSubChildCategory, params),
   };
   chemical = {
     addChemical: (params) => HttpClient.post(API_ENDPOINTS.addChemical, params),

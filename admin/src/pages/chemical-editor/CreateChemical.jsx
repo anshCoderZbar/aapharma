@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 import "styles/editor.css";
 
@@ -9,9 +8,6 @@ import { PageWrapper } from "components/ui/PageWrapper";
 import { EditorComponent } from "components/editor-component";
 import { ChemicalForm } from "components/chemical-form";
 import { FetchAllCatalogsL1 } from "rest/catalog";
-import { FetchAllCatalogsL2 } from "rest/catalog";
-import { FetchAllCatalogsL3 } from "rest/catalog";
-import { chemicalSchema } from "app/common/chemical/validation";
 import { CreateChemicalFn } from "rest/chemical";
 
 export default function CreateChemical() {
@@ -23,17 +19,25 @@ export default function CreateChemical() {
     reset,
     getValues,
   } = useForm();
-  // } = useForm({ resolver: yupResolver(chemicalSchema) });
 
   const [currentMolecule, setCurrentMolecule] = useState("");
   const [img, setImg] = useState("");
   const [base64Img, setBase64Img] = useState();
   const [inputs, setInputs] = useState([{ label: "", description: "" }]);
   const [priceInputs, setPriceInputs] = useState([{ quantity: "", price: "" }]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [subChild, setSubChild] = useState([
+    { name: "", value: "" },
+    { name: "", value: "" },
+    { name: "", value: "" },
+  ]);
+  const [subCategoryData, setSubCategoryData] = useState([
+    { name: "", value: "" },
+    { name: "", value: "" },
+    { name: "", value: "" },
+  ]);
 
   const fetchCatalogs = FetchAllCatalogsL1();
-  const fetchAllSubCatalogs = FetchAllCatalogsL2();
-  const fetchAllSuperSubCatalogs = FetchAllCatalogsL3();
 
   const createChemical = CreateChemicalFn(reset);
 
@@ -52,9 +56,6 @@ export default function CreateChemical() {
     formData.append("sortNo", data?.sortNo);
     formData.append("image", base64Img);
     formData.append("heading", data?.heading);
-    formData.append("catalog", data?.mainCategory);
-    formData.append("catalog2", data?.subCategory);
-    formData.append("catalog3", data?.superCategory);
     formData.append("description", data?.description);
     formData.append("molecule", currentMolecule);
 
@@ -84,6 +85,10 @@ export default function CreateChemical() {
         }
       }
     });
+
+    selectedCategories?.forEach((data) => {
+      formData.append("catalog[]", data);
+    });
     formData.append(
       "catalog_details",
       organizedData?.length >= 1 && JSON.stringify(organizedData)
@@ -92,7 +97,12 @@ export default function CreateChemical() {
       "catalog_quantity_price",
       organizedPriceData?.length >= 1 && JSON.stringify(organizedPriceData)
     );
-
+    subCategoryData?.forEach((data) => {
+      formData.append("catalog2[]", data?.value ? data?.value : null);
+    });
+    subChild?.forEach((data) => {
+      formData.append("catalog3[]", data?.value ? data?.value : null);
+    });
     createChemical.mutate(formData);
   };
 
@@ -110,8 +120,6 @@ export default function CreateChemical() {
           errors={errors}
           control={control}
           mainCategoryData={fetchCatalogs?.data?.data}
-          subCategoryData={fetchAllSubCatalogs?.data?.data}
-          superSubCategoryData={fetchAllSuperSubCatalogs?.data?.data}
           isLoading={createChemical?.isPending}
           getValues={getValues}
           reset={reset}
@@ -119,8 +127,13 @@ export default function CreateChemical() {
           setInputs={setInputs}
           priceInputs={priceInputs}
           setPriceInputs={setPriceInputs}
+          selectedCategories={selectedCategories}
+          setSelectedCategories={setSelectedCategories}
+          subChild={subChild}
+          setSubChild={setSubChild}
+          subCategoryData={subCategoryData}
+          setSubCategoryData={setSubCategoryData}
         />
-        {/* <img src={base64Img} alt="Base64 Image" /> */}
       </div>
     </div>
   );

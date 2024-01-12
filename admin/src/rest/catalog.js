@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import client from "./client";
-import { useNotifications } from "reapop";
+import { notify, useNotifications } from "reapop";
 import { useNavigate } from "react-router-dom";
 import { queryClient } from "queryclient";
 
@@ -303,4 +303,50 @@ export const DeleteCatalogL3 = () => {
     },
   });
   return deleteCatalogMutation;
+};
+
+// filter Catalogs
+
+export const FilterSubCategoryMutation = () => {
+  const { notify } = useNotifications();
+  const filterCategory = useMutation({
+    mutationFn: (data) => client.catalog.filterSubCategory(data),
+    onSuccess: () => {
+      return;
+    },
+    onError: () => {
+      notify("OOPS! some error occured");
+    },
+  });
+  return filterCategory;
+};
+
+export const FilterSubChildCategoryMutation = () => {
+  const { notify } = useNotifications();
+  const filterCategory = useMutation({
+    mutationFn: (data) => client.catalog.filterSubChildCategory(data),
+    onSuccess: () => {
+      return;
+    },
+    onError: () => {
+      notify("OOPS! some error occured");
+    },
+  });
+  return filterCategory;
+};
+
+export const FilterSubCategoryQuery = (data) => {
+  const filterCategory = useQuery({
+    queryKey: ["sub-category-filter-Gggg"],
+    queryFn: () => client.catalog.filterSubCategory({ categoryIds: data }),
+  });
+  return filterCategory;
+};
+
+export const FilterSubChildCategoryQuery = (data) => {
+  const filterCategory = useQuery({
+    queryKey: ["sub-category-filter-sub]"],
+    queryFn: () => client.catalog.filterSubChildCategory(data),
+  });
+  return filterCategory;
 };

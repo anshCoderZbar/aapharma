@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TextEditor } from "components/ui/TextEditor";
 import { FormInput } from "components/ui/FormInput";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { Plus, X } from "lucide-react";
+import { FilterSubCategoryMutation } from "rest/catalog";
+import { FilterSubChildCategoryMutation } from "rest/catalog";
+import { FilterSubChildCategoryQuery } from "rest/catalog";
 
 export const ChemicalForm = ({
   onSubmit,
@@ -11,20 +14,27 @@ export const ChemicalForm = ({
   control,
   isLoading,
   mainCategoryData,
-  subCategoryData,
-  superSubCategoryData,
-  mainCategoryFilterId,
   subChemicalFilterId,
-  subSuperChemicalFilterId,
   getValues,
   reset,
   inputs,
   setInputs,
   priceInputs,
   setPriceInputs,
+  selectedCategories,
+  setSelectedCategories,
+  subChild,
+  setSubChild,
+  subCategoryData,
+  setSubCategoryData,
 }) => {
-  const [superSubCat, setSuperSubCat] = useState("");
-  const [searchLastLevCat, setSearchLastLevCat] = useState("");
+  const [isSelected, setIsSelected] = useState(false);
+  const [selectedSubCategoryIds, setSelectedSubCategoryIds] = useState([]);
+  const filterSubCatalog = FilterSubCategoryMutation();
+  const filterSubChildCategory = FilterSubChildCategoryMutation();
+  const getIntitalFilterSubChildCategoryQuery = FilterSubChildCategoryQuery({
+    subcategoryIds: [Number(subChemicalFilterId)],
+  });
 
   const handleAddInputs = (e) => {
     setInputs([...inputs, { label: "", description: "" }]);
@@ -58,22 +68,140 @@ export const ChemicalForm = ({
     reset(newFormData);
   };
 
-  const filterSuperSubCategory = subCategoryData?.filter((data) => {
-    return (
-      Number.parseInt(data?.catalog) ===
-      Number.parseInt(superSubCat || mainCategoryFilterId)
-    );
-  });
+  const handleCheckboxChange = (categoryId) => {
+    setSelectedSubCategoryIds([]);
+    setSubChild([
+      { name: "", value: "" },
+      { name: "", value: "" },
+      { name: "", value: "" },
+    ]);
+    setSubCategoryData([
+      { name: "", value: "" },
+      { name: "", value: "" },
+      { name: "", value: "" },
+    ]);
+    setSelectedCategories((prevSelectedCategories) => {
+      if (prevSelectedCategories.includes(categoryId)) {
+        return prevSelectedCategories.filter((id) => id !== categoryId);
+      } else {
+        return [...prevSelectedCategories, categoryId];
+      }
+    });
 
-  const filterSuperSubLastCategory = superSubCategoryData?.filter((data) => {
-    return (
-      Number.parseInt(data?.catalog2) ===
-        Number.parseInt(searchLastLevCat || subChemicalFilterId) &&
-      Number.parseInt(data?.catalog) ===
-        Number.parseInt(superSubCat || mainCategoryFilterId)
-    );
-  });
+    filterSubCatalog.mutate();
+  };
 
+  useEffect(() => {
+    if (selectedCategories.length > 0) {
+      filterSubCatalog.mutate(
+        {
+          categoryIds: selectedCategories,
+        },
+        {
+          onSuccess: () => {
+            return;
+          },
+        }
+      );
+    }
+  }, [selectedCategories]);
+
+  const handleSubCategoryChange = (e) => {
+    const { name, value } = e.target;
+
+    const index = selectedSubCategoryIds.findIndex(
+      (item) => item.name === name
+    );
+
+    if (index !== -1) {
+      setSelectedSubCategoryIds((prevValue) => [
+        ...prevValue.slice(0, index),
+        { name, value },
+        ...prevValue.slice(index + 1),
+      ]);
+    } else {
+      setSelectedSubCategoryIds((prevValue) => [...prevValue, { name, value }]);
+    }
+  };
+
+  const handleSubCatChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name && value) {
+      const index = subCategoryData.findIndex((item) => item.name === name);
+
+      if (index !== -1) {
+        setSubCategoryData((prevValue) => [
+          ...prevValue.slice(0, index),
+          { name, value },
+          ...prevValue.slice(index + 1),
+        ]);
+      } else {
+        const firstEmptyIndex = subCategoryData.findIndex(
+          (item) => item.name === "" && item.value === ""
+        );
+
+        if (firstEmptyIndex !== -1) {
+          setSubCategoryData((prevValue) => [
+            ...prevValue.slice(0, firstEmptyIndex),
+            { name, value },
+            ...prevValue.slice(firstEmptyIndex + 1),
+          ]);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    const newState = selectedSubCategoryIds.map((elm) => elm.value);
+    filterSubChildCategory.mutate({ subcategoryIds: newState });
+  }, [selectedSubCategoryIds]);
+
+  const newCatalog = filterSubCatalog?.isSuccess && [
+    ...new Set(
+      filterSubCatalog.data.filteredSubcategories.map((elm) => elm?.catalog)
+    ),
+  ];
+
+  const groupedByCatalog =
+    newCatalog &&
+    newCatalog.map((data) => {
+      return {
+        key: data,
+        value: filterSubCatalog.data.filteredSubcategories.filter(
+          (element) => element.catalog === data
+        ),
+      };
+    });
+
+  const handleSubChildCategoryChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name && value) {
+      const index = subChild.findIndex((item) => item.name === name);
+
+      if (index !== -1) {
+        setSubChild((prevValue) => [
+          ...prevValue.slice(0, index),
+          { name, value },
+          ...prevValue.slice(index + 1),
+        ]);
+      } else {
+        // Replace the first empty field with the new data
+        const firstEmptyIndex = subChild.findIndex(
+          (item) => item.name === "" && item.value === ""
+        );
+
+        if (firstEmptyIndex !== -1) {
+          setSubChild((prevValue) => [
+            ...prevValue.slice(0, firstEmptyIndex),
+            { name, value },
+            ...prevValue.slice(firstEmptyIndex + 1),
+          ]);
+        }
+      }
+    }
+  };
   return (
     <div className="edit_catalog_page mb-4">
       <div className="catalog_single_page_inputs">
@@ -98,7 +226,7 @@ export const ChemicalForm = ({
                 Sort no
               </label>
               <FormInput
-                type="text"
+                type="number"
                 name="sortNo"
                 placeholder="Sort no"
                 {...register("sortNo", { required: true })}
@@ -107,7 +235,6 @@ export const ChemicalForm = ({
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-
             <div className="mb-3 col-md-12">
               <label htmlFor="hba" className="form-label">
                 Description
@@ -121,97 +248,101 @@ export const ChemicalForm = ({
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="mainCategory" className="form-label">
+            <div className="mb-3 col-md-12">
+              <h4 htmlFor="mainCategory" className="form-label chem_cat">
                 Master Category
-              </label>
-              <select
-                className="form-select text-capitalize"
-                name="mainCategory"
-                aria-label="Default select example"
-                {...register("mainCategory", {
-                  required: true,
-                  onChange: (e) => setSuperSubCat(e.target.value),
-                })}
-              >
-                <option value={""}>Select Master Category</option>
-                {mainCategoryData?.map((category, i) => {
-                  return (
-                    <option key={i} value={category?.id}>
-                      {category?.heading}
-                    </option>
-                  );
-                })}
-              </select>
-              {errors?.mainCategory && (
-                <p className="errorMessage">Field is required</p>
-              )}
+              </h4>
+              <div className="d-flex chem_radio">
+                {mainCategoryData?.length >= 1 &&
+                  mainCategoryData?.map((category, i) => (
+                    <div key={i} className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        name={category?.id}
+                        value={category?.id}
+                        id={`flexRadioDefault${i}`}
+                        onChange={() => handleCheckboxChange(category?.id)}
+                        checked={selectedCategories?.includes(category?.id)}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor={`flexRadioDefault${i}`}
+                      >
+                        {category?.heading}
+                      </label>
+                    </div>
+                  ))}
+              </div>
             </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="subCategory" className="form-label">
-                Sub Category
-              </label>
-              <select
-                className="form-select text-capitalize"
-                name="subCategory"
-                aria-label="Default select example"
-                {...register("subCategory", {
-                  required: true,
-                  onChange: (e) => setSearchLastLevCat(e.target.value),
-                })}
-              >
-                <option value={""}>Select Sub Category</option>
-                {filterSuperSubCategory?.length >= 1 ? (
-                  filterSuperSubCategory?.map((subCategory, i) => {
-                    return (
-                      <option key={i} value={subCategory?.id}>
-                        {subCategory?.heading}
-                      </option>
-                    );
-                  })
-                ) : (
-                  <option disabled value={""}>
-                    {superSubCat.length < 1
-                      ? "Please Select Master Category First"
-                      : "Sub Category Not Present"}
-                  </option>
-                )}
-              </select>
-              {errors?.subCategory && (
-                <p className="errorMessage">Field is required</p>
-              )}
-            </div>
-            <div className="mb-3 col-md-4">
-              <label htmlFor="superCategory" className="form-label">
-                Sub Child Category
-              </label>
-              <select
-                className="form-select text-capitalize"
-                name="superCategory"
-                aria-label="Default select example"
-                {...register("superCategory", { required: true })}
-              >
-                <option value={""}>Select Sub Child Category</option>
-                {filterSuperSubLastCategory?.length >= 1 ? (
-                  filterSuperSubLastCategory?.map((subCategory, i) => {
-                    return (
-                      <option key={i} value={subCategory?.id}>
-                        {subCategory?.heading}
-                      </option>
-                    );
-                  })
-                ) : (
-                  <option disabled value={""}>
-                    {searchLastLevCat.length < 1
-                      ? "Please Select Master Category First"
-                      : "Sub Category Not Present"}
-                  </option>
-                )}
-              </select>
-              {errors?.superCategory && (
-                <p className="errorMessage">Field is required</p>
-              )}
-            </div>
+            {groupedByCatalog?.length >= 1 &&
+              groupedByCatalog?.map((elm) => {
+                const selectedCatalogKey = elm.key;
+
+                const filteredData = elm.value.filter(
+                  (item) => item.catalog === selectedCatalogKey
+                );
+
+                return (
+                  <React.Fragment key={selectedCatalogKey}>
+                    <div className="mb-3 col-md-6">
+                      <label htmlFor="subCategory" className="form-label">
+                        {selectedCatalogKey} Sub Category
+                      </label>
+                      <select
+                        className="form-select text-capitalize"
+                        name={`subCategory_${selectedCatalogKey}`}
+                        aria-label="Default select example"
+                        onChange={(e) => {
+                          handleSubCategoryChange(e);
+                          handleSubCatChange(e);
+                        }}
+                      >
+                        <option value={""}>Select Sub Category</option>
+                        {filteredData.length >= 1 &&
+                          filteredData.map((subCategory, i) => (
+                            <option key={i} value={subCategory?.id}>
+                              {subCategory?.heading}
+                            </option>
+                          ))}
+                      </select>
+                      {errors?.subCategory && (
+                        <p className="errorMessage">Field is required</p>
+                      )}
+                    </div>
+                    <div className="mb-3 col-md-6">
+                      <label htmlFor="superCategory" className="form-label">
+                        {selectedCatalogKey} Sub Child Category
+                      </label>
+                      <select
+                        className="form-select text-capitalize"
+                        name={`superCategory_${selectedCatalogKey}`}
+                        aria-label="Default select example"
+                        onChange={handleSubChildCategoryChange}
+                      >
+                        <option value={""}>Select Sub Child Category</option>
+                        {filterSubCatalog?.data?.filteredSubcategories
+                          ?.length >= 1
+                          ? filterSubChildCategory?.data?.filteredSubchildcategories
+                              .filter(
+                                (subCategory) =>
+                                  subCategory.catalog === selectedCatalogKey
+                              )
+                              .map((subCategory, i) => (
+                                <option key={i} value={subCategory?.id}>
+                                  {subCategory?.heading}
+                                </option>
+                              ))
+                          : null}
+                      </select>
+
+                      {errors?.superCategory && (
+                        <p className="errorMessage">Field is required</p>
+                      )}
+                    </div>
+                  </React.Fragment>
+                );
+              })}
             <div className="col-md-12">
               <div className="rows_content">
                 <h3>Product Class And Compount Management</h3>
@@ -357,93 +488,8 @@ export const ChemicalForm = ({
     </div>
   );
 };
-
-{
-  /*
-<div className="mb-3 col-md-4">
-<label htmlFor="mv" className="form-label">
-  MV
-</label>
-<FormInput
-  type="text"
-  name="mv"
-  placeholder="MV"
-  {...register("mv")}
-/>
-{errors?.mv && (
-  <p className="errorMessage">{errors?.mv?.message}</p>
-)}
-</div>
-<div className="mb-3 col-md-4">
-<label htmlFor="hbd" className="form-label">
-  HBD
-</label>
-<FormInput
-  type="text"
-  name="hbd"
-  placeholder="HBD"
-  {...register("hbd")}
-/>
-{errors?.hbd && (
-  <p className="errorMessage">{errors?.hbd?.message}</p>
-)}
-</div>
-<div className="mb-3 col-md-4">
-<label htmlFor="hba" className="form-label">
-  HBA
-</label>
-<FormInput
-  type="text"
-  name="hba"
-  placeholder="HBA"
-  {...register("hba")}
-/>
-{errors?.hba && (
-  <p className="errorMessage">{errors?.hba?.message}</p>
-)}
-</div>
-<div className="mb-3 col-md-4">
-<label htmlFor="rotb" className="form-label">
-  Rotb
-</label>
-<FormInput
-  type="text"
-  name="rotb"
-  placeholder="Rotb"
-  {...register("rotb")}
-/>
-{errors?.rotb && (
-  <p className="errorMessage">{errors?.rotb?.message}</p>
-)}
-</div>
-<div className="mb-3 col-md-4">
-<label htmlFor="fap3" className="form-label">
-  Fap3
-</label>
-<FormInput
-  type="text"
-  name="fap3"
-  placeholder="Fap3"
-  {...register("fap3")}
-/>
-{errors?.fap3 && (
-  <p className="errorMessage">{errors?.fap3?.message}</p>
-)}
-</div> 
-
- <div className="mb-3 col-md-4">
-              <label htmlFor="price" className="form-label">
-                Price
-              </label>
-              <FormInput
-                type="text"
-                name="price"
-                placeholder="Price"
-                {...register("price")}
-              />
-              {errors?.price && (
-                <p className="errorMessage">{errors?.price?.message}</p>
-              )}
-            </div>
-*/
-}
+// <option disabled value={""}>
+//   {filterSubCatalog?.data?.filteredSubcategories?.length < 1
+//     ? "Please Select Master Category First"
+//     : "Sub Category Not Present"}
+// </option>

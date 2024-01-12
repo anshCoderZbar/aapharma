@@ -4,7 +4,11 @@ export const Accordion = (props) => {
   const { children } = props;
   return (
     <div className="accordion-item">
-      <h2 className="accordion-header" id={`flush-heading${props?.accId}`}>
+      <h2
+        onClick={props?.onClick}
+        className="accordion-header"
+        id={`flush-heading${props?.accId}`}
+      >
         <button
           className={`accordion-button  collapsed ${props?.extraClass}`}
           type="button"

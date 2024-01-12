@@ -9,6 +9,7 @@ import { Accordion } from "app/components/Accordion";
 import { useOutsideClick } from "lib/hooks/useOutsideClick";
 import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
+import { MasterCategory, SubCategory, SubChildCategory } from "rest/main";
 
 export const Header = () => {
   const navRef = useRef(null);
@@ -19,40 +20,78 @@ export const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(-1);
+  const [selectedSubCategoryIds, setSelectedSubCategoryIds] = useState([
+    {
+      name: "Product Types",
+      value: null,
+    },
+    {
+      name: "Research Areas",
+      value: null,
+    },
+    {
+      name: "Applications",
+      value: null,
+    },
+  ]);
+
+  const masterCategory = MasterCategory();
+  const subChildIds = masterCategory?.data?.data?.map((elm) => elm?.id);
+  const subCategory = SubCategory(subChildIds);
+  const subCategoryChild = selectedSubCategoryIds?.map((elm) => elm?.value);
+  const subChildCategory = SubChildCategory(subCategoryChild);
 
   const handleMenuClick = (i) => {
-    if (i === selected) {
-      setOpen(!open);
-      if (!open) {
-        setSelected(-1);
-      }
+    // if (i === selected) {
+    //   setOpen(!open);
+    //   if (!open) {
+    //     setSelected(-1);
+    //   }
+    // } else {
+    //   setSelected(i);
+    //   setOpen(true);
+    // }
+  };
+
+  const handlePushArr = (value, name) => {
+    // if (value) {
+    //   subChildCategory.refetch();
+    // }
+    const index = selectedSubCategoryIds.findIndex(
+      (item) => item.name === name
+    );
+    if (index !== -1) {
+      setSelectedSubCategoryIds((prevValue) => [
+        ...prevValue.slice(0, index),
+        { name, value },
+        ...prevValue.slice(index + 1),
+      ]);
     } else {
-      setSelected(i);
-      setOpen(true);
+      setSelectedSubCategoryIds((prevValue) => [...prevValue, { name, value }]);
     }
   };
 
-  const handleDocumentClick = (event) => {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      const isInsideSubMenu = event.target.closest(".dropdown__list");
+  // const handleDocumentClick = (event) => {
+  //   if (navRef.current && !navRef.current.contains(event.target)) {
+  //     const isInsideSubMenu = event.target.closest(".dropdown__list");
 
-      if (!isInsideSubMenu || !open) {
-        setOpen(false);
-      }
-    }
-  };
+  //     if (!isInsideSubMenu || !open) {
+  //       setOpen(false);
+  //     }
+  //   }
+  // };
 
-  useEffect(() => {
-    document.addEventListener("click", handleDocumentClick);
+  // useEffect(() => {
+  //   document.addEventListener("click", handleDocumentClick);
 
-    return () => {
-      document.removeEventListener("click", handleDocumentClick);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("click", handleDocumentClick);
+  //   };
+  // }, []);
 
-  useOutsideClick(navRef, active, () => {
-    setActive(false);
-  });
+  // useOutsideClick(navRef, active, () => {
+  //   setActive(false);
+  // });
 
   return (
     <>
@@ -125,6 +164,7 @@ export const Header = () => {
                             }`}
                           >
                             {i === selected &&
+                              i <= 3 &&
                               data?.menu?.map((menu, i) => {
                                 return (
                                   <li
@@ -137,66 +177,108 @@ export const Header = () => {
                                       onClick={() => setActive(false)}
                                       to={menu?.slug}
                                     >
-                                      {" "}
                                       {menu?.name}
                                     </Link>
-                                    {menu?.catalogItems && (
-                                      <ul className="acc_types accordion accordion-flush">
-                                        {menu?.catalogItems?.map((elm) => {
+                                  </li>
+                                );
+                              })}
+
+                            {i === selected &&
+                              i === 4 &&
+                              masterCategory?.data?.data?.length >= 1 &&
+                              masterCategory?.data?.data?.map((menu, i) => {
+                                const subCategoryFilter =
+                                  subCategory?.data?.data?.filter(
+                                    (elm) => elm?.catalog === menu?.id
+                                  );
+                                return (
+                                  <li
+                                    key={i}
+                                    className={`dropdown__list-item ${
+                                      data?.id === 5 ? "" : "m_xLx"
+                                    }`}
+                                  >
+                                    <Link
+                                      onClick={() => {
+                                        // setActive(false);
+                                      }}
+                                      // to={menu?.slug}
+                                    >
+                                      {menu?.heading}
+                                    </Link>
+                                    {subCategory?.data?.data?.length >= 1 && (
+                                      <ul
+                                        className="acc_types accordion accordion-flush"
+                                        id="accordionFlushExample"
+                                      >
+                                        {subCategoryFilter?.map((elm) => {
+                                          const filteredSubChildData =
+                                            subChildCategory?.data?.data?.filter(
+                                              (sub) => {
+                                                return (
+                                                  elm?.id === sub?.catalog2
+                                                );
+                                              }
+                                            );
                                           return (
                                             <li key={elm?.id}>
                                               <Accordion
-                                                heading={elm?.categoryName}
+                                                heading={elm?.heading}
+                                                onClick={() => {
+                                                  handlePushArr(
+                                                    elm?.id,
+                                                    menu?.heading
+                                                  );
+                                                }}
                                                 accId={elm?.id}
                                                 extraClass="acc_bg"
                                               >
                                                 <div className="accordion-body acc_bdy">
-                                                  {elm?.category &&
-                                                    elm?.category?.map(
+                                                  {subChildCategory?.data?.data
+                                                    ?.length >= 1 &&
+                                                    filteredSubChildData?.map(
                                                       (category) => {
                                                         return (
-                                                          <Accordion
-                                                            heading={
-                                                              category?.categoryItemName
-                                                            }
-                                                            extraClass="acc_bdy_bg"
+                                                          // <Accordion
+                                                          //   heading={
+                                                          //     category?.heading
+                                                          //   }
+                                                          //   extraClass="acc_bdy_bg"
+                                                          //   key={category?.id}
+                                                          //   accId={category?.id}
+                                                          // >
+                                                          // {category?.inputValue &&
+                                                          //   category?.inputValue?.map(
+                                                          // (data) => {
+                                                          //   return (
+                                                          <div
                                                             key={category?.id}
-                                                            accId={category?.id}
+                                                            className="accordion-body acc_bdy_1"
                                                           >
-                                                            {category?.inputValue &&
-                                                              category?.inputValue?.map(
-                                                                (data) => {
-                                                                  return (
-                                                                    <div
-                                                                      key={
-                                                                        data?.id
-                                                                      }
-                                                                      className="accordion-body acc_bdy_1"
-                                                                    >
-                                                                      <div className="form-check">
-                                                                        <input
-                                                                          className="form-check-input input_acc_check"
-                                                                          type="checkbox"
-                                                                          id={
-                                                                            data?.id
-                                                                          }
-                                                                        />
-                                                                        <label
-                                                                          className="form-check-label acc_input_label"
-                                                                          htmlFor={
-                                                                            data?.id
-                                                                          }
-                                                                        >
-                                                                          {
-                                                                            data?.value
-                                                                          }
-                                                                        </label>
-                                                                      </div>
-                                                                    </div>
-                                                                  );
+                                                            <div className="form-check">
+                                                              <input
+                                                                className="form-check-input input_acc_check"
+                                                                type="checkbox"
+                                                                id={
+                                                                  category?.id
                                                                 }
-                                                              )}
-                                                          </Accordion>
+                                                              />
+                                                              <label
+                                                                className="form-check-label acc_input_label"
+                                                                htmlFor={
+                                                                  category?.id
+                                                                }
+                                                              >
+                                                                {
+                                                                  category?.heading
+                                                                }
+                                                              </label>
+                                                            </div>
+                                                          </div>
+                                                          //     );
+                                                          //   }
+                                                          // )}
+                                                          // </Accordion>
                                                         );
                                                       }
                                                     )}

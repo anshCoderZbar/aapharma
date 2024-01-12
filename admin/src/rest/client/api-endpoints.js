@@ -10,6 +10,8 @@ export const API_ENDPOINTS = {
   singleCatalogL2: "/singleCatalog2",
   updateCatalogL2: "/updateCatalog2",
   deleteCatalogL2: "/deleteCatalog2",
+  filterSubCategory: "/selectedcategories",
+  filterSubChildCategory: "/selectedsubcategories",
   addCatalogL3: "/addCatalog3",
   catalogL3: "/catalogs3",
   singleCatalogL3: "/singleCatalog3",
