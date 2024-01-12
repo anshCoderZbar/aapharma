@@ -496,6 +496,22 @@
   height: auto !important;
 }
 
+@media only screen and (min-width: 1900px) {
+  .sevices_bg {
+    width: calc(100% - 30%);
+  }
+  .services_content {
+    max-width: calc(100% - 15%);
+    width: calc(100% - 15%);
+  }
+  .lg_screen {
+    max-width: calc(100% - 15%);
+  }
+  .article_large {
+    max-width: calc(100% - 28%);
+  }
+}
+
 @media only screen and (max-width: 1600px) {
   .home_banner {
     width: calc(100% - 60px);

@@ -96,6 +96,7 @@ export default function HomeClient() {
       )}
       <div className="home_banner_input mb-3">
         <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
+          <h2 className="heading_main">Add Clients</h2>
           <div className="mb-3 col-md-6">
             <label htmlFor="mainHeading" className="form-label">
               Image (150px * 100px)

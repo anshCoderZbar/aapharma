@@ -22,7 +22,7 @@ export default function AddTestimonail() {
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("clientId", selectedClient);
-    formData.append("authorImage", data?.authorImage[0]);
+    // formData.append("authorImage", data?.authorImage[0]);
     formData.append("authorName", data?.authorName);
     formData.append("authorPosition", data?.authorPosition);
     formData.append("description", data?.description);

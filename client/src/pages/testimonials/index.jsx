@@ -67,10 +67,10 @@ export const TestimonialsPage = () => {
             loop={true}
             modules={[Autoplay]}
             speed={1500}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            // }}
           >
             {allTestimonial?.data?.data?.length >= 1 &&
               allTestimonial?.data?.data?.map((data, i) => {
@@ -82,7 +82,6 @@ export const TestimonialsPage = () => {
                         dangerouslySetInnerHTML={{ __html: data?.description }}
                       />
                       <div className="client_profile">
-                        <img src={data?.authorImage} alt="client profile" />
                         <span className="client_name">{data?.authorName}</span>
                         <span className="client_designation">
                           {data?.authorPosition}

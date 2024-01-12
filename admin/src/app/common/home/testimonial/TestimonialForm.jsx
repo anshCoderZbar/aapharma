@@ -13,19 +13,19 @@ export const TestimonialForm = ({
   setSelectedClient,
   selectedClient,
   isLoading,
-  authorImg,
+  // authorImg,
 }) => {
   const allClients = AllClientMutation();
 
-  const [previewImage, setPreviewImage] = useState("");
+  // const [previewImage, setPreviewImage] = useState("");
 
-  const handleChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const filePreviewUrl = URL.createObjectURL(file);
-      setPreviewImage(filePreviewUrl);
-    }
-  };
+  // const handleChange = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     const filePreviewUrl = URL.createObjectURL(file);
+  //     setPreviewImage(filePreviewUrl);
+  //   }
+  // };
 
   useEffect(() => {
     setSelectedClient(allClients?.data?.data[0]?.id);
@@ -67,7 +67,7 @@ export const TestimonialForm = ({
         </div>
         {errors?.client && <p className="errorMessage">client is required</p>}
       </div>
-      <div className="mb-3 col-md-6">
+      {/* <div className="mb-3 col-md-6">
         <label htmlFor="authorImage" className="form-label">
           Author Image (50px * 50px)
         </label>
@@ -101,7 +101,7 @@ export const TestimonialForm = ({
             />
           </div>
         )}
-      </div>
+      </div> */}
       <div className="mb-3 col-md-6">
         <label htmlFor="authorName" className="form-label">
           Author Name
@@ -130,7 +130,7 @@ export const TestimonialForm = ({
           <p className="errorMessage">Author Position is required</p>
         )}
       </div>
-      <div className="mb-3 col-md-6">
+      <div className="mb-3 col-md-12">
         <label htmlFor={`description`} className="form-label">
           Description
         </label>

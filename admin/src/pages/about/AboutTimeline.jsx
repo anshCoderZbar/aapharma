@@ -80,7 +80,7 @@ export default function AboutTimeline() {
 
       <div className="d-flex justify-content-end mb-4 add_catalog_btn mt-4">
         <Button onClick={() => navigate("/about-add-timeline")}>
-          Add Services
+          Add Timeline
         </Button>
       </div>
       {getTimeline?.isError && (

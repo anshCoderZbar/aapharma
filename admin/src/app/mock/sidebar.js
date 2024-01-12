@@ -106,17 +106,17 @@ export const SidebarData = [
     subMenu: [
       {
         id: 1,
-        subMenuName: "About Banner",
+        subMenuName: "Banner",
         slug: "about-banner",
       },
       {
         id: 2,
-        subMenuName: "About Card",
+        subMenuName: "Card",
         slug: "about-card-details",
       },
       {
         id: 3,
-        subMenuName: "About Timeline",
+        subMenuName: "Timeline",
         slug: "about-timeline",
       },
     ],
@@ -129,12 +129,12 @@ export const SidebarData = [
     subMenu: [
       {
         id: 1,
-        subMenuName: "Personnel Banner",
+        subMenuName: "Banner",
         slug: "personnel-banner",
       },
       {
         id: 2,
-        subMenuName: "Personnel Characterized ",
+        subMenuName: "Characterized ",
         slug: "personnel-characterized",
       },
       {

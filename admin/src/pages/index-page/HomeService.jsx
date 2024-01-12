@@ -100,11 +100,13 @@ export default function HomeService() {
         <ComponentLoader />
       ) : (
         <>
-          <div className="d-flex justify-content-end mb-4 add_catalog_btn mt-4">
-            <Button onClick={() => navigate("/home-add-services")}>
-              Add Services
-            </Button>
-          </div>
+          {allServices?.data?.data?.length >= 6 ? null : (
+            <div className="d-flex justify-content-end mb-4 add_catalog_btn mt-4">
+              <Button onClick={() => navigate("/home-add-services")}>
+                Add Services
+              </Button>
+            </div>
+          )}
           <DataTableExtensions
             columns={serviceColumns}
             data={allServices?.data?.data?.sort((a, b) => b?.id - a?.id)}

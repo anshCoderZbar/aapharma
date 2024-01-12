@@ -24,7 +24,7 @@ export const Accordion = (props) => {
         id={`flush-collapse${props?.accId}`}
         className="accordion-collapse collapse"
         aria-labelledby={`flush-heading${props?.accId}`}
-        data-bs-parent={`#accordionFlushExample${props?.accId}`}
+        data-bs-parent={`#accordionFlushExample`}
       >
         {children}
       </div>

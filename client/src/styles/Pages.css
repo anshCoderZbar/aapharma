@@ -76,6 +76,7 @@
   line-height: 32px;
   display: block;
   text-align: center;
+  white-space: nowrap;
 }
 
 .client_designation {

@@ -18,7 +18,7 @@ export default function EditTestimonail() {
   } = useForm();
 
   const [selectedClient, setSelectedClient] = useState("");
-  const [authorImg, setAuthorImg] = useState("");
+  // const [authorImg, setAuthorImg] = useState("");
 
   const formData = new FormData();
   formData.append("testimonialId", id);
@@ -33,7 +33,7 @@ export default function EditTestimonail() {
     defaultValues.authorPosition =
       singleTestimonial?.data?.data?.authorPosition;
     defaultValues.description = singleTestimonial?.data?.data?.description;
-    setAuthorImg(singleTestimonial?.data?.data?.authorImage);
+    // setAuthorImg(singleTestimonial?.data?.data?.authorImage);
     setSelectedClient(singleTestimonial?.data?.data?.clientId);
     reset(defaultValues);
   }, [singleTestimonial?.data?.data]);
@@ -61,7 +61,7 @@ export default function EditTestimonail() {
           errors={errors}
           setSelectedClient={setSelectedClient}
           selectedClient={selectedClient}
-          authorImg={authorImg}
+          // authorImg={authorImg}
           isLoading={editTestimonial?.isPending}
         />
       </div>

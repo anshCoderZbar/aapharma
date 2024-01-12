@@ -73,7 +73,7 @@ export const Home = () => {
       </div>
       <div className="company_misson">
         <div className="container-fluid">
-          <div className="row  align-items-center">
+          <div className="row">
             <div className="col-lg-6 col-xl-6">
               <img
                 src={`${getHomeCompanyMission?.data?.baseUrl}/${getHomeCompanyMission?.data?.data?.featuredImage}`}
@@ -162,7 +162,7 @@ export const Home = () => {
             backgroundImage: `url(${getVisionData?.data?.baseUrl}/${getVisionData?.data?.data?.image})`,
           }}
         >
-          <div className="container">
+          <div className="container lg_screen">
             <div className="vision_content">
               <h2>
                 {getVisionData?.data?.data?.heading
@@ -179,7 +179,7 @@ export const Home = () => {
         </div>
       </div>
       <div className="latest_articles">
-        <div className="container">
+        <div className="container article_large">
           <div className="articles_head">
             <h2>Latest Articles</h2>
             <p>
