@@ -22,6 +22,8 @@
   position: sticky;
   top: 0;
   transition: 0.3s ease-in-out;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .menu {
@@ -288,7 +290,6 @@
   border-color: #34caff;
   outline: 0;
   box-shadow: none;
-
 }
 
 .accordion.b-yxs .accordion-button:not(.collapsed) {
@@ -315,8 +316,6 @@
 }
 
 /* sidebar */
-
-
 
 /* responsive css */
 @media only screen and (max-width: 1550px) {

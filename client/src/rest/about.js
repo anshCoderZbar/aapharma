@@ -68,3 +68,21 @@ export const GetOperatingPhilosophyDiagram = () => {
   });
   return getOperatingDiagramMutation;
 };
+
+// testimonials
+
+export const GetTestimonialPageHeading = () => {
+  const getHeading = useQuery({
+    queryKey: ["get-tesimonial-heading"],
+    queryFn: () => client.about.getTestimonialPageHeading(),
+  });
+  return getHeading;
+};
+
+export const AllTestimonialMutation2 = () => {
+  const allTestimonial = useQuery({
+    queryKey: ["get-all-testimonial-2"],
+    queryFn: () => client.about.getAllTestimonial2(),
+  });
+  return allTestimonial;
+};

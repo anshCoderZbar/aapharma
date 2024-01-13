@@ -182,6 +182,21 @@ class Client {
     editCaseStudyDiagramData: (params) =>
       HttpClient.post(API_ENDPOINTS.editCaseStudyDiagramData, params),
   };
+  testimonialPage = {
+    getTestimonialPageHeading: () =>
+      HttpClient.get(API_ENDPOINTS.testimonialPageHeading),
+    editTestimonialPageHeading: (params) =>
+      HttpClient.post(API_ENDPOINTS.testimonialPageHeading, params),
+    getAllTestimonial2: () => HttpClient.get(API_ENDPOINTS.getAllTestimonial2),
+    createTestimonial2: (params) =>
+      HttpClient.post(API_ENDPOINTS.createTestimonial2, params),
+    singleTestimonial2: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleTestimonial2, params),
+    editTestimonial2: (params) =>
+      HttpClient.post(API_ENDPOINTS.editTestimonial2, params),
+    deleteTestimonial2: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteTestimonial2, params),
+  };
 }
 const client = new Client();
 

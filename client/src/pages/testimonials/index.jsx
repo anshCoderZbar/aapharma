@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "styles/Pages.css";
-import { AllClientMutation, AllTestimonialMutation } from "rest/home";
 import { Autoplay } from "swiper/modules";
+import { AllTestimonialMutation2, GetTestimonialPageHeading } from "rest/about";
 
 export const TestimonialsPage = () => {
-  const allClients = AllClientMutation();
-  const allTestimonial = AllTestimonialMutation();
+  const allTestimonial = AllTestimonialMutation2();
+  const getHeadings = GetTestimonialPageHeading();
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    if (allTestimonial?.data?.data) {
+      setSelected(allTestimonial?.data?.data[0]?.id);
+    }
+  }, [allTestimonial?.data?.data]);
+
+  const filterTestimonial = allTestimonial?.data?.data?.filter((elm) => {
+    return elm.id === selected;
+  });
 
   return (
     <div className="testimonial_page">
-      <h1 className="main_top_heading">Testimonials</h1>
-      <h3>Current and legacy clients</h3>
+      <h1 className="main_top_heading">
+        {getHeadings?.data?.data?.heading && getHeadings?.data?.data?.heading}
+      </h1>
+      <h3>
+        {getHeadings?.data?.data?.description &&
+          getHeadings?.data?.data?.description}
+      </h3>
       <div className="clients_details">
         <div className="container-fluid">
           <Swiper
@@ -46,12 +62,18 @@ export const TestimonialsPage = () => {
               },
             }}
           >
-            {allClients?.data?.data?.length >= 1 &&
-              allClients?.data?.data?.map((clients, i) => {
+            {allTestimonial?.data?.data?.length >= 1 &&
+              allTestimonial?.data?.data?.map((clients, i) => {
                 return (
                   <SwiperSlide key={i}>
-                    <div key={i} className="clients_logos">
-                      <img src={clients?.image} alt="clients logos" />
+                    <div
+                      onClick={() => setSelected(clients?.id)}
+                      key={i}
+                      className={`clients_logos ${
+                        selected === clients?.id ? "client_active" : ""
+                      }`}
+                    >
+                      <img src={clients?.clientImage} alt="clients logos" />
                     </div>
                   </SwiperSlide>
                 );
@@ -67,14 +89,13 @@ export const TestimonialsPage = () => {
             loop={true}
             modules={[Autoplay]}
             speed={1500}
-            // autoplay={{
-            //   delay: 2500,
-            //   disableOnInteraction: false,
-            // }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
           >
-            {allTestimonial?.data?.data?.length >= 1 &&
-              allTestimonial?.data?.data?.map((data, i) => {
-                console.log(data);
+            {filterTestimonial?.length >= 1 &&
+              filterTestimonial?.map((data, i) => {
                 return (
                   <SwiperSlide key={i}>
                     <div className="client_details">

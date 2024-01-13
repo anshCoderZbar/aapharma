@@ -41,6 +41,9 @@ class Client {
       HttpClient.get(API_ENDPOINTS.operatingPhilosophy),
     getOperatingPhilosophyDiagram: () =>
       HttpClient.get(API_ENDPOINTS.operatingPhilosophyDiagram),
+    getTestimonialPageHeading: () =>
+      HttpClient.get(API_ENDPOINTS.testimonialPageHeading),
+    getAllTestimonial2: () => HttpClient.get(API_ENDPOINTS.getAllTestimonial2),
   };
   services = {
     getCustomChemicalSynthesis: () =>

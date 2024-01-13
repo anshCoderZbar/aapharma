@@ -9,6 +9,7 @@ import {
   LightbulbIcon,
   PersonStanding,
   Settings,
+  User,
 } from "lucide-react";
 
 import { v4 as uuidv4 } from "uuid";
@@ -188,6 +189,24 @@ export const SidebarData = [
         id: 3,
         subMenuName: "Case Study Diagram",
         slug: "case-study-diagram",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Testimonials",
+    slug: "#",
+    icon: <User />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Heading",
+        slug: "testimonial-content",
+      },
+      {
+        id: 2,
+        subMenuName: "Testimonials",
+        slug: "all-testimonial",
       },
     ],
   },

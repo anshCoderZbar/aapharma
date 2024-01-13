@@ -56,6 +56,10 @@ import EditCaseTabs from "pages/case-study/EditCaseTabs";
 import CaseStudyGraphContent from "pages/case-study/CaseStudyGraphContent";
 import CaseStudyDiagram from "pages/case-study/CaseStudyDiagram";
 import EditCaseStudyDiagram from "pages/case-study/EditCaseStudyDiagram";
+import TestimonialHeading from "pages/testimonial/TestimonialHeading";
+import AllTestimonial from "pages/testimonial/AllTestimonial";
+import CreateTestimonial from "pages/testimonial/CreateTestimonial";
+import EditTestimonials from "pages/testimonial/EditTestimonials";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -436,6 +440,38 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditCaseStudyDiagram />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/testimonial-content",
+      element: (
+        <PrivateRoutes>
+          <TestimonialHeading />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/all-testimonial",
+      element: (
+        <PrivateRoutes>
+          <AllTestimonial />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/create-testimonials",
+      element: (
+        <PrivateRoutes>
+          <CreateTestimonial />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-testimonials/:id",
+      element: (
+        <PrivateRoutes>
+          <EditTestimonials />
         </PrivateRoutes>
       ),
     },

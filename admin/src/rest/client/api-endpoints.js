@@ -87,4 +87,10 @@ export const API_ENDPOINTS = {
   getCaseStudyDiagramData: "/case_study_graph/all",
   singleCaseStudyDiagramData: "/case_study_graph/one",
   editCaseStudyDiagramData: "/case_study_graph/update",
+  testimonialPageHeading: "/testimonial2head",
+  getAllTestimonial2: "/testimonial2/all",
+  createTestimonial2: "/testimonial2/new",
+  singleTestimonial2: "/testimonial2/one",
+  editTestimonial2: "/testimonial2/update",
+  deleteTestimonial2: "/testimonial2/delete",
 };

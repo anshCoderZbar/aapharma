@@ -31,4 +31,6 @@ export const API_ENDPOINTS = {
   singleCaseStudyTabs: "/casestudymain/one",
   caseStudyGraphContent: "/case_study_graph_center",
   getCaseStudyDiagramData: "/case_study_graph/all",
+  testimonialPageHeading: "/testimonial2head",
+  getAllTestimonial2: "/testimonial2/all",
 };

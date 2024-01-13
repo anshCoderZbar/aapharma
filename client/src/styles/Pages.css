@@ -32,6 +32,13 @@
   border-radius: 11px;
   width: 105px;
   height: 70px;
+  cursor: pointer;
+}
+
+.client_active img {
+  background-color: #2a3072 !important;
+  padding: 2px !important;
+  border-radius: 11px;
 }
 
 .client_reviews {
