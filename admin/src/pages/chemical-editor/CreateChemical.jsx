@@ -26,6 +26,7 @@ export default function CreateChemical() {
   const [inputs, setInputs] = useState([{ label: "", description: "" }]);
   const [priceInputs, setPriceInputs] = useState([{ quantity: "", price: "" }]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+
   const [subChild, setSubChild] = useState([
     { name: "", value: "" },
     { name: "", value: "" },

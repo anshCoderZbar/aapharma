@@ -42,21 +42,18 @@ export const Header = () => {
   const subChildCategory = SubChildCategory(subCategoryChild);
 
   const handleMenuClick = (i) => {
-    // if (i === selected) {
-    //   setOpen(!open);
-    //   if (!open) {
-    //     setSelected(-1);
-    //   }
-    // } else {
-    //   setSelected(i);
-    //   setOpen(true);
-    // }
+    if (i === selected) {
+      setOpen(!open);
+      if (!open) {
+        setSelected(-1);
+      }
+    } else {
+      setSelected(i);
+      setOpen(true);
+    }
   };
 
   const handlePushArr = (value, name) => {
-    // if (value) {
-    //   subChildCategory.refetch();
-    // }
     const index = selectedSubCategoryIds.findIndex(
       (item) => item.name === name
     );
@@ -71,27 +68,27 @@ export const Header = () => {
     }
   };
 
-  // const handleDocumentClick = (event) => {
-  //   if (navRef.current && !navRef.current.contains(event.target)) {
-  //     const isInsideSubMenu = event.target.closest(".dropdown__list");
+  const handleDocumentClick = (event) => {
+    if (navRef.current && !navRef.current.contains(event.target)) {
+      const isInsideSubMenu = event.target.closest(".dropdown__list");
 
-  //     if (!isInsideSubMenu || !open) {
-  //       setOpen(false);
-  //     }
-  //   }
-  // };
+      if (!isInsideSubMenu || !open) {
+        setOpen(false);
+      }
+    }
+  };
 
-  // useEffect(() => {
-  //   document.addEventListener("click", handleDocumentClick);
+  useEffect(() => {
+    document.addEventListener("click", handleDocumentClick);
 
-  //   return () => {
-  //     document.removeEventListener("click", handleDocumentClick);
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
 
-  // useOutsideClick(navRef, active, () => {
-  //   setActive(false);
-  // });
+  useOutsideClick(navRef, active, () => {
+    setActive(false);
+  });
 
   return (
     <>
@@ -135,12 +132,8 @@ export const Header = () => {
               <ul className={`${active ? "nav_active" : ""} nav-ri-ul`}>
                 {HeaderData?.map((data, i) => {
                   return (
-                    <li
-                      className="nav-right-li"
-                      onClick={() => handleMenuClick(i)}
-                      key={data?.id}
-                    >
-                      <Link to={data?.slug}>
+                    <li className="nav-right-li" key={data?.id}>
+                      <Link onClick={() => handleMenuClick(i)} to={data?.slug}>
                         {data?.name}{" "}
                         {data?.menu && (
                           <span>
@@ -174,7 +167,10 @@ export const Header = () => {
                                     }`}
                                   >
                                     <Link
-                                      onClick={() => setActive(false)}
+                                      onClick={() => {
+                                        setActive(false);
+                                        setOpen(false);
+                                      }}
                                       to={menu?.slug}
                                     >
                                       {menu?.name}
