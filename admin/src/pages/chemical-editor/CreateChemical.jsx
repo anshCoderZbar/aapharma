@@ -23,6 +23,7 @@ export default function CreateChemical() {
   const [currentMolecule, setCurrentMolecule] = useState("");
   const [img, setImg] = useState("");
   const [base64Img, setBase64Img] = useState();
+
   const [inputs, setInputs] = useState([{ label: "", description: "" }]);
   const [priceInputs, setPriceInputs] = useState([{ quantity: "", price: "" }]);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -104,7 +105,9 @@ export default function CreateChemical() {
     subChild?.forEach((data) => {
       formData.append("catalog3[]", data?.value ? data?.value : null);
     });
-    createChemical.mutate(formData);
+    // createChemical.mutate(formData);
+
+    console.log(selectedCategories);
   };
 
   return (

@@ -49,7 +49,6 @@ export default function CaseStudy() {
             );
           })}
         </div>
-
         <div className="tabs_content_case">
           {getSingleCaseStudyTabs?.isPending ||
           allCaseTabs?.isPending ? null : (
@@ -92,50 +91,52 @@ export default function CaseStudy() {
                   return (
                     <div
                       key={i}
-                      className={`case_diagram_icons icons_circle_${i + 1}`}
+                      className={`case_diagram_icons case_circle case_circle_${
+                        i + 1
+                      } icons_circle_${i + 1}`}
                     >
+                      <span className="index_number">{i + 1}</span>
                       <div
                         onMouseEnter={() => setIconActive(elm?.id)}
                         onMouseLeave={() => setIconActive(-1)}
                         className="case_icon_inner"
                       >
-                        <img src={elm?.image} alt="case_icon" />
+                        <div className="case_inner_border">
+                          <img src={elm?.image} alt="case_icon" />
+                          <h4>{elm?.title}</h4>
+                        </div>
                       </div>
-                      <div
-                        onMouseEnter={() => setIconActive(elm?.id)}
-                        onMouseLeave={() => setIconActive(-1)}
-                        className={`vss_cxx ${
-                          iconActive !== -1 && iconActive === i + 1
-                            ? `vss_cxx_bg bg-white open-transition`
-                            : ""
-                        } icon_content_${i + 1}`}
-                      >
-                        <h4>{elm?.title}</h4>
-                        <p
-                          className={`paragraph-transition ${
-                            iconActive !== -1 && iconActive === i + 1
-                              ? "vss_cxx_bg"
-                              : ""
-                          }`}
-                        >
-                          {elm?.description}
-                        </p>
-                      </div>
+                      <div className={`arrow ${`arrow_${i + 1}`} `}></div>
                     </div>
                   );
                 })}
 
               <div className="inner_case_circle">
-                <div className="inner_case_content">
-                  <h3>
-                    {caseStudyGraphData?.data?.data?.heading &&
-                      caseStudyGraphData?.data?.data?.heading}
-                  </h3>
-                  <p>
-                    {caseStudyGraphData?.data?.data?.subheading &&
-                      caseStudyGraphData?.data?.data?.subheading}
-                  </p>
-                </div>
+                {iconActive === -1 ? (
+                  <div className="inner_case_content">
+                    <h3>
+                      {caseStudyGraphData?.data?.data?.heading &&
+                        caseStudyGraphData?.data?.data?.heading}
+                    </h3>
+                    <p>
+                      {caseStudyGraphData?.data?.data?.subheading &&
+                        caseStudyGraphData?.data?.data?.subheading}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="inner_case_content">
+                    {getCaseStudyDiagram?.data?.data &&
+                      getCaseStudyDiagram?.data?.data?.map(
+                        (elm) =>
+                          elm?.id === iconActive && (
+                            <React.Fragment key={elm?.title}>
+                              <h3>{elm?.title}</h3>
+                              <p>{elm?.description}</p>
+                            </React.Fragment>
+                          )
+                      )}
+                  </div>
+                )}
               </div>
             </div>
           </div>

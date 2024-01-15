@@ -31,11 +31,7 @@ export default function EditChemical() {
     { name: "", value: "" },
     { name: "", value: "" },
   ]);
-  const [subCategoryData, setSubCategoryData] = useState([
-    { name: "", value: "" },
-    { name: "", value: "" },
-    { name: "", value: "" },
-  ]);
+  const [subCategoryData, setSubCategoryData] = useState([]);
 
   const fetchSingleChemical = FetchSingleChemical(id);
 
@@ -59,8 +55,10 @@ export default function EditChemical() {
   }
 
   img && blobToBase64(img).then((base64String) => setBase64Img(base64String));
+
   useEffect(() => {
     const defaultValues = {};
+
     defaultValues.sortNo = fetchSingleChemical?.data?.data?.sortNo;
     defaultValues.heading = fetchSingleChemical?.data?.data?.heading;
     defaultValues.description = fetchSingleChemical?.data?.data?.description;
@@ -90,9 +88,20 @@ export default function EditChemical() {
       setPriceInputs(priceInputs);
     }
 
+    // fetchSingleChemical?.data?.data?.catalog2 &&
+    //   fetchSingleChemical?.data?.data?.catalog2?.split("@@").map((elm, i) => {
+    //     if (!subCategoryData.includes(elm)) {
+    //       setSubCategoryData((subCategoryData) => [
+    //         ...subCategoryData,
+    //         {
+    //           name: `subCategory_${fetchCatalogs?.data?.data[i]?.id}`,
+    //           value: elm,
+    //         },
+    //       ]);
+    //     }
+    //   });
     reset({ ...defaultValues });
   }, [fetchSingleChemical?.data?.data]);
-
   const updateChemical = UpdateChemical();
 
   const onSubmit = async (data) => {

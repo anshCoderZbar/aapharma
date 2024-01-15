@@ -350,3 +350,22 @@ export const FilterSubChildCategoryQuery = (data) => {
   });
   return filterCategory;
 };
+
+export const GetAllSubCategories = (id) => {
+  const getCatalogCategory = useQuery({
+    queryKey: ["all-sub-category-header"],
+    queryFn: () => client.catalog.filterSubCategory({ categoryIds: id }),
+    enabled: id?.length >= 1,
+  });
+  return getCatalogCategory;
+};
+
+export const SubChildCategory = (id) => {
+  const getCatalogCategory = useQuery({
+    queryKey: ["sub-child-category-header"],
+    queryFn: () =>
+      client.catalog.filterSubChildCategory({ subcategoryIds: id }),
+    enabled: id?.length >= 1,
+  });
+  return getCatalogCategory;
+};
