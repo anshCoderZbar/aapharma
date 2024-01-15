@@ -105,9 +105,7 @@ export default function CreateChemical() {
     subChild?.forEach((data) => {
       formData.append("catalog3[]", data?.value ? data?.value : null);
     });
-    // createChemical.mutate(formData);
-
-    console.log(selectedCategories);
+    createChemical.mutate(formData);
   };
 
   return (

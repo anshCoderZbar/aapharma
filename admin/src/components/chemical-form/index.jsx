@@ -67,27 +67,6 @@ export const ChemicalForm = ({
     ]);
   };
 
-  // const handleCheckboxChange = (categoryId) => {
-  //   setSelectedCategories((prevSelectedCategories) => {
-  //     let updatedCategories;
-
-  //     if (prevSelectedCategories.includes(categoryId)) {
-  //       updatedCategories = prevSelectedCategories.filter(
-  //         (id) => id !== categoryId
-  //       );
-  //     } else {
-  //       updatedCategories = [...prevSelectedCategories, categoryId];
-  //     }
-
-  //     // Sort the updated array numerically
-  //     updatedCategories.sort((a, b) => a - b);
-
-  //     return updatedCategories;
-  //   });
-
-  //   filterSubCatalog.mutate();
-  // };
-
   const handleCheckboxChange = (categoryId) => {
     setSelectedCategories((prevSelectedCategories) => {
       let updatedCategories;
@@ -100,17 +79,9 @@ export const ChemicalForm = ({
         updatedCategories = [...prevSelectedCategories, categoryId];
       }
 
-      // Replace the absence of any selected category with null
-      const nullFilledArray = Array.from({ length: 95 }, (_, index) =>
-        updatedCategories.includes(index) ? index : null
-      );
+      updatedCategories.sort((a, b) => a - b);
 
-      // Filter out null values and sort the updated array numerically
-      const sortedCategories = nullFilledArray
-        .filter((id) => id !== null)
-        .sort((a, b) => a - b);
-
-      return sortedCategories.length === 0 ? null : sortedCategories;
+      return updatedCategories;
     });
 
     filterSubCatalog.mutate();
