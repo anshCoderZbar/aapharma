@@ -151,8 +151,10 @@ export const ChemicalForm = ({
 
   useEffect(() => {
     let newState = [];
-    let myArray = subChemicalFilterId.split(",");
-    newState = [...newState, ...myArray];
+    if (subChemicalFilterId) {
+      let myArray = subChemicalFilterId && subChemicalFilterId?.split(",");
+      newState = [...newState, ...myArray];
+    }
     newState = newState.concat(selectedSubCategoryIds.map((elm) => elm.value));
     filterSubChildCategory.mutate({
       subcategoryIds: newState,

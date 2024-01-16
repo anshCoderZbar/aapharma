@@ -132,11 +132,6 @@ export default function EditChemical() {
       formData.append("sortNo", data?.sortNo);
       formData.append("image", base64Img);
       formData.append("heading", data?.heading);
-      selectedCategories?.forEach((data) => {
-        formData.append("catalog[]", data);
-      });
-      formData.append("catalog2", data?.subCategory);
-      formData.append("catalog3", data?.superCategory);
       formData.append("description", data?.description);
       formData.append("molecule", currentMolecule);
 
