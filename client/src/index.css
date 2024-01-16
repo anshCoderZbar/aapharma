@@ -163,6 +163,10 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.active_color {
+  color: #34caff !important;
+}
+
 @media screen and (max-width: 1700px) {
   .container-fluid {
     padding-left: 70px !important;

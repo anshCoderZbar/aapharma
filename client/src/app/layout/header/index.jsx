@@ -96,7 +96,7 @@ export const Header = () => {
         <div className="container-fluid">
           <div className="nav-colums">
             <div className="nav-left">
-              <Link to={"/"}>
+              <Link onClick={() => setSelected(-1)} to={"/"}>
                 <img
                   src={
                     allDetails?.headerlogo ? allDetails?.headerlogo : headerLogo
@@ -133,7 +133,11 @@ export const Header = () => {
                 {HeaderData?.map((data, i) => {
                   return (
                     <li className="nav-right-li" key={data?.id}>
-                      <Link onClick={() => handleMenuClick(i)} to={data?.slug}>
+                      <Link
+                        className={`${i === selected ? "active_color" : ""}`}
+                        onClick={() => handleMenuClick(i)}
+                        to={data?.slug}
+                      >
                         {data?.name}{" "}
                         {data?.menu && (
                           <span>
@@ -167,6 +171,12 @@ export const Header = () => {
                                     }`}
                                   >
                                     <Link
+                                      className={
+                                        window?.location?.pathname ===
+                                        menu?.slug
+                                          ? "active_color"
+                                          : ""
+                                      }
                                       onClick={() => {
                                         setActive(false);
                                         setOpen(false);

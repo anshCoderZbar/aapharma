@@ -149,6 +149,18 @@ export const ChemicalForm = ({
     }
   };
 
+  // useEffect(() => {
+  //   const newState = selectedSubCategoryIds.map((elm) => elm.value);
+  //   filterSubChildCategory.mutate({
+  //     subcategoryIds:
+  //       newState.length >= 1
+  //         ? newState
+  //         : subChemicalFilterId
+  //         ? subChemicalFilterId?.split(",")
+  //         : [],
+  //   });
+  // }, [selectedSubCategoryIds]);
+
   useEffect(() => {
     let newState = [];
     if (subChemicalFilterId) {

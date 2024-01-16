@@ -93,8 +93,14 @@ export default function EditChemical() {
       setPriceInputs(priceInputs);
     }
 
+    setSubCategoryData([
+      { name: "", value: "" },
+      { name: "", value: "" },
+      { name: "", value: "" },
+    ]);
+
     fetchSingleChemical?.data?.data?.catalog2 &&
-      fetchSingleChemical?.data?.data?.catalog2?.split("@@").map((elm, i) => {
+      fetchSingleChemical?.data?.data?.catalog2?.split("@@")?.map((elm, i) => {
         if (!subCategoryData.includes(elm)) {
           setSubCategoryData((subCategoryData) => [
             ...subCategoryData,
@@ -107,8 +113,15 @@ export default function EditChemical() {
           ]);
         }
       });
+
+    setSubChild([
+      { name: "", value: "" },
+      { name: "", value: "" },
+      { name: "", value: "" },
+    ]);
+
     fetchSingleChemical?.data?.data?.catalog3 &&
-      fetchSingleChemical?.data?.data?.catalog3?.split("@@").map((elm, i) => {
+      fetchSingleChemical?.data?.data?.catalog3?.split("@@")?.map((elm, i) => {
         if (!subChild.includes(elm)) {
           setSubChild((subChild) => [
             ...subChild,
@@ -121,6 +134,7 @@ export default function EditChemical() {
           ]);
         }
       });
+
     reset({ ...defaultValues });
   }, [fetchSingleChemical?.data?.data]);
   const updateChemical = UpdateChemical();
@@ -178,7 +192,6 @@ export default function EditChemical() {
       subCategoryData?.forEach((data) => {
         data?.value && formData.append("catalog2[]", data?.value);
       });
-
       subChild?.forEach((data) => {
         data?.value && formData.append("catalog3[]", data?.value);
       });

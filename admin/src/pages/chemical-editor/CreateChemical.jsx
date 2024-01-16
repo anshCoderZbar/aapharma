@@ -102,6 +102,7 @@ export default function CreateChemical() {
     subCategoryData?.forEach((data) => {
       data?.value && formData.append("catalog2[]", data?.value);
     });
+
     subChild?.forEach((data) => {
       data?.value && formData.append("catalog3[]", data?.value);
     });
