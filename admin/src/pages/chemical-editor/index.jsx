@@ -80,7 +80,10 @@ export default function ChemicalPage() {
               search: `main-cat=${row?.catalog?.replaceAll(
                 "@@",
                 ","
-              )}&sub-cat=${row?.catalog2}&super-sub-cat=${row?.catalog3}`,
+              )}&sub-cat=${row?.catalog2?.replaceAll(
+                "@@",
+                ","
+              )}&super-sub-cat=${row?.catalog3?.replaceAll("@@", ",")}`,
             })
           }
         >

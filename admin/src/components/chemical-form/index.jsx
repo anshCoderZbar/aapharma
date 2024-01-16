@@ -27,6 +27,7 @@ export const ChemicalForm = ({
   subCategoryData,
   setSubCategoryData,
   subChemicalFilterId,
+  superChemicalFilterId,
 }) => {
   const [selectedSubCategoryIds, setSelectedSubCategoryIds] = useState([]);
   const filterSubCatalog = FilterSubCategoryMutation();
@@ -126,7 +127,7 @@ export const ChemicalForm = ({
   const handleSubCatChange = (e) => {
     const { name, value } = e.target;
 
-    if (name && value) {
+    if (name) {
       const index = subCategoryData.findIndex((item) => item.name === name);
 
       if (index !== -1) {
@@ -150,11 +151,40 @@ export const ChemicalForm = ({
       }
     }
   };
-
   useEffect(() => {
     const newState = selectedSubCategoryIds.map((elm) => elm.value);
-    filterSubChildCategory.mutate({ subcategoryIds: newState });
+    filterSubChildCategory.mutate({
+      subcategoryIds:
+        newState || subChemicalFilterId ? subChemicalFilterId?.split(",") : [],
+    });
   }, [selectedSubCategoryIds]);
+
+  const handleSubChildCategoryChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name) {
+      const index = subChild.findIndex((item) => item.name === name);
+
+      if (index !== -1) {
+        setSubChild((prevValue) => [
+          ...prevValue.slice(0, index),
+          { name, value },
+          ...prevValue.slice(index + 1),
+        ]);
+      } else {
+        const firstEmptyIndex = subChild.findIndex(
+          (item) => item.name === "" && item.value === ""
+        );
+        if (firstEmptyIndex !== -1) {
+          setSubChild((prevValue) => [
+            ...prevValue.slice(0, firstEmptyIndex),
+            { name, value },
+            ...prevValue.slice(firstEmptyIndex + 1),
+          ]);
+        }
+      }
+    }
+  };
 
   const uniqueCombosSet = new Set();
   const newCatalog =
@@ -183,33 +213,6 @@ export const ChemicalForm = ({
         ),
       };
     });
-
-  const handleSubChildCategoryChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name && value) {
-      const index = subChild.findIndex((item) => item.name === name);
-
-      if (index !== -1) {
-        setSubChild((prevValue) => [
-          ...prevValue.slice(0, index),
-          { name, value },
-          ...prevValue.slice(index + 1),
-        ]);
-      } else {
-        const firstEmptyIndex = subChild.findIndex(
-          (item) => item.name === "" && item.value === ""
-        );
-        if (firstEmptyIndex !== -1) {
-          setSubChild((prevValue) => [
-            ...prevValue.slice(0, firstEmptyIndex),
-            { name, value },
-            ...prevValue.slice(firstEmptyIndex + 1),
-          ]);
-        }
-      }
-    }
-  };
 
   return (
     <div className="edit_catalog_page mb-4">
@@ -316,7 +319,10 @@ export const ChemicalForm = ({
                           {filteredData.length >= 1 &&
                             filteredData.map((subCategory, i) => (
                               <option
-                                selected={subChemicalFilterId?.split("@@")}
+                                selected={
+                                  subChemicalFilterId &&
+                                  subChemicalFilterId?.includes(subCategory?.id)
+                                }
                                 key={i}
                                 value={subCategory?.id}
                               >
@@ -356,11 +362,15 @@ export const ChemicalForm = ({
                                       key={i}
                                       value={subCategory?.id}
                                       selected={
-                                        Number.parseInt(
+                                        (Number.parseInt(
                                           subChild[mainIndex].value
                                         ) === subCategory?.id &&
-                                        subChild[mainIndex]?.name ===
-                                          `superCategory_${selectedCatalogKey}`
+                                          subChild[mainIndex]?.name ===
+                                            `superCategory_${selectedCatalogKey}`) ||
+                                        (superChemicalFilterId &&
+                                          superChemicalFilterId?.includes(
+                                            subCategory?.id
+                                          ))
                                       }
                                     >
                                       {subCategory?.heading}

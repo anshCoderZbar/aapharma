@@ -100,10 +100,10 @@ export default function CreateChemical() {
       organizedPriceData?.length >= 1 && JSON.stringify(organizedPriceData)
     );
     subCategoryData?.forEach((data) => {
-      formData.append("catalog2[]", data?.value ? data?.value : null);
+      data?.value && formData.append("catalog2[]", data?.value);
     });
     subChild?.forEach((data) => {
-      formData.append("catalog3[]", data?.value ? data?.value : null);
+      data?.value && formData.append("catalog3[]", data?.value);
     });
     createChemical.mutate(formData);
   };
