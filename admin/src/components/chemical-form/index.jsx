@@ -71,7 +71,6 @@ export const ChemicalForm = ({
   const handleCheckboxChange = (categoryId) => {
     setSelectedCategories((prevSelectedCategories) => {
       let updatedCategories;
-
       if (prevSelectedCategories.includes(categoryId)) {
         updatedCategories = prevSelectedCategories.filter(
           (id) => id !== categoryId
@@ -79,9 +78,7 @@ export const ChemicalForm = ({
       } else {
         updatedCategories = [...prevSelectedCategories, categoryId];
       }
-
       updatedCategories.sort((a, b) => a - b);
-
       return updatedCategories;
     });
 
@@ -151,11 +148,14 @@ export const ChemicalForm = ({
       }
     }
   };
+
   useEffect(() => {
-    const newState = selectedSubCategoryIds.map((elm) => elm.value);
+    let newState = [];
+    let myArray = subChemicalFilterId.split(",");
+    newState = [...newState, ...myArray];
+    newState = newState.concat(selectedSubCategoryIds.map((elm) => elm.value));
     filterSubChildCategory.mutate({
-      subcategoryIds:
-        newState || subChemicalFilterId ? subChemicalFilterId?.split(",") : [],
+      subcategoryIds: newState,
     });
   }, [selectedSubCategoryIds]);
 
