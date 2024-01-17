@@ -1,9 +1,25 @@
 import React, { useState } from "react";
 
 import { Banner } from "app/components/Ui/Banner";
+import {
+  Shape1,
+  Shape2,
+  Shape3,
+  Shape4,
+  Shape5,
+  Shape6,
+  Shape7,
+} from "./Shapes";
 
 import "styles/About.css";
 // import bgBanner from "assets/page-banners/operating_philosophy_banner.jpg";
+// import shape2 from "assets/shape2.svg";
+// import shape3 from "assets/shape3.svg";
+// import shape4 from "assets/shape4.svg";
+// import shape5 from "assets/shape5.svg";
+// import shape6 from "assets/shape6.svg";
+// import shape7 from "assets/shape7.svg";
+
 import {
   GetOperatingPhilosophyDiagram,
   GetOperatingPhilosophyMutation,
@@ -40,7 +56,7 @@ export default function OperatingPhilosophy() {
         </div>
       </div>
       <div className="container-fluid">
-        <div className="operating_diagram">
+        {/* <div className="operating_diagram">
           <div className="outer_diagram">
             {diagramData?.data?.data?.map((elm, i) => {
               return (
@@ -50,7 +66,8 @@ export default function OperatingPhilosophy() {
                     onMouseLeave={() => setId(null)}
                     className={`outer__circle circle_${i + 1}`}
                   >
-                    <img src={elm?.image} alt="icon" />
+                    <img src={diagramData?.data?.data[0]?.image} alt="icon" />
+                    <img src={shape1} className="img-fluid bm-x" />
                   </div>
                   {elm?.id === id ? (
                     <div className="inner_circle">
@@ -71,6 +88,37 @@ export default function OperatingPhilosophy() {
                 </p>
               </div>
             )}
+          </div>
+        </div> */}
+        <div className="operating_diagram">
+          <div className="outer_diagram">
+            <div className="outer__circle circle_1">
+              <Shape1 />
+            </div>
+            <div className="outer__circle circle_2">
+              <Shape2 />
+            </div>
+            <div className="outer__circle circle_3">
+              <Shape3 />
+            </div>
+            <div className="outer__circle circle_4">
+              <Shape4 />
+            </div>
+            <div className="outer__circle circle_5">
+              <Shape5 />
+            </div>
+            <div className="outer__circle circle_6">
+              <Shape6 />
+            </div>
+            <div className="outer__circle circle_7">
+              <Shape7 />
+            </div>
+            <div className="inner_circle">
+              <p>
+                {getOperatingPhilosophy?.data?.data?.diagramDescription &&
+                  getOperatingPhilosophy?.data?.data?.diagramDescription}
+              </p>
+            </div>
           </div>
         </div>
       </div>

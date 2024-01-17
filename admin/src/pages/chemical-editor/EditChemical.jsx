@@ -19,6 +19,18 @@ export default function EditChemical() {
   const { id } = useParams();
 
   const [searchParams] = useSearchParams();
+  const mainCatQueryParam = searchParams.get("main-cat");
+  const subCatQueryParam = searchParams.get("sub-cat");
+  const superSubCatParam = searchParams.get("super-sub-cat");
+  const mainCat = mainCatQueryParam
+    ? mainCatQueryParam.split(",").map((elm) => Number(elm))
+    : [];
+  const subCat = subCatQueryParam
+    ? subCatQueryParam?.split(",").map((elm) => Number(elm))
+    : [];
+  const superSubCat = superSubCatParam
+    ? superSubCatParam?.split(",").map((elm) => Number(elm))
+    : [];
 
   const [currentMolecule, setCurrentMolecule] = useState("");
   const [img, setImg] = useState("");
@@ -26,17 +38,9 @@ export default function EditChemical() {
   const [inputs, setInputs] = useState([]);
   const [priceInputs, setPriceInputs] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [subChild, setSubChild] = useState([
-    { name: "", value: "" },
-    { name: "", value: "" },
-    { name: "", value: "" },
-  ]);
+  const [subChild, setSubChild] = useState([]);
 
-  const [subCategoryData, setSubCategoryData] = useState([
-    { name: "", value: "" },
-    { name: "", value: "" },
-    { name: "", value: "" },
-  ]);
+  const [subCategoryData, setSubCategoryData] = useState([]);
 
   const fetchSingleChemical = FetchSingleChemical(id);
 
@@ -67,13 +71,8 @@ export default function EditChemical() {
     defaultValues.sortNo = fetchSingleChemical?.data?.data?.sortNo;
     defaultValues.heading = fetchSingleChemical?.data?.data?.heading;
     defaultValues.description = fetchSingleChemical?.data?.data?.description;
-    defaultValues.mainCategory = fetchSingleChemical?.data?.data?.catalog;
-    defaultValues.subCategory = fetchSingleChemical?.data?.data?.catalog2;
-    defaultValues.superCategory = fetchSingleChemical?.data?.data?.catalog3;
     const catalogDetails = fetchSingleChemical?.data?.data?.catalog_details;
-    const arrayOfStrings = fetchSingleChemical?.data?.data?.catalog.split("@@");
-    const arrayOfNumbers = arrayOfStrings?.map((str) => Number(str));
-    arrayOfNumbers && setSelectedCategories(arrayOfNumbers);
+
     if (catalogDetails) {
       const parsedCatalogDetails = JSON.parse(catalogDetails);
       const newInputs = parsedCatalogDetails.map((data, i) => {
@@ -93,50 +92,52 @@ export default function EditChemical() {
       setPriceInputs(priceInputs);
     }
 
-    setSubCategoryData([
-      { name: "", value: "" },
-      { name: "", value: "" },
-      { name: "", value: "" },
-    ]);
+    // master catalog
+    const masterCatalogStr =
+      fetchSingleChemical?.data?.data?.catalog.split("@@");
+    const masterCatalogNumbers = masterCatalogStr?.map((str) => Number(str));
+    masterCatalogNumbers && setSelectedCategories(masterCatalogNumbers);
 
     fetchSingleChemical?.data?.data?.catalog2 &&
-      fetchSingleChemical?.data?.data?.catalog2?.split("@@")?.map((elm, i) => {
-        if (!subCategoryData.includes(elm)) {
-          setSubCategoryData((subCategoryData) => [
-            ...subCategoryData,
-            {
-              name: `subCategory_${
-                fetchSingleChemical?.data?.data?.catalog?.split("@@")[i]
-              }`,
-              value: elm,
-            },
-          ]);
-        }
-      });
-
-    setSubChild([
-      { name: "", value: "" },
-      { name: "", value: "" },
-      { name: "", value: "" },
-    ]);
+      fetchSingleChemical?.data?.data?.catalog2
+        ?.split("@@")
+        ?.forEach((elm, i) => {
+          if (!subCategoryData.some((item) => item.value === elm)) {
+            setSubCategoryData((subCategoryData) => [
+              ...subCategoryData,
+              {
+                name: Number.parseInt(
+                  fetchSingleChemical?.data?.data?.catalog?.split("@@")[i]
+                ),
+                value: elm,
+              },
+            ]);
+          }
+        });
 
     fetchSingleChemical?.data?.data?.catalog3 &&
-      fetchSingleChemical?.data?.data?.catalog3?.split("@@")?.map((elm, i) => {
-        if (!subChild.includes(elm)) {
-          setSubChild((subChild) => [
-            ...subChild,
-            {
-              name: `superCategory_${
-                fetchSingleChemical?.data?.data?.catalog?.split("@@")[i]
-              }`,
-              value: elm,
-            },
-          ]);
-        }
-      });
+      fetchSingleChemical?.data?.data?.catalog3
+        ?.split("@@")
+        ?.forEach((elm, i) => {
+          if (!subChild.some((item) => item.value === elm)) {
+            setSubChild((subChild) => [
+              ...subChild,
+              {
+                key: Number.parseInt(
+                  fetchSingleChemical?.data?.data?.catalog?.split("@@")[i]
+                ),
+                prevCat: Number(
+                  fetchSingleChemical?.data?.data?.catalog2?.split("@@")[i]
+                ),
+                value: elm,
+              },
+            ]);
+          }
+        });
 
     reset({ ...defaultValues });
   }, [fetchSingleChemical?.data?.data]);
+
   const updateChemical = UpdateChemical();
 
   const onSubmit = async (data) => {
@@ -185,15 +186,15 @@ export default function EditChemical() {
         organizedPriceData?.length >= 1 && JSON.stringify(organizedPriceData)
       );
 
-      selectedCategories?.forEach((data) => {
+      mainCat?.forEach((data) => {
         formData.append("catalog[]", data);
       });
-
-      subCategoryData?.forEach((data) => {
-        data?.value && formData.append("catalog2[]", data?.value);
+      subCat?.forEach((data) => {
+        data && formData.append("catalog2[]", data);
       });
-      subChild?.forEach((data) => {
-        data?.value && formData.append("catalog3[]", data?.value);
+
+      superSubCat?.forEach((data) => {
+        data && formData.append("catalog3[]", data);
       });
       updateChemical.mutate(formData);
     }

@@ -5,10 +5,11 @@ import "styles/editor.css";
 
 import { PageWrapper } from "components/ui/PageWrapper";
 
-import { EditorComponent } from "components/editor-component";
 import { ChemicalForm } from "components/chemical-form";
 import { FetchAllCatalogsL1 } from "rest/catalog";
 import { CreateChemicalFn } from "rest/chemical";
+import { useSearchParams } from "react-router-dom";
+import { EditorComponent } from "components/editor-component";
 
 export default function CreateChemical() {
   const {
@@ -20,6 +21,22 @@ export default function CreateChemical() {
     getValues,
   } = useForm();
 
+  const [searchParams] = useSearchParams();
+
+  const mainCatQueryParam = searchParams.get("main-cat");
+  const subCatQueryParam = searchParams.get("sub-cat");
+  const superSubCatParam = searchParams.get("super-sub-cat");
+
+  const mainCat = mainCatQueryParam
+    ? mainCatQueryParam.split(",").map((elm) => Number(elm))
+    : [];
+  const subCat = subCatQueryParam
+    ? subCatQueryParam?.split(",").map((elm) => Number(elm))
+    : [];
+  const superSubCat = superSubCatParam
+    ? superSubCatParam?.split(",").map((elm) => Number(elm))
+    : [];
+
   const [currentMolecule, setCurrentMolecule] = useState("");
   const [img, setImg] = useState("");
   const [base64Img, setBase64Img] = useState();
@@ -28,16 +45,9 @@ export default function CreateChemical() {
   const [priceInputs, setPriceInputs] = useState([{ quantity: "", price: "" }]);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
-  const [subChild, setSubChild] = useState([
-    { name: "", value: "" },
-    { name: "", value: "" },
-    { name: "", value: "" },
-  ]);
-  const [subCategoryData, setSubCategoryData] = useState([
-    { name: "", value: "" },
-    { name: "", value: "" },
-    { name: "", value: "" },
-  ]);
+  const [subChild, setSubChild] = useState([]);
+
+  const [subCategoryData, setSubCategoryData] = useState([]);
 
   const fetchCatalogs = FetchAllCatalogsL1();
 
@@ -88,9 +98,6 @@ export default function CreateChemical() {
       }
     });
 
-    selectedCategories?.forEach((data) => {
-      formData.append("catalog[]", data);
-    });
     formData.append(
       "catalog_details",
       organizedData?.length >= 1 && JSON.stringify(organizedData)
@@ -99,12 +106,16 @@ export default function CreateChemical() {
       "catalog_quantity_price",
       organizedPriceData?.length >= 1 && JSON.stringify(organizedPriceData)
     );
-    subCategoryData?.forEach((data) => {
-      data?.value && formData.append("catalog2[]", data?.value);
+
+    mainCat?.forEach((data) => {
+      formData.append("catalog[]", data);
+    });
+    subCat?.forEach((data) => {
+      data && formData.append("catalog2[]", data);
     });
 
-    subChild?.forEach((data) => {
-      data?.value && formData.append("catalog3[]", data?.value);
+    superSubCat?.forEach((data) => {
+      data && formData.append("catalog3[]", data);
     });
     createChemical.mutate(formData);
   };

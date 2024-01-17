@@ -84,7 +84,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-
 .data-table-extensions-action {
   display: none !important;
 }
@@ -109,7 +108,6 @@ input[type="number"] {
   content: "helo" !important;
 }
 
-
 .data-table-extensions::before {
   content: "";
   position: absolute;
@@ -128,7 +126,7 @@ input[type="number"] {
   position: relative;
 }
 
-.data-table-extensions>.data-table-extensions-filter {
+.data-table-extensions > .data-table-extensions-filter {
   float: left;
   z-index: 2;
   position: relative;
@@ -146,3 +144,7 @@ input[type="number"] {
 .data-table-extensions-filter input::placeholder {
   color: #000 !important;
 }
+
+/* .subchild_none option:first {
+  display: none;
+} */
