@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import "swiper/css";
 import "styles/Pages.css";
 import { Autoplay } from "swiper/modules";
 import { AllTestimonialMutation2, GetTestimonialPageHeading } from "rest/about";
@@ -87,7 +87,7 @@ export const TestimonialsPage = () => {
             slidesPerView={1}
             spaceBetween={30}
             loop={true}
-            modules={[Autoplay]}
+            // modules={[Autoplay]}
             speed={1500}
             autoplay={{
               delay: 2500,

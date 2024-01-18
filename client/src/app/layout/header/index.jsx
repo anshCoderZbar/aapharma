@@ -135,15 +135,21 @@ export const Header = () => {
                 {HeaderData?.map((data, i) => {
                   return (
                     <li className="nav-right-li" key={data?.id}>
-                      <Link
-                        className={`${i === selected ? "active_color" : ""}`}
-                        onClick={() => handleMenuClick(i)}
-                        to={data?.slug}
-                      >
-                        {data?.name}{" "}
+                      <div className="d-flex">
+                        <Link
+                          className={`${
+                            window?.location?.pathname === data?.slug
+                              ? "active_color"
+                              : ""
+                          }`}
+                          to={data?.slug}
+                        >
+                          {data?.name}
+                        </Link>
                         {data?.menu && (
-                          <span>
+                          <span style={{ cursor: "pointer" }}>
                             <ChevronDown
+                              onClick={() => handleMenuClick(i)}
                               style={{
                                 transform:
                                   i === selected && open
@@ -154,8 +160,7 @@ export const Header = () => {
                             />
                           </span>
                         )}
-                      </Link>
-
+                      </div>
                       {data && selected !== -1 && (
                         <div ref={submenuRef} className="dropdown vP_csPc">
                           {i === selected && (
