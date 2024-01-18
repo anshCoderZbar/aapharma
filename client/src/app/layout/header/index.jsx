@@ -44,6 +44,7 @@ export const Header = () => {
   const handleMenuClick = (i) => {
     if (i === selected) {
       setOpen(!open);
+      setSelected(-1);
       if (!open) {
         setSelected(-1);
       }
@@ -74,6 +75,7 @@ export const Header = () => {
 
       if (!isInsideSubMenu || !open) {
         setOpen(false);
+        setSelected(-1);
       }
     }
   };
@@ -153,152 +155,155 @@ export const Header = () => {
                           </span>
                         )}
                       </Link>
-                      {data?.menu && selected !== -1 && (
-                        <div ref={submenuRef} className="dropdown vP_csPc">
-                          <ul
-                            className={`dropdown__list ${
-                              open ? "dropdown__list--active" : ""
-                            }`}
-                          >
-                            {i === selected &&
-                              i <= 3 &&
-                              data?.menu?.map((menu, i) => {
-                                return (
-                                  <li
-                                    key={i}
-                                    className={`dropdown__list-item ${
-                                      data?.id === 5 ? "" : "m_xLx"
-                                    }`}
-                                  >
-                                    <Link
-                                      className={
-                                        window?.location?.pathname ===
-                                        menu?.slug
-                                          ? "active_color"
-                                          : ""
-                                      }
-                                      onClick={() => {
-                                        setActive(false);
-                                        setOpen(false);
-                                      }}
-                                      to={menu?.slug}
-                                    >
-                                      {menu?.name}
-                                    </Link>
-                                  </li>
-                                );
-                              })}
 
-                            {i === selected &&
-                              i === 4 &&
-                              masterCategory?.data?.data?.length >= 1 &&
-                              masterCategory?.data?.data?.map((menu, i) => {
-                                const subCategoryFilter =
-                                  subCategory?.data?.data?.filter(
-                                    (elm) => elm?.catalog === menu?.id
-                                  );
-                                return (
-                                  <li
-                                    key={i}
-                                    className={`dropdown__list-item ${
-                                      data?.id === 5 ? "" : "m_xLx"
-                                    }`}
-                                  >
-                                    <Link
-                                      onClick={() => {
-                                        // setActive(false);
-                                      }}
-                                      // to={menu?.slug}
+                      {data && selected !== -1 && (
+                        <div ref={submenuRef} className="dropdown vP_csPc">
+                          {i === selected && (
+                            <ul
+                              className={`dropdown__list ${
+                                open ? "dropdown__list--active" : ""
+                              }`}
+                            >
+                              {i === selected &&
+                                i <= 3 &&
+                                data?.menu?.map((menu, i) => {
+                                  return (
+                                    <li
+                                      key={i}
+                                      className={`dropdown__list-item ${
+                                        data?.id === 5 ? "" : "m_xLx"
+                                      }`}
                                     >
-                                      {menu?.heading}
-                                    </Link>
-                                    {subCategory?.data?.data?.length >= 1 && (
-                                      <ul
-                                        className="acc_types accordion accordion-flush"
-                                        id="accordionFlushExample"
+                                      <Link
+                                        className={
+                                          window?.location?.pathname ===
+                                          menu?.slug
+                                            ? "active_color"
+                                            : ""
+                                        }
+                                        onClick={() => {
+                                          setActive(false);
+                                          setOpen(false);
+                                        }}
+                                        to={menu?.slug}
                                       >
-                                        {subCategoryFilter?.map((elm) => {
-                                          const filteredSubChildData =
-                                            subChildCategory?.data?.data?.filter(
-                                              (sub) => {
-                                                return (
-                                                  elm?.id === sub?.catalog2
-                                                );
-                                              }
-                                            );
-                                          return (
-                                            <li key={elm?.id}>
-                                              <Accordion
-                                                heading={elm?.heading}
-                                                onClick={() => {
-                                                  handlePushArr(
-                                                    elm?.id,
-                                                    menu?.heading
+                                        {menu?.name}
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+
+                              {i === selected &&
+                                i === 4 &&
+                                masterCategory?.data?.data?.length >= 1 &&
+                                masterCategory?.data?.data?.map((menu, i) => {
+                                  const subCategoryFilter =
+                                    subCategory?.data?.data?.filter(
+                                      (elm) => elm?.catalog === menu?.id
+                                    );
+                                  return (
+                                    <li
+                                      key={i}
+                                      className={`dropdown__list-item ${
+                                        data?.id === 5 ? "" : "m_xLx"
+                                      }`}
+                                    >
+                                      <Link
+                                        onClick={() => {
+                                          // setActive(false);
+                                        }}
+                                        // to={menu?.slug}
+                                      >
+                                        {menu?.heading}
+                                      </Link>
+                                      {subCategory?.data?.data?.length >= 1 && (
+                                        <ul
+                                          className="acc_types accordion accordion-flush"
+                                          id="accordionFlushExample"
+                                        >
+                                          {subCategoryFilter?.map((elm) => {
+                                            const filteredSubChildData =
+                                              subChildCategory?.data?.data?.filter(
+                                                (sub) => {
+                                                  return (
+                                                    elm?.id === sub?.catalog2
                                                   );
-                                                }}
-                                                accId={elm?.id}
-                                                extraClass="acc_bg"
-                                              >
-                                                <div className="accordion-body acc_bdy">
-                                                  {subChildCategory?.data?.data
-                                                    ?.length >= 1 &&
-                                                    filteredSubChildData?.map(
-                                                      (category) => {
-                                                        return (
-                                                          // <Accordion
-                                                          //   heading={
-                                                          //     category?.heading
-                                                          //   }
-                                                          //   extraClass="acc_bdy_bg"
-                                                          //   key={category?.id}
-                                                          //   accId={category?.id}
-                                                          // >
-                                                          // {category?.inputValue &&
-                                                          //   category?.inputValue?.map(
-                                                          // (data) => {
-                                                          //   return (
-                                                          <div
-                                                            key={category?.id}
-                                                            className="accordion-body acc_bdy_1"
-                                                          >
-                                                            <div className="form-check">
-                                                              <input
-                                                                className="form-check-input input_acc_check"
-                                                                type="checkbox"
-                                                                id={
-                                                                  category?.id
-                                                                }
-                                                              />
-                                                              <label
-                                                                className="form-check-label acc_input_label"
-                                                                htmlFor={
-                                                                  category?.id
-                                                                }
-                                                              >
-                                                                {
-                                                                  category?.heading
-                                                                }
-                                                              </label>
+                                                }
+                                              );
+                                            return (
+                                              <li key={elm?.id}>
+                                                <Accordion
+                                                  heading={elm?.heading}
+                                                  onClick={() => {
+                                                    handlePushArr(
+                                                      elm?.id,
+                                                      menu?.heading
+                                                    );
+                                                  }}
+                                                  accId={elm?.id}
+                                                  extraClass="acc_bg"
+                                                >
+                                                  <div className="accordion-body acc_bdy">
+                                                    {subChildCategory?.data
+                                                      ?.data?.length >= 1 &&
+                                                      filteredSubChildData?.map(
+                                                        (category) => {
+                                                          return (
+                                                            // <Accordion
+                                                            //   heading={
+                                                            //     category?.heading
+                                                            //   }
+                                                            //   extraClass="acc_bdy_bg"
+                                                            //   key={category?.id}
+                                                            //   accId={category?.id}
+                                                            // >
+                                                            // {category?.inputValue &&
+                                                            //   category?.inputValue?.map(
+                                                            // (data) => {
+                                                            //   return (
+                                                            <div
+                                                              key={category?.id}
+                                                              className="accordion-body acc_bdy_1"
+                                                            >
+                                                              <div className="form-check">
+                                                                <input
+                                                                  className="form-check-input input_acc_check"
+                                                                  type="checkbox"
+                                                                  id={
+                                                                    category?.id
+                                                                  }
+                                                                />
+                                                                <label
+                                                                  className="form-check-label acc_input_label"
+                                                                  htmlFor={
+                                                                    category?.id
+                                                                  }
+                                                                >
+                                                                  {
+                                                                    category?.heading
+                                                                  }
+                                                                </label>
+                                                              </div>
                                                             </div>
-                                                          </div>
-                                                          //     );
-                                                          //   }
-                                                          // )}
-                                                          // </Accordion>
-                                                        );
-                                                      }
-                                                    )}
-                                                </div>
-                                              </Accordion>
-                                            </li>
-                                          );
-                                        })}
-                                      </ul>
-                                    )}
-                                  </li>
-                                );
-                              })}
-                          </ul>
+                                                            //     );
+                                                            //   }
+                                                            // )}
+                                                            // </Accordion>
+                                                          );
+                                                        }
+                                                      )}
+                                                  </div>
+                                                </Accordion>
+                                              </li>
+                                            );
+                                          })}
+                                        </ul>
+                                      )}
+                                    </li>
+                                  );
+                                })}
+                            </ul>
+                          )}
                         </div>
                       )}
                     </li>
