@@ -87,7 +87,7 @@ export const TestimonialsPage = () => {
             slidesPerView={1}
             spaceBetween={30}
             loop={true}
-            // modules={[Autoplay]}
+            modules={[Autoplay]}
             speed={1500}
             autoplay={{
               delay: 2500,

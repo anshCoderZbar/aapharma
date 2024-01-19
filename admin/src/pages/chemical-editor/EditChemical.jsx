@@ -134,7 +134,6 @@ export default function EditChemical() {
             ]);
           }
         });
-
     reset({ ...defaultValues });
   }, [fetchSingleChemical?.data?.data]);
 
@@ -246,9 +245,3 @@ export default function EditChemical() {
     </div>
   );
 }
-
-// subCategoryData={fetchAllSubCatalogs?.data?.data}
-// superSubCategoryData={fetchAllSuperSubCatalogs?.data?.data}
-
-// subCategoryData,
-// superSubCategoryData,

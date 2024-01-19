@@ -231,8 +231,93 @@
   height: 100%;
   overflow: hidden;
   width: 100%;
+  transition: 0.3s linear;
+  position: relative;
 }
 
+.initial_info {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #f7f7f7;
+  transition: transform 0.5s linear;
+  transform: translateY(100%);
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px;
+}
+.initial_info h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2b3072;
+}
+.active_info {
+  transition: transform 0.5s linear;
+  transform: translateY(0%);
+}
+.close_icon_info {
+  position: absolute;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  animation: cssAnimation 0s 0.7s forwards;
+  opacity: 0;
+}
+
+@keyframes cssAnimation {
+  to {
+    opacity: 1;
+  }
+}
+.team_card_body {
+  transition: 0.5s linear;
+}
+.nmmmi-x {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.left-i_c {
+  background-color: #2a3072;
+  width: 36px;
+  text-align: center;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 30px;
+}
+.initial_info ul {
+  padding: 20px 0px 0px 21px;
+  margin: 0px;
+  list-style: none;
+}
+.initial_info ul li {
+  position: relative;
+  font-size: 18px;
+  padding-bottom: 12px;
+}
+.initial_info ul li:before {
+  content: "";
+  position: absolute;
+  left: -21px;
+  right: 0;
+  top: 8px;
+  bottom: 0;
+  background: #68c3ea;
+  height: 10px;
+  width: 10px;
+  border-radius: 20px;
+}
 .team_card img {
   border-radius: 20px;
   width: 100%;

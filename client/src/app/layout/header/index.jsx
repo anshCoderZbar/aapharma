@@ -143,6 +143,7 @@ export const Header = () => {
                               : ""
                           }`}
                           to={data?.slug}
+                          onClick={() => setOpen(false)}
                         >
                           {data?.name}
                         </Link>

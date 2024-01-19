@@ -775,11 +775,11 @@ export const ChemicalForm = ({
   }, [subCatQueryParam, superSubCatParam]);
 
   useEffect(() => {
+    console.log(subCategoryData);
     const subCatValues = subCategoryData.map(
       (subCategory) => subCategory.value
     );
     const subCatQueryString = subCatValues.join(",");
-
     const subChildValues = subChild?.map((sub) => sub.value);
     const subChildQueryString = subChildValues.join(",");
     navigate({
