@@ -60,6 +60,10 @@ import TestimonialHeading from "pages/testimonial/TestimonialHeading";
 import AllTestimonial from "pages/testimonial/AllTestimonial";
 import CreateTestimonial from "pages/testimonial/CreateTestimonial";
 import EditTestimonials from "pages/testimonial/EditTestimonials";
+import TherapeuticsBanner from "pages/therapeutics/TherapeuticsBanner";
+import TherapeuticsSupports from "pages/therapeutics/TherapeuticsSupports";
+import TherapeuticsSteps from "pages/therapeutics/TherapeuticsSteps";
+import EditTherapeuticsSteps from "pages/therapeutics/EditTherapeuticsSteps";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -472,6 +476,38 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditTestimonials />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/therapeutics-banner",
+      element: (
+        <PrivateRoutes>
+          <TherapeuticsBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/therapeutics-supports",
+      element: (
+        <PrivateRoutes>
+          <TherapeuticsSupports />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/therapeutics-steps",
+      element: (
+        <PrivateRoutes>
+          <TherapeuticsSteps />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-therapeutics-steps/:id",
+      element: (
+        <PrivateRoutes>
+          <EditTherapeuticsSteps />
         </PrivateRoutes>
       ),
     },

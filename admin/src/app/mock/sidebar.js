@@ -9,6 +9,8 @@ import {
   LightbulbIcon,
   PersonStanding,
   Settings,
+  StepForward,
+  Stethoscope,
   User,
 } from "lucide-react";
 
@@ -207,6 +209,39 @@ export const SidebarData = [
         id: 2,
         subMenuName: "Testimonials",
         slug: "all-testimonial",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Novel Therapeutics",
+    slug: "#",
+    icon: <Stethoscope />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "therapeutics-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Supports",
+        slug: "therapeutics-supports",
+      },
+      {
+        id: 3,
+        subMenuName: "Steps",
+        slug: "therapeutics-steps",
+      },
+      {
+        id: 4,
+        subMenuName: "ADC",
+        slug: "therapeutics-adc",
+      },
+      {
+        id: 5,
+        subMenuName: "Bottom Section",
+        slug: "therapeutics-bottom",
       },
     ],
   },

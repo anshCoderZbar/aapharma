@@ -197,6 +197,27 @@ class Client {
     deleteTestimonial2: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteTestimonial2, params),
   };
+
+  therapeutics = {
+    getTherapeuticsBanner: () =>
+      HttpClient.get(API_ENDPOINTS.getTherapeuticsBanner),
+    updateTherapeuticsBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateTherapeuticsBanner, params),
+    getTherapeuticsSupport: () =>
+      HttpClient.get(API_ENDPOINTS.supportTherapeutics),
+    updateTherapeuticsSupport: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateTherapeutics, params),
+    getAllStepsTherapeutics: () =>
+      HttpClient.get(API_ENDPOINTS.allStepsTherapeutics),
+    getSingleStepsTherapeutics: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleStepsTherapeutics, params),
+    updateStepsTherapeutics: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateStepsTherapeutics, params),
+    serviceFeaturedImage: () =>
+      HttpClient.get(API_ENDPOINTS.serviceFeaturedImage),
+    editServiceFeaturedImage: (params) =>
+      HttpClient.post(API_ENDPOINTS.serviceFeaturedImage, params),
+  };
 }
 const client = new Client();
 

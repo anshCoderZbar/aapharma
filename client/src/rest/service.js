@@ -32,3 +32,37 @@ export const GetExpertiesIncludesMutation = () => {
 };
 
 // chemical synthesis page
+
+// therapeutics page
+
+export const GetTherapeuticsBanner = () => {
+  const getBanner = useQuery({
+    queryKey: ["get-therapeutics-banner"],
+    queryFn: () => client.services.getTherapeuticsBanner(),
+  });
+  return getBanner;
+};
+
+export const GetTherapeuticsSupport = () => {
+  const getSupport = useQuery({
+    queryKey: ["get-therapeutics-support"],
+    queryFn: () => client.services.getTherapeuticsSupport(),
+  });
+  return getSupport;
+};
+
+export const GetAllTherapeuticsSteps = () => {
+  const getSteps = useQuery({
+    queryKey: ["get-therapeutics-steps"],
+    queryFn: () => client.services.getAllStepsTherapeutics(),
+  });
+  return getSteps;
+};
+
+export const GetServiceImage = (data) => {
+  const getImage = useQuery({
+    queryKey: ["get-service-image"],
+    queryFn: () => client.services.serviceFeaturedImage(data),
+  });
+  return getImage;
+};

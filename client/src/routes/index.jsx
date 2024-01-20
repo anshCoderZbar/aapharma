@@ -25,6 +25,7 @@ import ChemistryExpertise from "pages/capabilities/ChemistryExpertise";
 import LabEquipment from "pages/capabilities/LabEquipment";
 import AnalyticalInstrumentation from "pages/capabilities/AnalyticalInstrumentation";
 import Accreditations from "pages/capabilities/Accreditations";
+import Services2 from "pages/services/Services2";
 
 export const AllRoutes = () => {
   return (
@@ -136,10 +137,18 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/sevices-1"
+            path="/services-1"
             element={
               <PublicRoutes>
                 <Services1 />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/services-2"
+            element={
+              <PublicRoutes>
+                <Services2 />
               </PublicRoutes>
             }
           />

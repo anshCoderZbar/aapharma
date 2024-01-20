@@ -93,4 +93,12 @@ export const API_ENDPOINTS = {
   singleTestimonial2: "/testimonial2/one",
   editTestimonial2: "/testimonial2/update",
   deleteTestimonial2: "/testimonial2/delete",
+  getTherapeuticsBanner: "/service-banner",
+  updateTherapeuticsBanner: "/service-banner-update",
+  supportTherapeutics: "/service-second",
+  updateTherapeutics: "/service-second-update",
+  allStepsTherapeutics: "/servicethird/all",
+  singleStepsTherapeutics: "/servicethird/one",
+  updateStepsTherapeutics: "/servicethird/update",
+  serviceFeaturedImage: "/servicethirdfeatured",
 };

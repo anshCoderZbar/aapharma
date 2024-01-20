@@ -51,6 +51,14 @@ class Client {
     getSingleChemicalSynthesis: (params) =>
       HttpClient.post(API_ENDPOINTS.singleCustomChemicalSynthesis, params),
     getExpertiseIncludes: () => HttpClient.get(API_ENDPOINTS.expertiseIncludes),
+    getTherapeuticsBanner: () =>
+      HttpClient.get(API_ENDPOINTS.getTherapeuticsBanner),
+    getTherapeuticsSupport: () =>
+      HttpClient.get(API_ENDPOINTS.supportTherapeutics),
+    getAllStepsTherapeutics: () =>
+      HttpClient.get(API_ENDPOINTS.allStepsTherapeutics),
+    serviceFeaturedImage: () =>
+      HttpClient.get(API_ENDPOINTS.serviceFeaturedImage),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

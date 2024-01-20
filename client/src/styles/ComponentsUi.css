@@ -1,4 +1,7 @@
 /* banner */
+.main_banner {
+  padding-top: 25px;
+}
 .banner_head {
   width: 100%;
   background-size: cover;
@@ -30,7 +33,6 @@
 }
 
 /* banner */
-
 
 @media screen and (max-width: 1600px) {
   .banner_head {

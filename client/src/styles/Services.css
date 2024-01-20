@@ -5,6 +5,14 @@
   padding: 70px 0;
 }
 
+.service_content h4 {
+  color: #000;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
 .service_content ul {
   margin-top: 35px;
   list-style: none;
@@ -111,6 +119,390 @@
 }
 
 /* service */
+
+/* service -2 */
+
+.service_2_banner {
+  align-items: center;
+}
+
+.service_2_banner h1 {
+  color: #fff;
+  max-width: 100% !important;
+}
+
+.page_sec_btn {
+  padding: 50px 0;
+}
+
+.page_sec_head {
+  color: #000;
+  font-family: "Product Sans";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 42px;
+  margin-bottom: 30px;
+}
+
+.service_page_btns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.service_page_btns button {
+  background-color: #2a3072;
+  color: #fff;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  padding: 24px 15px;
+  border-radius: 11px;
+}
+
+.service_btn_content p {
+  margin-top: 40px;
+  margin-bottom: 0;
+  color: #000;
+  text-align: justify;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 39px;
+}
+
+.step_btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+
+.step_btns button {
+  border-radius: 0px 19px;
+  border: 2px solid #34caff;
+  color: #000;
+  font-family: "Product Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.step_active {
+  background-color: #34caff;
+}
+
+.check_active {
+  background-color: #000;
+}
+
+.checkBtn {
+  display: inline-block;
+  height: 17px;
+  width: 17px;
+  border: 1px solid #000;
+  border-radius: 25px;
+}
+
+.steps_diagram {
+  text-align: center;
+  position: relative;
+  width: 600px;
+  padding-top: 100px;
+  padding-bottom: 90px;
+  margin: 70px auto 0 auto;
+}
+
+.text_content_service {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 15px;
+  position: absolute;
+  right: 0;
+  top: -10px;
+}
+
+.abs_content {
+  width: 313px;
+}
+.text_content_service.vss_2 {
+  left: 0;
+}
+.text_content_service.vss_2 .abs_content {
+  width: 208px;
+}
+.text_content_service.vss_2 .abs_img img {
+  width: 85px;
+}
+.text_content_service.vss_2 .abs_img {
+  order: 2;
+  position: relative;
+  right: 16px;
+  top: 38px;
+}
+.text_content_service.vss_3 {
+  left: -295px;
+  top: 70px;
+}
+.text_content_service.vss_3 .abs_img {
+  order: 2;
+  position: relative;
+  top: 142px;
+  right: -53px;
+}
+
+.text_content_service.vss_4 {
+  left: -357px;
+  top: 212px;
+}
+.text_content_service.vss_4 .abs_img {
+  order: 2;
+  position: relative;
+  top: 246px;
+  right: 0;
+}
+
+.text_content_service.vss_5 {
+  left: auto;
+  top: 212px;
+  right: -506px;
+}
+.text_content_service.vss_5 .abs_img {
+  order: 2;
+  position: relative;
+  top: 246px;
+  right: 0;
+}
+.text_content_service.vss_5 .abs_content h2:nth-child(2) {
+  position: absolute;
+  bottom: 0;
+}
+.abs_content p {
+  color: #000;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 0;
+  line-height: 27px;
+}
+
+.abs_content h2 {
+  color: #000;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.btn_cntnt p {
+  color: #f00;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.service_diagram_2 {
+  border: 1px solid #2a3072;
+}
+
+.top_heads {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.head_left {
+  flex: 0 50%;
+}
+
+.dia_left {
+  /* flex: 0 22%; */
+  position: relative;
+  z-index: 1;
+}
+
+.dia_left:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #2a3072;
+  width: 32%;
+  height: 112%;
+}
+.left_side_content {
+  padding-top: 30px;
+  padding-left: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.left_buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.desc_btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons_arr_des {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttons_arr_des button {
+  text-align: center;
+  font-family: "Product Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #2a3072;
+  background-color: #fff;
+  padding: 20px 14px;
+  border-radius: 12px;
+  position: relative;
+  border: none;
+  outline: none;
+  width: 80%;
+}
+.buttons_arr_des button::before {
+  content: "\2192";
+  position: absolute;
+  right: -25%;
+  font-size: 56px;
+  top: 41%;
+  transform: translate(0%, -50%);
+  color: #fff;
+}
+.desc_bt {
+  background-color: #34caff;
+  flex: 0 1 84%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 6px 14px;
+}
+.Disulfied-s {
+  flex: 0 1 16%;
+  background-color: #2a3072;
+  padding: 14px 0;
+}
+
+.dia_right {
+  /* flex: 0 78%; */
+  background-color: #fff;
+}
+
+.desc_bt p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: #2a3072;
+}
+.dia_left h3,
+.head_right h3 {
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0;
+}
+
+.dia_left h3 {
+  color: #fff;
+  padding: 12px 0;
+}
+
+.head_right h3 {
+  color: #2a3072;
+  text-align: center;
+  border: 1px solid #2a3072;
+  width: max-content;
+  margin: auto;
+  padding: 12px 30px;
+}
+
+.bottom_ser_chem {
+  padding: 100px 50px 35px 50px;
+}
+
+.chem_images {
+  border: 1px solid #2a3072;
+  border-radius: 12px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.chem_images img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service_bottom_section_chem {
+  margin: 70px 0;
+}
+
+.ser_bss {
+  margin-bottom: 30px;
+}
+
+.bottom_sem_content p {
+  text-align: center;
+  color: #000;
+  text-align: center;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
+  max-width: 1300px;
+  margin: auto;
+  padding-top: 25px;
+}
+
+.chem_btm_img {
+  border: 1px solid #d8d8d8;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  height: 100%;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.image_des img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dds_cc {
+  row-gap: 20px;
+}
 
 /* custom-chemical-synthesis */
 
@@ -433,6 +825,7 @@
 .case_diagram_icons:hover .case_inner_border img {
   filter: invert(0);
 }
+
 .case_diagram_icons:hover .case_inner_border h4 {
   color: #fff;
 }
@@ -544,6 +937,7 @@
   top: 0%;
   transform: rotate(148deg);
 }
+
 .case_circle_6:hover::before {
   border-right-color: #2a3072;
 }
@@ -562,6 +956,7 @@
   bottom: 0%;
   transform: rotate(216deg);
 }
+
 .case_circle_7:hover::before {
   border-right-color: #2a3072;
 }
@@ -591,6 +986,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 .vss_cxx p {
   color: #2e2e2e;
   font-size: 16px;
@@ -970,6 +1366,10 @@
 @media only screen and (max-width: 1600px) {
   .serv_sec {
     padding: 60px 0;
+  }
+
+  .service_content h4 {
+    font-size: 17px;
   }
 
   .service_content ul {

@@ -33,4 +33,8 @@ export const API_ENDPOINTS = {
   getCaseStudyDiagramData: "/case_study_graph/all",
   testimonialPageHeading: "/testimonial2head",
   getAllTestimonial2: "/testimonial2/all",
+  getTherapeuticsBanner: "/service-banner",
+  supportTherapeutics: "/service-second",
+  allStepsTherapeutics: "/servicethird/all",
+  serviceFeaturedImage: "/servicethirdfeatured",
 };
