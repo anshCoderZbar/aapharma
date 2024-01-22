@@ -217,6 +217,13 @@ class Client {
       HttpClient.get(API_ENDPOINTS.serviceFeaturedImage),
     editServiceFeaturedImage: (params) =>
       HttpClient.post(API_ENDPOINTS.serviceFeaturedImage, params),
+    getAdcLinker: () => HttpClient.get(API_ENDPOINTS.getAdcLinker),
+    updateAdcLinker: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateAdcLinker, params),
+    getTherapeuticsBottom: () =>
+      HttpClient.get(API_ENDPOINTS.getTherapeuticsBottom),
+    editTherapeuticsBottom: (params) =>
+      HttpClient.post(API_ENDPOINTS.editTherapeuticsBottom, params),
   };
 }
 const client = new Client();

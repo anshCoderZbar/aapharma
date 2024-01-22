@@ -101,4 +101,8 @@ export const API_ENDPOINTS = {
   singleStepsTherapeutics: "/servicethird/one",
   updateStepsTherapeutics: "/servicethird/update",
   serviceFeaturedImage: "/servicethirdfeatured",
+  getAdcLinker: "/service-fourth",
+  updateAdcLinker: "/service-fourth-update",
+  getTherapeuticsBottom: "/service-fifth",
+  editTherapeuticsBottom: "/service-fifth-update",
 };

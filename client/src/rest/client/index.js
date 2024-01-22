@@ -59,6 +59,9 @@ class Client {
       HttpClient.get(API_ENDPOINTS.allStepsTherapeutics),
     serviceFeaturedImage: () =>
       HttpClient.get(API_ENDPOINTS.serviceFeaturedImage),
+    getAdcLinker: () => HttpClient.get(API_ENDPOINTS.getAdcLinker),
+    getTherapeuticsBottom: () =>
+      HttpClient.get(API_ENDPOINTS.getTherapeuticsBottom),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

@@ -64,6 +64,8 @@ import TherapeuticsBanner from "pages/therapeutics/TherapeuticsBanner";
 import TherapeuticsSupports from "pages/therapeutics/TherapeuticsSupports";
 import TherapeuticsSteps from "pages/therapeutics/TherapeuticsSteps";
 import EditTherapeuticsSteps from "pages/therapeutics/EditTherapeuticsSteps";
+import AdcLinker from "pages/therapeutics/AdcLinker";
+import BottomSection from "pages/therapeutics/BottomSection";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -508,6 +510,22 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditTherapeuticsSteps />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/therapeutics-adc",
+      element: (
+        <PrivateRoutes>
+          <AdcLinker />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/therapeutics-bottom",
+      element: (
+        <PrivateRoutes>
+          <BottomSection />
         </PrivateRoutes>
       ),
     },

@@ -100,3 +100,46 @@ export const EditServiceImage = () => {
   });
   return editStep;
 };
+
+export const GetAdcLinker = () => {
+  const getAdc = useQuery({
+    queryKey: ["get-adc-linker"],
+    queryFn: () => client.therapeutics.getAdcLinker(),
+  });
+  return getAdc;
+};
+
+export const EditAdcLinker = () => {
+  const { notify } = useNotifications();
+  const editAdc = useMutation({
+    mutationFn: (data) => client.therapeutics.updateAdcLinker(data),
+    onSuccess: () => {
+      notify("Details Upated Successfully", "success");
+      queryClient.invalidateQueries({ queryKey: ["get-adc-linker"] });
+    },
+
+    onError: () => notify("OOPS! some error occured", "error"),
+  });
+  return editAdc;
+};
+export const GetTherapeuticsBottom = () => {
+  const getBottom = useQuery({
+    queryKey: ["get-therapeutics-bottom"],
+    queryFn: () => client.therapeutics.getTherapeuticsBottom(),
+  });
+  return getBottom;
+};
+
+export const EditTherapeuticsBottom = () => {
+  const { notify } = useNotifications();
+  const editBottom = useMutation({
+    mutationFn: (data) => client.therapeutics.editTherapeuticsBottom(data),
+    onSuccess: () => {
+      notify("Details Upated Successfully", "success");
+      queryClient.invalidateQueries({ queryKey: ["get-therapeutics-bottom"] });
+    },
+
+    onError: () => notify("OOPS! some error occured", "error"),
+  });
+  return editBottom;
+};

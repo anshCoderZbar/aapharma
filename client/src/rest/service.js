@@ -66,3 +66,19 @@ export const GetServiceImage = (data) => {
   });
   return getImage;
 };
+
+export const GetAdcLinker = () => {
+  const getAdc = useQuery({
+    queryKey: ["get-adc-linker"],
+    queryFn: () => client.services.getAdcLinker(),
+  });
+  return getAdc;
+};
+
+export const GetTherapeuticsBottom = () => {
+  const getBottom = useQuery({
+    queryKey: ["get-therapeutics-bottom"],
+    queryFn: () => client.services.getTherapeuticsBottom(),
+  });
+  return getBottom;
+};

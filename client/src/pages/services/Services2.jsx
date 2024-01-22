@@ -4,9 +4,11 @@ import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Services.css";
 import {
+  GetAdcLinker,
   GetAllTherapeuticsSteps,
   GetServiceImage,
   GetTherapeuticsBanner,
+  GetTherapeuticsBottom,
   GetTherapeuticsSupport,
 } from "rest/service";
 
@@ -16,6 +18,8 @@ export default function Services2() {
   const getSupportData = GetTherapeuticsSupport();
   const getAllSteps = GetAllTherapeuticsSteps();
   const getServiceImage = GetServiceImage();
+  const getAdc = GetAdcLinker();
+  const getBottom = GetTherapeuticsBottom();
 
   useEffect(() => {
     setStepId(getAllSteps?.data?.data[0]?.id);
@@ -131,65 +135,82 @@ export default function Services2() {
           </div>
         </div>
       </div>
-
       <div className="container-fluid">
         <h3 className="page_sec_head">
-          ADC linker technology largely comprises of:
+          {getAdc?.data?.data?.heading && getAdc?.data?.data?.heading}
         </h3>
         <div className="service_diagram_2">
           <div className="dia_left">
             <div className="left_side_content">
               <div className="top_heads">
                 <div className="head_left">
-                  <h3>ADC Linker Technology</h3>
+                  <h3>
+                    {getAdc?.data?.data?.titleLeft &&
+                      getAdc?.data?.data?.titleLeft}
+                  </h3>
                 </div>
                 <div className="head_right">
-                  <h3>Release Mechanism</h3>
+                  <h3>
+                    {getAdc?.data?.data?.titleRight &&
+                      getAdc?.data?.data?.titleRight}
+                  </h3>
                 </div>
               </div>
               <div className="left_buttons">
                 <div className="desc_btns">
                   <div className="buttons_arr_des">
                     <div className="Disulfied-s">
-                      <button>Disulfied</button>
+                      <button>
+                        {getAdc?.data?.data?.button1 &&
+                          getAdc?.data?.data?.button1}
+                      </button>
                     </div>
                     <div className="desc_bt">
                       <p>
-                        Designed to be cleaved through disulfied exchange with
-                        an intracellular thiol, such as glutathione.
+                        {getAdc?.data?.data?.button1Description &&
+                          getAdc?.data?.data?.button1Description}
                       </p>
                     </div>
                   </div>
                   <div className="buttons_arr_des">
                     <div className="Disulfied-s">
-                      <button>Hydrazone</button>
+                      <button>
+                        {getAdc?.data?.data?.button2 &&
+                          getAdc?.data?.data?.button2}
+                      </button>
                     </div>
                     <div className="desc_bt">
                       <p>
-                        Designed to be cleaved through disulfied exchange with
-                        an intracellular thiol, such as glutathione.
+                        {getAdc?.data?.data?.button2Description &&
+                          getAdc?.data?.data?.button2Description}
                       </p>
                     </div>
                   </div>
                   <div className="buttons_arr_des">
                     <div className="Disulfied-s">
-                      <button>Theoeither</button>
+                      <button>
+                        {getAdc?.data?.data?.button3 &&
+                          getAdc?.data?.data?.button3}
+                      </button>
                     </div>
                     <div className="desc_bt">
                       <p>
-                        Designed to be cleaved through disulfied exchange with
-                        an intracellular thiol, such as glutathione.
+                        {getAdc?.data?.data?.button3Description &&
+                          getAdc?.data?.data?.button3Description}
                       </p>
                     </div>
                   </div>
                   <div className="buttons_arr_des">
                     <div className="Disulfied-s">
-                      <button>Peptide</button>
+                      <button>
+                        {getAdc?.data?.data?.button4 &&
+                          getAdc?.data?.data?.button4}
+                      </button>
                     </div>
                     <div className="desc_bt">
                       <p>
-                        Designed to be cleaved through disulfied exchange with
-                        an intracellular thiol, such as glutathione.
+                        {getAdc?.data?.data?.button4Description &&
+                          getAdc?.data?.data?.button4Description}
                       </p>
                     </div>
                   </div>
@@ -201,71 +222,113 @@ export default function Services2() {
             <div className="row">
               <div className="col-md-4">
                 <div className="chem_images">
-                  <img src={require("assets/chemical_1.png")} alt="chemical" />
+                  <img
+                    src={
+                      getAdc?.data?.data?.imageLeft &&
+                      getAdc?.data?.data?.imageLeft
+                    }
+                    alt="chemical"
+                  />
                 </div>
               </div>
               <div className="col-md-8">
                 <div className="chem_images">
-                  <img src={require("assets/chemical_2.png")} alt="chemical" />
+                  <img
+                    src={
+                      getAdc?.data?.data?.imageRight &&
+                      getAdc?.data?.data?.imageRight
+                    }
+                    alt="chemical"
+                  />
                 </div>
               </div>
             </div>
             <div className="bottom_sem_content">
-              <p>
-                Chemical Structures of non-cleavable and cleavable linkers. (A)
-                SMCC linkers. (B) Maleimidocaproyl linker. (C) Protease
-                cleavable peptide- Based linker. (D)Reducible disulfide linker.
-                (E) Acid-sensitive hydrazone linker.
-              </p>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html:
+                    getAdc?.data?.data?.bottomDescription &&
+                    getAdc?.data?.data?.bottomDescription,
+                }}
+              />
             </div>
           </div>
         </div>
       </div>
+      {console.log(getBottom?.data?.data)}
+
       <div className="service_bottom_section_chem">
         <div className="container-fluid">
           <div className="service_btn_content ser_bss">
-            <p>
-              As of 2021 among the 114 completed or ongoing human trials, there
-              is a lack of diversification in themedicinal payloads utilized,
-              with only 7 payload preparations reported, (4 additional trialsare
-              ongoing with non-reported structures). Six of seven payload
-              mixtures are derived fromnatural product sources, highlighting the
-              value of natural products as cytotoxic payloadsfor ADC in research
-              studies. Custom cytotoxic payloads comprise an active area of
-              inquiry.
-            </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  getBottom?.data?.data?.topDescription &&
+                  getBottom?.data?.data?.topDescription,
+              }}
+            />
           </div>
           <div className="row dds_cc ">
             <div className="col-md-6">
               <div className="chem_btm_img">
                 <div className="image_des">
-                  <img src={require("assets/chemical_3.png")} alt="chemical" />
-                  <p>
-                    Trastuzumab emtansine (Kadcyla) <br /> for treatment of
-                    Her2-positive breast cancer FDA-approved in 2013{" "}
-                  </p>
+                  <img
+                    src={
+                      getBottom?.data?.data?.imageLeft &&
+                      getBottom?.data?.data?.imageLeft
+                    }
+                    alt="chemical"
+                  />
+                  <div
+                    className="scc_jn"
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        getBottom?.data?.data?.imageLeftDescription &&
+                        getBottom?.data?.data?.imageLeftDescription,
+                    }}
+                  />
                 </div>
               </div>
             </div>
             <div className="col-md-6">
               <div className="chem_btm_img">
                 <div className="image_des">
-                  <img src={require("assets/chemical_4.png")} alt="chemical" />
-                  <p>
-                    Trastuzumab emtansine (Kadcyla) <br /> for treatment of
-                    Her2-positive breast cancer FDA-approved in 2013{" "}
-                  </p>
+                  <img
+                    src={
+                      getBottom?.data?.data?.imageRight &&
+                      getBottom?.data?.data?.imageRight
+                    }
+                    alt="chemical"
+                  />
+                  <div
+                    className="scc_jn"
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        getBottom?.data?.data?.imageRightDescription &&
+                        getBottom?.data?.data?.imageRightDescription,
+                    }}
+                  />
                 </div>
               </div>
             </div>
             <div className="col-12">
               <div className="chem_btm_img">
                 <div className="image_des">
-                  <img src={require("assets/chemical_5.png")} alt="chemical" />
-                  <p>
-                    Trastuzumab emtansine (Kadcyla) <br /> for treatment of
-                    Her2-positive breast cancer FDA-approved in 2013{" "}
-                  </p>
+                  <img
+                    src={
+                      getBottom?.data?.data?.imageBottom &&
+                      getBottom?.data?.data?.imageBottom
+                    }
+                    alt="chemical"
+                  />
+                  <div
+                    className="scc_jn"
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        getBottom?.data?.data?.imageBottomDescription &&
+                        getBottom?.data?.data?.imageBottomDescription,
+                    }}
+                  />
                 </div>
               </div>
             </div>

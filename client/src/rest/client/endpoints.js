@@ -37,4 +37,6 @@ export const API_ENDPOINTS = {
   supportTherapeutics: "/service-second",
   allStepsTherapeutics: "/servicethird/all",
   serviceFeaturedImage: "/servicethirdfeatured",
+  getAdcLinker: "/service-fourth",
+  getTherapeuticsBottom: "/service-fifth",
 };
