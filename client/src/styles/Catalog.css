@@ -114,6 +114,19 @@
   width: 100%;
 }
 
+.reset_btn button {
+  background-color: #2a3072;
+  border: none;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 11px;
+  transition: 0.3s linear;
+}
+
+.reset_btn button:hover {
+  background-color: #34caff;
+}
+
 /* catalog Main Card */
 
 .catalog_main_card {
@@ -133,6 +146,7 @@
   height: 100%;
   max-height: 180px;
   min-height: 180px;
+  object-fit: contain;
 }
 
 .compount_img_details ul {

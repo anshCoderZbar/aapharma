@@ -28,7 +28,7 @@ export const CatalogMainCard = ({ chemicals, status }) => {
           <Loader />
         </div>
       )}
-      {chemicals?.data?.length <= 0 && <h3>No record found</h3>}
+      {!status && chemicals?.data?.length <= 0 && <h3>No record found</h3>}
       <div className="row">
         {!status &&
           chemicals?.data?.slice(startIndex, endIndex)?.map((compounts, i) => {

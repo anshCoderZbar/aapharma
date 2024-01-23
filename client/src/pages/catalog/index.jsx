@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "styles/Catalog.css";
@@ -11,6 +11,7 @@ import { catalogFilterSchema } from "store/CatalogFilter";
 
 export const Catalog = () => {
   const navigte = useNavigate();
+  const [isResetButtonVisible, setResetButtonVisible] = useState(false);
   const filterChemical = FilterChemical();
   const allChemicalProducts = AllChemical();
   const [categoryCheck] = useAtom(categoryChecked);
@@ -20,6 +21,38 @@ export const Catalog = () => {
   const handleChange = (e) => {
     const { value } = e.target;
     sessionStorage.setItem("orderBy", value);
+    filterChemical.mutate();
+  };
+
+  useEffect(() => {
+    const categoryId = JSON.parse(sessionStorage.getItem("categoryId") || "[]");
+    const subcategoryId = JSON.parse(
+      sessionStorage.getItem("subcategoryId") || "[]"
+    );
+    const supersubcategoryId = JSON.parse(
+      sessionStorage.getItem("supersubcategoryId") || "[]"
+    );
+    const orderBy = sessionStorage.getItem("orderBy");
+    const search = sessionStorage.getItem("search");
+
+    const shouldShowButton =
+      categoryId.length > 0 ||
+      subcategoryId.length > 0 ||
+      supersubcategoryId.length > 0 ||
+      orderBy !== "" ||
+      search !== "";
+    console.log(shouldShowButton);
+    setResetButtonVisible(shouldShowButton);
+  }, [isResetButtonVisible, filterChemical]);
+
+  const handleReset = () => {
+    sessionStorage.setItem("categoryId", JSON?.stringify([]));
+    sessionStorage.setItem("subcategoryId", JSON?.stringify([]));
+    sessionStorage.setItem("supersubcategoryId", JSON?.stringify([]));
+    sessionStorage.setItem("orderBy", "");
+    sessionStorage.setItem("search", "");
+    setResetButtonVisible(false);
+
     filterChemical.mutate();
   };
 
@@ -56,11 +89,14 @@ export const Catalog = () => {
       </div>
       <div className="catalog_main_card">
         <div className="container-fluid">
+          {isResetButtonVisible && (
+            <div className="reset_btn">
+              <button onClick={handleReset}>Reset All</button>
+            </div>
+          )}
           <CatalogMainCard
             chemicals={
-              filteredData?.data?.length >= 1
-                ? filteredData
-                : allChemicalProducts?.data
+              filteredData?.status ? filteredData : allChemicalProducts?.data
             }
             status={allChemicalProducts?.isPending || filterChemical?.isPending}
           />
