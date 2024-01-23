@@ -5,7 +5,7 @@ import { Editor } from "ketcher-react";
 import "ketcher-react/dist/index.css";
 import "styles/Catalog.css";
 import { FilterChemical } from "rest/catalog";
-import { Loader } from "app/components/Ui/Loader";
+import { ButtonLoader } from "app/components/Ui/ButtonLoader";
 window.Miew = Miew;
 
 const structServiceProvider = new StandaloneStructServiceProvider();
@@ -58,7 +58,7 @@ export const ChemicalEditor = () => {
           <div className="chem_editor_heading">
             <h2>Draw Structure</h2>
             {filterChemical?.isPending ? (
-              <Loader />
+              <ButtonLoader />
             ) : (
               <div className="submit_btn">
                 <button onClick={handleSearchMolecule}>Search</button>
