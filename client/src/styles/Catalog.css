@@ -220,7 +220,7 @@
   box-shadow: 0 0px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.catalog_card>img {
+.catalog_card > img {
   display: block;
   margin: auto;
   width: 100%;
@@ -406,7 +406,7 @@
   font-weight: 700;
 }
 
-.catalog_details_vss>p {
+.catalog_details_vss > p {
   max-width: 670px;
   color: #666;
   font-family: "Product Sans";
@@ -660,7 +660,7 @@
     font-size: 17px;
   }
 
-  .catalog_details_vss>p {
+  .catalog_details_vss > p {
     font-size: 17px;
     margin-top: 30px;
   }
@@ -782,7 +782,7 @@
     font-size: 36px;
   }
 
-  .catalog_details_vss>p {
+  .catalog_details_vss > p {
     font-size: 16px;
     margin-top: 17px;
   }
@@ -1021,7 +1021,6 @@
     width: auto;
   }
 
-
   .compount_img {
     padding: 10px;
   }
@@ -1119,7 +1118,7 @@
     font-size: 15px;
   }
 
-  .catalog_details_vss>p {
+  .catalog_details_vss > p {
     font-size: 15px;
     margin-top: 15px;
   }
@@ -1242,4 +1241,100 @@
 .catalog_main_card .rc-pagination .rc-pagination-item-active {
   background: #34caff;
   border-radius: 5px;
+}
+
+/* chemical editor */
+.chem_load {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.chemicl_he {
+  height: 80vh;
+}
+
+.chem_editor_heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.submit_btn button {
+  color: #fff;
+  background: #2a3072;
+  padding: 8px 26px;
+  width: 100%;
+  border: none;
+  border-radius: 11px;
+  font-weight: 400;
+  font-size: 16px;
+  transition: background 0.3s linear;
+}
+
+.submit_btn button:hover {
+  background: #34caff;
+}
+
+.chem_editor_heading h2 {
+  color: #2a3072;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.i-loader-inf-horizontal-container {
+  width: 256px;
+  text-align: center;
+}
+
+.i-loader-inf-horizontal-container span {
+  color: #475161;
+  font-family: sans-serif;
+  animation: loader-inf-message-pulse 2s infinite;
+}
+
+.i-loader-inf-horizontal {
+  width: 100%;
+  height: 18px;
+  background: linear-gradient(#2a3072 0 0) 0/0% no-repeat#ddd;
+  border-radius: 4px;
+  animation: loader-inf 2s infinite linear;
+}
+
+.height_0 {
+  position: absolute;
+  left: -1000px;
+}
+
+button[title="About"] {
+  display: none !important;
+}
+button[title="Help (?)"] {
+  display: none !important;
+}
+
+@keyframes loader-inf {
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes loader-inf-message-pulse {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

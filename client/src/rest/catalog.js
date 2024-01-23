@@ -2,6 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import client from "./client";
 import { useAtom } from "jotai";
 import { filteredCatalogs } from "store/CatalogStore";
+import { useNavigate } from "react-router-dom";
 
 export const CatalogCategory1 = (filterNo) => {
   const getCatalogCategory1 = useQuery({
@@ -46,12 +47,23 @@ export const SingleChemical = (id) => {
   return fetchChemical;
 };
 
-export const FilterChemical = (catalog) => {
+export const FilterChemical = () => {
   const [_, setFilteredData] = useAtom(filteredCatalogs);
+  const navigate = useNavigate();
   const filterChemicalMutation = useMutation({
-    mutationFn: () => client.chemical.filterChemical(catalog),
+    mutationFn: () =>
+      client.chemical.filterChemical({
+        orderby: sessionStorage.getItem("orderBy"),
+        search: sessionStorage.getItem("search"),
+        categoryId: JSON?.parse(sessionStorage.getItem("categoryId")),
+        subcategoryId: JSON?.parse(sessionStorage.getItem("subcategoryId")),
+        supersubcategoryId: JSON?.parse(
+          sessionStorage.getItem("supersubcategoryId")
+        ),
+      }),
     onSuccess: (data) => {
       setFilteredData(data);
+      navigate("/catalog");
     },
   });
   return filterChemicalMutation;

@@ -10,13 +10,13 @@ import { Provider } from "jotai";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <>
     <QueryClientProvider client={queryClient}>
       <Provider>
         <App />
       </Provider>
     </QueryClientProvider>
-  </React.StrictMode>
+  </>
 );
 
 reportWebVitals();

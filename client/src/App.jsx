@@ -27,6 +27,14 @@ function App() {
     }
   }, [settings?.data?.data]);
 
+  useEffect(() => {
+    sessionStorage.setItem("categoryId", JSON?.stringify([]));
+    sessionStorage.setItem("subcategoryId", JSON?.stringify([]));
+    sessionStorage.setItem("supersubcategoryId", JSON?.stringify([]));
+    sessionStorage.setItem("orderBy", "");
+    sessionStorage.setItem("search", "");
+  }, []);
+
   return <AllRoutes />;
 }
 

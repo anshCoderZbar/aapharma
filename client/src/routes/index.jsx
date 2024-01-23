@@ -26,6 +26,7 @@ import LabEquipment from "pages/capabilities/LabEquipment";
 import AnalyticalInstrumentation from "pages/capabilities/AnalyticalInstrumentation";
 import Accreditations from "pages/capabilities/Accreditations";
 import Services2 from "pages/services/Services2";
+import { ChemicalEditor } from "pages/catalog/ChemicalEditor";
 
 export const AllRoutes = () => {
   return (
@@ -45,6 +46,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <Catalog />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/chemical-editor"
+            element={
+              <PublicRoutes>
+                <ChemicalEditor />
               </PublicRoutes>
             }
           />

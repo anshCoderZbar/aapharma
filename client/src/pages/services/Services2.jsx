@@ -64,12 +64,14 @@ export default function Services2() {
               {getSupportData?.data?.data && getSupportData?.data?.data.button6}
             </button>
           </div>
-          <div className="service_btn_content">
-            <p>
-              {getSupportData?.data?.data?.description &&
-                getSupportData?.data?.data?.description}
-            </p>
-          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                getSupportData?.data?.data?.description &&
+                getSupportData?.data?.data?.description,
+            }}
+            className="service_btn_content"
+          />
         </div>
         <div className="page_sec_diagram">
           <div className="step_btns">
@@ -113,8 +115,8 @@ export default function Services2() {
                         </div>
                       )}
                       <div className="abs_content">
-                        {elm?.heading.map((elm) => (
-                          <h2>{elm}</h2>
+                        {elm?.heading.map((elm, i) => (
+                          <h2 key={i}>{elm}</h2>
                         ))}
                         <p>{elm?.title}</p>
                       </div>
@@ -255,7 +257,6 @@ export default function Services2() {
           </div>
         </div>
       </div>
-      {console.log(getBottom?.data?.data)}
 
       <div className="service_bottom_section_chem">
         <div className="container-fluid">
@@ -338,5 +339,3 @@ export default function Services2() {
     </div>
   );
 }
-
-const stepBtn = ["Step 1", "Step 2", "Step 3", "Step 4", "Step 5", "Step 6"];

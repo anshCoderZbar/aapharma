@@ -1,16 +1,28 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import "styles/Catalog.css";
 import { CatalogMainCard } from "app/components/CatalogCard/CatalogMainCard";
 import { CatalogSearchBar } from "app/common/catalog/CatalogSearchBar";
 import { useAtom } from "jotai";
 import { categoryChecked, filteredCatalogs } from "store/CatalogStore";
-import { AllChemical } from "rest/catalog";
+import { AllChemical, FilterChemical } from "rest/catalog";
+import { catalogFilterSchema } from "store/CatalogFilter";
 
 export const Catalog = () => {
+  const navigte = useNavigate();
+  const filterChemical = FilterChemical();
   const allChemicalProducts = AllChemical();
   const [categoryCheck] = useAtom(categoryChecked);
   const [filteredData] = useAtom(filteredCatalogs);
+  const [catalogSchema, setCatalogSchema] = useAtom(catalogFilterSchema);
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    sessionStorage.setItem("orderBy", value);
+    filterChemical.mutate();
+  };
+
   return (
     <div className="catalog_page">
       <div className="catalog_banner">
@@ -23,11 +35,18 @@ export const Catalog = () => {
                   <CatalogSearchBar />
                 </div>
                 <div className="filter_right">
-                  <button className="primary_buttton">Draw Structure</button>
-                  <select>
-                    <option value="1">Default Sorting</option>
-                    <option value="2">Default Sorting 1</option>
-                    <option value="3">Default Sorting 2</option>
+                  <button
+                    onClick={() => navigte("/chemical-editor")}
+                    className="primary_buttton"
+                  >
+                    Draw Structure
+                  </button>
+                  <select onChange={handleChange}>
+                    <option value="">Default Sorting</option>
+                    <option value="lh">Low to High</option>
+                    <option value="hl">High to Low</option>
+                    <option value="az">A-Z</option>
+                    <option value="za">Z-A</option>
                   </select>
                 </div>
               </div>
@@ -39,10 +58,11 @@ export const Catalog = () => {
         <div className="container-fluid">
           <CatalogMainCard
             chemicals={
-              filteredData && categoryCheck
+              filteredData?.data?.length >= 1
                 ? filteredData
                 : allChemicalProducts?.data
             }
+            status={allChemicalProducts?.isPending || filterChemical?.isPending}
           />
         </div>
       </div>
