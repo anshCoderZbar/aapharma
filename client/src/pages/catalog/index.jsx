@@ -14,9 +14,9 @@ export const Catalog = () => {
   const [isResetButtonVisible, setResetButtonVisible] = useState(false);
   const filterChemical = FilterChemical();
   const allChemicalProducts = AllChemical();
-  const [categoryCheck] = useAtom(categoryChecked);
+  // const [categoryCheck] = useAtom(categoryChecked);
   const [filteredData] = useAtom(filteredCatalogs);
-  const [catalogSchema, setCatalogSchema] = useAtom(catalogFilterSchema);
+  // const [catalogSchema, setCatalogSchema] = useAtom(catalogFilterSchema);
 
   const handleChange = (e) => {
     const { value } = e.target;

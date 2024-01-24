@@ -1270,6 +1270,7 @@
 
 .chemicl_he {
   height: 80vh;
+  width: 100%;
 }
 
 .chem_editor_heading {
@@ -1290,6 +1291,10 @@
   font-weight: 400;
   font-size: 16px;
   transition: background 0.3s linear;
+}
+
+.StructEditor-module_intermediateCanvas__fR3ws svg {
+  width: 100%;
 }
 
 .submit_btn button:hover {

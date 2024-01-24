@@ -20,7 +20,7 @@ export const ChemicalEditor = () => {
     ketcherRef.current = ketcher;
     window.ketcher = ketcher;
 
-    const initialData = `\n`;
+    const initialData = `\n END\n`;
 
     ketcher.setMolecule(initialData);
   };

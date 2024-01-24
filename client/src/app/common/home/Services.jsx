@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { HomePageImages } from "app/images";
 import { GetHomeAddServices } from "rest/home";
 
 export const Services = () => {

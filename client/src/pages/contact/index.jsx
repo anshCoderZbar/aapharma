@@ -2,7 +2,7 @@ import { formState } from "app/common/contact/state";
 import { ValidateForm } from "app/common/contact/validation";
 import { Loader } from "app/components/Ui/Loader";
 import { useAtom } from "jotai";
-import { Check, Mail, MapPin, Phone, X } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { ContactUs } from "rest/main";
 import { allSettings } from "store/SettingsStore";

@@ -9,7 +9,10 @@ export default function AnalyticalInstrumentation() {
         <div className="row analytical_content">
           <div className="col-md-6">
             <div className="analytical_img">
-              <img src={require("assets/analytical_img.png")} />
+              <img
+                src={require("assets/analytical_img.png")}
+                alt="analytical"
+              />
             </div>
           </div>
           <div className="col-md-6">

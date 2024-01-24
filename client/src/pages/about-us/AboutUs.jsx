@@ -1,4 +1,3 @@
-import { AboutIcons } from "app/images";
 import React, { useRef, useState } from "react";
 import {
   GetAboutBannerMutation,

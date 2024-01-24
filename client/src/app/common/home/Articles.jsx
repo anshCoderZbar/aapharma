@@ -3,8 +3,6 @@ import { MoveUpRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
-import { LatestArticles } from "app/mock/home";
-
 import "swiper/css/pagination";
 import { AllArticlesMutation } from "rest/home";
 

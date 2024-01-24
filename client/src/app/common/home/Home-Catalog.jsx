@@ -5,16 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { CatalogHomeCard } from "app/components/CatalogCard/CatalogHomeCard";
-import { CatalogItems } from "app/mock/home";
 
 import "swiper/css/navigation";
 import { AllChemical } from "rest/catalog";
 
 export const HomeCatalog = () => {
   const swiperRef = useRef();
-  const navigate = useNavigate()
-  
-  const allChemicals = AllChemical() 
+  const navigate = useNavigate();
+
+  const allChemicals = AllChemical();
   return (
     <div className="catalog">
       <div className="d-flex justify-content-between">
@@ -65,13 +64,21 @@ export const HomeCatalog = () => {
         {allChemicals?.data?.data?.map((items) => {
           return (
             <SwiperSlide key={items?.id}>
-              <CatalogHomeCard items={items} baseUrl = {allChemicals?.data?.baseUrl} />
+              <CatalogHomeCard
+                items={items}
+                baseUrl={allChemicals?.data?.baseUrl}
+              />
             </SwiperSlide>
           );
         })}
       </Swiper>
       <div className="d-flex justify-content-center mt-5">
-        <button onClick={()=>navigate('/catalog')} className="primary_buttton">View All</button>
+        <button
+          onClick={() => navigate("/catalog")}
+          className="primary_buttton"
+        >
+          View All
+        </button>
       </div>
     </div>
   );
