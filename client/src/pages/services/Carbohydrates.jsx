@@ -3,6 +3,7 @@ import React from "react";
 import banner from "assets/page-banners/carbohydrate_banner.png";
 
 import "styles/Services.css";
+import { Timeline } from "app/components/Timeline";
 
 export default function Carbohydrates() {
   return (
@@ -44,6 +45,9 @@ export default function Carbohydrates() {
             both public and private entities.
           </p>
         </div>
+      </div>
+      <div className="container-fluid">
+        <Timeline />
       </div>
     </div>
   );
