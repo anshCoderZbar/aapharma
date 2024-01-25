@@ -25,8 +25,6 @@ export const CatalogForm = ({
     );
   });
 
-  console.log(subCatalogFilterIdLev1);
-
   return (
     <div className="edit_catalog_page mb-4">
       <div className="catalog_single_page_inputs">
@@ -111,7 +109,7 @@ export const CatalogForm = ({
                   ) : (
                     <option disabled value={""}>
                       {superSubCat.length < 1
-                        ? "Please Select Master Category First"
+                        ? "Please Select Level 1 First"
                         : "Sub Category Not Present"}
                     </option>
                   )}

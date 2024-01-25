@@ -9,88 +9,52 @@ export const Timeline = () => {
   return (
     <section className="timeline">
       <Swiper slidesPerView={9} loop={false} className="time_vv">
-        {data?.map((elm, i) => {
-          const classIndex = i % 10;
-          return (
-            <SwiperSlide key={i}>
-              <div className={`shape-chat _${classIndex}`}>
-                {elm?.heading?.length <= 1 ? (
-                  <>
-                    {i % 2 !== 0 && <time>{elm?.time}</time>}
-                    <p>{elm?.heading[0]}</p>
-                    {i % 2 === 0 && <time>{elm?.time}</time>}
-                  </>
-                ) : (
-                  <>
-                    <div className="top-div">
-                      <p>{elm?.heading[0]}</p>
-                      <time>{elm?.time}</time>
-                    </div>
-                    <div className="bottom-div bn-xs">
-                      <time>{elm?.time}</time>
-                      <p>{elm?.heading[1]}</p>
-                    </div>
-                  </>
-                )}
-              </div>
-            </SwiperSlide>
-          );
-        })}
+        {allTimelines?.data?.data?.length >= 1 &&
+          allTimelines?.data?.data?.map((elm, i) => {
+            const classIndex = i % 10;
+            return (
+              <SwiperSlide key={i}>
+                <span className="ccrical-a"></span>
+                <div className={`shape-chat _${classIndex}`}>
+                  {elm?.description2 && !elm?.description && (
+                    <time>{elm?.year}</time>
+                  )}
+
+                  {elm?.description && !elm?.description2 && (
+                    <p>{elm?.description}</p>
+                  )}
+                  {elm?.description2 && !elm?.description && (
+                    <p>{elm?.description2}</p>
+                  )}
+
+                  {elm?.description && !elm?.description2 && (
+                    <time>{elm?.year}</time>
+                  )}
+
+                  {elm?.description && elm?.description2 && (
+                    <>
+                      <div className="top-div">
+                        <p>{elm?.description}</p>
+                        <time>{elm?.year}</time>
+                      </div>
+                      <div className="bottom-div bn-xs">
+                        <time>{elm?.year}</time>
+                        <p>{elm?.description2}</p>
+                      </div>
+                    </>
+                  )}
+                </div>
+                <picture className={`comp_img comp_${classIndex}`}>
+                  <img src={elm?.image ? elm?.image : elm?.image2} />
+                </picture>
+              </SwiperSlide>
+            );
+          })}
         <SwiperSlide></SwiperSlide>
       </Swiper>
     </section>
   );
 };
-
-const data = [
-  {
-    heading: ["Discovery of Oligosaccharide as Anti- infective Agents"],
-    time: "1934",
-  },
-  {
-    heading: [
-      "Streptozocin Containing Glucosamine we Approvedfor the treatment iofpancreatic Tumors",
-      "Nucleoside Analogues were Approved for the Treatment of Anti-viral and Anti-tumors",
-    ],
-    time: "1934",
-  },
-  {
-    heading: ["Discovery of Oligosaccharide as Anti- infective Agents"],
-    time: "1976",
-  },
-  {
-    heading: [
-      "Fondaparinux was Approved for the prevention of Throm- boembolic Events",
-    ],
-    time: "2001",
-  },
-  {
-    heading: ["Nelarabine was Approved for The Treatment of Leukemia"],
-    time: "2005",
-  },
-  {
-    heading: [
-      "Sugammadex was Approvedfor the Treatment of Nervous System Diseases",
-    ],
-    time: "2008",
-  },
-  {
-    heading: [
-      "Dapagliflozin Was Approvedas the First SGLT2 Inhibitorfor the Treatment Of T2DM",
-    ],
-    time: "2012",
-  },
-  {
-    heading: [
-      "Plazomicin was Approved asAminoglycoside for the Treatmentof serious bacterial infections",
-    ],
-    time: "2012",
-  },
-  {
-    heading: ["Remdesivir was Approved for treatment of COVID-19"],
-    time: "2020",
-  },
-];
 
 // import React from "react";
 // import { Swiper, SwiperSlide } from "swiper/react";

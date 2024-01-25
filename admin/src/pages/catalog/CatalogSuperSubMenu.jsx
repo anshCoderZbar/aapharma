@@ -32,16 +32,16 @@ export default function CatalogSuperSubMenu() {
       selector: (row) => row.sortNo,
     },
     {
-      name: "Sub Child Category",
-      selector: (row) => row.heading,
-    },
-    {
-      name: "Master Category",
+      name: "Level 1",
       selector: (row) => row.categoryName,
     },
     {
-      name: "Sub Category",
+      name: "Level 2",
       selector: (row) => row.subcategoryName,
+    },
+    {
+      name: "Level 3",
+      selector: (row) => row.heading,
     },
     {
       name: "edit",

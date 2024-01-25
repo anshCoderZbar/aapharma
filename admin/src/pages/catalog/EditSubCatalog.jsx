@@ -57,8 +57,8 @@ export default function EditSubCatalog() {
           isSubCategoryEnable={true}
           subCategory={fetchCatalogs?.data?.data}
           isLoading={updateSubCatalog?.isPending}
-          heading1="Sub Category"
-          heading2="Master Category"
+          heading1="Level 2"
+          heading2="Level 1"
         />
       )}
     </div>

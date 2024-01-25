@@ -27,7 +27,7 @@ export const AddCatalogL1 = () => {
       errors={errors}
       control={control}
       isLoading={AddCatalogMutation?.isPending}
-      heading1="Master Category"
+      heading1="Level 1"
     />
   );
 };

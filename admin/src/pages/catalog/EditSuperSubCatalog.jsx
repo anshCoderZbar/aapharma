@@ -64,9 +64,9 @@ export default function EditSubCatalog() {
           superSubCategory={fetchAllSubCatalogs?.data?.data}
           isLoading={updateSuperSubCatalog?.isPending}
           subCatalogFilterIdLev1={searchParams.get("catalogId")}
-          heading1="Sub Child Category"
-          heading2="Master Category"
-          heading3="Sub Category"
+          heading1="Level 3"
+          heading2="Level 1"
+          heading3="Level 2"
         />
       )}
     </>

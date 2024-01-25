@@ -37,7 +37,7 @@ export const Catalog = () => {
       selector: (row) => row?.sortNo,
     },
     {
-      name: "Master Category",
+      name: "Level 1",
       selector: (row) => row.heading,
     },
     {

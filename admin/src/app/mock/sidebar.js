@@ -81,17 +81,17 @@ export const SidebarData = [
     subMenu: [
       {
         id: 1,
-        subMenuName: "Master Category",
+        subMenuName: "Level 1",
         slug: "master-category",
       },
       {
         id: 2,
-        subMenuName: "Sub Category",
+        subMenuName: "Level 2",
         slug: "sub-category",
       },
       {
         id: 3,
-        subMenuName: "Sub Child Category",
+        subMenuName: "Level 3",
         slug: "sub-child-category",
       },
     ],

@@ -54,7 +54,7 @@ export default function EditCatalog() {
           errors={errors}
           control={control}
           isLoading={updateCatalog?.isPending}
-          heading1="Master Category"
+          heading1="Level 1"
         />
       )}
     </div>

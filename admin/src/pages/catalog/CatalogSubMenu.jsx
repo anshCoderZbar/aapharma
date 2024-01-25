@@ -33,11 +33,11 @@ export const CatalogSubMenu = () => {
       selector: (row) => row.sortNo,
     },
     {
-      name: "Master Category",
+      name: "Level 1",
       selector: (row) => row.categoryName,
     },
     {
-      name: "Sub Category",
+      name: "Level 2",
       selector: (row) => row.heading,
     },
     {

@@ -32,8 +32,8 @@ export const SubCatalogL2 = () => {
       isSubCategoryEnable={true}
       subCategory={fetchCatalogs?.data?.data}
       isLoading={AddCatalogMutationL2?.isPending}
-      heading1="Sub Category"
-      heading2="Master Category"
+      heading1="Level 2"
+      heading2="Level 1"
     />
   );
 };
