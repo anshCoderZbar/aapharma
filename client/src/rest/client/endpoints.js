@@ -39,4 +39,6 @@ export const API_ENDPOINTS = {
   serviceFeaturedImage: "/servicethirdfeatured",
   getAdcLinker: "/service-fourth",
   getTherapeuticsBottom: "/service-fifth",
+  carbohydrateBanner: "/complex-carbohydrate-banner",
+  allCarbohydrateTimeline: "/complexcarboTimeline/all",
 };

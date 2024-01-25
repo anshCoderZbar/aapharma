@@ -6,6 +6,7 @@ import {
   ImagePlus,
   Info,
   LayoutDashboard,
+  Leaf,
   LightbulbIcon,
   PersonStanding,
   Settings,
@@ -242,6 +243,24 @@ export const SidebarData = [
         id: 5,
         subMenuName: "Bottom Section",
         slug: "therapeutics-bottom",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Complex Carbohydrate",
+    slug: "#",
+    icon: <Leaf />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "carbohydrate-banner",
+      },
+      {
+        id: 1,
+        subMenuName: "Timeline",
+        slug: "carbohydrate-timeline",
       },
     ],
   },

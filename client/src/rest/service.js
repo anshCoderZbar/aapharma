@@ -82,3 +82,21 @@ export const GetTherapeuticsBottom = () => {
   });
   return getBottom;
 };
+
+// complex carbohydrates
+
+export const GetCarbohydrateBanner = () => {
+  const getBanner = useQuery({
+    queryKey: ["get-carbohydrate-banner"],
+    queryFn: () => client.services.getCarbohydrateBanner(),
+  });
+  return getBanner;
+};
+
+export const AllCarbohydrateTimeline = () => {
+  const getTimeline = useQuery({
+    queryKey: ["get-carbohydrate-timeline"],
+    queryFn: () => client.services.allCarbohydrateTimeline(),
+  });
+  return getTimeline;
+};

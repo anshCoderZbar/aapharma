@@ -105,4 +105,10 @@ export const API_ENDPOINTS = {
   updateAdcLinker: "/service-fourth-update",
   getTherapeuticsBottom: "/service-fifth",
   editTherapeuticsBottom: "/service-fifth-update",
+  carbohydrateBanner: "/complex-carbohydrate-banner",
+  allCarbohydrateTimeline: "/complexcarboTimeline/all",
+  createCarbohydrateTimeline: "/complexcarboTimeline/new",
+  singleCarbohydrateTimeline: "/complexcarboTimeline/one",
+  updateCarbohydrateTimeline: "/complexcarboTimeline/update",
+  deleteCarbohydrateTimeline: "/complexcarboTimeline/delete",
 };

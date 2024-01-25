@@ -66,6 +66,10 @@ import TherapeuticsSteps from "pages/therapeutics/TherapeuticsSteps";
 import EditTherapeuticsSteps from "pages/therapeutics/EditTherapeuticsSteps";
 import AdcLinker from "pages/therapeutics/AdcLinker";
 import BottomSection from "pages/therapeutics/BottomSection";
+import CarbohydrateBanner from "pages/complex-carbohydrate/CarbohydrateBanner";
+import CarbohydateTimeline from "pages/complex-carbohydrate/CarbohydateTimeline";
+import AddCarbohydrateTimeline from "pages/complex-carbohydrate/AddCarbohydrateTimeline";
+import EditCarbohydrateTimeline from "pages/complex-carbohydrate/EditCarbohydrateTimeline";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -526,6 +530,38 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <BottomSection />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/carbohydrate-banner",
+      element: (
+        <PrivateRoutes>
+          <CarbohydrateBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/carbohydrate-timeline",
+      element: (
+        <PrivateRoutes>
+          <CarbohydateTimeline />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-carbohydrate-timeline",
+      element: (
+        <PrivateRoutes>
+          <AddCarbohydrateTimeline />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-carbohydrate-timeline/:id",
+      element: (
+        <PrivateRoutes>
+          <EditCarbohydrateTimeline />
         </PrivateRoutes>
       ),
     },

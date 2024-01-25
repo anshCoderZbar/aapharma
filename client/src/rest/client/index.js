@@ -62,6 +62,10 @@ class Client {
     getAdcLinker: () => HttpClient.get(API_ENDPOINTS.getAdcLinker),
     getTherapeuticsBottom: () =>
       HttpClient.get(API_ENDPOINTS.getTherapeuticsBottom),
+    getCarbohydrateBanner: () =>
+      HttpClient.get(API_ENDPOINTS.carbohydrateBanner),
+    allCarbohydrateTimeline: () =>
+      HttpClient.get(API_ENDPOINTS.allCarbohydrateTimeline),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

@@ -98,6 +98,7 @@
 .mission_img {
   display: block;
   margin: auto;
+  width: 100%;
 }
 
 .mission_content h2 {

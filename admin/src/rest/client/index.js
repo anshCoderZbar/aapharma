@@ -225,7 +225,24 @@ class Client {
     editTherapeuticsBottom: (params) =>
       HttpClient.post(API_ENDPOINTS.editTherapeuticsBottom, params),
   };
+  complexCarbohydrate = {
+    getCarbohydrateBanner: () =>
+      HttpClient.get(API_ENDPOINTS.carbohydrateBanner),
+    createCarbohydrateBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.carbohydrateBanner, params),
+    allCarbohydrateTimeline: () =>
+      HttpClient.get(API_ENDPOINTS.allCarbohydrateTimeline),
+    createCarbohydrateTimeline: (params) =>
+      HttpClient.post(API_ENDPOINTS.createCarbohydrateTimeline, params),
+    singleCarbohydrateTimeline: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleCarbohydrateTimeline, params),
+    updateCarbohydrateTimeline: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateCarbohydrateTimeline, params),
+    deleteCarbohydrateTimeline: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteCarbohydrateTimeline, params),
+  };
 }
+
 const client = new Client();
 
 export default client;
