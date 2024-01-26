@@ -148,3 +148,9 @@ input[type="number"] {
 /* .subchild_none option:first {
   display: none;
 } */
+
+/* text editor */
+
+.ql-editor p {
+  color: #000;
+}

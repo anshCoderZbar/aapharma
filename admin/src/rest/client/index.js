@@ -240,6 +240,16 @@ class Client {
       HttpClient.post(API_ENDPOINTS.updateCarbohydrateTimeline, params),
     deleteCarbohydrateTimeline: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteCarbohydrateTimeline, params),
+    getCarbohydrateDescription: () =>
+      HttpClient.get(API_ENDPOINTS.carbohydrateDescription),
+    createCarbohydrateDescription: (params) =>
+      HttpClient.post(API_ENDPOINTS.carbohydrateDescription, params),
+    getCarbohydrateDiagram: () =>
+      HttpClient.get(API_ENDPOINTS.allCarbohydrateDiagram),
+    editCarbohydrateDiagram: (params) =>
+      HttpClient.post(API_ENDPOINTS.editCarbohydrateDiagram, params),
+    singleCarbohydrateDiagram: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleCarbohydrateDiagram, params),
   };
 }
 

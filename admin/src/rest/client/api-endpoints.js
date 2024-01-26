@@ -111,4 +111,8 @@ export const API_ENDPOINTS = {
   singleCarbohydrateTimeline: "/complexcarboTimeline/one",
   updateCarbohydrateTimeline: "/complexcarboTimeline/update",
   deleteCarbohydrateTimeline: "/complexcarboTimeline/delete",
+  carbohydrateDescription: "/complex-carbohydrate-bottomTimeline",
+  allCarbohydrateDiagram: "/complex-timeline-diagram/all",
+  singleCarbohydrateDiagram: "/complex-timeline-diagram/one",
+  editCarbohydrateDiagram: "/complex-timeline-diagram/update",
 };

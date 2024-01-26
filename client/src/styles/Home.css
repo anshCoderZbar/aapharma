@@ -229,6 +229,9 @@
 
 .service_img img {
   height: 650px;
+  width: 100%;
+  max-width: 475px;
+  object-fit: cover;
 }
 
 .service_icon {

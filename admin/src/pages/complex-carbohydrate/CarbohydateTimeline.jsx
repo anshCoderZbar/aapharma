@@ -85,8 +85,6 @@ export default function CarbohydateTimeline() {
     },
   ];
 
-  console.log(allTimelines?.data?.data);
-
   return (
     <>
       <PageWrapper slug="carbohydrate-timeline" name="Carbohydrate Timeline" />

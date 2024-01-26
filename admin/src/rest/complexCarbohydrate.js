@@ -94,3 +94,61 @@ export const DeleteCarbohydrateTimeline = () => {
   });
   return createBanner;
 };
+
+export const GetCarbohydrateDescription = () => {
+  const getDecription = useQuery({
+    queryKey: ["carbohydrate-description"],
+    queryFn: () => client.complexCarbohydrate.getCarbohydrateDescription(),
+  });
+  return getDecription;
+};
+
+export const CreateCarbohydrateDescription = () => {
+  const { notify } = useNotifications();
+  const createDescription = useMutation({
+    mutationFn: (data) =>
+      client.complexCarbohydrate.createCarbohydrateDescription(data),
+    onSuccess: () => {
+      notify("Details Added Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["carbohydrate-description"],
+      });
+    },
+    onError: () => notify("OOPS! some error occured", "error"),
+  });
+  return createDescription;
+};
+
+export const GetCarbohydrateDiagram = () => {
+  const getDiagram = useQuery({
+    queryKey: ["carbohydrate-diagram"],
+    queryFn: () => client.complexCarbohydrate.getCarbohydrateDiagram(),
+  });
+  return getDiagram;
+};
+
+export const SingleCarbohydrateDiagram = (data) => {
+  const getSingleDiagram = useQuery({
+    queryKey: ["get-single-carbohydrate-diagram"],
+    queryFn: () => client.complexCarbohydrate.singleCarbohydrateDiagram(data),
+  });
+  return getSingleDiagram;
+};
+
+export const EditCarbohydrateDiagramMutation = () => {
+  const { notify } = useNotifications();
+  const navigate = useNavigate();
+  const editDiagram = useMutation({
+    mutationFn: (data) =>
+      client.complexCarbohydrate.editCarbohydrateDiagram(data),
+    onSuccess: () => {
+      notify("Details Updated Successfully", "success");
+      navigate("/carbohydrate-diagram");
+      queryClient.invalidateQueries({
+        queryKey: ["carbohydrate-diagram"],
+      });
+    },
+    onError: () => notify("OOPS! some error occured", "error"),
+  });
+  return editDiagram;
+};

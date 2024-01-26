@@ -138,8 +138,8 @@ export const SidebarData = [
       },
       {
         id: 2,
-        subMenuName: "Characterized ",
-        slug: "personnel-characterized",
+        subMenuName: "Description",
+        slug: "personnel-description",
       },
       {
         id: 3,
@@ -258,9 +258,19 @@ export const SidebarData = [
         slug: "carbohydrate-banner",
       },
       {
-        id: 1,
+        id: 2,
         subMenuName: "Timeline",
         slug: "carbohydrate-timeline",
+      },
+      {
+        id: 3,
+        subMenuName: "Description",
+        slug: "carbohydrate-description",
+      },
+      {
+        id: 3,
+        subMenuName: "Diagram",
+        slug: "carbohydrate-diagram",
       },
     ],
   },

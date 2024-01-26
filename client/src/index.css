@@ -167,6 +167,10 @@ input[type="number"] {
   color: #34caff !important;
 }
 
+p {
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: 1700px) {
   .container-fluid {
     padding-left: 70px !important;

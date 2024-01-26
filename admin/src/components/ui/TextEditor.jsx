@@ -17,23 +17,61 @@ export const TextEditor = React.forwardRef((props, ref) => {
             onChange={field?.onChange}
             modules={{
               toolbar: [
-                [{ header: [1, 2, 3, false] }],
+                [{ font: ["selected", "serif", "monospace"] }],
+                [{ header: [1, 2, 3, 4, 5, 6, false] }],
                 ["bold", "italic", "underline", "strike", "blockquote"],
+                [
+                  {
+                    color: [
+                      "#2E2E2E",
+                      "#2A3072",
+                      "#1AA338",
+                      "#34CAFF",
+                      "#666666",
+                      "#F7F7F7",
+                      "#FC0D1B",
+                      "#D1D1D1",
+                      "#2A3072",
+                      "#292D32",
+                      "#D9D9D9",
+                      "#000000",
+                      "#46EFF5",
+                      "#e60000",
+                      "#ffff00",
+                      "#008a00",
+                      "#9933ff",
+                      "#facccc",
+                      "#bbbbbb",
+                      "#ffc266",
+                      "#006100",
+                    ],
+                  },
+                ],
                 [{ list: "ordered" }, { list: "bullet" }],
+                [{ indent: "-1" }, { indent: "+1" }],
+                ["code"],
                 ["link", "image", "video"],
                 ["clean"],
               ],
             }}
             formats={[
+              "font",
               "header",
               "bold",
               "italic",
               "underline",
               "strike",
               "blockquote",
+              "color",
+              "code",
               "list",
+              "indent",
               "bullet",
               "link",
+              "image",
+              "video",
+              "iframe",
+              "clean",
             ]}
           />
         );

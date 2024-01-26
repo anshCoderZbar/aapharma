@@ -70,6 +70,9 @@ import CarbohydrateBanner from "pages/complex-carbohydrate/CarbohydrateBanner";
 import CarbohydateTimeline from "pages/complex-carbohydrate/CarbohydateTimeline";
 import AddCarbohydrateTimeline from "pages/complex-carbohydrate/AddCarbohydrateTimeline";
 import EditCarbohydrateTimeline from "pages/complex-carbohydrate/EditCarbohydrateTimeline";
+import CarbohydrateDescription from "pages/complex-carbohydrate/CarbohydrateDescription";
+import CarbohydrateDiagram from "pages/complex-carbohydrate/CarbohydrateDiagram";
+import EditCarbohydrateDiagram from "pages/complex-carbohydrate/EditCarbohydrateDiagram";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -334,7 +337,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/personnel-characterized",
+      path: "/personnel-description",
       element: (
         <PrivateRoutes>
           <PersonnelCharacterized />
@@ -562,6 +565,30 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditCarbohydrateTimeline />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/carbohydrate-description",
+      element: (
+        <PrivateRoutes>
+          <CarbohydrateDescription />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/carbohydrate-diagram",
+      element: (
+        <PrivateRoutes>
+          <CarbohydrateDiagram />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-carbohydrate-diagram/:id",
+      element: (
+        <PrivateRoutes>
+          <EditCarbohydrateDiagram />
         </PrivateRoutes>
       ),
     },

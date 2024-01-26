@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { Banner } from "app/components/Ui/Banner";
 import {
@@ -17,12 +17,19 @@ import {
   GetOperatingPhilosophyDiagram,
   GetOperatingPhilosophyMutation,
 } from "rest/about";
+import { useOutsideClick } from "lib/hooks/useOutsideClick";
 
 export default function OperatingPhilosophy() {
+  const diagramRef = useRef();
   const getOperatingPhilosophy = GetOperatingPhilosophyMutation();
   const diagramData = GetOperatingPhilosophyDiagram();
   const [id, setId] = useState(null);
   const [color, setColor] = useState("#2A3072");
+
+  useOutsideClick(diagramRef, id, () => {
+    setId(null);
+  });
+
   return (
     <div className="operating_philosophy_page">
       <Banner
@@ -50,15 +57,11 @@ export default function OperatingPhilosophy() {
       </div>
       <div className="container-fluid">
         <div className="operating_diagram">
-          <div className="outer_diagram">
+          <div ref={diagramRef} className="outer_diagram">
             <div
-              onMouseEnter={() => {
+              onClick={() => {
                 setId(diagramData?.data?.data[0]?.id);
                 setColor("#34caff");
-              }}
-              onMouseLeave={() => {
-                setColor("#2A3072");
-                setId(null);
               }}
               className="outer__circle circle_1"
             >
@@ -68,13 +71,9 @@ export default function OperatingPhilosophy() {
               />
             </div>
             <div
-              onMouseEnter={() => {
+              onClick={() => {
                 setId(diagramData?.data?.data[1]?.id);
                 setColor("#34caff");
-              }}
-              onMouseLeave={() => {
-                setColor("#2A3072");
-                setId(null);
               }}
               className="outer__circle circle_2"
             >
@@ -84,13 +83,9 @@ export default function OperatingPhilosophy() {
               />
             </div>
             <div
-              onMouseEnter={() => {
+              onClick={() => {
                 setId(diagramData?.data?.data[2]?.id);
                 setColor("#34caff");
-              }}
-              onMouseLeave={() => {
-                setColor("#2A3072");
-                setId(null);
               }}
               className="outer__circle circle_3"
             >
@@ -100,13 +95,9 @@ export default function OperatingPhilosophy() {
               />
             </div>
             <div
-              onMouseEnter={() => {
+              onClick={() => {
                 setId(diagramData?.data?.data[3]?.id);
                 setColor("#34caff");
-              }}
-              onMouseLeave={() => {
-                setColor("#2A3072");
-                setId(null);
               }}
               className="outer__circle circle_4"
             >
@@ -116,13 +107,9 @@ export default function OperatingPhilosophy() {
               />
             </div>
             <div
-              onMouseEnter={() => {
+              onClick={() => {
                 setId(diagramData?.data?.data[4]?.id);
                 setColor("#34caff");
-              }}
-              onMouseLeave={() => {
-                setColor("#2A3072");
-                setId(null);
               }}
               className="outer__circle circle_5"
             >
@@ -132,13 +119,9 @@ export default function OperatingPhilosophy() {
               />
             </div>
             <div
-              onMouseEnter={() => {
+              onClick={() => {
                 setId(diagramData?.data?.data[5]?.id);
                 setColor("#34caff");
-              }}
-              onMouseLeave={() => {
-                setColor("#2A3072");
-                setId(null);
               }}
               className="outer__circle circle_6"
             >
@@ -148,13 +131,9 @@ export default function OperatingPhilosophy() {
               />
             </div>
             <div
-              onMouseEnter={() => {
+              onClick={() => {
                 setId(diagramData?.data?.data[6]?.id);
                 setColor("#34caff");
-              }}
-              onMouseLeave={() => {
-                setColor("#2A3072");
-                setId(null);
               }}
               className="outer__circle circle_7"
             >
