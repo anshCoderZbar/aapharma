@@ -1357,6 +1357,19 @@
   font-size: 26px;
 }
 
+/* complex-diagram */
+.complex_diagram {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-image-slice: 110;
+  border-image-width: 100px;
+  border-image-source: url("../assets/complex_diagrm_border.png");
+}
+
 @keyframes open-desc {
   0% {
     opacity: 0;

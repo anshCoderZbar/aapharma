@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "./timeline.css";
@@ -6,6 +6,14 @@ import { AllCarbohydrateTimeline } from "rest/service";
 
 export const Timeline = () => {
   const allTimelines = AllCarbohydrateTimeline();
+  const [id, setId] = useState(null);
+
+  useEffect(() => {
+    if (allTimelines?.data?.data) {
+      setId(allTimelines?.data?.data[0]?.id);
+    }
+  }, [allTimelines?.data?.data]);
+
   return (
     <section className="timeline">
       <Swiper slidesPerView={9} loop={false} className="time_vv">
@@ -14,7 +22,10 @@ export const Timeline = () => {
             const classIndex = i % 10;
             return (
               <SwiperSlide key={i}>
-                <span className="ccrical-a"></span>
+                <span
+                  onClick={() => setId(elm?.id)}
+                  className="ccrical-a"
+                ></span>
                 <div className={`shape-chat _${classIndex}`}>
                   {elm?.description2 && !elm?.description && (
                     <time>{elm?.year}</time>
@@ -44,9 +55,11 @@ export const Timeline = () => {
                     </>
                   )}
                 </div>
-                <picture className={`comp_img comp_${classIndex}`}>
-                  <img src={elm?.image ? elm?.image : elm?.image2} />
-                </picture>
+                {elm?.id === id && (
+                  <picture className={`comp_img comp_${classIndex}`}>
+                    <img src={elm?.image ? elm?.image : elm?.image2} />
+                  </picture>
+                )}
               </SwiperSlide>
             );
           })}

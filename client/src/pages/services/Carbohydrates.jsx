@@ -5,6 +5,7 @@ import banner from "assets/page-banners/carbohydrate_banner.png";
 import "styles/Services.css";
 import { Timeline } from "app/components/Timeline";
 import { GetCarbohydrateBanner } from "rest/service";
+import { ComplexShape3 } from "app/common/services/Icons";
 
 export default function Carbohydrates() {
   const getBanner = GetCarbohydrateBanner();
@@ -44,6 +45,10 @@ export default function Carbohydrates() {
       </div>
       <div className="container-fluid">
         <Timeline />
+      </div>
+
+      <div className="container-fluid">
+        <div className="complex_diagram"></div>
       </div>
     </div>
   );
