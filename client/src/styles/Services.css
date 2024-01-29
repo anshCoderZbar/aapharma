@@ -236,25 +236,31 @@
 .abs_content {
   width: 313px;
 }
+
 .text_content_service.vss_2 {
   left: 0;
 }
+
 .text_content_service.vss_2 .abs_content {
   width: 208px;
 }
+
 .text_content_service.vss_2 .abs_img img {
   width: 85px;
 }
+
 .text_content_service.vss_2 .abs_img {
   order: 2;
   position: relative;
   right: 16px;
   top: 38px;
 }
+
 .text_content_service.vss_3 {
   left: -295px;
   top: 70px;
 }
+
 .text_content_service.vss_3 .abs_img {
   order: 2;
   position: relative;
@@ -266,6 +272,7 @@
   left: -357px;
   top: 212px;
 }
+
 .text_content_service.vss_4 .abs_img {
   order: 2;
   position: relative;
@@ -278,16 +285,19 @@
   top: 212px;
   right: -506px;
 }
+
 .text_content_service.vss_5 .abs_img {
   order: 2;
   position: relative;
   top: 246px;
   right: 0;
 }
+
 .text_content_service.vss_5 .abs_content h2:nth-child(2) {
   position: absolute;
   bottom: 0;
 }
+
 .abs_content p {
   color: #000;
   font-family: "Product Sans";
@@ -351,6 +361,7 @@
   width: 32%;
   height: 112%;
 }
+
 .left_side_content {
   padding-top: 30px;
   padding-left: 30px;
@@ -390,6 +401,7 @@
   outline: none;
   width: 80%;
 }
+
 .buttons_arr_des button::before {
   content: "\2192";
   position: absolute;
@@ -399,6 +411,7 @@
   transform: translate(0%, -50%);
   color: #fff;
 }
+
 .desc_bt {
   background-color: #34caff;
   flex: 0 1 84%;
@@ -407,6 +420,7 @@
   align-items: center;
   padding: 6px 14px;
 }
+
 .Disulfied-s {
   flex: 0 1 16%;
   background-color: #2a3072;
@@ -424,6 +438,7 @@
   font-size: 18px;
   color: #2a3072;
 }
+
 .dia_left h3,
 .head_right h3 {
   font-family: "Product Sans";
@@ -1357,17 +1372,198 @@
   font-size: 26px;
 }
 
-/* complex-diagram */
-.complex_diagram {
+/* carbohydrates-diagram */
+.carbohydrates_diagram_outer {
+  display: flex;
+  justify-content: center;
+  margin-top: 5em;
+  margin-bottom: 15em;
+}
+
+.carbohydrates_diagram_inner {
   width: 600px;
   height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  border-image-slice: 110;
-  border-image-width: 100px;
+  border-image-slice: 100;
+  border-image-width: 28%;
   border-image-source: url("../assets/complex_diagrm_border.png");
+}
+
+.carbo_digram_circle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carb_circle_1 {
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carb_circle_2 {
+  top: 24%;
+  right: -7%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.carb_circle_3 {
+  bottom: 9%;
+  right: -2%;
+  transform: translate(0%, -50%) rotate(112deg);
+}
+
+.carb_circle_4 {
+  bottom: -4%;
+  right: 10%;
+  transform: translate(-50%, -0%) rotate(138deg);
+}
+
+.carb_circle_5 {
+  bottom: -4%;
+  left: 20%;
+  transform: translate(0%, -0%) rotate(215deg);
+}
+
+.carb_circle_6 {
+  top: 62%;
+  left: -2%;
+  transform: translate(-1%, -50%) rotate(246deg);
+}
+
+.carb_circle_7 {
+  top: 10%;
+  left: 14%;
+  transform: translate(-50%, -0%) rotate(300deg);
+}
+
+.complex_year {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.complex_year span {
+  color: #fff;
+  font-size: 22px;
+  position: relative;
+  bottom: 14px;
+}
+
+.carbo_inner_circle {
+  width: 316px;
+  height: 316px;
+  background-color: #34caff;
+  border-radius: 50%;
+  position: relative;
+  top: 10%;
+}
+
+.complex_year_2 {
+  transform: rotate(313deg);
+}
+
+.complex_year_3 {
+  transform: rotate(248deg);
+}
+
+.complex_year_4 {
+  transform: rotate(220deg);
+}
+
+.complex_year_5 {
+  transform: rotate(145deg);
+}
+
+.complex_year_6 {
+  transform: rotate(115deg);
+}
+
+.complex_year_7 {
+  transform: rotate(60deg);
+}
+
+.carb_inner_content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 50px;
+}
+
+.carb_inner_content h4 {
+  color: #000;
+  font-family: "Product Sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.carb_inner_content ul {
+  list-style: none;
+}
+
+.carb_inner_content ul li {
+  color: #000;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.complex_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: -1;
+  justify-content: center;
+  padding: 10px;
+}
+
+.carbo_img_1 {
+  top: -13rem;
+}
+
+.carbo_img_2 {
+  top: -19rem;
+  right: -7rem;
+}
+
+.carbo_img_3 {
+  bottom: 20rem;
+  left: -5rem;
+}
+
+.carbo_img_4 {
+  bottom: 15rem;
+  left: -5rem;
+}
+
+.carbo_img_5 {
+  bottom: 15rem;
+  right: -5rem;
+}
+
+.carbo_img_6 {
+  bottom: 21rem;
+  right: -6rem;
+}
+
+.carbo_img_7 {
+  top: -20rem;
+  right: 7rem;
 }
 
 @keyframes open-desc {

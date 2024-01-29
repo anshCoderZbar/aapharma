@@ -100,3 +100,11 @@ export const AllCarbohydrateTimeline = () => {
   });
   return getTimeline;
 };
+
+export const GetCarbohydrateDiagram = () => {
+  const getDiagram = useQuery({
+    queryKey: ["carbohydrate-diagram"],
+    queryFn: () => client.services.getCarbohydrateDiagram(),
+  });
+  return getDiagram;
+};

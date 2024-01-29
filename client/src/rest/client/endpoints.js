@@ -41,4 +41,5 @@ export const API_ENDPOINTS = {
   getTherapeuticsBottom: "/service-fifth",
   carbohydrateBanner: "/complex-carbohydrate-banner",
   allCarbohydrateTimeline: "/complexcarboTimeline/all",
+  allCarbohydrateDiagram: "/complex-timeline-diagram/all",
 };
