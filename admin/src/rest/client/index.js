@@ -251,6 +251,15 @@ class Client {
     singleCarbohydrateDiagram: (params) =>
       HttpClient.post(API_ENDPOINTS.singleCarbohydrateDiagram, params),
   };
+  employment = {
+    getEmploymentBanner: () => HttpClient.get(API_ENDPOINTS.employmentBanner),
+    updateEmploymentBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.employmentBanner, params),
+    getEmploymentResponsibilities: () =>
+      HttpClient.get(API_ENDPOINTS.employmentResponsibilities),
+    updateEmploymentResponsibilities: (params) =>
+      HttpClient.post(API_ENDPOINTS.employmentResponsibilities, params),
+  };
 }
 
 const client = new Client();

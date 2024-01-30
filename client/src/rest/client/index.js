@@ -71,6 +71,9 @@ class Client {
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),
+    getEmploymentBanner: () => HttpClient.get(API_ENDPOINTS.employmentBanner),
+    getEmploymentResponsibilities: () =>
+      HttpClient.get(API_ENDPOINTS.employmentResponsibilities),
   };
   caseStudy = {
     getCaseStudy: () => HttpClient.get(API_ENDPOINTS.caseStudyTabs),

@@ -299,12 +299,15 @@
 }
 
 .apply_box_content p {
-  color: #fff;
   font-family: "Product Sans";
   font-size: 24px;
   font-weight: 400;
   line-height: 38px;
   margin-bottom: 0;
+}
+
+.apply_box_content p span {
+  color: #fff !important;
 }
 
 .apply_box_content button {

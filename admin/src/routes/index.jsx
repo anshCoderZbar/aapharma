@@ -73,6 +73,8 @@ import EditCarbohydrateTimeline from "pages/complex-carbohydrate/EditCarbohydrat
 import CarbohydrateDescription from "pages/complex-carbohydrate/CarbohydrateDescription";
 import CarbohydrateDiagram from "pages/complex-carbohydrate/CarbohydrateDiagram";
 import EditCarbohydrateDiagram from "pages/complex-carbohydrate/EditCarbohydrateDiagram";
+import EmploymentBanner from "pages/employment/EmploymentBanner";
+import EmploymenetResponsibilities from "pages/employment/EmploymenetResponsibilities";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -589,6 +591,22 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditCarbohydrateDiagram />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/employment-banner",
+      element: (
+        <PrivateRoutes>
+          <EmploymentBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/employment-responsibilities",
+      element: (
+        <PrivateRoutes>
+          <EmploymenetResponsibilities />
         </PrivateRoutes>
       ),
     },

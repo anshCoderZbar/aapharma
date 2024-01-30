@@ -24,7 +24,7 @@ export const Timeline = () => {
               <SwiperSlide key={i}>
                 <span
                   onClick={() => setId(elm?.id)}
-                  className="ccrical-a"
+                  className={`ccrical-a ccir_${classIndex}`}
                 ></span>
                 <div className={`shape-chat _${classIndex}`}>
                   {elm?.description2 && !elm?.description && (

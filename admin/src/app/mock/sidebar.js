@@ -9,6 +9,7 @@ import {
   Leaf,
   LightbulbIcon,
   PersonStanding,
+  PersonStandingIcon,
   Settings,
   StepForward,
   Stethoscope,
@@ -271,6 +272,24 @@ export const SidebarData = [
         id: 3,
         subMenuName: "Diagram",
         slug: "carbohydrate-diagram",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Employment",
+    slug: "#",
+    icon: <PersonStandingIcon />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "employment-banner",
+      },
+      {
+        id: 1,
+        subMenuName: "Responsibilities",
+        slug: "employment-responsibilities",
       },
     ],
   },

@@ -19,6 +19,8 @@ export const API_ENDPOINTS = {
   getAboutUsCard: "/about-us-cards",
   getTimeline: "/timeline/all",
   contactUs: "/contact-form",
+  employmentBanner: "/employment-banner",
+  employmentResponsibilities: "/employmentAt",
   personnelBanner: "/teambanner",
   personnelCharacterized: "/p-characteristics",
   getTeamMember: "/team/all",

@@ -178,7 +178,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/employement"
+            path="/employment"
             element={
               <PublicRoutes>
                 <Employement />

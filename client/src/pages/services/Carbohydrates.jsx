@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "styles/Services.css";
 import { Timeline } from "app/components/Timeline";
 import { GetCarbohydrateBanner, GetCarbohydrateDiagram } from "rest/service";
 import { ComplexShape1 } from "app/common/services/Icons";
+import { useOutsideClick } from "lib/hooks/useOutsideClick";
 
 export default function Carbohydrates() {
+  const diagramRef = useRef();
   const getBanner = GetCarbohydrateBanner();
   const getDiagram = GetCarbohydrateDiagram();
   const [id, setId] = useState(null);
@@ -15,6 +17,10 @@ export default function Carbohydrates() {
       setId(getDiagram?.data?.data[0]?.id);
     }
   }, [getDiagram?.data?.data]);
+
+  useOutsideClick(diagramRef, id, () => {
+    setId(getDiagram?.data?.data[0]?.id);
+  });
 
   return (
     <div className="carbohydrates_page">
@@ -56,13 +62,12 @@ export default function Carbohydrates() {
 
       <div className="container-fluid">
         <div className="carbohydrates_diagram_outer">
-          <div className="carbohydrates_diagram_inner">
+          <div ref={diagramRef} className="carbohydrates_diagram_inner">
             {getDiagram?.data?.data?.map((elm, i) => {
               return (
                 <div className="carbo_diagram">
                   <div
-                    onMouseEnter={() => setId(elm?.id)}
-                    onMouseLeave={() => setId(getDiagram?.data?.data[0]?.id)}
+                    onClick={() => setId(elm?.id)}
                     className={`carbo_digram_circle carb_circle_${i + 1}`}
                   >
                     <ComplexShape1 color={elm?.id === id && "#34caff"} />

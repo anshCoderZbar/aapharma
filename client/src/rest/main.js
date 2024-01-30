@@ -10,20 +10,6 @@ export const GetSettings = () => {
   return allSetting;
 };
 
-export const ContactUs = (setFormValues) => {
-  const message = useMutation({
-    mutationFn: (data) => client.contact.contactUs(data),
-    onSuccess: () => {
-      console.log("succes");
-      setFormValues(formState);
-    },
-    onError: () => {
-      console.log("error");
-    },
-  });
-  return message;
-};
-
 export const MasterCategory = () => {
   const getCatalogCategory1 = useQuery({
     queryKey: ["master-category-header"],
@@ -48,4 +34,37 @@ export const SubChildCategory = (id) => {
     enabled: id?.length >= 1,
   });
   return getCatalogCategory3;
+};
+
+// contact
+export const ContactUs = (setFormValues) => {
+  const message = useMutation({
+    mutationFn: (data) => client.contact.contactUs(data),
+    onSuccess: () => {
+      console.log("succes");
+      setFormValues(formState);
+    },
+    onError: () => {
+      console.log("error");
+    },
+  });
+  return message;
+};
+
+// employment
+
+export const GetEmploymentBanner = () => {
+  const getBanner = useQuery({
+    queryKey: ["get-employment-banner"],
+    queryFn: () => client.contact.getEmploymentBanner(),
+  });
+  return getBanner;
+};
+
+export const GetEmploymentResponsibilities = () => {
+  const getResponsibilities = useQuery({
+    queryKey: ["get-employment-responsibilities"],
+    queryFn: () => client.contact.getEmploymentResponsibilities(),
+  });
+  return getResponsibilities;
 };
