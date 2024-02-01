@@ -79,3 +79,34 @@ export const TextEditor = React.forwardRef((props, ref) => {
     />
   );
 });
+
+// import React, { Component } from "react";
+// import { CKEditor } from "@ckeditor/ckeditor5-react";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import { Controller } from "react-hook-form";
+
+// export const TextEditor = React.forwardRef(
+//   ({ control, name, ...rest }, ref) => {
+//     return (
+//       <Controller
+//         name={name}
+//         control={control}
+//         render={({ field }) => {
+//           const fieldName = field && field.name;
+//           return (
+//             <CKEditor
+//               ref={ref}
+//               editor={ClassicEditor}
+//               data={field?.value || ""}
+//               onChange={(event, editor) => {
+//                 event.name = name;
+//                 const data = editor.getData();
+//                 field.onChange(data);
+//               }}
+//             />
+//           );
+//         }}
+//       />
+//     );
+//   }
+// );

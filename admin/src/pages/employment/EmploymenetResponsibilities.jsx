@@ -54,14 +54,15 @@ export default function EmploymenetResponsibilities() {
   };
 
   const onSubmit = (data) => {
-    const formData = new FormData();
-    formData.append("heading", data?.description);
-    formData.append("description", data?.sideDescription);
-    list.forEach((_, index) => {
-      const listKey = `list_${index + 1}`;
-      formData.append("list[]", data[listKey]);
-    });
-    updateResponsibilities?.mutate(formData);
+    // const formData = new FormData();
+    // formData.append("heading", data?.description);
+    // formData.append("description", data?.sideDescription);
+    // list.forEach((_, index) => {
+    //   const listKey = `list_${index + 1}`;
+    //   formData.append("list[]", data[listKey]);
+    // });
+    // updateResponsibilities?.mutate(formData);
+    console.log(data?.description);
   };
   return (
     <div className="employment_page">

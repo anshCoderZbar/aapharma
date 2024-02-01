@@ -13,11 +13,11 @@ export default function Dashboard() {
     <div>
       <PageWrapper slug="dashboard" name="Dashboard" />
       <div className="row">
-        <div class="col-lg-4 col-md-4 col-4 mb-4">
-          <div class="card listing_card">
-            <div class="card-body">
+        <div className="col-lg-4 col-md-4 col-4 mb-4">
+          <div className="card listing_card">
+            <div className="card-body">
               <span>No Of Products Added</span>
-              <h3 class="card-title text-nowrap mb-1">
+              <h3 className="card-title text-nowrap mb-1">
                 {fetchChemical?.data?.data?.length}
               </h3>
             </div>

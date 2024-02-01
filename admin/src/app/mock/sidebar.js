@@ -10,6 +10,7 @@ import {
   LightbulbIcon,
   PersonStanding,
   PersonStandingIcon,
+  Search,
   Settings,
   StepForward,
   Stethoscope,
@@ -269,7 +270,7 @@ export const SidebarData = [
         slug: "carbohydrate-description",
       },
       {
-        id: 3,
+        id: 4,
         subMenuName: "Diagram",
         slug: "carbohydrate-diagram",
       },
@@ -287,9 +288,32 @@ export const SidebarData = [
         slug: "employment-banner",
       },
       {
-        id: 1,
+        id: 2,
         subMenuName: "Responsibilities",
         slug: "employment-responsibilities",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Research And Developmemt",
+    slug: "#",
+    icon: <Search />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "research-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "SORT",
+        slug: "research-sort",
+      },
+      {
+        id: 3,
+        subMenuName: "Modification",
+        slug: "research-modification",
       },
     ],
   },

@@ -75,6 +75,9 @@ import CarbohydrateDiagram from "pages/complex-carbohydrate/CarbohydrateDiagram"
 import EditCarbohydrateDiagram from "pages/complex-carbohydrate/EditCarbohydrateDiagram";
 import EmploymentBanner from "pages/employment/EmploymentBanner";
 import EmploymenetResponsibilities from "pages/employment/EmploymenetResponsibilities";
+import ResearchBannerPage from "pages/research-and-development/ResearchBanner";
+import ResearchSort from "pages/research-and-development/ResearchSort";
+import ResearchModification from "pages/research-and-development/ResearchModification";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -607,6 +610,30 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EmploymenetResponsibilities />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-banner",
+      element: (
+        <PrivateRoutes>
+          <ResearchBannerPage />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-sort",
+      element: (
+        <PrivateRoutes>
+          <ResearchSort />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-modification",
+      element: (
+        <PrivateRoutes>
+          <ResearchModification />
         </PrivateRoutes>
       ),
     },
