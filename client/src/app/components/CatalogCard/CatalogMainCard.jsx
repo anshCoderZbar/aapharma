@@ -59,12 +59,18 @@ export const CatalogMainCard = ({ chemicals, status }) => {
                                       <p className="detail_type">
                                         {details?.label}
                                       </p>
-                                      <p className="detail_desc">
-                                        {details?.description?.length > 15
-                                          ? details?.description?.slice(0, 15) +
-                                            "..."
-                                          : details?.description}
-                                      </p>
+                                      <p
+                                        className="detail_desc"
+                                        dangerouslySetInnerHTML={{
+                                          __html:
+                                            details?.description?.length > 15
+                                              ? details?.description?.slice(
+                                                  0,
+                                                  15
+                                                ) + "..."
+                                              : details?.description,
+                                        }}
+                                      />
                                     </li>
                                   );
                                 }

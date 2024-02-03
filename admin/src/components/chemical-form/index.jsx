@@ -881,7 +881,7 @@ export const ChemicalForm = ({
             </div>
             <div className="mb-3 col-md-12">
               <h4 htmlFor="mainCategory" className="form-label chem_cat">
-                Master Category
+                Level 1
               </h4>
               <div className="d-flex chem_radio">
                 {mainCategoryData?.length >= 1 &&
@@ -923,7 +923,7 @@ export const ChemicalForm = ({
                         }`}
                       >
                         <label htmlFor="subCategory" className="form-label">
-                          {elm?.categoryHeading} Sub Category
+                          {elm?.categoryHeading} Level 2
                         </label>
                         <select
                           className="form-select text-capitalize"
@@ -934,7 +934,7 @@ export const ChemicalForm = ({
                             handleSubCatChange(e, elm);
                           }}
                         >
-                          <option value={""}>Select Sub Category</option>
+                          <option value={""}>Select Level 2</option>
                           {filteredData.length >= 1 &&
                             filteredData.map((subCategory, i) => (
                               <option
@@ -958,7 +958,7 @@ export const ChemicalForm = ({
                         }`}
                       >
                         <label htmlFor="superCategory" className="form-label">
-                          {elm?.categoryHeading} Sub Child Category
+                          {elm?.categoryHeading} Level 3
                         </label>
                         <select
                           className="form-select text-capitalize subchild_none"
@@ -969,7 +969,7 @@ export const ChemicalForm = ({
                           }
                         >
                           <option value={""} hidden>
-                            Select Sub Child Category
+                            Select Level 3
                           </option>
 
                           {filterSubCatalog?.data?.filteredSubcategories
@@ -988,7 +988,7 @@ export const ChemicalForm = ({
                                           data-id={subCategory?.catalog2}
                                           defaultChecked
                                         >
-                                          Select Sub Child Category
+                                          Select Level 3
                                         </option>
                                       )}
                                       <option
@@ -1047,8 +1047,16 @@ export const ChemicalForm = ({
                         >
                           Description
                         </label>
-                        <FormInput
+                        {/* <FormInput
                           type="text"
+                          placeholder="description"
+                          name={`description_${index + 1}`}
+                          {...register(`description_${index + 1}`, {
+                            required: true,
+                          })}
+                        /> */}
+                        <TextEditor
+                          control={control}
                           placeholder="description"
                           name={`description_${index + 1}`}
                           {...register(`description_${index + 1}`, {

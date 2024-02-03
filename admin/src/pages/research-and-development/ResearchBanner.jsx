@@ -3,6 +3,7 @@ import { PageWrapper } from "components/ui/PageWrapper";
 
 import "styles/main.css";
 import { FormInput } from "components/ui/FormInput";
+import { TextEditor } from "components/ui/TextEditor";
 import { useForm } from "react-hook-form";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 
@@ -14,6 +15,7 @@ export default function ResearchBannerPage() {
     register,
     handleSubmit,
     formState: { errors },
+    control,
     reset,
   } = useForm();
 
@@ -110,11 +112,8 @@ export default function ResearchBannerPage() {
               <label htmlFor="description" className="form-label">
                 Description
               </label>
-              <textarea
-                type="text"
-                name="description"
-                rows={5}
-                className="form-control form_input"
+              <TextEditor
+                control={control}
                 placeholder="Description"
                 {...register("description", { required: true })}
               />

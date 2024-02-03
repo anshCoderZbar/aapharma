@@ -9,6 +9,7 @@ import { AllSettings } from "rest/main";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { GetSettings } from "rest/main";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
+import { TextEditor } from "components/ui/TextEditor";
 
 export default function Settings() {
   const {
@@ -16,6 +17,7 @@ export default function Settings() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const settings = AllSettings();
@@ -221,13 +223,12 @@ export default function Settings() {
               <label htmlFor="contactDescription" className="form-label">
                 Contact Description
               </label>
-              <textarea
-                type="text"
-                name="contactDescription"
-                rows={5}
-                className="form-control form_input"
-                placeholder="Contact Description"
-                {...register("contactDescription", { required: true })}
+              <TextEditor
+                control={control}
+                name={`contactDescription`}
+                {...register(`contactDescription`, {
+                  required: true,
+                })}
               />
               {errors?.contactDescription && (
                 <p className="errorMessage">Field is required</p>

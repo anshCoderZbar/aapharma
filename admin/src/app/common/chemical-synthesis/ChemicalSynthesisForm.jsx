@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { FormInput } from "components/ui/FormInput";
+import { TextEditor } from "components/ui/TextEditor";
 
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 
@@ -10,6 +11,7 @@ export const ChemicalSynthesisForm = ({
   errors,
   isLoading,
   defaultImg,
+  control,
 }) => {
   const [perviewImages, setPreviewImages] = useState("");
 
@@ -69,14 +71,14 @@ export const ChemicalSynthesisForm = ({
         <label htmlFor="description" className="form-label">
           Description
         </label>
-        <textarea
-          type="text"
-          name="description"
-          rows={5}
-          className="form-control form_input"
-          placeholder="Description"
-          {...register("description", { required: true })}
+        <TextEditor
+          control={control}
+          name={`description`}
+          {...register(`description`, {
+            required: true,
+          })}
         />
+
         {errors?.description && (
           <p className="errorMessage">Field is required</p>
         )}

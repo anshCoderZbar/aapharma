@@ -71,9 +71,12 @@ export const CatalogDetails = () => {
                             return (
                               <li key={i}>
                                 <p className="detail_type">{details?.label}</p>
-                                <p className="detail_desc">
-                                  {details?.description}
-                                </p>
+                                <p
+                                  className="detail_desc"
+                                  dangerouslySetInnerHTML={{
+                                    __html: details?.description,
+                                  }}
+                                />
                               </li>
                             );
                           })

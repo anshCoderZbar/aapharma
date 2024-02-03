@@ -33,6 +33,10 @@ export default function ChemicalPage() {
     deleteChemical.mutate(id);
   };
 
+  const handleStockCheck = (id) => {
+    console.log(id);
+  };
+
   const chemicalColumns = [
     {
       name: "heading",
@@ -40,16 +44,31 @@ export default function ChemicalPage() {
     },
 
     {
-      name: "Main Category",
+      name: "Level 1",
       selector: (row) => row?.categoryName,
     },
     {
-      name: "Sub Category",
+      name: "Level 2",
       selector: (row) => row?.subcategoryName,
     },
     {
-      name: "Super Sub Category",
+      name: "Level 3",
       selector: (row) => row?.supsubcategoryName,
+    },
+    {
+      name: "In Stock",
+      cell: (row) => (
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input inp_swip"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            onChange={() => handleStockCheck(row?.id)}
+            defaultChecked
+          />
+        </div>
+      ),
     },
 
     {
@@ -111,10 +130,10 @@ export default function ChemicalPage() {
 
   return (
     <div className="child">
-      <PageWrapper slug="chemical" name="Chemical" />
+      <PageWrapper slug="product-management" name="Product Management" />
       <div className="d-flex justify-content-end mb-4 add_catalog_btn">
         <Button onClick={() => navigate("/chemical-editor")}>
-          Add Chemmical
+          Add Product
         </Button>
       </div>
       {fetchChemical?.error ? (

@@ -3,6 +3,7 @@ import { PageWrapper } from "components/ui/PageWrapper";
 
 import "styles/main.css";
 import { FormInput } from "components/ui/FormInput";
+import { TextEditor } from "components/ui/TextEditor";
 import { useForm } from "react-hook-form";
 import { CreatePersonnelBanner } from "rest/personnel";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
@@ -16,6 +17,7 @@ export default function PersonnelBanner() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const personnelBanner = CreatePersonnelBanner();
@@ -103,17 +105,16 @@ export default function PersonnelBanner() {
                 <p className="errorMessage">Heading is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-12">
               <label htmlFor="description" className="form-label">
                 Description
               </label>
-              <textarea
-                type="text"
-                name="description"
-                rows={5}
-                className="form-control form_input"
-                placeholder="Description"
-                {...register("description", { required: true })}
+              <TextEditor
+                control={control}
+                name={`description`}
+                {...register(`description`, {
+                  required: true,
+                })}
               />
               {errors?.description && (
                 <p className="errorMessage">Description is required</p>

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { PageWrapper } from "components/ui/PageWrapper";
 import { FormInput } from "components/ui/FormInput";
+import { TextEditor } from "components/ui/TextEditor";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
@@ -19,6 +20,7 @@ export default function EditCaseStudyDiagram() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const formData = new FormData();
@@ -140,11 +142,9 @@ export default function EditCaseStudyDiagram() {
               <label htmlFor="description" className="form-label">
                 Description
               </label>
-              <textarea
-                type="text"
+              <TextEditor
+                control={control}
                 name="description"
-                rows={5}
-                className="form-control form_input"
                 placeholder="Description"
                 {...register("description", { required: true })}
               />

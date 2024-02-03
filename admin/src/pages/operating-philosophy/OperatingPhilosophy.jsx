@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { PageWrapper } from "components/ui/PageWrapper";
 import { FormInput } from "components/ui/FormInput";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
+import { ComponentLoader } from "components/Loader/ComponentLoader";
+import { TextEditor } from "components/ui/TextEditor";
 import { OperatingPhilosophyMutation } from "rest/personnel";
 import { GetOperatingPhilosophyMutation } from "rest/personnel";
 import OperatingDiagram from "app/common/operating-philosophy/OperatingDiagram";
@@ -14,6 +16,7 @@ export default function OperatingPhilosophy() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const [perviewImages, setPreviewImages] = useState("");
@@ -56,117 +59,120 @@ export default function OperatingPhilosophy() {
   return (
     <>
       <PageWrapper slug="operating-philosophy" name="Operating Philosophy" />
-      <div className="home_banner_input">
-        <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
-          <div className="mb-3 col-md-6">
-            <label htmlFor="mainHeading" className="form-label">
-              Main Heading
-            </label>
-            <FormInput
-              type="text"
-              name="heading"
-              placeholder="heading"
-              {...register("heading", { required: true })}
-            />
-            {errors?.heading && (
-              <p className="errorMessage">Heading is required</p>
-            )}
-          </div>
-          <div className="mb-3 col-md-6">
-            <label htmlFor="operatingBanner" className="form-label">
-              Operating Banner (1540px * 305px)
-            </label>
-            <FormInput
-              type="file"
-              name="operatingBanner"
-              placeholder="operatingBanner"
-              {...register("operatingBanner", {
-                required: !perviewImages && !defaultImg,
-                onChange: (e) => handleChange(e),
-              })}
-            />
-            {errors?.operatingBanner && (
-              <p className="errorMessage">Field is required</p>
-            )}
-            {perviewImages && (
-              <img
-                src={perviewImages}
-                alt="operating banner Preview"
-                style={{ maxWidth: "300px", marginTop: "10px" }}
+      {getOperatingPhilosophy?.isPending ? (
+        <ComponentLoader />
+      ) : (
+        <div className="home_banner_input">
+          <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
+            <div className="mb-3 col-md-6">
+              <label htmlFor="mainHeading" className="form-label">
+                Main Heading
+              </label>
+              <FormInput
+                type="text"
+                name="heading"
+                placeholder="heading"
+                {...register("heading", { required: true })}
               />
-            )}
-            {!perviewImages && defaultImg && (
-              <img
-                src={defaultImg}
-                alt="operating banner Preview"
-                style={{ maxWidth: "300px", marginTop: "10px" }}
+              {errors?.heading && (
+                <p className="errorMessage">Heading is required</p>
+              )}
+            </div>
+            <div className="mb-3 col-md-6">
+              <label htmlFor="operatingBanner" className="form-label">
+                Operating Banner (1540px * 305px)
+              </label>
+              <FormInput
+                type="file"
+                name="operatingBanner"
+                placeholder="operatingBanner"
+                {...register("operatingBanner", {
+                  required: !perviewImages && !defaultImg,
+                  onChange: (e) => handleChange(e),
+                })}
               />
-            )}
-          </div>
-          <div className="mb-3 col-md-6">
-            <label htmlFor="description" className="form-label">
-              Description
-            </label>
-            <textarea
-              type="text"
-              name="description"
-              rows={5}
-              className="form-control form_input"
-              placeholder="Description"
-              {...register("description", { required: true })}
-            />
-            {errors?.description && (
-              <p className="errorMessage">Description is required</p>
-            )}
-          </div>
-          <div className="mb-3 col-md-6">
-            <label htmlFor="diagramHeading" className="form-label">
-              Diagram Heading
-            </label>
-            <textarea
-              type="text"
-              name="diagramHeading"
-              rows={5}
-              className="form-control form_input"
-              placeholder="Diagram Heading"
-              {...register("diagramHeading", { required: true })}
-            />
-            {errors?.diagramHeading && (
-              <p className="errorMessage">Diagram Heading is required</p>
-            )}
-          </div>
-          <div className="page_head">
-            <h2>Diagram</h2>
-          </div>
-          <div className="mb-3 col-12">
-            <label htmlFor="diagramDescription" className="form-label">
-              Diagram Description
-            </label>
-            <FormInput
-              type="text"
-              name="diagramDescription"
-              rows={5}
-              className="form-control form_input"
-              placeholder="Diagram Description"
-              {...register("diagramDescription", { required: true })}
-            />
-            {errors?.diagramDescription && (
-              <p className="errorMessage">Diagram Description is required</p>
-            )}
-          </div>
+              {errors?.operatingBanner && (
+                <p className="errorMessage">Field is required</p>
+              )}
+              {perviewImages && (
+                <img
+                  src={perviewImages}
+                  alt="operating banner Preview"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
+                />
+              )}
+              {!perviewImages && defaultImg && (
+                <img
+                  src={defaultImg}
+                  alt="operating banner Preview"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
+                />
+              )}
+            </div>
+            <div className="mb-3 col-md-6">
+              <label htmlFor="description" className="form-label">
+                Description
+              </label>
 
-          {operatingPhilosophyMutation?.isPending ? (
-            <div>
-              <ButtonLoader />
+              <TextEditor
+                control={control}
+                name={`description`}
+                {...register(`description`, {
+                  required: true,
+                })}
+              />
+              {errors?.description && (
+                <p className="errorMessage">Description is required</p>
+              )}
             </div>
-          ) : (
+            <div className="mb-3 col-md-6">
+              <label htmlFor="diagramHeading" className="form-label">
+                Diagram Heading
+              </label>
+              <TextEditor
+                control={control}
+                name={`diagramHeading`}
+                {...register(`diagramHeading`, {
+                  required: true,
+                })}
+              />
+              {errors?.diagramHeading && (
+                <p className="errorMessage">Diagram Heading is required</p>
+              )}
+            </div>
+            <div className="page_head">
+              <h2>Diagram</h2>
+            </div>
             <div className="mb-3 col-12">
-              <input type="submit" value="submit" className="input_submit" />
+              <label htmlFor="diagramDescription" className="form-label">
+                Diagram Description
+              </label>
+              <FormInput
+                type="text"
+                name="diagramDescription"
+                rows={5}
+                className="form-control form_input"
+                placeholder="Diagram Description"
+                {...register("diagramDescription", { required: true })}
+              />
+              {errors?.diagramDescription && (
+                <p className="errorMessage">Diagram Description is required</p>
+              )}
             </div>
-          )}
-        </form>
-        <OperatingDiagram />
-      </div>
+
+            {operatingPhilosophyMutation?.isPending ? (
+              <div>
+                <ButtonLoader />
+              </div>
+            ) : (
+              <div className="mb-3 col-12">
+                <input type="submit" value="submit" className="input_submit" />
+              </div>
+            )}
+          </form>
+          <OperatingDiagram />
+        </div>
+      )}
     </>
   );
 }

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { PageWrapper } from "components/ui/PageWrapper";
 import "styles/main.css";
 import { FormInput } from "components/ui/FormInput";
+import { TextEditor } from "components/ui/TextEditor";
 import { CreateAboutBannerMutation } from "rest/about";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { GetAboutBannerMutation } from "rest/about";
@@ -16,6 +17,7 @@ export default function AboutBanner() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const [perviewImages, setPreviewImages] = useState("");
@@ -149,13 +151,12 @@ export default function AboutBanner() {
               <label htmlFor="description" className="form-label">
                 Description
               </label>
-              <textarea
-                type="text"
-                name="description"
-                rows={5}
-                className="form-control form_input"
-                placeholder="Description"
-                {...register("description", { required: true })}
+              <TextEditor
+                control={control}
+                name={`description`}
+                {...register(`description`, {
+                  required: true,
+                })}
               />
               {errors?.description && (
                 <p className="errorMessage">Field is required</p>
@@ -165,13 +166,12 @@ export default function AboutBanner() {
               <label htmlFor="aboutDescription" className="form-label">
                 About Description
               </label>
-              <textarea
-                type="text"
-                name="aboutDescription"
-                rows={5}
-                className="form-control form_input"
-                placeholder=" About Description"
-                {...register("aboutDescription", { required: true })}
+              <TextEditor
+                control={control}
+                name={`aboutDescription`}
+                {...register(`aboutDescription`, {
+                  required: true,
+                })}
               />
               {errors?.aboutDescription && (
                 <p className="errorMessage">Field is required</p>

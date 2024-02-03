@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 
 import { PageWrapper } from "components/ui/PageWrapper";
 import { FormInput } from "components/ui/FormInput";
+import { TextEditor } from "components/ui/TextEditor";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
@@ -16,6 +17,7 @@ export default function CaseStudyGraphContent() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const caseStudyGraphData = GetCaseStudyGraphContentMutation();
@@ -68,14 +70,14 @@ export default function CaseStudyGraphContent() {
               <label htmlFor="subHeading" className="form-label">
                 Sub Heading
               </label>
-              <textarea
-                type="text"
+
+              <TextEditor
+                control={control}
+                placeholder="subHeading"
                 name="subHeading"
-                rows={5}
-                className="form-control form_input"
-                placeholder="Sub Heading"
                 {...register("subHeading", { required: true })}
               />
+
               {errors?.subHeading && (
                 <p className="errorMessage">Sub Heading is required</p>
               )}

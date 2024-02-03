@@ -9,6 +9,7 @@ export default function AddChemicalSynthesis() {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm();
 
   const createChemicalSynthesis = CreateChemicalSynthesisMutation();
@@ -30,6 +31,7 @@ export default function AddChemicalSynthesis() {
           onSubmit={handleSubmit(onSubmit)}
           errors={errors}
           isLoading={createChemicalSynthesis?.isPending}
+          control={control}
         />
       </div>
     </>

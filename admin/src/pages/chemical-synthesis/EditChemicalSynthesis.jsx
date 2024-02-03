@@ -16,6 +16,7 @@ export default function EditChemicalSynthesis() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const [defaultImg, setDefaultImg] = useState("");
@@ -67,6 +68,7 @@ export default function EditChemicalSynthesis() {
             errors={errors}
             isLoading={updateChemicalSynthesis?.isPending}
             defaultImg={defaultImg}
+            control={control}
           />
         </div>
       )}

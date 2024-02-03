@@ -184,3 +184,10 @@
 .chem_radio label {
   color: #0b0f40 !important;
 }
+.inp_swip {
+  cursor: pointer;
+}
+.inp_swip.form-check-input:checked {
+  background-color: #34caff !important;
+  border-color: #34caff !important;
+}
