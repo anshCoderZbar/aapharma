@@ -115,7 +115,7 @@
   font-weight: 400;
   line-height: 160%;
   max-width: 670px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .misson_icon {
@@ -238,7 +238,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  position: relative;
+  z-index: 3;
 }
+
+/* .service_icon img {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(21%) saturate(5988%)
+    hue-rotate(167deg) brightness(104%) contrast(101%);
+} */
 
 .service_icon img {
   width: 150px;
@@ -248,7 +255,18 @@
 .vs_jj {
   border-radius: 40px;
   overflow: hidden;
-  filter: drop-shadow(17px 4px 40px rgba(30, 30, 30, 0.2));
+  /* filter: drop-shadow(17px 4px 40px rgba(30, 30, 30, 0.2)); */
+}
+
+.vs_jj::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2a3072;
+  opacity: 0.5;
 }
 
 /*====== mission ====== */
@@ -324,7 +342,12 @@
 
 /*====== articles ====== */
 .latest_articles {
-  padding: 90px 0;
+  padding: 50px 0 20px 0;
+  border: 2px solid #2a3072;
+  margin: 20px 0;
+  border-radius: 12px;
+}
+.article_large {
 }
 
 .articles_head h2 {
@@ -901,6 +924,10 @@
     right: 0;
     bottom: -30px;
     margin-bottom: 30px;
+  }
+
+  .service_img img {
+    max-width: 100%;
   }
 
   .services_content h2 {

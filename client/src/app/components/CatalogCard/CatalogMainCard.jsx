@@ -13,12 +13,18 @@ export const CatalogMainCard = ({ chemicals, status }) => {
   const countPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [price, setPrice] = useState("");
+
   const startIndex = (currentPage - 1) * countPerPage;
   const endIndex = startIndex + countPerPage;
 
   const updatePage = (page) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handlePriceChange = (e) => {
+    setPrice(e?.target?.value);
   };
 
   return (
@@ -29,13 +35,13 @@ export const CatalogMainCard = ({ chemicals, status }) => {
         </div>
       )}
       {!status && chemicals?.data?.length <= 0 && <h3>No record found</h3>}
-      <div className="row">
+      <div className="row gap_bb gx-4">
         {!status &&
           chemicals?.data?.slice(startIndex, endIndex)?.map((compounts, i) => {
             return (
-              <div key={i} className="col-md-6 ">
+              <div key={i} className="col-md-6">
                 <div className="catalog_main_bg">
-                  <div className="row">
+                  <div className="row h-100">
                     <div className="col-sm-6  col-md-12 col-xl-6">
                       <div className="compount_img">
                         <img
@@ -54,7 +60,10 @@ export const CatalogMainCard = ({ chemicals, status }) => {
                                         {details?.label}
                                       </p>
                                       <p className="detail_desc">
-                                        {details?.description}
+                                        {details?.description?.length > 15
+                                          ? details?.description?.slice(0, 15) +
+                                            "..."
+                                          : details?.description}
                                       </p>
                                     </li>
                                   );
@@ -76,12 +85,21 @@ export const CatalogMainCard = ({ chemicals, status }) => {
                                 : compounts?.description,
                           }}
                         />
-                        <div className="cata_main_mrt nm_x">
+                        <div className="catalog_content_select cata_main_mrt nm_x">
                           <div className="d-flex justify-content-between mxs">
-                            <select>
-                              <option value="1">1g-81$</option>
-                              <option value="2">2g-82$</option>
-                              <option value="3">3g-83$</option>
+                            <select onChange={handlePriceChange}>
+                              <option value="1">Select Quantity</option>
+                              {compounts?.catalog_quantity_price?.length >= 1
+                                ? JSON.parse(
+                                    compounts?.catalog_quantity_price
+                                  ).map((details, i) => {
+                                    return (
+                                      <option value={details?.price} key={i}>
+                                        {details?.quantity}
+                                      </option>
+                                    );
+                                  })
+                                : null}
                             </select>
                             {true ? (
                               <div className="d-flex align-items-center stock">
@@ -99,21 +117,31 @@ export const CatalogMainCard = ({ chemicals, status }) => {
                               </div>
                             )}
                           </div>
-                          <div className="order_btn">
-                            {true ? (
-                              <AddtoCart />
-                            ) : (
-                              <button className="add_to_cart">
-                                Make Inquiry
-                              </button>
-                            )}
-                            <Link
-                              to={`/catalog/${compounts?.id}`}
-                              className="cstm_mrg"
+                          <div className="catalog_card_price">
+                            <h3
+                              className={`${
+                                price?.length >= 1 ? "opacity-100" : "opacity-0"
+                              }`}
                             >
-                              Details
-                            </Link>
+                              Price :
+                            </h3>
+                            {price?.length >= 1 && <p>$ {price}</p>}
                           </div>
+                        </div>
+                        <div className="order_btn">
+                          {true ? (
+                            <AddtoCart />
+                          ) : (
+                            <button className="add_to_cart">
+                              Make Inquiry
+                            </button>
+                          )}
+                          <Link
+                            to={`/catalog/${compounts?.id}`}
+                            className="cstm_mrg"
+                          >
+                            Details
+                          </Link>
                         </div>
                       </div>
                     </div>

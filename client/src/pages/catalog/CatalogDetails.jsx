@@ -30,6 +30,8 @@ export const CatalogDetails = () => {
     setPrice(e?.target?.value);
   };
 
+  console.log(price);
+
   return (
     <div className="catalog__page">
       <div className="catalog_single_banner">
@@ -52,7 +54,10 @@ export const CatalogDetails = () => {
             <div className="row">
               <div className="col-lg-6">
                 <div className="catalog_detail_img">
-                  <img src={require("assets/catalog_img.png")} alt="compount" />
+                  <img
+                    src={`${singleChemical?.data?.baseUrl}/${singleChemical?.data?.data?.image}`}
+                    alt="compount"
+                  />
                 </div>
               </div>
               <div className="col-lg-6">
@@ -85,14 +90,18 @@ export const CatalogDetails = () => {
                     <div className="catalog_options">
                       <h3>Quantity</h3>
                       <select onChange={handlePriceChange}>
-                        <option value="1">Select Quantity</option>
+                        <option value="">Select Quantity</option>
                         {singleChemical?.data?.data.catalog_quantity_price
                           ?.length >= 1
                           ? JSON.parse(
                               singleChemical?.data?.data.catalog_quantity_price
                             ).map((details, i) => {
                               return (
-                                <option value={details?.price} key={i}>
+                                <option
+                                  // selected={i === 0}
+                                  value={details?.price}
+                                  key={i}
+                                >
                                   {details?.quantity}
                                 </option>
                               );
@@ -100,10 +109,12 @@ export const CatalogDetails = () => {
                           : null}
                       </select>
                     </div>
-                    <div className="catalog_price">
-                      <h3>Price</h3>
-                      <span>$ {price}</span>
-                    </div>
+                    {price?.length >= 1 && (
+                      <div className="catalog_price pri_before">
+                        <h3>Price</h3>
+                        <span>$ {price}</span>
+                      </div>
+                    )}
                   </div>
                   <AddtoCart extra="add_to_cart_btn" />
                 </div>
@@ -112,35 +123,37 @@ export const CatalogDetails = () => {
           </div>
         </div>
       </div>
-      <div className="container-fluid">
-        <div className="information_box utils">
-          <ul>
-            {getUtility?.data?.data?.map((elm) => {
-              return (
-                <li onClick={() => handleDescTabs(elm)}>{elm?.heading}</li>
-              );
-            })}
-          </ul>
-          {filteredUtils?.length >= 1 &&
-            filteredUtils?.map((utils) => {
-              return (
-                <div className="description">
-                  <div
-                    className="descripition"
-                    dangerouslySetInnerHTML={{ __html: utils?.description }}
-                  />
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={`${getUtility?.data?.baseUrl}/${utils?.image}`}
-                  >
-                    View
-                  </a>
-                </div>
-              );
-            })}
+      {getUtility?.data?.data?.length >= 1 && (
+        <div className="container-fluid">
+          <div className="information_box utils">
+            <ul>
+              {getUtility?.data?.data?.map((elm) => {
+                return (
+                  <li onClick={() => handleDescTabs(elm)}>{elm?.heading}</li>
+                );
+              })}
+            </ul>
+            {filteredUtils?.length >= 1 &&
+              filteredUtils?.map((utils) => {
+                return (
+                  <div className="description">
+                    <div
+                      className="descripition"
+                      dangerouslySetInnerHTML={{ __html: utils?.description }}
+                    />
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={`${getUtility?.data?.baseUrl}/${utils?.image}`}
+                    >
+                      View
+                    </a>
+                  </div>
+                );
+              })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

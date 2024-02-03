@@ -49,7 +49,7 @@ export const Services = () => {
 
       <div className="service_img">
         <div className="position-relative vs_jj">
-          <img src={servideBg} alt="service_bg" />
+          <img src={servideBg} alt="service_bg" className="servic_bg_imag" />
           <div className="position-absolute service_icon">
             <img src={icon} alt="icon" />
           </div>

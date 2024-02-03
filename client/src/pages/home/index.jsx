@@ -178,18 +178,20 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="latest_articles">
-        <div className="container article_large">
-          <div className="articles_head">
-            <h2>Latest Articles</h2>
-            <p>
-              We consistently challenge our assumptions and beliefs in order to
-              foster professional and personal growth. To that end we summarize
-              our thinking in the series of white papers designed to inform and
-              generate constructive discussions.
-            </p>
+      <div className="container-fluid">
+        <div className="latest_articles">
+          <div className="container article_large">
+            <div className="articles_head">
+              <h2>Latest Articles</h2>
+              <p>
+                We consistently challenge our assumptions and beliefs in order
+                to foster professional and personal growth. To that end we
+                summarize our thinking in the series of white papers designed to
+                inform and generate constructive discussions.
+              </p>
+            </div>
+            <Articles />
           </div>
-          <Articles />
         </div>
       </div>
       <div className="clients">
