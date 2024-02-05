@@ -45,7 +45,11 @@ export const CatalogMainCard = ({ chemicals, status }) => {
                     <div className="col-sm-6  col-md-12 col-xl-6">
                       <div className="compount_img">
                         <img
-                          src={`${chemicals?.baseUrl}/${compounts?.image}`}
+                          src={`${chemicals?.baseUrl}/${
+                            compounts?.image
+                              ? compounts?.image
+                              : compounts?.chemicalImage
+                          }`}
                           alt="catalogImg"
                         />
                       </div>
@@ -93,21 +97,23 @@ export const CatalogMainCard = ({ chemicals, status }) => {
                         />
                         <div className="catalog_content_select cata_main_mrt nm_x">
                           <div className="d-flex justify-content-between mxs">
-                            <select onChange={handlePriceChange}>
-                              <option value="1">Select Quantity</option>
-                              {compounts?.catalog_quantity_price?.length >= 1
-                                ? JSON.parse(
-                                    compounts?.catalog_quantity_price
-                                  ).map((details, i) => {
-                                    return (
-                                      <option value={details?.price} key={i}>
-                                        {details?.quantity}
-                                      </option>
-                                    );
-                                  })
-                                : null}
-                            </select>
-                            {true ? (
+                            {compounts?.inStock === "true" && (
+                              <select onChange={handlePriceChange}>
+                                <option value="1">Select Quantity</option>
+                                {compounts?.catalog_quantity_price?.length >= 1
+                                  ? JSON.parse(
+                                      compounts?.catalog_quantity_price
+                                    ).map((details, i) => {
+                                      return (
+                                        <option value={details?.price} key={i}>
+                                          {details?.quantity}
+                                        </option>
+                                      );
+                                    })
+                                  : null}
+                              </select>
+                            )}
+                            {compounts?.inStock === "true" ? (
                               <div className="d-flex align-items-center stock">
                                 <img src={inStock} alt="stock" />
                                 <span style={{ color: "#1aa338" }}>
@@ -135,7 +141,7 @@ export const CatalogMainCard = ({ chemicals, status }) => {
                           </div>
                         </div>
                         <div className="order_btn">
-                          {true ? (
+                          {compounts?.inStock === "true" ? (
                             <AddtoCart />
                           ) : (
                             <button className="add_to_cart">

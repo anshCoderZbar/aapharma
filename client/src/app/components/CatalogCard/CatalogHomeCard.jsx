@@ -16,7 +16,7 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
   return (
     <div key={items?.id} className="catalog_card">
       <img
-        src={`${baseUrl}/${items?.image}`}
+        src={`${baseUrl}/${items?.image ? items?.image : items?.chemicalImage}`}
         alt="img"
         className={`${true ? "opacity-100" : "opacity-25"}`}
       />
@@ -37,20 +37,23 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
       </div>
       <div className="catalog_content_select">
         <div className="d-flex justify-content-between ">
-          <select onChange={handlePriceChange}>
-            <option value="1">Select Quantity</option>
-            {items?.catalog_quantity_price?.length >= 1
-              ? JSON.parse(items?.catalog_quantity_price).map((details, i) => {
-                  return (
-                    <option value={details?.price} key={i}>
-                      {details?.quantity}
-                    </option>
-                  );
-                })
-              : null}
-          </select>
-
-          {true ? (
+          {items?.inStock === "true" && (
+            <select onChange={handlePriceChange}>
+              <option value="">Select Quantity</option>
+              {items?.catalog_quantity_price?.length >= 1
+                ? JSON.parse(items?.catalog_quantity_price).map(
+                    (details, i) => {
+                      return (
+                        <option value={details?.price} key={i}>
+                          {details?.quantity}
+                        </option>
+                      );
+                    }
+                  )
+                : null}
+            </select>
+          )}
+          {items?.inStock === "true" ? (
             <div className="d-flex align-items-center stock">
               <img src={inStock} alt="stock" />
               <span style={{ color: "#1aa338" }}>In Stock</span>
@@ -71,7 +74,7 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
         </div>
       </div>
       <div className="order_btn">
-        {true ? (
+        {items?.inStock === "true" ? (
           <AddtoCart />
         ) : (
           <button className="add_to_cart">Make Inquiry</button>

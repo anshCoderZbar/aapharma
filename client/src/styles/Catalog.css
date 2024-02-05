@@ -247,6 +247,9 @@
   max-height: 161px;
   min-height: 161px;
   object-fit: contain;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 11px;
 }
 
 .catalog_content {

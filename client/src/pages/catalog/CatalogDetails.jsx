@@ -53,7 +53,11 @@ export const CatalogDetails = () => {
               <div className="col-lg-6">
                 <div className="catalog_detail_img">
                   <img
-                    src={`${singleChemical?.data?.baseUrl}/${singleChemical?.data?.data?.image}`}
+                    src={`${singleChemical?.data?.baseUrl}/${
+                      singleChemical?.data?.data?.image
+                        ? singleChemical?.data?.data?.image
+                        : singleChemical?.data?.data?.chemicalImage
+                    }`}
                     alt="compount"
                   />
                 </div>
@@ -87,37 +91,46 @@ export const CatalogDetails = () => {
                     }}
                   />
 
-                  <div className="catalog_quantity_price">
-                    <div className="catalog_options">
-                      <h3>Quantity</h3>
-                      <select onChange={handlePriceChange}>
-                        <option value="">Select Quantity</option>
-                        {singleChemical?.data?.data.catalog_quantity_price
-                          ?.length >= 1
-                          ? JSON.parse(
-                              singleChemical?.data?.data.catalog_quantity_price
-                            ).map((details, i) => {
-                              return (
-                                <option
-                                  // selected={i === 0}
-                                  value={details?.price}
-                                  key={i}
-                                >
-                                  {details?.quantity}
-                                </option>
-                              );
-                            })
-                          : null}
-                      </select>
-                    </div>
-                    {price?.length >= 1 && (
-                      <div className="catalog_price pri_before">
-                        <h3>Price</h3>
-                        <span>$ {price}</span>
+                  {singleChemical?.data?.data?.inStock === "true" && (
+                    <div className="catalog_quantity_price">
+                      <div className="catalog_options">
+                        <h3>Quantity</h3>
+                        <select onChange={handlePriceChange}>
+                          <option value="">Select Quantity</option>
+                          {singleChemical?.data?.data.catalog_quantity_price
+                            ?.length >= 1
+                            ? JSON.parse(
+                                singleChemical?.data?.data
+                                  .catalog_quantity_price
+                              ).map((details, i) => {
+                                return (
+                                  <option
+                                    // selected={i === 0}
+                                    value={details?.price}
+                                    key={i}
+                                  >
+                                    {details?.quantity}
+                                  </option>
+                                );
+                              })
+                            : null}
+                        </select>
                       </div>
-                    )}
-                  </div>
-                  <AddtoCart extra="add_to_cart_btn" />
+                      {price?.length >= 1 && (
+                        <div className="catalog_price pri_before">
+                          <h3>Price</h3>
+                          <span>$ {price}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {singleChemical?.data?.data?.inStock === "true" ? (
+                    <AddtoCart extra="add_to_cart_btn" />
+                  ) : (
+                    <button className="add_to_cart add_to_cart_btn mt-3">
+                      Make Inquiry
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
