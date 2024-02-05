@@ -58,9 +58,9 @@ export default function ChemicalPage() {
     {
       name: "In Stock",
       cell: (row) => (
-        <div class="form-check form-switch">
+        <div className="form-check form-switch">
           <input
-            class="form-check-input inp_swip"
+            className="form-check-input inp_swip"
             type="checkbox"
             role="switch"
             id="flexSwitchCheckDefault"

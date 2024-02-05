@@ -44,7 +44,7 @@ export default function CreateChemical() {
   const [inputs, setInputs] = useState([{ label: "", description: "" }]);
   const [priceInputs, setPriceInputs] = useState([{ quantity: "", price: "" }]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-
+  const [fileTabs, setFileTabs] = useState({ chemical: false, file: false });
   const [subChild, setSubChild] = useState([]);
 
   const [subCategoryData, setSubCategoryData] = useState([]);
@@ -117,17 +117,55 @@ export default function CreateChemical() {
     superSubCat?.forEach((data) => {
       data && formData.append("catalog3[]", data);
     });
-    createChemical.mutate(formData);
+    // createChemical.mutate(formData);
+    console.log(data);
   };
 
   return (
     <div className="chemical_editor">
       <PageWrapper slug="chemical-editor" name="Chemical Editor" />
       <div className="editor_Form">
-        <EditorComponent
-          setCurrentMolecule={setCurrentMolecule}
-          setImg={setImg}
-        />
+        <div className="d-flex file_radio">
+          <div
+            onClick={() => setFileTabs({ chemical: true, file: false })}
+            className="form-check"
+          >
+            <input
+              className="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios1"
+              value="option1"
+            />
+            <label className="form-check-label" htmlFor="exampleRadios1">
+              Chemical Editor
+            </label>
+          </div>
+          <div
+            onClick={() => {
+              setFileTabs({ chemical: false, file: true });
+              // setCurrentMolecule("");
+            }}
+            className="form-check"
+          >
+            <input
+              className="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios2"
+              value="option2"
+            />
+            <label className="form-check-label" htmlFor="exampleRadios2">
+              Image
+            </label>
+          </div>
+        </div>
+        {fileTabs?.chemical && (
+          <EditorComponent
+            setCurrentMolecule={setCurrentMolecule}
+            setImg={setImg}
+          />
+        )}
         <ChemicalForm
           onSubmit={handleSubmit(onSubmit)}
           register={register}
@@ -147,6 +185,7 @@ export default function CreateChemical() {
           setSubChild={setSubChild}
           subCategoryData={subCategoryData}
           setSubCategoryData={setSubCategoryData}
+          showFiles={fileTabs?.file}
         />
       </div>
     </div>

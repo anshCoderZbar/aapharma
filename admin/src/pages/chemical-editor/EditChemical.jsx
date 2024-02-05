@@ -41,6 +41,7 @@ export default function EditChemical() {
   const [subChild, setSubChild] = useState([]);
 
   const [subCategoryData, setSubCategoryData] = useState([]);
+  const [fileTabs, setFileTabs] = useState({ chemical: false, file: false });
 
   const fetchSingleChemical = FetchSingleChemical(id);
 
@@ -200,22 +201,66 @@ export default function EditChemical() {
     return;
   };
 
+  console.log();
+
   return (
     <div className="chemical_editor">
       <PageWrapper slug="chemical-editor" name="Chemical Editor" />
+
       {fetchSingleChemical?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="editor_Form">
-          <EditorComponent
-            setCurrentMolecule={setCurrentMolecule}
-            setImg={setImg}
-            initialMolecule={
-              fetchSingleChemical?.data?.data?.molecule?.length >= 1
-                ? fetchSingleChemical?.data?.data?.molecule
-                : ""
-            }
-          />
+          <div className="d-flex file_radio">
+            <div
+              onClick={() => setFileTabs({ chemical: true, file: false })}
+              className="form-check"
+            >
+              <input
+                className="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="exampleRadios1"
+                value="option1"
+                defaultChecked={
+                  fetchSingleChemical?.data?.data?.image ? true : false
+                }
+              />
+              <label className="form-check-label" htmlFor="exampleRadios1">
+                Chemical Editor
+              </label>
+            </div>
+            <div
+              onClick={() => {
+                setFileTabs({ chemical: false, file: true });
+                // setCurrentMolecule("");
+              }}
+              className="form-check"
+            >
+              <input
+                className="form-check-input"
+                type="radio"
+                name="exampleRadios"
+                id="exampleRadios2"
+                value="option2"
+              />
+              <label className="form-check-label" htmlFor="exampleRadios2">
+                Image
+              </label>
+            </div>
+          </div>
+          {(fileTabs?.chemical ||
+            (fetchSingleChemical?.data?.data?.image && !fileTabs?.file)) && (
+            <EditorComponent
+              setCurrentMolecule={setCurrentMolecule}
+              setImg={setImg}
+              initialMolecule={
+                fetchSingleChemical?.data?.data?.molecule?.length >= 1
+                  ? fetchSingleChemical?.data?.data?.molecule
+                  : ""
+              }
+            />
+          )}
           <ChemicalForm
             onSubmit={handleSubmit(onSubmit)}
             register={register}
@@ -239,6 +284,7 @@ export default function EditChemical() {
             setSubChild={setSubChild}
             subCategoryData={subCategoryData}
             setSubCategoryData={setSubCategoryData}
+            showFiles={fileTabs?.file}
           />
         </div>
       )}

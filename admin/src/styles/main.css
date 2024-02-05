@@ -191,3 +191,18 @@
   background-color: #34caff !important;
   border-color: #34caff !important;
 }
+
+.file_radio {
+  gap: 15px;
+  padding: 15px 15px;
+}
+
+.file_radio label {
+  color: #0b0f40;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.file_radio .form-check-input {
+  border: 1px solid #0b0f40;
+}

@@ -578,6 +578,7 @@ export const ChemicalForm = ({
   setSubCategoryData,
   subChemicalFilterId,
   superChemicalFilterId,
+  showFiles,
 }) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -587,9 +588,17 @@ export const ChemicalForm = ({
   const superSubCatParam = searchParams.get("super-sub-cat");
 
   const [selectedSubCategoryIds, setSelectedSubCategoryIds] = useState([]);
-
+  const [perviewImages, setPreviewImages] = useState("");
   const filterSubCatalog = FilterSubCategoryMutation();
   const filterSubChildCategory = FilterSubChildCategoryMutation();
+
+  const handleChange = (e) => {
+    const files = e.target.files[0];
+    if (files) {
+      const imageUrl = URL.createObjectURL(files);
+      setPreviewImages(imageUrl);
+    }
+  };
 
   const subChildIds = mainCategoryData?.map((elm) => elm?.id);
   const allSubCategory = GetAllSubCategories(subChildIds);
@@ -775,7 +784,7 @@ export const ChemicalForm = ({
   }, [subCatQueryParam, superSubCatParam]);
 
   useEffect(() => {
-    console.log(subCategoryData);
+    // console.log(subCategoryData);
     const subCatValues = subCategoryData.map(
       (subCategory) => subCategory.value
     );
@@ -838,6 +847,48 @@ export const ChemicalForm = ({
       <div className="catalog_single_page_inputs">
         <form onSubmit={onSubmit}>
           <div className="row">
+            {showFiles && (
+              <>
+                <div className="mb-3 col-md-6">
+                  <label htmlFor="chemicalImage" className="form-label">
+                    Chemical Image
+                  </label>
+                  <FormInput
+                    type="file"
+                    name="chemicalImage"
+                    placeholder="chemicalImage"
+                    {...register("chemicalImage", {
+                      onChange: (e) => handleChange(e),
+                    })}
+                  />
+                  {perviewImages && (
+                    <img
+                      src={perviewImages}
+                      alt="chemical image preview"
+                      style={{ maxWidth: "300px", marginTop: "10px" }}
+                    />
+                  )}
+                  {/* {!perviewImages && defaultImg && (
+                    <img
+                      src={defaultImg}
+                      alt="about banner Preview"
+                      style={{ maxWidth: "300px", marginTop: "10px" }}
+                    />
+                  )} */}
+                </div>
+                <div className="mb-3 col-md-6">
+                  <label htmlFor="chemicalMolecule" className="form-label">
+                    Chemical Molecule
+                  </label>
+                  <textarea
+                    name="chemicalMolecule"
+                    className="form-control"
+                    placeholder="Molecule"
+                    {...register("chemicalMolecule")}
+                  />
+                </div>
+              </>
+            )}
             <div className="mb-3 col-md-6">
               <label htmlFor="heading" className="form-label">
                 Heading
