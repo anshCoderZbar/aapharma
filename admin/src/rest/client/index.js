@@ -52,6 +52,8 @@ class Client {
       HttpClient.post(API_ENDPOINTS.createUtility, params),
     getUtility: (id) =>
       HttpClient.post(API_ENDPOINTS.getUtilityEndpoint, { chemicalId: id }),
+    chemicalInStock: (params) =>
+      HttpClient.post(API_ENDPOINTS.chemicalInStock, params),
   };
   home = {
     createBanner: (params) =>

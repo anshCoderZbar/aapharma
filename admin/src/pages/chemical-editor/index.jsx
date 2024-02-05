@@ -19,6 +19,7 @@ import { DeleteChemical } from "rest/chemical";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
+import { GetChemicalStock } from "rest/chemical";
 
 export default function ChemicalPage() {
   const navigate = useNavigate();
@@ -28,13 +29,18 @@ export default function ChemicalPage() {
   const fetchChemical = FetchAllChemical();
 
   const deleteChemical = DeleteChemical();
+  const getStock = GetChemicalStock();
 
   const handleDelete = (id) => {
     deleteChemical.mutate(id);
   };
 
-  const handleStockCheck = (id) => {
-    console.log(id);
+  const handleStockCheck = (e, id) => {
+    const { checked } = e?.target;
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("inStock", checked);
+    getStock.mutate(formData);
   };
 
   const chemicalColumns = [
@@ -64,8 +70,8 @@ export default function ChemicalPage() {
             type="checkbox"
             role="switch"
             id="flexSwitchCheckDefault"
-            onChange={() => handleStockCheck(row?.id)}
-            defaultChecked
+            onChange={(e) => handleStockCheck(e, row?.id)}
+            defaultChecked={row?.inStock === "true"}
           />
         </div>
       ),

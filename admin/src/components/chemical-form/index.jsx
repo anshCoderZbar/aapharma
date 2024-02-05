@@ -576,9 +576,8 @@ export const ChemicalForm = ({
   setSubChild,
   subCategoryData,
   setSubCategoryData,
-  subChemicalFilterId,
-  superChemicalFilterId,
   showFiles,
+  defaultImg,
 }) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -868,13 +867,13 @@ export const ChemicalForm = ({
                       style={{ maxWidth: "300px", marginTop: "10px" }}
                     />
                   )}
-                  {/* {!perviewImages && defaultImg && (
+                  {!perviewImages && defaultImg && (
                     <img
                       src={defaultImg}
-                      alt="about banner Preview"
+                      alt="chemical image preview"
                       style={{ maxWidth: "300px", marginTop: "10px" }}
                     />
-                  )} */}
+                  )}
                 </div>
                 <div className="mb-3 col-md-6">
                   <label htmlFor="chemicalMolecule" className="form-label">
@@ -884,6 +883,7 @@ export const ChemicalForm = ({
                     name="chemicalMolecule"
                     className="form-control"
                     placeholder="Molecule"
+                    rows={8}
                     {...register("chemicalMolecule")}
                   />
                 </div>

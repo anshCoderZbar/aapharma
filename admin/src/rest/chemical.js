@@ -54,6 +54,8 @@ export const FetchSingleChemical = (id) => {
   const fetchChemical = useQuery({
     queryKey: ["fetch-single-chemical"],
     queryFn: () => client.chemical.singleChemical(id),
+    staleTime: 0,
+    cacheTime: 0,
   });
   return fetchChemical;
 };
@@ -115,4 +117,19 @@ export const GetUtility = (id) => {
     queryFn: () => client.chemical.getUtility(id),
   });
   return utility;
+};
+
+export const GetChemicalStock = () => {
+  const { notify } = useNotifications();
+  const stock = useMutation({
+    mutationFn: (data) => client.chemical.chemicalInStock(data),
+    onSuccess: () => {
+      notify("Stock Updated successfully", "success");
+      queryClient.invalidateQueries({ queryKey: ["fetch-chemical"] });
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+  return stock;
 };

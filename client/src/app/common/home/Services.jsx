@@ -17,10 +17,6 @@ export const Services = () => {
     );
   }, [getAllServices?.data?.data]);
 
-  {
-    console.log(servideBg);
-  }
-
   return (
     <>
       <div className="service_card">

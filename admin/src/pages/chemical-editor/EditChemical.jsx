@@ -14,6 +14,7 @@ import { FetchAllCatalogsL1 } from "rest/catalog";
 import { FetchSingleChemical } from "rest/chemical";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { UpdateChemical } from "rest/chemical";
+import { queryClient } from "queryclient";
 
 export default function EditChemical() {
   const { id } = useParams();
@@ -42,6 +43,7 @@ export default function EditChemical() {
 
   const [subCategoryData, setSubCategoryData] = useState([]);
   const [fileTabs, setFileTabs] = useState({ chemical: false, file: false });
+  const [defaultImg, setDefaultImg] = useState("");
 
   const fetchSingleChemical = FetchSingleChemical(id);
 
@@ -72,8 +74,9 @@ export default function EditChemical() {
     defaultValues.sortNo = fetchSingleChemical?.data?.data?.sortNo;
     defaultValues.heading = fetchSingleChemical?.data?.data?.heading;
     defaultValues.description = fetchSingleChemical?.data?.data?.description;
+    defaultValues.chemicalMolecule =
+      fetchSingleChemical?.data?.data?.chemicalMolecule;
     const catalogDetails = fetchSingleChemical?.data?.data?.catalog_details;
-
     if (catalogDetails) {
       const parsedCatalogDetails = JSON.parse(catalogDetails);
       const newInputs = parsedCatalogDetails.map((data, i) => {
@@ -135,73 +138,90 @@ export default function EditChemical() {
             ]);
           }
         });
+    setDefaultImg(
+      `${fetchSingleChemical?.data?.baseUrl}/${fetchSingleChemical?.data?.data?.chemicalImage}`
+    );
     reset({ ...defaultValues });
   }, [fetchSingleChemical?.data?.data]);
 
   const updateChemical = UpdateChemical();
 
   const onSubmit = async (data) => {
-    if (currentMolecule?.length >= 1) {
-      const formData = new FormData();
-      formData.append("id", id);
-      formData.append("sortNo", data?.sortNo);
-      formData.append("image", base64Img);
-      formData.append("heading", data?.heading);
-      formData.append("description", data?.description);
-      formData.append("molecule", currentMolecule);
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("sortNo", data?.sortNo);
+    formData.append("heading", data?.heading);
+    formData.append("description", data?.description);
+    // formData.append("image", base64Img);
+    // formData.append("molecule", currentMolecule);
+    formData.append("image", fileTabs?.chemical ? base64Img : "");
+    formData.append("molecule", fileTabs?.chemical ? currentMolecule : "");
+    formData.append(
+      "chemicalImage",
+      fileTabs?.file ? data?.chemicalImage[0] : undefined
+    );
 
-      const organizedData = [];
-      Object.keys(data).forEach((key) => {
-        if (key.includes("label")) {
-          const labelNumber = key.split("_")[1];
-          const descriptionKey = `description_${labelNumber}`;
-          if (data[descriptionKey]) {
-            organizedData.push({
-              label: data[key],
-              description: data[descriptionKey],
-            });
-          }
+    formData.append(
+      "chemicalMolecule",
+      fileTabs?.file ? data?.chemicalMolecule : ""
+    );
+
+    const organizedData = [];
+    Object.keys(data).forEach((key) => {
+      if (key.includes("label")) {
+        const labelNumber = key.split("_")[1];
+        const descriptionKey = `description_${labelNumber}`;
+        if (data[descriptionKey]) {
+          organizedData.push({
+            label: data[key],
+            description: data[descriptionKey],
+          });
         }
-      });
+      }
+    });
 
-      formData.append(
-        "catalog_details",
-        organizedData?.length >= 1 && JSON.stringify(organizedData)
-      );
-      const organizedPriceData = [];
-      Object.keys(data).forEach((key) => {
-        if (key.includes("quantity")) {
-          const quantityNumber = key.split("_")[1];
-          const priceKey = `price_${quantityNumber}`;
-          if (data[priceKey]) {
-            organizedPriceData.push({
-              quantity: data[key],
-              price: data[priceKey],
-            });
-          }
+    formData.append(
+      "catalog_details",
+      organizedData?.length >= 1 && JSON.stringify(organizedData)
+    );
+    const organizedPriceData = [];
+    Object.keys(data).forEach((key) => {
+      if (key.includes("quantity")) {
+        const quantityNumber = key.split("_")[1];
+        const priceKey = `price_${quantityNumber}`;
+        if (data[priceKey]) {
+          organizedPriceData.push({
+            quantity: data[key],
+            price: data[priceKey],
+          });
         }
-      });
-      formData.append(
-        "catalog_quantity_price",
-        organizedPriceData?.length >= 1 && JSON.stringify(organizedPriceData)
-      );
+      }
+    });
+    formData.append(
+      "catalog_quantity_price",
+      organizedPriceData?.length >= 1 && JSON.stringify(organizedPriceData)
+    );
 
-      mainCat?.forEach((data) => {
-        formData.append("catalog[]", data);
-      });
-      subCat?.forEach((data) => {
-        data && formData.append("catalog2[]", data);
-      });
+    mainCat?.forEach((data) => {
+      formData.append("catalog[]", data);
+    });
+    subCat?.forEach((data) => {
+      data && formData.append("catalog2[]", data);
+    });
 
-      superSubCat?.forEach((data) => {
-        data && formData.append("catalog3[]", data);
-      });
-      updateChemical.mutate(formData);
-    }
-    return;
+    superSubCat?.forEach((data) => {
+      data && formData.append("catalog3[]", data);
+    });
+    updateChemical.mutate(formData);
   };
 
-  console.log();
+  useEffect(() => {
+    if (fetchSingleChemical?.data?.data?.image) {
+      setFileTabs({ chemical: true, file: false });
+    } else if (fetchSingleChemical?.data?.data?.chemicalImage) {
+      setFileTabs({ chemical: false, file: true });
+    }
+  }, [fetchSingleChemical?.data?.data]);
 
   return (
     <div className="chemical_editor">
@@ -222,19 +242,14 @@ export default function EditChemical() {
                 name="exampleRadios"
                 id="exampleRadios1"
                 value="option1"
-                defaultChecked={
-                  fetchSingleChemical?.data?.data?.image ? true : false
-                }
+                checked={fileTabs?.chemical}
               />
               <label className="form-check-label" htmlFor="exampleRadios1">
                 Chemical Editor
               </label>
             </div>
             <div
-              onClick={() => {
-                setFileTabs({ chemical: false, file: true });
-                // setCurrentMolecule("");
-              }}
+              onClick={() => setFileTabs({ chemical: false, file: true })}
               className="form-check"
             >
               <input
@@ -243,14 +258,14 @@ export default function EditChemical() {
                 name="exampleRadios"
                 id="exampleRadios2"
                 value="option2"
+                checked={fileTabs?.file}
               />
               <label className="form-check-label" htmlFor="exampleRadios2">
                 Image
               </label>
             </div>
           </div>
-          {(fileTabs?.chemical ||
-            (fetchSingleChemical?.data?.data?.image && !fileTabs?.file)) && (
+          {fileTabs?.chemical && (
             <EditorComponent
               setCurrentMolecule={setCurrentMolecule}
               setImg={setImg}
@@ -285,6 +300,8 @@ export default function EditChemical() {
             subCategoryData={subCategoryData}
             setSubCategoryData={setSubCategoryData}
             showFiles={fileTabs?.file}
+            // setDefaultImg={setDefaultImg}
+            defaultImg={defaultImg}
           />
         </div>
       )}

@@ -66,10 +66,19 @@ export default function CreateChemical() {
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("sortNo", data?.sortNo);
-    formData.append("image", base64Img);
     formData.append("heading", data?.heading);
     formData.append("description", data?.description);
-    formData.append("molecule", currentMolecule);
+    formData.append("image", fileTabs?.chemical ? base64Img : "");
+    formData.append("molecule", fileTabs?.chemical ? currentMolecule : "");
+    formData.append(
+      "chemicalImage",
+      fileTabs?.file ? data?.chemicalImage[0] : ""
+    );
+
+    formData.append(
+      "chemicalMolecule",
+      fileTabs?.file ? data?.chemicalMolecule : ""
+    );
 
     const organizedData = [];
     Object.keys(data).forEach((key) => {
@@ -117,8 +126,7 @@ export default function CreateChemical() {
     superSubCat?.forEach((data) => {
       data && formData.append("catalog3[]", data);
     });
-    // createChemical.mutate(formData);
-    console.log(data);
+    createChemical.mutate(formData);
   };
 
   return (
