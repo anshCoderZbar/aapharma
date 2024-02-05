@@ -46,10 +46,13 @@ export const AboutUs = () => {
                   ))
               : "About AAPharmaSyn"}
           </h1>
-          <p>
-            {getBanner?.data?.data?.description &&
-              getBanner?.data?.data?.description}
-          </p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html:
+                getBanner?.data?.data?.description &&
+                getBanner?.data?.data?.description,
+            }}
+          />
           <div className="about_icons">
             <span>
               <img
@@ -78,10 +81,13 @@ export const AboutUs = () => {
           </div>
         </div>
         <div className="about_us_content">
-          <p>
-            {getBanner?.data?.data?.description2 &&
-              getBanner?.data?.data?.description2}
-          </p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html:
+                getBanner?.data?.data?.description2 &&
+                getBanner?.data?.data?.description2,
+            }}
+          />
         </div>
       </div>
       <div className="container-fluid">
@@ -176,7 +182,6 @@ export const AboutUs = () => {
                 );
               })}
           </div>
-          {console.log(swipeIndex)}
           <Swiper
             ref={swiperRef}
             spaceBetween={30}

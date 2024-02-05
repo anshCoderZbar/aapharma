@@ -17,6 +17,10 @@ export const Services = () => {
     );
   }, [getAllServices?.data?.data]);
 
+  {
+    console.log(servideBg);
+  }
+
   return (
     <>
       <div className="service_card">
@@ -46,7 +50,6 @@ export const Services = () => {
           })}
         </ul>
       </div>
-
       <div className="service_img">
         <div className="position-relative vs_jj">
           <img src={servideBg} alt="service_bg" className="servic_bg_imag" />

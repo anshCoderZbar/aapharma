@@ -51,7 +51,11 @@ export const Contact = () => {
     <div className="contact_page">
       <div className="container-fluid">
         <h1 className="main_top_heading">Contact us</h1>
-        <p>{allDetails?.contacttext && allDetails?.contacttext}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: allDetails?.contacttext && allDetails?.contacttext,
+          }}
+        />
         <div className="contact_details">
           <div className="contact_tabs">
             <button className="tab_btn">Project Quotes</button>

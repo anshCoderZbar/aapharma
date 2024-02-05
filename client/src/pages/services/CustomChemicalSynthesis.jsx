@@ -93,11 +93,13 @@ export default function CustomChemicalSynthesis() {
                   : ""
               } service_description chem_desc`}
             >
-              <p>
-                {getSingleChemicalSynthesis?.data?.data?.description
-                  ? getSingleChemicalSynthesis?.data?.data?.description
-                  : initialData?.description}
-              </p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: getSingleChemicalSynthesis?.data?.data?.description
+                    ? getSingleChemicalSynthesis?.data?.data?.description
+                    : initialData?.description,
+                }}
+              />
             </div>
           )}
         </div>

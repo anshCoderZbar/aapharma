@@ -72,11 +72,13 @@ export default function CaseStudy() {
                       ? getSingleCaseStudyTabs?.data?.data?.heading
                       : allCaseTabs?.data?.data[0]?.heading}
                   </h5>
-                  <p>
-                    {getSingleCaseStudyTabs?.data?.data?.description
-                      ? getSingleCaseStudyTabs?.data?.data?.description
-                      : allCaseTabs?.data?.data[0]?.description}
-                  </p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: getSingleCaseStudyTabs?.data?.data?.description
+                        ? getSingleCaseStudyTabs?.data?.data?.description
+                        : allCaseTabs?.data?.data[0]?.description,
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -118,10 +120,13 @@ export default function CaseStudy() {
                       {caseStudyGraphData?.data?.data?.heading &&
                         caseStudyGraphData?.data?.data?.heading}
                     </h3>
-                    <p>
-                      {caseStudyGraphData?.data?.data?.subheading &&
-                        caseStudyGraphData?.data?.data?.subheading}
-                    </p>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          caseStudyGraphData?.data?.data?.subheading &&
+                          caseStudyGraphData?.data?.data?.subheading,
+                      }}
+                    />
                   </div>
                 ) : (
                   <div className="inner_case_content">
@@ -131,7 +136,11 @@ export default function CaseStudy() {
                           elm?.id === iconActive && (
                             <React.Fragment key={elm?.title}>
                               <h3>{elm?.title}</h3>
-                              <p>{elm?.description}</p>
+                              <p
+                                dangerouslySetInnerHTML={{
+                                  __html: elm?.description,
+                                }}
+                              />
                             </React.Fragment>
                           )
                       )}

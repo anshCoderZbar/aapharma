@@ -30,8 +30,6 @@ export const CatalogDetails = () => {
     setPrice(e?.target?.value);
   };
 
-  console.log(price);
-
   return (
     <div className="catalog__page">
       <div className="catalog_single_banner">

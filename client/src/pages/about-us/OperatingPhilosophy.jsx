@@ -49,10 +49,13 @@ export default function OperatingPhilosophy() {
       />
       <div className="operating_content">
         <div className="container-fluid">
-          <p>
-            {getOperatingPhilosophy?.data?.data?.diagramHeading &&
-              getOperatingPhilosophy?.data?.data?.diagramHeading}
-          </p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html:
+                getOperatingPhilosophy?.data?.data?.diagramHeading &&
+                getOperatingPhilosophy?.data?.data?.diagramHeading,
+            }}
+          />
         </div>
       </div>
       <div className="container-fluid">
