@@ -54,6 +54,15 @@ export default function HomeService() {
       ),
     },
     {
+      name: "image",
+      cell: (row) => (
+        <img
+          src={`${allServices?.data?.baseUrl}/${row?.featuredImage}`}
+          style={{ maxWidth: "50px" }}
+        />
+      ),
+    },
+    {
       name: "edit",
       cell: (row) => (
         <span

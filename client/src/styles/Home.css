@@ -231,9 +231,10 @@
   height: 650px;
   width: 100%;
   max-width: 475px;
+}
+.vs_jj > img {
   object-fit: cover;
 }
-
 .service_icon {
   top: 50%;
   left: 50%;
@@ -255,7 +256,7 @@
 .vs_jj {
   border-radius: 40px;
   overflow: hidden;
-  /* filter: drop-shadow(17px 4px 40px rgba(30, 30, 30, 0.2)); */
+  filter: drop-shadow(17px 4px 40px rgba(30, 30, 30, 0.2));
 }
 
 .vs_jj::after {
@@ -266,7 +267,7 @@
   width: 100%;
   height: 100%;
   background-color: #2a3072;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 /*====== mission ====== */
