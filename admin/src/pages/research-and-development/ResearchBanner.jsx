@@ -10,6 +10,11 @@ import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 
+import {
+  CreateResearchDevelopmentBanner,
+  GetResearchDevelopmentBanner,
+} from "rest/researchDevelopement";
+
 export default function ResearchBannerPage() {
   const {
     register,
@@ -19,8 +24,8 @@ export default function ResearchBannerPage() {
     reset,
   } = useForm();
 
-  const createBanner = { isPending: false, isError: false };
-  const getBanner = { isPending: false, isError: false };
+  const createBanner = CreateResearchDevelopmentBanner();
+  const getBanner = GetResearchDevelopmentBanner();
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
 
@@ -32,23 +37,23 @@ export default function ResearchBannerPage() {
     }
   };
 
-  //   useEffect(() => {
-  //     const defaultValues = {};
-  //     defaultValues.heading = getBanner?.data?.data?.heading;
-  //     defaultValues.description = getBanner?.data?.data?.description;
-  //     defaultValues.personnelBanner = getBanner?.data?.data?.image;
-  //     setDefaultImg(getBanner?.data?.data?.image);
-  //     reset(defaultValues);
-  //   }, [getBanner?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getBanner?.data?.data?.heading;
+    defaultValues.description = getBanner?.data?.data?.description;
+    defaultValues.personnelBanner = getBanner?.data?.data?.image;
+    setDefaultImg(getBanner?.data?.data?.image);
+    reset(defaultValues);
+  }, [getBanner?.data?.data]);
 
   const onSubmit = (data) => {
-    // const formData = new FormData();
-    // formData.append("heading", data?.heading);
-    // formData.append("description", data?.description);
-    // formData.append("image", data?.researchBanner[0]);
-    // createBanner.mutate(formData);
-    console.log(data);
+    const formData = new FormData();
+    formData.append("heading", data?.heading);
+    formData.append("description", data?.description);
+    formData.append("image", data?.researchBanner[0]);
+    createBanner.mutate(formData);
   };
+
   return (
     <div className="research_page">
       <PageWrapper

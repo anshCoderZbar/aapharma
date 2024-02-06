@@ -3,28 +3,55 @@ import React from "react";
 import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Services.css";
-import banner from "assets/page-banners/research_and_development_banner.png";
+import {
+  GetResearchDevelopmentBanner,
+  GetResearchDevelopmentSort,
+} from "rest/service";
 
 export default function ResearchAndDevelopement() {
+  const getBanner = GetResearchDevelopmentBanner();
+  const getSort = GetResearchDevelopmentSort();
   return (
     <div className="research_and_development_page">
       <Banner
-        background={`url(${banner})`}
+        background={`url(${
+          getBanner?.data?.data?.image && getBanner?.data?.data?.image
+        })`}
         extra="research_banner"
-        heading="Enabling Lipid Research and Development"
-        description="AAPharmaSyn is a recognized leader in the development of custom proprietary lipids. Over the years we generated thousands of unique lipids with a wide range of biological 
-        activity and applications. Our proprietary methodology allows synthesis of lipids previously considered time and effort prohibitive. We specialize in the synthesis of:"
+        heading={
+          getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
+        }
+        description={
+          getBanner?.data?.data?.description &&
+          getBanner?.data?.data?.description
+        }
       />
       <div className="container-fluid">
         <div className="research_btn_section">
-          <button>Dendrimers</button>
-          <button>Anionic lipids</button>
-          <button>Neutral phospholipids</button>
-          <button>Neutral aminolipids</button>
-          <button>PEGylated lipids</button>
-          <button>Glycerolipids</button>
-          <button>Sphingolipids</button>
-          <button>Sterol lipids</button>
+          <button>
+            {getSort?.data?.data?.button1 && getSort?.data?.data?.button1}
+          </button>
+          <button>
+            {getSort?.data?.data?.button2 && getSort?.data?.data?.button2}
+          </button>
+          <button>
+            {getSort?.data?.data?.button3 && getSort?.data?.data?.button3}
+          </button>
+          <button>
+            {getSort?.data?.data?.button4 && getSort?.data?.data?.button4}
+          </button>
+          <button>
+            {getSort?.data?.data?.button5 && getSort?.data?.data?.button5}
+          </button>
+          <button>
+            {getSort?.data?.data?.button6 && getSort?.data?.data?.button6}
+          </button>
+          <button>
+            {getSort?.data?.data?.button7 && getSort?.data?.data?.button7}
+          </button>
+          <button>
+            {getSort?.data?.data?.button8 && getSort?.data?.data?.button8}
+          </button>
         </div>
       </div>
       <div className="research_details_sec">
@@ -33,27 +60,21 @@ export default function ResearchAndDevelopement() {
             <div className="col-xl-6">
               <div className="research_content">
                 <h2>
-                  Tuning lipids to enhanceselective organ targeting (SORT).
+                  {getSort?.data?.data?.heading && getSort?.data?.data?.heading}
                 </h2>
-                <p>
-                  The mechanistic study discovered that the biophysical class of
-                  SORT molecule generates a distinct protein corona when
-                  incorporated into the LNP. This corona plays a crucial role in
-                  determining the site of mRNA delivery within the body.Upon
-                  entering the systemic circulation, a majority of the
-                  nanoparticles accumulate in the liver. However, targeting
-                  organs other than the liver has remained an unresolved issue
-                  for a significant period. By incorporating an auxiliary
-                  component called selective organ targeting molecules into
-                  lipid nanoparticles, it is possible to target selectively the
-                  liver, spleen, lungs, and other organs
-                </p>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      getSort?.data?.data?.description &&
+                      getSort?.data?.data?.description,
+                  }}
+                />
               </div>
             </div>
             <div className="col-xl-6">
               <div className="research_img">
                 <img
-                  src={require("assets/research_sec_banner.png")}
+                  src={getSort?.data?.data?.image && getSort?.data?.data?.image}
                   alt="research_banner"
                 />
               </div>

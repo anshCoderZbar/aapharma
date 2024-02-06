@@ -170,7 +170,18 @@ input[type="number"] {
 p {
   margin-bottom: 0;
 }
+.x-svg {
+  transition: 0.5 ease-in-out;
+  width: 24px !important;
+  height: auto !important;
+}
 
+.x-svg:hover stroke {
+  fill: #34caff !important;
+}
+.x-svg:hover .svg_ik {
+  fill: #34caff;
+}
 @media screen and (max-width: 1700px) {
   .container-fluid {
     padding-left: 70px !important;

@@ -68,6 +68,10 @@ class Client {
       HttpClient.get(API_ENDPOINTS.allCarbohydrateTimeline),
     getCarbohydrateDiagram: () =>
       HttpClient.get(API_ENDPOINTS.allCarbohydrateDiagram),
+    getResearchDevelopmentBanner: () =>
+      HttpClient.get(API_ENDPOINTS.researchDevelopmentBanner),
+    getResearchDevelopmentSort: () =>
+      HttpClient.get(API_ENDPOINTS.researchDevelopmentSort),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

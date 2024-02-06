@@ -44,4 +44,6 @@ export const API_ENDPOINTS = {
   carbohydrateBanner: "/complex-carbohydrate-banner",
   allCarbohydrateTimeline: "/complexcarboTimeline/all",
   allCarbohydrateDiagram: "/complex-timeline-diagram/all",
+  researchDevelopmentBanner: "/researchdevelopmentbanner",
+  researchDevelopmentSort: "/researchdevelopmentsecond",
 };

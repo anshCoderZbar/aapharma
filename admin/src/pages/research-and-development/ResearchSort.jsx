@@ -10,6 +10,11 @@ import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 
+import {
+  GetResearchDevelopmentSort,
+  CreateResearchDevelopmentSort,
+} from "rest/researchDevelopement";
+
 export default function ResearchSort() {
   const {
     register,
@@ -19,8 +24,8 @@ export default function ResearchSort() {
     control,
   } = useForm();
 
-  const createSortData = { isPending: false, isError: false };
-  const getSortData = { isPending: false, isError: false };
+  const createSortData = CreateResearchDevelopmentSort();
+  const getSortData = GetResearchDevelopmentSort();
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
 
@@ -32,38 +37,37 @@ export default function ResearchSort() {
     }
   };
 
-  //   useEffect(() => {
-  //     const defaultValues = {};
-  //     defaultValues.heading = getSortData?.data?.data?.heading;
-  //     defaultValues.description = getSortData?.data?.data?.description;
-  //     defaultValues.image = getSortData?.data?.data?.image;
-  //     defaultValues.button1 = getSortData?.data?.data?.button1;
-  //     defaultValues.button2 = getSortData?.data?.data?.button2;
-  //     defaultValues.button3 = getSortData?.data?.data?.button3;
-  //     defaultValues.button4 = getSortData?.data?.data?.button4;
-  //     defaultValues.button5 = getSortData?.data?.data?.button5;
-  //     defaultValues.button6 = getSortData?.data?.data?.button6;
-  //     defaultValues.button7 = getSortData?.data?.data?.button7;
-  //     defaultValues.button8 = getSortData?.data?.data?.button8;
-  //     setDefaultImg(getSortData?.data?.data?.image);
-  //     reset(defaultValues);
-  //   }, [getSortData?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getSortData?.data?.data?.heading;
+    defaultValues.description = getSortData?.data?.data?.description;
+    defaultValues.image = getSortData?.data?.data?.image;
+    defaultValues.button1 = getSortData?.data?.data?.button1;
+    defaultValues.button2 = getSortData?.data?.data?.button2;
+    defaultValues.button3 = getSortData?.data?.data?.button3;
+    defaultValues.button4 = getSortData?.data?.data?.button4;
+    defaultValues.button5 = getSortData?.data?.data?.button5;
+    defaultValues.button6 = getSortData?.data?.data?.button6;
+    defaultValues.button7 = getSortData?.data?.data?.button7;
+    defaultValues.button8 = getSortData?.data?.data?.button8;
+    setDefaultImg(getSortData?.data?.data?.image);
+    reset(defaultValues);
+  }, [getSortData?.data?.data]);
 
   const onSubmit = (data) => {
-    // const formData = new FormData();
-    // formData.append("heading", data?.heading);
-    // formData.append("description", data?.description);
-    // formData.append("image", data?.image[0]);
-    // formData.append("button1", data?.button1);
-    // formData.append("button2", data?.button2);
-    // formData.append("button3", data?.button3);
-    // formData.append("button4", data?.button4);
-    // formData.append("button5", data?.button5);
-    // formData.append("button6", data?.button6);
-    // formData.append("button7", data?.button7);
-    // formData.append("button8", data?.button8);
-    // createSortData.mutate(formData)
-    console.log(data);
+    const formData = new FormData();
+    formData.append("heading", data?.heading);
+    formData.append("description", data?.description);
+    formData.append("image", data?.image[0]);
+    formData.append("button1", data?.button1);
+    formData.append("button2", data?.button2);
+    formData.append("button3", data?.button3);
+    formData.append("button4", data?.button4);
+    formData.append("button5", data?.button5);
+    formData.append("button6", data?.button6);
+    formData.append("button7", data?.button7);
+    formData.append("button8", data?.button8);
+    createSortData.mutate(formData);
   };
   return (
     <div className="research_page">
@@ -192,7 +196,6 @@ export default function ResearchSort() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-
             <h2 className="heading_main mt-4">Sort Details</h2>
             <div className="mb-3 col-md-6">
               <label htmlFor="image" className="form-label">

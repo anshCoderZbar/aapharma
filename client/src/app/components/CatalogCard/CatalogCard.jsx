@@ -61,26 +61,29 @@ export const CatalogCard = ({ baseUrl, compounts, key }) => {
               />
               <div className="catalog_content_select cata_main_mrt nm_x">
                 <div className="d-flex justify-content-between mxs">
-                  {compounts?.inStock === "true" && (
-                    <select onChange={handlePriceChange}>
-                      <option value="">Select Quantity</option>
-                      {compounts?.catalog_quantity_price?.length >= 1
-                        ? JSON.parse(compounts?.catalog_quantity_price).map(
-                            (details, i) => {
-                              return (
-                                <option
-                                  id={details?.price}
-                                  value={details?.price}
-                                  key={i}
-                                >
-                                  {details?.quantity}
-                                </option>
-                              );
-                            }
-                          )
-                        : null}
-                    </select>
-                  )}
+                  <select
+                    className={`${
+                      compounts?.inStock === "true" ? "visible" : "invisible"
+                    }`}
+                    onChange={handlePriceChange}
+                  >
+                    <option value="">Select Quantity</option>
+                    {compounts?.catalog_quantity_price?.length >= 1
+                      ? JSON.parse(compounts?.catalog_quantity_price).map(
+                          (details, i) => {
+                            return (
+                              <option
+                                id={details?.price}
+                                value={details?.price}
+                                key={i}
+                              >
+                                {details?.quantity}
+                              </option>
+                            );
+                          }
+                        )
+                      : null}
+                  </select>
                   {compounts?.inStock === "true" ? (
                     <div className="d-flex align-items-center stock">
                       <img src={inStock} alt="stock" />

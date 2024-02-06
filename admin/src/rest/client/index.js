@@ -262,6 +262,16 @@ class Client {
     updateEmploymentResponsibilities: (params) =>
       HttpClient.post(API_ENDPOINTS.employmentResponsibilities, params),
   };
+  researchDevelopmentBanner = {
+    getResearchDevelopmentBanner: () =>
+      HttpClient.get(API_ENDPOINTS.researchDevelopmentBanner),
+    createResearchDevelopmentBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.researchDevelopmentBanner, params),
+    getResearchDevelopmentSort: () =>
+      HttpClient.get(API_ENDPOINTS.researchDevelopmentSort),
+    createResearchDevelopmentSort: (params) =>
+      HttpClient.post(API_ENDPOINTS.researchDevelopmentSort, params),
+  };
 }
 
 const client = new Client();

@@ -37,22 +37,21 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
       </div>
       <div className="catalog_content_select">
         <div className="d-flex justify-content-between ">
-          {items?.inStock === "true" && (
-            <select onChange={handlePriceChange}>
-              <option value="">Select Quantity</option>
-              {items?.catalog_quantity_price?.length >= 1
-                ? JSON.parse(items?.catalog_quantity_price).map(
-                    (details, i) => {
-                      return (
-                        <option value={details?.price} key={i}>
-                          {details?.quantity}
-                        </option>
-                      );
-                    }
-                  )
-                : null}
-            </select>
-          )}
+          <select
+            className={`${items?.inStock === "true" ? "visible" : "invisible"}`}
+            onChange={handlePriceChange}
+          >
+            <option value="">Select Quantity</option>
+            {items?.catalog_quantity_price?.length >= 1
+              ? JSON.parse(items?.catalog_quantity_price).map((details, i) => {
+                  return (
+                    <option value={details?.price} key={i}>
+                      {details?.quantity}
+                    </option>
+                  );
+                })
+              : null}
+          </select>
           {items?.inStock === "true" ? (
             <div className="d-flex align-items-center stock">
               <img src={inStock} alt="stock" />

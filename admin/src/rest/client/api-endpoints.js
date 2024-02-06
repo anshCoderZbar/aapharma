@@ -118,4 +118,6 @@ export const API_ENDPOINTS = {
   editCarbohydrateDiagram: "/complex-timeline-diagram/update",
   employmentBanner: "/employment-banner",
   employmentResponsibilities: "/employmentAt",
+  researchDevelopmentBanner: "/researchdevelopmentbanner",
+  researchDevelopmentSort: "/researchdevelopmentsecond",
 };

@@ -108,3 +108,21 @@ export const GetCarbohydrateDiagram = () => {
   });
   return getDiagram;
 };
+
+// research and development
+
+export const GetResearchDevelopmentBanner = () => {
+  const getBanner = useQuery({
+    queryKey: ["get-research-development-banner"],
+    queryFn: () => client.services.getResearchDevelopmentBanner(),
+  });
+  return getBanner;
+};
+
+export const GetResearchDevelopmentSort = () => {
+  const getSort = useQuery({
+    queryKey: ["get-research-development-sort"],
+    queryFn: () => client.services.getResearchDevelopmentSort(),
+  });
+  return getSort;
+};
