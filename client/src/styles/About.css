@@ -553,6 +553,36 @@
 .outer__circle img {
   width: 100%;
 }
+
+@media only screen and (min-width: 1900px) {
+  .outer_diagram {
+    width: 1000px;
+    height: 1000px;
+  }
+
+  .circle_1 {
+    top: -40px;
+    transform: translate(0%, -50%);
+    left: 36.1%;
+    width: 377px;
+    height: 195px;
+  }
+  .circle_2 {
+    top: 12px;
+    right: 21px;
+    left: auto;
+    width: 463px;
+    height: 220px;
+  }
+  .circle_3 {
+    top: 29.8%;
+    right: 90px;
+    left: auto;
+    width: 211px;
+    height: 209px;
+  }
+}
+
 @media only screen and (max-width: 1600px) {
   .about_banner {
     padding: 36px 52px;
