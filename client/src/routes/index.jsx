@@ -82,7 +82,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/about-us"
+            path="/about-AAPharmaSyn"
             element={
               <PublicRoutes>
                 <AboutUs />
@@ -138,7 +138,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/custom-synthesis-of-complex-carbohydrates"
+            path="/carbohydrates"
             element={
               <PublicRoutes>
                 <Carbohydrates />
@@ -186,7 +186,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/capabilities"
+            path="/overview"
             element={
               <PublicRoutes>
                 <Capabilities />

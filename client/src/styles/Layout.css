@@ -72,7 +72,7 @@
   line-height: normal;
 }
 
-.nav-right>ul {
+.nav-right > ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,7 +88,7 @@
   width: 20px;
 }
 
-.nav-right>ul li a {
+.nav-right > ul li a {
   text-decoration: none;
   color: #2e2e2e;
   font-size: 17px;
@@ -96,11 +96,12 @@
   font-family: "Product Sans";
   display: flex;
   gap: 4px;
+  transition: 0.3s;
 }
 
-.nav-right>ul li a:hover {
+.nav-right > ul li a:hover {
   color: #34caff;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s;
 }
 
 .contact_btn {
@@ -230,7 +231,12 @@
   color: #34caff;
   transition: 0.3s;
 }
-
+.service_mega_menu .dropdown__list {
+  flex-wrap: wrap;
+}
+.service_mega_menu .dropdown__list-item.m_xLx {
+  flex: 0 20%;
+}
 .acc_types {
   list-style: none;
   margin-top: 20px;
@@ -536,7 +542,7 @@
 }
 
 @media screen and (max-width: 1700px) {
-  .nav-right>ul {
+  .nav-right > ul {
     gap: 26px;
   }
 
@@ -567,11 +573,11 @@
     width: 100%;
   }
 
-  .nav-right>ul {
+  .nav-right > ul {
     gap: 27px;
   }
 
-  .nav-right>ul li a {
+  .nav-right > ul li a {
     font-size: 16px;
   }
 
@@ -661,11 +667,11 @@
     gap: 20px;
   }
 
-  .nav-right>ul {
+  .nav-right > ul {
     gap: 20px;
   }
 
-  .nav-right>ul li a {
+  .nav-right > ul li a {
     font-size: 16px;
   }
 }
@@ -677,7 +683,7 @@
 }
 
 @media screen and (max-width: 1250px) {
-  .nav-right>ul {
+  .nav-right > ul {
     gap: 17px;
   }
 }
@@ -748,7 +754,7 @@
     margin-right: 35px;
   }
 
-  .nav-right>ul {
+  .nav-right > ul {
     display: block;
     position: fixed;
     background-color: #2a3072;
@@ -814,7 +820,7 @@
     border-bottom: 1px solid #494d79;
   }
 
-  .nav-right>ul li .contact_btn {
+  .nav-right > ul li .contact_btn {
     background-color: #34caff;
     padding: 14px 30px;
     width: 88%;
@@ -862,7 +868,7 @@
     border-bottom-left-radius: 0px !important;
   }
 
-  .nav-right>ul li a {
+  .nav-right > ul li a {
     color: #fff;
   }
 
@@ -902,7 +908,7 @@
     cursor: pointer;
   }
 
-  .nav-right>ul {
+  .nav-right > ul {
     min-width: 77%;
     padding-top: 1em;
     padding-bottom: 1em;

@@ -134,7 +134,12 @@ export const Header = () => {
               <ul className={`${active ? "nav_active" : ""} nav-ri-ul`}>
                 {HeaderData?.map((data, i) => {
                   return (
-                    <li className="nav-right-li" key={data?.id}>
+                    <li
+                      className={`nav-right-li ${
+                        data?.class ? data?.class : ""
+                      }`}
+                      key={data?.id}
+                    >
                       <div className="d-flex">
                         <Link
                           className={`${

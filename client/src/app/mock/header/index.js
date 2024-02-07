@@ -1,13 +1,14 @@
 export const HeaderData = [
   {
     id: 1,
-    name: "About us",
+    name: "Company",
     slug: "#",
+    class: false,
     menu: [
       {
         id: 1,
-        name: "History",
-        slug: "/about-us",
+        name: "About AAPharmaSyn",
+        slug: "/about-AAPharmaSyn",
       },
       {
         id: 2,
@@ -24,12 +25,18 @@ export const HeaderData = [
         name: "Testimonials",
         slug: "/testimonials",
       },
+      {
+        id: 5,
+        name: "Employment",
+        slug: "/employment",
+      },
     ],
   },
   {
     id: 2,
     name: "Services",
     slug: "/services",
+    class: "service_mega_menu",
     menu: [
       {
         id: 1,
@@ -57,8 +64,28 @@ export const HeaderData = [
         slug: "#",
       },
       {
-        id: 5,
-        name: "Inventory Management",
+        id: 6,
+        name: "High-Value Compounds Inventory Management",
+        slug: "#",
+      },
+      {
+        id: 7,
+        name: "Stable Isotope Compounds",
+        slug: "#",
+      },
+      {
+        id: 8,
+        name: "Antibody Drug Conjugates",
+        slug: "#",
+      },
+      {
+        id: 9,
+        name: "Carbohydrates",
+        slug: "/carbohydrates",
+      },
+      {
+        id: 10,
+        name: "Custom Project Meeting Request",
         slug: "#",
       },
     ],
@@ -66,30 +93,36 @@ export const HeaderData = [
   {
     id: 3,
     name: "Capabilities",
-    slug: "/capabilities",
+    slug: "#",
+    class: false,
     menu: [
       {
         id: 1,
+        name: "Overview",
+        slug: "/overview",
+      },
+      {
+        id: 2,
         name: "Chemistry Expertise",
         slug: "/chemistry-expertise",
       },
       {
-        id: 2,
+        id: 3,
         name: "Lab Equipment",
         slug: "/lab-equipment",
       },
       {
-        id: 3,
+        id: 4,
         name: "Analytical Instrumentation",
         slug: "/analytical-instrumentation",
       },
       {
-        id: 4,
+        id: 5,
         name: "Partners",
         slug: "#",
       },
       {
-        id: 5,
+        id: 6,
         name: "Accreditations",
         slug: "/accreditations",
       },
@@ -99,14 +132,20 @@ export const HeaderData = [
     id: 4,
     name: "Resources",
     slug: "/resources",
+    class: false,
     menu: [
       {
         id: 1,
+        name: "Useful Guides",
+        slug: "#",
+      },
+      {
+        id: 2,
         name: "Whitepapers",
         slug: "/whitepaper",
       },
       {
-        id: 2,
+        id: 3,
         name: "Conferences",
         slug: "#",
       },
@@ -116,6 +155,7 @@ export const HeaderData = [
     id: 5,
     name: "Catalogs",
     slug: "/catalog",
+    class: false,
     menu: [
       // {
       //   id: 1,

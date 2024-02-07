@@ -343,6 +343,9 @@
 /*====== vision ====== */
 
 /*====== articles ====== */
+.challenge-x .container-fluid {
+  padding-right: 0 !important;
+}
 .latest_articles {
   padding: 50px 0 20px 0;
   border: 2px solid #2a3072;

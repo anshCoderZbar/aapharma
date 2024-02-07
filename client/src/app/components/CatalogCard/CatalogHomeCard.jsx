@@ -36,12 +36,12 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
         </p>
       </div>
       <div className="catalog_content_select">
-        <div className="d-flex justify-content-between ">
+        <div className="d-flex justify-content-between align-items-center">
           <select
             className={`${items?.inStock === "true" ? "visible" : "invisible"}`}
             onChange={handlePriceChange}
           >
-            <option value="">Select Quantity</option>
+            <option value="">Quantity</option>
             {items?.catalog_quantity_price?.length >= 1
               ? JSON.parse(items?.catalog_quantity_price).map((details, i) => {
                   return (
@@ -52,6 +52,14 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
                 })
               : null}
           </select>
+          <div className="catalog_card_price">
+            <h3
+              className={`${price?.length >= 1 ? "opacity-100" : "opacity-0"}`}
+            >
+              Price :
+            </h3>
+            {price?.length >= 1 && <p>${price}</p>}
+          </div>
           {items?.inStock === "true" ? (
             <div className="d-flex align-items-center stock">
               <img src={inStock} alt="stock" />
@@ -63,13 +71,6 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
               <span style={{ color: "#FC0D1B" }}>Out of stock</span>
             </div>
           )}
-        </div>
-
-        <div className="catalog_card_price">
-          <h3 className={`${price?.length >= 1 ? "opacity-100" : "opacity-0"}`}>
-            Price :
-          </h3>
-          {price?.length >= 1 && <p>$ {price}</p>}
         </div>
       </div>
       <div className="order_btn">

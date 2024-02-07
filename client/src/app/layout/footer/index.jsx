@@ -40,7 +40,7 @@ export const Footer = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   className="x-svg"
                 >
-                  <g clip-path="url(#clip0_129_381)">
+                  <g clipPath="url(#clip0_129_381)">
                     <path
                       d="M256 0C114.62 0 0 114.62 0 256C0 397.38 114.62 512 256 512C397.38 512 512 397.38 512 256C512 114.62 397.38 0 256 0Z"
                       fill="black"

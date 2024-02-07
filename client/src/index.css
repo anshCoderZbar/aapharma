@@ -62,6 +62,7 @@ select {
   background-repeat: no-repeat;
   background-position-x: 91% !important;
   background-position-y: 50% !important;
+  background-size: 13px;
   outline: none;
   font-family: "Product Sans";
 }

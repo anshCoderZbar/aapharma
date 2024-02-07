@@ -159,7 +159,7 @@
   position: relative;
 }
 
-.compount_img_details ul:after {
+/* .compount_img_details ul:after {
   content: "";
   position: absolute;
   right: 0;
@@ -168,7 +168,7 @@
   width: 1px;
   background: #666666;
   height: 93%;
-}
+} */
 
 .compount_img_details ul li {
   display: flex;
@@ -200,8 +200,6 @@
   flex-wrap: wrap;
   align-content: flex-end;
   height: auto;
-  position: absolute !important;
-  bottom: 130px !important;
   background-color: #f7f7f7;
 }
 
@@ -212,9 +210,21 @@
 .compount_img {
   background-color: #fff;
   border-radius: 15px;
-  padding: 20px;
+  padding: 7px;
 }
-
+.compount_img_details {
+  position: relative;
+}
+/* .compount_img_details:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 5%;
+  bottom: 0;
+  width: 1px;
+  background: #666666;
+  height: 93%;
+} */
 .compount_img {
   width: 100%;
 }
@@ -226,6 +236,31 @@
 /* catalog Main Card */
 
 /* home page catalog card */
+.mcpc {
+  height: 100%;
+  position: relative;
+}
+.mcpc:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0%;
+  bottom: 0;
+  width: 1px;
+  background: #666666;
+  height: 100%;
+}
+.mcpc:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0%;
+  bottom: 0;
+  width: 1px;
+  background: #f7f7f7;
+  height: 206px;
+  z-index: 1;
+}
 .catalog_card {
   background-color: #f7f7f7;
   padding: 10px 10px 28px 10px;
@@ -254,18 +289,27 @@
 
 .catalog_content {
   max-width: 350px;
-  margin: 15px 0 0 0;
+  margin: 15px 0 17px 0;
   height: 100%;
   position: relative;
 }
-
+.m_x_x {
+  display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+}
+.oPc {
+  width: 100%;
+  height: 100%;
+}
 .catalog_content p {
   color: #666;
   font-family: "Product Sans";
   font-size: 18px;
   font-weight: 400;
   line-height: 29px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .catalog_content h1,
@@ -283,16 +327,15 @@ h6 {
 
 .catalog_content_select {
   width: 100%;
-  position: absolute;
-  bottom: 23%;
-  left: 0;
-  padding: 0 10px;
+}
+.mix-xxx {
+  min-height: 230px;
 }
 .catalog_card_price {
   display: flex;
   align-items: center;
-  margin: 5px 0;
-  gap: 10px;
+  margin: 10px 0;
+  gap: 6px;
 }
 
 .catalog_card_price h3 {
@@ -305,10 +348,10 @@ h6 {
 }
 
 .catalog_content_select select {
-  border-radius: 14px;
+  border-radius: 10px;
   border: 1px solid #d1d1d1;
-  padding: 13px;
-  width: 160px;
+  padding: 10px;
+  width: 120px;
   background-color: transparent;
 }
 
@@ -317,18 +360,20 @@ h6 {
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
-  margin-left: 10px;
+  margin-left: 3px;
 }
-
+.stock img {
+  width: 20px;
+}
 .order_btn {
-  margin-top: 25px;
   width: 100%;
-  position: absolute;
-  bottom: 3%;
-  left: 0;
-  padding: 0 10px;
+  position: relative;
+  top: 26px;
 }
-
+.m_x_x .order_btn {
+  top: 0;
+  margin-top: 25px;
+}
 .order_btn svg {
   margin-right: 10px;
 }
@@ -642,7 +687,7 @@ h6 {
   }
 
   .stock img {
-    width: 23px;
+    width: 18px;
   }
 }
 
@@ -679,8 +724,8 @@ h6 {
   }
 
   .catalog_content p {
-    margin-bottom: 0;
-    font-size: 17px;
+    margin-bottom: 18px;
+    font-size: 16px;
   }
 
   .cata_main_mrt {
@@ -688,12 +733,13 @@ h6 {
   }
 
   .catalog_content_select select {
-    padding: 12px;
-    font-size: 16px;
+    font-size: 15px;
+    padding: 10px;
+    width: 102px;
   }
 
   .stock span {
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .cstm_mrg {
@@ -806,10 +852,6 @@ h6 {
 
   .cata_main_mrt {
     margin-top: 20px;
-  }
-
-  .order_btn {
-    margin-top: 17px;
   }
 
   .order_btn a {
@@ -968,7 +1010,7 @@ h6 {
     padding-bottom: 16px;
   }
 
-  .compount_img_details ul:after {
+  /* .compount_img_details ul:after {
     content: "";
     position: absolute;
     right: 0;
@@ -978,8 +1020,13 @@ h6 {
     height: 1px;
     left: 0;
     top: auto;
+  } */
+  .mix-xxx {
+    min-height: auto;
   }
-
+  .oPc .cata_main_mrt {
+    padding: 0;
+  }
   .filter_left-list li {
     font-size: 15px;
   }
@@ -1050,6 +1097,15 @@ h6 {
     flex-direction: column;
     row-gap: 10px;
   }
+  .mcpc:after {
+    right: 0;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    background: #666666;
+    height: 1px;
+    left: 0;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -1101,6 +1157,7 @@ h6 {
   .add_to_cart {
     font-size: 14px;
     padding: 10px;
+    margin: 0;
   }
 
   .cart-img {
@@ -1139,6 +1196,9 @@ h6 {
   .catalog_banner_content p {
     display: block !important;
     margin-top: 10px;
+  }
+  .mcpc .compount_img_details ul {
+    padding: 10px 14px 10px 0px;
   }
 }
 
