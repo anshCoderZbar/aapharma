@@ -554,32 +554,78 @@
   width: 100%;
 }
 
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1921px) {
   .outer_diagram {
-    width: 1000px;
-    height: 1000px;
+    width: 810px;
+    height: 810px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 4em;
   }
-
+  .inner_circle {
+    width: 400px;
+    height: 400px;
+    background-color: #34caff;
+    border-radius: 50%;
+    bottom: 15%;
+    position: relative;
+    right: 0;
+  }
   .circle_1 {
-    top: -40px;
+    top: -32px;
     transform: translate(0%, -50%);
-    left: 36.1%;
-    width: 377px;
-    height: 195px;
+    left: 36.8%;
+    width: 336px;
+    height: 208px;
   }
   .circle_2 {
-    top: 12px;
-    right: 21px;
+    top: -14px;
+    right: 38px;
     left: auto;
-    width: 463px;
-    height: 220px;
+    width: 220px;
+    height: 289px;
   }
   .circle_3 {
-    top: 29.8%;
-    right: 90px;
+    top: 31%;
+    right: -5px;
     left: auto;
-    width: 211px;
-    height: 209px;
+    width: 205px;
+    height: 317px;
+  }
+  .circle_4 {
+    bottom: 17%;
+    right: 12px;
+    transform: translate(-50%, 0%);
+    width: 310px;
+    height: 201px;
+  }
+  .circle_5 {
+    top: auto;
+    left: 27.9%;
+    transform: translate(-50%, 0%);
+    width: 324px;
+    height: 227px;
+    bottom: 17.5%;
+  }
+  .circle_6 {
+    left: -5px;
+    bottom: 44.8%;
+    width: 204px;
+    height: 312px;
+  }
+  .circle_7 {
+    left: 51px;
+    top: -10.8%;
+    width: 270px;
+    height: 284px;
+    z-index: 0;
+  }
+  .inner_circle p {
+    font-size: 23px;
+    max-width: 337px;
+    line-height: 35px;
   }
 }
 
