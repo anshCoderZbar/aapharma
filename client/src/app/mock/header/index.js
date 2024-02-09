@@ -17,7 +17,7 @@ export const HeaderData = [
       },
       {
         id: 3,
-        name: "Operating Philospphy",
+        name: "Operating Philosphy",
         slug: "/operating-philosophy",
       },
       {
