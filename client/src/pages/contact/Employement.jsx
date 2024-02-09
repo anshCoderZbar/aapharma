@@ -22,7 +22,7 @@ export default function Employement() {
         extra="employement_banner"
       />
       <div className="employment_content">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-lg-7">
               <div className="employement_details">

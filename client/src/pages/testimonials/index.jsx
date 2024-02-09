@@ -4,6 +4,7 @@ import "swiper/css";
 import "styles/Pages.css";
 import { Autoplay } from "swiper/modules";
 import { AllTestimonialMutation2, GetTestimonialPageHeading } from "rest/about";
+import { Banner } from "app/components/Ui/Banner";
 
 export const TestimonialsPage = () => {
   const allTestimonial = AllTestimonialMutation2();
@@ -22,13 +23,12 @@ export const TestimonialsPage = () => {
 
   return (
     <div className="testimonial_page">
-      <h1 className="main_top_heading">
-        {getHeadings?.data?.data?.heading && getHeadings?.data?.data?.heading}
-      </h1>
-      <h3>
-        {getHeadings?.data?.data?.description &&
-          getHeadings?.data?.data?.description}
-      </h3>
+      <Banner
+        background={`url(${require("assets/page-banners/testimonial_banner.png")})`}
+        extra="testimonial_banner"
+        heading={"Client Feedback"}
+        description={"Current And Legacy Clients"}
+      />
       <div className="clients_details">
         <div className="container-fluid">
           <Swiper

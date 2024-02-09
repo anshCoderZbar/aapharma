@@ -1,66 +1,63 @@
 /* Capabilities */
 .capabilities_section {
-    padding: 50px 0;
+  padding: 50px 0;
 }
 
 .capability_inner_page {
-    align-items: center;
-
+  align-items: center;
 }
 
 .capabilities_img img {
-    width: 100%;
+  width: 100%;
 }
-
 
 .capabilities_content p {
-    color: #2E2E2E;
-    font-family: "Product Sans";
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 38px;
-    margin-bottom: 0;
-    margin-top: 20px;
+  color: #2e2e2e;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38px;
+  margin-bottom: 0;
+  margin-top: 20px;
 }
 
-
 .capabilities_content ul {
-    list-style: none;
-    margin-top: 20px;
+  list-style: none;
+  margin-top: 20px;
 }
 
 .capabilities_content ul li {
-    color: #2E2E2E;
-    font-family: "Product Sans";
-    font-size: 18px;
-    font-weight: 400;
-    display: flex;
-    align-items: baseline;
+  color: #2e2e2e;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  align-items: baseline;
 }
 
 .capabilities_content ul li::before {
-    content: "\2022";
-    color: #666;
-    font-weight: bold;
-    display: inline-block;
-    min-width: 25px;
-    font-size: 26px;
+  content: "\2022";
+  color: #666;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 25px;
+  font-size: 26px;
 }
 
 .capabilities_bottom_content {
-    padding: 40px 0 60px 0;
+  padding: 40px 0 60px 0;
 }
 
 .capabilities_bottom_content p {
-    max-width: 1240px;
-    margin: 0 auto 0 auto;
-    color: #2A3072;
-    text-align: center;
-    font-family: "Product Sans";
-    font-size: 24px;
-    font-style: italic;
-    font-weight: 700;
-    line-height: 38px;
+  max-width: 1240px;
+  margin: 0 auto 0 auto;
+  color: #2a3072;
+  text-align: center;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 38px;
 }
 
 /* capabilities */
@@ -68,837 +65,850 @@
 /* Chemistry Expertise */
 
 .chemistry_banner h1 {
-    max-width: 700px !important;
+  max-width: 700px !important;
 }
 
 .chemistry_banner p {
-    max-width: 800px !important;
+  max-width: 800px !important;
 }
 
 .experties_section {
-    padding: 40px 0;
+  padding: 40px 0;
 }
 
 .experties_filter_cover {
-    overflow: hidden;
-    border-radius: 40px;
-    background: #F7F7F7;
-    height: 100%;
+  overflow: hidden;
+  border-radius: 40px;
+  background: #f7f7f7;
+  height: 100%;
 }
 
 .experties_left_filter {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    padding: 15px;
-    gap: 10px;
-    max-height: 775px;
-    overflow: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 15px;
+  gap: 10px;
+  max-height: 775px;
+  overflow: auto;
 }
 
 .experties_left_filter button {
-    border-radius: 20px;
-    background: #FFF;
-    border: 0;
-    width: 100%;
-    padding: 15px;
-    text-align: left;
-    color: #2E2E2E;
-    font-family: "Product Sans";
-    font-size: 18px;
-    transition: 0.3s ease-in-out;
+  border-radius: 20px;
+  background: #fff;
+  border: 0;
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  color: #2e2e2e;
+  font-family: "Product Sans";
+  font-size: 18px;
+  transition: 0.3s ease-in-out;
 }
 
 .experties_left_filter button:hover {
-    color: #FFF;
-    background-color: #34CAFF;
+  color: #fff;
+  background-color: #34caff;
 }
 
 .experties_content {
-    height: 100%;
-    max-height: 775px;
-    padding: 30px;
-    overflow-y: auto;
-    overflow-x: hidden;
+  height: 100%;
+  max-height: 775px;
+  padding: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .exterties_btn_head {
-    margin-bottom: 15px;
-    color: #2E2E2E;
-    font-family: "Product Sans";
-    font-size: 18px;
-    font-weight: 400;
+  margin-bottom: 15px;
+  color: #2e2e2e;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .expertinesa_inner_content {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .chemical_experties_img img {
-    width: 100%;
-    border-radius: 20px;
-    min-width: 190px;
-    min-height: 185px;
-    max-width: 190px;
-    max-height: 185px;
+  width: 100%;
+  border-radius: 20px;
+  min-width: 190px;
+  min-height: 185px;
+  max-width: 190px;
+  max-height: 185px;
 }
 
 .expertinesa_main_content h3 {
-    color: #2E2E2E;
-    font-size: 18px;
-    font-weight: 700;
+  color: #2e2e2e;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .experties_para {
-    color: #2E2E2E;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 26px;
-    margin-bottom: 0;
-    margin-top: 15px;
+  color: #2e2e2e;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  margin-bottom: 0;
+  margin-top: 15px;
 }
 
 .experties_conent_btns {
-    display: flex;
-    gap: 15px;
-    margin: 25px 0;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+  flex-wrap: wrap;
 }
 
 .experties_conent_btns button {
-    border-radius: 20px;
-    color: #000;
+  border-radius: 20px;
+  color: #000;
 }
 
 .experties_conent_btns button:hover {
-    padding-right: 25px !important;
-    color: #fff !important;
+  padding-right: 25px !important;
+  color: #fff !important;
 }
 
 /* width */
 .experties_filter_scroll::-webkit-scrollbar {
-    width: 8px;
-    height: 5px;
+  width: 8px;
+  height: 5px;
 }
 
 /* Track */
 .experties_filter_scroll::-webkit-scrollbar-track {
-    background: #f7f7f7;
+  background: #f7f7f7;
 }
 
 /* Handle */
 .experties_filter_scroll::-webkit-scrollbar-thumb {
-
-    border-radius: 50px;
-    background: rgba(102, 102, 102, 0.2);
+  border-radius: 50px;
+  background: rgba(102, 102, 102, 0.2);
 }
 
 /* Handle on hover */
 .experties_filter_scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(102, 102, 102, 0.3);
-
+  background: rgba(102, 102, 102, 0.3);
 }
 
 /* Chemistry Expertise */
 
 /* lab equipments */
 .lab_equipment_banner h1 {
-    max-width: 500px !important;
+  max-width: 500px !important;
 }
 
 .equipments {
-    margin: 50px 0;
-    row-gap: 25px;
-    justify-content: center;
+  margin: 50px 0;
+  row-gap: 25px;
+  justify-content: center;
 }
 
-
 .equipments_img {
-    border-radius: 40px;
-    background: #F7F7F7;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    width: 100%;
+  border-radius: 40px;
+  background: #f7f7f7;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .equipments_img img {
-
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .equipment_card p {
-    color: #2E2E2E;
-    text-align: center;
-    font-family: "Product Sans";
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 27px;
-    text-transform: capitalize;
-    max-width: 308px;
-    margin: 0 auto;
+  color: #2e2e2e;
+  text-align: center;
+  font-family: "Product Sans";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27px;
+  text-transform: capitalize;
+  max-width: 308px;
+  margin: 0 auto;
 }
 
 /* lab equipments */
 
-
 /* analytical instrumentation */
 .accreditations_content,
 .analytical_content {
-    padding: 50px 0;
-    align-items: center;
+  padding: 50px 0;
+  align-items: center;
 }
 
 .analytical_img {
-    text-align: center;
+  text-align: center;
 }
 
 .analytical_img img {
-    width: 100%;
-    max-width: 500px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .analytical_main_content ul {
-    list-style: none;
-    margin-top: 25px;
+  list-style: none;
+  margin-top: 25px;
 }
 
 .analytical_main_content ul li {
-    display: flex;
-    align-items: baseline;
-    color: #2E2E2E;
-    font-family: "Product Sans";
-    font-size: 18px;
-    font-weight: 400;
-    max-width: 600px;
-    margin-top: 9px;
+  display: flex;
+  align-items: baseline;
+  color: #2e2e2e;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
+  max-width: 600px;
+  margin-top: 9px;
 }
 
 .analytical_main_content ul li:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .analytical_main_content ul li::before {
-    content: "\2022";
-    color: #666;
-    font-weight: bold;
-    display: inline-block;
-    min-width: 25px;
-    font-size: 26px;
+  content: "\2022";
+  color: #666;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 25px;
+  font-size: 26px;
 }
 
 /* analytical instrumentation */
 
 /* accreditations */
 .accreditations_img {
-    text-align: center;
+  text-align: center;
 }
 
 .accreditations_img img {
-    width: 100%;
-    max-width: 500px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .accreditations_main_content p {
-    margin-bottom: 0;
-    color: #2E2E2E;
-    font-family: "Product Sans";
-    font-size: 24px;
-    max-width: 780px;
-    font-weight: 400;
-    line-height: 38px;
-    margin-top: 15px;
+  margin-bottom: 0;
+  color: #2e2e2e;
+  font-family: "Product Sans";
+  font-size: 24px;
+  max-width: 780px;
+  font-weight: 400;
+  line-height: 38px;
+  margin-top: 15px;
 }
 
+@media only screen and (min-width: 1925px) {
+  .experties_left_filter button {
+    padding: 17px;
+    font-size: 22px;
+  }
+
+  .exterties_btn_head {
+    font-size: 22px;
+  }
+
+  .expertinesa_main_content h3 {
+    font-size: 22px;
+  }
+
+  .experties_para {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
 
 @media only screen and (max-width: 1600px) {
-    .capabilities_section {
-        padding: 40px 0;
-    }
+  .capabilities_section {
+    padding: 40px 0;
+  }
 
-    .capabilities_content p {
-        font-size: 22px;
-        margin-top: 15px;
-        line-height: 30px;
-    }
+  .capabilities_content p {
+    font-size: 22px;
+    margin-top: 15px;
+    line-height: 30px;
+  }
 
-    .capabilities_content ul {
-        margin-top: 15px;
-    }
+  .capabilities_content ul {
+    margin-top: 15px;
+  }
 
-    .capabilities_content ul li {
-        font-size: 17px;
-    }
+  .capabilities_content ul li {
+    font-size: 17px;
+  }
 
-    .capabilities_content ul li::before {
-        min-width: 23px;
-        font-size: 24px;
-    }
+  .capabilities_content ul li::before {
+    min-width: 23px;
+    font-size: 24px;
+  }
 
-    .capabilities_bottom_content {
-        padding: 35px 0 55px 0;
-    }
+  .capabilities_bottom_content {
+    padding: 35px 0 55px 0;
+  }
 
-    .capabilities_bottom_content p {
-        max-width: 1128px;
-        font-size: 22px;
-        line-height: 34px;
-    }
+  .capabilities_bottom_content p {
+    max-width: 1128px;
+    font-size: 22px;
+    line-height: 34px;
+  }
 
-    .experties_section {
-        padding: 35px 0;
-    }
+  .experties_section {
+    padding: 35px 0;
+  }
 
-    .experties_left_filter {
-        padding: 13px;
-    }
+  .experties_left_filter {
+    padding: 13px;
+  }
 
-    .experties_left_filter button {
-        padding: 13px;
-        font-size: 17px;
-    }
+  .experties_left_filter button {
+    padding: 13px;
+    font-size: 17px;
+  }
 
-    .expertinesa_inner_content {
-        gap: 27px;
-        margin-top: 30px;
-    }
+  .expertinesa_inner_content {
+    gap: 27px;
+    margin-top: 30px;
+  }
 
-    .expertinesa_main_content h3 {
-        font-size: 17px;
-    }
+  .expertinesa_main_content h3 {
+    font-size: 17px;
+  }
 
-    .experties_para {
-        margin-top: 12px;
-    }
+  .experties_para {
+    margin-top: 12px;
+  }
 
-    .experties_conent_btns {
-        gap: 12px;
-        margin: 20px 0;
-    }
+  .experties_conent_btns {
+    gap: 12px;
+    margin: 20px 0;
+  }
 
-    .equipments {
-        margin: 45px 0;
-    }
+  .equipments {
+    margin: 45px 0;
+  }
 
-    .equipments_img {
-        padding: 40px;
-        margin-bottom: 17px;
-    }
+  .equipments_img {
+    padding: 40px;
+    margin-bottom: 17px;
+  }
 
-    .equipment_card p {
-        font-size: 22px;
-        line-height: 25px;
-    }
+  .equipment_card p {
+    font-size: 22px;
+    line-height: 25px;
+  }
 
-    .accreditations_content,
-    .analytical_content {
-        padding: 45px 0;
-    }
+  .accreditations_content,
+  .analytical_content {
+    padding: 45px 0;
+  }
 
-    .analytical_main_content ul {
-        margin-top: 20px;
-    }
+  .analytical_main_content ul {
+    margin-top: 20px;
+  }
 
-    .analytical_main_content ul li {
-        font-size: 17px;
-    }
+  .analytical_main_content ul li {
+    font-size: 17px;
+  }
 
-    .accreditations_main_content p {
-        font-size: 22px;
-        line-height: 38px;
-        margin-top: 13px;
-    }
+  .accreditations_main_content p {
+    font-size: 22px;
+    line-height: 38px;
+    margin-top: 13px;
+  }
 }
 
 @media only screen and (max-width: 1400px) {
-    .capabilities_section {
-        padding: 35px 0;
-    }
+  .capabilities_section {
+    padding: 35px 0;
+  }
 
-    .capabilities_content p {
-        font-size: 20px;
+  .capabilities_content p {
+    font-size: 20px;
+  }
 
-    }
+  .capabilities_content ul li {
+    font-size: 16px;
+  }
 
-    .capabilities_content ul li {
-        font-size: 16px;
-    }
+  .capabilities_content ul li::before {
+    min-width: 21px;
+    font-size: 22px;
+  }
 
-    .capabilities_content ul li::before {
-        min-width: 21px;
-        font-size: 22px;
-    }
+  .capabilities_bottom_content {
+    padding: 30px 0 50px 0;
+  }
 
-    .capabilities_bottom_content {
-        padding: 30px 0 50px 0;
-    }
+  .capabilities_bottom_content p {
+    max-width: 1128px;
+    font-size: 20px;
+    line-height: 31px;
+  }
 
-    .capabilities_bottom_content p {
-        max-width: 1128px;
-        font-size: 20px;
-        line-height: 31px;
-    }
+  .experties_section {
+    padding: 30px 0;
+  }
 
-    .experties_section {
-        padding: 30px 0;
-    }
+  .experties_filter_cover {
+    border-radius: 25px;
+    max-height: 600px;
+  }
 
-    .experties_filter_cover {
-        border-radius: 25px;
-        max-height: 600px;
-    }
+  .experties_left_filter button {
+    padding: 11px;
+    border-radius: 12px;
+    font-size: 16px;
+  }
 
-    .experties_left_filter button {
-        padding: 11px;
-        border-radius: 12px;
-        font-size: 16px;
-    }
+  .experties_content {
+    max-height: 600px;
+    padding: 25px;
+  }
 
-    .experties_content {
-        max-height: 600px;
-        padding: 25px;
-    }
+  .expertinesa_inner_content {
+    gap: 21px;
+    margin-top: 20px;
+  }
 
-    .expertinesa_inner_content {
-        gap: 21px;
-        margin-top: 20px;
-    }
+  .experties_para {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 23px;
+  }
 
-    .experties_para {
-        margin-top: 10px;
-        font-size: 15px;
-        line-height: 23px;
-    }
+  .exterties_btn_head {
+    font-size: 17px;
+  }
 
-    .exterties_btn_head {
-        font-size: 17px;
-    }
+  .equipments_img {
+    padding: 35px;
+    margin-bottom: 13px;
+    border-radius: 30px;
+  }
 
-    .equipments_img {
-        padding: 35px;
-        margin-bottom: 13px;
-        border-radius: 30px;
-    }
+  .equipment_card p {
+    font-size: 20px;
+  }
 
-    .equipment_card p {
-        font-size: 20px;
-    }
+  .equipments {
+    margin: 40px 0;
+  }
 
-    .equipments {
-        margin: 40px 0;
-    }
+  .analytical_head {
+    font-size: 42px;
+  }
 
-    .analytical_head {
-        font-size: 42px;
-    }
+  .analytical_main_content ul {
+    margin-top: 15px;
+  }
 
-    .analytical_main_content ul {
-        margin-top: 15px;
-    }
+  .analytical_main_content ul li {
+    font-size: 16px;
+    margin-top: 5px;
+  }
 
-    .analytical_main_content ul li {
-        font-size: 16px;
-        margin-top: 5px;
-    }
+  .analytical_main_content ul li::before {
+    min-width: 23px;
+    font-size: 23px;
+  }
 
-    .analytical_main_content ul li::before {
-        min-width: 23px;
-        font-size: 23px;
-    }
+  .accreditations_content,
+  .analytical_content {
+    padding: 40px 0;
+  }
 
-    .accreditations_content,
-    .analytical_content {
-        padding: 40px 0;
-    }
+  .accreditations_img img {
+    width: 100%;
+    max-width: 400px;
+  }
 
-    .accreditations_img img {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .accreditations_main_content p {
-        font-size: 20px;
-        line-height: 34px;
-        margin-top: 11px;
-    }
+  .accreditations_main_content p {
+    font-size: 20px;
+    line-height: 34px;
+    margin-top: 11px;
+  }
 }
 
 @media only screen and (max-width: 1199px) {
-    .capabilities_section {
-        padding: 25px 0 30px 0;
-    }
+  .capabilities_section {
+    padding: 25px 0 30px 0;
+  }
 
-    .capabilities_content p {
-        font-size: 18px;
-        line-height: 20px;
-    }
+  .capabilities_content p {
+    font-size: 18px;
+    line-height: 20px;
+  }
 
-    .capabilities_content ul {
-        margin-top: 9px;
-    }
+  .capabilities_content ul {
+    margin-top: 9px;
+  }
 
-    .capabilities_bottom_content {
-        padding: 25px 0 40px 0;
-    }
+  .capabilities_bottom_content {
+    padding: 25px 0 40px 0;
+  }
 
-    .capabilities_bottom_content p {
-        max-width: 820px;
-        font-size: 18px;
-    }
+  .capabilities_bottom_content p {
+    max-width: 820px;
+    font-size: 18px;
+  }
 
-    .experties_left_filter button {
-        padding: 10px;
-        border-radius: 10px;
-        font-size: 15px;
-    }
+  .experties_left_filter button {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+  }
 
-    .experties_section {
-        padding: 25px 0;
-    }
+  .experties_section {
+    padding: 25px 0;
+  }
 
-    .experties_left_filter {
-        padding: 10px;
-    }
+  .experties_left_filter {
+    padding: 10px;
+  }
 
-    .experties_filter_cover {
-        border-radius: 20px;
-        max-height: 550px;
-    }
+  .experties_filter_cover {
+    border-radius: 20px;
+    max-height: 550px;
+  }
 
-    .exterties_btn_head {
-        font-size: 16px;
-    }
+  .exterties_btn_head {
+    font-size: 16px;
+  }
 
-    .expertinesa_inner_content {
-        gap: 19px;
-    }
+  .expertinesa_inner_content {
+    gap: 19px;
+  }
 
-    .experties_para {
-        margin-top: 8px;
-        font-size: 14px;
-        line-height: 20px;
-    }
+  .experties_para {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 
-    .expertinesa_main_content h3 {
-        font-size: 16px;
-    }
+  .expertinesa_main_content h3 {
+    font-size: 16px;
+  }
 
-    .experties_content {
-        max-height: 550px;
-        padding: 20px;
-    }
+  .experties_content {
+    max-height: 550px;
+    padding: 20px;
+  }
 
-    .equipments {
-        margin: 35px 0;
-    }
+  .equipments {
+    margin: 35px 0;
+  }
 
-    .equipments_img {
-        padding: 30px;
-        border-radius: 25px;
-    }
+  .equipments_img {
+    padding: 30px;
+    border-radius: 25px;
+  }
 
-    .equipment_card p {
-        font-size: 18px;
-    }
+  .equipment_card p {
+    font-size: 18px;
+  }
 
-    .accreditations_content,
-    .analytical_content {
-        padding: 35px 0;
-    }
+  .accreditations_content,
+  .analytical_content {
+    padding: 35px 0;
+  }
 
-    .analytical_head {
-        font-size: 34px;
-    }
+  .analytical_head {
+    font-size: 34px;
+  }
 
-    .accreditations_main_content p {
-        font-size: 18px;
-        line-height: 33px;
-        margin-top: 10px;
-    }
+  .accreditations_main_content p {
+    font-size: 18px;
+    line-height: 33px;
+    margin-top: 10px;
+  }
 }
 
 @media only screen and (max-width: 991px) {
-    .capability_inner_page {
-        flex-direction: column-reverse;
-    }
+  .capability_inner_page {
+    flex-direction: column-reverse;
+  }
 
-    .capabilities_img img {
-        max-width: 400px;
-    }
+  .capabilities_img img {
+    max-width: 400px;
+  }
 
-    .capabilities_content {
-        margin-top: 25px;
-    }
+  .capabilities_content {
+    margin-top: 25px;
+  }
 
-    .capabilities_bottom_content {
-        padding: 0px 0 30px 0;
-    }
+  .capabilities_bottom_content {
+    padding: 0px 0 30px 0;
+  }
 
-    .capabilities_bottom_content p {
-        font-size: 17px;
-        line-height: 28px;
-    }
+  .capabilities_bottom_content p {
+    font-size: 17px;
+    line-height: 28px;
+  }
 
-    .experties_left_filter {
-        flex-direction: row;
-        max-height: 100%;
-        height: 100%;
-        overflow-y: hidden;
-        overflow-x: auto;
-    }
+  .experties_left_filter {
+    flex-direction: row;
+    max-height: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
 
-    .experties_left_filter button {
-        padding: 10px;
-        border-radius: 10px;
-        font-size: 15px;
-        width: max-content;
-    }
+  .experties_left_filter button {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    width: max-content;
+  }
 
-    .filte_cont {
-        margin-top: 15px;
-    }
+  .filte_cont {
+    margin-top: 15px;
+  }
 
-    .experties_section {
-        padding: 20px 0;
-    }
+  .experties_section {
+    padding: 20px 0;
+  }
 
-    .expertinesa_inner_content {
-        gap: 25px;
-    }
+  .expertinesa_inner_content {
+    gap: 25px;
+  }
 
-    .equipments {
-        margin: 30px 0;
-    }
+  .equipments {
+    margin: 30px 0;
+  }
 
-    .equipment_card p {
-        font-size: 17px;
-        line-height: 23px;
-    }
+  .equipment_card p {
+    font-size: 17px;
+    line-height: 23px;
+  }
 
-    .analytical_head {
-        font-size: 28px;
-    }
+  .analytical_head {
+    font-size: 28px;
+  }
 
-    .analytical_main_content ul {
-        margin-top: 9px;
-    }
+  .analytical_main_content ul {
+    margin-top: 9px;
+  }
 
-    .analytical_main_content ul li {
-        font-size: 15px;
-        margin-top: 0px;
-    }
+  .analytical_main_content ul li {
+    font-size: 15px;
+    margin-top: 0px;
+  }
 
-    .analytical_main_content ul li::before {
-        min-width: 20px;
-        font-size: 20px;
-    }
+  .analytical_main_content ul li::before {
+    min-width: 20px;
+    font-size: 20px;
+  }
 
-    .accreditations_main_content p {
-        font-size: 17px;
-        line-height: 26px;
-        margin-top: 10px;
-    }
+  .accreditations_main_content p {
+    font-size: 17px;
+    line-height: 26px;
+    margin-top: 10px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
-    .capabilities_content {
-        margin-top: 20px;
-    }
+  .capabilities_content {
+    margin-top: 20px;
+  }
 
-    .capabilities_content p {
-        font-size: 17px;
-        line-height: 20px;
-        margin-top: 12px;
-    }
+  .capabilities_content p {
+    font-size: 17px;
+    line-height: 20px;
+    margin-top: 12px;
+  }
 
-    .capabilities_content ul li::before {
-        min-width: 20px;
-        font-size: 20px;
-    }
+  .capabilities_content ul li::before {
+    min-width: 20px;
+    font-size: 20px;
+  }
 
-    .capabilities_content ul li {
-        font-size: 15px;
-    }
+  .capabilities_content ul li {
+    font-size: 15px;
+  }
 
-    .capabilities_section {
-        padding: 15px 0 20px 0;
-    }
+  .capabilities_section {
+    padding: 15px 0 20px 0;
+  }
 
-    .capabilities_bottom_content p {
-        font-size: 16px;
-        line-height: 26px;
-    }
+  .capabilities_bottom_content p {
+    font-size: 16px;
+    line-height: 26px;
+  }
 
-    .capabilities_bottom_content {
-        padding: 0px 0 25px 0;
-    }
+  .capabilities_bottom_content {
+    padding: 0px 0 25px 0;
+  }
 
-    .experties_content {
-        padding: 15px;
-    }
+  .experties_content {
+    padding: 15px;
+  }
 
-    .exterties_btn_head {
-        font-size: 15px;
-    }
+  .exterties_btn_head {
+    font-size: 15px;
+  }
 
-    .expertinesa_main_content h3 {
-        font-size: 15px;
-    }
+  .expertinesa_main_content h3 {
+    font-size: 15px;
+  }
 
-    .expertinesa_inner_content {
-        gap: 15px;
-    }
+  .expertinesa_inner_content {
+    gap: 15px;
+  }
 
-    .experties_section {
-        padding: 15px 0;
-    }
+  .experties_section {
+    padding: 15px 0;
+  }
 
-    .filte_cont {
-        margin-top: 10px;
-    }
+  .filte_cont {
+    margin-top: 10px;
+  }
 
-    .equipments {
-        margin: 25px 0;
-    }
+  .equipments {
+    margin: 25px 0;
+  }
 
-    .equipments_img {
-        padding: 25px;
-        border-radius: 20px;
-    }
+  .equipments_img {
+    padding: 25px;
+    border-radius: 20px;
+  }
 
-    .equipment_card p {
-        font-size: 16px;
-        line-height: 22px;
-    }
+  .equipment_card p {
+    font-size: 16px;
+    line-height: 22px;
+  }
 
-    .analytical_img {
-        text-align: left;
-    }
+  .analytical_img {
+    text-align: left;
+  }
 
-    .analytical_img img {
-        max-width: 300px;
-    }
+  .analytical_img img {
+    max-width: 300px;
+  }
 
-    .analytical_main_content {
-        margin-top: 25px;
-    }
+  .analytical_main_content {
+    margin-top: 25px;
+  }
 
-    .accreditations_content,
-    .analytical_content {
-        padding: 25px 0;
-    }
+  .accreditations_content,
+  .analytical_content {
+    padding: 25px 0;
+  }
 
-    .accreditations_img {
-        text-align: left;
-    }
+  .accreditations_img {
+    text-align: left;
+  }
 
-    .accreditations_img img {
-        width: 100%;
-        max-width: 300px;
-    }
+  .accreditations_img img {
+    width: 100%;
+    max-width: 300px;
+  }
 
-    .accreditations_main_content {
-        margin-top: 15px;
-    }
+  .accreditations_main_content {
+    margin-top: 15px;
+  }
 
-    .accreditations_main_content p {
-        font-size: 16px;
-        line-height: 23px;
-    }
+  .accreditations_main_content p {
+    font-size: 16px;
+    line-height: 23px;
+  }
 }
 
 @media only screen and (max-width: 675px) {
-    .expertinesa_inner_content {
-        flex-direction: column;
-        align-items: baseline;
-    }
+  .expertinesa_inner_content {
+    flex-direction: column;
+    align-items: baseline;
+  }
 
-    .chemical_experties_img img {
-        width: 100%;
-        border-radius: 20px;
-        min-width: 100%;
-        min-height: 100%;
-        max-width: 100%;
-        max-height: 100%;
-    }
+  .chemical_experties_img img {
+    width: 100%;
+    border-radius: 20px;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 
 @media only screen and (max-width: 575px) {
-    .capabilities_content {
-        margin-top: 15px;
-    }
+  .capabilities_content {
+    margin-top: 15px;
+  }
 
-    .capabilities_content p {
-        font-size: 16px;
-    }
+  .capabilities_content p {
+    font-size: 16px;
+  }
 
-    .capabilities_content ul li {
-        font-size: 14px;
-    }
+  .capabilities_content ul li {
+    font-size: 14px;
+  }
 
-    .capabilities_bottom_content p {
-        font-size: 15px;
-        line-height: 24px;
-    }
+  .capabilities_bottom_content p {
+    font-size: 15px;
+    line-height: 24px;
+  }
 
-    .capabilities_section {
-        padding: 10px 0 15px 0;
-    }
+  .capabilities_section {
+    padding: 10px 0 15px 0;
+  }
 
-    .capabilities_bottom_content {
-        padding: 0px 0 15px 0;
-    }
+  .capabilities_bottom_content {
+    padding: 0px 0 15px 0;
+  }
 
-    .equipments_img {
-        padding: 20px;
-        border-radius: 20px;
-        margin-bottom: 10px;
-    }
+  .equipments_img {
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
 
-    .equipments {
-        margin: 20px 0;
-    }
+  .equipments {
+    margin: 20px 0;
+  }
 
-    .equipment_card p {
-        font-size: 15px;
-        line-height: 19px;
-    }
+  .equipment_card p {
+    font-size: 15px;
+    line-height: 19px;
+  }
 
-    .accreditations_content,
-    .analytical_content {
-        padding: 10px 0;
-    }
+  .accreditations_content,
+  .analytical_content {
+    padding: 10px 0;
+  }
 
-    .analytical_head {
-        font-size: 24px;
-    }
+  .analytical_head {
+    font-size: 24px;
+  }
 
-    .analytical_main_content ul {
-        margin-top: 5px;
-    }
+  .analytical_main_content ul {
+    margin-top: 5px;
+  }
 
-    .analytical_main_content ul li {
-        font-size: 14px;
-        margin-top: 0px;
-    }
+  .analytical_main_content ul li {
+    font-size: 14px;
+    margin-top: 0px;
+  }
 
-    .analytical_main_content ul li::before {
-        min-width: 19px;
-        font-size: 19px;
-    }
+  .analytical_main_content ul li::before {
+    min-width: 19px;
+    font-size: 19px;
+  }
 
-    .accreditations_main_content {
-        margin-top: 10px;
-    }
+  .accreditations_main_content {
+    margin-top: 10px;
+  }
 
-    .accreditations_main_content p {
-        font-size: 15px;
-        margin-top: 5px;
-    }
+  .accreditations_main_content p {
+    font-size: 15px;
+    margin-top: 5px;
+  }
 }

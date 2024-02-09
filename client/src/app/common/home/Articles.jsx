@@ -27,8 +27,8 @@ export const Articles = () => {
                       <div
                         dangerouslySetInnerHTML={{
                           __html:
-                            article?.description?.length >= 250
-                              ? article?.description?.slice(0, 250) + "..."
+                            article?.description?.length >= 500
+                              ? article?.description?.slice(0, 500) + "..."
                               : article?.description,
                         }}
                       />

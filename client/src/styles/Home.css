@@ -343,14 +343,14 @@
 /*====== vision ====== */
 
 /*====== articles ====== */
-.challenge-x .container-fluid {
+/* .challenge-x .container-fluid {
   padding-right: 0 !important;
-}
+} */
 .latest_articles {
   padding: 50px 0 20px 0;
-  border: 2px solid #2a3072;
+  /* border: 2px solid #2a3072;
   margin: 20px 0;
-  border-radius: 12px;
+  border-radius: 12px; */
 }
 .article_large {
 }
@@ -528,7 +528,7 @@
   height: auto !important;
 }
 
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1930px) {
   .sevices_bg {
     width: calc(100% - 30%);
   }
@@ -539,9 +539,19 @@
   .lg_screen {
     max-width: calc(100% - 15%);
   }
-  .article_large {
-    max-width: calc(100% - 28%);
+  .articles_head p {
+    font-size: 22px;
+    line-height: 35px;
   }
+  .articles_content h3 {
+    font-size: 28px;
+  }
+  .articles_content p {
+    font-size: 20px;
+  }
+  /* .article_large {
+    max-width: calc(100% - 28%);
+  } */
 }
 
 @media only screen and (max-width: 1600px) {

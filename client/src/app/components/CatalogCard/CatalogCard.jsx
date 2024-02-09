@@ -39,11 +39,7 @@ export const CatalogCard = ({ baseUrl, compounts, key }) => {
                               <p
                                 className="detail_desc"
                                 dangerouslySetInnerHTML={{
-                                  __html:
-                                    details?.description?.length > 15
-                                      ? details?.description?.slice(0, 15) +
-                                        "..."
-                                      : details?.description,
+                                  __html: details?.description,
                                 }}
                               />
                             </li>
@@ -62,8 +58,8 @@ export const CatalogCard = ({ baseUrl, compounts, key }) => {
                   className="mt-0"
                   dangerouslySetInnerHTML={{
                     __html:
-                      compounts?.description?.length >= 300
-                        ? compounts?.description?.slice(0, 300) + "....."
+                      compounts?.description?.length >= 630
+                        ? compounts?.description?.slice(0, 630) + "..."
                         : compounts?.description,
                   }}
                 />

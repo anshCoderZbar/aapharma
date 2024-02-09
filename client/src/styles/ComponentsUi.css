@@ -34,6 +34,11 @@
 
 /* banner */
 
+@media screen and (min-width: 1900px) {
+  .banner_head {
+    height: calc(50vh - 17vh);
+  }
+}
 @media screen and (max-width: 1600px) {
   .banner_head {
     padding: 36px 52px;

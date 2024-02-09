@@ -183,6 +183,11 @@ p {
 .x-svg:hover .svg_ik {
   fill: #34caff;
 }
+@media screen and (min-width: 1925px) {
+  .primary_btn_outline {
+    font-size: 20px;
+  }
+}
 @media screen and (max-width: 1700px) {
   .container-fluid {
     padding-left: 70px !important;

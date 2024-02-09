@@ -1,5 +1,5 @@
 /* testimonials */
-.testimonial_page h1 {
+/* .testimonial_page h1 {
   text-align: center;
   padding-top: 40px;
   padding-bottom: 10px;
@@ -14,6 +14,20 @@
   font-weight: 700;
   text-transform: capitalize;
   margin-bottom: 40px;
+} */
+
+.testimonial_banner h1 {
+  max-width: 100% !important;
+  color: #fff !important;
+}
+
+.testimonial_banner p {
+  max-width: 100% !important;
+  color: #fff !important;
+  margin-bottom: 0;
+  font-size: 32px !important;
+  text-transform: capitalize;
+  font-weight: 700;
 }
 
 .clients_details {
@@ -322,14 +336,19 @@
 }
 
 /* employement page */
+@media only screen and (min-width: 1921px) {
+  .employement_details p {
+    font-size: calc(39px - 15px);
+    line-height: calc(50px - 15px);
+  }
+  .employement_details ul li {
+    font-size: calc(39px - 15px);
+  }
+}
 
 @media only screen and (max-width: 1600px) {
-  .testimonial_page h1 {
-    padding-top: 35px;
-  }
-
-  .testimonial_page h3 {
-    font-size: 28px;
+  .testimonial_page p {
+    font-size: 28px !important;
     margin-bottom: 34px;
   }
 
@@ -399,13 +418,13 @@
 }
 
 @media only screen and (max-width: 1400px) {
-  .testimonial_page h3 {
-    font-size: 25px;
+  .testimonial_page p {
+    font-size: 25px !important;
     margin-bottom: 25px;
   }
 
-  .testimonial_page h3 {
-    font-size: 23px;
+  .testimonial_page p {
+    font-size: 23px !important;
     margin-bottom: 23px;
   }
 
@@ -494,8 +513,8 @@
     padding-top: 25px;
   }
 
-  .testimonial_page h3 {
-    font-size: 20px;
+  .testimonial_page p {
+    font-size: 20px !important;
     margin-bottom: 20px;
   }
 
@@ -549,8 +568,8 @@
     padding-top: 20px;
   }
 
-  .testimonial_page h3 {
-    font-size: 18px;
+  .testimonial_page p {
+    font-size: 18px !important;
   }
 
   .client_reviews p {
@@ -640,8 +659,8 @@
     padding-top: 15px;
   }
 
-  .testimonial_page h3 {
-    font-size: 16px;
+  .testimonial_page p {
+    font-size: 16px !important;
   }
 
   .clients_details {
