@@ -33,12 +33,13 @@ export default function Employement() {
                       getEmploymentResponsibilities?.data?.data?.heading,
                   }}
                 />
-                <ul>
-                  {getEmploymentResponsibilities?.data?.data?.list &&
-                    getEmploymentResponsibilities?.data?.data?.list?.map(
-                      (elm, i) => <li key={i}>{elm}</li>
-                    )}
-                </ul>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      getEmploymentResponsibilities?.data?.data?.list &&
+                      getEmploymentResponsibilities?.data?.data?.list,
+                  }}
+                />
               </div>
             </div>
             <div className="col-lg-5">

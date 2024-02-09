@@ -29,39 +29,41 @@ export default function EmploymenetResponsibilities() {
   useEffect(() => {
     const defaultValues = {};
     defaultValues.description = getResponsibilities?.data?.data?.heading;
+    defaultValues.list = getResponsibilities?.data?.data?.list;
     defaultValues.sideDescription =
       getResponsibilities?.data?.data?.description;
-    const defaultInputs =
-      getResponsibilities?.data?.data?.list?.map((elm) => ({
-        list: elm || "",
-      })) || [];
+    // const defaultInputs =
+    //   getResponsibilities?.data?.data?.list?.map((elm) => ({
+    //     list: elm || "",
+    //   })) || [];
 
-    defaultInputs.length >= 1 && setList(defaultInputs);
-    defaultInputs?.map((elm, i) => {
-      defaultValues[`list_${i + 1}`] = elm.list;
-    });
+    // defaultInputs.length >= 1 && setList(defaultInputs);
+    // defaultInputs?.map((elm, i) => {
+    //   defaultValues[`list_${i + 1}`] = elm.list;
+    // });
     reset(defaultValues);
   }, [getResponsibilities?.data?.data]);
 
-  const handleDeleteInput = (index) => {
-    const newArray = [...list];
-    newArray.splice(index, 1);
-    setList(newArray);
-    const listKey = `list_${index + 1}`;
-    const newFormData = { ...getValues() };
-    delete newFormData[listKey];
-    reset(newFormData);
-  };
+  // const handleDeleteInput = (index) => {
+  //   const newArray = [...list];
+  //   newArray.splice(index, 1);
+  //   setList(newArray);
+  //   const listKey = `list_${index + 1}`;
+  //   const newFormData = { ...getValues() };
+  //   delete newFormData[listKey];
+  //   reset(newFormData);
+  // };
 
   const onSubmit = (data) => {
-    // const formData = new FormData();
-    // formData.append("heading", data?.description);
-    // formData.append("description", data?.sideDescription);
+    const formData = new FormData();
+    formData.append("heading", data?.description);
+    formData.append("description", data?.sideDescription);
+    formData.append("list", data?.list);
     // list.forEach((_, index) => {
     //   const listKey = `list_${index + 1}`;
     //   formData.append("list[]", data[listKey]);
     // });
-    // updateResponsibilities?.mutate(formData);
+    updateResponsibilities?.mutate(formData);
     console.log(data?.description);
   };
   return (
@@ -91,75 +93,46 @@ export default function EmploymenetResponsibilities() {
                   <p className="errorMessage">Field is required</p>
                 )}
               </div>
-              <div className="mb-3 col-md-6">
+              <div className="mb-3 col-12">
                 <label htmlFor="list" className="form-label">
                   List
                 </label>
-                {list.map((item, index) => (
-                  <div key={index} className="row">
-                    <div key={index} className="col-10">
-                      <FormInput
-                        type="text"
-                        name={`list_${index + 1}`}
-                        extraClass="mt-2"
-                        placeholder="List"
-                        {...register(`list_${index + 1}`, {
-                          required: true,
-                        })}
-                      />
-                    </div>
-                    <div className="col-md-2 d-flex align-items-end">
-                      {list?.length > 1 ? (
-                        <div onClick={() => handleDeleteInput(index)}>
-                          <span className="btn btn-danger btn_cross_vv bottom-0">
-                            <X />
-                          </span>
-                        </div>
-                      ) : null}
-                      <div className="add_btn">
-                        <span
-                          onClick={() => setList([...list, { list: "" }])}
-                          className="btn btn-success btn_cross_vv2 bottom-0"
-                        >
-                          <Plus />
-                        </span>
-                      </div>
-                    </div>
-                    {errors?.[`list_${index + 1}`] && (
-                      <p className="errorMessage">Field is required</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className="mb-4 col-12">
-                <label htmlFor={`sideDescription`} className="form-label">
-                  Side Description
-                </label>
                 <TextEditor
                   control={control}
-                  name={`sideDescription`}
-                  {...register(`sideDescription`, {
+                  name={`list`}
+                  {...register(`list`, {
                     required: true,
                   })}
                 />
-                {errors.sideDescription && (
+                {errors?.list && (
                   <p className="errorMessage">Field is required</p>
                 )}
               </div>
-              {updateResponsibilities?.isPending ? (
-                <div>
-                  <ButtonLoader />
-                </div>
-              ) : (
-                <div className="mb-3 col-12">
-                  <input
-                    type="submit"
-                    value="submit"
-                    className="input_submit"
-                  />
-                </div>
+            </div>
+            <div className="mb-4 col-12">
+              <label htmlFor={`sideDescription`} className="form-label">
+                Side Description
+              </label>
+              <TextEditor
+                control={control}
+                name={`sideDescription`}
+                {...register(`sideDescription`, {
+                  required: true,
+                })}
+              />
+              {errors.sideDescription && (
+                <p className="errorMessage">Field is required</p>
               )}
             </div>
+            {updateResponsibilities?.isPending ? (
+              <div>
+                <ButtonLoader />
+              </div>
+            ) : (
+              <div className="mb-3 col-12">
+                <input type="submit" value="submit" className="input_submit" />
+              </div>
+            )}
           </form>
         </div>
       )}
