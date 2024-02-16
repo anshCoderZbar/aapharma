@@ -1305,7 +1305,7 @@
   border: 0;
 }
 
-.table > thead {
+.table>thead {
   vertical-align: middle;
 }
 
@@ -1313,7 +1313,7 @@
   text-align: center;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) > * {
+.table-striped>tbody>tr:nth-of-type(odd)>* {
   background-color: #efefef;
 }
 
@@ -1753,6 +1753,73 @@
   .service_list_card_body ul li {
     font-size: 17px;
   }
+
+  .page_sec_btn {
+    padding: 40px 0;
+  }
+
+  .page_sec_head {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 24px;
+  }
+
+  .service_page_btns button {
+    font-size: 22px;
+    padding: 20px 15px;
+  }
+
+  .service_btn_content p {
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 34px;
+  }
+
+  .step_btns button {
+    font-size: 18px;
+  }
+
+  .page_sec_head {
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 22px;
+  }
+
+  .dia_left h3,
+  .head_right h3 {
+    font-size: 22px;
+  }
+
+  .left_side_content {
+    padding-top: 25px;
+    padding-left: 25px;
+  }
+
+  .desc_bt p {
+    font-size: 17px;
+  }
+
+  .buttons_arr_des button {
+    font-size: 18px;
+    padding: 18px 14px;
+  }
+
+  .bottom_ser_chem {
+    padding: 85px 40px 30px 40px;
+  }
+
+  .bottom_sem_content p {
+    font-size: 17px;
+    padding-top: 23px;
+  }
+
+  .service_bottom_section_chem {
+    margin: 45px 0;
+  }
+
+  .chem_btm_img {
+    padding: 25px 0px;
+  }
 }
 
 @media only screen and (max-width: 1400px) {
@@ -1955,6 +2022,83 @@
   .service_list_card_body ul li {
     font-size: 16px;
   }
+
+  .page_sec_btn {
+    padding: 35px 0;
+  }
+
+  .service_page_btns button {
+    font-size: 20px;
+    padding: 15px 15px;
+  }
+
+  .service_btn_content p {
+    margin-top: 25px;
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .step_btns button {
+    font-size: 16px;
+  }
+
+  .page_sec_head {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .dia_left h3,
+  .head_right h3 {
+    font-size: 20px;
+  }
+
+  .head_right h3 {
+    padding: 10px 20px;
+  }
+
+  .desc_bt p {
+    font-size: 16px;
+  }
+
+  .left_side_content {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+
+  .buttons_arr_des button {
+    font-size: 17px;
+    padding: 15px 11px;
+  }
+
+  .bottom_ser_chem {
+    padding: 80px 35px 25px 35px;
+  }
+
+  .bottom_sem_content p {
+    font-size: 16px;
+    padding-top: 18px;
+  }
+
+  .ser_bss {
+    margin-bottom: 25px;
+  }
+
+  .service_bottom_section_chem {
+    margin: 35px 0;
+  }
+
+  .chem_btm_img {
+    padding: 25px 25px;
+  }
+
+  .scc_jn {
+    margin-top: 10px;
+  }
+
+  .scc_jn p {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 1199px) {
@@ -2137,6 +2281,42 @@
     margin-top: 15px;
     padding: 20px 20px;
   }
+
+  .scc_jn p {
+    font-size: 16px;
+    margin-top: 6px;
+  }
+
+  .page_sec_head {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .step_btns {
+    gap: 10px;
+  }
+
+  .service_page_btns button {
+    font-size: 18px;
+    padding: 13px 15px;
+  }
+
+  .dia_left h3,
+  .head_right h3 {
+    font-size: 18px;
+  }
+
+  .desc_bt {
+    flex: 0 1 78%;
+  }
+
+  .Disulfied-s {
+    flex: 0 1 22%;
+  }
+
+  .service_bottom_section_chem {
+    margin: 30px 0;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -2301,6 +2481,58 @@
   .service_list_card_body h3 {
     font-size: 17px;
   }
+
+  .page_sec_btn {
+    padding: 25px 0;
+  }
+
+  .page_sec_head {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .service_page_btns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service_page_btns button {
+    font-size: 17px;
+    padding: 13px 15px;
+  }
+
+  .service_btn_content p {
+    margin-top: 20px;
+  }
+
+  .step_btns button {
+    font-size: 15px;
+  }
+
+  .desc_bt {
+    flex: 0 1 72%;
+  }
+
+  .Disulfied-s {
+    flex: 0 1 28%;
+  }
+
+  .bottom_ser_chem {
+    padding: 70px 25px 20px 20px;
+  }
+
+  .bottom_sem_content p {
+    font-size: 15px;
+    padding-top: 15px;
+  }
+
+  .service_bottom_section_chem {
+    margin: 25px 0;
+  }
+
+  .scc_jn p {
+    font-size: 14px;
+    margin-top: 4px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -2461,6 +2693,95 @@
 
   .sevice_detail {
     margin: 25px 0;
+  }
+
+  .page_sec_btn {
+    padding: 20px 0;
+  }
+
+  .service_page_btns button {
+    font-size: 16px;
+  }
+
+  .service_btn_content p {
+    margin-top: 17px;
+    font-size: 15px;
+    line-height: 26px;
+  }
+
+  .step_btns {
+    flex-wrap: wrap;
+  }
+
+  .step_btns button {
+    font-size: 15px;
+    width: 49%;
+  }
+
+  .page_sec_head {
+    font-size: 18px;
+    margin-bottom: 11px;
+  }
+
+  .Disulfied-s {
+    flex: 0 1 100%;
+  }
+
+  .desc_bt {
+    flex: 0 1 100%;
+  }
+
+  .dia_left:before {
+    width: 100%;
+    height: 103%;
+  }
+
+  .left_side_content {
+    padding: 15px 15px;
+  }
+
+  .buttons_arr_des button::before {
+    content: "\2193";
+    position: absolute;
+    right: 50%;
+    font-size: 39px;
+    bottom: 25%;
+    transform: translate(0%, 50%);
+    color: #fff;
+  }
+
+  .buttons_arr_des button {
+    font-size: 16px;
+    padding: 13px 11px;
+    width: 100%;
+  }
+
+  .desc_bt {
+    margin-top: 15px;
+    flex: 0 1 100%;
+    border-radius: 12px;
+  }
+
+  .desc_bt p {
+    font-size: 15px;
+  }
+
+  .dia_left h3,
+  .head_right h3 {
+    font-size: 17px;
+    color: #fff;
+  }
+
+  .head_right h3 {
+    border-color: #fff;
+  }
+
+  .bottom_ser_chem {
+    padding: 45px 15px 15px 15px;
+  }
+
+  .gs_bb4 {
+    row-gap: 15px;
   }
 }
 
@@ -2640,5 +2961,74 @@
 
   .sevice_detail {
     margin: 20px 0;
+  }
+
+  .page_sec_btn {
+    padding: 15px 0;
+  }
+
+  .service_page_btns {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 7px;
+  }
+
+  .service_page_btns button {
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  .service_btn_content p {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .step_btns button {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .page_sec_head {
+    font-size: 16px;
+    margin-bottom: 11px;
+  }
+
+  .buttons_arr_des button {
+    font-size: 15px;
+    padding: 11px 11px;
+  }
+
+  .desc_bt p {
+    font-size: 14px;
+  }
+
+  .left_side_content {
+    padding: 10px 10px;
+  }
+
+  .top_heads {
+    display: block;
+  }
+
+  .head_left {
+    text-align: center;
+  }
+
+  .bottom_sem_content p {
+    font-size: 14px;
+    padding-top: 13px;
+    text-align: left;
+  }
+
+  .chem_btm_img {
+    padding: 10px 10px;
+  }
+
+  .ser_bss {
+    margin-bottom: 15px;
+  }
+
+  .service_bottom_section_chem {
+    margin: 15px 0;
   }
 }

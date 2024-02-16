@@ -78,6 +78,7 @@ import EmploymenetResponsibilities from "pages/employment/EmploymenetResponsibil
 import ResearchBannerPage from "pages/research-and-development/ResearchBanner";
 import ResearchSort from "pages/research-and-development/ResearchSort";
 import ResearchModification from "pages/research-and-development/ResearchModification";
+import ResourcesOverview from "pages/resources/ResourcesOverview";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -634,6 +635,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ResearchModification />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/resources-banner",
+      element: (
+        <PrivateRoutes>
+          <ResourcesOverview />
         </PrivateRoutes>
       ),
     },

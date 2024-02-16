@@ -221,7 +221,7 @@ export default function Services2() {
             </div>
           </div>
           <div className="bottom_ser_chem">
-            <div className="row">
+            <div className="row gs_bb4">
               <div className="col-md-4">
                 <div className="chem_images">
                   <img

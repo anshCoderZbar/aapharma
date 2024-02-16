@@ -40,7 +40,7 @@ export default function EmploymenetResponsibilities() {
     // defaultInputs.length >= 1 && setList(defaultInputs);
     // defaultInputs?.map((elm, i) => {
     //   defaultValues[`list_${i + 1}`] = elm.list;
-    // });x`
+    // });
     reset(defaultValues);
   }, [getResponsibilities?.data?.data]);
 

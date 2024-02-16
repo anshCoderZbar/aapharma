@@ -1,6 +1,7 @@
 import {
   Biohazard,
   Castle,
+  DownloadCloud,
   FlaskConical,
   Image,
   ImagePlus,
@@ -314,6 +315,24 @@ export const SidebarData = [
         id: 3,
         subMenuName: "Modification",
         slug: "research-modification",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Resources",
+    slug: "#",
+    icon: <DownloadCloud />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Resources",
+        slug: "resources-banner",
+      },
+      {
+        id: 1,
+        subMenuName: "Useful Guides",
+        slug: "resources-guides",
       },
     ],
   },
