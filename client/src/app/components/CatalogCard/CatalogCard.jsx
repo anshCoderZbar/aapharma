@@ -5,7 +5,7 @@ import inStock from "assets/bag-tick.png";
 import outStock from "assets/bag-cross.png";
 import { AddtoCart } from "../Ui/AddtoCart ";
 
-export const CatalogCard = ({ baseUrl, compounts, key }) => {
+export const CatalogCard = ({ baseUrl, compounts }) => {
   const [price, setPrice] = useState("");
 
   const handlePriceChange = (e) => {
@@ -13,7 +13,7 @@ export const CatalogCard = ({ baseUrl, compounts, key }) => {
     setPrice(value);
   };
   return (
-    <div key={key} className="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+    <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
       <div className="catalog_main_bg">
         <div className="row h-100">
           <div className="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-6">
@@ -33,6 +33,7 @@ export const CatalogCard = ({ baseUrl, compounts, key }) => {
                   {JSON.parse(compounts.catalog_details).length >= 1
                     ? JSON.parse(compounts.catalog_details).map(
                         (details, i) => {
+                          console.log(details?.description);
                           return (
                             <li key={i}>
                               <p className="detail_type">{details?.label}</p>
@@ -58,8 +59,8 @@ export const CatalogCard = ({ baseUrl, compounts, key }) => {
                   className="mt-0"
                   dangerouslySetInnerHTML={{
                     __html:
-                      compounts?.description?.length >= 630
-                        ? compounts?.description?.slice(0, 630) + "..."
+                      compounts?.description?.length >= 730
+                        ? compounts?.description?.slice(0, 730) + "..."
                         : compounts?.description,
                   }}
                 />
@@ -95,13 +96,15 @@ export const CatalogCard = ({ baseUrl, compounts, key }) => {
                       </select>
                       <div className="catalog_card_price">
                         <h3
-                          className={`${
+                          className={`fw-semibold ${
                             price?.length >= 1 ? "opacity-100" : "opacity-0"
                           }`}
                         >
                           Price :
                         </h3>
-                        {price?.length >= 1 && <p>$ {price}</p>}
+                        {price?.length >= 1 && (
+                          <p className="fw-semibold">$ {price}</p>
+                        )}
                       </div>
                       {compounts?.inStock === "true" ? (
                         <div className="d-flex align-items-center stock">

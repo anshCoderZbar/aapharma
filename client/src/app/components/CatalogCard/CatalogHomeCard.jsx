@@ -54,11 +54,13 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
           </select>
           <div className="catalog_card_price">
             <h3
-              className={`${price?.length >= 1 ? "opacity-100" : "opacity-0"}`}
+              className={`fw-semibold ${
+                price?.length >= 1 ? "opacity-100" : "opacity-0"
+              }`}
             >
               Price :
             </h3>
-            {price?.length >= 1 && <p>${price}</p>}
+            {price?.length >= 1 && <p className="fw-semibold">${price}</p>}
           </div>
           {items?.inStock === "true" ? (
             <div className="d-flex align-items-center stock">

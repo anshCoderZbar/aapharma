@@ -40,6 +40,7 @@
   gap: 22px;
   flex-wrap: wrap;
   margin-bottom: 70px;
+  margin-top: 45px;
 }
 
 .clients_logos img {
@@ -264,7 +265,7 @@
 }
 
 .employment_content {
-  padding: 40px 0 70px 0;
+  padding: 70px 0 70px 0;
 }
 
 .employement_details p {
@@ -341,6 +342,7 @@
     font-size: calc(39px - 15px);
     line-height: calc(50px - 15px);
   }
+
   .employement_details ul li {
     font-size: calc(39px - 15px);
   }
@@ -353,6 +355,7 @@
   }
 
   .clients_details {
+    margin-top: 40px;
     margin-bottom: 60px;
   }
 
@@ -387,7 +390,7 @@
   }
 
   .employment_content {
-    padding: 35px 0 60px 0;
+    padding: 60px 0 60px 0;
   }
 
   .employement_details p {
@@ -453,7 +456,7 @@
   }
 
   .employment_content {
-    padding: 30px 0 50px 0;
+    padding: 50px 0 50px 0;
   }
 
   .apply_box {
@@ -481,6 +484,7 @@
   }
 
   .clients_details {
+    margin-top: 35px;
     margin-bottom: 51px;
   }
 
@@ -519,6 +523,7 @@
   }
 
   .clients_details {
+    margin-top: 30px;
     margin-bottom: 42px;
   }
 
@@ -540,7 +545,7 @@
   }
 
   .employment_content {
-    padding: 20px 0 41px 0;
+    padding: 40px 0 40px 0;
   }
 
   .employement_details ul li::before {
@@ -578,6 +583,7 @@
   }
 
   .clients_details {
+    margin-top: 25px;
     margin-bottom: 35px;
   }
 
@@ -664,6 +670,7 @@
   }
 
   .clients_details {
+    margin-top: 20px;
     margin-bottom: 25px;
   }
 
@@ -725,7 +732,7 @@
   }
 
   .employment_content {
-    padding: 15px 0 41px 0;
+    padding: 35px 0 35px 0;
   }
 
   .employement_details ul li {

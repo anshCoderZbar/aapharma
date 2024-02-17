@@ -4,28 +4,28 @@ import { useAtom } from "jotai";
 import { filteredCatalogs } from "store/CatalogStore";
 import { useNavigate } from "react-router-dom";
 
-export const CatalogCategory1 = (filterNo) => {
+export const CatalogCategory1 = () => {
   const getCatalogCategory1 = useQuery({
     queryKey: ["catalog-category-1"],
     queryFn: () => client.catalog.catalogCategory1(),
-    enabled: filterNo === 1,
+    // enabled: filterNo === 1,
   });
   return getCatalogCategory1;
 };
 
-export const CatalogCategory2 = (filterNo) => {
+export const CatalogCategory2 = () => {
   const getCatalogCategory2 = useQuery({
     queryKey: ["catalog-category-2"],
     queryFn: () => client.catalog.catalogCategory2(),
-    enabled: filterNo === 2,
+    // enabled: filterNo === 2,
   });
   return getCatalogCategory2;
 };
-export const CatalogCategory3 = (filterNo) => {
+export const CatalogCategory3 = () => {
   const getCatalogCategory3 = useQuery({
     queryKey: ["catalog-category-3"],
     queryFn: () => client.catalog.catalogCategory3(),
-    enabled: filterNo === 3,
+    // enabled: filterNo === 3,
   });
   return getCatalogCategory3;
 };

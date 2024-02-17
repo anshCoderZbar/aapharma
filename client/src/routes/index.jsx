@@ -221,6 +221,7 @@ export const AllRoutes = () => {
             path="/accreditations"
             element={
               <PublicRoutes>
+                x``
                 <Accreditations />
               </PublicRoutes>
             }
