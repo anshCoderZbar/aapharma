@@ -156,6 +156,7 @@ export default function HomeAbout() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getHomeCompanyMission?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}
