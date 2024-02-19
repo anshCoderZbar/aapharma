@@ -146,6 +146,7 @@ export default function EditCaseStudyDiagram() {
                 control={control}
                 name="description"
                 placeholder="Description"
+                defaultValue={singleCaseDiagram?.data?.data?.description}
                 {...register("description", { required: true })}
               />
               {errors?.description && (

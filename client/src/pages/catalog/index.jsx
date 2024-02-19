@@ -41,7 +41,6 @@ export const Catalog = () => {
       supersubcategoryId.length > 0 ||
       orderBy !== "" ||
       search !== "";
-    console.log(shouldShowButton);
     setResetButtonVisible(shouldShowButton);
   }, [isResetButtonVisible, filterChemical]);
 

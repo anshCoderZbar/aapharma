@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Pages.css";
 import { GetEmploymentBanner, GetEmploymentResponsibilities } from "rest/main";
+import { Modal } from "app/components/Modal";
 
 export default function Employement() {
   const getEmploymentBanner = GetEmploymentBanner();
   const getEmploymentResponsibilities = GetEmploymentResponsibilities();
+  const [open, setOpen] = useState(false);
   return (
     <div className="employement_page">
       <Banner
@@ -53,10 +55,45 @@ export default function Employement() {
                         getEmploymentResponsibilities?.data?.data?.description,
                     }}
                   />
-                  <button>Submit your Resume</button>
+                  <button data-bs-toggle="modal" data-bs-target="#modal1">
+                    Submit your Resume
+                  </button>
                 </div>
               </div>
             </div>
+            <Modal id="modal1">
+              <div className="contact-form pb-0">
+                <form>
+                  <input
+                    type="text"
+                    placeholder="Enter Name"
+                    className="form-control contact-form"
+                    name="name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    placeholder="Enter Email"
+                    className="form-control contact-form"
+                    name="email"
+                    required
+                  />
+                  <input
+                    type="file"
+                    placeholder="Submit resume"
+                    className="form-control contact-form"
+                    name="email"
+                    accept=".pdf,.doc,.docx"
+                    required
+                  />
+                  <input
+                    type="submit"
+                    value="Submit"
+                    className="submit-btn m-0"
+                  />
+                </form>
+              </div>
+            </Modal>
           </div>
         </div>
       </div>

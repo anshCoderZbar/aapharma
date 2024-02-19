@@ -64,6 +64,7 @@ export default function EditTestimonials() {
           defaultImg={defaultImg}
           setDefaultImg={setDefaultImg}
           isLoading={editTestimonial?.isPending}
+          testimonialDesc={singleTestimonial?.data?.data?.description}
         />
       )}
     </>

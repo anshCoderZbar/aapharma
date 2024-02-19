@@ -10,6 +10,7 @@ export const ArticleForm = ({
   errors,
   isLoading,
   articleImage,
+  defaultArticleDesc,
 }) => {
   const [previewImage, setPreviewImage] = useState("");
 
@@ -37,22 +38,6 @@ export const ArticleForm = ({
           <p className="errorMessage"> Article Heading is required</p>
         )}
       </div>
-
-      <div className="mb-3 col-md-6">
-        <label htmlFor={`description`} className="form-label">
-          Description
-        </label>
-        <TextEditor
-          control={control}
-          name={`description`}
-          {...register(`description`, {
-            required: true,
-          })}
-        />
-        {errors.description && (
-          <p className="errorMessage">Description is required</p>
-        )}
-      </div>
       <div className="mb-3 col-md-6">
         <label htmlFor="articleImage" className="form-label">
           Article Image (590px * 410px)
@@ -74,7 +59,7 @@ export const ArticleForm = ({
             <img
               src={previewImage}
               alt="File Preview"
-              style={{ maxWidth: "150px" }}
+              style={{ maxWidth: "350px" }}
             />
           </div>
         )}
@@ -83,11 +68,28 @@ export const ArticleForm = ({
             <img
               src={articleImage}
               alt="File Preview"
-              style={{ maxWidth: "150px" }}
+              style={{ maxWidth: "350px" }}
             />
           </div>
         )}
       </div>
+      <div className="mb-3 col-md-12">
+        <label htmlFor={`description`} className="form-label">
+          Description
+        </label>
+        <TextEditor
+          control={control}
+          name={`description`}
+          defaultValue={defaultArticleDesc && defaultArticleDesc}
+          {...register(`description`, {
+            required: true,
+          })}
+        />
+        {errors.description && (
+          <p className="errorMessage">Description is required</p>
+        )}
+      </div>
+
       {isLoading ? (
         <div>
           <ButtonLoader />

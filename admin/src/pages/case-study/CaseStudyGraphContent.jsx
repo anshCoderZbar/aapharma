@@ -66,7 +66,7 @@ export default function CaseStudyGraphContent() {
               )}
             </div>
 
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-12">
               <label htmlFor="subHeading" className="form-label">
                 Sub Heading
               </label>
@@ -74,6 +74,7 @@ export default function CaseStudyGraphContent() {
               <TextEditor
                 control={control}
                 placeholder="subHeading"
+                defaultValue={caseStudyGraphData?.data?.data?.subheading}
                 name="subHeading"
                 {...register("subHeading", { required: true })}
               />

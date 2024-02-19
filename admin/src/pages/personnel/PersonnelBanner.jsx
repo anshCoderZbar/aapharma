@@ -112,6 +112,7 @@ export default function PersonnelBanner() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getPersonnelBanner?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}

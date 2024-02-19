@@ -154,6 +154,7 @@ export default function AboutBanner() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getBanner?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}
@@ -169,6 +170,7 @@ export default function AboutBanner() {
               <TextEditor
                 control={control}
                 name={`aboutDescription`}
+                defaultValue={getBanner?.data?.data?.description2}
                 {...register(`aboutDescription`, {
                   required: true,
                 })}

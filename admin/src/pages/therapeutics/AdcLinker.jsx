@@ -253,6 +253,7 @@ export default function AdcLinker() {
                 control={control}
                 name="bottomDescripton"
                 placeholder="Bottom Descripton"
+                defaultValue={getAdc?.data?.data?.bottomDescription}
                 {...register("bottomDescripton", { required: true })}
               />
               {errors?.bottomDescripton && (

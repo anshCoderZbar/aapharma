@@ -64,6 +64,7 @@ export const Timeline = () => {
             );
           })}
         <SwiperSlide></SwiperSlide>
+        <h2 className="mai"></h2>
       </Swiper>
     </section>
   );
@@ -76,7 +77,7 @@ export const Timeline = () => {
 
 // export const Timeline = () => {
 //   return (
-//     <section class="timeline">
+//     <section className="timeline">
 //       <Swiper slidesPerView={9} loop={false} className="time_vv">
 //         <SwiperSlide>
 //           <div className="shape-chat">

@@ -80,6 +80,7 @@ export default function TherapeuticsSupports() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getSupportData?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}

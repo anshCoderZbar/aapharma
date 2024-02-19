@@ -117,6 +117,7 @@ export default function OperatingPhilosophy() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getOperatingPhilosophy?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}
@@ -132,6 +133,9 @@ export default function OperatingPhilosophy() {
               <TextEditor
                 control={control}
                 name={`diagramHeading`}
+                defaultValue={
+                  getOperatingPhilosophy?.data?.data?.diagramDescription
+                }
                 {...register(`diagramHeading`, {
                   required: true,
                 })}

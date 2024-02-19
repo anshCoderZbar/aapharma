@@ -249,6 +249,7 @@ export default function ResearchSort() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getSortData?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}

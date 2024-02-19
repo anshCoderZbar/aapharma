@@ -54,6 +54,8 @@ class Client {
       HttpClient.post(API_ENDPOINTS.getUtilityEndpoint, { chemicalId: id }),
     chemicalInStock: (params) =>
       HttpClient.post(API_ENDPOINTS.chemicalInStock, params),
+    dublicateChemical: (params) =>
+      HttpClient.post(API_ENDPOINTS.dublicateChemical, params),
   };
   home = {
     createBanner: (params) =>

@@ -110,6 +110,7 @@ export default function CarbohydrateBanner() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getBanner?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}

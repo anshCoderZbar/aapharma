@@ -53,6 +53,7 @@ export default function EditArticle() {
           errors={errors}
           articleImage={articleImage}
           isLoading={editArticle?.isPending}
+          defaultArticleDesc={singleArticle?.data?.data?.description}
         />
       </div>
     </>

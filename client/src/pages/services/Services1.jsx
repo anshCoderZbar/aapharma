@@ -25,7 +25,7 @@ export default function Services1() {
               questions.
             </p>
           </div>
-          <table class="table table-striped">
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th className="service_table">Element</th>

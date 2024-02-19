@@ -63,6 +63,7 @@ export default function EditTestimonail() {
           selectedClient={selectedClient}
           // authorImg={authorImg}
           isLoading={editTestimonial?.isPending}
+          testimonalDesc={singleTestimonial?.data?.data?.description}
         />
       </div>
     </>

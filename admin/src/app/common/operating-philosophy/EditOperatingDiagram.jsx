@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { TextEditor } from "components/ui/TextEditor";
 
 import { PageWrapper } from "components/ui/PageWrapper";
 import { FormInput } from "components/ui/FormInput";
@@ -19,6 +20,7 @@ export default function EditOperatingDiagram() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const formData = new FormData();
@@ -140,13 +142,13 @@ export default function EditOperatingDiagram() {
               <label htmlFor="description" className="form-label">
                 Description
               </label>
-              <textarea
-                type="text"
+              <TextEditor
+                control={control}
                 name="description"
-                rows={5}
-                className="form-control form_input"
-                placeholder="Description"
-                {...register("description", { required: true })}
+                defaultValue={singleOperatingDiagram?.data?.data?.description}
+                {...register(`description`, {
+                  required: true,
+                })}
               />
               {errors?.description && (
                 <p className="errorMessage">Description is required</p>

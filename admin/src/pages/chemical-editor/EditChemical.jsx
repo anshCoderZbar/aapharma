@@ -302,6 +302,11 @@ export default function EditChemical() {
             showFiles={fileTabs?.file}
             // setDefaultImg={setDefaultImg}
             defaultImg={defaultImg}
+            defaultDesc={fetchSingleChemical?.data?.data?.description}
+            compoundDesc={
+              fetchSingleChemical?.data?.data?.catalog_details &&
+              JSON.parse(fetchSingleChemical?.data?.data?.catalog_details)
+            }
           />
         </div>
       )}

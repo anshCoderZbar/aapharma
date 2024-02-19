@@ -58,6 +58,16 @@ export default function Carbohydrates() {
       </div>
       <div className="container-fluid">
         <Timeline />
+        {/* <div className="container-fluid">
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                getBanner?.data?.data?.description &&
+                getBanner?.data?.data?.description,
+            }}
+            className="carbohydrates_details_sec"
+          />
+        </div> */}
       </div>
 
       <div className="container-fluid">

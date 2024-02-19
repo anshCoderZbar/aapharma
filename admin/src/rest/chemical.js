@@ -128,8 +128,23 @@ export const GetChemicalStock = () => {
       queryClient.invalidateQueries({ queryKey: ["fetch-chemical"] });
     },
     onError: (error) => {
-      console.log(error);
+      notify("OOPS! some error occured", "error");
     },
   });
   return stock;
+};
+
+export const DublicateChemicalMutation = () => {
+  const { notify } = useNotifications();
+  const chemical = useMutation({
+    mutationFn: (data) => client.chemical.dublicateChemical(data),
+    onSuccess: () => {
+      notify("Stock Updated successfully", "success");
+      queryClient.invalidateQueries({ queryKey: ["fetch-chemical"] });
+    },
+    onError: (error) => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return chemical;
 };

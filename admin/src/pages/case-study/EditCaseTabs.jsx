@@ -142,6 +142,7 @@ export default function EditCaseTabs() {
               <TextEditor
                 control={control}
                 placeholder="Description"
+                defaultValue={getSingleCaseStudyTabs?.data?.data?.description}
                 {...register("description", { required: true })}
               />
               {errors?.description && (

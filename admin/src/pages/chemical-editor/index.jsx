@@ -7,7 +7,7 @@ import { tableCustomStyles } from "app/mock/catalog";
 
 import { useNavigate } from "react-router-dom";
 
-import { Edit2, Link, Trash2 } from "lucide-react";
+import { Copy, Edit2, Link, Trash2 } from "lucide-react";
 
 import "styles/catalog.css";
 import { Button } from "components/ui/Button";
@@ -20,6 +20,7 @@ import { ButtonLoader } from "components/Loader/ButtonLoader";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { GetChemicalStock } from "rest/chemical";
+import { DublicateChemicalMutation } from "rest/chemical";
 
 export default function ChemicalPage() {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export default function ChemicalPage() {
 
   const deleteChemical = DeleteChemical();
   const getStock = GetChemicalStock();
+  const createDublicateChemical = DublicateChemicalMutation();
 
   const handleDelete = (id) => {
     deleteChemical.mutate(id);
@@ -41,6 +43,12 @@ export default function ChemicalPage() {
     formData.append("id", id);
     formData.append("inStock", checked);
     getStock.mutate(formData);
+  };
+
+  const dublicateChemical = (id) => {
+    const formData = new FormData();
+    formData.append("id", id);
+    createDublicateChemical.mutate(formData);
   };
 
   const chemicalColumns = [
@@ -75,6 +83,25 @@ export default function ChemicalPage() {
           />
         </div>
       ),
+    },
+    {
+      name: "Dublicate",
+      cell: (row) =>
+        row?.duplicateable === "true" && (
+          <div
+            onClick={() => {
+              dublicateChemical(row?.id);
+              setId(row?.id);
+            }}
+            className="cursor_pointer"
+          >
+            {createDublicateChemical?.isPending && row?.id === id ? (
+              <ButtonLoader />
+            ) : (
+              <Copy />
+            )}
+          </div>
+        ),
     },
 
     {
@@ -133,6 +160,8 @@ export default function ChemicalPage() {
       button: "true",
     },
   ];
+
+  console.log(fetchChemical?.data?.data);
 
   return (
     <div className="child">

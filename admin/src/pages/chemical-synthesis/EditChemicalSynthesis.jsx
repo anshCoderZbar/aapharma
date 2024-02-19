@@ -69,6 +69,9 @@ export default function EditChemicalSynthesis() {
             isLoading={updateChemicalSynthesis?.isPending}
             defaultImg={defaultImg}
             control={control}
+            defaultDescription={
+              singleChemicalSynthesisMutation?.data?.data?.description
+            }
           />
         </div>
       )}

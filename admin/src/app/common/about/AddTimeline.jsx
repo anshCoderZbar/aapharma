@@ -44,7 +44,7 @@ export default function AddTimeline() {
             )}
           </div>
 
-          <div className="mb-3 col-md-6">
+          <div className="mb-3 col-md-12">
             <label htmlFor={`description`} className="form-label">
               Description
             </label>

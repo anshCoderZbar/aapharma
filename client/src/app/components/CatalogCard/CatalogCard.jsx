@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 import inStock from "assets/bag-tick.png";
 import outStock from "assets/bag-cross.png";
 import { AddtoCart } from "../Ui/AddtoCart ";
+import { stripHtmlTags } from "lib/utils/functions";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export const CatalogCard = ({ baseUrl, compounts }) => {
   const [price, setPrice] = useState("");
+  const [compoundDesc, setCompoundDesc] = useState("");
 
   const handlePriceChange = (e) => {
     const { value } = e?.target;
     setPrice(value);
   };
+
   return (
     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
       <div className="catalog_main_bg">
@@ -33,16 +37,52 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                   {JSON.parse(compounts.catalog_details).length >= 1
                     ? JSON.parse(compounts.catalog_details).map(
                         (details, i) => {
-                          console.log(details?.description);
                           return (
                             <li key={i}>
                               <p className="detail_type">{details?.label}</p>
-                              <p
-                                className="detail_desc"
-                                dangerouslySetInnerHTML={{
-                                  __html: details?.description,
-                                }}
-                              />
+                              <div className="vvs_jj">
+                                <div className="desc_show">
+                                  <p
+                                    className="detail_desc"
+                                    dangerouslySetInnerHTML={{
+                                      __html:
+                                        stripHtmlTags(details?.description)
+                                          ?.length >= 16
+                                          ? stripHtmlTags(
+                                              details?.description
+                                            )?.slice(0, 14)
+                                          : stripHtmlTags(details?.description),
+                                    }}
+                                  />
+                                  {stripHtmlTags(details?.description)
+                                    ?.length >= 16 && (
+                                    <div
+                                      onClick={() =>
+                                        setCompoundDesc(
+                                          compoundDesc === details?.description
+                                            ? ""
+                                            : details?.description
+                                        )
+                                      }
+                                      className="show_toggle_detail"
+                                    >
+                                      {compoundDesc === details?.description ? (
+                                        <ChevronUp />
+                                      ) : (
+                                        <ChevronDown />
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                                {compoundDesc === details?.description && (
+                                  <div
+                                    className={`acc_compound_desc`}
+                                    dangerouslySetInnerHTML={{
+                                      __html: compoundDesc,
+                                    }}
+                                  />
+                                )}
+                              </div>
                             </li>
                           );
                         }

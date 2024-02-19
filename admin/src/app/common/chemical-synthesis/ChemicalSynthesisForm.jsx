@@ -12,6 +12,7 @@ export const ChemicalSynthesisForm = ({
   isLoading,
   defaultImg,
   control,
+  defaultDescription,
 }) => {
   const [perviewImages, setPreviewImages] = useState("");
 
@@ -74,6 +75,7 @@ export const ChemicalSynthesisForm = ({
         <TextEditor
           control={control}
           name={`description`}
+          defaultValue={defaultDescription && defaultDescription}
           {...register(`description`, {
             required: true,
           })}

@@ -68,6 +68,7 @@ export default function HomeServiceContent() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getHomeServicesHeadings?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}

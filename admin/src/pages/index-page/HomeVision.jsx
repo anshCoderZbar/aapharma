@@ -113,6 +113,7 @@ export default function HomeVision() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getVision?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}

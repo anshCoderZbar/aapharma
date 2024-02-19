@@ -22,6 +22,7 @@ export const API_ENDPOINTS = {
   singleChemical: "/singleChemical",
   updateChemical: "/updateChemical",
   deleteChemical: "/deleteChemical",
+  dublicateChemical: "/duplicateChemical",
   chemicalInStock: "/chemicalInStock",
   createUtility: "/updateUtility",
   getUtilityEndpoint: "/getUtility",

@@ -73,6 +73,7 @@ export default function CarbohydrateDescription() {
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={getDescription?.data?.data?.bottomdescription}
                 {...register(`description`, {
                   required: true,
                 })}

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { ChevronDown, ChevronUp, Minus, Plus } from "lucide-react";
+import React, { useRef, useState } from "react";
+import { ChevronDown, ChevronUp, X } from "lucide-react";
 
 import {
   CatalogCategory1,
@@ -17,41 +17,30 @@ export const CatalogSearchBar = () => {
 
   const [_, setCategoryCheck] = useAtom(categoryChecked);
   const [catalogId, setCatalogId] = useState({
-    categoryId: [],
-    subcategoryId: [],
+    subCategoryId: [],
     supersubcategoryId: [],
   });
 
-  const filterChemical = FilterChemical(catalogId);
-
-  const [checkboxModified, setCheckboxModified] = useState(false);
+  const filterChemical = FilterChemical();
 
   const handleChange = (e) => {
     const { name, value, checked } = e.target;
 
-    setCatalogId((prevCatalogId) => ({
-      ...prevCatalogId,
+    const updatedCatalogId = {
+      ...catalogId,
       [name]: checked
-        ? [...prevCatalogId[name], value]
-        : prevCatalogId[name].filter((item) => item !== value),
-    }));
-
-    setCheckboxModified(true);
+        ? [...(catalogId[name] || []), value]
+        : (catalogId[name] || []).filter((item) => item !== value),
+    };
+    const subCatalog = updatedCatalogId?.subCategoryId;
+    sessionStorage.setItem("subcategoryId", JSON.stringify(subCatalog));
+    const superSubCatalog = updatedCatalogId?.supersubcategoryId;
+    sessionStorage.setItem(
+      "supersubcategoryId",
+      JSON.stringify(superSubCatalog)
+    );
+    setCatalogId(updatedCatalogId);
   };
-
-  useEffect(() => {
-    if (checkboxModified) {
-      const anyCheckboxChecked =
-        catalogId.categoryId.length > 0 ||
-        catalogId.subcategoryId.length > 0 ||
-        catalogId.supersubcategoryId.length > 0;
-
-      setCategoryCheck(anyCheckboxChecked);
-      filterChemical.mutate();
-
-      setCheckboxModified(false);
-    }
-  }, [catalogId, checkboxModified, setCategoryCheck, filterChemical]);
 
   useOutsideClick(catalogRef, openCatalogFilter, () => {
     setOpenCatalogFilter(false);
@@ -65,17 +54,28 @@ export const CatalogSearchBar = () => {
   const catalogCategory2 = CatalogCategory2();
   const catalogCategory3 = CatalogCategory3();
 
+  const filterByCategory = () => {
+    filterChemical.mutate();
+    setOpenCatalogFilter(false);
+  };
+
   return (
     <ul ref={catalogRef} className="filter_left-list">
+      {/* {openCatalogFilter && (
+        <div onClick={() => setOpenCatalogFilter(false)} className="op-x">
+          <X />
+        </div>
+      )} */}
       {catalogCategory1?.data?.data?.length >= 1 &&
         catalogCategory1?.data?.data?.map((level1, i) => {
           return (
             <li
               key={i}
               onClick={() => {
-                setOpenCatalogFilter(
-                  filterNo === level1?.id ? !openCatalogFilter : true
-                );
+                // setOpenCatalogFilter(
+                //   filterNo === level1?.id ? !openCatalogFilter : true
+                // );
+                setOpenCatalogFilter(true);
                 setFilterNo(level1?.id);
               }}
               className="d-flex align-items-center"
@@ -84,9 +84,12 @@ export const CatalogSearchBar = () => {
               <span>
                 <ChevronDown />
               </span>
+
               <div
                 className={`inner_filter_dropdown ${
-                  filterNo === level1?.id ? "inner_filter_dropdown--active" : ""
+                  filterNo === level1?.id && openCatalogFilter
+                    ? "inner_filter_dropdown--active"
+                    : ""
                 }`}
               >
                 <ul className="inner_list">
@@ -97,15 +100,15 @@ export const CatalogSearchBar = () => {
                           <div className="form-check d-flex justify-content-between">
                             <div className="input_checkbox">
                               <input
-                                className="form-check-input "
+                                className="form-check-input"
                                 type="checkbox"
                                 id={level2?.id}
-                                name="categoryId"
+                                name="subCategoryId"
                                 value={level2?.id}
                                 onChange={handleChange}
                               />
                               <label
-                                className="form-check-label "
+                                className="form-check-label"
                                 htmlFor={level2?.id}
                               >
                                 {level2?.heading}
@@ -147,9 +150,9 @@ export const CatalogSearchBar = () => {
                                       className="form-check-input "
                                       type="checkbox"
                                       id={level3?.id}
-                                      name="categoryId"
-                                      // value={level3?.id}
-                                      // onChange={handleChange}
+                                      name="supersubcategoryId"
+                                      value={level3?.id}
+                                      onChange={handleChange}
                                     />
                                     <label
                                       className="form-check-label "
@@ -171,6 +174,12 @@ export const CatalogSearchBar = () => {
             </li>
           );
         })}
+      {catalogId.subCategoryId.length > 0 ||
+      catalogId.supersubcategoryId.length > 0 ? (
+        <button onClick={filterByCategory} className="filter_btn">
+          Apply
+        </button>
+      ) : null}
     </ul>
   );
 };
@@ -220,8 +229,8 @@ export const CatalogSearchBar = () => {
 //     if (checkboxModified) {
 //       const anyCheckboxChecked =
 //         catalogId.categoryId.length > 0 ||
-//         catalogId.subcategoryId.length > 0 ||
-//         catalogId.supersubcategoryId.length > 0;
+// catalogId.subcategoryId.length > 0 ||
+// catalogId.supersubcategoryId.length > 0;
 
 //       setCategoryCheck(anyCheckboxChecked);
 //       filterChemical.mutate();

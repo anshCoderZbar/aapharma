@@ -120,6 +120,7 @@ export default function ResearchBannerPage() {
               <TextEditor
                 control={control}
                 placeholder="Description"
+                defaultValue={getBanner?.data?.data?.description}
                 {...register("description", { required: true })}
               />
               {errors?.description && (

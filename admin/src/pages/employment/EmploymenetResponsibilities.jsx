@@ -85,6 +85,7 @@ export default function EmploymenetResponsibilities() {
                 <TextEditor
                   control={control}
                   name={`description`}
+                  defaultValue={getResponsibilities?.data?.data?.heading}
                   {...register(`description`, {
                     required: true,
                   })}
@@ -100,6 +101,7 @@ export default function EmploymenetResponsibilities() {
                 <TextEditor
                   control={control}
                   name={`list`}
+                  defaultValue={getResponsibilities?.data?.data?.list}
                   {...register(`list`, {
                     required: true,
                   })}
@@ -116,6 +118,7 @@ export default function EmploymenetResponsibilities() {
               <TextEditor
                 control={control}
                 name={`sideDescription`}
+                defaultValue={getResponsibilities?.data?.data?.description}
                 {...register(`sideDescription`, {
                   required: true,
                 })}

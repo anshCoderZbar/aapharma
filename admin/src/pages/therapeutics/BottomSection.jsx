@@ -76,7 +76,8 @@ export default function BottomSection() {
             <TextEditor
               control={control}
               name="topDescription"
-              placeholder="Bottom Descripton"
+              placeholder="Descripton"
+              defaultValue={getBottom?.data?.data?.topDescription}
               {...register("topDescription", { required: true })}
             />
             {errors?.topDescription && (
@@ -127,6 +128,7 @@ export default function BottomSection() {
               control={control}
               name="description1"
               {...register("description1", { required: true })}
+              defaultValue={getBottom?.data?.data?.imageLeftDescription}
             />
             {errors?.description1 && (
               <p className="errorMessage">Field is required</p>
@@ -175,6 +177,7 @@ export default function BottomSection() {
               control={control}
               name="description2"
               {...register("description2", { required: true })}
+              defaultValue={getBottom?.data?.data?.imageRightDescription}
             />
             {errors?.description2 && (
               <p className="errorMessage">Field is required</p>
@@ -222,6 +225,7 @@ export default function BottomSection() {
             <TextEditor
               control={control}
               name="description3"
+              defaultValue={getBottom?.data?.data?.imageBottomDescription}
               {...register("description3", { required: true })}
             />
             {errors?.description3 && (

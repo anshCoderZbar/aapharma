@@ -10,6 +10,7 @@ export const TestimonialForm2 = ({
   errors,
   defaultImg,
   isLoading,
+  testimonialDesc,
 }) => {
   const [previewImage, setPreviewImage] = useState("");
 
@@ -88,6 +89,7 @@ export const TestimonialForm2 = ({
           <TextEditor
             control={control}
             name={`description`}
+            defaultValue={testimonialDesc && testimonialDesc}
             {...register(`description`, {
               required: true,
             })}

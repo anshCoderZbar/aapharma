@@ -251,7 +251,7 @@ export const SidebarData = [
   },
   {
     id: uuidv4(),
-    name: "Complex Carbohydrate",
+    name: "Carbohydrate",
     slug: "#",
     icon: <Leaf />,
     subMenu: [
@@ -265,13 +265,13 @@ export const SidebarData = [
         subMenuName: "Timeline",
         slug: "carbohydrate-timeline",
       },
+      // {
+      //   id: 3,
+      //   subMenuName: "Description",
+      //   slug: "carbohydrate-description",
+      // },
       {
         id: 3,
-        subMenuName: "Description",
-        slug: "carbohydrate-description",
-      },
-      {
-        id: 4,
         subMenuName: "Diagram",
         slug: "carbohydrate-diagram",
       },
@@ -318,24 +318,24 @@ export const SidebarData = [
       },
     ],
   },
-  {
-    id: uuidv4(),
-    name: "Resources",
-    slug: "#",
-    icon: <DownloadCloud />,
-    subMenu: [
-      {
-        id: 1,
-        subMenuName: "Resources",
-        slug: "resources-banner",
-      },
-      {
-        id: 1,
-        subMenuName: "Useful Guides",
-        slug: "resources-guides",
-      },
-    ],
-  },
+  // {
+  //   id: uuidv4(),
+  //   name: "Resources",
+  //   slug: "#",
+  //   icon: <DownloadCloud />,
+  //   subMenu: [
+  //     {
+  //       id: 1,
+  //       subMenuName: "Resources",
+  //       slug: "resources-banner",
+  //     },
+  //     {
+  //       id: 2,
+  //       subMenuName: "Useful Guides",
+  //       slug: "resources-guides",
+  //     },
+  //   ],
+  // },
   {
     id: uuidv4(),
     name: "Settings",

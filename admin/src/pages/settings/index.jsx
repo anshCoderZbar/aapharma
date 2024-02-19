@@ -226,6 +226,7 @@ export default function Settings() {
               <TextEditor
                 control={control}
                 name={`contactDescription`}
+                defaultValue={getSettings?.data?.data?.contacttext}
                 {...register(`contactDescription`, {
                   required: true,
                 })}

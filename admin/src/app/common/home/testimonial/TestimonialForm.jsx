@@ -13,6 +13,7 @@ export const TestimonialForm = ({
   setSelectedClient,
   selectedClient,
   isLoading,
+  testimonalDesc,
   // authorImg,
 }) => {
   const allClients = AllClientMutation();
@@ -136,6 +137,7 @@ export const TestimonialForm = ({
         </label>
         <TextEditor
           control={control}
+          defaultValue={testimonalDesc && testimonalDesc}
           name={`description`}
           {...register(`description`, {
             required: true,

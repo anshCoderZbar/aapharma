@@ -61,9 +61,9 @@
   max-width: 700px;
   justify-content: center;
   margin: 0 auto;
-  height: 700px;
   cursor: grab;
   background-color: #fff;
+  padding-bottom: 64px;
 }
 
 .client_reviews p {

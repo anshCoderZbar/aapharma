@@ -63,13 +63,14 @@ export const EditTimeline = () => {
               )}
             </div>
 
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-12">
               <label htmlFor={`description`} className="form-label">
                 Description
               </label>
               <TextEditor
                 control={control}
                 name={`description`}
+                defaultValue={singleTimeline?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}
