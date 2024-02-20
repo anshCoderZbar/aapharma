@@ -46,4 +46,5 @@ export const API_ENDPOINTS = {
   allCarbohydrateDiagram: "/complex-timeline-diagram/all",
   researchDevelopmentBanner: "/researchdevelopmentbanner",
   researchDevelopmentSort: "/researchdevelopmentsecond",
+  resume: "/resume",
 };

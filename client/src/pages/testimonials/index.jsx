@@ -24,10 +24,14 @@ export const TestimonialsPage = () => {
   return (
     <div className="testimonial_page">
       <Banner
-        background={`url(${require("assets/page-banners/testimonial_banner.png")})`}
+        background={`url(${
+          getHeadings?.data?.data && getHeadings?.data?.data?.image
+        })`}
         extra="testimonial_banner"
-        heading={"Client Feedback"}
-        description={"Current And Legacy Clients"}
+        heading={getHeadings?.data?.data && getHeadings?.data?.data?.heading}
+        description={
+          getHeadings?.data?.data && getHeadings?.data?.data?.description
+        }
       />
       <div className="clients_details">
         <div className="container-fluid">
@@ -95,7 +99,7 @@ export const TestimonialsPage = () => {
             }}
           >
             {filterTestimonial?.length >= 1 &&
-              filterTestimonial?.map((data, i) => {
+              filterTestimonial[0]?.testimonials?.map((data, i) => {
                 return (
                   <SwiperSlide key={i}>
                     <div className="client_details">

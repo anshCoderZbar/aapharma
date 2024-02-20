@@ -161,8 +161,6 @@ export default function ChemicalPage() {
     },
   ];
 
-  console.log(fetchChemical?.data?.data);
-
   return (
     <div className="child">
       <PageWrapper slug="product-management" name="Product Management" />

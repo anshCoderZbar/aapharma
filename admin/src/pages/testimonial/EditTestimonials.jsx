@@ -17,9 +17,13 @@ export default function EditTestimonials() {
     formState: { errors },
     control,
     reset,
+    getValues,
   } = useForm();
 
   const [defaultImg, setDefaultImg] = useState("");
+  const [inputs, setInputs] = useState([
+    { authorName: "", authorPosition: "", description: "" },
+  ]);
 
   const formData = new FormData();
   formData.append("testimonialId", id);
@@ -29,10 +33,31 @@ export default function EditTestimonials() {
 
   useEffect(() => {
     const defaultValues = {};
-    defaultValues.authorName = singleTestimonial?.data?.data?.authorName;
-    defaultValues.authorPosition =
-      singleTestimonial?.data?.data?.authorPosition;
-    defaultValues.description = singleTestimonial?.data?.data?.description;
+    console.log(singleTestimonial?.data?.data);
+    const defaultInputs =
+      singleTestimonial?.data?.data?.testimonials?.map((elm) => ({
+        authorName: elm?.authorName || "",
+        authorPosition: elm?.authorPosition || "",
+        description: elm?.description || "",
+      })) || [];
+
+    defaultInputs.length >= 1 && setInputs(defaultInputs);
+    defaultInputs?.map((elm, index) => {
+      defaultValues[`authorName_${index + 1}`] = elm?.authorName;
+      defaultValues[`authorPosition_${index + 1}`] = elm?.authorPosition;
+      defaultValues[`description_${index + 1}`] = elm?.description;
+    });
+
+    // singleTestimonial?.data?.data?.authorName?.map((elm, index) => {
+    //   defaultValues[`authorName_${index + 1}`] = elm;
+    // });
+    // singleTestimonial?.data?.data?.authorPosition?.map((elm, index) => {
+    //   defaultValues[`authorPosition_${index + 1}`] = elm;
+    // });
+    // singleTestimonial?.data?.data?.description?.map((elm, index) => {
+    //   defaultValues[`description_${index + 1}`] = elm;
+    // });
+
     setDefaultImg(singleTestimonial?.data?.data?.clientImage);
     reset(defaultValues);
   }, [singleTestimonial?.data?.data]);
@@ -41,9 +66,15 @@ export default function EditTestimonials() {
     const formData = new FormData();
     formData.append("testimonialId", id);
     formData.append("clientImage", data?.clientLogo[0]);
-    formData.append("authorPosition", data?.authorPosition);
-    formData.append("description", data?.description);
-    formData.append("authorName", data?.authorName);
+    inputs.forEach((_, index) => {
+      const authorNameKey = `authorName_${index + 1}`;
+      const authorPositionKey = `authorPosition_${index + 1}`;
+      const descriptionKey = `description_${index + 1}`;
+
+      formData.append("authorName[]", data[authorNameKey]);
+      formData.append("authorPosition[]", data[authorPositionKey]);
+      formData.append("description[]", data[descriptionKey]);
+    });
     editTestimonial.mutate(formData);
   };
 
@@ -64,7 +95,11 @@ export default function EditTestimonials() {
           defaultImg={defaultImg}
           setDefaultImg={setDefaultImg}
           isLoading={editTestimonial?.isPending}
-          testimonialDesc={singleTestimonial?.data?.data?.description}
+          inputs={inputs}
+          reset={reset}
+          setInputs={setInputs}
+          getValues={getValues}
+          testimonialDesc={singleTestimonial?.data?.data?.testimonials}
         />
       )}
     </>

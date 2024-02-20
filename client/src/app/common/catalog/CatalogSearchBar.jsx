@@ -11,15 +11,11 @@ import { useAtom } from "jotai";
 import { categoryChecked } from "store/CatalogStore";
 import { useOutsideClick } from "lib/hooks/useOutsideClick";
 
-export const CatalogSearchBar = () => {
+export const CatalogSearchBar = ({ catalogId, setCatalogId }) => {
   const catalogRef = useRef(null);
   const [openCatalogFilter, setOpenCatalogFilter] = useState(false);
 
   const [_, setCategoryCheck] = useAtom(categoryChecked);
-  const [catalogId, setCatalogId] = useState({
-    subCategoryId: [],
-    supersubcategoryId: [],
-  });
 
   const filterChemical = FilterChemical();
 
@@ -102,37 +98,49 @@ export const CatalogSearchBar = () => {
                               <input
                                 className="form-check-input"
                                 type="checkbox"
-                                id={level2?.id}
+                                id={level2?.heading
+                                  ?.toLowerCase()
+                                  ?.replaceAll(" ", "_")}
                                 name="subCategoryId"
                                 value={level2?.id}
                                 onChange={handleChange}
+                                checked={
+                                  catalogId.subCategoryId &&
+                                  catalogId.subCategoryId.includes(
+                                    level2?.id?.toString()
+                                  )
+                                }
                               />
                               <label
                                 className="form-check-label"
-                                htmlFor={level2?.id}
+                                htmlFor={level2?.heading
+                                  ?.toLowerCase()
+                                  ?.replaceAll(" ", "_")}
                               >
                                 {level2?.heading}
                               </label>
                             </div>
-                            <div
-                              key={i}
-                              onClick={() => {
-                                setAccordionActive(level2?.id);
-                                setShowAccordion(
-                                  accordionActive === level2?.id
-                                    ? !showAccordion
-                                    : true
-                                );
-                              }}
-                              className=""
-                            >
-                              {accordionActive === level2?.id &&
-                              showAccordion ? (
-                                <ChevronDown />
-                              ) : (
-                                <ChevronUp />
-                              )}
-                            </div>
+                            {level2?.hasLevel3 === true && (
+                              <div
+                                key={i}
+                                onClick={() => {
+                                  setAccordionActive(level2?.id);
+                                  setShowAccordion(
+                                    accordionActive === level2?.id
+                                      ? !showAccordion
+                                      : true
+                                  );
+                                }}
+                                className=""
+                              >
+                                {accordionActive === level2?.id &&
+                                showAccordion ? (
+                                  <ChevronDown />
+                                ) : (
+                                  <ChevronUp />
+                                )}
+                              </div>
+                            )}
                           </div>
                           <div
                             className={`accord_cstm ${
@@ -147,12 +155,18 @@ export const CatalogSearchBar = () => {
                                 level3?.catalog === level2?.catalog && (
                                   <div key={i} className="form-check">
                                     <input
-                                      className="form-check-input "
+                                      className="form-check-input"
                                       type="checkbox"
                                       id={level3?.id}
                                       name="supersubcategoryId"
                                       value={level3?.id}
                                       onChange={handleChange}
+                                      checked={
+                                        catalogId.supersubcategoryId &&
+                                        catalogId.supersubcategoryId.includes(
+                                          level3?.id?.toString()
+                                        )
+                                      }
                                     />
                                     <label
                                       className="form-check-label "

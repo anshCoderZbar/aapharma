@@ -1,15 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Pages.css";
-import { GetEmploymentBanner, GetEmploymentResponsibilities } from "rest/main";
+import {
+  GetEmploymentBanner,
+  GetEmploymentResponsibilities,
+  SendResume,
+} from "rest/main";
 import { Modal } from "app/components/Modal";
+import { ButtonLoader } from "app/components/Ui/ButtonLoader";
 
 export default function Employement() {
   const getEmploymentBanner = GetEmploymentBanner();
   const getEmploymentResponsibilities = GetEmploymentResponsibilities();
-  const [open, setOpen] = useState(false);
+  const [formState, setFormState] = useState({ name: "", email: "" });
+  const [file, setFile] = useState(null);
+
+  const submitResume = SendResume(setFormState, setFile);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormState({ ...formState, [name]: value });
+  };
+
+  const handleFileChange = (event) => {
+    setFile(event?.target?.files[0]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", formState.name);
+    formData.append("email", formState.email);
+    formData.append("resumefile", file);
+    submitResume.mutate(formData);
+  };
+
+  useEffect(() => {
+    if (submitResume?.isSuccess) {
+      const modal = document.querySelector(".btn-close");
+      modal?.click();
+    }
+  }, [submitResume?.isSuccess]);
+
   return (
     <div className="employement_page">
       <Banner
@@ -63,12 +97,14 @@ export default function Employement() {
             </div>
             <Modal id="modal1">
               <div className="contact-form pb-0">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <input
                     type="text"
                     placeholder="Enter Name"
                     className="form-control contact-form"
                     name="name"
+                    onChange={handleChange}
+                    value={formState?.name}
                     required
                   />
                   <input
@@ -76,24 +112,49 @@ export default function Employement() {
                     placeholder="Enter Email"
                     className="form-control contact-form"
                     name="email"
+                    onChange={handleChange}
+                    value={formState?.email}
                     required
                   />
                   <input
                     type="file"
-                    placeholder="Submit resume"
+                    name="resume"
                     className="form-control contact-form"
-                    name="email"
                     accept=".pdf,.doc,.docx"
+                    onChange={handleFileChange}
                     required
                   />
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="submit-btn m-0"
-                  />
+                  {submitResume?.isPending ? (
+                    <ButtonLoader />
+                  ) : (
+                    <input
+                      type="submit"
+                      value="Submit"
+                      className="submit-btn m-0"
+                    />
+                  )}
                 </form>
               </div>
             </Modal>
+            <div
+              id="toast"
+              style={{
+                background: submitResume?.isSuccess ? "#198754" : "#dc3545",
+              }}
+              className={`toaster  ${
+                submitResume?.isSuccess || submitResume?.isError ? "show" : ""
+              }`}
+            >
+              <div
+                className={`desc  ${
+                  submitResume?.isSuccess ? "bg-success" : "bg-danger"
+                }`}
+              >
+                {submitResume.isSuccess
+                  ? "Details Submitted"
+                  : "OOPS! some error occured"}
+              </div>
+            </div>
           </div>
         </div>
       </div>

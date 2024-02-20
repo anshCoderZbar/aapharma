@@ -33,11 +33,13 @@ export default function AllTestimonial() {
   const testimonialColumns = [
     {
       name: "Author Name",
-      selector: (row) => row.authorName,
+      selector: (row) =>
+        row.testimonials.map((elm, i) => i === 0 && elm?.authorName),
     },
     {
       name: "Author Postiton",
-      selector: (row) => row.authorPosition,
+      selector: (row) =>
+        row.testimonials.map((elm, i) => i === 0 && elm?.authorPosition),
     },
     {
       name: "Clients Logo",

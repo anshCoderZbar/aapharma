@@ -30,13 +30,14 @@
   color: #fff;
   overflow: hidden;
   white-space: nowrap;
+  margin: 10px;
 }
 
 .toaster.show {
-  padding: 12px;
+  padding: 0 !important;
   visibility: visible;
   animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s,
-    fadeout 0.5s 4.5s;
+    fadeout 0.5s 5.5s;
   opacity: 1;
 }
 

@@ -12,11 +12,14 @@ import { catalogFilterSchema } from "store/CatalogFilter";
 export const Catalog = () => {
   const navigte = useNavigate();
   const [isResetButtonVisible, setResetButtonVisible] = useState(false);
+  const [catalogId, setCatalogId] = useState({
+    subCategoryId: [],
+    supersubcategoryId: [],
+  });
+
   const filterChemical = FilterChemical();
   const allChemicalProducts = AllChemical();
-  // const [categoryCheck] = useAtom(categoryChecked);
   const [filteredData] = useAtom(filteredCatalogs);
-  // const [catalogSchema, setCatalogSchema] = useAtom(catalogFilterSchema);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -50,6 +53,7 @@ export const Catalog = () => {
     sessionStorage.setItem("supersubcategoryId", JSON?.stringify([]));
     sessionStorage.setItem("orderBy", "");
     sessionStorage.setItem("search", "");
+    setCatalogId({ subCategoryId: [], supersubcategoryId: [] });
     setResetButtonVisible(false);
 
     filterChemical.mutate();
@@ -64,7 +68,10 @@ export const Catalog = () => {
             <div className="catalog_filter_outer">
               <div className=" catalog_inner">
                 <div className="filter_left">
-                  <CatalogSearchBar />
+                  <CatalogSearchBar
+                    catalogId={catalogId}
+                    setCatalogId={setCatalogId}
+                  />
                 </div>
                 <div className="filter_right">
                   <button

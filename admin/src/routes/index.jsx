@@ -74,6 +74,7 @@ import CarbohydrateDescription from "pages/complex-carbohydrate/CarbohydrateDesc
 import CarbohydrateDiagram from "pages/complex-carbohydrate/CarbohydrateDiagram";
 import EditCarbohydrateDiagram from "pages/complex-carbohydrate/EditCarbohydrateDiagram";
 import EmploymentBanner from "pages/employment/EmploymentBanner";
+import EmploymentApplicants from "pages/employment/EmploymentApplicants";
 import EmploymenetResponsibilities from "pages/employment/EmploymenetResponsibilities";
 import ResearchBannerPage from "pages/research-and-development/ResearchBanner";
 import ResearchSort from "pages/research-and-development/ResearchSort";
@@ -603,6 +604,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EmploymentBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/employment-applicants",
+      element: (
+        <PrivateRoutes>
+          <EmploymentApplicants />
         </PrivateRoutes>
       ),
     },

@@ -51,6 +51,20 @@ export const ContactUs = (setFormValues) => {
   return message;
 };
 
+export const SendResume = (setFormState, setFile) => {
+  const resume = useMutation({
+    mutationFn: (data) => client.contact.sendResume(data),
+    onSuccess: () => {
+      setFormState({ name: "", email: "" });
+      setFile(null);
+    },
+    onError: () => {
+      console.log("error");
+    },
+  });
+  return resume;
+};
+
 // employment
 
 export const GetEmploymentBanner = () => {

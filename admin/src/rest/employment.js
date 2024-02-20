@@ -49,3 +49,27 @@ export const UpdateEmploymentResponsibilities = () => {
   });
   return employmentResponsibilities;
 };
+
+export const GetResumes = () => {
+  const getResumes = useQuery({
+    queryKey: ["get-resumes"],
+    queryFn: () => client.employment.getResumes(),
+  });
+  return getResumes;
+};
+
+export const DeleteResumes = () => {
+  const { notify } = useNotifications();
+  const deleteResumes = useMutation({
+    mutationFn: (data) => client.employment.deleteResume(data),
+    onSuccess: () => {
+      notify("Data Deleted Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-resumes"],
+      });
+    },
+    onError: () => notify("OOPS! some error occured", "error"),
+  });
+
+  return deleteResumes;
+};

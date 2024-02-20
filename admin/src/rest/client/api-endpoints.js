@@ -121,4 +121,6 @@ export const API_ENDPOINTS = {
   employmentResponsibilities: "/employmentAt",
   researchDevelopmentBanner: "/researchdevelopmentbanner",
   researchDevelopmentSort: "/researchdevelopmentsecond",
+  allResumes: "/resume",
+  deleteResume: "/resume/delete",
 };

@@ -263,6 +263,9 @@ class Client {
       HttpClient.get(API_ENDPOINTS.employmentResponsibilities),
     updateEmploymentResponsibilities: (params) =>
       HttpClient.post(API_ENDPOINTS.employmentResponsibilities, params),
+    getResumes: () => HttpClient.get(API_ENDPOINTS.allResumes),
+    deleteResume: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteResume, params),
   };
   researchDevelopmentBanner = {
     getResearchDevelopmentBanner: () =>

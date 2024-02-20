@@ -293,6 +293,11 @@ export const SidebarData = [
         subMenuName: "Responsibilities",
         slug: "employment-responsibilities",
       },
+      {
+        id: 3,
+        subMenuName: "Applicants",
+        slug: "employment-applicants",
+      },
     ],
   },
   {
