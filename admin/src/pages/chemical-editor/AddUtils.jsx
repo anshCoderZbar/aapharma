@@ -73,7 +73,7 @@ export default function AddUtils() {
     const pdfUrls = defaultInputs?.map((elm, i) => {
       defaultValues[`heading_${i + 1}`] = elm?.heading;
       defaultValues[`description_${i + 1}`] = elm?.description;
-      defaultValues[`files_${i + 1}`] = elm?.files;
+      defaultValues[`attachments_${i + 1}`] = elm?.files;
       return elm?.files && `${getUtility?.data?.baseUrl}/${elm?.files}`;
     });
     setOnlinePdf(pdfUrls);
@@ -95,6 +95,7 @@ export default function AddUtils() {
     });
 
     await addUtility.mutate(formData);
+    console.log(data);
   };
 
   // const onSubmit = async (data) => {
@@ -170,7 +171,9 @@ export default function AddUtils() {
                         name={`attachments_${index + 1}`}
                         placeholder="attachments"
                         accept="application/pdf"
-                        {...register(`attachments_${index + 1}`)}
+                        {...register(`attachments_${index + 1}`, {
+                          // required: filePreviews,
+                        })}
                         onChange={(e) => handleFileInputChange(e, index)}
                       />
                     </div>
@@ -231,6 +234,10 @@ export default function AddUtils() {
                   </label>
                   <TextEditor
                     control={control}
+                    defaultValue={
+                      getUtility?.data?.data[index] &&
+                      getUtility?.data?.data[index]?.description
+                    }
                     name={`description_${index + 1}`}
                     {...register(`description_${index + 1}`, {
                       required: true,
