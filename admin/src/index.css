@@ -154,3 +154,11 @@ input[type="number"] {
 .ql-editor p {
   color: #000;
 }
+
+.tox-statusbar__branding {
+  display: none !important;
+}
+
+.tox-toolbar__group button[title="Help"] {
+  display: none !important;
+}

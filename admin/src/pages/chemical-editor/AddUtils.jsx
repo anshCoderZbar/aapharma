@@ -19,6 +19,7 @@ export default function AddUtils() {
     reset,
     getValues,
   } = useForm();
+
   const [searchParams] = useSearchParams();
 
   const [inputs, setInputs] = useState([
@@ -29,15 +30,22 @@ export default function AddUtils() {
 
   const [onlinePdf, setOnlinePdf] = useState("");
 
-  const handleFileInputChange = (e, index) => {
-    const file = e.target.files[0];
-    if (file) {
-      const filePreviewUrl = URL.createObjectURL(file);
-      const newPreviews = [...filePreviews];
-      newPreviews[index] = filePreviewUrl;
-      setFilePreviews(newPreviews);
+  const handleFileInputChange = (event, index) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      let reader = new FileReader();
+      reader.onload = function (event) {
+        const selectedFileBase64 = event.target.result.split(",")[1];
+        setFilePreviews((prevFilePreviews) => {
+          const newPreviews = [...prevFilePreviews];
+          newPreviews[index] = selectedFileBase64;
+          return newPreviews;
+        });
+      };
+      reader.readAsDataURL(selectedFile);
     }
   };
+
   const handleAddInputs = (e) => {
     setInputs([...inputs, { heading: "", description: "", files: "" }]);
   };
@@ -70,10 +78,12 @@ export default function AddUtils() {
       })) || [];
 
     defaultInputs.length >= 1 && setInputs(defaultInputs);
+    console.log(defaultInputs);
     const pdfUrls = defaultInputs?.map((elm, i) => {
       defaultValues[`heading_${i + 1}`] = elm?.heading;
       defaultValues[`description_${i + 1}`] = elm?.description;
-      defaultValues[`attachments_${i + 1}`] = elm?.files;
+      // defaultValues[`attachments_${i + 1}`] = elm?.files;
+
       return elm?.files && `${getUtility?.data?.baseUrl}/${elm?.files}`;
     });
     setOnlinePdf(pdfUrls);
@@ -82,7 +92,7 @@ export default function AddUtils() {
 
   const onSubmit = async (data) => {
     const formData = new FormData();
-    formData.append("chemicalId", searchParams.get("id"));
+    // formData.append("chemicalId", searchParams.get("id"));
 
     inputs.forEach((_, index) => {
       const headingKey = `heading_${index + 1}`;
@@ -91,46 +101,24 @@ export default function AddUtils() {
 
       formData.append("heading[]", data[headingKey]);
       formData.append("description[]", data[descriptionKey]);
-      formData.append("image[]", data[attachmentsKey][0]);
+      // formData.append(
+      //   "image[]",
+      //   data[attachmentsKey][0]
+      //     ? data[attachmentsKey][0]
+      //     : data[`attachments_${index + 1}`]
+      // );
     });
 
-    await addUtility.mutate(formData);
+    filePreviews.forEach((elm) => {
+      formData.append("image[]", elm);
+    });
+
     console.log(data);
+    console.log(filePreviews);
+
+    await addUtility.mutate(formData);
+    // console.log(data);
   };
-
-  // const onSubmit = async (data) => {
-  //   const formData = new FormData();
-  //   formData.append("chemicalId", searchParams.get("id"));
-
-  //   inputs.forEach((_, index) => {
-  //     const headingKey = `heading_${index + 1}`;
-  //     const attachmentsKey = `attachments_${index + 1}`;
-  //     const descriptionKey = `description_${index + 1}`;
-
-  //     formData.append("heading[]", data[headingKey]);
-  //     formData.append("description[]", data[descriptionKey]);
-
-  //     const onlinePdfUrl = onlinePdf[index]; // Get online PDF URL for this index
-  //     const file = data[attachmentsKey][0]; // Get newly added file for this index
-
-  //     if (onlinePdfUrl && onlinePdfUrl.length >= 1 && file) {
-  //       // If both online PDF URL and new file exist, send both
-  //       formData.append("imageString[]", onlinePdfUrl);
-  //       formData.append("image[]", file);
-  //     } else if (onlinePdfUrl && onlinePdfUrl.length >= 1) {
-  //       // If only online PDF URL exists, send it
-  //       formData.append("imageString[]", onlinePdfUrl);
-  //     } else if (file) {
-  //       // If only a new file exists, send it
-  //       formData.append("image[]", file);
-  //     } else {
-  //       // If neither online PDF nor a new file exists, append an empty string
-  //       formData.append("image[]", "");
-  //     }
-  //   });
-
-  //   await addUtility.mutate(formData);
-  // };
 
   return (
     <div className="utils_page">
@@ -172,7 +160,7 @@ export default function AddUtils() {
                         placeholder="attachments"
                         accept="application/pdf"
                         {...register(`attachments_${index + 1}`, {
-                          // required: filePreviews,
+                          required: true,
                         })}
                         onChange={(e) => handleFileInputChange(e, index)}
                       />
@@ -186,12 +174,12 @@ export default function AddUtils() {
                             className="pdf_img"
                           />
                           <a
+                            href={`data:application/pdf;base64,${filePreviews[index]}`}
                             target="_blank"
-                            rel="noreferrer"
-                            href={filePreviews[index]}
+                            download={`download_${index + 1}.pdf`}
                             className="view"
                           >
-                            View
+                            Preview
                           </a>
                         </div>
                       )}
