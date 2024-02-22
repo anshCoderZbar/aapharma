@@ -78,14 +78,14 @@ export default function AddUtils() {
       })) || [];
 
     defaultInputs.length >= 1 && setInputs(defaultInputs);
-    console.log(defaultInputs);
     const pdfUrls = defaultInputs?.map((elm, i) => {
       defaultValues[`heading_${i + 1}`] = elm?.heading;
       defaultValues[`description_${i + 1}`] = elm?.description;
-      // defaultValues[`attachments_${i + 1}`] = elm?.files;
+      setFilePreviews((prev) => [...prev, elm?.files]);
 
       return elm?.files && `${getUtility?.data?.baseUrl}/${elm?.files}`;
     });
+
     setOnlinePdf(pdfUrls);
     reset(defaultValues);
   }, [getUtility?.data?.data]);
@@ -101,24 +101,15 @@ export default function AddUtils() {
 
       formData.append("heading[]", data[headingKey]);
       formData.append("description[]", data[descriptionKey]);
-      // formData.append(
-      //   "image[]",
-      //   data[attachmentsKey][0]
-      //     ? data[attachmentsKey][0]
-      //     : data[`attachments_${index + 1}`]
-      // );
     });
 
     filePreviews.forEach((elm) => {
       formData.append("image[]", elm);
     });
 
-    console.log(data);
-    console.log(filePreviews);
-
     await addUtility.mutate(formData);
-    // console.log(data);
   };
+  console.log(filePreviews);
 
   return (
     <div className="utils_page">
@@ -160,10 +151,13 @@ export default function AddUtils() {
                         placeholder="attachments"
                         accept="application/pdf"
                         {...register(`attachments_${index + 1}`, {
-                          required: true,
+                          // required: true,
                         })}
                         onChange={(e) => handleFileInputChange(e, index)}
                       />
+                      {errors[`attachments_${index + 1}`] && (
+                        <p className="errorMessage">Field is required</p>
+                      )}
                     </div>
                     <div className="luxa_x cv-x2">
                       {filePreviews[index] && (
@@ -192,11 +186,11 @@ export default function AddUtils() {
                           />
                           <a
                             target="_blank"
-                            rel="noreferrer"
-                            href={onlinePdf[index]}
+                            href={filePreviews[index]}
+                            download={`download_${index + 1}.pdf`}
                             className="view"
                           >
-                            View
+                            Preview
                           </a>
                         </div>
                       )}

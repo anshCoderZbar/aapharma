@@ -107,17 +107,9 @@ export default function ChemicalPage() {
     {
       name: "Additional Info",
       cell: (row) => (
-        <span
-          onClick={() =>
-            navigate({
-              pathname: "/add-utils",
-              search: `id=${row?.id}`,
-            })
-          }
-          className="utils_btn"
-        >
+        <a href={`/add-utils?id=${row?.id}`} className="utils_btn">
           Additional Info
-        </span>
+        </a>
       ),
     },
 
@@ -129,9 +121,6 @@ export default function ChemicalPage() {
           onClick={() =>
             navigate({
               pathname: `/edit-chemical/${row?.id}`,
-              // search: `main-cat=${row?.catalog?.replaceAll("@@", ",")}
-              // &sub-cat=${row?.catalog2?.replaceAll("@@", ",")}
-              // &super-sub-cat=${row?.catalog3?.replaceAll("@@", ",")}`,
             })
           }
         >

@@ -105,7 +105,7 @@ export const CreateUtility = () => {
       navigate("/product-management");
     },
     onError: (error) => {
-      console.log(error);
+      notify("OOPS! some error occured", "error");
     },
   });
   return utility;
