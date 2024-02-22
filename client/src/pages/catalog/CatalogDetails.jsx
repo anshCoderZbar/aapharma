@@ -148,19 +148,19 @@ export const CatalogDetails = () => {
               })}
             </ul>
             {filteredUtils?.length >= 1 &&
-              filteredUtils?.map((utils) => {
+              filteredUtils?.map((utils, index) => {
                 return (
-                  <div className="description">
+                  <div key={index} className="description">
                     <div
                       className="descripition"
                       dangerouslySetInnerHTML={{ __html: utils?.description }}
                     />
                     <a
                       target="_blank"
-                      rel="noreferrer"
-                      href={`${getUtility?.data?.baseUrl}/${utils?.image}`}
+                      download={`download_${index + 1}.pdf`}
+                      href={`data:application/pdf;base64,${utils?.image}`}
                     >
-                      View
+                      Preview
                     </a>
                   </div>
                 );

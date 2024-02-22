@@ -81,6 +81,7 @@ export default function AddUtils() {
     const pdfUrls = defaultInputs?.map((elm, i) => {
       defaultValues[`heading_${i + 1}`] = elm?.heading;
       defaultValues[`description_${i + 1}`] = elm?.description;
+      // defaultValues[`attachments_${i + 1}`] = elm?.files;
       setFilePreviews((prev) => [...prev, elm?.files]);
 
       return elm?.files && `${getUtility?.data?.baseUrl}/${elm?.files}`;
@@ -96,7 +97,7 @@ export default function AddUtils() {
 
     inputs.forEach((_, index) => {
       const headingKey = `heading_${index + 1}`;
-      const attachmentsKey = `attachments_${index + 1}`;
+      // const attachmentsKey = `attachments_${index + 1}`;
       const descriptionKey = `description_${index + 1}`;
 
       formData.append("heading[]", data[headingKey]);
