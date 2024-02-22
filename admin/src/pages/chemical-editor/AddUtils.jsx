@@ -196,14 +196,16 @@ export default function AddUtils() {
                       )}
                     </div>
                     <div className="luxa_x cv-x2">
-                      <div
-                        onClick={() => handleDeleteInput(index)}
-                        className="d-flex justify-content-end"
-                      >
-                        <span className="btn btn-danger">
-                          <X />
-                        </span>
-                      </div>
+                      {inputs?.length > 1 && (
+                        <div
+                          onClick={() => handleDeleteInput(index)}
+                          className="d-flex justify-content-end"
+                        >
+                          <span className="btn btn-danger">
+                            <X />
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
