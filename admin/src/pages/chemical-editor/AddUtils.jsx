@@ -46,7 +46,7 @@ export default function AddUtils() {
     }
   };
 
-  const handleAddInputs = (e) => {
+  const handleAddInputs = () => {
     setInputs([...inputs, { heading: "", description: "", files: "" }]);
   };
 
@@ -92,7 +92,7 @@ export default function AddUtils() {
 
   const onSubmit = async (data) => {
     const formData = new FormData();
-    // formData.append("chemicalId", searchParams.get("id"));
+    formData.append("chemicalId", searchParams.get("id"));
 
     inputs.forEach((_, index) => {
       const headingKey = `heading_${index + 1}`;

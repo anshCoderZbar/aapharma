@@ -1224,6 +1224,10 @@
     line-height: 24px !important;
   }
 
+  .operat_banner h1 {
+    line-height: 36px !important;
+  }
+
   .operating_content p {
     margin: 20px auto 30px auto;
     font-size: 15px;
