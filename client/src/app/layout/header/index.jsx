@@ -160,7 +160,8 @@ export const Header = () => {
                                 transform:
                                   i === selected && open
                                     ? "rotate(180deg)"
-                                    : "rotate(0)",
+                                    : "rotate(0) h-0",
+
                                 transition: "0.5s ease-in-out",
                               }}
                             />
@@ -219,14 +220,7 @@ export const Header = () => {
                                         data?.id === 5 ? "" : "m_xLx"
                                       }`}
                                     >
-                                      <Link
-                                        onClick={() => {
-                                          // setActive(false);
-                                        }}
-                                        // to={menu?.slug}
-                                      >
-                                        {menu?.heading}
-                                      </Link>
+                                      <Link>{menu?.heading}</Link>
                                       {subCategory?.data?.data?.length >= 1 && (
                                         <ul
                                           className="acc_types accordion accordion-flush"

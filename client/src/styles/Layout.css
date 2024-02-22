@@ -792,15 +792,14 @@
     box-shadow: none;
     height: 0;
     visibility: visible;
-    transition: 0.5s;
   }
 
   .dropdown__list--active {
     opacity: 1;
     visibility: visible;
     pointer-events: all;
-    height: auto;
-    transition: 0.5s;
+    height: 100%;
+    transition: height 0.5s ease-in-out;
   }
 
   .dropdown__list-item {
@@ -831,6 +830,14 @@
     margin: 0 auto;
     margin-top: 27px;
     display: block;
+  }
+
+  .nav-right > ul li a {
+    display: block;
+  }
+
+  .nav-right-li span svg {
+    color: #fff;
   }
 
   .hamburgur {
