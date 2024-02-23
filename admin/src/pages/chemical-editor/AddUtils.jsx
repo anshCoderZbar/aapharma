@@ -152,7 +152,7 @@ export default function AddUtils() {
                         placeholder="attachments"
                         accept="application/pdf"
                         {...register(`attachments_${index + 1}`, {
-                          required: !filePreviews[index],
+                          // required: !filePreviews[index],
                         })}
                         onChange={(e) => handleFileInputChange(e, index)}
                       />
