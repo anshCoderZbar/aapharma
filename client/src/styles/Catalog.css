@@ -506,21 +506,29 @@ h6 {
 /* catalog detail page */
 
 .catalog_single_banner {
-  min-height: 600px;
+  /* min-height: 600px; */
   position: relative;
-  background-color: #2a3072;
+  background-color: #fff;
   padding-bottom: 90px;
+}
+
+.catalog_banner_content {
+  position: relative;
+  z-index: 2;
 }
 
 .catalog_single_banner::after {
   content: "";
-  background-color: #fff;
+  background-color: #2a3072;
   position: absolute;
-  height: 63%;
+  height: 270px;
+  /* height: calc(100% - 34%); */
+  /* height: calc(100% - 82%); */
   width: 100%;
   left: 0;
   right: 0;
   bottom: 0;
+  top: 0;
   z-index: 1;
 }
 
@@ -587,6 +595,8 @@ h6 {
 .catalog_details_list ul li {
   display: flex;
   justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid #66666615;
 }
 
 .catalog_details_list ul li .detail_type_1,
@@ -749,6 +759,16 @@ h6 {
 
 .filter_btn_nkjh:hover {
   background: #34caff;
+}
+
+.detail_type {
+  flex: 0 45%;
+}
+
+.detail_desc {
+  flex: 0 50%;
+  text-align: right;
+  font-weight: 600;
 }
 
 /* responsive */
