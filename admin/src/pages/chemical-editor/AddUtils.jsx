@@ -23,12 +23,10 @@ export default function AddUtils() {
   const [searchParams] = useSearchParams();
 
   const [inputs, setInputs] = useState([
-    { sortNo: "", heading: "", description: "", files: "" },
+    { heading: "", description: "", files: "" },
   ]);
 
   const [filePreviews, setFilePreviews] = useState([]);
-
-  // const [onlinePdf, setOnlinePdf] = useState("");
 
   const handleFileInputChange = (event, index) => {
     const selectedFile = event.target.files[0];
@@ -102,15 +100,16 @@ export default function AddUtils() {
 
       formData.append("heading[]", data[headingKey]);
       formData.append("description[]", data[descriptionKey]);
+      formData.append("image[]", filePreviews[index]);
     });
 
-    filePreviews.forEach((elm) => {
-      formData.append("image[]", elm);
-    });
+    // inputs.forEach((elm) => {
+    //   console.log(elm);
+    // });
 
     await addUtility.mutate(formData);
+    // console.log(filePreviews);
   };
-  console.log(filePreviews);
 
   return (
     <div className="utils_page">
@@ -161,40 +160,42 @@ export default function AddUtils() {
                       )}
                     </div>
                     <div className="luxa_x cv-x2">
-                      {filePreviews[index] && (
-                        <div className="mt-2">
-                          <img
-                            src={require("assets/pdf.png")}
-                            alt="File Preview"
-                            className="pdf_img"
-                          />
-                          <a
-                            href={`data:application/pdf;base64,${filePreviews[index]}`}
-                            target="_blank"
-                            download={`download_${index + 1}.pdf`}
-                            className="view"
-                          >
-                            Preview
-                          </a>
-                        </div>
-                      )}
-                      {!filePreviews[index] && (
-                        <div className="mt-2">
-                          <img
-                            src={require("assets/pdf.png")}
-                            alt="File Preview"
-                            className="pdf_img"
-                          />
-                          <a
-                            target="_blank"
-                            href={filePreviews[index]}
-                            download={`download_${index + 1}.pdf`}
-                            className="view"
-                          >
-                            Preview
-                          </a>
-                        </div>
-                      )}
+                      {filePreviews[index] !== "undefined" &&
+                        filePreviews[index] && (
+                          <div className="mt-2">
+                            <img
+                              src={require("assets/pdf.png")}
+                              alt="File Preview"
+                              className="pdf_img"
+                            />
+                            <a
+                              href={`data:application/pdf;base64,${filePreviews[index]}`}
+                              target="_blank"
+                              download={`download_${index + 1}.pdf`}
+                              className="view"
+                            >
+                              Preview
+                            </a>
+                          </div>
+                        )}
+                      {/* {filePreviews[index] !== undefined &&
+                        !filePreviews[index] && (
+                          <div className="mt-2">
+                            <img
+                              src={require("assets/pdf.png")}
+                              alt="File Preview"
+                              className="pdf_img"
+                            />
+                            <a
+                              target="_blank"
+                              href={filePreviews[index]}
+                              download={`download_${index + 1}.pdf`}
+                              className="view"
+                            >
+                              Preview
+                            </a>
+                          </div>
+                        )} */}
                     </div>
                     <div className="luxa_x cv-x2">
                       {inputs?.length > 1 && (

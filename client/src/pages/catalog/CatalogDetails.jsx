@@ -155,13 +155,15 @@ export const CatalogDetails = () => {
                       className="descripition"
                       dangerouslySetInnerHTML={{ __html: utils?.description }}
                     />
-                    <a
-                      target="_blank"
-                      download={`download_${index + 1}.pdf`}
-                      href={`data:application/pdf;base64,${utils?.image}`}
-                    >
-                      Preview
-                    </a>
+                    {utils?.image !== "undefined" && (
+                      <a
+                        target="_blank"
+                        download={`download_${index + 1}.pdf`}
+                        href={`data:application/pdf;base64,${utils?.image}`}
+                      >
+                        Download
+                      </a>
+                    )}
                   </div>
                 );
               })}
