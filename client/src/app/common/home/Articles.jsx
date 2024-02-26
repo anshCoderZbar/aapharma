@@ -25,11 +25,12 @@ export const Articles = () => {
                     <div className="articles_content">
                       <h3>{article?.heading}</h3>
                       <div
+                        className="art_csa"
                         dangerouslySetInnerHTML={{
-                          __html:
-                            article?.description?.length >= 1100
-                              ? article?.description?.slice(0, 1100) + "..."
-                              : article?.description,
+                          __html: article?.description,
+                          // article?.description?.length >= 1100
+                          //   ? article?.description?.slice(0, 1100) + "..."
+                          //   : article?.description,
                         }}
                       />
                       <button className="primary_btn_outline d-flex">

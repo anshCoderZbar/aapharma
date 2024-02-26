@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { ChevronDown, ChevronUp, X } from "lucide-react";
+import { ChevronDown, Minus, Plus, X } from "lucide-react";
 
 import {
   CatalogCategory1,
@@ -135,9 +135,9 @@ export const CatalogSearchBar = ({ catalogId, setCatalogId }) => {
                               >
                                 {accordionActive === level2?.id &&
                                 showAccordion ? (
-                                  <ChevronDown />
+                                  <Minus />
                                 ) : (
-                                  <ChevronUp />
+                                  <Plus />
                                 )}
                               </div>
                             )}
@@ -190,7 +190,7 @@ export const CatalogSearchBar = ({ catalogId, setCatalogId }) => {
         })}
       {catalogId.subCategoryId.length > 0 ||
       catalogId.supersubcategoryId.length > 0 ? (
-        <button onClick={filterByCategory} className="filter_btn">
+        <button onClick={filterByCategory} className="filter_btn_nkjh">
           Apply
         </button>
       ) : null}

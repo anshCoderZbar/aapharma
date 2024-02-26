@@ -622,7 +622,7 @@ export const ChemicalForm = ({
                           Price
                         </label>
                         <FormInput
-                          type="number"
+                          type="text"
                           placeholder="price"
                           name={`price_${index + 1}`}
                           {...register(`price_${index + 1}`, {

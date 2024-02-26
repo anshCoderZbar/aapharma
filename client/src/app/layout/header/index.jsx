@@ -156,14 +156,14 @@ export const Header = () => {
                           <span style={{ cursor: "pointer" }}>
                             <ChevronDown
                               onClick={() => handleMenuClick(i)}
-                              style={{
-                                transform:
-                                  i === selected && open
-                                    ? "rotate(180deg)"
-                                    : "rotate(0) h-0",
+                              // style={{
+                              //   transform:
+                              //     i === selected
+                              //       ? "rotate(180deg)"
+                              //       : "rotate(0) h-0",
 
-                                transition: "0.5s ease-in-out",
-                              }}
+                              //   transition: "0.5s ease-in-out",
+                              // }}
                             />
                           </span>
                         )}

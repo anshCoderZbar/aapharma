@@ -40,7 +40,7 @@
   gap: 22px;
   flex-wrap: wrap;
   margin-bottom: 70px;
-  margin-top: 45px;
+  margin-top: 90px;
 }
 
 .clients_logos img {
@@ -63,7 +63,7 @@
   margin: 0 auto;
   cursor: grab;
   background-color: #fff;
-  padding-bottom: 64px;
+  padding-bottom: 170px;
 }
 
 .client_reviews p {
@@ -355,7 +355,7 @@
   }
 
   .clients_details {
-    margin-top: 40px;
+    margin-top: 80px;
     margin-bottom: 60px;
   }
 
@@ -484,7 +484,7 @@
   }
 
   .clients_details {
-    margin-top: 35px;
+    margin-top: 70px;
     margin-bottom: 51px;
   }
 
@@ -523,7 +523,7 @@
   }
 
   .clients_details {
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 42px;
   }
 
@@ -583,7 +583,7 @@
   }
 
   .clients_details {
-    margin-top: 25px;
+    margin-top: 40px;
     margin-bottom: 35px;
   }
 
@@ -670,7 +670,7 @@
   }
 
   .clients_details {
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 25px;
   }
 

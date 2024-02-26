@@ -191,8 +191,9 @@
   display: flex;
   justify-content: space-between;
   line-height: 34px;
-  gap: 14px;
+  gap: 10px;
   flex-wrap: wrap;
+  border-bottom: 1px solid #66666615;
 }
 
 .compount_img_details ul li .detail_type,
@@ -203,6 +204,7 @@
   font-weight: 400;
   margin-bottom: 0;
   word-break: break-all;
+  flex: 0 40%;
 }
 
 .compount_img_details ul li .detail_desc {
@@ -371,6 +373,7 @@
   width: 100%;
   height: auto;
   align-items: center;
+  margin-top: 14px;
 }
 
 .oPc {
@@ -384,7 +387,7 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 29px;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
   word-wrap: break-word;
 }
 
@@ -407,6 +410,8 @@ h6 {
 
 .mix-xxx {
   min-height: 403px;
+  max-height: 403px;
+  overflow: hidden;
 }
 
 .catalog_card_price {
@@ -733,7 +738,7 @@ h6 {
   transition: 0.3s;
 }
 
-.filter_btn {
+.filter_btn_nkjh {
   background: #2a3072;
   color: #fff;
   padding: 10px 15px;
@@ -742,7 +747,7 @@ h6 {
   transition: 0.5s ease-in-out;
 }
 
-.filter_btn:hover {
+.filter_btn_nkjh:hover {
   background: #34caff;
 }
 

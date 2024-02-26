@@ -28,7 +28,7 @@ export default function AddUtils() {
 
   const [filePreviews, setFilePreviews] = useState([]);
 
-  const [onlinePdf, setOnlinePdf] = useState("");
+  // const [onlinePdf, setOnlinePdf] = useState("");
 
   const handleFileInputChange = (event, index) => {
     const selectedFile = event.target.files[0];
@@ -87,7 +87,7 @@ export default function AddUtils() {
       return elm?.files && `${getUtility?.data?.baseUrl}/${elm?.files}`;
     });
 
-    setOnlinePdf(pdfUrls);
+    // setOnlinePdf(pdfUrls);
     reset(defaultValues);
   }, [getUtility?.data?.data]);
 
@@ -178,7 +178,7 @@ export default function AddUtils() {
                           </a>
                         </div>
                       )}
-                      {!filePreviews[index] && onlinePdf?.length >= 1 && (
+                      {!filePreviews[index] && (
                         <div className="mt-2">
                           <img
                             src={require("assets/pdf.png")}

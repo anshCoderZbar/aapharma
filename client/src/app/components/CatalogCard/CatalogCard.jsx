@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import inStock from "assets/bag-tick.png";
 import outStock from "assets/bag-cross.png";
 import { AddtoCart } from "../Ui/AddtoCart ";
-import { stripHtmlTags } from "lib/utils/functions";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { cleanText } from "lib/utils/functions";
+import { Minus, Plus } from "lucide-react";
 
 export const CatalogCard = ({ baseUrl, compounts }) => {
+  console.log(compounts?.description);
+
   const [price, setPrice] = useState("");
   const [compoundDesc, setCompoundDesc] = useState("");
 
@@ -46,16 +48,16 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                                     className="detail_desc"
                                     dangerouslySetInnerHTML={{
                                       __html:
-                                        stripHtmlTags(details?.description)
+                                        cleanText(details?.description)
                                           ?.length >= 16
-                                          ? stripHtmlTags(
+                                          ? cleanText(
                                               details?.description
                                             )?.slice(0, 14)
-                                          : stripHtmlTags(details?.description),
+                                          : details?.description,
                                     }}
                                   />
-                                  {stripHtmlTags(details?.description)
-                                    ?.length >= 16 && (
+                                  {cleanText(details?.description)?.length >=
+                                    16 && (
                                     <div
                                       onClick={() =>
                                         setCompoundDesc(
@@ -67,9 +69,9 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                                       className="show_toggle_detail"
                                     >
                                       {compoundDesc === details?.description ? (
-                                        <ChevronUp />
+                                        <Minus />
                                       ) : (
-                                        <ChevronDown />
+                                        <Plus />
                                       )}
                                     </div>
                                   )}
@@ -98,10 +100,7 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                 <p
                   className="mt-0"
                   dangerouslySetInnerHTML={{
-                    __html:
-                      compounts?.description?.length >= 730
-                        ? compounts?.description?.slice(0, 730) + "..."
-                        : compounts?.description,
+                    __html: compounts?.description,
                   }}
                 />
               </div>

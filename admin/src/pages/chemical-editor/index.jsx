@@ -86,22 +86,21 @@ export default function ChemicalPage() {
     },
     {
       name: "Dublicate",
-      cell: (row) =>
-        row?.duplicateable === "true" && (
-          <div
-            onClick={() => {
-              dublicateChemical(row?.id);
-              setId(row?.id);
-            }}
-            className="cursor_pointer"
-          >
-            {createDublicateChemical?.isPending && row?.id === id ? (
-              <ButtonLoader />
-            ) : (
-              <Copy />
-            )}
-          </div>
-        ),
+      cell: (row) => (
+        <div
+          onClick={() => {
+            dublicateChemical(row?.id);
+            setId(row?.id);
+          }}
+          className="cursor_pointer"
+        >
+          {createDublicateChemical?.isPending && row?.id === id ? (
+            <ButtonLoader />
+          ) : (
+            <Copy />
+          )}
+        </div>
+      ),
     },
 
     {

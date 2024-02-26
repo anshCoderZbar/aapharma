@@ -1,3 +1,3 @@
-export function stripHtmlTags(html) {
-  return html.replace(/<[^>]*>?/gm, "");
+export function cleanText(html) {
+  return html.replace(/<[^>]*>|&[^;]+;/gm, "");
 }

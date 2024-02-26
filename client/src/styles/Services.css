@@ -533,7 +533,7 @@
   border-radius: 40px;
   background: #f7f7f7;
   padding: 67px 64px;
-  margin-bottom: 45px;
+  margin-bottom: 90px;
 }
 
 .chemical_synthesis_card {
@@ -1310,7 +1310,7 @@
   border: 0;
 }
 
-.table>thead {
+.table > thead {
   vertical-align: middle;
 }
 
@@ -1318,7 +1318,7 @@
   text-align: center;
 }
 
-.table-striped>tbody>tr:nth-of-type(odd)>* {
+.table-striped > tbody > tr:nth-of-type(odd) > * {
   background-color: #efefef;
 }
 
@@ -1621,8 +1621,7 @@
 
   .chemical_top_sec {
     padding: 60px 57px;
-    margin-bottom: 40px;
-
+    margin-bottom: 80px;
   }
 
   .chemical_synthesis_card {
@@ -1873,7 +1872,7 @@
 
   .chemical_top_sec {
     padding: 47px 36px;
-    margin-bottom: 35px;
+    margin-bottom: 65px;
   }
 
   .chemical_synthesis_card {
@@ -2146,7 +2145,7 @@
 
   .chemical_top_sec {
     padding: 36px 26px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   .chemical_synthesis_card {
@@ -2576,7 +2575,7 @@
 
   .chemical_top_sec {
     padding: 29px 21px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
   }
 
   .card_inner_body {
@@ -2849,7 +2848,6 @@
     padding: 20px 16px;
     border-radius: 20px;
     margin-bottom: 20px;
-
   }
 
   .custom_page_banner {
