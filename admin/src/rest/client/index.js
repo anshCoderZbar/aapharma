@@ -277,6 +277,14 @@ class Client {
     createResearchDevelopmentSort: (params) =>
       HttpClient.post(API_ENDPOINTS.researchDevelopmentSort, params),
   };
+  chemistryExpertise = {
+    getChemistryExpertiseBanner: () =>
+      HttpClient.get(API_ENDPOINTS.chemistryExpertiseBanner),
+    createChemistryExpertiseBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.chemistryExpertiseBanner, params),
+    getAllChemistryTabs: () =>
+      HttpClient.get(API_ENDPOINTS.getAllChemistryTabs),
+  };
 }
 
 const client = new Client();

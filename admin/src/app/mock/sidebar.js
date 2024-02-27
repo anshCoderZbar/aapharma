@@ -3,6 +3,7 @@ import {
   Castle,
   DownloadCloud,
   FlaskConical,
+  FlaskConicalOff,
   Image,
   ImagePlus,
   Info,
@@ -320,6 +321,24 @@ export const SidebarData = [
         id: 3,
         subMenuName: "Modification",
         slug: "research-modification",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Chemistry Expertise",
+    slug: "#",
+    icon: <FlaskConicalOff />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "chemistry-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Tabs",
+        slug: "chemistry-tabs",
       },
     ],
   },

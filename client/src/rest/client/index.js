@@ -89,6 +89,10 @@ class Client {
     getCaseStudyDiagramData: () =>
       HttpClient.get(API_ENDPOINTS.getCaseStudyDiagramData),
   };
+  capabilities = {
+    getChemistryExpertiseBanner: () =>
+      HttpClient.get(API_ENDPOINTS.chemistryExpertiseBanner),
+  };
 }
 
 const client = new Client();

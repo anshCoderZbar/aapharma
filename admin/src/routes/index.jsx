@@ -80,6 +80,8 @@ import ResearchBannerPage from "pages/research-and-development/ResearchBanner";
 import ResearchSort from "pages/research-and-development/ResearchSort";
 import ResearchModification from "pages/research-and-development/ResearchModification";
 import ResourcesOverview from "pages/resources/ResourcesOverview";
+import ChemistryBanner from "pages/chemistry-expertise/ChemistryBanner";
+import ChemistryTabs from "pages/chemistry-expertise/ChemistryTabs";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -652,6 +654,22 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ResourcesOverview />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/chemistry-banner",
+      element: (
+        <PrivateRoutes>
+          <ChemistryBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/chemistry-tabs",
+      element: (
+        <PrivateRoutes>
+          <ChemistryTabs />
         </PrivateRoutes>
       ),
     },

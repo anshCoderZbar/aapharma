@@ -3,15 +3,25 @@ import React from "react";
 import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Capabilities.css";
+import { GetChemistryBannerMutation } from "rest/capabilities";
 
 export default function ChemistryExpertise() {
+  const getBanner = GetChemistryBannerMutation();
   return (
     <div className="chemistry_expertise_page">
       <Banner
-        heading="Chemistry Expertise"
-        description="AAPharmaSyn has synthesized many complex and pharmaceutically important classes of compounds. A brief review of our work and accompanying IP is presented below."
+        heading={
+          getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
+        }
+        description={
+          getBanner?.data?.data?.description &&
+          getBanner?.data?.data?.description
+        }
         extra="chemistry_banner"
-        background={`url(${require("assets/page-banners/chemistry_expertise_banner.jpg")})`}
+        background={`url(${
+          getBanner?.data?.data?.image &&
+          getBanner?.data?.data?.image
+        })`}
       />
       <div className="experties_section">
         <div className="container-fluid">

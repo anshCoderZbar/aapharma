@@ -123,4 +123,10 @@ export const API_ENDPOINTS = {
   researchDevelopmentSort: "/researchdevelopmentsecond",
   allResumes: "/resume",
   deleteResume: "/resume/delete",
+  chemistryExpertiseBanner: "/chemistryexpertisebanner",
+  getAllChemistryTabs: "/chemistryexpertise/all",
+  singleChemistryTabs: "/chemistryexpertise/one",
+  createChemistryTabs: "/chemistryexpertise/new",
+  updateChemistryTabs: "/chemistryexpertise/update",
+  deleteChemistryTabs: "/chemistryexpertise/delete",
 };

@@ -47,4 +47,5 @@ export const API_ENDPOINTS = {
   researchDevelopmentBanner: "/researchdevelopmentbanner",
   researchDevelopmentSort: "/researchdevelopmentsecond",
   resume: "/resume",
+  chemistryExpertiseBanner: "/chemistryexpertisebanner",
 };
