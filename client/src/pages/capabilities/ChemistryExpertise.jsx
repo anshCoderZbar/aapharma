@@ -46,7 +46,14 @@ export default function ChemistryExpertise() {
                   {getTabs?.data?.data?.length >= 1 &&
                     getTabs?.data?.data?.map((data, i) => {
                       return (
-                        <div key={i} className="filter_btn">
+                        <div
+                          key={i}
+                          className={`filter_btn ${
+                            tabsData?.id === data?.id
+                              ? "filter_btn_active_bss"
+                              : ""
+                          }`}
+                        >
                           <button onClick={() => setTabsData(data)}>
                             {data?.heading?.length > 25
                               ? `${data?.heading.slice(0, 25)}...`
