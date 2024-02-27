@@ -166,14 +166,30 @@
   flex-wrap: wrap;
 }
 
-.experties_conent_btns button {
-  border-radius: 20px;
-  color: #000;
+.expertinesa_inner_content p:has(> button) {
+  display: inline-flex;
+  margin-right: 8px;
 }
 
-.experties_conent_btns button:hover {
+.expertinesa_inner_content button {
+  border-radius: 20px;
+  color: #000;
+  background: transparent;
+  border: 1px solid #34caff;
+  color: #34caff;
+  padding: 12px 25px;
+  border-radius: 14px;
+  font-size: 17px;
+  font-family: "Product Sans";
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.expertinesa_inner_content button:hover {
   padding-right: 25px !important;
   color: #fff !important;
+  background-color: #34caff;
 }
 
 /* width */

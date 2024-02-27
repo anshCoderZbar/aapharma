@@ -19,6 +19,15 @@ export const TextEditor = React.forwardRef((props, ref) => {
             initialValue={props?.defaultValue || ""}
             apiKey="9nf1nllqu574cxdfqfe5sdah93bhag187zqn4gkbmmw5rfop"
             init={{
+              setup: function (editor) {
+                editor.ui.registry.addButton("customInsertButton", {
+                  text: "Button",
+                  onAction: function (_) {
+                    editor.insertContent("<button>Edit Text</button>");
+                  },
+                });
+              },
+
               initialValue: props?.defaultValue || "",
               height: 500,
               menubar: true,
@@ -46,7 +55,7 @@ export const TextEditor = React.forwardRef((props, ref) => {
                 "anchor",
               ],
               toolbar:
-                "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
+                "undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | link image | removeformat | customInsertButton | help",
               file_picker_callback: function (cb, value, meta) {
                 var input = document.createElement("input");
                 input.setAttribute("type", "file");
