@@ -129,7 +129,7 @@
 }
 
 .expertinesa_inner_content {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   gap: 30px;
   margin-top: 40px;

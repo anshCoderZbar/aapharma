@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { PageWrapper } from "components/ui/PageWrapper";
+import { Button } from "components/ui/Button";
 
 import DataTableExtensions from "react-data-table-component-extensions";
 import DataTable from "react-data-table-component";
@@ -12,12 +13,24 @@ import "styles/main.css";
 import "react-data-table-component-extensions/dist/index.css";
 
 import { GetChemistryTabsMutation } from "rest/chemicalExperties";
+import { DeleteChemistryTabsMutation } from "rest/chemicalExperties";
+import { ButtonLoader } from "components/Loader/ButtonLoader";
+import { ComponentLoader } from "components/Loader/ComponentLoader";
+import { InfoComponent } from "components/Alerts/Info";
+import { ErrorComponent } from "components/Alerts/Error";
 
 export default function ChemistryTabs() {
   const navigate = useNavigate();
 
   const getAllTabs = GetChemistryTabsMutation();
-  console.log(getAllTabs?.data?.data);
+  const deleteTabs = DeleteChemistryTabsMutation();
+  const [id, setId] = useState("");
+
+  const handleDelete = (id) => {
+    const formData = new FormData();
+    formData.append("id", id);
+    deleteTabs.mutate(formData);
+  };
 
   const chemistryTab = [
     {
@@ -26,7 +39,7 @@ export default function ChemistryTabs() {
     },
     {
       name: "Heading",
-      selector: (row) => row.title,
+      selector: (row) => row.heading,
     },
     {
       name: "description",
@@ -47,7 +60,7 @@ export default function ChemistryTabs() {
       cell: (row) => (
         <span
           className="editbtn"
-          onClick={() => navigate(`/edit-operating-diagram/${row?.id}`)}
+          onClick={() => navigate(`/edit-chemistry-tabs/${row?.id}`)}
         >
           <Edit2 row={row} />
         </span>
@@ -57,11 +70,20 @@ export default function ChemistryTabs() {
     },
     {
       name: "Delete",
-      cell: (row) => (
-        <span className="deletebtn">
-          <Trash row={row} />
-        </span>
-      ),
+      cell: (row) =>
+        row?.id === id && deleteTabs?.isPending ? (
+          <ButtonLoader />
+        ) : (
+          <span
+            onClick={() => {
+              handleDelete(row?.id);
+              setId(row?.id);
+            }}
+            className="deletebtn"
+          >
+            <Trash row={row} />
+          </span>
+        ),
       button: true.toString(),
       style: {},
     },
@@ -70,21 +92,39 @@ export default function ChemistryTabs() {
   return (
     <div className="chemistry_page">
       <PageWrapper slug="chemistry-tabs" name="Chemistry Tabs" />
-      <div className="d-flex justify-content-end mb-4 add_catalog_btn ">
-        <Button onClick={() => navigate("/home-add-article")}>Add Tabs</Button>
-      </div>
-      <DataTableExtensions
-        columns={chemistryTab}
-        data={getAllTabs?.data?.data}
-        filterPlaceholder="Search"
-      >
-        <DataTable
-          pagination
-          paginationPerPage={10}
-          striped
-          customStyles={tableCustomStyles}
-        />
-      </DataTableExtensions>
+
+      {getAllTabs?.isPending ? (
+        <ComponentLoader />
+      ) : (
+        <>
+          <div className="d-flex justify-content-end mb-4 add_catalog_btn ">
+            <Button onClick={() => navigate("/add-chemistry-tabs")}>
+              Add Tabs
+            </Button>
+          </div>
+
+          {getAllTabs?.data?.data?.length >= 1 && (
+            <DataTableExtensions
+              columns={chemistryTab}
+              data={getAllTabs?.data?.data}
+              filterPlaceholder="Search"
+            >
+              <DataTable
+                pagination
+                paginationPerPage={10}
+                striped
+                customStyles={tableCustomStyles}
+              />
+            </DataTableExtensions>
+          )}
+        </>
+      )}
+      {getAllTabs?.isError && (
+        <ErrorComponent message="OOPS ! something went wrong please try again later" />
+      )}
+      {getAllTabs?.data?.data?.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
     </div>
   );
 }

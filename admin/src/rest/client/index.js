@@ -284,6 +284,14 @@ class Client {
       HttpClient.post(API_ENDPOINTS.chemistryExpertiseBanner, params),
     getAllChemistryTabs: () =>
       HttpClient.get(API_ENDPOINTS.getAllChemistryTabs),
+    singleChemistryTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleChemistryTabs, params),
+    createChemistryTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.createChemistryTabs, params),
+    updateChemistryTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateChemistryTabs, params),
+    deleteChemistryTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteChemistryTabs, params),
   };
 }
 

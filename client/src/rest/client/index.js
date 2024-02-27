@@ -92,6 +92,8 @@ class Client {
   capabilities = {
     getChemistryExpertiseBanner: () =>
       HttpClient.get(API_ENDPOINTS.chemistryExpertiseBanner),
+    getAllChemistryTabs: () =>
+      HttpClient.get(API_ENDPOINTS.getAllChemistryTabs),
   };
 }
 

@@ -82,6 +82,8 @@ import ResearchModification from "pages/research-and-development/ResearchModific
 import ResourcesOverview from "pages/resources/ResourcesOverview";
 import ChemistryBanner from "pages/chemistry-expertise/ChemistryBanner";
 import ChemistryTabs from "pages/chemistry-expertise/ChemistryTabs";
+import AddChemistryTabs from "pages/chemistry-expertise/AddChemistryTabs";
+import EditChemistryTabs from "pages/chemistry-expertise/EditChemistryTabs";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -670,6 +672,22 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ChemistryTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-chemistry-tabs",
+      element: (
+        <PrivateRoutes>
+          <AddChemistryTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-chemistry-tabs/:id",
+      element: (
+        <PrivateRoutes>
+          <EditChemistryTabs />
         </PrivateRoutes>
       ),
     },
