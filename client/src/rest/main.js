@@ -18,20 +18,18 @@ export const MasterCategory = () => {
   return getCatalogCategory1;
 };
 
-export const SubCategory = (id) => {
+export const SubCategory = () => {
   const getCatalogCategory2 = useQuery({
     queryKey: ["sub-category-header"],
     queryFn: () => client.catalog.catalogCategory2(),
-    enabled: id?.length >= 1,
   });
   return getCatalogCategory2;
 };
 
-export const SubChildCategory = (id) => {
+export const SubChildCategory = () => {
   const getCatalogCategory3 = useQuery({
     queryKey: ["sub-child-category-header"],
     queryFn: () => client.catalog.catalogCategory3(),
-    enabled: id?.length >= 1,
   });
   return getCatalogCategory3;
 };

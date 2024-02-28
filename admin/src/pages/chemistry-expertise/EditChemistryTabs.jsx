@@ -60,7 +60,6 @@ export default function EditChemistryTabs() {
             errors={errors}
             defaultValue={singleTab?.data?.data?.description}
             isLoading={editTabs?.isPending}
-            reset={reset}
           />
         </div>
       )}

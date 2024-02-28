@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { ChevronDown, Minus, Plus, X } from "lucide-react";
+import { ChevronDown, Minus, Plus } from "lucide-react";
 
 import {
   CatalogCategory1,

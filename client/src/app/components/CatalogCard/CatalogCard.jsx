@@ -8,8 +8,6 @@ import { cleanText } from "lib/utils/functions";
 import { Minus, Plus } from "lucide-react";
 
 export const CatalogCard = ({ baseUrl, compounts }) => {
-  console.log(compounts?.description);
-
   const [price, setPrice] = useState("");
   const [compoundDesc, setCompoundDesc] = useState("");
 

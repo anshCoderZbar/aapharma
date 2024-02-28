@@ -184,13 +184,15 @@
   visibility: hidden;
   pointer-events: none;
   box-shadow: 17px 4px 40px 0px rgba(30, 30, 30, 0.2);
-  transition: 0.5s ease-out;
+  height: 0px;
 }
 
 .dropdown__list--active {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
+  height: 100%;
+  transition: 0.5s ease-out;
 }
 
 .dropdown__list-item {
@@ -790,8 +792,10 @@
     border-radius: 0;
     background-color: transparent;
     box-shadow: none;
-    height: 0;
+    height: 0px;
     visibility: visible;
+    opacity: 0;
+    overflow: hidden;
   }
 
   .dropdown__list--active {
@@ -799,7 +803,8 @@
     visibility: visible;
     pointer-events: all;
     height: 100%;
-    transition: height 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    overflow: auto;
   }
 
   .dropdown__list-item {

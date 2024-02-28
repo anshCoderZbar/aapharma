@@ -66,19 +66,18 @@ export default function ChemistryExpertise() {
               </div>
             </div>
             <div className="col-lg-9">
-              {
-                <div className="experties_filter_cover filte_cont">
-                  <div className="experties_content experties_filter_scroll">
-                    <p className="exterties_btn_head">
-                      {tabsData?.heading && tabsData?.heading}
-                    </p>
-                    <div
-                      className="expertinesa_inner_content"
-                      dangerouslySetInnerHTML={{
-                        __html: tabsData?.description && tabsData?.description,
-                      }}
-                    />
-                    {/* <div className="experties_filter_content">
+              <div className="experties_filter_cover filte_cont">
+                <div className="experties_content experties_filter_scroll">
+                  <p className="exterties_btn_head">
+                    {tabsData?.heading && tabsData?.heading}
+                  </p>
+                  <div
+                    className="expertinesa_inner_content"
+                    dangerouslySetInnerHTML={{
+                      __html: tabsData?.description && tabsData?.description,
+                    }}
+                  />
+                  {/* <div className="experties_filter_content">
                       <div className="expertinesa_inner_content">
                         <div className="chemical_experties_img">
                           <img
@@ -192,9 +191,8 @@ export default function ChemistryExpertise() {
                         figure 1) with several pentacyclic motifs.
                       </p>
                     </div> */}
-                  </div>
                 </div>
-              }
+              </div>
             </div>
           </div>
         </div>
@@ -202,51 +200,3 @@ export default function ChemistryExpertise() {
     </div>
   );
 }
-
-const buttonData = [
-  {
-    heading: "Triterpenoids",
-  },
-  {
-    heading: "Tripeptides",
-  },
-  {
-    heading: "Quinolones",
-  },
-  {
-    heading: "Quinolines",
-  },
-  {
-    heading: "carbohydrates",
-  },
-  {
-    heading: "substitude benzofurans",
-  },
-  {
-    heading: "benzazapines",
-  },
-  {
-    heading: "biguanide",
-  },
-  {
-    heading: "Example  of a multi-step Example of a multi-step",
-  },
-  {
-    heading: "Patents",
-  },
-  {
-    heading: "Triterpenoids",
-  },
-  {
-    heading: "Tripeptides",
-  },
-  {
-    heading: "Quinolones",
-  },
-  {
-    heading: "Quinolines",
-  },
-  {
-    heading: "carbohydrates",
-  },
-];
