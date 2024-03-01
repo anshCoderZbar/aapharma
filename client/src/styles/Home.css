@@ -443,12 +443,37 @@
   z-index: 99;
 }
 
-.art_csa {
-  max-height: 26.2rem;
-  min-height: 26.2rem;
+.articles_content {
   overflow: hidden;
 }
 
+.articles_content.rwewe:after {
+  content: "";
+  position: absolute;
+  bottom: 54px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0%) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.articles_content.rwewe {
+  position: relative;
+}
+
+.read_blog_btn {
+  height: 85px;
+  background: #fff;
+  display: flex;
+  align-items: end;
+  position: relative;
+  bottom: 55px;
+}
 .articles_content button {
   margin-top: 30px;
 }
@@ -563,6 +588,15 @@
   /* .article_large {
     max-width: calc(100% - 28%);
   } */
+  .latest_articles .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    width: auto !important;
+    position: absolute;
+    left: 0;
+    bottom: 10%;
+  }
 }
 
 @media only screen and (max-width: 1600px) {
@@ -715,6 +749,13 @@
   .clients h2 {
     font-size: 40px;
   }
+
+  .article_img img {
+    min-height: 280px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
 }
 
 @media only screen and (max-width: 1199px) {
@@ -1028,6 +1069,17 @@
   .latest_articles {
     padding: 70px 0;
   }
+  .latest_articles .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 0;
+  }
+
+  .btn_papers {
+    bottom: 0;
+    left: 0;
+  }
 
   .clients {
     padding-bottom: 60px;
@@ -1165,7 +1217,7 @@
   .article_img img {
     width: 100%;
     height: 100%;
-    margin-top: 31px;
+    margin-top: 0;
     object-fit: cover;
   }
 
@@ -1393,5 +1445,24 @@
 
   .client_brand img {
     width: 110px;
+  }
+
+  .article_img img {
+    margin-top: 0;
+  }
+
+  .article_img img {
+    padding: 13px;
+  }
+
+  .latest_articles .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    width: auto !important;
+    position: relative;
+    left: 0;
+    margin-bottom: 10px;
+    bottom: 12%;
   }
 }

@@ -89,26 +89,25 @@ export default function AddUtils() {
     reset(defaultValues);
   }, [getUtility?.data?.data]);
 
+  const removeFile = (index) => {
+    const newFilePreviews = [...filePreviews];
+    newFilePreviews[index] = undefined;
+    setFilePreviews(newFilePreviews);
+  };
+
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append("chemicalId", searchParams.get("id"));
 
     inputs.forEach((_, index) => {
       const headingKey = `heading_${index + 1}`;
-      // const attachmentsKey = `attachments_${index + 1}`;
       const descriptionKey = `description_${index + 1}`;
 
       formData.append("heading[]", data[headingKey]);
       formData.append("description[]", data[descriptionKey]);
       formData.append("image[]", filePreviews[index]);
     });
-
-    // inputs.forEach((elm) => {
-    //   console.log(elm);
-    // });
-
     await addUtility.mutate(formData);
-    // console.log(filePreviews);
   };
 
   return (
@@ -138,7 +137,7 @@ export default function AddUtils() {
                 </div>
                 <div className="mb-3 col-md-6">
                   <div className="Attachments-x">
-                    <div className="luxa_x cv-x">
+                    <div className="luxa_x cv-x cls_jhg">
                       <label
                         htmlFor={`attachments_${index + 1}`}
                         className="form-label"
@@ -150,9 +149,7 @@ export default function AddUtils() {
                         name={`attachments_${index + 1}`}
                         placeholder="attachments"
                         accept="application/pdf"
-                        {...register(`attachments_${index + 1}`, {
-                          // required: !filePreviews[index],
-                        })}
+                        {...register(`attachments_${index + 1}`)}
                         onChange={(e) => handleFileInputChange(e, index)}
                       />
                       {errors[`attachments_${index + 1}`] && (
@@ -162,40 +159,30 @@ export default function AddUtils() {
                     <div className="luxa_x cv-x2">
                       {filePreviews[index] !== "undefined" &&
                         filePreviews[index] && (
-                          <div className="mt-2">
-                            <img
-                              src={require("assets/pdf.png")}
-                              alt="File Preview"
-                              className="pdf_img"
-                            />
-                            <a
-                              href={`data:application/pdf;base64,${filePreviews[index]}`}
-                              target="_blank"
-                              download={`download_${index + 1}.pdf`}
-                              className="view"
+                          <div className="d-flex">
+                            <div className="mt-2">
+                              <img
+                                src={require("assets/pdf.png")}
+                                alt="File Preview"
+                                className="pdf_img"
+                              />
+                              <a
+                                href={`data:application/pdf;base64,${filePreviews[index]}`}
+                                target="_blank"
+                                download={`download_${index + 1}.pdf`}
+                                className="view"
+                              >
+                                Preview
+                              </a>
+                            </div>
+                            <div
+                              onClick={() => removeFile(index)}
+                              className="inc_vs"
                             >
-                              Preview
-                            </a>
+                              <X />
+                            </div>
                           </div>
                         )}
-                      {/* {filePreviews[index] !== undefined &&
-                        !filePreviews[index] && (
-                          <div className="mt-2">
-                            <img
-                              src={require("assets/pdf.png")}
-                              alt="File Preview"
-                              className="pdf_img"
-                            />
-                            <a
-                              target="_blank"
-                              href={filePreviews[index]}
-                              download={`download_${index + 1}.pdf`}
-                              className="view"
-                            >
-                              Preview
-                            </a>
-                          </div>
-                        )} */}
                     </div>
                     <div className="luxa_x cv-x2">
                       {inputs?.length > 1 && (

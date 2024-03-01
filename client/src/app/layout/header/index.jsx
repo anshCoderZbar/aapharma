@@ -10,6 +10,7 @@ import { useOutsideClick } from "lib/hooks/useOutsideClick";
 import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
 import { MasterCategory, SubCategory, SubChildCategory } from "rest/main";
+import { v4 as uuidv4 } from "uuid";
 
 export const Header = () => {
   const navRef = useRef(null);
@@ -198,7 +199,8 @@ export const Header = () => {
                                               <li key={elm?.id}>
                                                 <Accordion
                                                   heading={elm?.heading}
-                                                  accId={elm?.id}
+                                                  accId={uuidv4()}
+                                                  // accId={elm?.id}
                                                   extraClass="acc_bg"
                                                 >
                                                   <div className="accordion-body acc_bdy">

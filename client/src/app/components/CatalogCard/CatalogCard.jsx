@@ -38,52 +38,59 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                     ? JSON.parse(compounts.catalog_details).map(
                         (details, i) => {
                           return (
-                            <li key={i}>
-                              <p className="detail_type">{details?.label}</p>
-                              <div className="vvs_jj">
-                                <div className="desc_show">
-                                  <p
-                                    className="detail_desc"
-                                    dangerouslySetInnerHTML={{
-                                      __html:
-                                        cleanText(details?.description)
-                                          ?.length >= 16
-                                          ? cleanText(
+                            <div className="line_arct" key={i}>
+                              <li>
+                                <p className="detail_type">{details?.label}</p>
+                                <div className="vvs_jj">
+                                  <div className="desc_show">
+                                    <p
+                                      className="detail_desc"
+                                      dangerouslySetInnerHTML={{
+                                        __html:
+                                          cleanText(details?.description)
+                                            ?.length >= 16
+                                            ? cleanText(
+                                                details?.description
+                                              )?.slice(0, 14)
+                                            : details?.description,
+                                      }}
+                                    />
+                                    {cleanText(details?.description)?.length >=
+                                      16 && (
+                                      <div
+                                        onClick={() =>
+                                          setCompoundDesc(
+                                            compoundDesc ===
                                               details?.description
-                                            )?.slice(0, 14)
-                                          : details?.description,
-                                    }}
-                                  />
-                                  {cleanText(details?.description)?.length >=
-                                    16 && (
-                                    <div
-                                      onClick={() =>
-                                        setCompoundDesc(
-                                          compoundDesc === details?.description
-                                            ? ""
-                                            : details?.description
-                                        )
-                                      }
-                                      className="show_toggle_detail"
-                                    >
-                                      {compoundDesc === details?.description ? (
-                                        <Minus />
-                                      ) : (
-                                        <Plus />
-                                      )}
-                                    </div>
-                                  )}
+                                              ? ""
+                                              : details?.description
+                                          )
+                                        }
+                                        className="show_toggle_detail"
+                                      >
+                                        {compoundDesc ===
+                                        details?.description ? (
+                                          <Minus />
+                                        ) : (
+                                          <Plus />
+                                        )}
+                                      </div>
+                                    )}
+                                  </div>
                                 </div>
-                                {compoundDesc === details?.description && (
-                                  <div
-                                    className={`acc_compound_desc`}
-                                    dangerouslySetInnerHTML={{
-                                      __html: compoundDesc,
-                                    }}
-                                  />
-                                )}
-                              </div>
-                            </li>
+                              </li>
+
+                              <div
+                                className={`acc_compound_desc ${
+                                  compoundDesc === details?.description
+                                    ? "acc_compound_desc_actvie_bv"
+                                    : ""
+                                }`}
+                                dangerouslySetInnerHTML={{
+                                  __html: compoundDesc,
+                                }}
+                              />
+                            </div>
                           );
                         }
                       )

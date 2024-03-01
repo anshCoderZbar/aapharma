@@ -7,15 +7,15 @@ import {
   CatalogCategory3,
   FilterChemical,
 } from "rest/catalog";
-import { useAtom } from "jotai";
-import { categoryChecked } from "store/CatalogStore";
+// import { useAtom } from "jotai";
+// import { categoryChecked } from "store/CatalogStore";
 import { useOutsideClick } from "lib/hooks/useOutsideClick";
 
 export const CatalogSearchBar = ({ catalogId, setCatalogId }) => {
   const catalogRef = useRef(null);
   const [openCatalogFilter, setOpenCatalogFilter] = useState(false);
 
-  const [_, setCategoryCheck] = useAtom(categoryChecked);
+  // const [_, setCategoryCheck] = useAtom(categoryChecked);
 
   const filterChemical = FilterChemical();
 

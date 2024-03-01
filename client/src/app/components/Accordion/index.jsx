@@ -7,23 +7,23 @@ export const Accordion = (props) => {
       <h2
         onClick={props?.onClick}
         className="accordion-header"
-        id={`flush-heading${props?.accId}`}
+        id={`flush-heading_${props?.accId}`}
       >
         <button
           className={`accordion-button  collapsed ${props?.extraClass}`}
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target={`#flush-collapse${props?.accId}`}
+          data-bs-target={`#flush-collapse_${props?.accId}`}
           aria-expanded="false"
-          aria-controls={`flush-collapse${props?.accId}`}
+          aria-controls={`flush-collapse_${props?.accId}`}
         >
           {props?.heading}
         </button>
       </h2>
       <div
-        id={`flush-collapse${props?.accId}`}
+        id={`flush-collapse_${props?.accId}`}
         className="accordion-collapse collapse"
-        aria-labelledby={`flush-heading${props?.accId}`}
+        aria-labelledby={`flush-heading_${props?.accId}`}
         data-bs-parent={`#accordionFlushExample`}
       >
         {children}

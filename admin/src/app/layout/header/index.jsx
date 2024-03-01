@@ -13,6 +13,7 @@ export const Header = () => {
   const { removeToken } = useToken();
   const { removeAuth } = useAuth();
   const [menuToggle, setMenuToggle] = useState(false);
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (

@@ -191,8 +191,11 @@
   display: flex;
   justify-content: space-between;
   line-height: 34px;
-  gap: 10px;
+  gap: 6px;
   flex-wrap: wrap;
+}
+
+.line_arct {
   border-bottom: 1px solid #66666615;
 }
 
@@ -223,16 +226,28 @@
   justify-content: end;
 }
 
+.acc_compound_desc {
+  text-align: end;
+  margin-bottom: 10px;
+  opacity: 0;
+  height: 0px;
+  pointer-events: none;
+  visibility: hidden;
+  transition: 0.5s all;
+}
+
+.acc_compound_desc_actvie_bv {
+  opacity: 1;
+  height: 100%;
+  pointer-events: all;
+  visibility: visible;
+}
+
 .acc_compound_desc p {
   line-height: 21px;
   font-size: 15px;
   margin-bottom: 8px;
   color: #666;
-}
-
-.acc_compound_desc {
-  text-align: end;
-  margin-bottom: 10px;
 }
 
 .acc_compound_hidden {
@@ -571,7 +586,7 @@ h6 {
   align-items: center;
   background-color: #fff;
   border-radius: 20px;
-  box-shadow: 17px 4px 40px 0px rgba(30, 30, 30, 0.2);
+  box-shadow: 4px 4px 25px 0px rgba(30, 30, 30, 0.2);
   padding: 20px;
 }
 
@@ -613,7 +628,7 @@ h6 {
 }
 
 .catalog_details_vss > p {
-  max-width: 670px;
+  max-width: 100%;
   color: #666;
   font-family: "Product Sans";
   font-size: 18px;

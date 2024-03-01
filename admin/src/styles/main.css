@@ -206,3 +206,25 @@
 .file_radio .form-check-input {
   border: 1px solid #0b0f40;
 }
+
+.inc_vs {
+  color: #dc3545;
+  cursor: pointer;
+  height: 15px;
+  width: 43px;
+}
+
+.cls_jhg input[type="file"] {
+  color: transparent;
+  position: relative;
+}
+
+.cls_jhg input[type="file"]::after {
+  content: "Choose a file";
+  top: 50%;
+  left: 30%;
+  position: absolute;
+  color: #212529;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+}
