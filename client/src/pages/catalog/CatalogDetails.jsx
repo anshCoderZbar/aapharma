@@ -8,6 +8,7 @@ import { GetUtility, SingleChemical } from "rest/catalog";
 
 export const CatalogDetails = () => {
   const { id } = useParams();
+  const [tabId, setTabId] = useState(-1);
   const singleChemical = SingleChemical(id);
 
   const getUtility = GetUtility(id);
@@ -17,6 +18,7 @@ export const CatalogDetails = () => {
 
   useEffect(() => {
     setFilteredUtils(getUtility?.isPending ? [] : [getUtility?.data?.data[0]]);
+    setTabId(getUtility?.data?.data && getUtility?.data?.data[0]?.id);
   }, [getUtility?.data?.data]);
 
   const handleDescTabs = (elm) => {
@@ -38,19 +40,13 @@ export const CatalogDetails = () => {
             <div className="catalog_banner_content">
               <p className="d-flex justify-content-center align-items-center gap-2">
                 Catalogs <ChevronsRight />
-                {/* <p
-                  className="mt-0"
-                  dangerouslySetInnerHTML={{
-                    __html: singleChemical?.data?.data?.description,
-                  }}
-                /> */}
               </p>
               <h1>{singleChemical?.data?.data?.heading}</h1>
             </div>
           </div>
           <div className="catalog_details">
             <div className="row">
-              <div className="col-lg-6">
+              <div className="col-xl-6">
                 <div className="catalog_detail_img">
                   <img
                     src={`${singleChemical?.data?.baseUrl}/${
@@ -62,7 +58,7 @@ export const CatalogDetails = () => {
                   />
                 </div>
               </div>
-              <div className="col-lg-6">
+              <div className="col-xl-6">
                 <div className="catalog_details_vss">
                   <div className="catalog_details_list">
                     <ul>
@@ -104,11 +100,7 @@ export const CatalogDetails = () => {
                                   .catalog_quantity_price
                               ).map((details, i) => {
                                 return (
-                                  <option
-                                    // selected={i === 0}
-                                    value={details?.price}
-                                    key={i}
-                                  >
+                                  <option value={details?.price} key={i}>
                                     {details?.quantity}
                                   </option>
                                 );
@@ -140,17 +132,27 @@ export const CatalogDetails = () => {
       {getUtility?.data?.data?.length >= 1 && (
         <div className="container-fluid">
           <div className="information_box utils">
-            <ul>
+            <ul className="utils_lists_bpjh">
               {getUtility?.data?.data?.map((elm) => {
                 return (
-                  <li onClick={() => handleDescTabs(elm)}>{elm?.heading}</li>
+                  <li
+                    className={`utils_list_info ${
+                      tabId === elm?.id ? "info_uti_active" : ""
+                    } `}
+                    onClick={() => {
+                      setTabId(elm?.id);
+                      handleDescTabs(elm);
+                    }}
+                  >
+                    {elm?.heading}
+                  </li>
                 );
               })}
             </ul>
             {filteredUtils?.length >= 1 &&
               filteredUtils?.map((utils, index) => {
                 return (
-                  <div key={index} className="description">
+                  <div key={index} className="description vs_itv">
                     <div
                       className="descripition"
                       dangerouslySetInnerHTML={{ __html: utils?.description }}

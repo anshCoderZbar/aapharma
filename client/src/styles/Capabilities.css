@@ -73,7 +73,7 @@
 }
 
 .experties_section {
-  padding: 40px 0;
+  padding: 50px 0;
 }
 
 .experties_filter_cover {
@@ -133,6 +133,10 @@
   align-items: center;
   gap: 30px;
   margin-top: 40px;
+}
+
+.expertinesa_inner_content p {
+  word-wrap: break-word;
 }
 
 .chemical_experties_img img {
@@ -384,7 +388,7 @@
   }
 
   .experties_section {
-    padding: 35px 0;
+    padding: 45px 0;
   }
 
   .experties_left_filter {
@@ -477,7 +481,7 @@
   }
 
   .experties_section {
-    padding: 30px 0;
+    padding: 40px 0;
   }
 
   .experties_filter_cover {
@@ -590,7 +594,7 @@
   }
 
   .experties_section {
-    padding: 25px 0;
+    padding: 35px 0;
   }
 
   .experties_left_filter {
@@ -696,7 +700,7 @@
   }
 
   .experties_section {
-    padding: 20px 0;
+    padding: 30px 0;
   }
 
   .expertinesa_inner_content {
@@ -787,7 +791,7 @@
   }
 
   .experties_section {
-    padding: 15px 0;
+    padding: 25px 0;
   }
 
   .filte_cont {

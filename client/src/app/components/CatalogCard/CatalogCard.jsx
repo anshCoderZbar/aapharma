@@ -46,13 +46,13 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                                     <p
                                       className="detail_desc"
                                       dangerouslySetInnerHTML={{
-                                        __html:
-                                          cleanText(details?.description)
-                                            ?.length >= 16
-                                            ? cleanText(
-                                                details?.description
-                                              )?.slice(0, 14)
-                                            : details?.description,
+                                        __html: details?.description,
+                                        // cleanText(details?.description)
+                                        //   ?.length >= 16
+                                        //   ? cleanText(
+                                        //       details?.description
+                                        //     )?.slice(0, 14)
+                                        //   : details?.description,
                                       }}
                                     />
                                     {cleanText(details?.description)?.length >=
@@ -77,19 +77,18 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                                       </div>
                                     )}
                                   </div>
+                                  <div
+                                    className={`acc_compound_desc ${
+                                      compoundDesc === details?.description
+                                        ? "acc_compound_desc_actvie_bv"
+                                        : ""
+                                    }`}
+                                    dangerouslySetInnerHTML={{
+                                      __html: compoundDesc,
+                                    }}
+                                  />
                                 </div>
                               </li>
-
-                              <div
-                                className={`acc_compound_desc ${
-                                  compoundDesc === details?.description
-                                    ? "acc_compound_desc_actvie_bv"
-                                    : ""
-                                }`}
-                                dangerouslySetInnerHTML={{
-                                  __html: compoundDesc,
-                                }}
-                              />
                             </div>
                           );
                         }
