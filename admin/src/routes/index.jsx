@@ -80,6 +80,9 @@ import ResearchBannerPage from "pages/research-and-development/ResearchBanner";
 import ResearchSort from "pages/research-and-development/ResearchSort";
 import ResearchModification from "pages/research-and-development/ResearchModification";
 import ResourcesOverview from "pages/resources/ResourcesOverview";
+import ResourcesUsefulGuides from "pages/resources/ResourcesUsefulGuides";
+import ResourcesTabs from "pages/resources/ResourcesTabs";
+import EditResourcesTabs from "pages/resources/EditResourcesTabs";
 import ChemistryBanner from "pages/chemistry-expertise/ChemistryBanner";
 import ChemistryTabs from "pages/chemistry-expertise/ChemistryTabs";
 import AddChemistryTabs from "pages/chemistry-expertise/AddChemistryTabs";
@@ -656,6 +659,30 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ResourcesOverview />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/resources-useful-guides",
+      element: (
+        <PrivateRoutes>
+          <ResourcesUsefulGuides />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/resources-tabs",
+      element: (
+        <PrivateRoutes>
+          <ResourcesTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-resources-tabs/:id",
+      element: (
+        <PrivateRoutes>
+          <EditResourcesTabs />
         </PrivateRoutes>
       ),
     },

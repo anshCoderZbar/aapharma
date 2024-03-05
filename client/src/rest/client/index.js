@@ -95,6 +95,11 @@ class Client {
     getAllChemistryTabs: () =>
       HttpClient.get(API_ENDPOINTS.getAllChemistryTabs),
   };
+  resources = {
+    getResourceHeading: () => HttpClient.get(API_ENDPOINTS.resourceHeading),
+    getResourceUsefulGuides: () =>
+      HttpClient.get(API_ENDPOINTS.resourceUsefulGuides),
+  };
 }
 
 const client = new Client();

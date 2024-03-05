@@ -203,20 +203,20 @@
   font-weight: 600;
   cursor: pointer;
 }
+
 .file_radio .form-check-input {
   border: 1px solid #0b0f40;
 }
 
-.inc_vs {
-  color: #dc3545;
-  cursor: pointer;
-  height: 15px;
-  width: 43px;
+.vs_inmh {
+  flex: 0 90% !important;
 }
 
 .cls_jhg input[type="file"] {
-  color: transparent;
+  color: #fff;
   position: relative;
+  background-color: #fff;
+  z-index: 1;
 }
 
 .cls_jhg input[type="file"]::after {
@@ -226,5 +226,6 @@
   position: absolute;
   color: #212529;
   font-size: 15px;
+  z-index: 2;
   transform: translate(-50%, -50%);
 }

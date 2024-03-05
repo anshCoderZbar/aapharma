@@ -293,6 +293,20 @@ class Client {
     deleteChemistryTabs: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteChemistryTabs, params),
   };
+  resources = {
+    getResourceHeading: () => HttpClient.get(API_ENDPOINTS.resourceHeading),
+    editResourceHeading: (params) =>
+      HttpClient.post(API_ENDPOINTS.resourceHeading, params),
+    getResourceUsefulGuides: () =>
+      HttpClient.get(API_ENDPOINTS.resourceUsefulGuides),
+    editResourceUsefulGuides: (params) =>
+      HttpClient.post(API_ENDPOINTS.resourceUsefulGuides, params),
+    allResourcesTabs: () => HttpClient.get(API_ENDPOINTS.allResourcesTabs),
+    singleResourcesTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleResourcesTabs, params),
+    editResourcesTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateResourcesTabs, params),
+  };
 }
 
 const client = new Client();

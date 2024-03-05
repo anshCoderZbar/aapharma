@@ -129,4 +129,9 @@ export const API_ENDPOINTS = {
   createChemistryTabs: "/chemistryexpertise/new",
   updateChemistryTabs: "/chemistryexpertise/update",
   deleteChemistryTabs: "/chemistryexpertise/delete",
+  resourceHeading: "/resourceshead",
+  resourceUsefulGuides: "/resourceusefulguides",
+  allResourcesTabs: "/resourcestabs/all",
+  singleResourcesTabs: "/resourcestabs/one",
+  updateResourcesTabs: "/resourcestabs/update",
 };

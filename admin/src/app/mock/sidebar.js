@@ -342,24 +342,29 @@ export const SidebarData = [
       },
     ],
   },
-  // {
-  //   id: uuidv4(),
-  //   name: "Resources",
-  //   slug: "#",
-  //   icon: <DownloadCloud />,
-  //   subMenu: [
-  //     {
-  //       id: 1,
-  //       subMenuName: "Resources",
-  //       slug: "resources-banner",
-  //     },
-  //     {
-  //       id: 2,
-  //       subMenuName: "Useful Guides",
-  //       slug: "resources-guides",
-  //     },
-  //   ],
-  // },
+  {
+    id: uuidv4(),
+    name: "Resources",
+    slug: "#",
+    icon: <DownloadCloud />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "resources-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Tabs",
+        slug: "resources-tabs",
+      },
+      {
+        id: 3,
+        subMenuName: "Useful Guides",
+        slug: "resources-useful-guides",
+      },
+    ],
+  },
   {
     id: uuidv4(),
     name: "Settings",
