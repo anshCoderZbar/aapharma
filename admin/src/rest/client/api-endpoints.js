@@ -134,4 +134,5 @@ export const API_ENDPOINTS = {
   allResourcesTabs: "/resourcestabs/all",
   singleResourcesTabs: "/resourcestabs/one",
   updateResourcesTabs: "/resourcestabs/update",
+  whitepaperBanner: "/whitepaperbanner",
 };

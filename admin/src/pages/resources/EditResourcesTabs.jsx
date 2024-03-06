@@ -61,8 +61,6 @@ export default function EditResourcesTabs() {
     reset(defaultValues);
   }, [singleTab?.data?.data]);
 
-  console.log(inputs);
-
   const handleChange = (e) => {
     const files = e.target.files[0];
     if (files) {
@@ -93,6 +91,7 @@ export default function EditResourcesTabs() {
     const formData = new FormData();
     formData.append("id", id);
     formData.append("tabHeading", data?.heading);
+    formData.append("image", data?.image[0]);
     inputs.forEach((_, index) => {
       const tabHeadingKey = `tabHeading_${index + 1}`;
       const descriptionKey = `description_${index + 1}`;
@@ -108,7 +107,7 @@ export default function EditResourcesTabs() {
     <div className="resources_page">
       <PageWrapper slug="resources-tabs" name="Resources Tabs" />
       {singleTab?.isError && (
-        <ErrorComponent message="OOPS ! something went wrong please try again later" />
+        <ErrorComponent message="OOPS! something went wrong please try again later" />
       )}
       {singleTab?.isPending ? (
         <ComponentLoader />
@@ -245,7 +244,6 @@ export default function EditResourcesTabs() {
                   );
                 })}
             </div>
-
             <div className="row">
               <div className="col-6">
                 {editTab?.isPending ? (

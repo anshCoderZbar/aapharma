@@ -16,3 +16,20 @@ export const GetResourcesGuides = () => {
   });
   return getGuides;
 };
+
+export const GetAllResourcesTabs = () => {
+  const allTabs = useQuery({
+    queryKey: ["get-resource-tabs"],
+    queryFn: () => client.resources.allResourcesTabs(),
+  });
+  return allTabs;
+};
+
+// whitepaper
+export const GetWhitePaperBanner = () => {
+  const getBanner = useQuery({
+    queryKey: ["get-whitepaper-banner"],
+    queryFn: () => client.resources.getWhitePaperBanner(),
+  });
+  return getBanner;
+};

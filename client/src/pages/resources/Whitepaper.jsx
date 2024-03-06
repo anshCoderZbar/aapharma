@@ -2,8 +2,12 @@ import React from "react";
 
 import "styles/Resources.css";
 import banner from "assets/page-banners/whitepaper_banner.jpg";
+import { useNavigate } from "react-router-dom";
+import { GetWhitePaperBanner } from "rest/resources";
 
 export default function Whitepaper() {
+  const navigate = useNavigate();
+  const getBanner = GetWhitePaperBanner();
   return (
     <div className="whitepaper_page">
       <div className="whitepaper_banner_section">
@@ -11,31 +15,25 @@ export default function Whitepaper() {
           <div
             className="whitepaper_banner"
             style={{
-              backgroundImage: `linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${banner})`,
+              backgroundImage: `linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${
+                getBanner?.data?.data?.image && getBanner?.data?.data?.image
+              })`,
             }}
           >
-            <span>Resources</span>
-            <h1>Whitepaper</h1>
-            <p>
-              As we continue to involve as individuals and as a Company, we find
-              it necessary to challenge our thinking and how we do things. We
-              operate in a dynamic environment where the only constant is
-              change. We believe that failure to test whether routinized and
-              streamlined system is adequate will invariably lead to sub
-              optimized performance.
-            </p>
-            <p>
-              On the flip side when the system in place is not afforded enough
-              time to be fully integrated and is continuously restructured very
-              little can learned aboutcausality within domain containing a large
-              of independent variables.
-            </p>
-            <p>
-              Thus, it is a tightrope walk between doing too much and not doing
-              enough. Herein we share our thoughts regarding many subject areas
-              that affect how we work as we pursue our goal of achieving and
-              maintaining the highest level of performance for our clients. o
-            </p>
+            <span>
+              {getBanner?.data?.data?.heading && getBanner?.data?.data?.heading}
+            </span>
+            <h1>
+              {getBanner?.data?.data?.subheading &&
+                getBanner?.data?.data?.subheading}
+            </h1>
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  getBanner?.data?.data?.description &&
+                  getBanner?.data?.data?.description,
+              }}
+            />
             <div className="banner_img">
               <img
                 src={require("assets/whitepaper_banner_overlay.png")}
@@ -46,8 +44,12 @@ export default function Whitepaper() {
         </div>
         <div className="whitepaper_bottom_section">
           <p>
-            “Everyone thinks of changing the world, but no one thinks of
-            changing himself.” <span>-Leo Tolstoy</span>
+            {getBanner?.data?.data?.slogan && getBanner?.data?.data?.slogan}
+            <span>
+              -
+              {getBanner?.data?.data?.sloganBy &&
+                getBanner?.data?.data?.sloganBy}
+            </span>
           </p>
         </div>
       </div>
@@ -76,7 +78,12 @@ export default function Whitepaper() {
                   <p className="whitepaper_year">{elm?.date}</p>
                   <h2 className="whitepaper_data">{elm?.heading}</h2>
                   <div className="d-flex justify-content-center whitepaper_btn">
-                    <button className="primary_btn_outline">Read More</button>
+                    <button
+                      onClick={() => navigate(`/whitepaper/${i + 1}`)}
+                      className="primary_btn_outline"
+                    >
+                      Read More
+                    </button>
                   </div>
                 </div>
               </div>

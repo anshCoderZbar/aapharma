@@ -98,6 +98,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 18px;
+  padding-bottom: 60px;
 }
 
 .whitepaper_card {
@@ -137,6 +138,64 @@
 }
 
 /* whitepaper */
+
+/* single whitepaper*/
+.single_whitepaper_banner h1 {
+  max-width: 850px;
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.single_whitepaper_banner {
+  height: calc(62vh - 17vh);
+}
+
+.whitepaper_single_content {
+  padding: 50px 0;
+}
+
+.whitepaper_single_content p {
+  color: #666;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+
+.whitepaper_single_content h1,
+.whitepaper_single_content h2,
+.whitepaper_single_content h3,
+.whitepaper_single_content h4,
+.whitepaper_single_content h5,
+.whitepaper_single_content h6 {
+  color: #000;
+  font-weight: 600;
+  font-size: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.whitepaper_single_content strong {
+  color: #000;
+}
+
+.whitepaper_single_content img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.whitepaper_single_content ul {
+  padding: 30px 0;
+}
+.whitepaper_single_content ul li {
+  list-style: none;
+  font-size: 18px;
+  color: #666;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 15px;
+}
 
 /* resources */
 
@@ -182,6 +241,11 @@
   color: #2a3072;
 }
 
+.resource_btn_active {
+  background: #34caff !important;
+  color: #2a3072 !important;
+}
+
 .resource_card_details {
   display: flex;
   flex-direction: column;
@@ -213,6 +277,10 @@
   margin-bottom: 0;
 }
 
+.resource_left_content {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .resource_left_content p {
   color: #666;
   font-size: 16px;
@@ -225,18 +293,6 @@
 
 .resource_right_content {
   position: relative;
-}
-
-.resource_right_content::after {
-  content: "";
-  height: 150px;
-  width: 2px;
-  background-color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  left: 0%;
-  top: 50%;
-  transform: translate(0%, -44%);
-  margin-left: -38px;
 }
 
 .resource_right_content p {
@@ -330,6 +386,44 @@
     gap: 15px;
   }
 
+  .whitepaper_single_content {
+    padding: 40px 0;
+  }
+
+  .whitepaper_single_content p {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 11px;
+  }
+
+  .whitepaper_single_content h1,
+  .whitepaper_single_content h2,
+  .whitepaper_single_content h3,
+  .whitepaper_single_content h4,
+  .whitepaper_single_content h5,
+  .whitepaper_single_content h6 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .single_whitepaper_banner {
+    height: calc(60vh - 17vh);
+  }
+
+  .single_whitepaper_banner h1 {
+    max-width: 789px;
+    font-size: 36px;
+  }
+
+  .whitepaper_single_content ul li {
+    line-height: 31px;
+    margin-bottom: 13px;
+  }
+
+  .whitepaper_single_content ul {
+    padding: 25px 0;
+  }
+
   .card_details {
     gap: 12px;
   }
@@ -354,10 +448,6 @@
 
   .resources_cards {
     padding: 45px 45px;
-  }
-
-  .resource_right_content::after {
-    margin-left: -35px;
   }
 
   .resource_bottom_section {
@@ -399,6 +489,23 @@
 
   .whitepaper_bottom_section span {
     font-size: 16px;
+  }
+
+  .single_whitepaper_banner {
+    height: calc(55vh - 17vh);
+  }
+
+  .single_whitepaper_banner h1 {
+    max-width: 676px;
+    font-size: 32px;
+  }
+
+  .whitepaper_single_content {
+    padding: 30px 0;
+  }
+
+  .whitepaper_single_content ul {
+    padding: 20px 0;
   }
 
   .paper_page_filter {
@@ -474,10 +581,6 @@
     font-size: 17px;
   }
 
-  .resource_right_content::after {
-    transform: translate(0%, -38%);
-  }
-
   .resource_bottom_section {
     margin: 30px 0;
   }
@@ -539,12 +642,6 @@
     padding: 30px 30px;
   }
 
-  .resource_right_content::after {
-    height: 113px;
-    transform: translate(0%, -35%);
-    margin-left: -23px;
-  }
-
   .resource_right_content a {
     font-size: 16px;
   }
@@ -555,6 +652,38 @@
 
   .resources_page {
     margin-top: 100px;
+  }
+
+  .whitepaper_single_content p {
+    font-size: 17px;
+    line-height: 27px;
+    margin-bottom: 10px;
+  }
+
+  .whitepaper_single_content {
+    padding: 25px 0;
+  }
+
+  .whitepaper_single_content h1,
+  .whitepaper_single_content h2,
+  .whitepaper_single_content h3,
+  .whitepaper_single_content h4,
+  .whitepaper_single_content h5,
+  .whitepaper_single_content h6 {
+    margin-top: 20px;
+    margin-bottom: 13px;
+    font-size: 20px;
+  }
+
+  .whitepaper_single_content ul li {
+    line-height: 28px;
+    margin-bottom: 13px;
+    font-size: 17px;
+  }
+
+  .single_whitepaper_banner h1 {
+    max-width: 583px;
+    font-size: 28px;
   }
 }
 
@@ -579,6 +708,15 @@
 
   .resource_bottom_section {
     margin: 20px 0;
+  }
+
+  .single_whitepaper_banner h1 {
+    max-width: 508px;
+    font-size: 24px;
+  }
+
+  .single_whitepaper_banner {
+    height: calc(50vh - 17vh);
   }
 }
 
@@ -646,13 +784,32 @@
     font-size: 15px;
   }
 
-  .resource_right_content::after {
-    height: 92px;
-    transform: translate(0%, -27%);
-  }
-
   .resource_bottom_section {
     margin: 15px 0;
+  }
+
+  .whitepaper_single_content {
+    padding: 20px 0;
+  }
+
+  .whitepaper_single_content ul li {
+    line-height: 26px;
+    margin-bottom: 9px;
+    font-size: 16px;
+  }
+
+  .whitepaper_single_content ul {
+    padding: 13px 0 0 0;
+  }
+
+  .whitepaper_single_content p {
+    font-size: 16px;
+    line-height: 23px;
+  }
+
+  .single_whitepaper_banner h1 {
+    font-size: 22px;
+    max-width: 483px;
   }
 }
 
@@ -734,5 +891,36 @@
 
   .resource_bottom_section {
     margin: 10px 0;
+  }
+
+  .single_whitepaper_banner {
+    height: calc(45vh - 17vh);
+  }
+
+  .single_whitepaper_banner h1 {
+    max-width: 100%;
+    font-size: 20px;
+  }
+
+  .whitepaper_single_content ul li {
+    line-height: 22px;
+    margin-bottom: 9px;
+    font-size: 14px;
+  }
+
+  .whitepaper_single_content p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .whitepaper_single_content h1,
+  .whitepaper_single_content h2,
+  .whitepaper_single_content h3,
+  .whitepaper_single_content h4,
+  .whitepaper_single_content h5,
+  .whitepaper_single_content h6 {
+    margin-top: 15px;
+    margin-bottom: 13px;
+    font-size: 18px;
   }
 }

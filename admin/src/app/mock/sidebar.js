@@ -10,6 +10,7 @@ import {
   LayoutDashboard,
   Leaf,
   LightbulbIcon,
+  Paperclip,
   PersonStanding,
   PersonStandingIcon,
   Search,
@@ -362,6 +363,19 @@ export const SidebarData = [
         id: 3,
         subMenuName: "Useful Guides",
         slug: "resources-useful-guides",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Whitepaper",
+    slug: "#",
+    icon: <Paperclip />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "whitepaper-banner",
       },
     ],
   },

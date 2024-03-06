@@ -27,6 +27,7 @@ import AnalyticalInstrumentation from "pages/capabilities/AnalyticalInstrumentat
 import Accreditations from "pages/capabilities/Accreditations";
 import Services2 from "pages/services/Services2";
 import { ChemicalEditor } from "pages/catalog/ChemicalEditor";
+import WhitepaperDetail from "pages/resources/WhitepaperDetail";
 
 export const AllRoutes = () => {
   return (
@@ -174,6 +175,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <Whitepaper />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/whitepaper/:id"
+            element={
+              <PublicRoutes>
+                <WhitepaperDetail />
               </PublicRoutes>
             }
           />

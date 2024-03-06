@@ -307,6 +307,11 @@ class Client {
     editResourcesTabs: (params) =>
       HttpClient.post(API_ENDPOINTS.updateResourcesTabs, params),
   };
+  whitepaper = {
+    getWhitePaperBanner: () => HttpClient.get(API_ENDPOINTS.whitepaperBanner),
+    editWhitePaperBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.whitepaperBanner, params),
+  };
 }
 
 const client = new Client();

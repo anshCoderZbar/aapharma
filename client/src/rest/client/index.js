@@ -99,6 +99,8 @@ class Client {
     getResourceHeading: () => HttpClient.get(API_ENDPOINTS.resourceHeading),
     getResourceUsefulGuides: () =>
       HttpClient.get(API_ENDPOINTS.resourceUsefulGuides),
+    allResourcesTabs: () => HttpClient.get(API_ENDPOINTS.allResourcesTabs),
+    getWhitePaperBanner: () => HttpClient.get(API_ENDPOINTS.whitepaperBanner),
   };
 }
 

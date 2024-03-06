@@ -131,13 +131,13 @@ export const HeaderData = [
   {
     id: 4,
     name: "Resources",
-    slug: "/resources",
+    slug: "#",
     class: false,
     menu: [
       {
         id: 1,
         name: "Useful Guides",
-        slug: "#",
+        slug: "/resources",
       },
       {
         id: 2,

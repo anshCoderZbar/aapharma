@@ -51,4 +51,6 @@ export const API_ENDPOINTS = {
   getAllChemistryTabs: "/chemistryexpertise/all",
   resourceHeading: "/resourceshead",
   resourceUsefulGuides: "/resourceusefulguides",
+  allResourcesTabs: "/resourcestabs/all",
+  whitepaperBanner: "/whitepaperbanner",
 };

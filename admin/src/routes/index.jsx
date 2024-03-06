@@ -87,6 +87,7 @@ import ChemistryBanner from "pages/chemistry-expertise/ChemistryBanner";
 import ChemistryTabs from "pages/chemistry-expertise/ChemistryTabs";
 import AddChemistryTabs from "pages/chemistry-expertise/AddChemistryTabs";
 import EditChemistryTabs from "pages/chemistry-expertise/EditChemistryTabs";
+import WhitepaperBanner from "pages/whitepaper/WhitepaperBanner";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -715,6 +716,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditChemistryTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/whitepaper-banner",
+      element: (
+        <PrivateRoutes>
+          <WhitepaperBanner />
         </PrivateRoutes>
       ),
     },
