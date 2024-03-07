@@ -73,7 +73,7 @@
 }
 
 .experties_section {
-  padding: 50px 0;
+  padding: 60px 0;
 }
 
 .experties_filter_cover {
@@ -388,7 +388,7 @@
   }
 
   .experties_section {
-    padding: 45px 0;
+    padding: 55px 0;
   }
 
   .experties_left_filter {
@@ -481,7 +481,7 @@
   }
 
   .experties_section {
-    padding: 40px 0;
+    padding: 50px 0;
   }
 
   .experties_filter_cover {
@@ -594,7 +594,7 @@
   }
 
   .experties_section {
-    padding: 35px 0;
+    padding: 45px 0;
   }
 
   .experties_left_filter {
@@ -700,7 +700,7 @@
   }
 
   .experties_section {
-    padding: 30px 0;
+    padding: 40px 0;
   }
 
   .expertinesa_inner_content {
@@ -791,7 +791,7 @@
   }
 
   .experties_section {
-    padding: 25px 0;
+    padding: 30px 0;
   }
 
   .filte_cont {
@@ -935,5 +935,9 @@
   .accreditations_main_content p {
     font-size: 15px;
     margin-top: 5px;
+  }
+
+  .experties_section {
+    padding: 25px 0;
   }
 }
