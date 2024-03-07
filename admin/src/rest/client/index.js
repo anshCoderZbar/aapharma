@@ -311,6 +311,15 @@ class Client {
     getWhitePaperBanner: () => HttpClient.get(API_ENDPOINTS.whitepaperBanner),
     editWhitePaperBanner: (params) =>
       HttpClient.post(API_ENDPOINTS.whitepaperBanner, params),
+    allWhitepapers: () => HttpClient.get(API_ENDPOINTS.allWhitepapers),
+    singleWhitepaper: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleWhitepaper, params),
+    addWhitepaper: (params) =>
+      HttpClient.post(API_ENDPOINTS.addWhitepaper, params),
+    editWhitepaper: (params) =>
+      HttpClient.post(API_ENDPOINTS.editWhitepaper, params),
+    deleteWhitepaper: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteWhitepaper, params),
   };
 }
 

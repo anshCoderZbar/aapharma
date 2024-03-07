@@ -181,8 +181,8 @@
 }
 
 .whitepaper_single_content img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }
 
 .whitepaper_single_content ul {
@@ -695,6 +695,11 @@
   .whitepaper_banner h1 {
     font-size: 30px;
     margin-top: 8px;
+  }
+
+  .whitepaper_single_content img {
+    width: 100% !important;
+    height: 100% !important;
   }
 
   .whitepaper_banner p {

@@ -101,6 +101,9 @@ class Client {
       HttpClient.get(API_ENDPOINTS.resourceUsefulGuides),
     allResourcesTabs: () => HttpClient.get(API_ENDPOINTS.allResourcesTabs),
     getWhitePaperBanner: () => HttpClient.get(API_ENDPOINTS.whitepaperBanner),
+    allWhitepapers: () => HttpClient.get(API_ENDPOINTS.allWhitepapers),
+    singleWhitepaper: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleWhitepaper, params),
   };
 }
 

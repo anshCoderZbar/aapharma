@@ -229,3 +229,25 @@
   z-index: 2;
   transform: translate(-50%, -50%);
 }
+
+.css-4jnixx-MuiStack-root {
+  padding-top: 0 !important;
+}
+
+.css-4jnixx-MuiStack-root > .MuiTextField-root {
+  min-width: 200px;
+  width: 100% !important;
+}
+
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 5.5px 10px !important;
+  border-color: #dee2e6 !important;
+}
+
+.css-4jnixx-MuiStack-root {
+  overflow: hidden;
+}
+
+.css-4jnixx-MuiStack-root {
+  overflow: hidden !important;
+}

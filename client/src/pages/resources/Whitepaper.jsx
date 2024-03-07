@@ -3,11 +3,12 @@ import React from "react";
 import "styles/Resources.css";
 import banner from "assets/page-banners/whitepaper_banner.jpg";
 import { useNavigate } from "react-router-dom";
-import { GetWhitePaperBanner } from "rest/resources";
+import { GetAllWhitePapers, GetWhitePaperBanner } from "rest/resources";
 
 export default function Whitepaper() {
   const navigate = useNavigate();
   const getBanner = GetWhitePaperBanner();
+  const getWhitepaper = GetAllWhitePapers();
   return (
     <div className="whitepaper_page">
       <div className="whitepaper_banner_section">
@@ -71,24 +72,27 @@ export default function Whitepaper() {
           </select>
         </div>
         <div className="whitepaper_card_section">
-          {data?.map((elm, i) => {
-            return (
-              <div key={i} className="whitepaper_card">
-                <div className="card_details">
-                  <p className="whitepaper_year">{elm?.date}</p>
-                  <h2 className="whitepaper_data">{elm?.heading}</h2>
-                  <div className="d-flex justify-content-center whitepaper_btn">
-                    <button
-                      onClick={() => navigate(`/whitepaper/${i + 1}`)}
-                      className="primary_btn_outline"
-                    >
-                      Read More
-                    </button>
+          {getWhitepaper?.data?.data &&
+            getWhitepaper?.data?.data?.map((elm, i) => {
+              return (
+                <div key={i} className="whitepaper_card">
+                  <div className="card_details">
+                    <p className="whitepaper_year">
+                      {elm?.date?.replaceAll("-", " ")}
+                    </p>
+                    <h2 className="whitepaper_data">{elm?.heading}</h2>
+                    <div className="d-flex justify-content-center whitepaper_btn">
+                      <button
+                        onClick={() => navigate(`/whitepaper/${elm?.id}`)}
+                        className="primary_btn_outline"
+                      >
+                        Read More
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     </div>

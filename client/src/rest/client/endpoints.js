@@ -53,4 +53,6 @@ export const API_ENDPOINTS = {
   resourceUsefulGuides: "/resourceusefulguides",
   allResourcesTabs: "/resourcestabs/all",
   whitepaperBanner: "/whitepaperbanner",
+  allWhitepapers: "/whitepaperblog/all",
+  singleWhitepaper: "/whitepaperblog/one",
 };

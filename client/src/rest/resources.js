@@ -33,3 +33,19 @@ export const GetWhitePaperBanner = () => {
   });
   return getBanner;
 };
+
+export const GetAllWhitePapers = () => {
+  const getWhitepaper = useQuery({
+    queryKey: ["get-all-whitepaper"],
+    queryFn: () => client.resources.allWhitepapers(),
+  });
+  return getWhitepaper;
+};
+
+export const GetSingleWhitePapers = (data) => {
+  const singleWhitepaper = useQuery({
+    queryKey: ["get-single-whitepaper"],
+    queryFn: () => client.resources.singleWhitepaper(data),
+  });
+  return singleWhitepaper;
+};

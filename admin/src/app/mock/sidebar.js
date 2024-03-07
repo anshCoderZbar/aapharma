@@ -377,6 +377,11 @@ export const SidebarData = [
         subMenuName: "Banner",
         slug: "whitepaper-banner",
       },
+      {
+        id: 2,
+        subMenuName: "Whitepaper",
+        slug: "all-whitepapers",
+      },
     ],
   },
   {

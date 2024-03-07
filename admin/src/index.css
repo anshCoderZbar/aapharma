@@ -162,3 +162,7 @@ input[type="number"] {
 .tox-toolbar__group button[title="Help"] {
   display: none !important;
 }
+
+.des_igfg p {
+  margin-bottom: 0 !important;
+}

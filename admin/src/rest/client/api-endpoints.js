@@ -135,4 +135,9 @@ export const API_ENDPOINTS = {
   singleResourcesTabs: "/resourcestabs/one",
   updateResourcesTabs: "/resourcestabs/update",
   whitepaperBanner: "/whitepaperbanner",
+  allWhitepapers: "/whitepaperblog/all",
+  addWhitepaper: "/whitepaperblog/new",
+  singleWhitepaper: "/whitepaperblog/one",
+  editWhitepaper: "/whitepaperblog/update",
+  deleteWhitepaper: "/whitepaperblog/delete",
 };
