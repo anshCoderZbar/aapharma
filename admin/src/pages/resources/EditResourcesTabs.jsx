@@ -44,25 +44,33 @@ export default function EditResourcesTabs() {
   useEffect(() => {
     const defaultValues = {};
     defaultValues.heading = singleTab?.data?.data?.tabHeading;
+    // const defaultInputs = singleTab?.data?.data?.combinedData?.map((elm, i) => ({
+    //   defaultValues[`tabHeading_${i + 1}`] = elm?.heading;
+    //   defaultValues[`tabUrl_${i + 1}`] = elm?.link;
+    //   defaultValues[`description_${i + 1}`] = elm?.description;
+    // }));
+
     const defaultInputs =
-      singleTab?.data?.data?.heading &&
-      singleTab?.data?.data?.heading?.map((elm, i) => ({
-        tabHeading: elm,
-        url: singleTab?.data?.data?.link[i],
-        description: singleTab?.data?.data?.description[i],
+      singleTab?.data?.data?.combinedData &&
+      singleTab?.data?.data?.combinedData?.map((elm, i) => ({
+        tabHeading: elm?.heading,
+        tabUrl: elm?.link,
+        description: elm?.description,
       }));
+
     setInputs(defaultInputs);
     defaultInputs?.map((elm, i) => {
       defaultValues[`tabHeading_${i + 1}`] = elm?.tabHeading;
-      defaultValues[`tabUrl_${i + 1}`] = elm?.url;
+      defaultValues[`tabUrl_${i + 1}`] = elm?.tabUrl;
       defaultValues[`description_${i + 1}`] = elm?.description;
     });
+
     setDefaultImg(singleTab?.data?.data?.image);
     reset(defaultValues);
   }, [singleTab?.data?.data]);
 
   const handleChange = (e) => {
-    const files = e.target.files[0];
+    const files = e?.target?.files[0];
     if (files) {
       const imageUrl = URL.createObjectURL(files);
       setPreviewImages(imageUrl);
@@ -230,7 +238,8 @@ export default function EditResourcesTabs() {
                           control={control}
                           placeholder="Description"
                           defaultValue={
-                            singleTab?.data?.data?.description[index]
+                            singleTab?.data?.data?.combinedData[index]
+                              ?.description
                           }
                           {...register(`description_${index + 1}`, {
                             required: true,

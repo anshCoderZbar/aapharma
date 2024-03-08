@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "styles/Resources.css";
-import banner from "assets/page-banners/whitepaper_banner.jpg";
 import { useNavigate } from "react-router-dom";
 import { GetAllWhitePapers, GetWhitePaperBanner } from "rest/resources";
 
@@ -9,6 +8,16 @@ export default function Whitepaper() {
   const navigate = useNavigate();
   const getBanner = GetWhitePaperBanner();
   const getWhitepaper = GetAllWhitePapers();
+
+  const [formData, setFormData] = useState({ year: "", month: "" });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  console.log(formData);
+
   return (
     <div className="whitepaper_page">
       <div className="whitepaper_banner_section">
@@ -57,18 +66,18 @@ export default function Whitepaper() {
 
       <div className="container-fluid">
         <div className="paper_page_filter">
-          <select>
+          <select name="year" onChange={handleChange}>
             <option value="">Select Year</option>
-            <option value="1">2023</option>
-            <option value="2">2022</option>
-            <option value="3">2021</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
           </select>
-          <select>
+          <select name="month" onChange={handleChange}>
             <option value="">Month</option>
-            <option value="1">January</option>
-            <option value="2">Feburary</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
+            {months?.map((month) => (
+              <option value={month?.id}>{month?.name}</option>
+            ))}
           </select>
         </div>
         <div className="whitepaper_card_section">
@@ -99,37 +108,53 @@ export default function Whitepaper() {
   );
 }
 
-const data = [
+const months = [
   {
-    date: "October 3, 2022",
-    heading: "Proteolysis-Targeting Chimeras (PROTACs) in Cancer Therapy",
+    id: 1,
+    name: "January",
   },
   {
-    date: "February 22, 2021",
-    heading: "The Importance of Synthetic Organic Chemistry in Drug Discovery",
+    id: 2,
+    name: "February",
   },
   {
-    date: "October 3, 2022",
-    heading: "Proteolysis-Targeting Chimeras (PROTACs) in Cancer Therapy",
+    id: 3,
+    name: "March",
   },
   {
-    date: "February 22, 2021",
-    heading: "The Importance of Synthetic Organic Chemistry in Drug Discovery",
+    id: 4,
+    name: "April",
   },
   {
-    date: "October 3, 2022",
-    heading: "Proteolysis-Targeting Chimeras (PROTACs) in Cancer Therapy",
+    id: 5,
+    name: "May",
   },
   {
-    date: "February 22, 2021",
-    heading: "The Importance of Synthetic Organic Chemistry in Drug Discovery",
+    id: 6,
+    name: "June",
   },
   {
-    date: "October 3, 2022",
-    heading: "Proteolysis-Targeting Chimeras (PROTACs) in Cancer Therapy",
+    id: 7,
+    name: "July",
   },
   {
-    date: "February 22, 2021",
-    heading: "The Importance of Synthetic Organic Chemistry in Drug Discovery",
+    id: 8,
+    name: "August",
+  },
+  {
+    id: 9,
+    name: "September",
+  },
+  {
+    id: 10,
+    name: "October",
+  },
+  {
+    id: 11,
+    name: "November",
+  },
+  {
+    id: 12,
+    name: "December",
   },
 ];

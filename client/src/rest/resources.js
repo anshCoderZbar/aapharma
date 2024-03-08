@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import client from "./client";
 
 export const GetResourcesHeading = () => {
@@ -48,4 +48,17 @@ export const GetSingleWhitePapers = (data) => {
     queryFn: () => client.resources.singleWhitepaper(data),
   });
   return singleWhitepaper;
+};
+
+export const FilterWhitepaperMutation = () => {
+  const filterWhitepaper = useMutation({
+    mutationFn: (data) => client.resources.filterWhitepaper(data),
+    onSuccess: () => {
+      //
+    },
+    onError: () => {
+      //
+    },
+  });
+  return filterWhitepaper;
 };

@@ -50,21 +50,36 @@ export default function Resources() {
             })}
         </div>
         {resourcesTabs?.data?.data?.length >= 1 &&
-          resourcesTabs?.data?.data?.map((tabs) => {
+          resourcesTabs?.data?.data?.map((tabs, i) => {
             return (
               tabs?.id === tabId && (
-                <div className="row">
-                  <div className="col-lg-5">
-                    <div className="resources_img">
+                <div
+                  className={`row ${i % 2 === 0 ? "flex-row" : "flex-column"} `}
+                >
+                  <div className={`${i % 2 === 0 ? "col-lg-5" : "col-lg-12"}`}>
+                    <div
+                      className={`resources_img ${
+                        i % 2 === 0 ? "" : "resources_img_2"
+                      }`}
+                    >
                       <img src={tabs?.image} alt="resources" />
                     </div>
                   </div>
-                  <div className="col-lg-7">
-                    <div className="resource_card_details">
+                  <div className={`${i % 2 === 0 ? "col-lg-7" : "col-lg-12"}`}>
+                    <div
+                      className={`resource_card_details ${
+                        i % 2 === 0 ? "" : "flex-row"
+                      }`}
+                    >
                       {tabs?.combinedData?.length >= 1 &&
-                        tabs?.combinedData?.map((links) => {
+                        tabs?.combinedData?.map((links, index) => {
                           return (
-                            <div className="resources_cards">
+                            <div
+                              key={index}
+                              className={`resources_cards ${
+                                i % 2 === 0 ? "" : "res_buh"
+                              }`}
+                            >
                               <div className="row">
                                 <div className="col-8">
                                   <div className="resource_left_content">
@@ -84,7 +99,10 @@ export default function Resources() {
                                       target="_blank"
                                       rel="noreferrer"
                                     >
-                                      Click Here
+                                      {new URL(links?.link)?.host.replace(
+                                        /(https?:\/\/)?(www.)?/i,
+                                        ""
+                                      )}
                                     </a>
                                   </div>
                                 </div>

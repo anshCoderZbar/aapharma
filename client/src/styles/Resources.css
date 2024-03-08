@@ -250,12 +250,18 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .resources_cards {
   border-radius: 20px;
   background: #f7f7f7;
   padding: 50px 50px;
+  width: 100%;
+}
+
+.res_buh {
+  flex: 0 49%;
 }
 
 .resources_img img {
@@ -266,6 +272,13 @@
   text-align: center;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+.resources_img_2 {
+  max-width: 1000px;
+  margin: auto;
+  margin: 0 auto 30px auto;
 }
 
 .resource_left_content h3,
