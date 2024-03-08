@@ -2,7 +2,12 @@ import React, { useState } from "react";
 
 import "styles/Resources.css";
 import { useNavigate } from "react-router-dom";
-import { GetAllWhitePapers, GetWhitePaperBanner } from "rest/resources";
+import {
+  FilterWhitepaperMutation,
+  GetAllWhitePapers,
+  GetWhitePaperBanner,
+} from "rest/resources";
+import { Loader } from "app/components/Ui/Loader";
 
 export default function Whitepaper() {
   const navigate = useNavigate();
@@ -11,12 +16,14 @@ export default function Whitepaper() {
 
   const [formData, setFormData] = useState({ year: "", month: "" });
 
+  const filterResources = FilterWhitepaperMutation();
+  console.log();
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const newFormData = { ...formData, [name]: value };
+    setFormData(newFormData);
+    filterResources.mutate(newFormData);
   };
-
-  console.log(formData);
 
   return (
     <div className="whitepaper_page">
@@ -76,32 +83,70 @@ export default function Whitepaper() {
           <select name="month" onChange={handleChange}>
             <option value="">Month</option>
             {months?.map((month) => (
-              <option value={month?.id}>{month?.name}</option>
+              <option key={month?.id} value={month?.name?.toLowerCase()}>
+                {month?.name}
+              </option>
             ))}
           </select>
         </div>
         <div className="whitepaper_card_section">
-          {getWhitepaper?.data?.data &&
-            getWhitepaper?.data?.data?.map((elm, i) => {
-              return (
-                <div key={i} className="whitepaper_card">
-                  <div className="card_details">
-                    <p className="whitepaper_year">
-                      {elm?.date?.replaceAll("-", " ")}
-                    </p>
-                    <h2 className="whitepaper_data">{elm?.heading}</h2>
-                    <div className="d-flex justify-content-center whitepaper_btn">
-                      <button
-                        onClick={() => navigate(`/whitepaper/${elm?.id}`)}
-                        className="primary_btn_outline"
-                      >
-                        Read More
-                      </button>
+          {formData?.month || formData?.year
+            ? filterResources?.data?.data?.length < 1 && (
+                <h2 className="empty_head">
+                  Sorry, but nothing matched your search terms. Please try again
+                  with some different keywords.
+                </h2>
+              )
+            : ""}
+          {formData?.month || formData?.year
+            ? filterResources?.isPending && (
+                <div className="d-flex justify-content-center align-items-center w-100">
+                  <Loader />
+                </div>
+              )
+            : ""}
+          {formData?.month || formData?.year
+            ? filterResources?.data?.data?.length >= 1 &&
+              filterResources?.data?.data?.map((elm, i) => {
+                return (
+                  <div key={i} className="whitepaper_card">
+                    <div className="card_details">
+                      <p className="whitepaper_year">
+                        {elm?.date?.replaceAll("-", " ")}
+                      </p>
+                      <h2 className="whitepaper_data">{elm?.heading}</h2>
+                      <div className="d-flex justify-content-center whitepaper_btn">
+                        <button
+                          onClick={() => navigate(`/whitepaper/${elm?.id}`)}
+                          className="primary_btn_outline"
+                        >
+                          Read More
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })
+            : getWhitepaper?.data?.data?.map((elm, i) => {
+                return (
+                  <div key={i} className="whitepaper_card">
+                    <div className="card_details">
+                      <p className="whitepaper_year">
+                        {elm?.date?.replaceAll("-", " ")}
+                      </p>
+                      <h2 className="whitepaper_data">{elm?.heading}</h2>
+                      <div className="d-flex justify-content-center whitepaper_btn">
+                        <button
+                          onClick={() => navigate(`/whitepaper/${elm?.id}`)}
+                          className="primary_btn_outline"
+                        >
+                          Read More
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
         </div>
       </div>
     </div>
