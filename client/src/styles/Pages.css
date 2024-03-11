@@ -337,6 +337,7 @@
 }
 
 /* employement page */
+
 @media only screen and (min-width: 1921px) {
   .employement_details p {
     font-size: calc(39px - 15px);

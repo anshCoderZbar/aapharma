@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Modal = ({ id, children }) => {
+export const Modal = ({ id, children, extra, closeBtn = true }) => {
   return (
     <div
       className="modal fade"
@@ -9,16 +9,18 @@ export const Modal = ({ id, children }) => {
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-dialog-centered">
+      <div className={`modal-dialog modal-dialog-centered ${extra}`}>
         <div className="modal-content">
-          <div className="modal-header">
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
+          {closeBtn && (
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+          )}
           <div className="modal-body">{children}</div>
         </div>
       </div>

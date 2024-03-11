@@ -233,10 +233,17 @@ td {
   }
 }
 
+@media screen and (max-width: 1510px) {
+  .container-fluid {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   .container-fluid {
-    padding-left: 60px !important;
-    padding-right: 60px !important;
+    padding-left: 45px !important;
+    padding-right: 45px !important;
   }
 
   .primary_buttton {
@@ -256,7 +263,7 @@ td {
 
 @media only screen and (max-width: 1200px) {
   .container-fluid {
-    padding: 0 50px !important;
+    padding: 0 40px !important;
   }
 
   .primary_btn_outline {
@@ -275,7 +282,7 @@ td {
 
 @media only screen and (max-width: 991px) {
   .container-fluid {
-    padding: 0 40px !important;
+    padding: 0 35px !important;
   }
 
   .primary_buttton {

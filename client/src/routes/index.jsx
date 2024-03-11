@@ -28,6 +28,7 @@ import Accreditations from "pages/capabilities/Accreditations";
 import Services2 from "pages/services/Services2";
 import { ChemicalEditor } from "pages/catalog/ChemicalEditor";
 import WhitepaperDetail from "pages/resources/WhitepaperDetail";
+import Cart from "pages/cart/Cart";
 
 export const AllRoutes = () => {
   return (
@@ -230,8 +231,15 @@ export const AllRoutes = () => {
             path="/accreditations"
             element={
               <PublicRoutes>
-                x``
                 <Accreditations />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <PublicRoutes>
+                <Cart />
               </PublicRoutes>
             }
           />
