@@ -8,8 +8,12 @@ import { AddtoCart } from "../Ui/AddtoCart ";
 
 export const CatalogHomeCard = ({ items, baseUrl }) => {
   const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
 
   const handlePriceChange = (e) => {
+    const index = e.target.selectedIndex;
+    const el = e.target.childNodes[index];
+    setQuantity(el?.getAttribute("id"));
     setPrice(e?.target?.value);
   };
 
@@ -21,15 +25,7 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
         className={`${true ? "opacity-100" : "opacity-25"}`}
       />
       <div className="catalog_content">
-        <p
-          className="mt-0"
-          // dangerouslySetInnerHTML={{
-          //   __html:
-          // items?.description?.length >= 50
-          //   ? items?.heading?.slice(0, 50) + "....."
-          //   : items?.heading,
-          // }}
-        >
+        <p className="mt-0">
           {items?.heading?.length >= 40
             ? items?.heading?.slice(0, 40) + "....."
             : items?.heading}
@@ -45,7 +41,11 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
             {items?.catalog_quantity_price?.length >= 1
               ? JSON.parse(items?.catalog_quantity_price).map((details, i) => {
                   return (
-                    <option value={details?.price} key={i}>
+                    <option
+                      id={details?.quantity}
+                      value={details?.price}
+                      key={i}
+                    >
                       {details?.quantity}
                     </option>
                   );
@@ -77,7 +77,12 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
       </div>
       <div className="order_btn">
         {items?.inStock === "true" ? (
-          <AddtoCart />
+          <AddtoCart
+            id={items?.id}
+            price={price}
+            isDisabled={!price}
+            quantity={quantity}
+          />
         ) : (
           <button className="add_to_cart">Make Inquiry</button>
         )}

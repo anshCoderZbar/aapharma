@@ -9,11 +9,15 @@ import { Minus, Plus } from "lucide-react";
 
 export const CatalogCard = ({ baseUrl, compounts }) => {
   const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
   const [compoundDesc, setCompoundDesc] = useState("");
 
   const handlePriceChange = (e) => {
     const { value } = e?.target;
+    const index = e.target.selectedIndex;
+    const el = e.target.childNodes[index];
     setPrice(value);
+    setQuantity(el?.getAttribute("id"));
   };
 
   return (
@@ -47,12 +51,6 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                                       className="detail_desc"
                                       dangerouslySetInnerHTML={{
                                         __html: details?.description,
-                                        // cleanText(details?.description)
-                                        //   ?.length >= 16
-                                        //   ? cleanText(
-                                        //       details?.description
-                                        //     )?.slice(0, 14)
-                                        //   : details?.description,
                                       }}
                                     />
                                     {cleanText(details?.description)?.length >=
@@ -126,7 +124,7 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                               (details, i) => {
                                 return (
                                   <option
-                                    id={details?.price}
+                                    id={details?.quantity}
                                     value={details?.price}
                                     key={i}
                                   >
@@ -164,7 +162,12 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
                   </div>
                   <div className="order_btn">
                     {compounts?.inStock === "true" ? (
-                      <AddtoCart />
+                      <AddtoCart
+                        id={compounts?.id}
+                        price={price}
+                        isDisabled={!price}
+                        quantity={quantity}
+                      />
                     ) : (
                       <button className="add_to_cart">Make Inquiry</button>
                     )}

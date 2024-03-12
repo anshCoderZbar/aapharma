@@ -55,4 +55,6 @@ export const API_ENDPOINTS = {
   whitepaperBanner: "/whitepaperbanner",
   allWhitepapers: "/whitepaperblog/all",
   singleWhitepaper: "/whitepaperblog/one",
+  addToCart: "/addToCart",
+  getCart: "/getCart",
 };

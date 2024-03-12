@@ -191,6 +191,22 @@ p {
 td {
   border-width: 1px;
 }
+
+.disabled_btn_cart {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.disabled_btn_cart:hover {
+  color: #2a3072;
+  border: 1px solid #2a3072;
+  background-color: #fff;
+}
+
+.disabled_btn_cart:hover img {
+  filter: none !important;
+}
+
 @media screen and (min-width: 1925px) {
   .primary_btn_outline {
     font-size: 20px;

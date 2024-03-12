@@ -321,6 +321,9 @@ class Client {
     deleteWhitepaper: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteWhitepaper, params),
   };
+  cart = {
+    // addCart: (params) => HttpClient.post(API_ENDPOINTS.addToCart, params),
+  };
 }
 
 const client = new Client();

@@ -29,6 +29,7 @@ import Services2 from "pages/services/Services2";
 import { ChemicalEditor } from "pages/catalog/ChemicalEditor";
 import WhitepaperDetail from "pages/resources/WhitepaperDetail";
 import Cart from "pages/cart/Cart";
+import Checkout from "pages/cart/Checkout";
 
 export const AllRoutes = () => {
   return (
@@ -240,6 +241,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <Cart />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <PublicRoutes>
+                <Checkout />
               </PublicRoutes>
             }
           />

@@ -107,6 +107,10 @@ class Client {
     filterWhitepaper: (params) =>
       HttpClient.post(API_ENDPOINTS.allWhitepapers, params),
   };
+  cart = {
+    addCart: (params) => HttpClient.post(API_ENDPOINTS.addToCart, params),
+    getCart: (params) => HttpClient.post(API_ENDPOINTS.getCart, params),
+  };
 }
 
 const client = new Client();

@@ -140,4 +140,5 @@ export const API_ENDPOINTS = {
   singleWhitepaper: "/whitepaperblog/one",
   editWhitepaper: "/whitepaperblog/update",
   deleteWhitepaper: "/whitepaperblog/delete",
+  getCart: "/getCart",
 };

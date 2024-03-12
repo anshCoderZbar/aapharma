@@ -13,7 +13,7 @@ export const CatalogDetails = () => {
 
   const getUtility = GetUtility(id);
   const [filteredUtils, setFilteredUtils] = useState([]);
-
+  const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
 
   useEffect(() => {
@@ -29,6 +29,9 @@ export const CatalogDetails = () => {
   };
 
   const handlePriceChange = (e) => {
+    const index = e.target.selectedIndex;
+    const el = e.target.childNodes[index];
+    setQuantity(el?.getAttribute("id"));
     setPrice(e?.target?.value);
   };
 
@@ -100,7 +103,11 @@ export const CatalogDetails = () => {
                                   .catalog_quantity_price
                               ).map((details, i) => {
                                 return (
-                                  <option value={details?.price} key={i}>
+                                  <option
+                                    id={details?.quantity}
+                                    value={details?.price}
+                                    key={i}
+                                  >
                                     {details?.quantity}
                                   </option>
                                 );
@@ -117,7 +124,16 @@ export const CatalogDetails = () => {
                     </div>
                   )}
                   {singleChemical?.data?.data?.inStock === "true" ? (
-                    <AddtoCart extra="add_to_cart_btn" />
+                    <AddtoCart
+                      extra="add_to_cart_btn"
+                      id={
+                        singleChemical?.data?.data?.id &&
+                        singleChemical?.data?.data?.id
+                      }
+                      price={price}
+                      isDisabled={!price}
+                      quantity={quantity}
+                    />
                   ) : (
                     <button className="add_to_cart add_to_cart_btn mt-3">
                       Make Inquiry
@@ -133,9 +149,10 @@ export const CatalogDetails = () => {
         <div className="container-fluid">
           <div className="information_box utils">
             <ul className="utils_lists_bpjh">
-              {getUtility?.data?.data?.map((elm) => {
+              {getUtility?.data?.data?.map((elm, i) => {
                 return (
                   <li
+                    key={i}
                     className={`utils_list_info ${
                       tabId === elm?.id ? "info_uti_active" : ""
                     } `}
