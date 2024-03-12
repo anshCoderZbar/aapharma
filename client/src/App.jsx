@@ -1,10 +1,11 @@
+import { useAtom } from "jotai";
 import { AllRoutes } from "routes";
 import { useEffect } from "react";
-import "swiper/css";
+import { v4 as uuidv4 } from "uuid";
 import { GetSettings } from "rest/main";
-import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
 import "./App.css";
+import "swiper/css";
 
 function App() {
   const settings = GetSettings();
@@ -33,6 +34,13 @@ function App() {
     sessionStorage.setItem("supersubcategoryId", JSON?.stringify([]));
     sessionStorage.setItem("orderBy", "");
     sessionStorage.setItem("search", "");
+  }, []);
+
+  useEffect(() => {
+    const getGuestId = localStorage.getItem("guestId");
+    if (!getGuestId) {
+      localStorage.setItem("guestId", uuidv4());
+    }
   }, []);
 
   return <AllRoutes />;

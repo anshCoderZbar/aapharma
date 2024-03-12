@@ -1540,6 +1540,11 @@ h6 {
     padding: 100px 0 50px 0;
   }
 }
+@media only screen and (max-width: 380px) {
+  .compount_img_details ul li {
+    flex-wrap: nowrap;
+  }
+}
 
 /* PAGINATION */
 .catalog_main_card .rc-pagination {
