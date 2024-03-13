@@ -343,7 +343,7 @@
 
 @media screen and (max-width: 1600px) {
   .whitepaper_banner_section {
-    padding-top: 25px;
+    padding-top: 30px;
     padding-bottom: 70px;
   }
 
@@ -477,7 +477,7 @@
 
 @media screen and (max-width: 1400px) {
   .whitepaper_banner_section {
-    padding-top: 20px;
+    padding-top: 25px;
     padding-bottom: 60px;
   }
 
@@ -605,11 +605,14 @@
   .resource_bottom_section {
     margin: 30px 0;
   }
+
+  .whitepaper_card_section {
+    padding-bottom: 50px;
+  }
 }
 
 @media screen and (max-width: 1199px) {
   .whitepaper_banner_section {
-    padding-top: 15px;
     padding-bottom: 40px;
   }
 
@@ -644,11 +647,11 @@
 
   .paper_page_filter {
     margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   .whitepaper_card {
-    padding: 25px;
+    padding: 37px 25px;
   }
 
   .resources_desc {
@@ -736,6 +739,10 @@
     margin: 20px 0;
   }
 
+  .whitepaper_card {
+    padding: 30px 25px;
+  }
+
   .single_whitepaper_banner h1 {
     max-width: 508px;
     font-size: 24px;
@@ -747,6 +754,10 @@
 
   .resource_card_details {
     flex-direction: column !important;
+  }
+
+  .whitepaper_card_section {
+    padding-bottom: 40px;
   }
 }
 
@@ -769,8 +780,8 @@
   }
 
   .whitepaper_card {
-    flex: 0 100%;
-    padding: 20px;
+    flex: 0 1 100%;
+    padding: 30px 20px;
   }
 
   .resources_desc {
@@ -842,6 +853,14 @@
     font-size: 22px;
     max-width: 483px;
   }
+
+  .whitepaper_card_section {
+    padding-bottom: 30px;
+  }
+
+  .whitepaper_bottom_section p {
+    font-size: 15px;
+  }
 }
 
 @media only screen and (max-width: 660px) {
@@ -883,11 +902,15 @@
 
   .paper_page_filter {
     margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .whitepaper_card_section {
+    padding-bottom: 20px;
   }
 
   .whitepaper_card {
-    padding: 15px;
+    padding: 25px 15px;
   }
 
   .whitepaper_year {
@@ -906,8 +929,22 @@
   }
 
   .whitepaper_banner_section {
-    padding-top: 0px;
+    padding-top: 15px;
     padding-bottom: 30px;
+  }
+
+  .whitepaper_banner {
+    padding: 14px 18px;
+  }
+
+  .whitepaper_bottom_section {
+    position: relative;
+    margin-top: 10px;
+    max-width: 320px;
+  }
+
+  .whitepaper_bottom_section p {
+    font-size: 14px;
   }
 
   .resources_desc {
@@ -953,5 +990,14 @@
     margin-top: 15px;
     margin-bottom: 13px;
     font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 419px) {
+  .whitepaper_banner {
+    height: 100%;
+  }
+  .banner_img {
+    display: none;
   }
 }

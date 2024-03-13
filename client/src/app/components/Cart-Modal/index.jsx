@@ -26,10 +26,10 @@ export const CartModal = ({ id }) => {
         </button>
         <div className="cart_inner">
           {getCartDetails?.data?.data?.length >= 1 ? (
-            getCartDetails?.data?.data?.map((items) => {
+            getCartDetails?.data?.data?.map((items, i) => {
               // console.log(items);
               return (
-                <div className="cart_items">
+                <div key={i} className="cart_items">
                   <div className="add_cart_item">
                     <div className="remove_item_cart">
                       <Trash2 />

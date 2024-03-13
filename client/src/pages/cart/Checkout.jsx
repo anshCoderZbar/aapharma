@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 import { StepsForm } from "./Stepper";
 import {
@@ -16,6 +17,23 @@ import "styles/Cart.css";
 import { ZipCode } from "app/common/services/Icons";
 
 export default function Checkout() {
+  const [paymentMethod, setPaymentMethod] = useState("checkPayment");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handlePayment = (e) => {
+    setPaymentMethod(e.target.value);
+  };
+
+  console.log(paymentMethod);
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="checkout_page">
       <div className="checkout_head">
@@ -31,7 +49,7 @@ export default function Checkout() {
                   <h3>Billing Details</h3>
                 </div>
                 <div className="row moik_kht">
-                  <div className="col-lg-6 for_jh">
+                  <div className={`col-lg-6 for_jh `}>
                     <label
                       htmlFor="firstName"
                       className="form-label ship_lable"
@@ -40,8 +58,11 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
-                      className="form-control inp_form"
+                      className={`form-control inp_form ${
+                        errors?.firstName ? "border-danger" : ""
+                      }`}
                       name="firstName"
+                      {...register("firstName", { required: true })}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -50,8 +71,11 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
-                      className="form-control inp_form"
+                      className={`form-control inp_form ${
+                        errors?.lastName ? "border-danger" : ""
+                      }`}
                       name="lastName"
+                      {...register("lastName", { required: true })}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -65,6 +89,7 @@ export default function Checkout() {
                       type="text"
                       className="form-control inp_form"
                       name="companyName"
+                      {...register("companyName")}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -76,8 +101,11 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
-                      className="form-control inp_form"
+                      className={`form-control inp_form ${
+                        errors?.countryRegion ? "border-danger" : ""
+                      }`}
                       name="countryRegion"
+                      {...register("countryRegion", { required: true })}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -89,8 +117,11 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
-                      className="form-control inp_form"
+                      className={`form-control inp_form ${
+                        errors?.streetAddress ? "border-danger" : ""
+                      }`}
                       name="streetAddress"
+                      {...register("streetAddress", { required: true })}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -99,8 +130,11 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
-                      className="form-control inp_form"
+                      className={`form-control inp_form ${
+                        errors?.townCity ? "border-danger" : ""
+                      }`}
                       name="townCity"
+                      {...register("townCity", { required: true })}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -110,8 +144,11 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
-                      className="form-control inp_form"
+                      className={`form-control inp_form ${
+                        errors?.state ? "border-danger" : ""
+                      }`}
                       name="state"
+                      {...register("state", { required: true })}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -120,9 +157,12 @@ export default function Checkout() {
                       Zip Code *
                     </label>
                     <input
-                      type="text"
-                      className="form-control inp_form"
+                      type="number"
+                      className={`form-control inp_form ${
+                        errors?.zipCode ? "border-danger" : ""
+                      }`}
                       name="zipCode"
+                      {...register("zipCode", { required: true })}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -135,8 +175,11 @@ export default function Checkout() {
                     </label>
                     <input
                       type="number"
-                      className="form-control inp_form"
+                      className={`form-control inp_form ${
+                        errors?.phoneNumber ? "border-danger" : ""
+                      }`}
                       name="phoneNumber"
+                      {...register("phoneNumber", { required: true })}
                     />
                   </div>
                   <div className="col-lg-6 for_jh">
@@ -148,9 +191,12 @@ export default function Checkout() {
                       Email Address *
                     </label>
                     <input
-                      type="number"
-                      className="form-control inp_form"
+                      type="email"
+                      className={`form-control inp_form ${
+                        errors?.emailAddress ? "border-danger" : ""
+                      }`}
                       name="emailAddress"
+                      {...register("emailAddress", { required: true })}
                     />
                   </div>
                 </div>
@@ -169,6 +215,8 @@ export default function Checkout() {
                   <textarea
                     className="form-control txt_arwa"
                     rows="3"
+                    name="notes"
+                    {...register("notes")}
                   ></textarea>
                 </div>
               </div>
@@ -209,7 +257,10 @@ export default function Checkout() {
                     className="form-check-input "
                     type="radio"
                     id="checkPayment"
+                    value="checkPayment"
                     name="paymentMethod"
+                    onChange={handlePayment}
+                    checked={paymentMethod === "checkPayment"}
                   />
                   <br />
                   <label
@@ -230,9 +281,12 @@ export default function Checkout() {
                     type="radio"
                     name="paymentMethod"
                     id="paypal"
+                    value="paypal"
+                    onChange={handlePayment}
+                    checked={paymentMethod === "paypal"}
                   />
                   <br />
-                  <label className="form-check-label pay_lab" for="paypal">
+                  <label className="form-check-label pay_lab" htmlFor="paypal">
                     Paypal
                     <img
                       src={require("assets/payment_method.png")}
@@ -247,7 +301,12 @@ export default function Checkout() {
             </div>
           </div>
           <div className="submit_order">
-            <button className="primary_buttton">Place Order</button>
+            <button
+              className="primary_buttton"
+              onClick={handleSubmit(onSubmit)}
+            >
+              Place Order
+            </button>
           </div>
         </div>
       </div>

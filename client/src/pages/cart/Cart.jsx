@@ -33,6 +33,7 @@ export default function Cart() {
                   getCartDetails?.data?.data?.map((item, i, row) => {
                     return (
                       <div
+                        key={i}
                         className={`cart_itsm_dif ${
                           i + 1 !== row.length ? "border-bottom" : ""
                         } border-1`}
