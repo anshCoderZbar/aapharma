@@ -4,13 +4,24 @@ import { useNavigate } from "react-router-dom";
 import "styles/Cart.css";
 import banner from "assets/page-banners/cart_banner.jpg";
 import { Minus, Plus, Trash2 } from "lucide-react";
-import { GetCartMutation } from "rest/cart";
+import { DeleteFromCartMutation, GetCartMutation } from "rest/cart";
+import { usdFormater } from "lib/utils/functions";
+import { ButtonLoader } from "app/components/Ui/ButtonLoader";
+import { Loader } from "app/components/Ui/Loader";
 
 export default function Cart() {
   const navigate = useNavigate();
   const formData = new FormData();
   formData.append("belongsTo", localStorage.getItem("guestId"));
   const getCartDetails = GetCartMutation(formData);
+  const deleteCartMutation = DeleteFromCartMutation();
+
+  const deleteCartItem = (cartId) => {
+    const formData = new FormData();
+    formData.append("id", cartId);
+    deleteCartMutation.mutate(formData);
+  };
+
   return (
     <div className="main_cart_page">
       <div
@@ -30,7 +41,7 @@ export default function Cart() {
             <div className="row">
               <div className="col-lg-12 col-xl-8 card_box">
                 {getCartDetails?.data?.data?.length >= 1 ? (
-                  getCartDetails?.data?.data?.map((item, i, row) => {
+                  getCartDetails?.data?.data?.map((items, i, row) => {
                     return (
                       <div
                         key={i}
@@ -39,15 +50,21 @@ export default function Cart() {
                         } border-1`}
                       >
                         <div className="cart_card">
-                          <div className="remove_item_cart">
+                          <div
+                            onClick={() => deleteCartItem(items?.id)}
+                            className="remove_item_cart"
+                          >
                             <Trash2 />
                           </div>
                           <div className="cart_image_vko">
-                            <img src={require("assets/catalog_img.png")} />
+                            <img
+                              src={`${getCartDetails?.data?.baseUrl}/${items?.chemicalDetail?.image}`}
+                            />
                           </div>
                           <div className="cart_info_vs">
                             <p>
-                              6-(5-(Methylsulfonyl)-1,2,3-Thiadiazol-4-Yl)-3-Azabicyclo[3.1.O]Hexane-3-Carboxylate
+                              {items?.chemicalDetail?.heading &&
+                                items?.chemicalDetail?.heading}
                             </p>
                             <div className="update_cart_quantity">
                               <div className="cart_top_qt">
@@ -63,21 +80,27 @@ export default function Cart() {
                               </div>
                               <div className="cart_main_qty">
                                 <div className="cart_top_head cart_price">
-                                  <h3>$140.00</h3>
+                                  <h3>
+                                    {usdFormater(
+                                      items?.price.replaceAll(",", "")
+                                    )}
+                                  </h3>
                                 </div>
                                 <div className="cart_top_head cart_quantity">
                                   <h3>
                                     <span className="cart_update_qty_btn">
                                       <Minus />
                                     </span>
-                                    1
+                                    {items?.quantity && items?.quantity}
                                     <span className="cart_update_qty_btn">
                                       <Plus />
                                     </span>
                                   </h3>
                                 </div>
                                 <div className="cart_top_head cart_subtotal">
-                                  $140.00
+                                  {usdFormater(
+                                    items?.price.replaceAll(",", "")
+                                  )}
                                 </div>
                               </div>
                             </div>
@@ -109,32 +132,40 @@ export default function Cart() {
                         className="cart_purple_btn"
                       />
                     </form>
-                    <div className="position-relative">
-                      <div className="cart_checkout_contianer">
-                        <h2 className="main_top_heading cart_hqad">
-                          Cart Totals
-                        </h2>
-                        <div className="total_price">
-                          <div className="price_total">
-                            <p>Subtotal</p>
-                            <p>$140</p>
-                          </div>
-                          <hr />
-                          <div className="price_total">
-                            <p className="fw-bold">Total</p>
-                            <p className="fw-bold">$140</p>
+                    {getCartDetails?.data?.subTotal && (
+                      <div className="position-relative">
+                        <div className="cart_checkout_contianer">
+                          <h2 className="main_top_heading cart_hqad">
+                            Cart Totals
+                          </h2>
+                          <div className="total_price">
+                            <div className="price_total">
+                              <p>Subtotal</p>
+                              <p>
+                                {getCartDetails?.data?.subTotal &&
+                                  usdFormater(getCartDetails?.data?.subTotal)}
+                              </p>
+                            </div>
+                            <hr />
+                            <div className="price_total">
+                              <p className="fw-bold">Total</p>
+                              <p className="fw-bold">
+                                {getCartDetails?.data?.total &&
+                                  usdFormater(getCartDetails?.data?.total)}
+                              </p>
+                            </div>
                           </div>
                         </div>
+                        <div className="checkout_cart">
+                          <button
+                            onClick={() => navigate("/checkout")}
+                            className="primary_buttton"
+                          >
+                            Proceed to Checkout
+                          </button>
+                        </div>
                       </div>
-                      <div className="checkout_cart">
-                        <button
-                          onClick={() => navigate("/checkout")}
-                          className="primary_buttton"
-                        >
-                          Proceed to Checkout
-                        </button>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>

@@ -12,7 +12,7 @@ export const AddToCartMutation = () => {
       queryClient.invalidateQueries({ queryKey: ["get-cart"] });
     },
     onError: (err) => {
-      alert("err");
+      // alert("err");
     },
   });
   return addCart;
@@ -24,4 +24,17 @@ export const GetCartMutation = (data) => {
     queryFn: () => client.cart.getCart(data),
   });
   return getQuery;
+};
+
+export const DeleteFromCartMutation = () => {
+  const deleteCart = useMutation({
+    mutationFn: (data) => client.cart.deleteCart(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["get-cart"] });
+    },
+    onError: (err) => {
+      // alert("err");
+    },
+  });
+  return deleteCart;
 };

@@ -57,4 +57,5 @@ export const API_ENDPOINTS = {
   singleWhitepaper: "/whitepaperblog/one",
   addToCart: "/addToCart",
   getCart: "/getCart",
+  deleteCart: "/deleteCart",
 };

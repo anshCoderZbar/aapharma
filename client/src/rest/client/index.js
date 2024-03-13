@@ -110,6 +110,7 @@ class Client {
   cart = {
     addCart: (params) => HttpClient.post(API_ENDPOINTS.addToCart, params),
     getCart: (params) => HttpClient.post(API_ENDPOINTS.getCart, params),
+    deleteCart: (params) => HttpClient.post(API_ENDPOINTS.deleteCart, params),
   };
 }
 

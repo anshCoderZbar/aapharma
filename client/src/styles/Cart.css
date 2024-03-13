@@ -45,8 +45,9 @@
 
 .cart_img {
   max-width: 480px;
-  max-height: 220px;
-  flex: 0 45%;
+  height: 220px;
+  max-height: 100%;
+  flex: 0 1 45%;
 }
 
 .cart_img img {
@@ -170,7 +171,8 @@
 
 .cart_image_vko {
   max-width: 390px;
-  max-height: 200px;
+  height: 200px;
+  max-height: 100%;
   flex: 0 45%;
 }
 
@@ -1117,7 +1119,7 @@
 
   .cart_img {
     max-width: 295px;
-    max-height: 206px;
+    height: 206px;
     margin: auto;
   }
 
