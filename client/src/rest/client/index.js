@@ -111,6 +111,8 @@ class Client {
     addCart: (params) => HttpClient.post(API_ENDPOINTS.addToCart, params),
     getCart: (params) => HttpClient.post(API_ENDPOINTS.getCart, params),
     deleteCart: (params) => HttpClient.post(API_ENDPOINTS.deleteCart, params),
+    updateCart: (params) => HttpClient.post(API_ENDPOINTS.updateCart, params),
+    checkout: (params) => HttpClient.post(API_ENDPOINTS.checkout, params),
   };
 }
 

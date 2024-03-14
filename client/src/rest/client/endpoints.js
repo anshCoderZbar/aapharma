@@ -58,4 +58,6 @@ export const API_ENDPOINTS = {
   addToCart: "/addToCart",
   getCart: "/getCart",
   deleteCart: "/deleteCart",
+  updateCart: "/updateCart",
+  checkout: "/checkout",
 };

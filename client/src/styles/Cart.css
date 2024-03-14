@@ -229,6 +229,7 @@
   background-color: #e8e7e7;
   margin: 0 8px;
   cursor: pointer;
+  border: none;
 }
 
 .cart_update_qty_btn svg {
@@ -1277,5 +1278,29 @@
 
   .pay_lab {
     font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .cart_main_qty {
+    gap: 10px;
+  }
+
+  .cart_purple_btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .coupon_input {
+    font-size: 14px;
+    width: 54%;
+  }
+
+  .cart_top_head h3 {
+    font-size: 13px;
+  }
+
+  .cart_top_qt {
+    padding: 0 7px;
   }
 }

@@ -67,7 +67,9 @@ export const CartModal = ({ id }) => {
                 );
               })
             ) : (
-              <h2 className="empty_head">Cart is empty</h2>
+              <h2 className="main_top_heading cart_hqad mt-3 mb-3 text-center">
+                Cart is empty
+              </h2>
             )}
             <div className="sub_total_jh">
               <p>

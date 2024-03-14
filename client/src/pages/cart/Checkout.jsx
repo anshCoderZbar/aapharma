@@ -15,9 +15,20 @@ import {
 
 import "styles/Cart.css";
 import { ZipCode } from "app/common/services/Icons";
+import { CheckoutCartMutation, GetCartMutation } from "rest/cart";
+import { usdFormater } from "lib/utils/functions";
+import { ButtonLoader } from "app/components/Ui/ButtonLoader";
 
 export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("checkPayment");
+
+  const formData = new FormData();
+  formData.append("belongsTo", localStorage.getItem("guestId"));
+
+  const getCartDetails = GetCartMutation(formData);
+
+  const checkoutCart = CheckoutCartMutation();
+
   const {
     register,
     handleSubmit,
@@ -28,10 +39,22 @@ export default function Checkout() {
     setPaymentMethod(e.target.value);
   };
 
-  console.log(paymentMethod);
-
   const onSubmit = (data) => {
-    console.log(data);
+    const formData = new FormData();
+    formData.append("firstName", data?.firstName);
+    formData.append("lastName", data?.lastName);
+    formData.append("companyName", data?.companyName);
+    formData.append("country", data?.countryRegion);
+    formData.append("street", data?.streetAddress);
+    formData.append("town", data?.townCity);
+    formData.append("state", data?.state);
+    formData.append("zipCode", data?.zipCode);
+    formData.append("phone", data?.phoneNumber);
+    formData.append("email", data?.emailAddress);
+    formData.append("otherNotes", data?.notes);
+    formData.append("belongsTo", localStorage.getItem("guestId"));
+    formData.append("paymentMethod", paymentMethod);
+    checkoutCart.mutate(formData);
   };
 
   return (
@@ -235,17 +258,23 @@ export default function Checkout() {
                     <span>Product</span>
                     <span>Subtotal</span>
                   </li>
-                  <li>
+                  {/* <li>
                     <span>6-(5-(Methylsulfonyl)-1...</span>
-                    <span>$140.00</span>
-                  </li>
+                    <span>{usdFormater}</span>
+                  </li> */}
                   <li>
                     <span>Subtotal</span>
-                    <span>$140.00</span>
+                    <span>
+                      {getCartDetails?.data?.subTotal &&
+                        usdFormater(getCartDetails?.data?.subTotal)}
+                    </span>
                   </li>
                   <li>
                     <span>Total</span>
-                    <span>$140.00</span>
+                    <span>
+                      {getCartDetails?.data?.total &&
+                        usdFormater(getCartDetails?.data?.total)}
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -301,12 +330,16 @@ export default function Checkout() {
             </div>
           </div>
           <div className="submit_order">
-            <button
-              className="primary_buttton"
-              onClick={handleSubmit(onSubmit)}
-            >
-              Place Order
-            </button>
+            {checkoutCart?.isPending ? (
+              <ButtonLoader />
+            ) : (
+              <button
+                className="primary_buttton"
+                onClick={handleSubmit(onSubmit)}
+              >
+                Place Order
+              </button>
+            )}
           </div>
         </div>
       </div>
