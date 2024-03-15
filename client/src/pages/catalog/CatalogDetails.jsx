@@ -116,9 +116,9 @@ export const CatalogDetails = () => {
                         </select>
                       </div>
                       {price?.length >= 1 && (
-                        <div className="catalog_price pri_before">
-                          <h3>Price</h3>
-                          <span>$ {price}</span>
+                        <div className="catalog_price pri_before d-flex align-items-center">
+                          {/* <h3>Price</h3> */}
+                          <span>${price}</span>
                         </div>
                       )}
                     </div>

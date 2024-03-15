@@ -30,6 +30,7 @@ import { ChemicalEditor } from "pages/catalog/ChemicalEditor";
 import WhitepaperDetail from "pages/resources/WhitepaperDetail";
 import Cart from "pages/cart/Cart";
 import Checkout from "pages/cart/Checkout";
+import Conference from "pages/resources/Conference";
 
 export const AllRoutes = () => {
   return (
@@ -185,6 +186,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <WhitepaperDetail />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/conference"
+            element={
+              <PublicRoutes>
+                <Conference />
               </PublicRoutes>
             }
           />

@@ -20,7 +20,7 @@ export const Banner = (props) => {
               <Link
                 className="bread_active"
                 to={
-                  `/${props?.breadCrum}`
+                  props?.breadCrum
                     ? `/${props?.breadCrum}`
                     : window?.location?.pathname
                 }

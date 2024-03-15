@@ -147,7 +147,7 @@ export const HeaderData = [
       {
         id: 3,
         name: "Conferences",
-        slug: "#",
+        slug: "/conference",
       },
     ],
   },

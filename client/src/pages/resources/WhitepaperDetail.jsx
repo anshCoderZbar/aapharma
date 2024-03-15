@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 
-import banner from "assets/page-banners/whitepaper_detail_banner.jpg";
 import "styles/Resources.css";
 import { Banner } from "app/components/Ui/Banner";
 import { useParams } from "react-router-dom";

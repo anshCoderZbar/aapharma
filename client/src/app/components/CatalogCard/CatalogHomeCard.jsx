@@ -57,9 +57,7 @@ export const CatalogHomeCard = ({ items, baseUrl }) => {
               className={`fw-semibold ${
                 price?.length >= 1 ? "opacity-100" : "opacity-0"
               }`}
-            >
-              Price :
-            </h3>
+            ></h3>
             {price?.length >= 1 && <p className="fw-semibold">${price}</p>}
           </div>
           {items?.inStock === "true" ? (
