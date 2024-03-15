@@ -363,7 +363,7 @@
   position: absolute;
   height: 23%;
   width: 100%;
-  top: 0;
+  top: -1px;
   left: 0;
   right: 0;
   z-index: -1;
@@ -378,6 +378,8 @@
   display: flex;
   align-items: center;
   position: relative;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .footer_inner_banner {

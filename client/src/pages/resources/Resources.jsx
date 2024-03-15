@@ -1,4 +1,6 @@
+import { ChevronRight } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   GetAllResourcesTabs,
   GetResourcesGuides,
@@ -23,6 +25,21 @@ export default function Resources() {
   return (
     <div className="resources_page">
       <div className="container-fluid">
+        <div className="bread_crup">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <ChevronRight />
+            </li>
+            <li>
+              <Link className="bread_active" to="/resources">
+                resources
+              </Link>
+            </li>
+          </ul>
+        </div>
         <h1 className="main_top_heading text-center">
           {getHeading?.data?.data?.heading && getHeading?.data?.data?.heading}
         </h1>

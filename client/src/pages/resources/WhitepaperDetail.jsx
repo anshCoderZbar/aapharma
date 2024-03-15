@@ -25,6 +25,7 @@ export default function WhitepaperDetail() {
           singleWhitepaper?.data?.data?.image
         })`}
         extra="single_whitepaper_banner"
+        breadCrum={"whitepaper"}
       />
       <div className="container-fluid">
         <div

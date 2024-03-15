@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import inStock from "assets/bag-tick.png";
@@ -11,6 +11,9 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
   const [compoundDesc, setCompoundDesc] = useState("");
+  const [isContentTruncated, setIsContentTruncated] = useState(false);
+
+  const descRef = useRef(null);
 
   const handlePriceChange = (e) => {
     const { value } = e?.target;
@@ -20,6 +23,12 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
     setQuantity(el?.getAttribute("id"));
   };
 
+  useEffect(() => {
+    if (descRef.current && descRef.current.scrollHeight > 400) {
+      setIsContentTruncated(true);
+    }
+  }, [compounts]);
+  console.log(isContentTruncated);
   return (
     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
       <div className="catalog_main_bg">
@@ -100,11 +109,13 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
             <div className="catalog_content catalog_main_content">
               <div className="mix-xxx">
                 <p
+                  ref={descRef}
                   className="mt-0"
                   dangerouslySetInnerHTML={{
                     __html: compounts?.description,
                   }}
                 />
+                {isContentTruncated && <span className="truncated">...</span>}
               </div>
               <div className="m_x_x">
                 <div className="oPc">

@@ -20,7 +20,7 @@ export const AddtoCart = (props) => {
       onClick={() =>
         handleSubmit(
           props?.id,
-          props?.price,
+          props?.price?.replaceAll(",", ""),
           props?.quantity?.replaceAll(" ", "-")
         )
       }

@@ -207,6 +207,34 @@ td {
   filter: none !important;
 }
 
+.bread_crup {
+  margin: 20px 0;
+}
+
+.bread_crup ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  align-items: center;
+}
+
+.bread_crup ul li,
+.bread_crup ul li a {
+  color: #667085;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s linear;
+  text-transform: capitalize;
+}
+
+.bread_crup ul li a:hover {
+  color: #34caff;
+}
+
+.bread_active {
+  color: #34caff !important;
+}
+
 @media screen and (min-width: 1925px) {
   .primary_btn_outline {
     font-size: 20px;
@@ -247,6 +275,15 @@ td {
   .main_top_heading {
     font-size: 50px;
   }
+
+  .bread_crup ul li,
+  .bread_crup ul li a {
+    font-size: 17px;
+  }
+
+  .bread_crup {
+    margin: 18px 0;
+  }
 }
 
 @media screen and (max-width: 1510px) {
@@ -275,6 +312,10 @@ td {
   .main_top_heading {
     font-size: 45px;
   }
+
+  .bread_crup {
+    margin: 15px 0;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -293,6 +334,15 @@ td {
 
   .main_top_heading {
     font-size: 40px;
+  }
+
+  .bread_crup ul li,
+  .bread_crup ul li a {
+    font-size: 16px;
+  }
+
+  .bread_crup {
+    margin: 15px 0 11px 0;
   }
 }
 
@@ -313,6 +363,10 @@ td {
   .main_top_heading {
     font-size: 36px;
   }
+
+  .bread_crup ul {
+    gap: 7px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -326,6 +380,11 @@ td {
 
   .main_top_heading {
     font-size: 32px;
+  }
+
+  .bread_crup ul li,
+  .bread_crup ul li a {
+    font-size: 15px;
   }
 }
 
@@ -350,5 +409,15 @@ td {
 
   .main_top_heading {
     font-size: 28px;
+  }
+
+  .bread_crup ul li,
+  .bread_crup ul li a {
+    font-size: 14px;
+  }
+
+  .bread_crup {
+    padding: 10px 0 10px 0;
+    margin: 0;
   }
 }

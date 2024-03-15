@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { BriefcaseIcon, GraduationCap, Phone, X } from "lucide-react";
+import {
+  BriefcaseIcon,
+  ChevronRight,
+  GraduationCap,
+  Phone,
+  X,
+} from "lucide-react";
 
 import { Banner } from "app/components/Ui/Banner";
 

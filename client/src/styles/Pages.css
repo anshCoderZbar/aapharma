@@ -39,7 +39,7 @@
   align-items: center;
   gap: 22px;
   flex-wrap: wrap;
-  margin-bottom: 70px;
+  margin-bottom: 130px;
   margin-top: 90px;
 }
 
@@ -63,7 +63,7 @@
   margin: 0 auto;
   cursor: grab;
   background-color: #fff;
-  padding-bottom: 170px;
+  padding-bottom: 280px;
 }
 
 .client_reviews p {

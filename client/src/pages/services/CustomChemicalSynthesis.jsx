@@ -9,6 +9,8 @@ import {
 } from "rest/service";
 import axios from "axios";
 import { API_ENDPOINTS } from "rest/client/endpoints";
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 
 export default function CustomChemicalSynthesis() {
   const myRef = useRef(null);
@@ -61,6 +63,21 @@ export default function CustomChemicalSynthesis() {
   return (
     <div className="custom_chemical_synthesis_page">
       <div className="container-fluid">
+        <div className="bread_crup">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <ChevronRight />
+            </li>
+            <li>
+              <Link className="bread_active" to="/custom-chemical-synthesis">
+                custom chemical synthesis
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div
           className="custom_page_banner"
           style={{

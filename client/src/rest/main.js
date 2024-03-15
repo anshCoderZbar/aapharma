@@ -1,6 +1,7 @@
 import client from "./client";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { formState } from "app/common/contact/state";
+import { toast } from "react-toastify";
 
 export const GetSettings = () => {
   const allSetting = useQuery({
@@ -41,9 +42,10 @@ export const ContactUs = (setFormValues) => {
     onSuccess: () => {
       console.log("succes");
       setFormValues(formState);
+      toast.success("Details Submited Successfully");
     },
     onError: () => {
-      console.log("error");
+      toast.error("OOPS! Some error occured");
     },
   });
   return message;
@@ -55,9 +57,10 @@ export const SendResume = (setFormState, setFile) => {
     onSuccess: () => {
       setFormState({ name: "", email: "" });
       setFile(null);
+      toast.success("Details Submited Successfully");
     },
     onError: () => {
-      console.log("error");
+      toast.error("OOPS! Some error occured");
     },
   });
   return resume;

@@ -1,4 +1,6 @@
+import { ChevronRight } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "styles/Capabilities.css";
 export default function Capabilities() {
@@ -6,6 +8,21 @@ export default function Capabilities() {
     <div className="capabilities_page">
       <div className="container-fluid">
         <div className="capabilities_section">
+          <div className="bread_crup">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <ChevronRight />
+              </li>
+              <li>
+                <Link className="bread_active" to="/overview">
+                  Capabilities
+                </Link>
+              </li>
+            </ul>
+          </div>
           <div className="row capability_inner_page">
             <div className="col-lg-6">
               <div className="capabilities_content">

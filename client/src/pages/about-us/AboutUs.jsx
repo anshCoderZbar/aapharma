@@ -7,6 +7,8 @@ import {
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "styles/About.css";
+import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const AboutUs = () => {
   const getBanner = GetAboutBannerMutation();
@@ -28,6 +30,21 @@ export const AboutUs = () => {
   return (
     <div className="about_us_page">
       <div className="container-fluid">
+        <div className="bread_crup">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <ChevronRight />
+            </li>
+            <li>
+              <Link className="bread_active" to="/about-AAPharmaSyn">
+                About Us
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div
           className="about_banner"
           style={{

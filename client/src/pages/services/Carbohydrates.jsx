@@ -5,6 +5,8 @@ import { Timeline } from "app/components/Timeline";
 import { GetCarbohydrateBanner, GetCarbohydrateDiagram } from "rest/service";
 import { ComplexShape1 } from "app/common/services/Icons";
 import { useOutsideClick } from "lib/hooks/useOutsideClick";
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 
 export default function Carbohydrates() {
   const diagramRef = useRef();
@@ -26,6 +28,21 @@ export default function Carbohydrates() {
     <div className="carbohydrates_page">
       <div className="main_banner">
         <div className="container-fluid">
+          <div className="bread_crup">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <ChevronRight />
+              </li>
+              <li>
+                <Link className="bread_active" to="/carbohydrates">
+                  carbohydrates
+                </Link>
+              </li>
+            </ul>
+          </div>
           <div
             className="banner_head carbohydrate_banner"
             style={{

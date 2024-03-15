@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
 import "styles/Resources.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FilterWhitepaperMutation,
   GetAllWhitePapers,
   GetWhitePaperBanner,
 } from "rest/resources";
 import { Loader } from "app/components/Ui/Loader";
+import { ChevronRight } from "lucide-react";
 
 export default function Whitepaper() {
   const navigate = useNavigate();
@@ -29,6 +30,21 @@ export default function Whitepaper() {
     <div className="whitepaper_page">
       <div className="whitepaper_banner_section">
         <div className="container-fluid">
+          <div className="bread_crup">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <ChevronRight />
+              </li>
+              <li>
+                <Link className="bread_active" to="/whitepaper">
+                  whitepaper
+                </Link>
+              </li>
+            </ul>
+          </div>
           <div
             className="whitepaper_banner"
             style={{

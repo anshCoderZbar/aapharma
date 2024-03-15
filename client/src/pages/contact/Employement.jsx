@@ -136,25 +136,6 @@ export default function Employement() {
                 </form>
               </div>
             </Modal>
-            <div
-              id="toast"
-              style={{
-                background: submitResume?.isSuccess ? "#198754" : "#dc3545",
-              }}
-              className={`toaster  ${
-                submitResume?.isSuccess || submitResume?.isError ? "show" : ""
-              }`}
-            >
-              <div
-                className={`desc  ${
-                  submitResume?.isSuccess ? "bg-success" : "bg-danger"
-                }`}
-              >
-                {submitResume.isSuccess
-                  ? "Details Submitted"
-                  : "OOPS! some error occured"}
-              </div>
-            </div>
           </div>
         </div>
       </div>

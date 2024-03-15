@@ -1,4 +1,6 @@
+import { ChevronRight } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "styles/Capabilities.css";
 
@@ -7,6 +9,21 @@ export default function Accreditations() {
     <div className="accreditations_page">
       <div className="container-fluid">
         <div className="row accreditations_content">
+          <div className="bread_crup">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <ChevronRight />
+              </li>
+              <li>
+                <Link className="bread_active" to="/accreditations">
+                  accreditations
+                </Link>
+              </li>
+            </ul>
+          </div>
           <div className="col-md-6">
             <div className="accreditations_img">
               <img

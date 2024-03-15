@@ -120,3 +120,8 @@
     line-height: 23px;
   }
 }
+@media only screen and (max-width: 400px) {
+  .main_banner {
+    padding-top: 7px;
+  }
+}

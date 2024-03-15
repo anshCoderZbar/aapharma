@@ -10,6 +10,7 @@ import { CartCard } from "app/components/Cart-Modal/CartCard";
 
 export default function Cart() {
   const navigate = useNavigate();
+
   const formData = new FormData();
   formData.append("belongsTo", localStorage.getItem("guestId"));
 

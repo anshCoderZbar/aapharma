@@ -143,26 +143,8 @@ export const Contact = () => {
             ) : (
               <input type="submit" value="Submit" className="submit-btn" />
             )}
-            <div
-              id="toast"
-              style={{
-                background: message?.isSuccess ? "#198754" : "#dc3545",
-              }}
-              className={`toaster  ${
-                message?.isSuccess || message?.isError ? "show" : ""
-              }`}
-            >
-              <div
-                className={`desc  ${
-                  message?.isSuccess ? "bg-success" : "bg-danger"
-                }`}
-              >
-                {message.isSuccess
-                  ? "Details Submitted"
-                  : "OOPS! some error occured"}
-              </div>
-            </div>
           </form>
+          <div id="toast"></div>
         </div>
       </div>
     </div>
