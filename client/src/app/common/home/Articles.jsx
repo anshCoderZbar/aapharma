@@ -9,7 +9,9 @@ import { AllArticlesMutation } from "rest/home";
 export const Articles = () => {
   const allArticles = AllArticlesMutation();
   const imageRefs = useRef([]);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [imageHeights, setImageHeights] = useState([]);
+  const swiperRef = useRef(null);
 
   const handleSlideChange = () => {
     const heights = imageRefs.current.map((ref) => {
@@ -21,15 +23,25 @@ export const Articles = () => {
     setImageHeights(heights);
   };
 
+  useEffect(() => {
+    if (!isLoaded && imageHeights.length > 0) {
+      swiperRef?.current?.swiper?.slideTo(0);
+      setIsLoaded(true);
+    }
+  }, [imageHeights]);
+
   return (
     <div className="articles_inner_card">
       <Swiper
         slidesPerView={1}
-        onSlideChange={handleSlideChange}
         modules={[Pagination]}
         loop={true}
         autoHeight={true}
+        observer={true}
+        observeParents={true}
         pagination={{ clickable: true }}
+        onSlideChange={handleSlideChange}
+        ref={swiperRef}
       >
         {allArticles?.data?.data?.length >= 1 &&
           allArticles?.data?.data?.map((article, i) => {

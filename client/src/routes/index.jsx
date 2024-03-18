@@ -31,6 +31,7 @@ import WhitepaperDetail from "pages/resources/WhitepaperDetail";
 import Cart from "pages/cart/Cart";
 import Checkout from "pages/cart/Checkout";
 import Conference from "pages/resources/Conference";
+import PaypalPayment from "pages/cart/Paypal";
 
 export const AllRoutes = () => {
   return (
@@ -258,6 +259,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <Checkout />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/paypal-payment"
+            element={
+              <PublicRoutes>
+                <PaypalPayment />
               </PublicRoutes>
             }
           />

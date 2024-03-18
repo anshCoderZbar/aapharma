@@ -8,16 +8,19 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "queryClient";
 import { Provider } from "jotai";
 import { NotificationContainer } from "app/components/Ui/NotificationContainer";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <QueryClientProvider client={queryClient}>
-      <NotificationContainer />
-      <Provider>
-        <App />
-      </Provider>
-    </QueryClientProvider>
+    <PayPalScriptProvider>
+      <QueryClientProvider client={queryClient}>
+        <NotificationContainer />
+        <Provider>
+          <App />
+        </Provider>
+      </QueryClientProvider>
+    </PayPalScriptProvider>
   </>
 );
 

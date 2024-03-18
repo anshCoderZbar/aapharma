@@ -4,6 +4,8 @@ import { Modal } from "bootstrap";
 import { queryClient } from "queryClient";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { setPaypal } from "store/Cart";
 
 export const AddToCartMutation = () => {
   const addCart = useMutation({
@@ -57,12 +59,25 @@ export const UpdateCartMutation = () => {
 
 export const CheckoutCartMutation = () => {
   const navigate = useNavigate();
+  const [, setIsPaypal] = useAtom(setPaypal);
   const checkour = useMutation({
     mutationFn: (data) => client.cart.checkout(data),
-    onSuccess: () => {
-      toast.success("Order Places Successfully");
+    onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["get-cart"] });
-      navigate("/");
+      console.log(data?.data);
+
+      if (data?.data?.paymentMethod === "checkPayment") {
+        toast.success("Order Places Successfully");
+        navigate("/");
+      }
+      if (
+        data?.data?.paymentMethod === "paypal" &&
+        data?.data?.payment === "false"
+      ) {
+        toast.success("Redirecting you to payment page");
+        navigate("/paypal-payment");
+        setIsPaypal(true);
+      }
     },
     onError: (err) => {
       toast.error("OOPS! Some error occured");
