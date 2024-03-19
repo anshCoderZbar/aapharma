@@ -24,6 +24,10 @@
   max-width: 295px;
 }
 
+.white_head h1 {
+  color: #fff;
+}
+
 .banner_head p {
   max-width: 650px;
   color: #2e2e2e;

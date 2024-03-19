@@ -128,6 +128,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
 }
 
 .main_cart_banner h1 {
@@ -507,6 +508,13 @@
 
 .Label-d7-0-2-31 {
   color: #bce0fb !important;
+}
+
+/* payment gateway */
+
+.payment_provider_gateway {
+  margin: auto;
+  padding: 40px 0;
 }
 
 @media only screen and (max-width: 1600px) {

@@ -91,6 +91,7 @@ import WhitepaperBanner from "pages/whitepaper/WhitepaperBanner";
 import { AllWhitepapers } from "pages/whitepaper/AllWhitepapers";
 import { AddWhitepaper } from "pages/whitepaper/AddWhitepaper";
 import { EditWhitepaper } from "pages/whitepaper/EditWhitepaper";
+import AllOrders from "pages/orders/AllOrders";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -751,6 +752,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditWhitepaper />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/orders",
+      element: (
+        <PrivateRoutes>
+          <AllOrders />
         </PrivateRoutes>
       ),
     },

@@ -322,7 +322,7 @@ class Client {
       HttpClient.post(API_ENDPOINTS.deleteWhitepaper, params),
   };
   cart = {
-    // addCart: (params) => HttpClient.post(API_ENDPOINTS.addToCart, params),
+    allOrders: () => HttpClient.get(API_ENDPOINTS.allOrders),
   };
 }
 

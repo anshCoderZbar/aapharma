@@ -25,3 +25,13 @@ export const GetSettings = () => {
   });
   return allSetting;
 };
+
+// orders
+
+export const GetAllOrders = () => {
+  const orders = useQuery({
+    queryKey: ["get-all-orders"],
+    queryFn: () => client.cart.allOrders(),
+  });
+  return orders;
+};

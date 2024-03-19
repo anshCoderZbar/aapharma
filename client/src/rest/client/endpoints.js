@@ -60,4 +60,7 @@ export const API_ENDPOINTS = {
   deleteCart: "/deleteCart",
   updateCart: "/updateCart",
   checkout: "/checkout",
+  onPayment: "/onPaypal",
+  paymentSuccess: "/payment-success",
+  paymentCancel: "/payment-cancel",
 };

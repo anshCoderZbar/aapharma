@@ -141,4 +141,5 @@ export const API_ENDPOINTS = {
   editWhitepaper: "/whitepaperblog/update",
   deleteWhitepaper: "/whitepaperblog/delete",
   getCart: "/getCart",
+  allOrders: "/orders",
 };

@@ -96,15 +96,17 @@ export const CartModal = ({ id }) => {
               >
                 View Cart
               </button>
-              <button
-                onClick={() => {
-                  navigate("/checkout");
-                  closeModal();
-                }}
-                className="primary_buttton"
-              >
-                Checkout
-              </button>
+              {getCartDetails?.data?.data?.length >= 1 ? (
+                <button
+                  onClick={() => {
+                    navigate("/checkout");
+                    closeModal();
+                  }}
+                  className="primary_buttton"
+                >
+                  Checkout
+                </button>
+              ) : null}
             </div>
           </div>
         )}

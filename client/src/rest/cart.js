@@ -5,7 +5,7 @@ import { queryClient } from "queryClient";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { setPaypal } from "store/Cart";
+import { initialCheckout, setPaypal } from "store/Cart";
 
 export const AddToCartMutation = () => {
   const addCart = useMutation({
@@ -60,11 +60,11 @@ export const UpdateCartMutation = () => {
 export const CheckoutCartMutation = () => {
   const navigate = useNavigate();
   const [, setIsPaypal] = useAtom(setPaypal);
-  const checkour = useMutation({
+  const [, setCheckoutData] = useAtom(initialCheckout);
+  const checkout = useMutation({
     mutationFn: (data) => client.cart.checkout(data),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["get-cart"] });
-      console.log(data?.data);
 
       if (data?.data?.paymentMethod === "checkPayment") {
         toast.success("Order Places Successfully");
@@ -77,11 +77,57 @@ export const CheckoutCartMutation = () => {
         toast.success("Redirecting you to payment page");
         navigate("/paypal-payment");
         setIsPaypal(true);
+        setCheckoutData(data?.data);
       }
     },
     onError: (err) => {
       toast.error("OOPS! Some error occured");
     },
   });
-  return checkour;
+  return checkout;
+};
+
+export const CreatePaymentMutation = () => {
+  const navigate = useNavigate();
+  const createPayment = useMutation({
+    mutationFn: (data) => client.cart.createPayment(data),
+    onSuccess: () => {
+      //
+    },
+    onError: () => {
+      toast.error("OOPS! some error occured");
+      navigate("/cart");
+    },
+  });
+  return createPayment;
+};
+
+export const SuccessPaymentMutation = () => {
+  const navigate = useNavigate();
+  const createPayment = useMutation({
+    mutationFn: (data) => client.cart.paymentSuccess(data),
+    onSuccess: () => {
+      toast.success("Payment Successful");
+      navigate("/");
+    },
+    onError: () => {
+      toast.error("OOPS! some error occured");
+    },
+  });
+  return createPayment;
+};
+
+export const ErrorPaymentMutation = () => {
+  const navigate = useNavigate();
+  const createPayment = useMutation({
+    mutationFn: (data) => client.cart.paymentCancel(data),
+    onSuccess: () => {
+      toast.error("Payment Unsuccessful, Please try again");
+    },
+    onError: () => {
+      toast.error("OOPS! some error occured");
+      navigate("/cart");
+    },
+  });
+  return createPayment;
 };

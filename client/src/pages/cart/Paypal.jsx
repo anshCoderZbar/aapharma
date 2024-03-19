@@ -1,23 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useAtom } from "jotai";
 
-import { setPaypal } from "store/Cart";
+import { initialCheckout } from "store/Cart";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { toast } from "react-toastify";
-import { GetCartMutation } from "rest/cart";
-import { useNavigate } from "react-router-dom";
+import {
+  CreatePaymentMutation,
+  ErrorPaymentMutation,
+  // GetCartMutation,
+  SuccessPaymentMutation,
+} from "rest/cart";
+
+import "styles/Cart.css";
+// import { useNavigate } from "react-router-dom";
 
 export default function PaypalPayment() {
-  const [success, setSuccess] = useState(false);
-  const [ErrorMessage, setErrorMessage] = useState("");
-  const [orderID, setOrderID] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const formData = new FormData();
+  const [checkoutData] = useAtom(initialCheckout);
+
+  // useEffect(() => {
+  //   if (!checkoutData?.id) {
+  //     window.location.reload();
+  //   }
+  // }, [checkoutData]);
+
   formData.append("belongsTo", localStorage.getItem("guestId"));
 
-  const getCartDetails = GetCartMutation(formData);
+  // const getCartDetails = GetCartMutation(formData);
+  const createPayment = CreatePaymentMutation();
+  const successPayment = SuccessPaymentMutation();
+  const errorPayment = ErrorPaymentMutation();
 
-  // creates a paypal order
   const createOrder = (data, actions) => {
     return actions.order
       .create({
@@ -26,14 +39,18 @@ export default function PaypalPayment() {
             description: "Chemical",
             amount: {
               currency_code: "USD",
-              // value: getCartDetails?.data?.total,
               value: 1,
             },
           },
         ],
       })
       .then((orderID) => {
-        setOrderID(orderID);
+        if (orderID && checkoutData?.id) {
+          const orderData = new FormData();
+          orderData.append("orderid", checkoutData?.id);
+          orderData.append("paypalid", orderID);
+          createPayment.mutate(orderData);
+        }
         return orderID;
       });
   };
@@ -41,37 +58,44 @@ export default function PaypalPayment() {
   // check Approval
   const onApprove = (data, actions) => {
     return actions.order.capture().then(function (details) {
-      const { payer } = details;
-      console.log(payer);
-      setSuccess(true);
+      const formData = new FormData();
+      formData.append("paypalid", details?.id);
+      successPayment.mutate(formData);
     });
   };
 
   const onError = (data, actions) => {
-    setErrorMessage("An Error occured with your payment ");
+    return actions.order.capture().then(function (details) {
+      const formData = new FormData();
+      formData.append("paypalid", details?.id);
+      errorPayment.mutate(formData);
+    });
   };
 
-  useEffect(() => {
-    if (success) {
-      toast.success("Payment successful!!");
-      navigate("/");
-      console.log("Order successful . Your order id is--", orderID);
-    }
-  }, [success]);
+  // useEffect(() => {
+  //   if (success) {
+  //     toast.success("Payment successful!!");
+  //     navigate("/");
+  //     console.log("Order successful . Your order id is--", orderID);
+  //   }
+  // }, [success]);
 
   return (
-    <PayPalScriptProvider
-      options={{
-        components: "buttons",
-        "client-id":
-          "AbRVp8EVmpkVDqf6YVwO70jC_a2H--6IjyCfO1J4W3XF5IRyoEFoK2KZAYwlQzYEViTVZv1rDZikWX-c",
-      }}
-    >
-      <PayPalButtons
-        style={{ layout: "horizontal" }}
-        createOrder={createOrder}
-        onApprove={onApprove}
-      />
-    </PayPalScriptProvider>
+    <div className="payment_provider_gateway">
+      <PayPalScriptProvider
+        options={{
+          components: "buttons",
+          "client-id":
+            "AbRVp8EVmpkVDqf6YVwO70jC_a2H--6IjyCfO1J4W3XF5IRyoEFoK2KZAYwlQzYEViTVZv1rDZikWX-c",
+        }}
+      >
+        <PayPalButtons
+          style={{ layout: "horizontal" }}
+          createOrder={createOrder}
+          onApprove={onApprove}
+          onError={onError}
+        />
+      </PayPalScriptProvider>
+    </div>
   );
 }

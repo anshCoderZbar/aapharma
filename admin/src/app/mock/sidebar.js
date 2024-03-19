@@ -15,6 +15,7 @@ import {
   PersonStandingIcon,
   Search,
   Settings,
+  ShoppingBag,
   StepForward,
   Stethoscope,
   User,
@@ -383,6 +384,12 @@ export const SidebarData = [
         slug: "all-whitepapers",
       },
     ],
+  },
+  {
+    id: uuidv4(),
+    name: "Orders",
+    slug: "orders",
+    icon: <ShoppingBag />,
   },
   {
     id: uuidv4(),

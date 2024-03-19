@@ -11,6 +11,7 @@ export default function LabEquipment() {
         background={`url(${require("assets/page-banners/lab_equipments_banner.jpg")})`}
         heading="Lab Equipment"
         extra="lab_equipment_banner"
+        b
       />
       <div className="container-fluid">
         <div className="row equipments">
