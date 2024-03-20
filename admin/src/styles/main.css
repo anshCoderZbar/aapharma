@@ -83,6 +83,13 @@
   margin: 25px 0 20px 0;
 }
 
+.proc_img {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 2px 3px 11px 3px rgba(67, 89, 113, 0.12);
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 991px) {
   .luxa_x.cv-x {
     flex: 0 1 62%;
@@ -243,4 +250,9 @@
 .MuiFormControl-root input {
   padding: 5.5px 10px !important;
   border-color: #dee2e6 !important;
+}
+
+.form-control:disabled {
+  background-color: #fff !important;
+  opacity: 1 !important;
 }

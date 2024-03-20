@@ -1,5 +1,6 @@
 import {
   Biohazard,
+  CalendarCheck,
   Castle,
   DownloadCloud,
   FlaskConical,
@@ -382,6 +383,24 @@ export const SidebarData = [
         id: 2,
         subMenuName: "Whitepaper",
         slug: "all-whitepapers",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Conference",
+    slug: "#",
+    icon: <CalendarCheck />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "conference-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Cards",
+        slug: "conference-cards",
       },
     ],
   },

@@ -322,7 +322,17 @@ class Client {
       HttpClient.post(API_ENDPOINTS.deleteWhitepaper, params),
   };
   cart = {
-    allOrders: () => HttpClient.get(API_ENDPOINTS.allOrders),
+    allOrders: () => HttpClient.get(API_ENDPOINTS.orders),
+    singleOrders: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleOrder, params),
+  };
+  conferences = {
+    getConferenceBanner: () => HttpClient.get(API_ENDPOINTS.conferenceBanner),
+    editConferenceBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.conferenceBanner, params),
+    getConferenceCards: () => HttpClient.get(API_ENDPOINTS.conferenceCards),
+    editConferenceCards: (params) =>
+      HttpClient.post(API_ENDPOINTS.conferenceCards, params),
   };
 }
 

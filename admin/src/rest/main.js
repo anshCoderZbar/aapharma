@@ -35,3 +35,11 @@ export const GetAllOrders = () => {
   });
   return orders;
 };
+
+export const GetSingleOrders = (data) => {
+  const orders = useQuery({
+    queryKey: ["get-all-orders"],
+    queryFn: () => client.cart.singleOrders(data),
+  });
+  return orders;
+};

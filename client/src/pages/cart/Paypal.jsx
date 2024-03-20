@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAtom } from "jotai";
 
 import { initialCheckout } from "store/Cart";
@@ -71,14 +71,6 @@ export default function PaypalPayment() {
       errorPayment.mutate(formData);
     });
   };
-
-  // useEffect(() => {
-  //   if (success) {
-  //     toast.success("Payment successful!!");
-  //     navigate("/");
-  //     console.log("Order successful . Your order id is--", orderID);
-  //   }
-  // }, [success]);
 
   return (
     <div className="payment_provider_gateway">

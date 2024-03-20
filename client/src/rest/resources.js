@@ -62,3 +62,21 @@ export const FilterWhitepaperMutation = () => {
   });
   return filterWhitepaper;
 };
+
+// conferences
+
+export const GetConferenceBannerMutation = () => {
+  const conferenceBanner = useQuery({
+    queryKey: ["get-conference-banner"],
+    queryFn: () => client.resources.getConferenceBanner(),
+  });
+  return conferenceBanner;
+};
+
+export const GetConferenceCardsMutation = () => {
+  const confrenceCard = useQuery({
+    queryKey: ["get-conference-cards"],
+    queryFn: () => client.resources.getConferenceCards(),
+  });
+  return confrenceCard;
+};

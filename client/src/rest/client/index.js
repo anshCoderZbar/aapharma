@@ -106,6 +106,8 @@ class Client {
       HttpClient.post(API_ENDPOINTS.singleWhitepaper, params),
     filterWhitepaper: (params) =>
       HttpClient.post(API_ENDPOINTS.allWhitepapers, params),
+    getConferenceBanner: () => HttpClient.get(API_ENDPOINTS.conferenceBanner),
+    getConferenceCards: () => HttpClient.get(API_ENDPOINTS.conferenceCards),
   };
   cart = {
     addCart: (params) => HttpClient.post(API_ENDPOINTS.addToCart, params),

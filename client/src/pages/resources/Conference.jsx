@@ -4,24 +4,42 @@ import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Resources.css";
 import { ChevronRight } from "lucide-react";
+import {
+  GetConferenceBannerMutation,
+  GetConferenceCardsMutation,
+} from "rest/resources";
 
 export default function Conference() {
+  const getBanner = GetConferenceBannerMutation();
+  const getCards = GetConferenceCardsMutation();
+
   return (
     <div className="conference_page">
       <Banner
-        heading={"Conferences"}
-        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${require("assets/page-banners/confrense.png")})`}
+        heading={
+          getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
+        }
+        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${
+          getBanner?.data?.data?.image && getBanner?.data?.data?.image
+        })`}
         extra="white_head"
       />
       <div className="confrences_content">
         <div className="container-fluid">
           <div className="confrence_head">
-            <h2 className="main_top_heading">Conferences</h2>
-            <p className="confrence_top_content">
-              We find it critically important to consistently stay engaged
-              within chemical and pharmaceutical sectcrs ecosystem. To that end
-              aim to attend and often exhibit at conferences.
-            </p>
+            <h2 className="main_top_heading">
+              {getBanner?.data?.data?.subheading &&
+                getBanner?.data?.data?.subheading}
+            </h2>
+
+            <p
+              className="confrence_top_content"
+              dangerouslySetInnerHTML={{
+                __html:
+                  getBanner?.data?.data?.description &&
+                  getBanner?.data?.data?.description,
+              }}
+            />
           </div>
           <div className="confrenct_btm_section">
             <div className="row ">
@@ -29,33 +47,55 @@ export default function Conference() {
                 <div className="confrence_card">
                   <div className="confrence_card_img">
                     <div className="top_blue_line">
-                      <h2>Annually</h2>
+                      <h2>
+                        {getCards?.data?.data?.card1heading &&
+                          getCards?.data?.data?.card1heading}
+                      </h2>
                     </div>
                     <img
-                      src={require("assets/confrence.png")}
+                      src={
+                        getCards?.data?.data?.card1image &&
+                        getCards?.data?.data?.card1image
+                      }
                       alt="conference"
                     />
                   </div>
                   <div className="confrence_card_body">
                     <div className="confrence_card_logo">
                       <img
-                        src={require("assets/confrence_logo.png")}
+                        src={
+                          getCards?.data?.data?.card1logo &&
+                          getCards?.data?.data?.card1logo
+                        }
                         alt="logo"
                       />
                     </div>
                     <h3 className="card_body_head">
-                      American Association for the Advancement of Science
+                      {getCards?.data?.data?.card1subheading &&
+                        getCards?.data?.data?.card1subheading}
                     </h3>
-                    <div className="confrence_card_content">
-                      <p>http://www.aaas.org/events/2021-aaas-annual-meeting</p>
-                    </div>
+                    <div
+                      className="confrence_card_content"
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          getCards?.data?.data?.card1description &&
+                          getCards?.data?.data?.card1description,
+                      }}
+                    />
                     <p className="confrence_loacation">
-                      <span>Location:</span> American Association for the
-                      Advancement of Science
+                      <span>Location:</span>
+                      {getCards?.data?.data?.card1location &&
+                        getCards?.data?.data?.card1location}
                     </p>
                   </div>
                   <div className="navigate_link">
-                    <a href="#" target="_blank">
+                    <a
+                      href={
+                        getCards?.data?.data?.card1link &&
+                        getCards?.data?.data?.card1link
+                      }
+                      target="_blank"
+                    >
                       <ChevronRight />
                     </a>
                   </div>
@@ -65,37 +105,55 @@ export default function Conference() {
                 <div className="confrence_card">
                   <div className="confrence_card_img">
                     <div className="top_blue_line">
-                      <h2>Annually</h2>
+                      <h2>
+                        {getCards?.data?.data?.card2heading &&
+                          getCards?.data?.data?.card2heading}
+                      </h2>
                     </div>
                     <img
-                      src={require("assets/confrence.png")}
+                      src={
+                        getCards?.data?.data?.card2image &&
+                        getCards?.data?.data?.card2image
+                      }
                       alt="conference"
                     />
                   </div>
                   <div className="confrence_card_body">
                     <div className="confrence_card_logo">
                       <img
-                        src={require("assets/confrence_logo.png")}
+                        src={
+                          getCards?.data?.data?.card2logo &&
+                          getCards?.data?.data?.card2logo
+                        }
                         alt="logo"
                       />
                     </div>
-                    <h3 className="card_body_head">ChemOutsourcing</h3>
-                    <div className="confrence_card_content">
-                      <p>
-                        ChemOutsourcing is the largest USA-based API and
-                        Pharmaceutical Ingredients Sept show attracting annually
-                        700-800 custorners, project and executive management and
-                        business development personnel from the pharmaceutical,
-                        biotech, chemical. and chemistry services industries
-                        from 30 countries.
-                      </p>
-                    </div>
+                    <h3 className="card_body_head">
+                      {getCards?.data?.data?.card2subheading &&
+                        getCards?.data?.data?.card2subheading}
+                    </h3>
+                    <div
+                      className="confrence_card_content"
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          getCards?.data?.data?.card2description &&
+                          getCards?.data?.data?.card2description,
+                      }}
+                    />
                     <p className="confrence_loacation">
-                      <span>Location:</span> ChemOutsourcing
+                      <span>Location:</span>
+                      {getCards?.data?.data?.card2location &&
+                        getCards?.data?.data?.card2location}
                     </p>
                   </div>
                   <div className="navigate_link">
-                    <a href="#" target="_blank">
+                    <a
+                      href={
+                        getCards?.data?.data?.card2link &&
+                        getCards?.data?.data?.card2link
+                      }
+                      target="_blank"
+                    >
                       <ChevronRight />
                     </a>
                   </div>

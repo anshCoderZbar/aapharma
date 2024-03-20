@@ -92,6 +92,9 @@ import { AllWhitepapers } from "pages/whitepaper/AllWhitepapers";
 import { AddWhitepaper } from "pages/whitepaper/AddWhitepaper";
 import { EditWhitepaper } from "pages/whitepaper/EditWhitepaper";
 import AllOrders from "pages/orders/AllOrders";
+import SingleOrders from "pages/orders/SingleOrders";
+import ConferenceBanner from "pages/conferences/ConferenceBanner";
+import ConferenceCards from "pages/conferences/ConferenceCards";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -760,6 +763,30 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <AllOrders />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/order-details/:id",
+      element: (
+        <PrivateRoutes>
+          <SingleOrders />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/conference-banner",
+      element: (
+        <PrivateRoutes>
+          <ConferenceBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/conference-cards",
+      element: (
+        <PrivateRoutes>
+          <ConferenceCards />
         </PrivateRoutes>
       ),
     },

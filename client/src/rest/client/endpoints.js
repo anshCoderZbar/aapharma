@@ -63,4 +63,6 @@ export const API_ENDPOINTS = {
   onPayment: "/onPaypal",
   paymentSuccess: "/payment-success",
   paymentCancel: "/payment-cancel",
+  conferenceBanner: "/conferencebanner",
+  conferenceCards: "/conferencecards",
 };
