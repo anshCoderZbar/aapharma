@@ -4,6 +4,7 @@ import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Resources.css";
 import { ChevronRight } from "lucide-react";
+
 import {
   GetConferenceBannerMutation,
   GetConferenceCardsMutation,

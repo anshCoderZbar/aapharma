@@ -24,6 +24,7 @@ import Capabilities from "pages/capabilities/Capabilities";
 import ChemistryExpertise from "pages/capabilities/ChemistryExpertise";
 import LabEquipment from "pages/capabilities/LabEquipment";
 import AnalyticalInstrumentation from "pages/capabilities/AnalyticalInstrumentation";
+import Partners from "pages/capabilities/Partners";
 import Accreditations from "pages/capabilities/Accreditations";
 import Services2 from "pages/services/Services2";
 import { ChemicalEditor } from "pages/catalog/ChemicalEditor";
@@ -235,6 +236,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <AnalyticalInstrumentation />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/partners"
+            element={
+              <PublicRoutes>
+                <Partners />
               </PublicRoutes>
             }
           />

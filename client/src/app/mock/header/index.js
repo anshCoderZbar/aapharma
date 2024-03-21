@@ -119,7 +119,7 @@ export const HeaderData = [
       {
         id: 5,
         name: "Partners",
-        slug: "#",
+        slug: "/partners",
       },
       {
         id: 6,
