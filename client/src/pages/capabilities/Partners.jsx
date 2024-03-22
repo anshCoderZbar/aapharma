@@ -16,7 +16,7 @@ export default function Partners() {
       <div className="partners_content">
         <div className="container-fluid">
           <div className="partners_head">
-            <h2 className="main_top_heading">Patrners</h2>
+            <h2 className="main_top_heading">Partners</h2>
             <p className="partners_top_content">
               AAPharmaSyn is cornmitted to providing solutions and is
               collaborating with a wide range of com.panies that provide
@@ -175,18 +175,16 @@ export default function Partners() {
             spaceBetween={15}
             slidesPerGroup={1}
             modules={[Pagination]}
-            // modules={[Pagination, Autoplay]}
             pagination={{ pagination: true, clickable: true }}
             className="partner_swip"
-            // autoplay={true}
             breakpoints={{
               600: {
-                slidesPerView: 3,
-                slidesPerGroup: 3,
+                slidesPerView: 2,
+                slidesPerGroup: 2,
               },
               991: {
-                slidesPerView: 4,
-                slidesPerGroup: 4,
+                slidesPerView: 3,
+                slidesPerGroup: 3,
               },
               1400: {
                 slidesPerView: 5,

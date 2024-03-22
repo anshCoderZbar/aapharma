@@ -6,13 +6,13 @@ import {
   PhoneCall,
   Send,
   ShoppingCart,
-  Twitter,
   Youtube,
 } from "lucide-react";
 
 import { allSettings } from "store/SettingsStore";
 import { useAtom } from "jotai";
 import { CartModal } from "app/components/Cart-Modal";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   const [allDetails] = useAtom(allSettings);
@@ -79,32 +79,32 @@ export const Footer = () => {
           <div className="container-fluid  text-md-left">
             <div className="row">
               <div className="col-md-6 col-lg-3 ">
-                <a href="#">
+                <Link to="/">
                   <img
                     src={allDetails?.footerlogo}
                     alt="logo"
                     className="footer_img_vs"
                   />
-                </a>
+                </Link>
                 <p className="comp_desc">{allDetails?.footerText}</p>
               </div>
               <div className="col-6 col-md-6 col-lg-3 mx-auto ">
                 <h4 className=" footer_sec_head">Useful Links</h4>
                 <ul className="footer_links">
                   <li>
-                    <a href="#!">Home</a>
+                    <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <a href="#!">About us</a>
+                    <Link to="/about-AAPharmaSyn">About us</Link>
                   </li>
                   <li>
-                    <a href="#!">Capabilities</a>
+                    <Link to="/overview">Capabilities</Link>
                   </li>
                   <li>
-                    <a href="#!">Catalogs</a>
+                    <Link to="/catalog">Catalogs</Link>
                   </li>
                   <li>
-                    <a href="#!">Resources</a>
+                    <Link to="/resources">Resources</Link>
                   </li>
                 </ul>
               </div>
@@ -112,7 +112,9 @@ export const Footer = () => {
                 <h4 className="footer_sec_head">Services</h4>
                 <ul className="footer_links">
                   <li>
-                    <a href="#!">Custom Chemical Synthesis</a>
+                    <Link to="/custom-chemical-synthesis">
+                      Custom Chemical Synthesis
+                    </Link>
                   </li>
                   <li>
                     <a href="#!">Chemical Manufacturing</a>
