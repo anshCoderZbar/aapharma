@@ -95,6 +95,11 @@ import AllOrders from "pages/orders/AllOrders";
 import SingleOrders from "pages/orders/SingleOrders";
 import ConferenceBanner from "pages/conferences/ConferenceBanner";
 import ConferenceCards from "pages/conferences/ConferenceCards";
+import PartnerBanner from "pages/partners/PartnerBanner";
+import PartnerCards from "pages/partners/PartnerCards";
+import EditPartnerCard from "pages/partners/EditPartnerCard";
+import PartnersBottom from "pages/partners/PartnersBottom";
+import PartnerLogos from "pages/partners/PartnerLogos";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -787,6 +792,46 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ConferenceCards />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/partner-banner",
+      element: (
+        <PrivateRoutes>
+          <PartnerBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/partner-cards",
+      element: (
+        <PrivateRoutes>
+          <PartnerCards />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/partner-cards/:id",
+      element: (
+        <PrivateRoutes>
+          <EditPartnerCard />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/partner-bottom",
+      element: (
+        <PrivateRoutes>
+          <PartnersBottom />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/partner-logos",
+      element: (
+        <PrivateRoutes>
+          <PartnerLogos />
         </PrivateRoutes>
       ),
     },

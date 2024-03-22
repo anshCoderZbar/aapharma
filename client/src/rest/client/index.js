@@ -94,6 +94,10 @@ class Client {
       HttpClient.get(API_ENDPOINTS.chemistryExpertiseBanner),
     getAllChemistryTabs: () =>
       HttpClient.get(API_ENDPOINTS.getAllChemistryTabs),
+    getPartnerBanner: () => HttpClient.get(API_ENDPOINTS.partnerBanner),
+    getAllPartnerCards: () => HttpClient.get(API_ENDPOINTS.getAllPartnerCards),
+    getPartnersbottom: () => HttpClient.get(API_ENDPOINTS.partnersbottom),
+    allPartnersLogo: () => HttpClient.get(API_ENDPOINTS.allPartnersLogo),
   };
   resources = {
     getResourceHeading: () => HttpClient.get(API_ENDPOINTS.resourceHeading),

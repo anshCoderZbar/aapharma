@@ -334,6 +334,24 @@ class Client {
     editConferenceCards: (params) =>
       HttpClient.post(API_ENDPOINTS.conferenceCards, params),
   };
+  partner = {
+    getPartnerBanner: () => HttpClient.get(API_ENDPOINTS.partnerBanner),
+    createPartnerBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.partnerBanner, params),
+    getAllPartnerCards: () => HttpClient.get(API_ENDPOINTS.getAllPartnerCards),
+    getSinglePartnerCards: (params) =>
+      HttpClient.post(API_ENDPOINTS.getSinglePartnerCards, params),
+    editPartnerCards: (params) =>
+      HttpClient.post(API_ENDPOINTS.editPartnerCards, params),
+    getPartnersbottom: () => HttpClient.get(API_ENDPOINTS.partnersbottom),
+    editPartnersbottom: (params) =>
+      HttpClient.post(API_ENDPOINTS.partnersbottom, params),
+    allPartnersLogo: () => HttpClient.get(API_ENDPOINTS.allPartnersLogo),
+    addPartnerLogo: (params) =>
+      HttpClient.post(API_ENDPOINTS.newPartnersLogo, params),
+    deletePartnerLogo: (params) =>
+      HttpClient.post(API_ENDPOINTS.deletePartnersLogo, params),
+  };
 }
 
 const client = new Client();

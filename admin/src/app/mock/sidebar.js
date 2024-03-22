@@ -5,6 +5,7 @@ import {
   DownloadCloud,
   FlaskConical,
   FlaskConicalOff,
+  HeartHandshake,
   Image,
   ImagePlus,
   Info,
@@ -401,6 +402,34 @@ export const SidebarData = [
         id: 2,
         subMenuName: "Cards",
         slug: "conference-cards",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Partner",
+    slug: "#",
+    icon: <HeartHandshake />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "partner-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Case Study",
+        slug: "partner-cards",
+      },
+      {
+        id: 3,
+        subMenuName: "Bottom",
+        slug: "partner-bottom",
+      },
+      {
+        id: 4,
+        subMenuName: "logos",
+        slug: "partner-logos",
       },
     ],
   },

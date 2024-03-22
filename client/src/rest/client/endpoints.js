@@ -65,4 +65,8 @@ export const API_ENDPOINTS = {
   paymentCancel: "/payment-cancel",
   conferenceBanner: "/conferencebanner",
   conferenceCards: "/conferencecards",
+  partnerBanner: "/partnersbanner",
+  getAllPartnerCards: "/partnercasestudycard/all",
+  partnersbottom: "/partnersbottom",
+  allPartnersLogo: "/partnerslogos/all",
 };

@@ -145,4 +145,12 @@ export const API_ENDPOINTS = {
   singleOrder: "/singleorder",
   conferenceBanner: "/conferencebanner",
   conferenceCards: "/conferencecards",
+  partnerBanner: "/partnersbanner",
+  getAllPartnerCards: "/partnercasestudycard/all",
+  getSinglePartnerCards: "/partnercasestudycard/one",
+  editPartnerCards: "/partnercasestudycard/update",
+  partnersbottom: "/partnersbottom",
+  allPartnersLogo: "/partnerslogos/all",
+  newPartnersLogo: "/partnerslogos/new",
+  deletePartnersLogo: "/partnerslogos/delete",
 };

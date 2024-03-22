@@ -28,3 +28,35 @@ export const GetChemistryTabsMutation = () => {
 //   });
 //   return chemistryTabs;
 // };
+
+export const GetPartnerBannerMutation = () => {
+  const partnerBanner = useQuery({
+    queryKey: ["get-partner-banner"],
+    queryFn: () => client.capabilities.getPartnerBanner(),
+  });
+  return partnerBanner;
+};
+
+export const GetAllPartnerCardMutation = () => {
+  const partnerCard = useQuery({
+    queryKey: ["get-all-partner-card"],
+    queryFn: () => client.capabilities.getAllPartnerCards(),
+  });
+  return partnerCard;
+};
+
+export const GetPartnerBottomMutation = () => {
+  const partnerBottom = useQuery({
+    queryKey: ["get-partner-bottom"],
+    queryFn: () => client.capabilities.getPartnersbottom(),
+  });
+  return partnerBottom;
+};
+
+export const GetAllPartnerLogo = () => {
+  const partnerLogo = useQuery({
+    queryKey: ["get-partner-logo"],
+    queryFn: () => client.capabilities.allPartnersLogo(),
+  });
+  return partnerLogo;
+};
