@@ -100,6 +100,13 @@ import PartnerCards from "pages/partners/PartnerCards";
 import EditPartnerCard from "pages/partners/EditPartnerCard";
 import PartnersBottom from "pages/partners/PartnersBottom";
 import PartnerLogos from "pages/partners/PartnerLogos";
+import CapabilitiesOverview from "pages/capabilities-overview/CapabilitiesOverview";
+import LabEquipmentBanner from "pages/lab-equipment/LabEquipmentBanner";
+import AllLabEquipment from "pages/lab-equipment/AllLabEquipment";
+import AddLabEquipment from "pages/lab-equipment/AddLabEquipment";
+import EditLabEquipment from "pages/lab-equipment/EditLabEquipment";
+import AnalyticalInstrumentation from "pages/analytical-instrumentation/AnalyticalInstrumentation";
+import Accreditations from "pages/accreditations/Accreditations";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -832,6 +839,62 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <PartnerLogos />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/lab-equipment-banner",
+      element: (
+        <PrivateRoutes>
+          <LabEquipmentBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/all-lab-equipment",
+      element: (
+        <PrivateRoutes>
+          <AllLabEquipment />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-lab-equipment",
+      element: (
+        <PrivateRoutes>
+          <AddLabEquipment />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-lab-equipment/:id",
+      element: (
+        <PrivateRoutes>
+          <EditLabEquipment />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/capabilities-overview",
+      element: (
+        <PrivateRoutes>
+          <CapabilitiesOverview />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/analytical-instrumentation",
+      element: (
+        <PrivateRoutes>
+          <AnalyticalInstrumentation />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/accreditations",
+      element: (
+        <PrivateRoutes>
+          <Accreditations />
         </PrivateRoutes>
       ),
     },

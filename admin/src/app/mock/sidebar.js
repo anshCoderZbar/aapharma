@@ -1,10 +1,12 @@
 import {
+  Beaker,
   Biohazard,
   CalendarCheck,
   Castle,
   DownloadCloud,
   FlaskConical,
   FlaskConicalOff,
+  FlaskRound,
   HeartHandshake,
   Image,
   ImagePlus,
@@ -20,6 +22,7 @@ import {
   ShoppingBag,
   StepForward,
   Stethoscope,
+  TestTube,
   User,
 } from "lucide-react";
 
@@ -432,6 +435,42 @@ export const SidebarData = [
         slug: "partner-logos",
       },
     ],
+  },
+  {
+    id: uuidv4(),
+    name: "Capabilities Overview",
+    slug: "capabilities-overview",
+    icon: <FlaskRound />,
+  },
+  {
+    id: uuidv4(),
+    name: "Lab Equipment",
+    slug: "#",
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "lab-equipment-banner",
+      },
+      {
+        id: 1,
+        subMenuName: "Equipments",
+        slug: "all-lab-equipment",
+      },
+    ],
+    icon: <TestTube />,
+  },
+  {
+    id: uuidv4(),
+    name: "Analytical Instrumentation",
+    slug: "analytical-instrumentation",
+    icon: <Beaker />,
+  },
+  {
+    id: uuidv4(),
+    name: "Accreditations",
+    slug: "accreditations",
+    icon: <FlaskConical />,
   },
   {
     id: uuidv4(),
