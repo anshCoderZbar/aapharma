@@ -60,3 +60,33 @@ export const GetAllPartnerLogo = () => {
   });
   return partnerLogo;
 };
+
+// capabilities overview
+
+export const GetCapabilitiesOverviewMutation = () => {
+  const capabilitiesOverview = useQuery({
+    queryKey: ["get-capabilities-overview"],
+    queryFn: () => client.capabilities.getCapabilitiesOverview(),
+  });
+  return capabilitiesOverview;
+};
+
+// analytical-instrumentation
+
+export const GetAnalyticalInstrumentationMutation = () => {
+  const analyticalInstrumentation = useQuery({
+    queryKey: ["get-analytical-instrumentation"],
+    queryFn: () => client.capabilities.getAnalyticalInstrumentation(),
+  });
+  return analyticalInstrumentation;
+};
+
+// accredation
+
+export const GetAccredationMutation = () => {
+  const accredation = useQuery({
+    queryKey: ["get-accredation"],
+    queryFn: () => client.capabilities.getAccreditations(),
+  });
+  return accredation;
+};

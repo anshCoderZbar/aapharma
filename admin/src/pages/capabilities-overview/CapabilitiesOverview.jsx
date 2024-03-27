@@ -8,6 +8,8 @@ import { Plus, X } from "lucide-react";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import { GetCapabilitiesOverviewMutation } from "rest/capabilities";
+import { EditCapabilitiesOverviewMutation } from "rest/capabilities";
 
 export default function CapabilitiesOverview() {
   const {
@@ -23,6 +25,9 @@ export default function CapabilitiesOverview() {
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
 
+  const getCapabilities = GetCapabilitiesOverviewMutation();
+  const editCapabilities = EditCapabilitiesOverviewMutation();
+
   const handleChange = (e) => {
     const files = e.target.files[0];
     if (files) {
@@ -31,23 +36,25 @@ export default function CapabilitiesOverview() {
     }
   };
 
-  //   useEffect(() => {
-  //     const defaultValues = {};
-  //     defaultValues.heading = getExpertiesIncludes?.data?.data?.heading;
-  //     const defaultInputs =
-  //       getExpertiesIncludes?.data?.data?.expertiseList
-  //         ?.split("@@")
-  //         ?.map((elm) => ({
-  //           list: elm || "",
-  //         })) || [];
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getCapabilities?.data?.data?.heading;
+    defaultValues.subHeading = getCapabilities?.data?.data?.subheading;
+    defaultValues.description = getCapabilities?.data?.data?.description;
+    const defaultInputs =
+      getCapabilities?.data?.data?.list?.map((elm) => ({
+        list: elm || "",
+      })) || [];
 
-  //     defaultInputs.length >= 1 && setList(defaultInputs);
-  //     defaultInputs?.map((elm, i) => {
-  //       defaultValues[`list_${i + 1}`] = elm.list;
-  //     });
+    defaultInputs.length >= 1 && setList(defaultInputs);
+    defaultInputs?.map((elm, i) => {
+      defaultValues[`list_${i + 1}`] = elm.list;
+    });
 
-  //     reset(defaultValues);
-  //   }, [getExpertiesIncludes?.data?.data]);
+    setDefaultImg(getCapabilities?.data?.data?.image);
+
+    reset(defaultValues);
+  }, [getCapabilities?.data?.data]);
 
   const handleDeleteInput = (index) => {
     const newArray = [...list];
@@ -60,25 +67,24 @@ export default function CapabilitiesOverview() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     const formData = new FormData();
     formData.append("heading", data?.heading);
     formData.append("subheading", data?.subHeading);
     formData.append("image", data?.image[0]);
-    formData.append("bottomDescription", data?.bottomDescription);
+    formData.append("description", data?.bottomDescription);
     list.forEach((_, index) => {
       const listKey = `list_${index + 1}`;
-      formData.append("expertiseList[]", data[listKey]);
+      formData.append("list[]", data[listKey]);
     });
-    // expertiesIncludes.mutate(formData);
+    editCapabilities.mutate(formData);
   };
   return (
     <>
       <PageWrapper slug="capabilities-overview" name="Capabilities Overview" />
-      {false && (
+      {getCapabilities?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {getCapabilities?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -194,7 +200,7 @@ export default function CapabilitiesOverview() {
                 <TextEditor
                   control={control}
                   name={`bottomDescription`}
-                  defaultValue={""}
+                  defaultValue={getCapabilities?.data?.data?.description}
                   {...register(`bottomDescription`, {
                     required: true,
                   })}
@@ -203,7 +209,7 @@ export default function CapabilitiesOverview() {
                   <p className="errorMessage">Field is required</p>
                 )}
               </div>
-              {false ? (
+              {editCapabilities?.isPending ? (
                 <div>
                   <ButtonLoader />
                 </div>

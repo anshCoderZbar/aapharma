@@ -7,6 +7,8 @@ import { Plus, X } from "lucide-react";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import { GetAnalyticalInstrumentationMutation } from "rest/capabilities";
+import { EditAnalyticalInstrumentationMutation } from "rest/capabilities";
 
 export default function AnalyticalInstrumentation() {
   const {
@@ -22,6 +24,9 @@ export default function AnalyticalInstrumentation() {
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
 
+  const getAnalyticalInstruments = GetAnalyticalInstrumentationMutation();
+  const editAnalyticalInstruments = EditAnalyticalInstrumentationMutation();
+
   const handleChange = (e) => {
     const files = e.target.files[0];
     if (files) {
@@ -30,23 +35,21 @@ export default function AnalyticalInstrumentation() {
     }
   };
 
-  //   useEffect(() => {
-  //     const defaultValues = {};
-  //     defaultValues.heading = getExpertiesIncludes?.data?.data?.heading;
-  //     const defaultInputs =
-  //       getExpertiesIncludes?.data?.data?.expertiseList
-  //         ?.split("@@")
-  //         ?.map((elm) => ({
-  //           list: elm || "",
-  //         })) || [];
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getAnalyticalInstruments?.data?.data?.heading;
+    const defaultInputs =
+      getAnalyticalInstruments?.data?.data?.list?.map((elm) => ({
+        list: elm || "",
+      })) || [];
+    defaultInputs.length >= 1 && setList(defaultInputs);
+    defaultInputs?.map((elm, i) => {
+      defaultValues[`list_${i + 1}`] = elm.list;
+    });
 
-  //     defaultInputs.length >= 1 && setList(defaultInputs);
-  //     defaultInputs?.map((elm, i) => {
-  //       defaultValues[`list_${i + 1}`] = elm.list;
-  //     });
-
-  //     reset(defaultValues);
-  //   }, [getExpertiesIncludes?.data?.data]);
+    setDefaultImg(getAnalyticalInstruments?.data?.data?.image);
+    reset(defaultValues);
+  }, [getAnalyticalInstruments?.data?.data]);
 
   const handleDeleteInput = (index) => {
     const newArray = [...list];
@@ -59,15 +62,14 @@ export default function AnalyticalInstrumentation() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     const formData = new FormData();
     formData.append("heading", data?.heading);
     formData.append("image", data?.image[0]);
     list.forEach((_, index) => {
       const listKey = `list_${index + 1}`;
-      formData.append("[]", data[listKey]);
+      formData.append("list[]", data[listKey]);
     });
-    // expertiesIncludes.mutate(formData);
+    editAnalyticalInstruments.mutate(formData);
   };
   return (
     <>
@@ -75,10 +77,10 @@ export default function AnalyticalInstrumentation() {
         slug="analytical-instrumentation"
         name="Analytical Instrumentation"
       />
-      {false && (
+      {getAnalyticalInstruments?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {getAnalyticalInstruments?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -171,7 +173,7 @@ export default function AnalyticalInstrumentation() {
                   </div>
                 ))}
               </div>
-              {false ? (
+              {editAnalyticalInstruments?.isPending ? (
                 <div>
                   <ButtonLoader />
                 </div>

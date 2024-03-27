@@ -1,9 +1,13 @@
-import { ChevronRight } from "lucide-react";
 import React from "react";
+
+import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import "styles/Capabilities.css";
+import { GetCapabilitiesOverviewMutation } from "rest/capabilities";
+
 export default function Capabilities() {
+  const getOverview = GetCapabilitiesOverviewMutation();
   return (
     <div className="capabilities_page">
       <div className="container-fluid">
@@ -26,43 +30,42 @@ export default function Capabilities() {
           <div className="row capability_inner_page">
             <div className="col-lg-6">
               <div className="capabilities_content">
-                <h1 className="main_top_heading">Capabilities</h1>
-                <p>AAPharmaSyn capabilities are underpinned by</p>
+                <h1 className="main_top_heading">
+                  {getOverview?.data?.data?.heading &&
+                    getOverview?.data?.data?.heading}
+                </h1>
+                <p>
+                  {getOverview?.data?.data?.subheading &&
+                    getOverview?.data?.data?.subheading}
+                </p>
                 <ul>
-                  <li>
-                    Extensive experience in operating within contract research
-                    framework
-                  </li>
-                  <li>
-                    Evergreen reinvestment in new instrumentation and technology
-                  </li>
-                  <li>
-                    Expertise in solving challenging and nuanced chemistry
-                    problems
-                  </li>
-                  <li>
-                    Focus on hiring, developing and retaining great employees
-                  </li>
+                  {getOverview?.data?.data?.list?.map((elm) => {
+                    return <li>{elm}</li>;
+                  })}
                 </ul>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="capabilities_img">
                 <img
-                  src={require("assets/capabilities_img.png")}
+                  src={
+                    getOverview?.data?.data?.image &&
+                    getOverview?.data?.data?.image
+                  }
                   alt="banner"
                 />
               </div>
             </div>
           </div>
         </div>
-        <div className="capabilities_bottom_content">
-          <p>
-            We invite you to discover our chemistry expertise and contact and
-            challenge us to propose solutions to your most demanding chemistry
-            needs.
-          </p>
-        </div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html:
+              getOverview?.data?.data?.description &&
+              getOverview?.data?.data?.description,
+          }}
+          className="capabilities_bottom_content"
+        />
       </div>
     </div>
   );

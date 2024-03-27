@@ -153,4 +153,7 @@ export const API_ENDPOINTS = {
   allPartnersLogo: "/partnerslogos/all",
   newPartnersLogo: "/partnerslogos/new",
   deletePartnersLogo: "/partnerslogos/delete",
+  capabilitiesOverview: "/overviewbanner",
+  analyticalInstrumentation: "/analytical-instrumentation",
+  accreditations: "/accreditations",
 };

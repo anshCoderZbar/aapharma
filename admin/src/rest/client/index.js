@@ -352,6 +352,19 @@ class Client {
     deletePartnerLogo: (params) =>
       HttpClient.post(API_ENDPOINTS.deletePartnersLogo, params),
   };
+  capabilities = {
+    createCapabilitiesOverview: (params) =>
+      HttpClient.post(API_ENDPOINTS.capabilitiesOverview, params),
+    getCapabilitiesOverview: () =>
+      HttpClient.get(API_ENDPOINTS.capabilitiesOverview),
+    getAnalyticalInstrumentation: () =>
+      HttpClient.get(API_ENDPOINTS.analyticalInstrumentation),
+    createAnalyticalInstrumentation: (params) =>
+      HttpClient.post(API_ENDPOINTS.analyticalInstrumentation, params),
+    getAccreditations: () => HttpClient.get(API_ENDPOINTS.accreditations),
+    createAccreditations: (params) =>
+      HttpClient.post(API_ENDPOINTS.accreditations, params),
+  };
 }
 
 const client = new Client();

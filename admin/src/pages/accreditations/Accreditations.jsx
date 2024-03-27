@@ -7,19 +7,32 @@ import { TextEditor } from "components/ui/TextEditor";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import { GetAccredationMutation } from "rest/capabilities";
+import { EditAccredationMutation } from "rest/capabilities";
 
 export default function Accreditations() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
     reset,
     control,
   } = useForm();
 
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
+
+  const getAccredation = GetAccredationMutation();
+  const editAccredation = EditAccredationMutation();
+
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getAccredation?.data?.data?.heading;
+    defaultValues.image = getAccredation?.data?.data?.image;
+    defaultValues.description = getAccredation?.data?.data?.description;
+    setDefaultImg(getAccredation?.data?.data?.image);
+    reset(defaultValues);
+  }, [getAccredation?.data?.data]);
 
   const handleChange = (e) => {
     const files = e.target.files[0];
@@ -30,21 +43,20 @@ export default function Accreditations() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     const formData = new FormData();
     formData.append("heading", data?.heading);
     formData.append("image", data?.image[0]);
     formData.append("description", data?.description);
-    // expertiesIncludes.mutate(formData);
+    editAccredation.mutate(formData);
   };
 
   return (
     <>
       <PageWrapper slug="accreditations" name="Accreditations" />
-      {false && (
+      {getAccredation?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {getAccredation?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -104,7 +116,7 @@ export default function Accreditations() {
                 <TextEditor
                   control={control}
                   name={`description`}
-                  defaultValue={""}
+                  defaultValue={getAccredation?.data?.data?.description}
                   {...register(`description`, {
                     required: true,
                   })}
@@ -113,7 +125,7 @@ export default function Accreditations() {
                   <p className="errorMessage">Field is required</p>
                 )}
               </div>
-              {false ? (
+              {editAccredation?.isPending ? (
                 <div>
                   <ButtonLoader />
                 </div>
