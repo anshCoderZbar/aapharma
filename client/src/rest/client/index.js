@@ -103,6 +103,9 @@ class Client {
     getAnalyticalInstrumentation: () =>
       HttpClient.get(API_ENDPOINTS.analyticalInstrumentation),
     getAccreditations: () => HttpClient.get(API_ENDPOINTS.accreditations),
+    getLabEquipmentBanner: () =>
+      HttpClient.get(API_ENDPOINTS.labEquipmentBanner),
+    allLabEquipment: () => HttpClient.get(API_ENDPOINTS.allLabEquipments),
   };
   resources = {
     getResourceHeading: () => HttpClient.get(API_ENDPOINTS.resourceHeading),

@@ -90,3 +90,21 @@ export const GetAccredationMutation = () => {
   });
   return accredation;
 };
+
+// lab equipment
+
+export const GetLabEquipmentBannerMutation = () => {
+  const labEquipment = useQuery({
+    queryKey: ["get-lab-equipment-banner"],
+    queryFn: () => client.capabilities.getLabEquipmentBanner(),
+  });
+  return labEquipment;
+};
+
+export const AllLabEquipmentMutation = () => {
+  const allLabEquipment = useQuery({
+    queryKey: ["get-all-equipment"],
+    queryFn: () => client.capabilities.allLabEquipment(),
+  });
+  return allLabEquipment;
+};

@@ -10,31 +10,34 @@ import "react-data-table-component-extensions/dist/index.css";
 import { PageWrapper } from "components/ui/PageWrapper";
 import { Edit2, Trash2 } from "lucide-react";
 import { Button } from "components/ui/Button";
-import { AllCarbohydrateTimeline } from "rest/complexCarbohydrate";
-import { DeleteCarbohydrateTimeline } from "rest/complexCarbohydrate";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { InfoComponent } from "components/Alerts/Info";
+import { AllLabEquipmentMutation } from "rest/capabilities";
+import { DeleteLabEquipmentMutation } from "rest/capabilities";
 
 export default function AllLabEquipment() {
   const navigate = useNavigate();
   const [id, setId] = useState("");
 
+  const allEquipment = AllLabEquipmentMutation();
+  const deleteEquipment = DeleteLabEquipmentMutation();
+
   const handleDelete = (id) => {
     const formData = new FormData();
     formData.append("id", id);
-    console.log(id);
+    deleteEquipment.mutate(formData);
   };
 
   const timelineData = [
     {
-      name: "Sort No",
-      selector: (row) => row.sortNo,
+      name: "S.No",
+      selector: (_, i) => i + 1,
     },
     {
       name: "Equipment Name",
-      selector: (row) => row.year,
+      selector: (row) => row.heading,
     },
 
     {
@@ -63,7 +66,7 @@ export default function AllLabEquipment() {
     {
       name: "Delete",
       cell: (row) =>
-        row?.id === id && false ? (
+        row?.id === id && deleteEquipment?.isPending ? (
           <ButtonLoader />
         ) : (
           <span
@@ -83,9 +86,11 @@ export default function AllLabEquipment() {
   return (
     <>
       <PageWrapper slug="all-lab-equipment" name="Lab Equipment" />
-      {false ? <ErrorComponent message="OOPS ! something went wrong" /> : null}
+      {allEquipment?.isError ? (
+        <ErrorComponent message="OOPS ! something went wrong" />
+      ) : null}
 
-      {false ? (
+      {allEquipment?.isPending ? (
         <ComponentLoader />
       ) : (
         <>
@@ -94,10 +99,10 @@ export default function AllLabEquipment() {
               Add Equipment
             </Button>
           </div>
-          {2 >= 1 ? (
+          {allEquipment?.data?.data?.length >= 1 ? (
             <DataTableExtensions
               columns={timelineData}
-              data={[]}
+              data={allEquipment?.data?.data}
               filterPlaceholder="Search"
             >
               <DataTable

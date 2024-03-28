@@ -26,7 +26,7 @@ export const EditCaseTabsMutation = () => {
   const operatingMutation = useMutation({
     mutationFn: (data) => client.caseStudy.editCaseStudyTabs(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["all-case-study-tabs"],
       });
@@ -52,7 +52,7 @@ export const EditCaseStudyGraphContentMutation = () => {
   const editCaseStudyGraphContent = useMutation({
     mutationFn: (data) => client.caseStudy.editCaseStudyGraphContent(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["case-study-graph-content"],
       });
@@ -86,7 +86,7 @@ export const EditCaseDiagramMutation = () => {
   const editCaseStudyDiagram = useMutation({
     mutationFn: (data) => client.caseStudy.editCaseStudyDiagramData(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["case-study-diagram-content"],
       });

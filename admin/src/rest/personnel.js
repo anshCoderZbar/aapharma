@@ -167,7 +167,7 @@ export const EditOperatingPhilosophyDiagramMutation = () => {
     mutationFn: (data) =>
       client.operatingPhilosophy.editSingleOperatingPhilosophyDiagram(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["get-operating-philosophy-diagram"],
       });

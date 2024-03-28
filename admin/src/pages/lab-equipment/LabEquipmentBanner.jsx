@@ -6,6 +6,8 @@ import { FormInput } from "components/ui/FormInput";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import { EditLabEquipmentBannerMutation } from "rest/capabilities";
+import { GetLabEquipmentBannerMutation } from "rest/capabilities";
 
 export default function LabEquipmentBanner() {
   const {
@@ -18,6 +20,9 @@ export default function LabEquipmentBanner() {
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
 
+  const createBanner = EditLabEquipmentBannerMutation();
+  const getBanner = GetLabEquipmentBannerMutation();
+
   const handleChange = (e) => {
     const files = e.target.files[0];
     if (files) {
@@ -26,27 +31,26 @@ export default function LabEquipmentBanner() {
     }
   };
 
-  // useEffect(() => {
-  //   const defaultValues = {};
-  //   defaultValues.heading = getBanner?.data?.data?.heading;
-  //   setDefaultImg(getBanner?.data?.data?.image);
-  //   reset(defaultValues);
-  // }, [getBanner?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getBanner?.data?.data?.heading;
+    setDefaultImg(getBanner?.data?.data?.image);
+    reset(defaultValues);
+  }, [getBanner?.data?.data]);
 
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("heading", data?.heading);
     formData.append("image", data?.bannerImage[0]);
-    // createBanner.mutate(formData);
-    console.log(data);
+    createBanner.mutate(formData);
   };
   return (
     <>
       <PageWrapper slug="lab-equipment-banner" name="Lab Equipment Banner" />
-      {false && (
+      {getBanner?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {getBanner?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -97,7 +101,7 @@ export default function LabEquipmentBanner() {
               )}
             </div>
 
-            {false ? (
+            {createBanner?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

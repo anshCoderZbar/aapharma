@@ -156,4 +156,10 @@ export const API_ENDPOINTS = {
   capabilitiesOverview: "/overviewbanner",
   analyticalInstrumentation: "/analytical-instrumentation",
   accreditations: "/accreditations",
+  labEquipmentBanner: "/lab-equipment-banner",
+  allLabEquipments: "/lab-equipment/all",
+  singleLabEquipment: "/lab-equipment/one",
+  addLabEquipment: "/lab-equipment/new",
+  deleteLabEquipment: "/lab-equipment/delete",
+  updateLabEquipment: "/lab-equipment/update",
 };

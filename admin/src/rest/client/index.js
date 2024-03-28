@@ -364,6 +364,19 @@ class Client {
     getAccreditations: () => HttpClient.get(API_ENDPOINTS.accreditations),
     createAccreditations: (params) =>
       HttpClient.post(API_ENDPOINTS.accreditations, params),
+    getLabEquipmentBanner: () =>
+      HttpClient.get(API_ENDPOINTS.labEquipmentBanner),
+    editLabEquipmentBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.labEquipmentBanner, params),
+    allLabEquipment: () => HttpClient.get(API_ENDPOINTS.allLabEquipments),
+    singleLabEquipment: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleLabEquipment, params),
+    addLabEquipment: (params) =>
+      HttpClient.post(API_ENDPOINTS.addLabEquipment, params),
+    deleteLabEquipment: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteLabEquipment, params),
+    editLabEquipment: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateLabEquipment, params),
   };
 }
 

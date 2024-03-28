@@ -3,6 +3,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 
 import { useNotifications } from "reapop";
 import { queryClient } from "queryclient";
+import { useNavigate } from "react-router-dom";
 
 export const GetCapabilitiesOverviewMutation = () => {
   const capabilitiesOverview = useQuery({
@@ -18,7 +19,7 @@ export const EditCapabilitiesOverviewMutation = () => {
   const capabilitiesOverview = useMutation({
     mutationFn: (data) => client.capabilities.createCapabilitiesOverview(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["get-capabilities-overview"],
       });
@@ -45,7 +46,7 @@ export const EditAnalyticalInstrumentationMutation = () => {
     mutationFn: (data) =>
       client.capabilities.createAnalyticalInstrumentation(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["get-analytical-instrumentation"],
       });
@@ -71,7 +72,7 @@ export const EditAccredationMutation = () => {
   const accredation = useMutation({
     mutationFn: (data) => client.capabilities.createAccreditations(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["get-accredation"],
       });
@@ -81,4 +82,101 @@ export const EditAccredationMutation = () => {
     },
   });
   return accredation;
+};
+
+export const GetLabEquipmentBannerMutation = () => {
+  const labEquipment = useQuery({
+    queryKey: ["get-lab-equipment-banner"],
+    queryFn: () => client.capabilities.getLabEquipmentBanner(),
+  });
+  return labEquipment;
+};
+
+export const EditLabEquipmentBannerMutation = () => {
+  const { notify } = useNotifications();
+
+  const labEquipment = useMutation({
+    mutationFn: (data) => client.capabilities.editLabEquipmentBanner(data),
+    onSuccess: () => {
+      notify("Details Edited Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-lab-equipment-banner"],
+      });
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return labEquipment;
+};
+
+export const AllLabEquipmentMutation = () => {
+  const allLabEquipment = useQuery({
+    queryKey: ["get-all-equipment"],
+    queryFn: () => client.capabilities.allLabEquipment(),
+  });
+  return allLabEquipment;
+};
+
+export const AddLabEquipmentMutation = () => {
+  const { notify } = useNotifications();
+  const navigate = useNavigate();
+  const labEquipment = useMutation({
+    mutationFn: (data) => client.capabilities.addLabEquipment(data),
+    onSuccess: () => {
+      notify("Details Added Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-all-equipment"],
+      });
+      navigate("/all-lab-equipment");
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return labEquipment;
+};
+
+export const SingleLabEquipmentMutation = (data) => {
+  const singleLabEquipment = useQuery({
+    queryKey: ["get-single-lab-equipment"],
+    queryFn: () => client.capabilities.singleLabEquipment(data),
+  });
+  return singleLabEquipment;
+};
+
+export const EditLabEquipmentMutation = () => {
+  const { notify } = useNotifications();
+  const navigate = useNavigate();
+  const editLabEquipment = useMutation({
+    mutationFn: (data) => client.capabilities.editLabEquipment(data),
+    onSuccess: () => {
+      notify("Details Edited Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-all-equipment"],
+      });
+      navigate("/all-lab-equipment");
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return editLabEquipment;
+};
+
+export const DeleteLabEquipmentMutation = () => {
+  const { notify } = useNotifications();
+  const deleteLabEquipment = useMutation({
+    mutationFn: (data) => client.capabilities.deleteLabEquipment(data),
+    onSuccess: () => {
+      notify("Details Deleted Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-all-equipment"],
+      });
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return deleteLabEquipment;
 };

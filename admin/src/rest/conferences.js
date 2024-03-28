@@ -18,7 +18,7 @@ export const EditConferenceBannerMutation = () => {
   const conferenceBanner = useMutation({
     mutationFn: (data) => client.conferences.editConferenceBanner(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["get-conference-banner"],
       });
@@ -43,7 +43,7 @@ export const EditConferenceCardsMutation = () => {
   const confrenceCard = useMutation({
     mutationFn: (data) => client.conferences.editConferenceCards(data),
     onSuccess: () => {
-      notify("Data Edited Successfully", "success");
+      notify("Details Edited Successfully", "success");
       queryClient.invalidateQueries({
         queryKey: ["get-conference-cards"],
       });

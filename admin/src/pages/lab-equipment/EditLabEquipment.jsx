@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
@@ -7,9 +7,12 @@ import { FormInput } from "components/ui/FormInput";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import { SingleLabEquipmentMutation } from "rest/capabilities";
+import { EditLabEquipmentMutation } from "rest/capabilities";
 
 export default function EditLabEquipment() {
   const { id } = useParams();
+
   const {
     register,
     handleSubmit,
@@ -17,8 +20,22 @@ export default function EditLabEquipment() {
     reset,
   } = useForm();
 
+  const formData = new FormData();
+  formData.append("id", id);
+
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
+
+  const singleEquipment = SingleLabEquipmentMutation(formData);
+  const editEquipment = EditLabEquipmentMutation();
+
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = singleEquipment?.data?.data?.heading;
+    defaultValues.equipmentImage = singleEquipment?.data?.data?.image;
+    setDefaultImg(singleEquipment?.data?.data?.image);
+    reset(defaultValues);
+  }, [singleEquipment?.data?.data]);
 
   const handleChange = (e) => {
     const files = e.target.files[0];
@@ -30,18 +47,19 @@ export default function EditLabEquipment() {
 
   const onSubmit = (data) => {
     const formData = new FormData();
+    formData.append("id", id);
     formData.append("heading", data?.heading);
     formData.append("image", data?.equipmentImage[0]);
-    console.log(data);
+    editEquipment.mutate(formData);
   };
 
   return (
     <>
       <PageWrapper slug="all-lab-equipment" name="Lab Equipment" />
-      {false && (
+      {singleEquipment?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {singleEquipment?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -92,7 +110,7 @@ export default function EditLabEquipment() {
               )}
             </div>
 
-            {false ? (
+            {editEquipment?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>
