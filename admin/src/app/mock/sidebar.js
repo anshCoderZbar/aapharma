@@ -426,11 +426,16 @@ export const SidebarData = [
       },
       {
         id: 3,
+        subMenuName: "Fifth Card",
+        slug: "partner-fifth-card",
+      },
+      {
+        id: 4,
         subMenuName: "Bottom",
         slug: "partner-bottom",
       },
       {
-        id: 4,
+        id: 5,
         subMenuName: "logos",
         slug: "partner-logos",
       },

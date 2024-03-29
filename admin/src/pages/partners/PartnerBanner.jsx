@@ -29,10 +29,9 @@ export default function PartnerBanner() {
 
   useEffect(() => {
     const defaultValues = {};
-    defaultValues.heading = getBanner?.data?.data?.heading;
     defaultValues.banner = getBanner?.data?.data?.image;
     defaultValues.description = getBanner?.data?.data?.description;
-    defaultValues.subHeading = getBanner?.data?.data?.subheading;
+    defaultValues.heading = getBanner?.data?.data?.heading;
     setDefaultImg(getBanner?.data?.data?.image);
     reset(defaultValues);
   }, [getBanner?.data?.data]);
@@ -108,20 +107,6 @@ export default function PartnerBanner() {
                   alt="banner Preview"
                   style={{ maxWidth: "300px", marginTop: "10px" }}
                 />
-              )}
-            </div>
-            <div className="mb-3 col-md-6">
-              <label htmlFor="subHeading" className="form-label">
-                Sub Heading
-              </label>
-              <FormInput
-                type="text"
-                name="subHeading"
-                placeholder="Sub Heading"
-                {...register("subHeading", { required: true })}
-              />
-              {errors?.subHeading && (
-                <p className="errorMessage">Sub Heading is required</p>
               )}
             </div>
 

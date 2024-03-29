@@ -340,63 +340,31 @@
   margin-top: 70px;
 }
 
-.partners_top_content {
-  color: #808080;
-  font-size: 24px;
-  line-height: 37px;
-  max-width: 1440px;
-  margin-top: 39px;
-}
-
 .partners_btm_section {
   margin: 60px 0;
 }
 
-.part_card_head {
-  text-align: center;
-  color: #000;
-  font-size: 40px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-
 .partners_card {
-  border: 1px solid #eeeeee;
+  border: 1px solid #f7f7f7;
+  background-color: #f7f7f7;
   width: 100%;
   height: 100%;
   padding: 20px;
-  border-radius: 17px;
+  border-radius: 25px;
   position: relative;
   overflow: hidden;
   box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, 0.2);
 }
 
-.ff-fill {
-  row-gap: 25px;
-}
-
-.partners_blue_heading {
-  background-color: #2a3072;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  padding: 12px 25px;
-  display: flex;
-  align-items: center;
-}
-
-.partners_blue_heading p {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 31px;
+.partner_col_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(408px, 1fr));
+  grid-gap: 30px;
 }
 
 .partner_top_img {
   display: flex;
   justify-content: center;
-  margin-top: 80px;
 }
 
 .partner_top_img img {
@@ -404,78 +372,134 @@
   height: 100%;
   object-fit: cover;
   max-width: 50rem;
+  border-radius: 25px;
 }
 
 .partners_card_data h3 {
-  font-size: 22px;
-  margin: 20px 0;
+  font-size: 18px;
   font-weight: 600;
-  color: #9598b9;
-}
-
-.partner_list {
-  margin-left: 20px;
+  line-height: 25px;
+  margin: 20px 0;
+  font-weight: 700;
+  color: #2e2e2e;
 }
 
 .partner_list ul {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  column-gap: 15px;
+  row-gap: 20px;
+  list-style: none;
+  margin-left: 0;
+  flex-wrap: wrap;
 }
 
 .partner_list ul li {
-  color: #000;
-  font-size: 20px;
+  color: #2e2e2e;
+  font-size: 16px;
+  flex: 0 47%;
+  font-weight: 500;
   font-style: normal;
 }
 
-.partner_fix_bg {
-  height: 350px;
+.partner_bottom_card {
+  margin-top: 20px;
+  margin-bottom: 20rem;
+}
+
+.partner_card_body {
+  background-color: #f7f7f7;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 50px 50px 210px 50px;
+  position: relative;
+}
+
+.partner_card_heading {
+  color: #2e2e2e;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.partner_card_body ul {
+  margin-top: 40px;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 15px;
+  row-gap: 20px;
+  margin-left: 0;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+.partner_card_body ul li {
+  flex: 0 47%;
+  color: #2e2e2e;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.partner_btm_img {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  border-radius: 34px;
+}
+
+.partner_fix_bg {
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
-  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
+  height: 36rem;
+  border-radius: 50px;
 }
 
 .partner_fix_content p {
   color: #fff;
   font-size: 20px;
-  text-align: center;
+  text-align: left;
   line-height: 39px;
-  max-width: 1300px;
-  margin: 0 auto;
+  max-width: 700px;
 }
 
 .partner_top_head {
-  margin: 40px 0 30px 0;
+  margin: 80px 0 60px 0;
 }
 
 .partners_logos_slider {
-  margin-bottom: 80px;
-}
-
-.partners_logos_slider .swiper-wrapper {
-  background-color: #f7f7f7 !important;
-  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
   padding: 30px 0;
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
 .partner_img_logo {
-  width: 100%;
-  height: 136px;
+  height: 100%;
   display: flex;
+  width: 100%;
+  flex: 0 23%;
   justify-content: center;
-  background: #fff;
+  background-color: #f7f7f7 !important;
   border-radius: 12px;
   padding: 12px;
 }
 
 .partner_img_logo img {
   width: 100%;
+  height: 150px;
   object-fit: contain;
 }
 
@@ -616,28 +640,8 @@
     margin-top: 55px;
   }
 
-  .partners_top_content {
-    font-size: 22px;
-    line-height: 33px;
-    max-width: 1105px;
-    margin-top: 26px;
-  }
-
   .partners_btm_section {
     margin: 50px 0;
-  }
-
-  .part_card_head {
-    font-size: 36px;
-  }
-
-  .partners_blue_heading p {
-    font-size: 20px;
-    line-height: 28px;
-  }
-
-  .partner_top_img {
-    margin-top: 74px;
   }
 
   .partners_card_data h3 {
@@ -649,24 +653,46 @@
     gap: 12px;
   }
 
-  .partner_list ul li {
-    font-size: 18px;
+  .partner_card_body {
+    padding: 40px 40px 200px 40px;
+  }
+
+  .partner_bottom_card {
+    margin-top: 20px;
+    margin-bottom: 18rem;
+  }
+
+  .partner_fix_bg {
+    height: 33rem;
   }
 
   .partner_fix_content p {
     font-size: 18px;
     line-height: 36px;
-    max-width: 1100px;
-  }
-  .partner_top_head {
-    margin: 35px 0 25px 0;
   }
 
-  .partners_logos_slider .swiper-wrapper {
-    padding: 25px 0;
+  .partner_card_heading {
+    font-size: 30px;
   }
+
+  .partner_card_body ul {
+    margin-top: 35px;
+  }
+
+  .partner_card_body ul li {
+    font-size: 18px;
+  }
+
+  .partner_top_head {
+    margin: 70px 0 50px 0;
+  }
+
   .partners_logos_slider {
-    margin-bottom: 70px;
+    margin-bottom: 60px;
+  }
+
+  .partners_logos_slider {
+    gap: 25px;
   }
 }
 
@@ -785,29 +811,8 @@
     margin-top: 45px;
   }
 
-  .partners_top_content {
-    font-size: 20px;
-    line-height: 31px;
-    max-width: 1000px;
-    margin-top: 20px;
-  }
-
   .partners_btm_section {
     margin: 40px 0;
-  }
-
-  .part_card_head {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-
-  .partners_blue_heading p {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .partner_top_img {
-    margin-top: 69px;
   }
 
   .partners_card {
@@ -819,12 +824,37 @@
     margin: 14px 0;
   }
 
-  .partner_list ul li {
+  .partner_list ul {
+    gap: 10px;
+  }
+
+  .partner_card_body ul {
+    margin-top: 30px;
+  }
+
+  .partner_card_body ul li {
     font-size: 17px;
   }
 
-  .partner_list ul {
-    gap: 10px;
+  .partner_bottom_card {
+    margin-bottom: 16rem;
+  }
+
+  .partner_fix_bg {
+    height: 25rem;
+  }
+
+  .partner_top_head {
+    margin: 55px 0 30px 0;
+  }
+
+  .partners_logos_slider {
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .partner_card_heading {
+    font-size: 28px;
   }
 
   .partner_fix_content p {
@@ -832,16 +862,8 @@
     line-height: 33px;
   }
 
-  .partner_top_head {
-    margin: 30px 0 20px 0;
-  }
-
-  .partners_logos_slider .swiper-wrapper {
-    padding: 20px 0;
-  }
-
   .partners_logos_slider {
-    margin-bottom: 55px;
+    margin-bottom: 50px;
   }
 }
 
@@ -942,31 +964,8 @@
     margin-top: 35px;
   }
 
-  .partners_top_content {
-    font-size: 18px;
-    line-height: 28px;
-    margin-top: 16px;
-  }
-
   .partners_btm_section {
     margin: 30px 0;
-  }
-
-  .part_card_head {
-    font-size: 30px;
-    margin-bottom: 20px;
-  }
-  .partners_blue_heading {
-    padding: 10px 19px;
-  }
-
-  .partners_blue_heading p {
-    font-size: 16px;
-    line-height: 26px;
-  }
-
-  .partner_top_img {
-    margin-top: 65px;
   }
 
   .partners_card {
@@ -978,15 +977,11 @@
   }
 
   .partner_list ul li {
-    font-size: 16px;
-  }
-
-  .ff-fill {
-    row-gap: 20px;
+    font-size: 15px;
   }
 
   .partner_fix_bg {
-    height: 290px;
+    height: 22rem;
   }
 
   .partner_fix_content p {
@@ -994,17 +989,23 @@
     line-height: 33px;
   }
 
+  .partner_card_body {
+    margin-top: 35px;
+    padding: 30px 30px 188px 30px;
+    max-width: 800px;
+  }
+
+  .partner_btm_img {
+    max-width: 728px;
+    overflow: hidden;
+  }
+
+  .partner_bottom_card {
+    margin-bottom: 14rem;
+  }
+
   .partner_top_head {
-    margin: 25px 0 15px 0;
-  }
-
-  .partners_logos_slider .swiper-wrapper {
-    padding: 15px 0;
-  }
-
-  .partner_img_logo {
-    height: 125px;
-    padding: 7px;
+    margin: 40px 0 25px 0;
   }
 
   .partners_logos_slider {
@@ -1098,36 +1099,12 @@
     margin-top: 25px;
   }
 
-  .partners_top_content {
-    font-size: 17px;
-    line-height: 26px;
-    margin-top: 10px;
-  }
-
   .partners_btm_section {
     margin: 25px 0;
   }
 
-  .part_card_head {
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
-
-  .partners_blue_heading {
-    padding: 8px 13px;
-  }
-
-  .partners_blue_heading p {
-    font-size: 16px;
-    line-height: 21px;
-  }
-
   .partners_card {
     padding: 13px;
-  }
-
-  .partner_top_img {
-    margin-top: 73px;
   }
 
   .partners_card_data h3 {
@@ -1144,6 +1121,34 @@
 
   .partner_top_head {
     margin: 22px 0 12px 0;
+  }
+
+  .partner_card_body {
+    margin-top: 30px;
+    max-width: 650px;
+  }
+
+  .partner_btm_img {
+    max-width: 585px;
+    overflow: hidden;
+  }
+
+  .partner_card_heading {
+    font-size: 25px;
+    line-height: 33px;
+  }
+
+  .partner_bottom_card {
+    margin-bottom: 13rem;
+  }
+
+  .partner_card_body ul {
+    row-gap: 15px;
+  }
+
+  .partner_card_body ul li {
+    font-size: 16px;
+    flex: 0 100%;
   }
 
   .partners_logos_slider {
@@ -1266,23 +1271,8 @@
     margin-top: 20px;
   }
 
-  .partners_top_content {
-    font-size: 16px;
-    line-height: 23px;
-    margin-top: 10px;
-  }
-
   .partners_btm_section {
     margin: 20px 0;
-  }
-
-  .part_card_head {
-    font-size: 24px;
-    margin-bottom: 12px;
-  }
-
-  .partner_top_img {
-    margin-top: 57px;
   }
 
   .partners_card_data h3 {
@@ -1291,14 +1281,6 @@
 
   .partner_list ul {
     gap: 6px;
-  }
-
-  .partner_list ul li {
-    font-size: 15px;
-  }
-
-  .ff-fill {
-    row-gap: 15px;
   }
 
   .partner_fix_content p {
@@ -1318,6 +1300,38 @@
   .partners_logos_slider {
     margin-bottom: 20px;
   }
+
+  .partner_card_body {
+    margin-top: 25px;
+    max-width: 550px;
+  }
+
+  .partner_card_body ul {
+    margin-top: 20px;
+  }
+
+  .partner_card_heading {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .partner_btm_img {
+    max-width: 480px;
+    overflow: hidden;
+  }
+
+  .partner_card_body ul li {
+    font-size: 15px;
+    flex: 0 1 100%;
+  }
+
+  .partner_fix_bg {
+    height: 18rem;
+  }
+
+  .partner_img_logo {
+    flex: 0 1 47%;
+  }
 }
 
 @media only screen and (max-width: 675px) {
@@ -1333,12 +1347,6 @@
     min-height: 100%;
     max-width: 100%;
     max-height: 100%;
-  }
-
-  .partners_top_content {
-    font-size: 15px;
-    line-height: 23px;
-    margin-top: 0;
   }
 }
 
@@ -1423,22 +1431,20 @@
     margin-top: 13px;
   }
 
-  .partners_top_content {
-    font-size: 14px;
-    line-height: 21px;
-  }
-
   .partners_btm_section {
     margin: 15px 0;
   }
 
-  .partners_blue_heading p {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
   .partners_card {
     padding: 10px;
+  }
+
+  .partner_col_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partner_list ul li {
+    flex: 0 100%;
   }
 
   .partners_card_data h3 {
@@ -1450,7 +1456,11 @@
   }
 
   .partner_fix_bg {
-    height: 250px;
+    height: 20rem;
+  }
+
+  .partner_card_body {
+    padding: 20px 20px 188px 20px;
   }
 
   .partner_fix_content p {
@@ -1458,17 +1468,27 @@
     font-size: 14px;
   }
 
-  .partner_top_head {
-    margin: 15px 0 10px 0;
+  .partner_bottom_card {
+    margin-bottom: 12rem;
   }
 
-  .partners_logos_slider {
-    margin-bottom: 10px;
+  .partner_top_head {
+    margin: 25px 0 0px 0;
+  }
+
+  .partner_card_heading {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .partner_btm_img {
+    max-width: 85%;
+    overflow: hidden;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .partner_top_img {
-    margin-top: 70px;
+@media only screen and (max-width: 350px) {
+  .partner_img_logo {
+    flex: 0 100%;
   }
 }

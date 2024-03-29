@@ -37,6 +37,10 @@
   line-height: 29px;
 }
 
+.white_head p {
+  color: #fff;
+}
+
 /* banner */
 
 @media screen and (min-width: 1900px) {

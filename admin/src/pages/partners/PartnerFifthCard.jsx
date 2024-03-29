@@ -7,28 +7,36 @@ import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { Plus, X } from "lucide-react";
-import { useParams } from "react-router-dom";
-import { GetSinglePartnerCartMutation } from "rest/partner";
-import { EditPartnerCartMutation } from "rest/partner";
+import "styles/main.css";
 
-export default function EditPartnerCard() {
-  const { id } = useParams();
-
+export default function PartnerFifthCard() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
     reset,
+    getValues,
   } = useForm();
 
-  const formData = new FormData();
-  formData.append("id", id);
-  const getSinglePartner = GetSinglePartnerCartMutation(formData);
-  const editCard = EditPartnerCartMutation();
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
   const [list, setList] = useState([{ list: "" }]);
+
+  // useEffect(() => {
+  //   const defaultValues = {};
+  //   defaultValues.heading = getSinglePartner?.data?.data?.heading;
+  //   const defaultInputs =
+  //     getSinglePartner?.data?.data?.list?.map((elm) => ({
+  //       list: elm || "",
+  //     })) || [];
+
+  //   defaultInputs.length >= 1 && setList(defaultInputs);
+  //   defaultInputs?.map((elm, i) => {
+  //     defaultValues[`list_${i + 1}`] = elm.list;
+  //   });
+  //   setDefaultImg(getSinglePartner?.data?.data?.image);
+  //   reset(defaultValues);
+  // }, []);
 
   const handleChange = (e) => {
     const files = e.target.files[0];
@@ -37,22 +45,6 @@ export default function EditPartnerCard() {
       setPreviewImages(imageUrl);
     }
   };
-
-  useEffect(() => {
-    const defaultValues = {};
-    defaultValues.heading = getSinglePartner?.data?.data?.heading;
-    const defaultInputs =
-      getSinglePartner?.data?.data?.list?.map((elm) => ({
-        list: elm || "",
-      })) || [];
-
-    defaultInputs.length >= 1 && setList(defaultInputs);
-    defaultInputs?.map((elm, i) => {
-      defaultValues[`list_${i + 1}`] = elm.list;
-    });
-    setDefaultImg(getSinglePartner?.data?.data?.image);
-    reset(defaultValues);
-  }, [getSinglePartner?.data?.data]);
 
   const handleDeleteInput = (index) => {
     const newArray = [...list];
@@ -66,23 +58,19 @@ export default function EditPartnerCard() {
 
   const onSubmit = (data) => {
     const formData = new FormData();
-    formData.append("id", id);
     formData.append("heading", data?.heading);
     formData.append("image", data?.image[0]);
     list.forEach((_, index) => {
       const listKey = `list_${index + 1}`;
       formData.append("list[]", data[listKey]);
     });
-    editCard.mutate(formData);
   };
 
   return (
     <>
       <PageWrapper slug="partner-cards" name="Partner Cards" />
-      {getSinglePartner?.isError && (
-        <ErrorComponent message="OOPS ! something went wrong" />
-      )}
-      {getSinglePartner?.isPending ? (
+      {false && <ErrorComponent message="OOPS ! something went wrong" />}
+      {false ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -104,7 +92,7 @@ export default function EditPartnerCard() {
 
             <div className="mb-3 col-md-6">
               <label htmlFor="image" className="form-label">
-                Image (780px * 443px)
+                Image (870px * 330px)
               </label>
               <FormInput
                 type="file"
@@ -173,7 +161,7 @@ export default function EditPartnerCard() {
                 </div>
               ))}
             </div>
-            {editCard?.isPending ? (
+            {false ? (
               <div>
                 <ButtonLoader />
               </div>

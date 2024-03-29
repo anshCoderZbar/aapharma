@@ -22,7 +22,6 @@ export default function LabEquipment() {
           getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
         }
         extra="lab_equipment_banner"
-        b
       />
       <div className="container-fluid">
         <div className="row equipments">

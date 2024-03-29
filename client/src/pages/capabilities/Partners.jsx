@@ -25,47 +25,31 @@ export default function Partners() {
         background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${
           getBanner?.data?.data?.image && getBanner?.data?.data?.image
         })`}
+        description={
+          getBanner?.data?.data?.description &&
+          getBanner?.data?.data?.description
+        }
         extra="white_head"
       />
       <div className="partners_content">
         <div className="container-fluid">
-          <div className="partners_head">
-            <h2 className="main_top_heading">
-              {getBanner?.data?.data?.subheading &&
-                getBanner?.data?.data?.subheading}
-            </h2>
-            <p
-              className="partners_top_content"
-              dangerouslySetInnerHTML={{
-                __html:
-                  getBanner?.data?.data?.description &&
-                  getBanner?.data?.data?.description,
-              }}
-            />
-          </div>
           <div className="partners_btm_section">
-            <h2 className="part_card_head">Case Study</h2>
-            <div className="row ff-fill">
+            <div className="partner_col_grid ff-fill ">
               {getAllCards?.data?.data?.length >= 1 &&
                 getAllCards?.data?.data?.map((elm) => {
                   return (
-                    <div className="col-md-6">
-                      <div className="partners_card">
-                        <div className="partners_blue_heading">
-                          <p>{elm?.heading && elm?.heading}</p>
-                        </div>
-                        <div className="partner_top_img">
-                          <img src={elm?.image && elm?.image} alt="partners" />
-                        </div>
-                        <div className="partners_card_data">
-                          <h3>{elm?.subheading && elm?.subheading}</h3>
-                          <div className="partner_list">
-                            <ul>
-                              {elm?.list?.map((data) => (
-                                <li>{data}</li>
-                              ))}
-                            </ul>
-                          </div>
+                    <div key={elm?.id} className="partners_card">
+                      <div className="partner_top_img">
+                        <img src={elm?.image && elm?.image} alt="partners" />
+                      </div>
+                      <div className="partners_card_data">
+                        <h3>{elm?.heading && elm?.heading}</h3>
+                        <div className="partner_list">
+                          <ul>
+                            {elm?.list?.map((data, i) => (
+                              <li key={i}>{data}</li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -73,67 +57,62 @@ export default function Partners() {
                 })}
             </div>
           </div>
-        </div>
-        <div
-          className="partner_fix_bg"
-          style={{
-            backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 100%),url(${
-              getBottom?.data?.data?.image && getBottom?.data?.data?.image
-            })`,
-          }}
-        >
-          <div className="container-fluid">
-            <div
-              className="partner_fix_content"
-              dangerouslySetInnerHTML={{
-                __html:
-                  getBottom?.data?.data?.description &&
-                  getBottom?.data?.data?.description,
-              }}
-            />
+          <div className="partner_bottom_card">
+            <div className="partner_card_inner">
+              <div className="partner_card_body">
+                <h3 className="partner_card_heading">
+                  An agrochemical company is looking for chemistry service
+                  provider that can supply a library of novel AIs
+                </h3>
+                <ul>
+                  <li>Target identification and selection</li>
+                  <li>Target identification and selection</li>
+                  <li>Target identification and selection</li>
+                  <li>Target identification and selection</li>
+                  <li>Target identification and selection</li>
+                </ul>
+                <div className="partner_btm_img">
+                  <img src={require("assets/partner_btm.png")} alt="bottom" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="partner_top_head">
-          <h2 className="main_top_heading text-center">PARTNERS LOGOS</h2>
-        </div>
-        <div className="partners_logos_slider">
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={15}
-            slidesPerGroup={1}
-            modules={[Pagination]}
-            pagination={{ pagination: true, clickable: true }}
-            className="partner_swip"
-            breakpoints={{
-              600: {
-                slidesPerView: 2,
-                slidesPerGroup: 2,
-              },
-              991: {
-                slidesPerView: 3,
-                slidesPerGroup: 3,
-              },
-              1400: {
-                slidesPerView: 5,
-                slidesPerGroup: 5,
-              },
-              1600: {
-                slidesPerView: 6,
-                slidesPerGroup: 6,
-              },
+        <div className="container-fluid">
+          <div
+            className="partner_fix_bg"
+            style={{
+              backgroundImage: `url(${
+                getBottom?.data?.data?.image && getBottom?.data?.data?.image
+              })`,
             }}
           >
+            <div className="container-fluid">
+              <div
+                className="partner_fix_content"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    getBottom?.data?.data?.description &&
+                    getBottom?.data?.data?.description,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="partner_top_head">
+            <h2 className="main_top_heading text-center">Partners Logos</h2>
+          </div>
+          <div className="partners_logos_slider">
             {getPartnerLogos?.data?.data?.length >= 1 &&
               getPartnerLogos?.data?.data?.map((elm) => {
                 return (
-                  <SwiperSlide>
-                    <div className="partner_img_logo">
-                      <img src={elm?.image} alt="partner_logo" />
-                    </div>
-                  </SwiperSlide>
+                  <div key={elm?.id} className="partner_img_logo">
+                    <img src={elm?.image} alt="partner_logo" />
+                  </div>
                 );
               })}
-          </Swiper>
+          </div>
         </div>
       </div>
     </div>

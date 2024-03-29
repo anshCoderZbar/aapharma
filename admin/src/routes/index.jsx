@@ -99,6 +99,7 @@ import PartnerBanner from "pages/partners/PartnerBanner";
 import PartnerCards from "pages/partners/PartnerCards";
 import EditPartnerCard from "pages/partners/EditPartnerCard";
 import PartnersBottom from "pages/partners/PartnersBottom";
+import PartnerFifthCard from "pages/partners/PartnerFifthCard";
 import PartnerLogos from "pages/partners/PartnerLogos";
 import CapabilitiesOverview from "pages/capabilities-overview/CapabilitiesOverview";
 import LabEquipmentBanner from "pages/lab-equipment/LabEquipmentBanner";
@@ -823,6 +824,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditPartnerCard />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/partner-fifth-card",
+      element: (
+        <PrivateRoutes>
+          <PartnerFifthCard />
         </PrivateRoutes>
       ),
     },
