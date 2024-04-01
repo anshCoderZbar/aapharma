@@ -98,6 +98,7 @@ class Client {
     getAllPartnerCards: () => HttpClient.get(API_ENDPOINTS.getAllPartnerCards),
     getPartnersbottom: () => HttpClient.get(API_ENDPOINTS.partnersbottom),
     allPartnersLogo: () => HttpClient.get(API_ENDPOINTS.allPartnersLogo),
+    getPartnerFifthCard: () => HttpClient.get(API_ENDPOINTS.partnerFifthCard),
     getCapabilitiesOverview: () =>
       HttpClient.get(API_ENDPOINTS.capabilitiesOverview),
     getAnalyticalInstrumentation: () =>

@@ -116,3 +116,25 @@ export const DeletePartnerLogoMutation = () => {
   });
   return partnerLogo;
 };
+
+export const GetPartnerFifthCard = () => {
+  const partnerFifthCard = useQuery({
+    queryKey: ["get-partner-fifth-card"],
+    queryFn: () => client.partner.getPartnerFifthCard(),
+  });
+  return partnerFifthCard;
+};
+
+export const EditPartnerFifthCard = () => {
+  const { notify } = useNotifications();
+  const partnerFifthCard = useMutation({
+    mutationFn: (data) => client.partner.createPartnerFifthCard(data),
+    onSuccess: () => {
+      notify("Detaile Edited Successfully", "success");
+      queryClient.invalidateQueries({ queryKey: ["get-partner-fifth-card"] });
+    },
+
+    onError: () => notify("OOPS! some error occured", "error"),
+  });
+  return partnerFifthCard;
+};

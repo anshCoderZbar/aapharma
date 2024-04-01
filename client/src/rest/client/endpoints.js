@@ -68,6 +68,7 @@ export const API_ENDPOINTS = {
   partnerBanner: "/partnersbanner",
   getAllPartnerCards: "/partnercasestudycard/all",
   partnersbottom: "/partnersbottom",
+  partnerFifthCard: "/partners_section_three",
   allPartnersLogo: "/partnerslogos/all",
   capabilitiesOverview: "/overviewbanner",
   analyticalInstrumentation: "/analytical-instrumentation",

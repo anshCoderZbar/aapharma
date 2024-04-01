@@ -8,6 +8,8 @@ import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { Plus, X } from "lucide-react";
 import "styles/main.css";
+import { GetPartnerFifthCard } from "rest/partner";
+import { EditPartnerFifthCard } from "rest/partner";
 
 export default function PartnerFifthCard() {
   const {
@@ -22,21 +24,24 @@ export default function PartnerFifthCard() {
   const [defaultImg, setDefaultImg] = useState("");
   const [list, setList] = useState([{ list: "" }]);
 
-  // useEffect(() => {
-  //   const defaultValues = {};
-  //   defaultValues.heading = getSinglePartner?.data?.data?.heading;
-  //   const defaultInputs =
-  //     getSinglePartner?.data?.data?.list?.map((elm) => ({
-  //       list: elm || "",
-  //     })) || [];
+  const getFifthCard = GetPartnerFifthCard();
+  const editPartnerCard = EditPartnerFifthCard();
 
-  //   defaultInputs.length >= 1 && setList(defaultInputs);
-  //   defaultInputs?.map((elm, i) => {
-  //     defaultValues[`list_${i + 1}`] = elm.list;
-  //   });
-  //   setDefaultImg(getSinglePartner?.data?.data?.image);
-  //   reset(defaultValues);
-  // }, []);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getFifthCard?.data?.data?.heading;
+    const defaultInputs =
+      getFifthCard?.data?.data?.list?.map((elm) => ({
+        list: elm || "",
+      })) || [];
+
+    defaultInputs.length >= 1 && setList(defaultInputs);
+    defaultInputs?.map((elm, i) => {
+      defaultValues[`list_${i + 1}`] = elm.list;
+    });
+    setDefaultImg(getFifthCard?.data?.data?.image);
+    reset(defaultValues);
+  }, [getFifthCard?.data?.data]);
 
   const handleChange = (e) => {
     const files = e.target.files[0];
@@ -64,13 +69,16 @@ export default function PartnerFifthCard() {
       const listKey = `list_${index + 1}`;
       formData.append("list[]", data[listKey]);
     });
+    editPartnerCard.mutate(formData);
   };
 
   return (
     <>
       <PageWrapper slug="partner-cards" name="Partner Cards" />
-      {false && <ErrorComponent message="OOPS ! something went wrong" />}
-      {false ? (
+      {getFifthCard?.isError && (
+        <ErrorComponent message="OOPS ! something went wrong" />
+      )}
+      {getFifthCard?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -161,7 +169,7 @@ export default function PartnerFifthCard() {
                 </div>
               ))}
             </div>
-            {false ? (
+            {editPartnerCard?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

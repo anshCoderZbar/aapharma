@@ -61,6 +61,14 @@ export const GetAllPartnerLogo = () => {
   return partnerLogo;
 };
 
+export const GetPartnerFifthCard = () => {
+  const partnerFifthCard = useQuery({
+    queryKey: ["get-partner-fifth-card"],
+    queryFn: () => client.capabilities.getPartnerFifthCard(),
+  });
+  return partnerFifthCard;
+};
+
 // capabilities overview
 
 export const GetCapabilitiesOverviewMutation = () => {

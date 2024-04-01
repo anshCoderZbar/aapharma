@@ -150,6 +150,7 @@ export const API_ENDPOINTS = {
   getSinglePartnerCards: "/partnercasestudycard/one",
   editPartnerCards: "/partnercasestudycard/update",
   partnersbottom: "/partnersbottom",
+  partnerFifthCard: "/partners_section_three",
   allPartnersLogo: "/partnerslogos/all",
   newPartnersLogo: "/partnerslogos/new",
   deletePartnersLogo: "/partnerslogos/delete",

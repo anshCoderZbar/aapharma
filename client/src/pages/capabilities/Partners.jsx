@@ -9,6 +9,7 @@ import {
   GetAllPartnerLogo,
   GetPartnerBannerMutation,
   GetPartnerBottomMutation,
+  GetPartnerFifthCard,
 } from "rest/capabilities";
 
 export default function Partners() {
@@ -16,6 +17,7 @@ export default function Partners() {
   const getAllCards = GetAllPartnerCardMutation();
   const getBottom = GetPartnerBottomMutation();
   const getPartnerLogos = GetAllPartnerLogo();
+  const getFifthCard = GetPartnerFifthCard();
   return (
     <div className="partners_page">
       <Banner
@@ -61,18 +63,23 @@ export default function Partners() {
             <div className="partner_card_inner">
               <div className="partner_card_body">
                 <h3 className="partner_card_heading">
-                  An agrochemical company is looking for chemistry service
-                  provider that can supply a library of novel AIs
+                  {getFifthCard?.data?.data?.heading &&
+                    getFifthCard?.data?.data?.heading}
                 </h3>
                 <ul>
-                  <li>Target identification and selection</li>
-                  <li>Target identification and selection</li>
-                  <li>Target identification and selection</li>
-                  <li>Target identification and selection</li>
-                  <li>Target identification and selection</li>
+                  {getFifthCard?.data?.data?.list?.length >= 1 &&
+                    getFifthCard?.data?.data?.list?.map((elm, i) => {
+                      return <li key={i}>{elm}</li>;
+                    })}
                 </ul>
                 <div className="partner_btm_img">
-                  <img src={require("assets/partner_btm.png")} alt="bottom" />
+                  <img
+                    src={
+                      getFifthCard?.data?.data?.image &&
+                      getFifthCard?.data?.data?.image
+                    }
+                    alt="bottom"
+                  />
                 </div>
               </div>
             </div>

@@ -344,6 +344,9 @@ class Client {
     editPartnerCards: (params) =>
       HttpClient.post(API_ENDPOINTS.editPartnerCards, params),
     getPartnersbottom: () => HttpClient.get(API_ENDPOINTS.partnersbottom),
+    getPartnerFifthCard: () => HttpClient.get(API_ENDPOINTS.partnerFifthCard),
+    createPartnerFifthCard: (params) =>
+      HttpClient.post(API_ENDPOINTS.partnerFifthCard, params),
     editPartnersbottom: (params) =>
       HttpClient.post(API_ENDPOINTS.partnersbottom, params),
     allPartnersLogo: () => HttpClient.get(API_ENDPOINTS.allPartnersLogo),
