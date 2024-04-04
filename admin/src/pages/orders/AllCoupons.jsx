@@ -17,43 +17,49 @@ import { InfoComponent } from "components/Alerts/Info";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
+import { GetAllCoupon, DeleteCouponMutation } from "rest/main";
 
 export default function AllCoupons() {
   const navigate = useNavigate();
   const [id, setId] = useState("");
 
+  const allCoupons = GetAllCoupon();
+  const deleteCoupon = DeleteCouponMutation();
+
+  const handleDelete = (id) => {
+    const formData = new FormData();
+    formData.append("id", id);
+    deleteCoupon.mutate(formData);
+  };
+
   const couponsData = [
     {
       name: "Coupon Name",
-      selector: (row) => row.couponname,
+      selector: (row) => row.couponName,
     },
     {
       name: "Discount Type",
-      selector: (row) => row.type,
+      selector: (row) => row.discountType,
     },
 
     {
       name: "Discount",
-      selector: (row) => row.phone,
+      selector: (row) => row.discount,
     },
-    {
-      name: "total",
-      selector: (row) => row.total,
-    },
-    {
-      name: "In Stock",
-      cell: (row) => (
-        <div className="form-check form-switch">
-          <input
-            className="form-check-input inp_swip"
-            type="checkbox"
-            role="switch"
-            id="flexSwitchCheckDefault"
-            // defaultChecked={row?.isActive === "true"}
-          />
-        </div>
-      ),
-    },
+    // {
+    //   name: "Is Active",
+    //   cell: (row) => (
+    //     <div className="form-check form-switch">
+    //       <input
+    //         className="form-check-input inp_swip"
+    //         type="checkbox"
+    //         role="switch"
+    //         id="flexSwitchCheckDefault"
+    //         defaultChecked={"true"}
+    //       />
+    //     </div>
+    //   ),
+    // },
     {
       name: "edit",
       cell: (row) => (
@@ -74,13 +80,13 @@ export default function AllCoupons() {
     {
       name: "Delete",
       cell: (row) =>
-        row?.id === id && false ? (
+        row?.id === id && deleteCoupon?.isPending ? (
           <ButtonLoader />
         ) : (
           <span
             onClick={() => {
-              //   handleDelete(row?.id);
-              //   setId(row?.id);
+              handleDelete(row?.id);
+              setId(row?.id);
             }}
             className="deletebtn"
           >
@@ -99,15 +105,21 @@ export default function AllCoupons() {
           Create Coupon
         </Button>
       </div>
-      {false ? <ErrorComponent message="OOPS ! something went wrong" /> : ""}
-      {2 < 1 ? <InfoComponent message={"Please Add Data to Display"} /> : null}
-      {false ? (
+      {allCoupons?.isError ? (
+        <ErrorComponent message="OOPS ! something went wrong" />
+      ) : (
+        ""
+      )}
+      {allCoupons?.data?.data?.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
+      {allCoupons?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="table-responsive">
           <DataTableExtensions
             columns={couponsData}
-            data={[]}
+            data={allCoupons?.data?.data}
             filterPlaceholder="Search"
           >
             <DataTable

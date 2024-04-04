@@ -325,6 +325,15 @@ class Client {
     allOrders: () => HttpClient.get(API_ENDPOINTS.orders),
     singleOrders: (params) =>
       HttpClient.post(API_ENDPOINTS.singleOrder, params),
+    getAllCoupon: () => HttpClient.get(API_ENDPOINTS.getAllCoupon),
+    createCoupon: (params) =>
+      HttpClient.post(API_ENDPOINTS.createCoupon, params),
+    singleCoupon: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleCoupon, params),
+    deleteCoupon: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteCoupon, params),
+    updateCoupon: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateCoupon, params),
   };
   conferences = {
     getConferenceBanner: () => HttpClient.get(API_ENDPOINTS.conferenceBanner),

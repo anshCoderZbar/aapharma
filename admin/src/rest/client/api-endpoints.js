@@ -163,4 +163,9 @@ export const API_ENDPOINTS = {
   addLabEquipment: "/lab-equipment/new",
   deleteLabEquipment: "/lab-equipment/delete",
   updateLabEquipment: "/lab-equipment/update",
+  getAllCoupon: "coupon-management/all",
+  createCoupon: "coupon-management/new",
+  deleteCoupon: "coupon-management/delete",
+  singleCoupon: "coupon-management/one",
+  updateCoupon: "coupon-management/update",
 };
