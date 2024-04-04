@@ -495,7 +495,6 @@ export const SidebarData = [
     slug: "accreditations",
     icon: <FlaskConical />,
   },
-
   {
     id: uuidv4(),
     name: "Settings",
