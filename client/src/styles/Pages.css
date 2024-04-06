@@ -302,6 +302,16 @@
   font-size: 26px;
 }
 
+.emploment_btm_img {
+  margin-top: 70px;
+}
+
+.emploment_btm_img img {
+  object-fit: contain;
+  margin: auto;
+  width: 100%;
+}
+
 .apply_box {
   height: 100%;
   width: 100%;
@@ -407,6 +417,10 @@
     font-size: 17px;
   }
 
+  .emploment_btm_img {
+    margin-top: 60px;
+  }
+
   .apply_box {
     padding: 40px 40px;
   }
@@ -467,6 +481,10 @@
   .apply_box_content p {
     font-size: 20px;
     line-height: 32px;
+  }
+
+  .emploment_btm_img {
+    margin-top: 50px;
   }
 
   .apply_box_content button {
@@ -644,6 +662,10 @@
   .employement_details ul li::before {
     min-width: 20px;
     font-size: 20px;
+  }
+
+  .emploment_btm_img {
+    margin-top: 40px;
   }
 
   .apply_box_content p {

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 
 import { PageWrapper } from "components/ui/PageWrapper";
 import { FormInput } from "components/ui/FormInput";
-import { Plus, X } from "lucide-react";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { TextEditor } from "components/ui/TextEditor";
 import { GetEmploymentResponsibilities } from "rest/employment";
@@ -21,10 +20,19 @@ export default function EmploymenetResponsibilities() {
     control,
   } = useForm();
 
-  const [list, setList] = useState([{ list: "" }]);
+  const [perviewImages, setPreviewImages] = useState("");
+  const [defaultImg, setDefaultImg] = useState("");
 
   const getResponsibilities = GetEmploymentResponsibilities();
   const updateResponsibilities = UpdateEmploymentResponsibilities();
+
+  const handleChange = (e) => {
+    const files = e.target.files[0];
+    if (files) {
+      const imageUrl = URL.createObjectURL(files);
+      setPreviewImages(imageUrl);
+    }
+  };
 
   useEffect(() => {
     const defaultValues = {};
@@ -32,6 +40,7 @@ export default function EmploymenetResponsibilities() {
     defaultValues.list = getResponsibilities?.data?.data?.list;
     defaultValues.sideDescription =
       getResponsibilities?.data?.data?.description;
+    setDefaultImg(getResponsibilities?.data?.data?.image);
     // const defaultInputs =
     //   getResponsibilities?.data?.data?.list?.map((elm) => ({
     //     list: elm || "",
@@ -59,6 +68,7 @@ export default function EmploymenetResponsibilities() {
     formData.append("heading", data?.description);
     formData.append("description", data?.sideDescription);
     formData.append("list", data?.list);
+    formData.append("image", data?.btmImage[0]);
     // list.forEach((_, index) => {
     //   const listKey = `list_${index + 1}`;
     //   formData.append("list[]", data[listKey]);
@@ -125,6 +135,37 @@ export default function EmploymenetResponsibilities() {
               />
               {errors.sideDescription && (
                 <p className="errorMessage">Field is required</p>
+              )}
+            </div>
+            <div className="mb-3 col-md-12">
+              <label htmlFor="btmImage" className="form-label">
+                Image (1320px * 620 px)
+              </label>
+              <FormInput
+                type="file"
+                name="btmImage"
+                placeholder="btmImage"
+                {...register("btmImage", {
+                  required: !perviewImages && !defaultImg,
+                  onChange: (e) => handleChange(e),
+                })}
+              />
+              {errors?.btmImage && (
+                <p className="errorMessage">Field is required</p>
+              )}
+              {perviewImages && (
+                <img
+                  src={perviewImages}
+                  alt="bottom banner Preview"
+                  style={{ maxWidth: "500px", marginTop: "10px" }}
+                />
+              )}
+              {!perviewImages && defaultImg && (
+                <img
+                  src={defaultImg}
+                  alt="bottom banner Preview"
+                  style={{ maxWidth: "500px", marginTop: "10px" }}
+                />
               )}
             </div>
             {updateResponsibilities?.isPending ? (

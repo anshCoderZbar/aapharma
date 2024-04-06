@@ -8,6 +8,7 @@ import { CreateNewCoupon } from "rest/main";
 
 export default function CreateCoupon() {
   const createCoupon = CreateNewCoupon();
+
   const {
     register,
     handleSubmit,

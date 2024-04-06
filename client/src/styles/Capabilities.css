@@ -346,14 +346,20 @@
 
 .partners_card {
   border: 1px solid #f7f7f7;
-  background-color: #f7f7f7;
   width: 100%;
-  height: 100%;
+  height: max-content;
   padding: 20px;
   border-radius: 25px;
   position: relative;
   overflow: hidden;
   box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, 0.2);
+  background-color: #f7f7f7;
+  cursor: pointer;
+}
+
+.partner_card_active {
+  box-shadow: 0 10px 20px rgba(30, 30, 30, 0.19),
+    0 6px 6px rgba(30, 30, 30, 0.23);
 }
 
 .partner_col_grid {
@@ -373,13 +379,15 @@
   object-fit: cover;
   max-width: 50rem;
   border-radius: 25px;
+  position: relative;
+  z-index: 2;
 }
 
-.partners_card_data h3 {
+.partner_card_vht {
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;
-  margin: 20px 0;
+  margin-bottom: 15px;
   font-weight: 700;
   color: #2e2e2e;
 }
@@ -389,8 +397,27 @@
   column-gap: 15px;
   row-gap: 20px;
   list-style: none;
+  margin-top: 20px;
   margin-left: 0;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.partner_list_hidden {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+  transform: translateY(-100%);
+}
+
+.partner_list_active {
+  height: 100%;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+  transition: 0.5s ease-in-out;
 }
 
 .partner_list ul li {
@@ -644,12 +671,12 @@
     margin: 50px 0;
   }
 
-  .partners_card_data h3 {
+  .partner_card_vht {
     font-size: 20px;
-    margin: 16px 0;
   }
 
   .partner_list ul {
+    margin-top: 18px;
     gap: 12px;
   }
 
@@ -819,12 +846,12 @@
     padding: 17px;
   }
 
-  .partners_card_data h3 {
+  .partner_card_vht {
     font-size: 18px;
-    margin: 14px 0;
   }
 
   .partner_list ul {
+    margin-top: 16px;
     gap: 10px;
   }
 
@@ -972,7 +999,7 @@
     padding: 15px;
   }
 
-  .partners_card_data h3 {
+  .partner_card_vht {
     font-size: 18px;
   }
 
@@ -1107,11 +1134,12 @@
     padding: 13px;
   }
 
-  .partners_card_data h3 {
-    margin: 10px 0;
+  .partner_card_vht {
+    margin-bottom: 10px;
   }
 
   .partner_list ul {
+    margin-top: 14px;
     gap: 8px;
   }
 
@@ -1275,11 +1303,12 @@
     margin: 20px 0;
   }
 
-  .partners_card_data h3 {
+  .partner_card_vht {
     font-size: 17px;
   }
 
   .partner_list ul {
+    margin-top: 12px;
     gap: 6px;
   }
 
@@ -1447,7 +1476,7 @@
     flex: 0 100%;
   }
 
-  .partners_card_data h3 {
+  .partner_card_vht {
     font-size: 16px;
   }
 

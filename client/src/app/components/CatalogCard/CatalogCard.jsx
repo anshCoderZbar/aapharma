@@ -28,7 +28,6 @@ export const CatalogCard = ({ baseUrl, compounts }) => {
       setIsContentTruncated(true);
     }
   }, [compounts]);
-  console.log(isContentTruncated);
   return (
     <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
       <div className="catalog_main_bg">

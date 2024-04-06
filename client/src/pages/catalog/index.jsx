@@ -5,12 +5,20 @@ import "styles/Catalog.css";
 import { CatalogMainCard } from "app/components/CatalogCard/CatalogMainCard";
 import { CatalogSearchBar } from "app/common/catalog/CatalogSearchBar";
 import { useAtom } from "jotai";
-import { categoryChecked, filteredCatalogs } from "store/CatalogStore";
-import { AllChemical, FilterChemical } from "rest/catalog";
-import { catalogFilterSchema } from "store/CatalogFilter";
+import { filteredCatalogs } from "store/CatalogStore";
+import {
+  AllChemical,
+  CatalogCategory2,
+  CatalogCategory3,
+  FilterChemical,
+} from "rest/catalog";
+import { X } from "lucide-react";
 
 export const Catalog = () => {
   const navigte = useNavigate();
+  const catalogCategory2 = CatalogCategory2();
+  const catalogCategory3 = CatalogCategory3();
+
   const [isResetButtonVisible, setResetButtonVisible] = useState(false);
   const [catalogId, setCatalogId] = useState({
     subCategoryId: [],
@@ -47,6 +55,14 @@ export const Catalog = () => {
     setResetButtonVisible(shouldShowButton);
   }, [isResetButtonVisible, filterChemical]);
 
+  const handleRemoveCat1 = (id) => {
+    const getSelectedIds = JSON.parse(sessionStorage.getItem("subcategoryId"));
+    const newIds = getSelectedIds?.filter(
+      (elm) => Number.parseInt(elm) !== Number.parseInt(id)
+    );
+    sessionStorage.setItem("subcategoryId", JSON?.stringify(newIds));
+  };
+
   const handleReset = () => {
     sessionStorage.setItem("categoryId", JSON?.stringify([]));
     sessionStorage.setItem("subcategoryId", JSON?.stringify([]));
@@ -55,7 +71,6 @@ export const Catalog = () => {
     sessionStorage.setItem("search", "");
     setCatalogId({ subCategoryId: [], supersubcategoryId: [] });
     setResetButtonVisible(false);
-
     filterChemical.mutate();
   };
 
@@ -96,10 +111,53 @@ export const Catalog = () => {
       <div className="catalog_main_card">
         <div className="container-fluid">
           {isResetButtonVisible && (
-            <div className="reset_btn">
-              <button onClick={handleReset}>Reset All</button>
+            <div className="reset_class">
+              {catalogCategory2?.data?.data?.map((elm) => {
+                const getSelectedIds = JSON.parse(
+                  sessionStorage.getItem("subcategoryId")
+                );
+                return getSelectedIds.map((data) => {
+                  if (elm?.id === Number.parseInt(data)) {
+                    return (
+                      <div className="catalog_remove_btm" key={elm.id}>
+                        {elm?.heading}
+                        {/* <span onClick={() => handleRemoveCat1(data)}>
+                          <X />
+                        </span> */}
+                      </div>
+                    );
+                  } else {
+                    return null;
+                  }
+                });
+              })}
+
+              {catalogCategory3?.data?.data?.map((elm) => {
+                const getSelectedIds = JSON.parse(
+                  sessionStorage.getItem("supersubcategoryId")
+                );
+                return getSelectedIds.map((data) => {
+                  if (elm?.id === Number.parseInt(data)) {
+                    return (
+                      <div className="catalog_remove_btm" key={elm.id}>
+                        {elm?.heading}
+                        {/* <span>
+                          <X />
+                        </span> */}
+                      </div>
+                    );
+                  } else {
+                    return null;
+                  }
+                });
+              })}
+
+              <div className="reset_btn">
+                <button onClick={handleReset}>Reset All</button>
+              </div>
             </div>
           )}
+
           <CatalogMainCard
             chemicals={
               filteredData?.status ? filteredData : allChemicalProducts?.data

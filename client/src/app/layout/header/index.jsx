@@ -21,7 +21,7 @@ export const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(-1);
-
+  const [accordionId, setAccordionId] = useState(-1); // for setting catalog accordion id
   const masterCategory = MasterCategory();
   const subCategory = SubCategory();
   const subChildCategory = SubChildCategory();
@@ -196,49 +196,74 @@ export const Header = () => {
                                                 }
                                               );
                                             return (
-                                              <li key={elm?.id}>
-                                                <Accordion
-                                                  heading={elm?.heading}
-                                                  accId={uuidv4()}
-                                                  // accId={elm?.id}
-                                                  extraClass="acc_bg"
-                                                >
-                                                  <div className="accordion-body acc_bdy">
-                                                    {subChildCategory?.data
-                                                      ?.data?.length >= 1 &&
-                                                      filteredSubChildData?.map(
-                                                        (category) => {
-                                                          return (
-                                                            <div
-                                                              key={category?.id}
-                                                              className="accordion-body acc_bdy_1"
-                                                            >
-                                                              <div className="form-check">
-                                                                <input
-                                                                  className="form-check-input input_acc_check"
-                                                                  type="checkbox"
-                                                                  id={
-                                                                    category?.id
-                                                                  }
-                                                                />
-                                                                <label
-                                                                  className="form-check-label acc_input_label"
-                                                                  htmlFor={
-                                                                    category?.id
-                                                                  }
-                                                                >
+                                              <>
+                                                {filteredSubChildData?.length <
+                                                  1 && (
+                                                  <li
+                                                    className="act_sing"
+                                                    key={elm?.id}
+                                                  >
+                                                    {elm?.heading}
+                                                  </li>
+                                                )}
+                                                {filteredSubChildData?.length >=
+                                                  1 && (
+                                                  <li
+                                                    className={`act_sing ${
+                                                      accordionId === elm?.id
+                                                        ? "change_top_color"
+                                                        : ""
+                                                    }`}
+                                                    key={elm?.id}
+                                                  >
+                                                    <div className="d-flex justify-content-between">
+                                                      <span>
+                                                        {elm?.heading}
+                                                      </span>
+                                                      <span
+                                                        onClick={() =>
+                                                          setAccordionId(
+                                                            accordionId ===
+                                                              elm?.id
+                                                              ? -1
+                                                              : elm?.id
+                                                          )
+                                                        }
+                                                      >
+                                                        <ChevronDown />
+                                                      </span>
+                                                    </div>
+                                                    <div
+                                                      className={`acc_bdy ${
+                                                        accordionId === elm?.id
+                                                          ? "open_cat_acc"
+                                                          : ""
+                                                      }`}
+                                                    >
+                                                      {subChildCategory?.data
+                                                        ?.data?.length >= 1 &&
+                                                        filteredSubChildData?.map(
+                                                          (category) => {
+                                                            return (
+                                                              <div
+                                                                key={
+                                                                  category?.id
+                                                                }
+                                                                className="acc_bdy_1"
+                                                              >
+                                                                <div className="text-start">
                                                                   {
                                                                     category?.heading
                                                                   }
-                                                                </label>
+                                                                </div>
                                                               </div>
-                                                            </div>
-                                                          );
-                                                        }
-                                                      )}
-                                                  </div>
-                                                </Accordion>
-                                              </li>
+                                                            );
+                                                          }
+                                                        )}
+                                                    </div>
+                                                  </li>
+                                                )}
+                                              </>
                                             );
                                           })}
                                         </ul>
@@ -256,7 +281,7 @@ export const Header = () => {
                 <li>
                   <button
                     onClick={() => navigate("/contact-us")}
-                    className="contact_btn"
+                    className="contact_btn "
                   >
                     Contact Us
                   </button>
@@ -286,6 +311,7 @@ export const Header = () => {
 // import { useAtom } from "jotai";
 // import { allSettings } from "store/SettingsStore";
 // import { MasterCategory, SubCategory, SubChildCategory } from "rest/main";
+// import { v4 as uuidv4 } from "uuid";
 
 // export const Header = () => {
 //   const navRef = useRef(null);
@@ -296,26 +322,10 @@ export const Header = () => {
 //   const [openInput, setOpenInput] = useState(false);
 //   const [open, setOpen] = useState(false);
 //   const [selected, setSelected] = useState(-1);
-//   const [selectedSubCategoryIds, setSelectedSubCategoryIds] = useState([
-//     {
-//       name: "Product Types",
-//       value: null,
-//     },
-//     {
-//       name: "Research Areas",
-//       value: null,
-//     },
-//     {
-//       name: "Applications",
-//       value: null,
-//     },
-//   ]);
 
 //   const masterCategory = MasterCategory();
-//   const subChildIds = masterCategory?.data?.data?.map((elm) => elm?.id);
-//   const subCategory = SubCategory(subChildIds);
-//   const subCategoryChild = selectedSubCategoryIds?.map((elm) => elm?.value);
-//   const subChildCategory = SubChildCategory(subCategoryChild);
+//   const subCategory = SubCategory();
+//   const subChildCategory = SubChildCategory();
 
 //   const handleMenuClick = (i) => {
 //     if (i === selected) {
@@ -327,21 +337,6 @@ export const Header = () => {
 //     } else {
 //       setSelected(i);
 //       setOpen(true);
-//     }
-//   };
-
-//   const handlePushArr = (value, name) => {
-//     const index = selectedSubCategoryIds.findIndex(
-//       (item) => item.name === name
-//     );
-//     if (index !== -1) {
-//       setSelectedSubCategoryIds((prevValue) => [
-//         ...prevValue.slice(0, index),
-//         { name, value },
-//         ...prevValue.slice(index + 1),
-//       ]);
-//     } else {
-//       setSelectedSubCategoryIds((prevValue) => [...prevValue, { name, value }]);
 //     }
 //   };
 
@@ -430,17 +425,7 @@ export const Header = () => {
 //                         </Link>
 //                         {data?.menu && (
 //                           <span style={{ cursor: "pointer" }}>
-//                             <ChevronDown
-//                               onClick={() => handleMenuClick(i)}
-//                               // style={{
-//                               //   transform:
-//                               //     i === selected
-//                               //       ? "rotate(180deg)"
-//                               //       : "rotate(0) h-0",
-
-//                               //   transition: "0.5s ease-in-out",
-//                               // }}
-//                             />
+//                             <ChevronDown onClick={() => handleMenuClick(i)} />
 //                           </span>
 //                         )}
 //                       </div>
@@ -515,13 +500,7 @@ export const Header = () => {
 //                                               <li key={elm?.id}>
 //                                                 <Accordion
 //                                                   heading={elm?.heading}
-//                                                   onClick={() => {
-//                                                     handlePushArr(
-//                                                       elm?.id,
-//                                                       menu?.heading
-//                                                     );
-//                                                   }}
-//                                                   accId={elm?.id}
+//                                                   accId={uuidv4()}
 //                                                   extraClass="acc_bg"
 //                                                 >
 //                                                   <div className="accordion-body acc_bdy">
@@ -530,18 +509,6 @@ export const Header = () => {
 //                                                       filteredSubChildData?.map(
 //                                                         (category) => {
 //                                                           return (
-//                                                             // <Accordion
-//                                                             //   heading={
-//                                                             //     category?.heading
-//                                                             //   }
-//                                                             //   extraClass="acc_bdy_bg"
-//                                                             //   key={category?.id}
-//                                                             //   accId={category?.id}
-//                                                             // >
-//                                                             // {category?.inputValue &&
-//                                                             //   category?.inputValue?.map(
-//                                                             // (data) => {
-//                                                             //   return (
 //                                                             <div
 //                                                               key={category?.id}
 //                                                               className="accordion-body acc_bdy_1"
@@ -566,10 +533,6 @@ export const Header = () => {
 //                                                                 </label>
 //                                                               </div>
 //                                                             </div>
-//                                                             //     );
-//                                                             //   }
-//                                                             // )}
-//                                                             // </Accordion>
 //                                                           );
 //                                                         }
 //                                                       )}
@@ -593,7 +556,7 @@ export const Header = () => {
 //                 <li>
 //                   <button
 //                     onClick={() => navigate("/contact-us")}
-//                     className="contact_btn"
+//                     className="contact_btn "
 //                   >
 //                     Contact Us
 //                   </button>

@@ -5087,7 +5087,7 @@ fieldset[disabled] .rgroup-module_rgroup__Pm-uA form button {
   padding-left: 14px;
 }
 .template-lib-module_dialog_body__QtL0J .MuiAccordionSummary-content {
-  align-items: end;
+  align-items: flex-end;
 }
 .template-lib-module_dialog_body__QtL0J .MuiAccordionDetails-root {
   background-color: #eff2f5;

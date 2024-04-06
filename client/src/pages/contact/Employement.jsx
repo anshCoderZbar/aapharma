@@ -95,6 +95,17 @@ export default function Employement() {
                 </div>
               </div>
             </div>
+            <div className="container-fluid">
+              <div className="emploment_btm_img">
+                <img
+                  src={
+                    getEmploymentResponsibilities?.data?.data?.image &&
+                    getEmploymentResponsibilities?.data?.data?.image
+                  }
+                  alt="employment"
+                />
+              </div>
+            </div>
             <Modal id="modal1">
               <div className="contact-form pb-0">
                 <form onSubmit={handleSubmit}>

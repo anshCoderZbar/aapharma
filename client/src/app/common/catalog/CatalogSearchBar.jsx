@@ -15,8 +15,6 @@ export const CatalogSearchBar = ({ catalogId, setCatalogId }) => {
   const catalogRef = useRef(null);
   const [openCatalogFilter, setOpenCatalogFilter] = useState(false);
 
-  // const [_, setCategoryCheck] = useAtom(categoryChecked);
-
   const filterChemical = FilterChemical();
 
   const handleChange = (e) => {
@@ -57,20 +55,12 @@ export const CatalogSearchBar = ({ catalogId, setCatalogId }) => {
 
   return (
     <ul ref={catalogRef} className="filter_left-list">
-      {/* {openCatalogFilter && (
-        <div onClick={() => setOpenCatalogFilter(false)} className="op-x">
-          <X />
-        </div>
-      )} */}
       {catalogCategory1?.data?.data?.length >= 1 &&
         catalogCategory1?.data?.data?.map((level1, i) => {
           return (
             <li
               key={i}
               onClick={() => {
-                // setOpenCatalogFilter(
-                //   filterNo === level1?.id ? !openCatalogFilter : true
-                // );
                 setOpenCatalogFilter(true);
                 setFilterNo(level1?.id);
               }}

@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Banner } from "app/components/Ui/Banner";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import "styles/Capabilities.css";
-import { Pagination } from "swiper/modules";
+
 import {
   GetAllPartnerCardMutation,
   GetAllPartnerLogo,
@@ -11,13 +10,22 @@ import {
   GetPartnerBottomMutation,
   GetPartnerFifthCard,
 } from "rest/capabilities";
+import { useOutsideClick } from "lib/hooks/useOutsideClick";
 
 export default function Partners() {
+  const cardRed = useRef(null);
+  const [isShow, setIsShow] = useState(-1);
+
   const getBanner = GetPartnerBannerMutation();
   const getAllCards = GetAllPartnerCardMutation();
   const getBottom = GetPartnerBottomMutation();
   const getPartnerLogos = GetAllPartnerLogo();
   const getFifthCard = GetPartnerFifthCard();
+
+  useOutsideClick(cardRed, isShow, () => {
+    setIsShow(-1);
+  });
+
   return (
     <div className="partners_page">
       <Banner
@@ -36,17 +44,31 @@ export default function Partners() {
       <div className="partners_content">
         <div className="container-fluid">
           <div className="partners_btm_section">
-            <div className="partner_col_grid ff-fill ">
+            <div ref={cardRed} className="partner_col_grid ff-fill ">
               {getAllCards?.data?.data?.length >= 1 &&
                 getAllCards?.data?.data?.map((elm) => {
                   return (
-                    <div key={elm?.id} className="partners_card">
+                    <div
+                      onClick={() => setIsShow(elm?.id)}
+                      key={elm?.id}
+                      className={`partners_card  ${
+                        isShow === elm?.id ? "partner_card_active" : ""
+                      }`}
+                    >
+                      <h3 className="partner_card_vht">
+                        {elm?.heading && elm?.heading}
+                      </h3>
                       <div className="partner_top_img">
                         <img src={elm?.image && elm?.image} alt="partners" />
                       </div>
                       <div className="partners_card_data">
-                        <h3>{elm?.heading && elm?.heading}</h3>
-                        <div className="partner_list">
+                        <div
+                          className={`partner_list  ${
+                            isShow === elm?.id
+                              ? "partner_list_active"
+                              : "partner_list_hidden"
+                          }`}
+                        >
                           <ul>
                             {elm?.list?.map((data, i) => (
                               <li key={i}>{data}</li>

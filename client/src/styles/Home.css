@@ -470,10 +470,11 @@
   height: 85px;
   background: #fff;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   position: relative;
   bottom: 55px;
 }
+
 .articles_content button {
   margin-top: 30px;
 }
