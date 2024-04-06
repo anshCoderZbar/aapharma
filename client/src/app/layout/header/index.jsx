@@ -11,6 +11,8 @@ import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
 import { MasterCategory, SubCategory, SubChildCategory } from "rest/main";
 import { v4 as uuidv4 } from "uuid";
+import { resetButtonVisibility } from "store/CatalogStore";
+import { FilterChemical } from "rest/catalog";
 
 export const Header = () => {
   const navRef = useRef(null);
@@ -21,10 +23,12 @@ export const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(-1);
-  const [accordionId, setAccordionId] = useState(-1); // for setting catalog accordion id
+  const [accordionId, setAccordionId] = useState(-1);
+  const [, setResetButtonVisible] = useAtom(resetButtonVisibility);
   const masterCategory = MasterCategory();
   const subCategory = SubCategory();
   const subChildCategory = SubChildCategory();
+  const filterChemical = FilterChemical();
 
   const handleMenuClick = (i) => {
     if (i === selected) {
@@ -57,6 +61,25 @@ export const Header = () => {
       document.removeEventListener("click", handleDocumentClick);
     };
   }, []);
+
+  const handleSubCatalogId = (id) => {
+    sessionStorage.setItem("subcategoryId", JSON.stringify([id.toString()]));
+    setResetButtonVisible(true);
+    filterChemical.mutate();
+    setOpen(false);
+    setSelected(-1);
+  };
+
+  const handleSuperSubCatalogId = (id) => {
+    sessionStorage.setItem(
+      "supersubcategoryId",
+      JSON.stringify([id.toString()])
+    );
+    setResetButtonVisible(true);
+    filterChemical.mutate();
+    setOpen(false);
+    setSelected(-1);
+  };
 
   useOutsideClick(navRef, active, () => {
     setActive(false);
@@ -202,6 +225,11 @@ export const Header = () => {
                                                   <li
                                                     className="act_sing"
                                                     key={elm?.id}
+                                                    onClick={() =>
+                                                      handleSubCatalogId(
+                                                        elm?.id
+                                                      )
+                                                    }
                                                   >
                                                     {elm?.heading}
                                                   </li>
@@ -217,7 +245,13 @@ export const Header = () => {
                                                     key={elm?.id}
                                                   >
                                                     <div className="d-flex justify-content-between">
-                                                      <span>
+                                                      <span
+                                                        onClick={() =>
+                                                          handleSubCatalogId(
+                                                            elm?.id
+                                                          )
+                                                        }
+                                                      >
                                                         {elm?.heading}
                                                       </span>
                                                       <span
@@ -250,6 +284,11 @@ export const Header = () => {
                                                                   category?.id
                                                                 }
                                                                 className="acc_bdy_1"
+                                                                onClick={() =>
+                                                                  handleSuperSubCatalogId(
+                                                                    category?.id
+                                                                  )
+                                                                }
                                                               >
                                                                 <div className="text-start">
                                                                   {

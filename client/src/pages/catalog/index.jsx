@@ -5,7 +5,7 @@ import "styles/Catalog.css";
 import { CatalogMainCard } from "app/components/CatalogCard/CatalogMainCard";
 import { CatalogSearchBar } from "app/common/catalog/CatalogSearchBar";
 import { useAtom } from "jotai";
-import { filteredCatalogs } from "store/CatalogStore";
+import { filteredCatalogs, resetButtonVisibility } from "store/CatalogStore";
 import {
   AllChemical,
   CatalogCategory2,
@@ -19,7 +19,9 @@ export const Catalog = () => {
   const catalogCategory2 = CatalogCategory2();
   const catalogCategory3 = CatalogCategory3();
 
-  const [isResetButtonVisible, setResetButtonVisible] = useState(false);
+  const [isResetButtonVisible, setResetButtonVisible] = useAtom(
+    resetButtonVisibility
+  );
   const [catalogId, setCatalogId] = useState({
     subCategoryId: [],
     supersubcategoryId: [],
@@ -55,13 +57,13 @@ export const Catalog = () => {
     setResetButtonVisible(shouldShowButton);
   }, [isResetButtonVisible, filterChemical]);
 
-  const handleRemoveCat1 = (id) => {
-    const getSelectedIds = JSON.parse(sessionStorage.getItem("subcategoryId"));
-    const newIds = getSelectedIds?.filter(
-      (elm) => Number.parseInt(elm) !== Number.parseInt(id)
-    );
-    sessionStorage.setItem("subcategoryId", JSON?.stringify(newIds));
-  };
+  // const handleRemoveCat1 = (id) => {
+  //   const getSelectedIds = JSON.parse(sessionStorage.getItem("subcategoryId"));
+  //   const newIds = getSelectedIds?.filter(
+  //     (elm) => Number.parseInt(elm) !== Number.parseInt(id)
+  //   );
+  //   sessionStorage.setItem("subcategoryId", JSON?.stringify(newIds));
+  // };
 
   const handleReset = () => {
     sessionStorage.setItem("categoryId", JSON?.stringify([]));

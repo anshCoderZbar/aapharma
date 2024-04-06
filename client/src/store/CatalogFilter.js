@@ -1,7 +1,6 @@
 import { atom } from "jotai";
 
 const catalogSchema = {
-  categoryId: [],
   subcategoryId: [],
   supersubcategoryId: [],
   search: "",
