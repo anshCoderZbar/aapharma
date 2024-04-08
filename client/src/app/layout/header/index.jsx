@@ -5,14 +5,12 @@ import "styles/Layout.css";
 import headerLogo from "assets/header_logo.svg";
 import { ChevronDown, Menu, Search, X } from "lucide-react";
 import { HeaderData } from "app/mock/header";
-import { Accordion } from "app/components/Accordion";
 import { useOutsideClick } from "lib/hooks/useOutsideClick";
 import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
-import { MasterCategory, SubCategory, SubChildCategory } from "rest/main";
-import { v4 as uuidv4 } from "uuid";
-import { resetButtonVisibility } from "store/CatalogStore";
-import { FilterChemical } from "rest/catalog";
+import { MasterCategory, SubCategory } from "rest/main";
+
+import { HeaderCatalogFilter } from "./HeaderCatalogFilter";
 
 export const Header = () => {
   const navRef = useRef(null);
@@ -23,12 +21,9 @@ export const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(-1);
-  const [accordionId, setAccordionId] = useState(-1);
-  const [, setResetButtonVisible] = useAtom(resetButtonVisibility);
+
   const masterCategory = MasterCategory();
   const subCategory = SubCategory();
-  const subChildCategory = SubChildCategory();
-  const filterChemical = FilterChemical();
 
   const handleMenuClick = (i) => {
     if (i === selected) {
@@ -62,32 +57,13 @@ export const Header = () => {
     };
   }, []);
 
-  const handleSubCatalogId = (id) => {
-    sessionStorage.setItem("subcategoryId", JSON.stringify([id.toString()]));
-    setResetButtonVisible(true);
-    filterChemical.mutate();
-    setOpen(false);
-    setSelected(-1);
-  };
-
-  const handleSuperSubCatalogId = (id) => {
-    sessionStorage.setItem(
-      "supersubcategoryId",
-      JSON.stringify([id.toString()])
-    );
-    setResetButtonVisible(true);
-    filterChemical.mutate();
-    setOpen(false);
-    setSelected(-1);
-  };
-
   useOutsideClick(navRef, active, () => {
     setActive(false);
   });
 
   return (
     <>
-      <header ref={navRef} className="header">
+      <header ref={navRef} className="header jh_lop">
         <div className="container-fluid">
           <div className="nav-colums">
             <div className="nav-left">
@@ -197,117 +173,15 @@ export const Header = () => {
                                       (elm) => elm?.catalog === menu?.id
                                     );
                                   return (
-                                    <li
-                                      key={i}
-                                      className={`dropdown__list-item ${
-                                        data?.id === 5 ? "" : "m_xLx"
-                                      }`}
-                                    >
-                                      <Link>{menu?.heading}</Link>
-                                      {subCategory?.data?.data?.length >= 1 && (
-                                        <ul
-                                          className="acc_types accordion accordion-flush"
-                                          id="accordionFlushExample"
-                                        >
-                                          {subCategoryFilter?.map((elm) => {
-                                            const filteredSubChildData =
-                                              subChildCategory?.data?.data?.filter(
-                                                (sub) => {
-                                                  return (
-                                                    elm?.id === sub?.catalog2
-                                                  );
-                                                }
-                                              );
-                                            return (
-                                              <>
-                                                {filteredSubChildData?.length <
-                                                  1 && (
-                                                  <li
-                                                    className="act_sing"
-                                                    key={elm?.id}
-                                                    onClick={() =>
-                                                      handleSubCatalogId(
-                                                        elm?.id
-                                                      )
-                                                    }
-                                                  >
-                                                    {elm?.heading}
-                                                  </li>
-                                                )}
-                                                {filteredSubChildData?.length >=
-                                                  1 && (
-                                                  <li
-                                                    className={`act_sing ${
-                                                      accordionId === elm?.id
-                                                        ? "change_top_color"
-                                                        : ""
-                                                    }`}
-                                                    key={elm?.id}
-                                                  >
-                                                    <div className="d-flex justify-content-between">
-                                                      <span
-                                                        onClick={() =>
-                                                          handleSubCatalogId(
-                                                            elm?.id
-                                                          )
-                                                        }
-                                                      >
-                                                        {elm?.heading}
-                                                      </span>
-                                                      <span
-                                                        onClick={() =>
-                                                          setAccordionId(
-                                                            accordionId ===
-                                                              elm?.id
-                                                              ? -1
-                                                              : elm?.id
-                                                          )
-                                                        }
-                                                      >
-                                                        <ChevronDown />
-                                                      </span>
-                                                    </div>
-                                                    <div
-                                                      className={`acc_bdy ${
-                                                        accordionId === elm?.id
-                                                          ? "open_cat_acc"
-                                                          : ""
-                                                      }`}
-                                                    >
-                                                      {subChildCategory?.data
-                                                        ?.data?.length >= 1 &&
-                                                        filteredSubChildData?.map(
-                                                          (category) => {
-                                                            return (
-                                                              <div
-                                                                key={
-                                                                  category?.id
-                                                                }
-                                                                className="acc_bdy_1"
-                                                                onClick={() =>
-                                                                  handleSuperSubCatalogId(
-                                                                    category?.id
-                                                                  )
-                                                                }
-                                                              >
-                                                                <div className="text-start">
-                                                                  {
-                                                                    category?.heading
-                                                                  }
-                                                                </div>
-                                                              </div>
-                                                            );
-                                                          }
-                                                        )}
-                                                    </div>
-                                                  </li>
-                                                )}
-                                              </>
-                                            );
-                                          })}
-                                        </ul>
-                                      )}
-                                    </li>
+                                    <HeaderCatalogFilter
+                                      menu={menu}
+                                      subCategoryFilter={subCategoryFilter}
+                                      subCategory={subCategory}
+                                      setSelected={setSelected}
+                                      setOpen={setOpen}
+                                      i={i}
+                                      data={data}
+                                    />
                                   );
                                 })}
                             </ul>
