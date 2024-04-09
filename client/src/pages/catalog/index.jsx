@@ -55,15 +55,9 @@ export const Catalog = () => {
       orderBy !== "" ||
       search !== "";
     setResetButtonVisible(shouldShowButton);
-  }, [isResetButtonVisible, filterChemical]);
+  }, [isResetButtonVisible, filterChemical, catalogId]);
 
-  // const handleRemoveCat1 = (id) => {
-  //   const getSelectedIds = JSON.parse(sessionStorage.getItem("subcategoryId"));
-  //   const newIds = getSelectedIds?.filter(
-  //     (elm) => Number.parseInt(elm) !== Number.parseInt(id)
-  //   );
-  //   sessionStorage.setItem("subcategoryId", JSON?.stringify(newIds));
-  // };
+  console.log(isResetButtonVisible);
 
   const handleReset = () => {
     sessionStorage.setItem("categoryId", JSON?.stringify([]));
@@ -123,9 +117,6 @@ export const Catalog = () => {
                     return (
                       <div className="catalog_remove_btm" key={elm.id}>
                         {elm?.heading}
-                        {/* <span onClick={() => handleRemoveCat1(data)}>
-                          <X />
-                        </span> */}
                       </div>
                     );
                   } else {
@@ -143,9 +134,6 @@ export const Catalog = () => {
                     return (
                       <div className="catalog_remove_btm" key={elm.id}>
                         {elm?.heading}
-                        {/* <span>
-                          <X />
-                        </span> */}
                       </div>
                     );
                   } else {

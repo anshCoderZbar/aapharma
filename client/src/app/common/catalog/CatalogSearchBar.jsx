@@ -17,65 +17,23 @@ export const CatalogSearchBar = ({ catalogId, setCatalogId }) => {
 
   const filterChemical = FilterChemical();
 
-  // const handleChange = (e) => {
-  //   const { name, value, checked } = e.target;
-
-  //   const updatedCatalogId = {
-  //     ...catalogId,
-  //     [name]: checked
-  //       ? [...(catalogId[name] || []), value]
-  //       : (catalogId[name] || []).filter((item) => item !== value),
-  //   };
-
-  //   const subCatalog = updatedCatalogId?.subCategoryId;
-  //   sessionStorage.setItem("subcategoryId", JSON.stringify(subCatalog));
-  //   const superSubCatalog = updatedCatalogId?.supersubcategoryId;
-  //   sessionStorage.setItem(
-  //     "supersubcategoryId",
-  //     JSON.stringify(superSubCatalog)
-  //   );
-  //   setCatalogId(updatedCatalogId);
-  // };
-
   const handleChange = (e) => {
     const { name, value, checked } = e.target;
 
     const updatedCatalogId = {
       ...catalogId,
       [name]: checked
-        ? [...new Set([...(catalogId[name] || []), value])]
+        ? [...(catalogId[name] || []), value]
         : (catalogId[name] || []).filter((item) => item !== value),
     };
 
-    const subCatalog = updatedCatalogId?.subCategoryId || [];
-    const superSubCatalog = updatedCatalogId?.supersubcategoryId || [];
-
-    const storedSubCatalog =
-      JSON.parse(sessionStorage.getItem("subcategoryId")) || [];
-    const storedSuperSubCatalog =
-      JSON.parse(sessionStorage.getItem("supersubcategoryId")) || [];
-
-    const updatedSubCatalog =
-      storedSubCatalog.length > 0
-        ? storedSubCatalog.concat(
-            subCatalog.filter((item) => !storedSubCatalog.includes(item))
-          )
-        : subCatalog;
-    const updatedSuperSubCatalog =
-      storedSuperSubCatalog.length > 0
-        ? storedSuperSubCatalog.concat(
-            superSubCatalog.filter(
-              (item) => !storedSuperSubCatalog.includes(item)
-            )
-          )
-        : superSubCatalog;
-
-    sessionStorage.setItem("subcategoryId", JSON.stringify(updatedSubCatalog));
+    const subCatalog = updatedCatalogId?.subCategoryId;
+    sessionStorage.setItem("subcategoryId", JSON.stringify(subCatalog));
+    const superSubCatalog = updatedCatalogId?.supersubcategoryId;
     sessionStorage.setItem(
       "supersubcategoryId",
-      JSON.stringify(updatedSuperSubCatalog)
+      JSON.stringify(superSubCatalog)
     );
-
     setCatalogId(updatedCatalogId);
   };
 
