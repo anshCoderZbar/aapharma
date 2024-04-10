@@ -55,9 +55,6 @@ export default function Cart() {
                           />
                         );
                       })}
-                      {/* <div className="update_cart_btn">
-                        <button className="cart_purple_btn">Update Cart</button>
-                      </div> */}
                     </div>
                     <div className="col-lg-12 col-xl-4">
                       <div className="cart_amount_details">

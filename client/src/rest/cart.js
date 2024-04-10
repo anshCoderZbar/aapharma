@@ -47,7 +47,7 @@ export const UpdateCartMutation = () => {
   const updateCart = useMutation({
     mutationFn: (data) => client.cart.updateCart(data),
     onSuccess: () => {
-      toast.success("Quantity Updated Successfully");
+      toast.success("Cart Updated Successfully");
       queryClient.invalidateQueries({ queryKey: ["get-cart"] });
     },
     onError: () => {

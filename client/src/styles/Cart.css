@@ -200,7 +200,8 @@
   gap: 56px;
   align-items: center;
   padding: 0 25px;
-  width: max-content;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .update_cart_quantity {
@@ -223,7 +224,13 @@
   padding: 15px 22px;
   margin-top: 10px;
   gap: 37px;
-  width: max-content;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.select_fi_oi {
+  padding: 5px 28px 4px 8px;
+  border-radius: 7px;
 }
 
 .cart_update_qty_btn {

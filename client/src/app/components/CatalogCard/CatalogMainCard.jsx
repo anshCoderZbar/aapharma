@@ -26,7 +26,7 @@ export const CatalogMainCard = ({ chemicals, status }) => {
           <Loader />
         </div>
       )}
-      {!status && chemicals?.data?.length <= 0 && <h3>No record found</h3>}
+      {!status && chemicals?.data?.length <= 0 && <h3>No products found</h3>}
       <div className="row gap_bb gx-4">
         {!status &&
           chemicals?.data?.slice(startIndex, endIndex)?.map((compounts, i) => {

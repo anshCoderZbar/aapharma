@@ -57,8 +57,6 @@ export const Catalog = () => {
     setResetButtonVisible(shouldShowButton);
   }, [isResetButtonVisible, filterChemical, catalogId]);
 
-  console.log(isResetButtonVisible);
-
   const handleReset = () => {
     sessionStorage.setItem("categoryId", JSON?.stringify([]));
     sessionStorage.setItem("subcategoryId", JSON?.stringify([]));

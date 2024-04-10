@@ -13,6 +13,17 @@ export const CartCard = ({ items, i, row, getCartDetails }) => {
     Number.parseInt(items?.quantity)
   );
 
+  const updateGramQuantity = (e, id) => {
+    const { value } = e.target;
+    const getClass = e.target.selectedOptions[0];
+
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("attribute_pa_qty", value);
+    formData.append("price", getClass.getAttribute("data-price"));
+    updateCartQuantity.mutate(formData);
+  };
+
   const updateCart = (quantity, id) => {
     const formData = new FormData();
     formData.append("id", id);
@@ -55,6 +66,9 @@ export const CartCard = ({ items, i, row, getCartDetails }) => {
                 <h3>Price</h3>
               </div>
               <div className="cart_top_head">
+                <h3>Quantity(gm)</h3>
+              </div>
+              <div className="cart_top_head">
                 <h3>Quantity</h3>
               </div>
               <div className="cart_top_head">
@@ -64,6 +78,27 @@ export const CartCard = ({ items, i, row, getCartDetails }) => {
             <div className="cart_main_qty">
               <div className="cart_top_head cart_price">
                 <h3>{usdFormater(items?.price.replaceAll(",", ""))}</h3>
+              </div>
+              <div className="cart_top_head cart_price">
+                <select
+                  className="select_fi_oi"
+                  defaultValue={items?.attribute_pa_qty}
+                  onChange={(e) => updateGramQuantity(e, items?.id)}
+                >
+                  {JSON.parse(
+                    items?.chemicalDetail?.catalog_quantity_price
+                  )?.map((elm, i) => {
+                    return (
+                      <option
+                        key={i}
+                        value={elm?.quantity.replaceAll(" ", "-")}
+                        data-price={elm?.price}
+                      >
+                        {elm?.quantity}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
               <div className="cart_top_head cart_quantity">
                 <h3>

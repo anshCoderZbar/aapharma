@@ -107,7 +107,7 @@ export const Header = () => {
                       className={`nav-right-li ${
                         data?.class ? data?.class : ""
                       }`}
-                      key={data?.id}
+                      key={i}
                     >
                       <div className="d-flex">
                         <Link
@@ -179,6 +179,7 @@ export const Header = () => {
                                       subCategory={subCategory}
                                       setSelected={setSelected}
                                       setOpen={setOpen}
+                                      key={i}
                                       i={i}
                                       data={data}
                                     />

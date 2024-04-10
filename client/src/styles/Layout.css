@@ -385,6 +385,17 @@
   font-size: 15px;
 }
 
+.chev_up_rotate {
+  transform: rotateZ(180deg);
+  transition: 0.3s ease-in-out;
+  color: #fff;
+}
+
+.chev_down_rotate {
+  transform: rotateZ(0deg);
+  transition: 0.3s ease-in-out;
+}
+
 .acc_bdy .accordion-item {
   border: none;
 }

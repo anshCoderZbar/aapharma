@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { FilterChemical } from "rest/catalog";
 import { SubChildCategory } from "rest/main";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { resetButtonVisibility } from "store/CatalogStore";
 
@@ -62,7 +62,7 @@ export const HeaderCatalogFilter = (props) => {
               }
             );
             return (
-              <>
+              <div key={elm?.id}>
                 {filteredSubChildData?.length < 1 && (
                   <li
                     className="act_sing"
@@ -72,6 +72,7 @@ export const HeaderCatalogFilter = (props) => {
                     {elm?.heading}
                   </li>
                 )}
+
                 {filteredSubChildData?.length >= 1 && (
                   <li
                     className={`act_sing ${
@@ -87,6 +88,11 @@ export const HeaderCatalogFilter = (props) => {
                         onClick={() =>
                           setAccordionId(accordionId === elm?.id ? -1 : elm?.id)
                         }
+                        className={`${
+                          accordionId === elm?.id
+                            ? "chev_up_rotate"
+                            : "chev_down_rotate"
+                        }`}
                       >
                         <ChevronDown />
                       </span>
@@ -115,7 +121,7 @@ export const HeaderCatalogFilter = (props) => {
                     </div>
                   </li>
                 )}
-              </>
+              </div>
             );
           })}
         </ul>
