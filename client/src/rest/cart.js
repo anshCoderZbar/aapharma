@@ -131,3 +131,18 @@ export const ErrorPaymentMutation = () => {
   });
   return createPayment;
 };
+
+export const CheckDiscountCoupon = (reset) => {
+  const checkCoupon = useMutation({
+    mutationFn: (data) => client.cart.checkCoupon(data),
+    onSuccess: (data) => {
+      console.log(data);
+      queryClient.invalidateQueries({ queryKey: ["get-cart"] });
+      reset();
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+  return checkCoupon;
+};

@@ -3,18 +3,36 @@ import { useNavigate } from "react-router-dom";
 
 import "styles/Cart.css";
 import banner from "assets/page-banners/cart_banner.jpg";
-import { GetCartMutation } from "rest/cart";
+import { CheckDiscountCoupon, GetCartMutation } from "rest/cart";
 import { usdFormater } from "lib/utils/functions";
 import { Loader } from "app/components/Ui/Loader";
 import { CartCard } from "app/components/Cart-Modal/CartCard";
+import { useForm } from "react-hook-form";
+import { ButtonLoader } from "app/components/Ui/ButtonLoader";
 
 export default function Cart() {
   const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   const formData = new FormData();
   formData.append("belongsTo", localStorage.getItem("guestId"));
 
   const getCartDetails = GetCartMutation(formData);
+  const applyCoupon = CheckDiscountCoupon(reset);
+
+  const onSubmit = (data) => {
+    const formData = new FormData();
+    formData.append("coupon", data?.coupon);
+    formData.append("price", getCartDetails?.data?.subTotal);
+    formData.append("belongsTo", localStorage.getItem("guestId"));
+    applyCoupon.mutate(formData);
+  };
 
   return (
     <div className="main_cart_page">
@@ -59,17 +77,25 @@ export default function Cart() {
                     <div className="col-lg-12 col-xl-4">
                       <div className="cart_amount_details">
                         <div className="pad_amt">
-                          <form>
+                          <form onSubmit={handleSubmit(onSubmit)}>
                             <input
                               type="text"
                               placeholder="Coupon Code"
-                              className="coupon_input"
+                              className={`coupon_input ${
+                                errors?.coupon ? "border-danger" : ""
+                              }`}
+                              name="coupon"
+                              {...register("coupon", { required: true })}
                             />
-                            <input
-                              type="submit"
-                              value="Apply Coupon"
-                              className="cart_purple_btn"
-                            />
+                            {applyCoupon?.isPending ? (
+                              <ButtonLoader />
+                            ) : (
+                              <input
+                                type="submit"
+                                value="Apply Coupon"
+                                className="cart_purple_btn"
+                              />
+                            )}
                           </form>
                           {getCartDetails?.data?.subTotal && (
                             <div className="position-relative">
@@ -87,6 +113,19 @@ export default function Cart() {
                                         )}
                                     </p>
                                   </div>
+                                  {getCartDetails?.data?.discountedPrice && (
+                                    <div className="price_total">
+                                      <p>Discount</p>
+                                      <p>
+                                        {getCartDetails?.data
+                                          ?.discountedPrice &&
+                                          usdFormater(
+                                            getCartDetails?.data
+                                              ?.discountedPrice
+                                          )}
+                                      </p>
+                                    </div>
+                                  )}
                                   <hr />
                                   <div className="price_total">
                                     <p className="fw-bold">Total</p>

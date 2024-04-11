@@ -125,7 +125,7 @@ export const CartCard = ({ items, i, row, getCartDetails }) => {
                 </h3>
               </div>
               <div className="cart_top_head cart_subtotal">
-                <h3>{items?.subTotal && usdFormater(items?.subTotal)}</h3>
+                <h3>{items?.total && usdFormater(items?.total)}</h3>
               </div>
             </div>
           </div>

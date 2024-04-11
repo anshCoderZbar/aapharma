@@ -307,9 +307,13 @@
 }
 
 .emploment_btm_img img {
-  object-fit: contain;
+  object-fit: cover;
   margin: auto;
   width: 100%;
+  max-height: 400px;
+  border-radius: 38px;
+  box-shadow: 0 5px 5px rgba(30, 30, 30, 0.19),
+    0px 0px 0px rgba(30, 30, 30, 0.23);
 }
 
 .apply_box {

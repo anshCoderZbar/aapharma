@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Capabilities.css";
@@ -8,19 +8,26 @@ import {
   GetAllPartnerLogo,
   GetPartnerBannerMutation,
   GetPartnerBottomMutation,
-  GetPartnerFifthCard,
+  // GetPartnerFifthCard,
 } from "rest/capabilities";
 import { useOutsideClick } from "lib/hooks/useOutsideClick";
 
 export default function Partners() {
   const cardRed = useRef(null);
   const [isShow, setIsShow] = useState(-1);
+  const [partnerData, setPartnerData] = useState({});
 
   const getBanner = GetPartnerBannerMutation();
   const getAllCards = GetAllPartnerCardMutation();
   const getBottom = GetPartnerBottomMutation();
   const getPartnerLogos = GetAllPartnerLogo();
-  const getFifthCard = GetPartnerFifthCard();
+  // const getFifthCard = GetPartnerFifthCard();
+
+  useEffect(() => {
+    if (getAllCards?.data?.data) {
+      setPartnerData(getAllCards?.data?.data[0]);
+    }
+  }, [getAllCards?.data?.data]);
 
   useOutsideClick(cardRed, isShow, () => {
     setIsShow(-1);
@@ -45,63 +52,49 @@ export default function Partners() {
         <div className="container-fluid">
           <div className="partners_btm_section">
             <div ref={cardRed} className="partner_col_grid ff-fill ">
-              {getAllCards?.data?.data?.length >= 1 &&
-                getAllCards?.data?.data?.map((elm) => {
-                  return (
-                    <div
-                      onClick={() => setIsShow(elm?.id)}
-                      key={elm?.id}
-                      className={`partners_card  ${
-                        isShow === elm?.id ? "partner_card_active" : ""
-                      }`}
-                    >
-                      <h3 className="partner_card_vht">
-                        {elm?.heading && elm?.heading}
-                      </h3>
-                      <div className="partner_top_img">
-                        <img src={elm?.image && elm?.image} alt="partners" />
-                      </div>
-                      <div className="partners_card_data">
-                        <div
-                          className={`partner_list  ${
-                            isShow === elm?.id
-                              ? "partner_list_active"
-                              : "partner_list_hidden"
-                          }`}
-                        >
-                          <ul>
-                            {elm?.list?.map((data, i) => (
-                              <li key={i}>{data}</li>
-                            ))}
-                          </ul>
+              <div className="gle_ky">
+                {getAllCards?.data?.data?.length >= 1 &&
+                  getAllCards?.data?.data?.map((elm) => {
+                    return (
+                      <div
+                        onClick={() => {
+                          setIsShow(elm?.id);
+                          setPartnerData(elm);
+                        }}
+                        key={elm?.id}
+                        className={`partners_card  ${
+                          isShow === elm?.id ? "partner_card_active" : ""
+                        }`}
+                      >
+                        <h3 className="partner_card_vht">
+                          {elm?.heading && elm?.heading}
+                        </h3>
+                        <div className="partner_top_img">
+                          <img src={elm?.image && elm?.image} alt="partners" />
                         </div>
                       </div>
+                    );
+                  })}
+              </div>
+              <div className="partner_bottom_card">
+                <div className="partner_card_inner">
+                  <div className="partner_card_body">
+                    <h3 className="partner_card_heading">
+                      {partnerData?.heading && partnerData?.heading}
+                    </h3>
+                    <ul>
+                      {partnerData?.list?.length >= 1 &&
+                        partnerData?.list?.map((elm, i) => {
+                          return <li key={i}>{elm}</li>;
+                        })}
+                    </ul>
+                    <div className="partner_btm_img">
+                      <img
+                        src={partnerData?.image && partnerData?.image}
+                        alt="bottom"
+                      />
                     </div>
-                  );
-                })}
-            </div>
-          </div>
-          <div className="partner_bottom_card">
-            <div className="partner_card_inner">
-              <div className="partner_card_body">
-                <h3 className="partner_card_heading">
-                  {getFifthCard?.data?.data?.heading &&
-                    getFifthCard?.data?.data?.heading}
-                </h3>
-                <ul>
-                  {getFifthCard?.data?.data?.list?.length >= 1 &&
-                    getFifthCard?.data?.data?.list?.map((elm, i) => {
-                      return <li key={i}>{elm}</li>;
-                    })}
-                </ul>
-                <div className="partner_btm_img">
-                  <img
-                    src={
-                      getFifthCard?.data?.data?.image &&
-                      getFifthCard?.data?.data?.image
-                    }
-                    alt="bottom"
-                  />
+                  </div>
                 </div>
               </div>
             </div>
