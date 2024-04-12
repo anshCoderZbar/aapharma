@@ -136,13 +136,33 @@ export const CheckDiscountCoupon = (reset) => {
   const checkCoupon = useMutation({
     mutationFn: (data) => client.cart.checkCoupon(data),
     onSuccess: (data) => {
-      console.log(data);
+      if (data?.status) {
+        toast.success("Coupon Applied");
+      }
+
+      if (!data?.status) {
+        toast.error("Invalid Coupon");
+      }
       queryClient.invalidateQueries({ queryKey: ["get-cart"] });
       reset();
     },
-    onError: (err) => {
-      console.log(err);
+    onError: () => {
+      toast.error("OOPS! some error occured");
     },
   });
   return checkCoupon;
+};
+
+export const RemoveDiscountCoupon = () => {
+  const removeCoupon = useMutation({
+    mutationFn: (data) => client.cart.removeCoupon(data),
+    onSuccess: () => {
+      toast.success("Coupon Removed successfully");
+      queryClient.invalidateQueries({ queryKey: ["get-cart"] });
+    },
+    onError: () => {
+      toast.error("OOPS! some error occured");
+    },
+  });
+  return removeCoupon;
 };

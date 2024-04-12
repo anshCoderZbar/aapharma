@@ -92,7 +92,7 @@ export default function Carbohydrates() {
           <div ref={diagramRef} className="carbohydrates_diagram_inner">
             {getDiagram?.data?.data?.map((elm, i) => {
               return (
-                <div className="carbo_diagram">
+                <div key={i} className="carbo_diagram">
                   <div
                     onClick={() => setId(elm?.id)}
                     className={`carbo_digram_circle carb_circle_${i + 1}`}
@@ -119,8 +119,8 @@ export default function Carbohydrates() {
                       <div className="carb_inner_content">
                         <h4 className="text-capitalize">{elm?.heading}</h4>
                         <ul>
-                          {elm?.list?.map((data) => {
-                            return <li>{data}</li>;
+                          {elm?.list?.map((data, i) => {
+                            return <li key={i}>{data}</li>;
                           })}
                         </ul>
                       </div>

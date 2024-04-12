@@ -3,12 +3,17 @@ import { useNavigate } from "react-router-dom";
 
 import "styles/Cart.css";
 import banner from "assets/page-banners/cart_banner.jpg";
-import { CheckDiscountCoupon, GetCartMutation } from "rest/cart";
+import {
+  CheckDiscountCoupon,
+  GetCartMutation,
+  RemoveDiscountCoupon,
+} from "rest/cart";
 import { usdFormater } from "lib/utils/functions";
 import { Loader } from "app/components/Ui/Loader";
 import { CartCard } from "app/components/Cart-Modal/CartCard";
 import { useForm } from "react-hook-form";
 import { ButtonLoader } from "app/components/Ui/ButtonLoader";
+import { X } from "lucide-react";
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -25,6 +30,7 @@ export default function Cart() {
 
   const getCartDetails = GetCartMutation(formData);
   const applyCoupon = CheckDiscountCoupon(reset);
+  const handleRemove = RemoveDiscountCoupon();
 
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -32,6 +38,13 @@ export default function Cart() {
     formData.append("price", getCartDetails?.data?.subTotal);
     formData.append("belongsTo", localStorage.getItem("guestId"));
     applyCoupon.mutate(formData);
+  };
+
+  const removeCoupon = (coupon) => {
+    const formData = new FormData();
+    formData.append("coupon", coupon);
+    formData.append("belongsTo", localStorage.getItem("guestId"));
+    handleRemove.mutate(formData);
   };
 
   return (
@@ -97,6 +110,25 @@ export default function Cart() {
                               />
                             )}
                           </form>
+                          {getCartDetails?.data?.coupon?.length > 0 && (
+                            <div className="applied_coupon">
+                              <p className="price_coupon_name">
+                                {getCartDetails?.data?.coupon}
+                              </p>
+                              <p
+                                onClick={() =>
+                                  removeCoupon(getCartDetails?.data?.coupon)
+                                }
+                                className="remove_coupon"
+                              >
+                                {handleRemove?.isPending ? (
+                                  <ButtonLoader />
+                                ) : (
+                                  <X />
+                                )}
+                              </p>
+                            </div>
+                          )}
                           {getCartDetails?.data?.subTotal && (
                             <div className="position-relative">
                               <div className="cart_checkout_contianer">
@@ -113,7 +145,9 @@ export default function Cart() {
                                         )}
                                     </p>
                                   </div>
-                                  {getCartDetails?.data?.discountedPrice && (
+                                  {Number.parseInt(
+                                    getCartDetails?.data?.discountedPrice
+                                  ) > 0 && (
                                     <div className="price_total">
                                       <p>Discount</p>
                                       <p>

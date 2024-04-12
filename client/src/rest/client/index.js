@@ -134,6 +134,8 @@ class Client {
     paymentCancel: (params) =>
       HttpClient.post(API_ENDPOINTS.paymentCancel, params),
     checkCoupon: (params) => HttpClient.post(API_ENDPOINTS.checkCoupon, params),
+    removeCoupon: (params) =>
+      HttpClient.post(API_ENDPOINTS.removeCoupon, params),
   };
 }
 

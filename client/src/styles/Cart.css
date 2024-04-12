@@ -253,6 +253,10 @@
   bottom: 22px;
 }
 
+.pad_amt {
+  padding: 0 2rem;
+}
+
 .cart_itsm_dif {
   position: relative;
   border-color: #e8e7e7;
@@ -267,9 +271,10 @@
   font-size: 17px;
 }
 
-.cart_amount_details {
+.pad_amt form {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .coupon_input {
@@ -280,6 +285,7 @@
   padding: 10px;
   margin-right: 8px;
   border-radius: 11px;
+  width: 100%;
 }
 
 .cart_checkout_contianer {
@@ -299,11 +305,31 @@
 .price_total {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
 }
 
 .price_total p {
   font-size: 18px;
+}
+
+.applied_coupon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.price_coupon_name {
+  background-color: #f7f7f7;
+  padding: 3px 18px;
+  border: 2px dashed #2a3072;
+  font-size: 17px;
+  border-radius: 7px;
+  width: fit-content;
+}
+
+.remove_coupon {
+  cursor: pointer;
+  color: #2a3072;
 }
 
 .checkout_cart {

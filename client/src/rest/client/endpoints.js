@@ -76,4 +76,5 @@ export const API_ENDPOINTS = {
   labEquipmentBanner: "/lab-equipment-banner",
   allLabEquipments: "/lab-equipment/all",
   checkCoupon: "/coupon-apply",
+  removeCoupon: "/coupon-delete",
 };
