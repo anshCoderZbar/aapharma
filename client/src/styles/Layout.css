@@ -913,6 +913,17 @@
     z-index: 99;
     margin-top: 0;
     width: 100%;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .dropdown__list-item.m_xLx:after {
+    display: none;
+  }
+
+  .drop_acor_m {
+    color: #fff;
   }
 
   .dropdown__list {
