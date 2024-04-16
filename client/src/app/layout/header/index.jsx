@@ -11,6 +11,7 @@ import { allSettings } from "store/SettingsStore";
 import { MasterCategory, SubCategory } from "rest/main";
 
 import { HeaderCatalogFilter } from "./HeaderCatalogFilter";
+import { Accordion } from "app/components/Accordion";
 
 export const Header = () => {
   const navRef = useRef(null);
@@ -21,7 +22,7 @@ export const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(-1);
-
+  const [dropMenu, setDropMenu] = useState(-1);
   const masterCategory = MasterCategory();
   const subCategory = SubCategory();
 
@@ -109,7 +110,7 @@ export const Header = () => {
                       }`}
                       key={i}
                     >
-                      <div className="d-flex">
+                      <div className="d-flex align-items-center">
                         <Link
                           className={`${
                             window?.location?.pathname === data?.slug
@@ -139,28 +140,82 @@ export const Header = () => {
                                 i <= 3 &&
                                 data?.menu?.map((menu, i) => {
                                   return (
-                                    <li
-                                      key={i}
-                                      className={`dropdown__list-item ${
-                                        data?.id === 5 ? "" : "m_xLx"
-                                      }`}
-                                    >
-                                      <Link
-                                        className={
-                                          window?.location?.pathname ===
-                                          menu?.slug
-                                            ? "active_color"
-                                            : ""
-                                        }
-                                        onClick={() => {
-                                          setActive(false);
-                                          setOpen(false);
-                                        }}
-                                        to={menu?.slug}
+                                    <>
+                                      <li
+                                        key={i}
+                                        className={`dropdown__list-item ${
+                                          data?.id === 5 ? "" : "m_xLx"
+                                        }`}
                                       >
-                                        {menu?.name}
-                                      </Link>
-                                    </li>
+                                        {!menu?.subMenu && (
+                                          <Link
+                                            className={
+                                              window?.location?.pathname ===
+                                              menu?.slug
+                                                ? "active_color"
+                                                : ""
+                                            }
+                                            onClick={() => {
+                                              setActive(false);
+                                              setOpen(false);
+                                            }}
+                                            to={menu?.slug}
+                                          >
+                                            {menu?.name}
+                                          </Link>
+                                        )}
+                                        {menu?.subMenu?.length >= 1 && (
+                                          <>
+                                            <div
+                                              onClick={() => {
+                                                setDropMenu(
+                                                  dropMenu === menu?.id
+                                                    ? -1
+                                                    : menu?.id
+                                                );
+                                              }}
+                                              className={`drop_acor_m accordion accordion-flush ${
+                                                menu?.id === dropMenu
+                                                  ? "menu_li_active"
+                                                  : ""
+                                              }`}
+                                            >
+                                              {menu?.name}
+                                              <span>
+                                                <ChevronDown />
+                                              </span>
+                                            </div>
+                                            <div
+                                              className={`drop_ul_main ${
+                                                menu?.id === dropMenu
+                                                  ? "drop_ul_active"
+                                                  : ""
+                                              }`}
+                                            >
+                                              {menu?.subMenu?.map((sub) => {
+                                                return (
+                                                  <Link
+                                                    className={
+                                                      menu?.id === dropMenu
+                                                        ? "text-white"
+                                                        : ""
+                                                    }
+                                                    onClick={() => {
+                                                      setActive(false);
+                                                      setOpen(false);
+                                                      setDropMenu(-1);
+                                                    }}
+                                                    to={sub?.slug}
+                                                  >
+                                                    {sub?.subMenu}
+                                                  </Link>
+                                                );
+                                              })}
+                                            </div>
+                                          </>
+                                        )}
+                                      </li>
+                                    </>
                                   );
                                 })}
 

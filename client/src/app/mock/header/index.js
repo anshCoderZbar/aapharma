@@ -45,47 +45,56 @@ export const HeaderData = [
       },
       {
         id: 2,
-        name: "Chemical Manufacturing",
+        name: "Medicinal Chemistry",
         slug: "#",
+        subMenu: [
+          {
+            id: 1,
+            subMenu: "Antibody Drug Conjugates",
+            slug: "#",
+          },
+        ],
       },
       {
         id: 3,
-        name: "Medicinal Chemistry",
+        name: "Process Research and Development",
         slug: "#",
       },
       {
         id: 4,
-        name: "Process Development",
+        name: "Storage and Inventory Management",
         slug: "#",
       },
       {
         id: 5,
-        name: "Consulting",
+        name: "Research Tools",
         slug: "#",
+        subMenu: [
+          {
+            id: 1,
+            subMenu: "Stable Isotope Compounds",
+            slug: "#",
+          },
+          {
+            id: 2,
+            subMenu: "Carbohydrates",
+            slug: "/carbohydrates",
+          },
+          {
+            id: 3,
+            subMenu: "Other",
+            slug: "#",
+          },
+        ],
       },
       {
         id: 6,
-        name: "High-Value Compounds Inventory Management",
+        name: "Project Management",
         slug: "#",
       },
       {
         id: 7,
-        name: "Stable Isotope Compounds",
-        slug: "#",
-      },
-      {
-        id: 8,
-        name: "Antibody Drug Conjugates",
-        slug: "#",
-      },
-      {
-        id: 9,
-        name: "Carbohydrates",
-        slug: "/carbohydrates",
-      },
-      {
-        id: 10,
-        name: "Custom Project Meeting Request",
+        name: "Basic Research",
         slug: "#",
       },
     ],
