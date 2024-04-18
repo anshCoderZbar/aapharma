@@ -18,7 +18,6 @@ import { ZipCode } from "app/common/services/Icons";
 import { CheckoutCartMutation, GetCartMutation } from "rest/cart";
 import { usdFormater } from "lib/utils/functions";
 import { ButtonLoader } from "app/components/Ui/ButtonLoader";
-import { Paypal } from "./Paypal";
 
 export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("checkPayment");
@@ -288,6 +287,7 @@ export default function Checkout() {
                       <span>Subtotal</span>
                     </li>
                     {getCartDetails?.data?.data?.map((elm, i) => {
+                      console.log(elm);
                       return (
                         <li key={i}>
                           <span>
@@ -296,7 +296,7 @@ export default function Checkout() {
                                 "..."
                               : elm?.chemicalDetail?.heading}
                           </span>
-                          <span>{usdFormater(elm?.subTotal)}</span>
+                          <span>{usdFormater(elm?.total)}</span>
                         </li>
                       );
                     })}

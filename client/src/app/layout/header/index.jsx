@@ -11,7 +11,6 @@ import { allSettings } from "store/SettingsStore";
 import { MasterCategory, SubCategory } from "rest/main";
 
 import { HeaderCatalogFilter } from "./HeaderCatalogFilter";
-import { Accordion } from "app/components/Accordion";
 
 export const Header = () => {
   const navRef = useRef(null);
