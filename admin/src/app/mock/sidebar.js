@@ -424,11 +424,11 @@ export const SidebarData = [
         subMenuName: "Case Study",
         slug: "partner-cards",
       },
-      {
-        id: 3,
-        subMenuName: "Fifth Card",
-        slug: "partner-fifth-card",
-      },
+      // {
+      //   id: 3,
+      //   subMenuName: "Fifth Card",
+      //   slug: "partner-fifth-card",
+      // },
       {
         id: 4,
         subMenuName: "Bottom",
