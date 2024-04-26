@@ -16,7 +16,31 @@ export const Timeline = () => {
 
   return (
     <section className="timeline">
-      <Swiper slidesPerView={9} loop={false} className="time_vv">
+      <Swiper
+        slidesPerView={1}
+        loop={false}
+        breakpoints={{
+          470: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          991: {
+            slidesPerView: 5,
+          },
+          1199: {
+            slidesPerView: 7,
+          },
+          1300: {
+            slidesPerView: 8,
+          },
+          1500: {
+            slidesPerView: 9,
+          },
+        }}
+        className="time_vv"
+      >
         {allTimelines?.data?.data?.length >= 1 &&
           allTimelines?.data?.data?.map((elm, i) => {
             const classIndex = i % 10;
@@ -56,10 +80,33 @@ export const Timeline = () => {
                   )}
                 </div>
                 {elm?.id === id && (
-                  <picture className={`comp_img comp_${classIndex}`}>
+                  <picture
+                    className={`comp_img ${
+                      classIndex % 2 === 0 ? "even_class" : "odd_class"
+                    }  comp_${classIndex}`}
+                  >
                     <img src={elm?.image ? elm?.image : elm?.image2} />
                   </picture>
                 )}
+                {/* {elm?.image && (
+                  <picture
+                    className={`comp_img comp_${
+                      classIndex % 2 === 0 ? classIndex : ""
+                    }`}
+                  >
+                    <img src={elm?.image} />
+                  </picture>
+                )} */}
+
+                {/* {elm?.image2 && (
+                  <picture
+                    className={`comp_img comp_${
+                      classIndex % 2 !== 0 ? classIndex : ""
+                    }`}
+                  >
+                    <img src={elm?.image2} />
+                  </picture>
+                )} */}
               </SwiperSlide>
             );
           })}

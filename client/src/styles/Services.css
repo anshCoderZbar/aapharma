@@ -716,7 +716,7 @@
 .case_bottom_banner {
   border-radius: 40px;
   background: rgba(93, 205, 246, 0.1);
-  padding: 262px 0 273px 0px;
+  padding: 20rem 0 20rem 0px;
   margin: 50px 0 50px 0;
   display: flex;
   justify-content: center;
@@ -823,7 +823,7 @@
   font-family: "Product Sans";
   font-size: 18px;
   font-weight: 400;
-  line-height: 28x;
+  line-height: 28px;
   max-width: 342px;
   margin-bottom: 0;
 }
@@ -958,9 +958,9 @@
   border-right-color: #e7e7e7;
   position: absolute;
   transition: 0.3s linear;
-  right: -7%;
-  top: 0%;
-  transform: rotate(148deg);
+  right: -15%;
+  top: 15%;
+  transform: rotate(162deg);
 }
 
 .case_circle_6:hover::before {
@@ -991,13 +991,14 @@
   transition: 0.3s linear;
 }
 
-.case_diagram_icons h4 {
+.case_inner_border h4 {
   color: #2e2e2e;
   font-size: 16px;
   font-weight: 700;
   margin-top: 10px;
   margin-bottom: 0;
   white-space: nowrap;
+  word-break: break-word;
 }
 
 .case_inner_border {
@@ -1020,7 +1021,7 @@
 }
 
 .icons_circle_1 {
-  top: -24%;
+  top: -27%;
   transform: translate(0%, -50%);
 }
 
@@ -1036,13 +1037,13 @@
 }
 
 .icons_circle_4 {
-  bottom: -34%;
-  right: 0%;
+  bottom: -37%;
+  right: -2%;
 }
 
 .icons_circle_5 {
-  bottom: -34%;
-  left: 0%;
+  bottom: -36%;
+  left: -2%;
 }
 
 .icons_circle_6 {
@@ -1681,16 +1682,35 @@
     margin: 45px 0 45px 0;
   }
 
-  .inner_case_circle {
-    width: 400px;
-    height: 400px;
+  .case_bottom_banner {
+    padding: 17rem 0 17rem 0px;
   }
 
-  /* .outer_diagram_case {
-    width: 650px;
-    height: 630px;
-    border-image-width: 100px;
-  } */
+  .inner_case_circle {
+    width: 380px;
+    height: 380px;
+  }
+
+  .inner_case_content h3 {
+    font-size: 40px;
+    line-height: 45px;
+    margin-bottom: 20px;
+  }
+
+  .inner_case_content p {
+    font-size: 17px;
+    line-height: 25px;
+  }
+
+  .outer_diagram_case {
+    width: 470px;
+    height: 470px;
+  }
+
+  .case_icon_inner {
+    width: 160px;
+    height: 160px;
+  }
 
   .research_btn_section button {
     padding: 13px 13px;
@@ -1943,14 +1963,37 @@
   }
 
   .inner_case_circle {
-    width: 380px;
-    height: 380px;
+    width: 360px;
+    height: 360px;
   }
 
   .outer_diagram_case {
-    width: 600px;
-    height: 580px;
-    border-image-width: 92px;
+    width: 450px;
+    height: 450px;
+  }
+
+  .inner_case_content h3 {
+    font-size: 36px;
+    line-height: 41px;
+    margin-bottom: 15px;
+  }
+
+  .inner_case_content p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .case_icon_inner {
+    width: 145px;
+    height: 145px;
+  }
+
+  .case_inner_border h4 {
+    font-size: 15px;
+  }
+
+  .case_bottom_banner {
+    padding: 16rem 0 16rem 0px;
   }
 
   .research_btn_section {
