@@ -150,6 +150,62 @@ export default function CaseStudy() {
             </div>
           </div>
         </div>
+        <div className="container-fluid">
+          <div className="inner_show_l ">
+            <div className="inner_case_low">
+              {getCaseStudyDiagram?.data?.data?.length >= 1 &&
+                getCaseStudyDiagram?.data?.data?.map((elm, i) => {
+                  return (
+                    <div key={i} className={``}>
+                      <div
+                        onClick={() => setIconActive(elm?.id)}
+                        className="case_icon_inner"
+                      >
+                        <div className="inner_mob_circ">
+                          <img src={elm?.image} alt="case_icon" />
+                          <h4>{elm?.title}</h4>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+            <div className="inner_case_circle">
+              {iconActive === -1 ? (
+                <div className="inner_case_content">
+                  <h3>
+                    {caseStudyGraphData?.data?.data?.heading &&
+                      caseStudyGraphData?.data?.data?.heading}
+                  </h3>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        caseStudyGraphData?.data?.data?.subheading &&
+                        caseStudyGraphData?.data?.data?.subheading,
+                    }}
+                  />
+                </div>
+              ) : (
+                <div className="inner_case_content">
+                  {getCaseStudyDiagram?.data?.data &&
+                    getCaseStudyDiagram?.data?.data?.map(
+                      (elm) =>
+                        elm?.id === iconActive && (
+                          <React.Fragment key={elm?.title}>
+                            <h3>{elm?.title}</h3>
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: elm?.description,
+                              }}
+                            />
+                          </React.Fragment>
+                        )
+                    )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

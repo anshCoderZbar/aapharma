@@ -44,11 +44,12 @@ export const Timeline = () => {
         {allTimelines?.data?.data?.length >= 1 &&
           allTimelines?.data?.data?.map((elm, i) => {
             const classIndex = i % 10;
+            console.log(classIndex);
             return (
               <SwiperSlide key={i}>
                 <span
                   onClick={() => setId(elm?.id)}
-                  className={`ccrical-a ccir_${classIndex}`}
+                  className={`ccrical-a  ccir_${classIndex}`}
                 ></span>
                 <div className={`shape-chat _${classIndex}`}>
                   {elm?.description2 && !elm?.description && (

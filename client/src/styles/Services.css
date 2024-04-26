@@ -991,7 +991,7 @@
   transition: 0.3s linear;
 }
 
-.case_inner_border h4 {
+.case_diagram_icons h4 {
   color: #2e2e2e;
   font-size: 16px;
   font-weight: 700;
@@ -1103,6 +1103,10 @@
 .vss_cxx_bg .paragraph-transition {
   transform: translateY(0);
   opacity: 1;
+}
+
+.inner_show_l {
+  display: none;
 }
 
 /* case-study */
@@ -1988,7 +1992,7 @@
     height: 145px;
   }
 
-  .case_inner_border h4 {
+  .case_diagram_icons h4 {
     font-size: 15px;
   }
 
@@ -2245,16 +2249,29 @@
     margin: 35px 0 35px 0;
   }
 
+  .case_bottom_banner {
+    margin: 35px 0 35px 0;
+  }
+
+  .case_bottom_banner {
+    padding: 14rem 0 14rem 0px;
+  }
+
+  .inner_case_content h3 {
+    font-size: 31px;
+    line-height: 38px;
+    margin-bottom: 12px;
+    max-width: 260px;
+  }
+
   .inner_case_circle {
-    width: 340px;
-    height: 340px;
+    width: 330px;
+    height: 330px;
   }
 
   .outer_diagram_case {
-    width: 550px;
-    height: 530px;
-    border-image-width: 88px;
-    border-image-slice: 105;
+    width: 420px;
+    height: 420px;
   }
 
   .research_btn_section button {
@@ -2461,9 +2478,28 @@
   }
 
   .outer_diagram_case {
-    width: 450px;
-    height: 420px;
-    border-image-width: 76px;
+    width: 390px;
+    height: 390px;
+  }
+
+  .case_icon_inner {
+    width: 130px;
+    height: 130px;
+  }
+
+  .case_diagram_icons h4 {
+    font-size: 14px;
+  }
+
+  .inner_case_content h3 {
+    font-size: 26px;
+    line-height: 33px;
+    margin-bottom: 10px;
+  }
+
+  .inner_case_content p {
+    font-size: 15px;
+    line-height: 23px;
   }
 
   .research_btn_section button {
@@ -2631,9 +2667,54 @@
   }
 
   .outer_diagram_case {
-    width: 400px;
-    height: 380px;
-    border-image-width: 65px;
+    width: 350px;
+    height: 350px;
+    border-image-width: 61px;
+  }
+
+  .inner_case_content p {
+    font-size: 14px;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .case_bottom_banner {
+    padding: 12rem 0 12rem 0px;
+  }
+
+  .case_icon_inner {
+    width: 100px;
+    height: 100px;
+  }
+
+  .case_icon_inner {
+    width: 110px;
+    height: 110px;
+  }
+
+  .index_number {
+    font-size: 26px;
+    left: -13px;
+    top: -6px;
+    padding: 3px 16px;
+  }
+
+  .case_diagram_icons h4 {
+    margin-top: 4px;
+    font-size: 14px;
+  }
+
+  .outer_diagram_case {
+    width: 310px;
+    height: 310px;
+    border-image-width: 61px;
+  }
+
+  .inner_case_content h3 {
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 4px;
+    max-width: 226px;
   }
 
   .card_inner_body p {
@@ -2924,6 +3005,24 @@
   .inner_case_circle {
     width: 215px;
     height: 215px;
+    margin: 20px auto 0 auto;
+  }
+
+  .inner_show_l {
+    display: block;
+    background: rgba(93, 205, 246, 0.1);
+    padding: 20px 10px 20px 10px;
+    margin: 10px 0;
+    border-radius: 20px;
+  }
+
+  .inner_case_low {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .outer_diagram_case {
@@ -3034,6 +3133,37 @@
     margin-top: 14px;
     font-size: 14px;
     line-height: 24px;
+  }
+
+  .case_bottom_banner {
+    display: none;
+  }
+
+  .case_icon_inner {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inner_mob_circ {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inner_mob_circ h4 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .case_icon_inner img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
   }
 
   .step_btns button {
