@@ -13,10 +13,12 @@ export default function Carbohydrates() {
   const getBanner = GetCarbohydrateBanner();
   const getDiagram = GetCarbohydrateDiagram();
   const [id, setId] = useState(null);
+  const [imgUrl, setImgUrl] = useState("");
 
   useEffect(() => {
     if (getDiagram?.data?.data) {
       setId(getDiagram?.data?.data[0]?.id);
+      setImgUrl(getDiagram?.data?.data[0]?.image);
     }
   }, [getDiagram?.data?.data]);
 
@@ -94,7 +96,10 @@ export default function Carbohydrates() {
               return (
                 <div key={i} className="carbo_diagram">
                   <div
-                    onClick={() => setId(elm?.id)}
+                    onClick={() => {
+                      setId(elm?.id);
+                      setImgUrl(elm?.image);
+                    }}
                     className={`carbo_digram_circle carb_circle_${i + 1}`}
                   >
                     <ComplexShape1 color={elm?.id === id && "#34caff"} />
@@ -131,6 +136,11 @@ export default function Carbohydrates() {
             })}
           </div>
         </div>
+        {imgUrl && (
+          <div className={`mob_res_image`}>
+            <img src={imgUrl} alt="chemical" className={``} />
+          </div>
+        )}
       </div>
     </div>
   );

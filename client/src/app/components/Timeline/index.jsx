@@ -22,9 +22,11 @@ export const Timeline = () => {
         breakpoints={{
           470: {
             slidesPerView: 2,
+            slidesPerGroup: 2,
           },
           768: {
             slidesPerView: 3,
+            slidesPerGroup: 3,
           },
           991: {
             slidesPerView: 5,
@@ -44,7 +46,6 @@ export const Timeline = () => {
         {allTimelines?.data?.data?.length >= 1 &&
           allTimelines?.data?.data?.map((elm, i) => {
             const classIndex = i % 10;
-            console.log(classIndex);
             return (
               <SwiperSlide key={i}>
                 <span
@@ -117,96 +118,3 @@ export const Timeline = () => {
     </section>
   );
 };
-
-// import React from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-
-// import "./timeline.css";
-
-// export const Timeline = () => {
-//   return (
-//     <section className="timeline">
-//       <Swiper slidesPerView={9} loop={false} className="time_vv">
-//         <SwiperSlide>
-//           <div className="shape-chat">
-//             <p>Discovery of Oligosaccharide as Anti- infective Agents</p>
-//             <time>1934</time>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <div className="shape-chat _1">
-//             <div className="top-div">
-//               <p>
-//                 Streptozocin Containing Glucosamine we Approvedfor the treatment
-//                 iofpancreatic Tumors
-//               </p>
-//               <time>1982</time>
-//             </div>
-//             <div className="bottom-div bn-xs">
-//               <time>1982</time>
-//               <p>
-//                 Nucleoside Analogues were Approved for the Treatment of
-//                 Anti-viral and Anti-tumors
-//               </p>
-//             </div>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <div className="shape-chat _2">
-//             <p>Discovery of Oligosaccharide as Anti- infective Agents</p>
-//             <time>1976</time>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <div className="shape-chat _3">
-//             <time>2001</time>
-//             <p>
-//               Fondaparinux was Approved for the prevention of Throm- boembolic
-//               Events
-//             </p>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <div className="shape-chat _4">
-//             <p>Nelarabine was Approved for The Treatment of Leukemia</p>
-//             <time>2005</time>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <div className="shape-chat _5">
-//             <time>2008</time>
-//             <p>
-//               Sugammadex was Approvedfor the Treatment of Nervous System
-//               Diseases
-//             </p>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <div className="shape-chat _6">
-//             <p>
-//               Dapagliflozin Was Approvedas the First SGLT2 Inhibitorfor the
-//               Treatment Of T2DM
-//             </p>
-//             <time>2012</time>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <div className="shape-chat _7">
-//             <time>2018</time>
-//             <p>
-//               Plazomicin was Approved asAminoglycoside for the Treatmentof
-//               serious bacterial infections
-//             </p>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <div className="shape-chat _8">
-//             <p>Remdesivir was Approved for treatment of COVID-19</p>
-//             <time>2012</time>
-//           </div>
-//         </SwiperSlide>
-//         <SwiperSlide></SwiperSlide>
-//       </Swiper>
-//     </section>
-//   );
-// };
