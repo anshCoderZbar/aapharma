@@ -289,8 +289,15 @@
 .text_content_service.vss_5 .abs_img {
   order: 2;
   position: relative;
-  top: 246px;
-  right: 0;
+  top: 167px;
+  right: 212px;
+}
+
+.text_content_service.vss_6 .abs_content {
+  position: relative;
+  left: auto;
+  top: -7px;
+  right: -190px;
 }
 
 .text_content_service.vss_5 .abs_content h2:nth-child(2) {
@@ -1784,6 +1791,30 @@
     font-size: 17px;
   }
 
+  .steps_diagram {
+    text-align: center;
+    position: relative;
+    width: 570px;
+    padding-top: 100px;
+    padding-bottom: 90px;
+    margin: 70px auto 0 auto;
+  }
+
+  .abs_content h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .abs_content p {
+    font-size: 17px;
+    line-height: 25px;
+  }
+
+  .btn_cntnt p {
+    font-size: 17px;
+    margin-top: 35px;
+  }
+
   .page_sec_btn {
     padding: 40px 0;
   }
@@ -1933,6 +1964,48 @@
 
   .case_study_head {
     margin-top: 120px;
+  }
+
+  .text_content_service.vss_4 {
+    left: -349px;
+    top: 192px;
+  }
+
+  .text_content_service.vss_4 .abs_content {
+    position: relative;
+    left: 84px;
+    top: -53px;
+  }
+
+  .text_content_service.vss_5 .abs_img {
+    top: 156px;
+    right: 260px;
+  }
+
+  .abs_content h2 {
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+
+  .text_content_service.vss_3 .abs_img img {
+    width: 80px;
+  }
+
+  .text_content_service.vss_3 .abs_img {
+    top: 129px;
+    right: -44px;
+  }
+
+  .text_content_service.vss_2 .abs_img img {
+    width: 80px;
+    transform: rotate(6deg);
+    position: relative;
+    top: 2px;
+    left: 3px;
+  }
+
+  .steps_diagram {
+    width: 510px;
   }
 
   .case_tabs_button {
@@ -2385,6 +2458,80 @@
   .service_bottom_section_chem {
     margin: 30px 0;
   }
+
+  .abs_content h2 {
+    font-size: 18px;
+    margin-bottom: 3px;
+  }
+
+  .steps_diagram {
+    width: 450px;
+  }
+
+  .abs_content p {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .text_content_service.vss_3 .abs_content {
+    position: relative;
+    left: 110px;
+  }
+
+  .text_content_service.vss_4 .abs_content {
+    position: relative;
+    left: 123px;
+    top: -99px;
+  }
+
+  .text_content_service.vss_2 .abs_img img {
+    width: 70px;
+    transform: rotate(12deg);
+    top: 13px;
+    left: 3px;
+  }
+
+  .text_content_service.vss_3 .abs_img img {
+    width: 60px;
+  }
+
+  .text_content_service.vss_3 .abs_img {
+    top: 121px;
+    right: -79px;
+  }
+
+  .text_content_service.vss_4 .abs_img {
+    top: 178px;
+    right: -11px;
+  }
+
+  .text_content_service.vss_5 .abs_img img {
+    width: 80px;
+  }
+
+  .abs_content {
+    width: 282px;
+  }
+
+  .text_content_service.vss_5 .abs_content h2:nth-child(2) {
+    position: absolute;
+    bottom: -35px;
+  }
+
+  .text_content_service.vss_5 {
+    top: 171px;
+    right: -385px;
+  }
+
+  .text_content_service.vss_5 .abs_img {
+    top: 138px;
+    right: 276px;
+  }
+
+  .btn_cntnt p {
+    font-size: 16px;
+    margin-top: 25px;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -2619,6 +2766,74 @@
   .scc_jn p {
     font-size: 14px;
     margin-top: 4px;
+  }
+
+  .steps_diagram {
+    width: 350px;
+  }
+
+  .abs_content h2 {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+
+  .steps_diagram {
+    margin: 40px auto 0 auto;
+  }
+
+  .abs_content p {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .text_content_service.vss_2 .abs_img img {
+    width: 53px;
+    top: 28px;
+    left: -43px;
+  }
+
+  .text_content_service.vss_3 .abs_img img {
+    width: 46px;
+  }
+
+  .text_content_service.vss_3 .abs_img {
+    top: 86px;
+    right: -163px;
+  }
+
+  .text_content_service.vss_4 .abs_img {
+    top: 103px;
+    right: -104px;
+  }
+
+  .text_content_service.vss_4 .abs_content {
+    left: 184px;
+    top: -126px;
+  }
+
+  .abs_content {
+    width: 180px;
+  }
+
+  .text_content_service.vss_5 .abs_content h2:nth-child(2) {
+    position: absolute;
+    bottom: -49px;
+    width: 128px;
+  }
+
+  .text_content_service.vss_5 {
+    top: 113px;
+    right: -295px;
+  }
+
+  .text_content_service.vss_5 .abs_img {
+    top: 156px;
+    right: 189px;
+  }
+
+  .text_content_service.vss_6 .abs_content {
+    top: 0px;
+    right: -128px;
   }
 }
 
@@ -2915,6 +3130,46 @@
 
   .gs_bb4 {
     row-gap: 15px;
+  }
+
+  .btn_cntnt p {
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .text_content_service.vss_3 .abs_content {
+    position: relative;
+    left: 193px;
+    top: -24px;
+  }
+
+  .text_content_service.vss_4 .abs_img {
+    top: 108px;
+    right: -100px;
+  }
+
+  .text_content_service.vss_4 .abs_content {
+    left: 253px;
+    top: -166px;
+  }
+
+  .text_content_service.vss_5 {
+    top: 0px;
+    right: -216px;
+  }
+
+  .text_content_service.vss_6 .abs_content {
+    right: -109px;
+  }
+
+  .text_content_service.vss_5 .abs_img {
+    top: 155px;
+    right: 119px;
+  }
+
+  .abs_content p {
+    font-size: 15px;
+    line-height: 21px;
   }
 }
 
@@ -3213,5 +3468,86 @@
 
   .service_bottom_section_chem {
     margin: 15px 0;
+  }
+
+  .btn_cntnt p {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .steps_diagram {
+    width: 250px;
+  }
+
+  .abs_content h2 {
+    font-size: 16px;
+  }
+
+  .text_content_service.vss_1 .abs_img img {
+    width: 50px;
+  }
+
+  .abs_content p {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .steps_diagram {
+    margin: 50px auto 0 auto;
+  }
+
+  .text_content_service.vss_1 {
+    right: 36px;
+    top: 21px;
+  }
+
+  .text_content_service.vss_2 .abs_img img {
+    width: 43px;
+    top: 34px;
+    left: -65px;
+  }
+
+  .text_content_service.vss_3 .abs_img img {
+    width: 36px;
+  }
+
+  .text_content_service.vss_3 .abs_img {
+    top: 60px;
+    right: -138px;
+  }
+
+  .text_content_service.vss_3 .abs_content {
+    left: 293px;
+    top: -55px;
+  }
+
+  .text_content_service.vss_4 {
+    left: -266px;
+    top: 162px;
+  }
+
+  .text_content_service.vss_4 .abs_img {
+    top: 61px;
+    right: -46px;
+  }
+
+  .text_content_service.vss_4 .abs_img img {
+    width: 50px;
+  }
+
+  .text_content_service.vss_5 {
+    top: -28px;
+    right: 0;
+  }
+
+  .text_content_service.vss_5 .abs_img {
+    top: 0;
+    right: 0;
+  }
+
+  .text_content_service.vss_6 .abs_content {
+    right: 0px;
+    top: -14px;
   }
 }
