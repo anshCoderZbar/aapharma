@@ -1662,15 +1662,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
-  padding-bottom: 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.submit_btn {
+  display: flex;
+  gap: 10px;
 }
 
 .submit_btn button {
   color: #fff;
   background: #2a3072;
   padding: 8px 26px;
-  width: 100%;
+  width: auto;
   border: none;
   border-radius: 11px;
   font-weight: 400;

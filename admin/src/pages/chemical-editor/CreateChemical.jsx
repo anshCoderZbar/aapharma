@@ -38,6 +38,7 @@ export default function CreateChemical() {
     : [];
 
   const [currentMolecule, setCurrentMolecule] = useState("");
+  const [currentSmilie, setCurrentSmilie] = useState("");
   const [img, setImg] = useState("");
   const [base64Img, setBase64Img] = useState();
 
@@ -74,6 +75,8 @@ export default function CreateChemical() {
       "chemicalImage",
       fileTabs?.file ? data?.chemicalImage[0] : ""
     );
+
+    formData.append("smiles", fileTabs?.chemical ? currentSmilie : "");
 
     formData.append(
       "chemicalMolecule",
@@ -172,8 +175,10 @@ export default function CreateChemical() {
           <EditorComponent
             setCurrentMolecule={setCurrentMolecule}
             setImg={setImg}
+            setCurrentSmilie={setCurrentSmilie}
           />
         )}
+
         <ChemicalForm
           onSubmit={handleSubmit(onSubmit)}
           register={register}

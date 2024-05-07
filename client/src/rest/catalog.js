@@ -69,6 +69,19 @@ export const FilterChemical = () => {
   return filterChemicalMutation;
 };
 
+export const ChemicalsFilterExact = () => {
+  const [_, setFilteredData] = useAtom(filteredCatalogs);
+  const navigate = useNavigate();
+  const exactChemical = useMutation({
+    mutationFn: (data) => client.chemical.chemicalsFilterExact(data),
+    onSuccess: (data) => {
+      setFilteredData(data);
+      navigate("/catalog");
+    },
+  });
+  return exactChemical;
+};
+
 export const GetUtility = (id) => {
   const utility = useQuery({
     queryKey: ["utility"],

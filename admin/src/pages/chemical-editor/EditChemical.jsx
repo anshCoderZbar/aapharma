@@ -34,6 +34,7 @@ export default function EditChemical() {
     : [];
 
   const [currentMolecule, setCurrentMolecule] = useState("");
+  const [currentSmilie, setCurrentSmilie] = useState("");
   const [img, setImg] = useState("");
   const [base64Img, setBase64Img] = useState();
   const [inputs, setInputs] = useState([]);
@@ -70,7 +71,6 @@ export default function EditChemical() {
 
   useEffect(() => {
     const defaultValues = {};
-
     defaultValues.sortNo = fetchSingleChemical?.data?.data?.sortNo;
     defaultValues.heading = fetchSingleChemical?.data?.data?.heading;
     defaultValues.description = fetchSingleChemical?.data?.data?.description;
@@ -156,6 +156,7 @@ export default function EditChemical() {
     // formData.append("molecule", currentMolecule);
     formData.append("image", fileTabs?.chemical ? base64Img : "");
     formData.append("molecule", fileTabs?.chemical ? currentMolecule : "");
+    formData.append("smiles", fileTabs?.chemical ? currentSmilie : "");
     formData.append(
       "chemicalImage",
       fileTabs?.file ? data?.chemicalImage[0] : undefined
@@ -274,6 +275,12 @@ export default function EditChemical() {
                   ? fetchSingleChemical?.data?.data?.molecule
                   : ""
               }
+              initialSmilie={
+                fetchSingleChemical?.data?.data?.smiles?.length >= 1
+                  ? fetchSingleChemical?.data?.data?.smiles
+                  : ""
+              }
+              setCurrentSmilie={setCurrentSmilie}
             />
           )}
           <ChemicalForm

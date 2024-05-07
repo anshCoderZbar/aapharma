@@ -6,7 +6,7 @@ import { Editor } from "ketcher-react";
 // import "styles/Catalog.css";
 import "styles/Ketcher.css";
 import "styles/Catalog.css";
-import { FilterChemical } from "rest/catalog";
+import { ChemicalsFilterExact, FilterChemical } from "rest/catalog";
 import { ButtonLoader } from "app/components/Ui/ButtonLoader";
 window.Miew = Miew;
 
@@ -14,6 +14,7 @@ const structServiceProvider = new StandaloneStructServiceProvider();
 
 export const ChemicalEditor = () => {
   const filterChemical = FilterChemical();
+  const exactMatchChemical = ChemicalsFilterExact();
   const ketcherRef = useRef(null);
   const [currentMolecule, setCurrentMolecule] = useState("");
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,7 @@ export const ChemicalEditor = () => {
 
   useEffect(() => {
     setInterval(async () => {
-      const updatedMolecule = await ketcherRef.current.getMolfile();
+      const updatedMolecule = await ketcherRef.current.getSmiles();
       setCurrentMolecule(updatedMolecule);
     }, 1000);
   }, [setCurrentMolecule]);
@@ -45,9 +46,16 @@ export const ChemicalEditor = () => {
     filterChemical.mutate();
   };
 
+  const handleExactMolecule = () => {
+    const formData = new FormData();
+    sessionStorage.setItem("search", currentMolecule);
+    formData.append("search", sessionStorage.getItem("search"));
+    exactMatchChemical.mutate(formData);
+  };
+
   return (
     <>
-      <div className={` chem_load ${loading ? "d-flex" : "d-none"}`}>
+      <div className={`chem_load ${loading ? "d-flex" : "d-none"}`}>
         <div className="i-loader-inf-horizontal-container">
           <div className="i-loader-inf-horizontal"></div>
           {/* <div className="pt-8px">
@@ -59,13 +67,18 @@ export const ChemicalEditor = () => {
         <div className="container-fluid">
           <div className="chem_editor_heading">
             <h2>Draw Structure</h2>
-            {filterChemical?.isPending ? (
-              <ButtonLoader />
-            ) : (
-              <div className="submit_btn">
-                <button onClick={handleSearchMolecule}>Search</button>
-              </div>
-            )}
+            <div className="submit_btn d-flex gap-1">
+              {filterChemical?.isPending ? (
+                <ButtonLoader />
+              ) : (
+                <button onClick={handleSearchMolecule}>Similar Result</button>
+              )}
+              {exactMatchChemical?.isPending ? (
+                <ButtonLoader />
+              ) : (
+                <button onClick={handleExactMolecule}>Exact Result</button>
+              )}
+            </div>
           </div>
           <div className="chemicl_he">
             <Editor

@@ -15,6 +15,8 @@ class Client {
       HttpClient.post(API_ENDPOINTS.chemicalsFilter, { ...params }),
     getUtility: (id) =>
       HttpClient.post(API_ENDPOINTS.getUtility, { chemicalId: id }),
+    chemicalsFilterExact: (params) =>
+      HttpClient.post(API_ENDPOINTS.chemicalsFilterExact, params),
   };
   home = {
     getBanner: () => HttpClient.get(API_ENDPOINTS.getBanner),

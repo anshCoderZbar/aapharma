@@ -12,6 +12,8 @@ export const EditorComponent = ({
   setCurrentMolecule,
   setImg,
   initialMolecule,
+  initialSmilie,
+  setCurrentSmilie,
 }) => {
   const ketcherRef = useRef(null);
   const [loading, setLoading] = useState(true);
@@ -37,8 +39,12 @@ export const EditorComponent = ({
   useEffect(() => {
     setInterval(async () => {
       const updatedMolecule = await ketcherRef.current.getMolfile();
+      const updatedSmiles = await ketcherRef.current.getSmiles();
       setCurrentMolecule(
         updatedMolecule.length >= 1 ? updatedMolecule : initialMolecule
+      );
+      setCurrentSmilie(
+        updatedSmiles.length >= 1 ? updatedSmiles : initialSmilie
       );
 
       if (updatedMolecule) {
@@ -46,7 +52,7 @@ export const EditorComponent = ({
         setImg(promise);
       }
     }, 1000);
-  }, [setCurrentMolecule, setImg]);
+  }, [setCurrentMolecule, setCurrentSmilie, setImg]);
 
   return (
     <>
