@@ -54,10 +54,6 @@ export default function CustomChemicalSynthesis() {
       id ? id : getChemicalSynthesisMutation?.data?.data[0]?.id
     );
     getSingleChemicalSynthesis?.mutate(formData);
-    if (myRef.current) {
-      const element = myRef.current;
-      element.scrollIntoView({ behavior: "smooth" });
-    }
   };
 
   return (

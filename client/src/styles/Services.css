@@ -302,7 +302,7 @@
 
 .text_content_service.vss_5 .abs_content h2:nth-child(2) {
   position: absolute;
-  bottom: 0;
+  bottom: -18px;
 }
 
 .abs_content p {
@@ -321,7 +321,7 @@
 .abs_content h2 {
   color: #000;
   font-family: "Product Sans";
-  font-size: 24px;
+  font-size: 23px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -349,6 +349,7 @@
 
 .head_left {
   flex: 0 50%;
+  margin-left: 8rem;
 }
 
 .dia_left {
@@ -365,7 +366,7 @@
   top: 0;
   bottom: 0;
   background-color: #2a3072;
-  width: 32%;
+  width: 35%;
   height: 112%;
 }
 
@@ -380,6 +381,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-left: 8rem;
 }
 
 .desc_btns {
@@ -390,6 +392,7 @@
 .buttons_arr_des {
   display: flex;
   flex-wrap: wrap;
+  gap: 3rem;
 }
 
 .buttons_arr_des button {
@@ -406,7 +409,7 @@
   position: relative;
   border: none;
   outline: none;
-  width: 80%;
+  width: 92%;
 }
 
 .buttons_arr_des button::before {
@@ -421,7 +424,7 @@
 
 .desc_bt {
   background-color: #34caff;
-  flex: 0 1 84%;
+  flex: 0 1 62%;
   position: relative;
   display: flex;
   align-items: center;
@@ -481,6 +484,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .chem_images img {
@@ -514,18 +518,23 @@
   border: 1px solid #d8d8d8;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   height: 100%;
-  padding: 30px 0px;
+  padding: 30px 30px 30px 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
+  position: relative;
+}
+
+.scc_jn {
+  position: absolute;
+  bottom: 19px;
 }
 
 .image_des img {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 60px auto;
 }
-
 .dds_cc {
   row-gap: 20px;
 }
@@ -678,6 +687,16 @@
   animation: open-desc 0.4s linear forwards;
 }
 
+.tab_flex_row .case_tab_img {
+  display: flex;
+  justify-content: end;
+}
+
+.tab_rev_row .case_tab_img {
+  display: flex;
+  justify-content: start;
+}
+
 .case_tab_img img {
   width: 100%;
   max-width: 400px;
@@ -687,6 +706,10 @@
 .tab_flex_row {
   align-items: center;
   padding: 0 80px;
+}
+
+.tab_rev_row {
+  flex-direction: row-reverse;
 }
 
 .case_tab_content h5 {
@@ -1551,7 +1574,7 @@
 }
 
 .carbo_img_1 {
-  top: -13rem;
+  top: -11rem;
 }
 
 .carbo_img_2 {
@@ -1591,6 +1614,47 @@
 
   100% {
     opacity: 100%;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .dia_left:before {
+    width: 37%;
+  }
+  /* 
+  .desc_bt {
+    flex: 0 1 76%;
+  } */
+
+  /* .Disulfied-s {
+    flex: 0 1 24%;
+  } */
+
+  .buttons_arr_des button {
+    font-size: 22px;
+  }
+
+  .desc_bt p {
+    font-size: 20px;
+  }
+
+  .dia_left h3,
+  .head_right h3 {
+    font-size: 26px;
+  }
+
+  .bottom_sem_content p {
+    padding-top: 30px;
+    font-size: 20px;
+  }
+
+  .service_btn_content p {
+    font-size: 20px;
+  }
+
+  .scc_jn p {
+    margin-bottom: 0;
+    font-size: 17px;
   }
 }
 
@@ -1840,6 +1904,14 @@
     font-size: 18px;
   }
 
+  .left_buttons {
+    margin-left: 6rem;
+  }
+
+  .head_left {
+    margin-left: 6rem;
+  }
+
   .page_sec_head {
     font-size: 26px;
     line-height: 32px;
@@ -1863,6 +1935,14 @@
   .buttons_arr_des button {
     font-size: 18px;
     padding: 18px 14px;
+  }
+
+  .buttons_arr_des button::before {
+    right: -32%;
+  }
+
+  .desc_bt {
+    flex: 0 1 70%;
   }
 
   .bottom_ser_chem {
@@ -2175,6 +2255,14 @@
     margin-bottom: 20px;
   }
 
+  .head_left {
+    margin-left: 5rem;
+  }
+
+  .left_buttons {
+    margin-left: 5rem;
+  }
+
   .dia_left h3,
   .head_right h3 {
     font-size: 20px;
@@ -2442,15 +2530,27 @@
     padding: 13px 15px;
   }
 
+  .dia_left:before {
+    width: 43%;
+    height: 112%;
+  }
+
+  .head_left {
+    margin-left: 3rem;
+  }
+
+  .left_buttons {
+    margin-left: 3rem;
+  }
+
   .dia_left h3,
   .head_right h3 {
     font-size: 18px;
   }
 
   .desc_bt {
-    flex: 0 1 78%;
+    flex: 0 1 65%;
   }
-
   .Disulfied-s {
     flex: 0 1 22%;
   }
@@ -2741,9 +2841,24 @@
   .step_btns button {
     font-size: 15px;
   }
+  .head_left {
+    margin-left: 1rem;
+  }
+  .left_buttons {
+    margin-left: 1rem;
+  }
+
+  .buttons_arr_des {
+    gap: 2rem;
+  }
+
+  .buttons_arr_des button::before {
+    font-size: 49px;
+    right: -28%;
+  }
 
   .desc_bt {
-    flex: 0 1 72%;
+    flex: 0 1 67%;
   }
 
   .Disulfied-s {
@@ -3069,6 +3184,15 @@
   .page_sec_head {
     font-size: 18px;
     margin-bottom: 11px;
+  }
+
+  .head_left,
+  .left_buttons {
+    margin-left: 0rem;
+  }
+
+  .buttons_arr_des {
+    gap: 0rem;
   }
 
   .Disulfied-s {
@@ -3549,5 +3673,14 @@
   .text_content_service.vss_6 .abs_content {
     right: 0px;
     top: -14px;
+  }
+
+  .scc_jn {
+    position: relative;
+    bottom: 1px;
+  }
+
+  .image_des img {
+    margin: 0 auto 23px auto;
   }
 }

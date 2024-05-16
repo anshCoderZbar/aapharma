@@ -16,6 +16,7 @@ export default function CaseStudy() {
 
   const [caseTabsId, setCaseTabsId] = useState("");
   const [iconActive, setIconActive] = useState(-1);
+  const [isEven, setIsEven] = useState(false);
 
   useEffect(() => {
     if (allCaseTabs?.data?.data) {
@@ -37,22 +38,30 @@ export default function CaseStudy() {
           <h1 className="main_top_heading text-center">Case Study</h1>
         </div>
         <div className="case_tabs_button">
-          {allCaseTabs?.data?.data?.map((elm) => {
+          {allCaseTabs?.data?.data?.map((elm, i) => {
             return (
               <button
                 key={elm?.id}
                 className={`${elm?.id === caseTabsId ? "case_btn_active" : ""}`}
-                onClick={() => handleClick(elm?.id)}
+                onClick={() => {
+                  handleClick(elm?.id);
+                  (i + 1) % 2 === 0 ? setIsEven(true) : setIsEven(false);
+                }}
               >
                 {elm.title}
               </button>
             );
           })}
         </div>
+
         <div className="tabs_content_case">
           {getSingleCaseStudyTabs?.isPending ||
           allCaseTabs?.isPending ? null : (
-            <div className="row tab_flex_row">
+            <div
+              className={`row tab_flex_row ${
+                isEven === true ? "tab_rev_row" : ""
+              }`}
+            >
               <div className="col-md-4">
                 <div className="case_tab_img">
                   <img

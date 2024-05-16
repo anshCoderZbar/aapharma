@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "./timeline.css";
+import "swiper/css/scrollbar";
 import { AllCarbohydrateTimeline } from "rest/service";
+import { Scrollbar } from "swiper/modules";
 
 export const Timeline = () => {
   const allTimelines = AllCarbohydrateTimeline();
@@ -18,7 +20,9 @@ export const Timeline = () => {
     <section className="timeline">
       <Swiper
         slidesPerView={1}
+        scrollbar
         loop={false}
+        modules={[Scrollbar]}
         breakpoints={{
           470: {
             slidesPerView: 2,
@@ -50,8 +54,12 @@ export const Timeline = () => {
               <SwiperSlide key={i}>
                 <span
                   onClick={() => setId(elm?.id)}
-                  className={`ccrical-a  ccir_${classIndex}`}
-                ></span>
+                  className={`ccrical-a  ccir_${classIndex} ${
+                    id === elm?.id ? "timeBtnActive" : ""
+                  }`}
+                >
+                  <time>{elm?.year}</time>
+                </span>
                 <div className={`shape-chat _${classIndex}`}>
                   {elm?.description2 && !elm?.description && (
                     <time>{elm?.year}</time>
