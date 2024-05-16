@@ -276,6 +276,11 @@ class Client {
       HttpClient.get(API_ENDPOINTS.researchDevelopmentSort),
     createResearchDevelopmentSort: (params) =>
       HttpClient.post(API_ENDPOINTS.researchDevelopmentSort, params),
+    getAllResearchTabs: () => HttpClient.get(API_ENDPOINTS.getResearchTab),
+    getSingleResearchTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleResearchTab, params),
+    editResearchTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.editResearchTab, params),
   };
   chemistryExpertise = {
     getChemistryExpertiseBanner: () =>

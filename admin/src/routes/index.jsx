@@ -79,6 +79,7 @@ import EmploymenetResponsibilities from "pages/employment/EmploymenetResponsibil
 import ResearchBannerPage from "pages/research-and-development/ResearchBanner";
 import ResearchSort from "pages/research-and-development/ResearchSort";
 import ResearchModification from "pages/research-and-development/ResearchModification";
+import ResearchModificationForm from "pages/research-and-development/ResearchModificationForm";
 import ResourcesOverview from "pages/resources/ResourcesOverview";
 import ResourcesUsefulGuides from "pages/resources/ResourcesUsefulGuides";
 import ResourcesTabs from "pages/resources/ResourcesTabs";
@@ -675,6 +676,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ResearchModification />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-modification-form/:id",
+      element: (
+        <PrivateRoutes>
+          <ResearchModificationForm />
         </PrivateRoutes>
       ),
     },

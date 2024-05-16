@@ -28,6 +28,8 @@ export default function EditPartnerCard() {
   const editCard = EditPartnerCartMutation();
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
+  const [previewThumbnail, setPreviewThumbnail] = useState("");
+  const [defaultThumbnail, setDefaultThumbnail] = useState("");
   const [list, setList] = useState([{ list: "" }]);
 
   const handleChange = (e) => {
@@ -35,6 +37,14 @@ export default function EditPartnerCard() {
     if (files) {
       const imageUrl = URL.createObjectURL(files);
       setPreviewImages(imageUrl);
+    }
+  };
+
+  const handleThumbnail = (e) => {
+    const files = e.target.files[0];
+    if (files) {
+      const imageUrl = URL.createObjectURL(files);
+      setPreviewThumbnail(imageUrl);
     }
   };
 
@@ -51,6 +61,7 @@ export default function EditPartnerCard() {
       defaultValues[`list_${i + 1}`] = elm.list;
     });
     setDefaultImg(getSinglePartner?.data?.data?.image);
+    setDefaultThumbnail(getSinglePartner?.data?.data?.thumbnail);
     reset(defaultValues);
   }, [getSinglePartner?.data?.data]);
 
@@ -69,6 +80,7 @@ export default function EditPartnerCard() {
     formData.append("id", id);
     formData.append("heading", data?.heading);
     formData.append("image", data?.image[0]);
+    formData.append("thumbnail", data?.thumbnail[0]);
     list.forEach((_, index) => {
       const listKey = `list_${index + 1}`;
       formData.append("list[]", data[listKey]);
@@ -133,6 +145,39 @@ export default function EditPartnerCard() {
                 />
               )}
             </div>
+
+            <div className="mb-3 col-md-6">
+              <label htmlFor="thumbnail" className="form-label">
+                Thumbnail (780px * 443px)
+              </label>
+              <FormInput
+                type="file"
+                name="thumbnail"
+                placeholder="thumbnail"
+                {...register("thumbnail", {
+                  required: !previewThumbnail && !defaultThumbnail,
+                  onChange: (e) => handleThumbnail(e),
+                })}
+              />
+              {errors?.image && (
+                <p className="errorMessage">Field is required</p>
+              )}
+              {previewThumbnail && (
+                <img
+                  src={previewThumbnail}
+                  alt="image Preview"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
+                />
+              )}
+              {!previewThumbnail && defaultThumbnail && (
+                <img
+                  src={defaultThumbnail}
+                  alt="image Preview"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
+                />
+              )}
+            </div>
+
             <div className="mb-3 col-md-6">
               <label htmlFor="list" className="form-label">
                 List

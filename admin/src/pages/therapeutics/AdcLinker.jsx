@@ -19,10 +19,11 @@ export default function AdcLinker() {
     control,
   } = useForm();
 
-  const [images, setImages] = useState({ image1: "", image2: "" });
+  const [images, setImages] = useState({ image1: "", image2: "", image3: "" });
   const [filePreviews, setFilePreviews] = useState({
     image1Preview: "",
     image2Preview: "",
+    image3Preview: "",
   });
 
   const getAdc = GetAdcLinker();
@@ -44,7 +45,8 @@ export default function AdcLinker() {
     defaultValues.bottomDescripton = getAdc?.data?.data?.bottomDescription;
     setImages({
       image1: getAdc?.data?.data?.imageLeft,
-      image2: getAdc?.data?.data?.imageRight,
+      image2: getAdc?.data?.data?.imageLeftTwo,
+      image3: getAdc?.data?.data?.imageRight,
     });
     reset(defaultValues);
   }, [getAdc?.data?.data]);
@@ -75,7 +77,8 @@ export default function AdcLinker() {
     formData.append("button4Description", data?.fourthDescripton);
     formData.append("bottomDescription", data?.bottomDescripton);
     formData.append("imageLeft", data?.image1[0]);
-    formData.append("imageRight", data?.image2[0]);
+    formData.append("imageLeftTwo", data?.image2[0]);
+    formData.append("imageRight", data?.image3[0]);
     editAdc.mutate(formData);
   };
 
@@ -276,7 +279,7 @@ export default function AdcLinker() {
                   })}
                 />
                 {errors?.image1 && (
-                  <p className="errorMessage">Icon is required</p>
+                  <p className="errorMessage">Image is required</p>
                 )}
                 <div className="icon__preview">
                   {filePreviews?.image1Preview && (
@@ -298,7 +301,7 @@ export default function AdcLinker() {
             </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="image2" className="form-label">
-                Image 2 (840px * 310px)
+                Image 2 (410px * 100px)
               </label>
               <div className="main_icons">
                 <FormInput
@@ -311,7 +314,7 @@ export default function AdcLinker() {
                   })}
                 />
                 {errors?.image2 && (
-                  <p className="errorMessage">Icon is required</p>
+                  <p className="errorMessage">Image is required</p>
                 )}
                 <div className="icon__preview">
                   {filePreviews?.image2Preview && (
@@ -331,7 +334,41 @@ export default function AdcLinker() {
                 </div>
               </div>
             </div>
-
+            <div className="mb-3 col-md-6">
+              <label htmlFor="image3" className="form-label">
+                Image 3 (840px * 310px)
+              </label>
+              <div className="main_icons">
+                <FormInput
+                  type="file"
+                  name="image3"
+                  placeholder="image3"
+                  {...register("image3", {
+                    required: !filePreviews?.image3Preview && !images?.image3,
+                    onChange: (e) => handleFileChange(e, "image3"),
+                  })}
+                />
+                {errors?.image3 && (
+                  <p className="errorMessage">Image is required</p>
+                )}
+                <div className="icon__preview">
+                  {filePreviews?.image3Preview && (
+                    <img
+                      src={filePreviews.image3Preview}
+                      alt="Featured Image Preview"
+                      style={{ maxWidth: "300px" }}
+                    />
+                  )}
+                  {!filePreviews.image3Preview && images?.image3 && (
+                    <img
+                      src={images?.image3}
+                      alt="Featured Image Preview"
+                      style={{ maxWidth: "300px" }}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
             {editAdc?.isPending ? (
               <div>
                 <ButtonLoader />

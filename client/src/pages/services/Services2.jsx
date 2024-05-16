@@ -223,11 +223,18 @@ export default function Services2() {
           <div className="bottom_ser_chem">
             <div className="row gs_bb4">
               <div className="col-md-4">
-                <div className="chem_images">
+                <div className="chem_images flex-column justify-content-center">
                   <img
                     src={
                       getAdc?.data?.data?.imageLeft &&
                       getAdc?.data?.data?.imageLeft
+                    }
+                    alt="chemical"
+                  />
+                  <img
+                    src={
+                      getAdc?.data?.data?.imageLeftTwo &&
+                      getAdc?.data?.data?.imageLeftTwo
                     }
                     alt="chemical"
                   />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Banner } from "app/components/Ui/Banner";
 
@@ -6,11 +6,23 @@ import "styles/Services.css";
 import {
   GetResearchDevelopmentBanner,
   GetResearchDevelopmentSort,
+  GetResearchDevelopmentTabs,
 } from "rest/service";
 
 export default function ResearchAndDevelopement() {
+  const [researchTabs, setResearchTabs] = useState({});
+  const [tabActive, setTabActive] = useState(-1);
   const getBanner = GetResearchDevelopmentBanner();
   const getSort = GetResearchDevelopmentSort();
+  const getResearchTabs = GetResearchDevelopmentTabs();
+
+  useEffect(() => {
+    if (getResearchTabs?.data?.data) {
+      setResearchTabs(getResearchTabs?.data?.data[0]);
+      setTabActive(getResearchTabs?.data?.data[0]?.id);
+    }
+  }, [getResearchTabs?.data?.data]);
+
   return (
     <div className="research_and_development_page">
       <Banner
@@ -86,13 +98,23 @@ export default function ResearchAndDevelopement() {
         <div className="research_tabs">
           <h2 className="main_top_heading">Possible modification include:</h2>
           <div className="research_btn_section research_tabs_btn">
-            <button>Introduction of hydrolysable moieties</button>
-            <button>Wide selective of R groups on the nitrogen</button>
-            <button>Large variety of linkers</button>
-            <button>Deuteration at any position</button>
+            {getResearchTabs?.data?.data?.map((tabs) => {
+              return (
+                <button
+                  key={tabs?.id}
+                  className={tabs?.id === tabActive ? "tab_btn_active" : ""}
+                  onClick={() => {
+                    setResearchTabs(tabs);
+                    setTabActive(tabs?.id);
+                  }}
+                >
+                  {tabs?.heading}
+                </button>
+              );
+            })}
           </div>
           <div className="tabs_imgs">
-            <img src={require("assets/research_tab_1.png")} alt="tabs" />
+            <img src={researchTabs?.image} alt="tabs" />
           </div>
           <div className="bottom_res">
             <p>

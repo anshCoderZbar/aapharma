@@ -126,3 +126,11 @@ export const GetResearchDevelopmentSort = () => {
   });
   return getSort;
 };
+
+export const GetResearchDevelopmentTabs = () => {
+  const getTabs = useQuery({
+    queryKey: ["get-research-development-tabs"],
+    queryFn: () => client.services.getAllResearchTabs(),
+  });
+  return getTabs;
+};

@@ -70,7 +70,10 @@ export default function Partners() {
                           {elm?.heading && elm?.heading}
                         </h3>
                         <div className="partner_top_img">
-                          <img src={elm?.image && elm?.image} alt="partners" />
+                          <img
+                            src={elm?.thumbnail && elm?.thumbnail}
+                            alt="partners"
+                          />
                         </div>
                       </div>
                     );
