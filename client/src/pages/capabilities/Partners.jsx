@@ -52,32 +52,34 @@ export default function Partners() {
         <div className="container-fluid">
           <div className="partners_btm_section">
             <div ref={cardRed} className="partner_col_grid ff-fill ">
-              <div className="gle_ky">
-                {getAllCards?.data?.data?.length >= 1 &&
-                  getAllCards?.data?.data?.map((elm) => {
-                    return (
-                      <div
-                        onClick={() => {
-                          setIsShow(elm?.id);
-                          setPartnerData(elm);
-                        }}
-                        key={elm?.id}
-                        className={`partners_card  ${
-                          isShow === elm?.id ? "partner_card_active" : ""
-                        }`}
-                      >
-                        <h3 className="partner_card_vht">
-                          {elm?.heading && elm?.heading}
-                        </h3>
-                        <div className="partner_top_img">
-                          <img
-                            src={elm?.thumbnail && elm?.thumbnail}
-                            alt="partners"
-                          />
+              <div className="heunszx">
+                <div className="gle_ky">
+                  {getAllCards?.data?.data?.length >= 1 &&
+                    getAllCards?.data?.data?.map((elm) => {
+                      return (
+                        <div
+                          onClick={() => {
+                            setIsShow(elm?.id);
+                            setPartnerData(elm);
+                          }}
+                          key={elm?.id}
+                          className={`partners_card  ${
+                            isShow === elm?.id ? "partner_card_active" : ""
+                          }`}
+                        >
+                          <h3 className="partner_card_vht">
+                            {elm?.heading && elm?.heading}
+                          </h3>
+                          <div className="partner_top_img">
+                            <img
+                              src={elm?.thumbnail && elm?.thumbnail}
+                              alt="partners"
+                            />
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                </div>
               </div>
               <div className="partner_bottom_card">
                 <div className="partner_card_inner">

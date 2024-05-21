@@ -343,6 +343,32 @@
 .partners_btm_section {
   margin: 60px 0;
 }
+.heunszx {
+  height: 71vh;
+  background-color: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, 0.2);
+}
+.heunszx::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 15px;
+}
+
+/* Track */
+.heunszx::-webkit-scrollbar-track {
+  background: #2a307258;
+}
+
+/* Handle */
+.heunszx::-webkit-scrollbar-thumb {
+  background: #2a3072;
+}
+
+/* Handle on hover */
+.heunszx::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 .partners_card {
   border: 1px solid #f7f7f7;
