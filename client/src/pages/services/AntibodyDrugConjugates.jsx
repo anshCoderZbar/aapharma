@@ -12,7 +12,7 @@ import {
   GetTherapeuticsSupport,
 } from "rest/service";
 
-export default function Services2() {
+export default function AntibodyDrugConjugates() {
   const [stepId, setStepId] = useState();
   const getBanner = GetTherapeuticsBanner();
   const getSupportData = GetTherapeuticsSupport();

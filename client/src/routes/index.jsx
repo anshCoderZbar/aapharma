@@ -26,13 +26,14 @@ import LabEquipment from "pages/capabilities/LabEquipment";
 import AnalyticalInstrumentation from "pages/capabilities/AnalyticalInstrumentation";
 import Partners from "pages/capabilities/Partners";
 import Accreditations from "pages/capabilities/Accreditations";
-import Services2 from "pages/services/Services2";
+import AntibodyDrugConjugates from "pages/services/AntibodyDrugConjugates";
 import { ChemicalEditor } from "pages/catalog/ChemicalEditor";
 import WhitepaperDetail from "pages/resources/WhitepaperDetail";
 import Cart from "pages/cart/Cart";
 import Checkout from "pages/cart/Checkout";
 import Conference from "pages/resources/Conference";
 import PaypalPayment from "pages/cart/Paypal";
+import ProcessResearchandDevelopment from "pages/services/ProcessResearchandDevelopment";
 
 export const AllRoutes = () => {
   return (
@@ -144,6 +145,14 @@ export const AllRoutes = () => {
             }
           />
           <Route
+            path="/process-research-and-development"
+            element={
+              <PublicRoutes>
+                <ProcessResearchandDevelopment />
+              </PublicRoutes>
+            }
+          />
+          <Route
             path="/carbohydrates"
             element={
               <PublicRoutes>
@@ -160,10 +169,10 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/services-2"
+            path="/antibody-drug-conjugates"
             element={
               <PublicRoutes>
-                <Services2 />
+                <AntibodyDrugConjugates />
               </PublicRoutes>
             }
           />
