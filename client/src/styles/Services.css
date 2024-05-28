@@ -1312,34 +1312,30 @@
 /* carbohydrates */
 
 /* sevices-1 */
-.table {
-  border-collapse: separate;
-}
 
 .service_desc h3 {
   display: block;
   color: #000;
-  text-align: center;
   font-family: "Product Sans";
   font-size: 40px;
   font-weight: 700;
-  max-width: 1130px;
-  margin: 50px auto 30px auto;
+  margin: 50px 0;
 }
 
 .service_desc p {
-  max-width: 1416px;
   display: block;
   color: #2e2e2e;
-  text-align: center;
   font-family: "Product Sans";
   font-size: 18px;
-  font-weight: 400;
-  margin: auto;
+  font-weight: 600;
+  margin: 50px 0;
 }
 
-.service_top_sec {
-  background-color: #f7f7f7;
+.isotope_banner h1 {
+  text-align: center;
+  max-width: 100%;
+  margin-bottom: 0;
+  font-size: 46px;
 }
 
 .service_table {
@@ -1348,8 +1344,20 @@
   text-align: center;
   color: #fff !important;
   height: 100%;
-  border-radius: 8px;
-  border-spacing: 10px;
+}
+
+.table_outer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  --bs-table-striped-color: none;
+  --bs-table-striped-bg: none;
+  max-width: 1200px;
+  margin: auto;
+  vertical-align: top;
+  border-color: transparent;
 }
 
 .service_table:first-child {
@@ -1400,6 +1408,7 @@
   background-color: #2a3072;
   padding: 40px 40px;
   border-radius: 20px;
+  height: 100%;
 }
 
 .service_list_card_body h3 {
@@ -1417,6 +1426,9 @@
   font-family: "Product Sans";
   font-size: 18px;
   font-weight: 400;
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
 }
 
 .service_list_card_body ul li::before {
@@ -1426,6 +1438,47 @@
   display: inline-block;
   min-width: 25px;
   font-size: 26px;
+}
+
+.service_bottom_details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5rem;
+}
+
+.serv_bhys {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service_bottom_desc p {
+  font-size: 20px;
+  color: #2e2e2e;
+  font-weight: 400;
+  line-height: 50px;
+}
+
+.service_bottom_featured_img {
+  text-align: center;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 40px;
+  border-radius: 16px;
+}
+
+.service_desc_button {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.service_desc_button button {
+  background-color: #2a3072;
+  color: #fff;
+  padding: 20px 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 /* carbohydrates-diagram */
@@ -1960,18 +2013,36 @@
 
   .service_desc h3 {
     font-size: 36px;
-    margin: 45px auto 25px auto;
+    margin: 40px auto 40px auto;
+  }
+
+  .isotope_banner h1 {
+    font-size: 42px;
   }
 
   .service_desc p {
-    max-width: 1370px;
     font-size: 17px;
+    margin: 40px 0;
+  }
+
+  .table {
+    max-width: 1000px;
   }
 
   .table_desc {
     font-size: 22px;
     margin-top: 35px;
     padding-bottom: 35px;
+  }
+
+  .service_bottom_desc p {
+    font-size: 19px;
+    line-height: 44px;
+  }
+
+  .service_desc_button button {
+    padding: 18px 15px;
+    font-size: 19px;
   }
 
   .sevice_detail {
@@ -2373,12 +2444,30 @@
 
   .service_desc h3 {
     font-size: 32px;
-    margin: 40px auto 20px auto;
+    margin: 35px auto 35px auto;
+  }
+
+  .table {
+    max-width: 800px;
+  }
+
+  .isotope_banner h1 {
+    font-size: 36px;
+  }
+
+  .service_bottom_desc p {
+    font-size: 18px;
+    line-height: 36px;
+  }
+
+  .service_desc_button button {
+    padding: 17px 15px;
+    font-size: 18px;
   }
 
   .service_desc p {
-    max-width: 1180px;
     font-size: 16px;
+    margin: 35px 0;
   }
 
   .table_desc {
@@ -2700,9 +2789,21 @@
     font-size: 28px !important;
   }
 
+  .isotope_banner h1 {
+    font-size: 31px;
+  }
+
+  .service_desc p {
+    margin: 25px 0;
+  }
+
+  .row.detail_b {
+    row-gap: 15px;
+  }
+
   .service_desc h3 {
     font-size: 28px;
-    margin: 35px auto 15px auto;
+    margin: 35px auto 35px auto;
   }
 
   .table_desc {
@@ -2711,8 +2812,27 @@
     padding-bottom: 20px;
   }
 
+  .service_bottom_featured_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service_bottom_details {
+    row-gap: 3rem;
+  }
+
+  .service_desc_button button {
+    font-size: 17px;
+  }
+
+  .service_bottom_desc p {
+    font-size: 17px;
+    line-height: 32px;
+  }
+
   .sevice_detail {
-    margin: 35px 0;
+    margin: 0px 0 45px 0;
   }
 
   .service_list_card_body h3 {
@@ -3047,9 +3167,50 @@
     text-align: center;
   }
 
+  .service_desc p {
+    margin: 20px 0;
+  }
+
   .service_desc h3 {
     font-size: 24px;
-    margin: 30px auto 12px auto;
+    margin: 25px auto 25px auto;
+  }
+
+  .isotope_banner h1 {
+    font-size: 26px;
+  }
+
+  .service_bottom_desc p {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .row_rev_service {
+    flex-direction: column-reverse;
+  }
+
+  .service_bottom_featured_img {
+    padding: 30px;
+  }
+
+  .service_bottom_featured_img img {
+    max-width: 500px;
+  }
+
+  .service_bottom_details {
+    row-gap: 2rem;
+  }
+
+  .service_desc_button button {
+    font-size: 16px;
+  }
+
+  .service_bottom_desc {
+    margin-top: 15px;
+  }
+
+  .service_desc_button {
+    gap: 15px;
   }
 
   .table_desc {
@@ -3063,7 +3224,7 @@
   }
 
   .service_list_card {
-    margin-top: 10px;
+    margin-top: 0px;
   }
 
   .service_list_card_body h3 {
@@ -3357,6 +3518,10 @@
     gap: 10px;
   }
 
+  .isotope_banner h1 {
+    font-size: 24px;
+  }
+
   .lists_chemical .chem_1:nth-child(even) {
     padding-left: 20px;
   }
@@ -3434,7 +3599,25 @@
 
   .service_desc h3 {
     font-size: 20px;
-    margin: 25px auto 10px auto;
+    margin: 25px auto 25px auto;
+  }
+
+  .service_bottom_featured_img img {
+    max-width: 400px;
+  }
+
+  .service_bottom_desc p {
+    font-size: 15px;
+    line-height: 27px;
+  }
+
+  .service_bottom_details {
+    row-gap: 1rem;
+  }
+
+  .service_desc_button button {
+    font-size: 15px;
+    padding: 17px 15px;
   }
 
   .service_desc p {
@@ -3816,17 +3999,44 @@
 
   .service_desc h3 {
     font-size: 18px;
-    margin: 20px auto 10px auto;
+    margin: 20px auto 20px auto;
+  }
+
+  .service_bottom_featured_img {
+    padding: 20px;
+  }
+
+  .service_bottom_desc p {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .service_desc_button {
+    gap: 10px;
+  }
+
+  .service_desc_button button {
+    font-size: 14px;
+    padding: 15px 15px;
+  }
+
+  .service_bottom_featured_img img {
+    max-width: 300px;
   }
 
   .service_desc p {
     font-size: 14px;
+    margin: 15px 0;
   }
 
   .table_desc {
     font-size: 15px;
     margin-top: 12px;
     padding-bottom: 12px;
+  }
+
+  .isotope_banner h1 {
+    font-size: 20px;
   }
 
   .service_list_card_body h3 {

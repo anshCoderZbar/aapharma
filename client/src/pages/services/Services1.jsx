@@ -9,13 +9,14 @@ export default function Services1() {
   return (
     <div className="services_1_page">
       <div className="service_top_sec">
-        <Banner heading="services" background={`url(${bgBanner})`} />
+        <Banner
+          heading="AAPharmaSyn is an undisputed leader in the synthesis of complex
+          Stable Isotope labeled compounds"
+          background={`linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),url(${bgBanner})`}
+          extra="white_head isotope_banner"
+        />
         <div className="container-fluid">
           <div className="service_desc">
-            <h3>
-              AAPharmaSyn is an undisputed leader in the synthesis of complex
-              Stable Isotope labeled compounds
-            </h3>
             <p>
               Utilization of stable isotopes such as deuterium (2Hydrogen),
               18Oxygen, 13Carbon and 15Nitrogen is commonplace in a wide range
@@ -25,107 +26,186 @@ export default function Services1() {
               questions.
             </p>
           </div>
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th className="service_table">Element</th>
-                <th className="service_table">Atomic Number</th>
-                <th className="service_table">Parent Atom</th>
-                <th className="service_table">Stable Isotope</th>
-                <th className="service_table">
-                  <div className="table_head">
-                    <p className="mb-0 d-block w-100">Abundance</p>
-                    <p className="mb-0 d-block w-100">(In Nature)</p>
+          <div className="sevice_detail">
+            <div className="container-fluid">
+              <div className="row detail_b">
+                <div className="col-sm-6 col-xl-4">
+                  <div className="service_list_card">
+                    <div className="service_list_card_body">
+                      <h3>Assessment of drug pharamacology</h3>
+                      <ul>
+                        <li>Pharamacokinetics</li>
+                        <li>Mechanism of action</li>
+                        <li>Mechanism of troxicity and adverse effects</li>
+                      </ul>
+                    </div>
                   </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="service_table_body">
-                <td>Hydrogen</td>
-                <td>1</td>
-                <td>1H</td>
-                <td>2H</td>
-                <td>0.015%</td>
-              </tr>
-              <tr className="service_table_body">
-                <td>Nitrogen</td>
-                <td>6</td>
-                <td>12C</td>
-                <td>13C</td>
-                <td>1.1%</td>
-              </tr>
-              <tr className="service_table_body">
-                <td>Carbon</td>
-                <td>7</td>
-                <td>14N</td>
-                <td>15N</td>
-                <td>0.4%</td>
-              </tr>
-              <tr className="service_table_body">
-                <td>Oxygen</td>
-                <td>8</td>
-                <td>16O</td>
-                <td>17O</td>
-                <td>0.04%</td>
-              </tr>
-              <tr className="service_table_body">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>18O</td>
-                <td>0.20%</td>
-              </tr>
-            </tbody>
-          </table>
-          <p className="table_desc">
-            Over the years pharmacological uses have been expanding to include:
-          </p>
-        </div>
-      </div>
-      <div className="sevice_detail">
-        <div className="container-fluid">
-          <div className="row detail_b">
-            <div className="col-sm-6 col-xl-4">
-              <div className="service_list_card">
-                <div className="service_list_card_body">
-                  <h3>Assessment of drug pharamacology</h3>
-                  <ul>
-                    <li>Pharamacokinetics</li>
-                    <li>Pharamacokinetics</li>
-                    <li>Pharamacokinetics</li>
-                  </ul>
                 </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-xl-4">
-              <div className="service_list_card">
-                <div className="service_list_card_body">
-                  <h3>Assessment of drug pharamacology</h3>
-                  <ul>
-                    <li>Pharamacokinetics</li>
-                    <li>Pharamacokinetics</li>
-                    <li>Pharamacokinetics</li>
-                  </ul>
+                <div className="col-sm-6 col-xl-4">
+                  <div className="service_list_card">
+                    <div className="service_list_card_body">
+                      <h3>Assessment of drug pharamacology</h3>
+                      <ul>
+                        <li>Bioavailability</li>
+                        <li>Release profile of drug delivery system</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-xl-4">
-              <div className="service_list_card">
-                <div className="service_list_card_body">
-                  <h3>Assessment of drug pharamacology</h3>
-                  <ul>
-                    <li>Pharamacokinetics</li>
-                    <li>Pharamacokinetics</li>
-                    <li>Pharamacokinetics</li>
-                  </ul>
+                <div className="col-sm-6 col-xl-4">
+                  <div className="service_list_card">
+                    <div className="service_list_card_body">
+                      <h3>Assessment of drug pharamacology</h3>
+                      <ul>
+                        <li>Phenotyping</li>
+                        <li>Monitoring drug treatment effect</li>
+                        <li>Clinical toxicology</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div className="table_outer">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th className="service_table">Element</th>
+                  <th className="service_table">Atomic Number</th>
+                  <th className="service_table">Parent Atom</th>
+                  <th className="service_table">Stable Isotope</th>
+                  <th className="service_table">
+                    <div className="table_head">
+                      <p className="mb-0 d-block w-100">Abundance</p>
+                      <p className="mb-0 d-block w-100">(In Nature)</p>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="service_table_body">
+                  <td>Hydrogen</td>
+                  <td>1</td>
+                  <td>1H</td>
+                  <td>2H</td>
+                  <td>0.015%</td>
+                </tr>
+                <tr className="service_table_body">
+                  <td>Nitrogen</td>
+                  <td>6</td>
+                  <td>12C</td>
+                  <td>13C</td>
+                  <td>1.1%</td>
+                </tr>
+                <tr className="service_table_body">
+                  <td>Carbon</td>
+                  <td>7</td>
+                  <td>14N</td>
+                  <td>15N</td>
+                  <td>0.4%</td>
+                </tr>
+                <tr className="service_table_body">
+                  <td>Oxygen</td>
+                  <td>8</td>
+                  <td>16O</td>
+                  <td>17O</td>
+                  <td>0.04%</td>
+                </tr>
+                <tr className="service_table_body">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>18O</td>
+                  <td>0.20%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="service_desc">
+            <h3>
+              Over the years pharmacological uses have been expanding to
+              include:
+            </h3>
+          </div>
+          <div className="service_bottom_details">
+            <div className="row serv_bhys row_rev_service">
+              <div className="col-lg-6">
+                <div className="service_bottom_desc ">
+                  <p>
+                    Recent discovery of the utility of the deuterated drug
+                    products have generated excitement and investment in the
+                    field. An excellent case study is The fundamental principle
+                    is to prolong the residence time of the active drug in
+                    plasmato achieve greater efficacy and/or to avoid adverse
+                    side effects.
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="service_bottom_featured_img">
+                  <img
+                    src={require("assets/service_bottom_img2.png")}
+                    alt="featured-image"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="row serv_bhys">
+              <div className="col-lg-6">
+                <div className="service_bottom_featured_img">
+                  <img
+                    src={require("assets/service_bottom_img1.png")}
+                    alt="featured-image"
+                  />
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="service_bottom_desc">
+                  <p>
+                    Deutetrabenazine is ananalog Of the Old drug tetrabenazine
+                    @, with the twomethoxy groups in the latter EEing replaced
+                    by a pair oftrideuteromethoxy groups, thereby altering the
+                    rate ofmetabolism to afford greater tolerability and an
+                    improveddosing regimen. Deuterium substitution impedes
+                    oxidative metabolism of themethoxy groups, in an excellent
+                    demonstration of the primarykinetic isotope effect
+                    (KIE).5This of KIE has often beenused to probe chemical
+                    reaction mechanisms, but it rises to apractical level by
+                    substantially improving drug entity10ver2.ln fact, the
+                    reaction rate of a C—D bond can be 10 timesslower, or even
+                    more, than the rate for the corresponding C—Hbond.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="service_desc">
+            <h3>
+              We carry an extensive inventory of stable isotope labeled
+              compounds and are able to expeditiously prepare new compounds:
+            </h3>
+          </div>
+          <div className="service_desc_button">
+            <button>Water-180</button>
+            <button>Water-170</button>
+            <button>Methanol-180</button>
+            <button>Benzaldehyde-180</button>
+            <button>Formaldehyde-13C, d2 solution</button>
+            <button>Formaldehyde-13C, d2, 180 solution</button>
+            <button>Sodium hydroxide-180 solution</button>
+            <button>Acetic acid-1802</button>
+          </div>
+
+          <div className="service_desc">
+            <p>
+              Please write to us if you have a consistent need for any stable
+              isotope labeled compounds. We offer industry-leadingpricing for
+              long term supply agreements as well as volume discounts.
+            </p>
+          </div>
         </div>
       </div>
-      <div className="service_mid_sec"></div>
     </div>
   );
 }
