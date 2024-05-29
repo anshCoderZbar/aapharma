@@ -714,7 +714,7 @@
   }
 
   .nav-right > ul {
-    gap: 27px;
+    gap: 20px;
   }
 
   .nav-right > ul li a {
@@ -819,7 +819,7 @@
 
 @media screen and (max-width: 1250px) {
   .nav-right > ul {
-    gap: 17px;
+    gap: 6px;
   }
 }
 

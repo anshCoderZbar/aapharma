@@ -1804,6 +1804,157 @@
   visibility: visible;
 }
 
+/* small molecules page */
+
+.small_page_banner h1 {
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.small_page_banner p {
+  max-width: 100%;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 25px;
+}
+
+.main_small_page h1 {
+  margin: 60px 0 50px 0;
+}
+
+.main_small_page p {
+  color: #000;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+.small_page_btns_sec {
+  margin: 40px 0;
+}
+
+.small_main_desc {
+  margin-top: 30px;
+}
+
+.small_page_heading {
+  font-weight: 600;
+  color: #2e2e2e;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.small_page_buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.small_main_image {
+  text-align: center;
+}
+
+.small_main_image h4 {
+  color: #2a3072;
+  margin-bottom: 0;
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.small_feature_section {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 50px 0;
+}
+
+.small_card_outer {
+  margin: 40px 0 0 0;
+}
+
+.small_card_btns {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.drug_card_image {
+  text-align: center;
+}
+
+.moleucles_tab_buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  height: 100%;
+  margin: 40px 0 50px 0;
+}
+
+.moleucles_tab_buttons button {
+  border-radius: 20px;
+  background: #f7f7f7;
+  color: #2e2e2e;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  align-items: center;
+  border: none;
+  transition: 0.3s linear;
+}
+
+.moleucles_tab_buttons button:hover {
+  background: #2a3072 !important;
+  color: #fff !important;
+  transition: 0.3s linear;
+}
+
+.molecules_tab_active {
+  background-color: #2a3072 !important;
+  color: #fff !important;
+  transition: 0.3s linear;
+}
+
+.tab_molecule_row {
+  align-items: center;
+  padding: 0 80px;
+}
+
+.molecules_tab_content {
+  padding-bottom: 40px;
+}
+
+.molecule_tab_img img {
+  width: 100%;
+  height: 100%;
+}
+
+.molecule_tab_content p {
+  color: #666;
+  font-family: "Product Sans";
+  font-size: 24px;
+  line-height: 38px;
+  font-weight: 400;
+  max-width: 796px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.molecule_tab_content p::before {
+  content: "\2022";
+  color: #666;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 25px;
+  font-size: 26px;
+}
+
 @media only screen and (min-width: 2000px) {
   .dia_left:before {
     width: 37%;
@@ -2204,6 +2355,57 @@
   .process_accordion {
     row-gap: 10px;
     margin: 35px 0 45px 0;
+  }
+
+  .small_page_banner p {
+    font-size: 28px;
+    margin-top: 22px;
+  }
+
+  .main_small_page h1 {
+    margin: 55px 0 45px 0;
+  }
+
+  .main_small_page p {
+    font-size: 17px;
+  }
+
+  .small_main_image h4 {
+    font-size: 17px;
+  }
+
+  .small_feature_section {
+    padding: 45px 0;
+  }
+
+  .small_page_btns_sec {
+    margin: 35px 0;
+  }
+
+  .small_card_btns {
+    row-gap: 17px;
+  }
+
+  .small_main_desc {
+    margin-top: 25px;
+  }
+
+  .small_card_outer {
+    margin: 35px 0 0 0;
+  }
+
+  .moleucles_tab_buttons button {
+    font-size: 17px;
+  }
+
+  .tab_molecule_row {
+    align-items: center;
+    padding: 0 70px;
+  }
+
+  .molecule_tab_content p {
+    font-size: 22px;
+    line-height: 36px;
   }
 }
 
@@ -2616,6 +2818,90 @@
   .process_acc_card p {
     padding: 12px 17px;
   }
+
+  .small_page_banner p {
+    font-size: 26px;
+    margin-top: 20px;
+  }
+
+  .main_small_page h1 {
+    margin: 45px 0 40px 0;
+  }
+
+  .small_page_btns_sec {
+    margin: 30px 0;
+  }
+
+  .small_page_heading {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .small_page_buttons {
+    margin-top: 15px;
+  }
+
+  .small_main_image img {
+    max-width: 550px;
+    height: auto;
+  }
+
+  .small_feature_section {
+    padding: 40px 0;
+  }
+
+  .small_main_image h4 {
+    font-size: 16px;
+    margin-top: 12px;
+  }
+
+  .small_card_outer {
+    margin: 30px 0 0 0;
+  }
+
+  .drug_card_image img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .small_main_desc {
+    margin-top: 20px;
+  }
+
+  .small_page_btns_sec {
+    margin: 25px 0;
+  }
+
+  .small_card_btns {
+    row-gap: 14px;
+  }
+
+  .moleucles_tab_buttons {
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 34px 0 50px 0;
+  }
+
+  .moleucles_tab_buttons button {
+    font-size: 16px;
+    padding: 13px;
+    flex: 0 48%;
+    width: auto;
+  }
+
+  .molecule_tab_content p {
+    font-size: 20px;
+    line-height: 31px;
+  }
+
+  .tab_molecule_row {
+    align-items: center;
+    padding: 0 60px;
+  }
+
+  .molecules_tab_content {
+    padding-bottom: 35px;
+  }
 }
 
 @media only screen and (max-width: 1199px) {
@@ -3006,6 +3292,54 @@
     row-gap: 10px;
     margin: 25px 0 35px 0;
   }
+
+  .small_page_banner p {
+    font-size: 23px;
+    margin-top: 19px;
+  }
+
+  .main_small_page h1 {
+    margin: 35px 0 30px 0;
+  }
+
+  .main_small_page p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .small_page_heading {
+    font-size: 20px;
+  }
+
+  .small_page_btns_sec {
+    margin: 20px 0;
+  }
+
+  .small_feature_section {
+    padding: 35px 0;
+  }
+
+  .small_main_desc {
+    margin-top: 17px;
+  }
+
+  .moleucles_tab_buttons {
+    margin: 29px 0 45px 0;
+  }
+
+  .molecule_tab_content p {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .molecules_tab_content {
+    padding-bottom: 30px;
+  }
+
+  .small_main_image img {
+    max-width: 412px;
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -3367,13 +3701,16 @@
     top: 0px;
     right: -128px;
   }
+
   .process_top_section {
     flex-direction: column-reverse;
   }
+
   .process_featured_img {
     text-align: center;
     margin-bottom: 30px;
   }
+
   .process_featured_img img {
     max-width: 500px;
   }
@@ -3407,6 +3744,67 @@
 
   .process_accordion {
     margin: 20px 0 30px 0;
+  }
+
+  .small_page_banner p {
+    font-size: 20px;
+    margin-top: 13px;
+  }
+
+  .main_small_page h1 {
+    margin: 30px 0 25px 0;
+  }
+
+  .small_page_heading {
+    font-size: 18px;
+  }
+
+  .small_page_btns_sec {
+    margin: 15px 0;
+  }
+
+  .small_feature_section {
+    padding: 30px 0;
+  }
+
+  .small_main_2_img {
+    margin-top: 30px;
+  }
+
+  .small_main_image img {
+    max-width: 450px;
+  }
+
+  .small_card_outer {
+    margin: 25px 0 0 0;
+  }
+
+  .drug_card_image img {
+    max-width: 450px;
+    margin-top: 30px;
+  }
+
+  .small_card_outer {
+    margin: 20px 0 0 0;
+  }
+
+  .moleucles_tab_buttons {
+    margin: 25px 0 35px 0;
+  }
+
+  .molecule_tab_img img {
+    max-width: 350px;
+    height: 100%;
+    margin: 0 auto 30px auto;
+    display: block;
+  }
+
+  .tab_molecule_row {
+    padding: 0;
+  }
+
+  .molecule_tab_content p {
+    font-size: 17px;
   }
 }
 
@@ -3820,6 +4218,71 @@
 
   .process_accordion {
     margin: 15px 0 25px 0;
+  }
+
+  .small_page_banner p {
+    font-size: 18px;
+    margin-top: 11px;
+  }
+
+  .main_small_page h1 {
+    margin: 25px 0 20px 0;
+  }
+
+  .main_small_page p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .small_page_buttons {
+    gap: 11px;
+  }
+
+  .small_main_image img {
+    max-width: 350px;
+  }
+
+  .small_feature_section {
+    padding: 25px 0;
+  }
+
+  .small_main_image h4 {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .small_card_btns {
+    row-gap: 11px;
+  }
+
+  .drug_card_image img {
+    max-width: 350px;
+    margin-top: 25px;
+  }
+
+  .small_main_desc {
+    margin-top: 14px;
+  }
+
+  .small_card_outer {
+    margin: 10px 0 0 0;
+  }
+
+  .moleucles_tab_buttons button {
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  .moleucles_tab_buttons {
+    margin: 20px 0 30px 0;
+  }
+
+  .molecule_tab_content p {
+    font-size: 16px;
+  }
+
+  .molecules_tab_content {
+    padding-bottom: 25px;
   }
 }
 
@@ -4290,5 +4753,80 @@
 
   .process_accordion {
     margin: 10px 0 20px 0;
+  }
+
+  .small_page_banner p {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .main_small_page h1 {
+    margin: 20px 0 10px 0;
+  }
+
+  .main_small_page p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .small_page_heading {
+    font-size: 17px;
+  }
+
+  .small_page_buttons {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .small_page_heading {
+    margin-bottom: 10px;
+  }
+
+  .small_main_image img {
+    max-width: 100%;
+  }
+
+  .small_main_image h4 {
+    font-size: 14px;
+  }
+
+  .small_main_2_img {
+    margin-top: 20px;
+  }
+
+  .small_feature_section {
+    padding: 20px 0;
+  }
+
+  .small_main_desc {
+    margin-top: 10px;
+  }
+
+  .small_card_outer {
+    margin: 0px 0 0 0;
+  }
+
+  .moleucles_tab_buttons button {
+    font-size: 14px;
+    flex: 0 1 100%;
+  }
+
+  .moleucles_tab_buttons {
+    margin: 15px 0 25px 0;
+    gap: 10px;
+  }
+
+  .molecule_tab_img img {
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+  }
+
+  .molecule_tab_content p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .molecules_tab_content {
+    padding-bottom: 20px;
   }
 }

@@ -46,7 +46,7 @@ export const HeaderData = [
           {
             id: 1,
             subMenu: "Small Molecules Drug Discovery",
-            slug: "#",
+            slug: "/small-molecule-drug-discovery",
           },
           {
             id: 2,

@@ -34,6 +34,7 @@ import Checkout from "pages/cart/Checkout";
 import Conference from "pages/resources/Conference";
 import PaypalPayment from "pages/cart/Paypal";
 import ProcessResearchandDevelopment from "pages/services/ProcessResearchandDevelopment";
+import SmallMoleculesDrugDiscovery from "pages/services/SmallMoleculesDrugDiscovery";
 
 export const AllRoutes = () => {
   return (
@@ -149,6 +150,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <ProcessResearchandDevelopment />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/small-molecule-drug-discovery"
+            element={
+              <PublicRoutes>
+                <SmallMoleculesDrugDiscovery />
               </PublicRoutes>
             }
           />
