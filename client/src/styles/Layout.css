@@ -675,6 +675,11 @@
     margin: 0 auto;
   }
 } */
+@media screen and (min-width: 2000px) {
+  .nav-right > ul li a {
+    font-size: 20px;
+  }
+}
 @media screen and (max-width: 1770px) {
   .nav-left {
     flex: 0 1 45%;
@@ -683,7 +688,7 @@
 
 @media screen and (max-width: 1700px) {
   .nav-right > ul {
-    gap: 26px;
+    gap: 20px;
   }
 
   .dropdown__list-item {
