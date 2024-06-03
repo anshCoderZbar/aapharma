@@ -310,7 +310,7 @@ export const SidebarData = [
   },
   {
     id: uuidv4(),
-    name: "Research And Developmemt",
+    name: "Research And Development",
     slug: "#",
     icon: <Search />,
     subMenu: [
@@ -328,6 +328,47 @@ export const SidebarData = [
         id: 3,
         subMenuName: "Modification",
         slug: "research-modification",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Process Research And Development",
+    slug: "#",
+    icon: <Search />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "process-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Mid Section",
+        slug: "process-mid-section",
+      },
+      {
+        id: 3,
+        subMenuName: "Bottom Section",
+        slug: "process-bottom-section",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "small-molecule-drug-discovery",
+    slug: "#",
+    icon: <Biohazard />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "small-molecule-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "HTS",
+        slug: "hts",
       },
     ],
   },

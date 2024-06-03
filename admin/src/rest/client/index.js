@@ -395,6 +395,23 @@ class Client {
     editLabEquipment: (params) =>
       HttpClient.post(API_ENDPOINTS.updateLabEquipment, params),
   };
+  process = {
+    getProcessTabs: () => HttpClient.get(API_ENDPOINTS.getProcessTab),
+    createProcessTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.addProcessTab, params),
+    singleProcessTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleProcessTab, params),
+    editProcessTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.editProcessTab, params),
+    deleteProcessTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteProcessTab, params),
+    getProcessMidSection: () => HttpClient.get(API_ENDPOINTS.processMidSection),
+    editProcessMidSection: (params) =>
+      HttpClient.post(API_ENDPOINTS.processMidSection, params),
+    editProcessBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.processBanner, params),
+    getProcessBanner: () => HttpClient.get(API_ENDPOINTS.processBanner),
+  };
 }
 
 const client = new Client();

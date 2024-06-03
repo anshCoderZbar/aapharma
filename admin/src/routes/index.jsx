@@ -112,6 +112,13 @@ import AddLabEquipment from "pages/lab-equipment/AddLabEquipment";
 import EditLabEquipment from "pages/lab-equipment/EditLabEquipment";
 import AnalyticalInstrumentation from "pages/analytical-instrumentation/AnalyticalInstrumentation";
 import Accreditations from "pages/accreditations/Accreditations";
+import ProcessBanner from "pages/process-research-and-development/ProcessBanner";
+import ProcessMidSection from "pages/process-research-and-development/ProcessMidSection";
+import ProcessBottomSection from "pages/process-research-and-development/ProcessBottomSection";
+import AddProcessTab from "pages/process-research-and-development/AddProcessTab";
+import EditProcessTab from "pages/process-research-and-development/EditProcessTab";
+import SmallMoleculeBanner from "pages/small-molecule-drug-discovery/SmallMoleculeBanner";
+import HTS from "pages/small-molecule-drug-discovery/HTS";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -884,6 +891,62 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <PartnerLogos />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/process-banner",
+      element: (
+        <PrivateRoutes>
+          <ProcessBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/process-mid-section",
+      element: (
+        <PrivateRoutes>
+          <ProcessMidSection />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/process-bottom-section",
+      element: (
+        <PrivateRoutes>
+          <ProcessBottomSection />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-process-tab",
+      element: (
+        <PrivateRoutes>
+          <AddProcessTab />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-process-tab/:id",
+      element: (
+        <PrivateRoutes>
+          <EditProcessTab />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/small-molecule-banner",
+      element: (
+        <PrivateRoutes>
+          <SmallMoleculeBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/hts",
+      element: (
+        <PrivateRoutes>
+          <HTS />
         </PrivateRoutes>
       ),
     },
