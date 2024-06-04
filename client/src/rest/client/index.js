@@ -75,6 +75,9 @@ class Client {
     getResearchDevelopmentSort: () =>
       HttpClient.get(API_ENDPOINTS.researchDevelopmentSort),
     getAllResearchTabs: () => HttpClient.get(API_ENDPOINTS.getResearchTab),
+    getProcessBanner: () => HttpClient.get(API_ENDPOINTS.processBanner),
+    getProcessMidSection: () => HttpClient.get(API_ENDPOINTS.processMidSection),
+    getProcessTabs: () => HttpClient.get(API_ENDPOINTS.getProcessTab),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

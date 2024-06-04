@@ -134,3 +134,30 @@ export const GetResearchDevelopmentTabs = () => {
   });
   return getTabs;
 };
+
+// process-research-and-development
+
+export const GetProcessBannerMutation = () => {
+  const bannerSection = useQuery({
+    queryKey: ["get-process-banner-section"],
+    queryFn: () => client.services.getProcessBanner(),
+  });
+  return bannerSection;
+};
+
+export const GetProcessMidSectionMutation = () => {
+  const midSection = useQuery({
+    queryKey: ["get-process-mid-section"],
+    queryFn: () => client.services.getProcessMidSection(),
+  });
+  return midSection;
+};
+
+
+export const GetProcessTabsMutation = () => {
+  const getTabs = useQuery({
+    queryKey: ["get-all-process-tabs"],
+    queryFn: () => client.services.getProcessTabs(),
+  });
+  return getTabs;
+};

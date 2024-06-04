@@ -79,4 +79,7 @@ export const API_ENDPOINTS = {
   checkCoupon: "/coupon-apply",
   removeCoupon: "/coupon-delete",
   chemicalsFilterExact: "/chemicalsFilterExact",
+  processMidSection: "/ProcessResearchDevelopmentoneAbout",
+  processBanner: "/ProcessResearchDevelopmentBanner",
+  getProcessTab: "/ProcessResearchDevelopment/all",
 };

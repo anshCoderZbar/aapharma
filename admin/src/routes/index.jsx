@@ -119,6 +119,11 @@ import AddProcessTab from "pages/process-research-and-development/AddProcessTab"
 import EditProcessTab from "pages/process-research-and-development/EditProcessTab";
 import SmallMoleculeBanner from "pages/small-molecule-drug-discovery/SmallMoleculeBanner";
 import HTS from "pages/small-molecule-drug-discovery/HTS";
+import SBDD from "pages/small-molecule-drug-discovery/SBDD";
+import SAR from "pages/small-molecule-drug-discovery/SAR";
+import LeadDevelopment from "pages/small-molecule-drug-discovery/LeadDevelopment";
+import MoleculeTabs from "pages/small-molecule-drug-discovery/MoleculeTabs";
+import EditMoleculeTabs from "pages/small-molecule-drug-discovery/EditMoleculeTabs";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -947,6 +952,46 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <HTS />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/sbdd",
+      element: (
+        <PrivateRoutes>
+          <SBDD />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/sar",
+      element: (
+        <PrivateRoutes>
+          <SAR />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/lead-development",
+      element: (
+        <PrivateRoutes>
+          <LeadDevelopment />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/molecule-tabs",
+      element: (
+        <PrivateRoutes>
+          <MoleculeTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-molecule-tabs/:id",
+      element: (
+        <PrivateRoutes>
+          <EditMoleculeTabs />
         </PrivateRoutes>
       ),
     },

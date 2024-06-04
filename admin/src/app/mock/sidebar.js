@@ -370,6 +370,26 @@ export const SidebarData = [
         subMenuName: "HTS",
         slug: "hts",
       },
+      {
+        id: 3,
+        subMenuName: "SBDD",
+        slug: "sbdd",
+      },
+      {
+        id: 4,
+        subMenuName: "SAR",
+        slug: "sar",
+      },
+      {
+        id: 5,
+        subMenuName: "Lead Development",
+        slug: "lead-development",
+      },
+      {
+        id: 5,
+        subMenuName: "Tabs",
+        slug: "molecule-tabs",
+      },
     ],
   },
   {
