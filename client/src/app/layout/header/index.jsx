@@ -192,13 +192,22 @@ export const Header = () => {
                                               }`}
                                             >
                                               {menu?.subMenu?.map((sub) => {
+                                                console.log(
+                                                  window?.location?.pathname ===
+                                                    sub?.slug
+                                                );
                                                 return (
                                                   <Link
-                                                    className={
+                                                    className={` ${
                                                       menu?.id === dropMenu
                                                         ? "text-white"
                                                         : ""
-                                                    }
+                                                    } ${
+                                                      window?.location
+                                                        ?.pathname === sub?.slug
+                                                        ? "active_color"
+                                                        : ""
+                                                    }`}
                                                     onClick={() => {
                                                       setActive(false);
                                                       setOpen(false);

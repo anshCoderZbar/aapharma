@@ -11,6 +11,11 @@ import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { Plus, X } from "lucide-react";
 
+import {
+  GetLeadDevelopmentMutation,
+  EditLeadDevelopmentMutation,
+} from "rest/smallMolecule";
+
 export default function LeadDevelopment() {
   const {
     register,
@@ -20,6 +25,9 @@ export default function LeadDevelopment() {
     control,
     getValues,
   } = useForm();
+
+  const editLeadDevelopment = EditLeadDevelopmentMutation();
+  const getLeadDevelopment = GetLeadDevelopmentMutation();
 
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
@@ -43,18 +51,46 @@ export default function LeadDevelopment() {
     }
   };
 
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getLeadDevelopment?.data?.data?.heading;
+    defaultValues.description = getLeadDevelopment?.data?.data?.description;
+    defaultValues.subHeading = getLeadDevelopment?.data?.data?.subheading;
+    defaultValues.image = getLeadDevelopment?.data?.data?.image;
+    const defaultInputs =
+      getLeadDevelopment?.data?.data?.list?.map((elm) => ({
+        list: elm || "",
+      })) || [];
+
+    defaultInputs.length >= 1 && setList(defaultInputs);
+    defaultInputs?.map((elm, i) => {
+      defaultValues[`list_${i + 1}`] = elm.list;
+    });
+    setDefaultImg(getLeadDevelopment?.data?.data?.image);
+    reset(defaultValues);
+  }, [getLeadDevelopment?.data?.data]);
+
   const onSubmit = (data) => {
-    console.log(data);
+    const formData = new FormData();
+    formData.append("heading", data?.heading);
+    formData.append("image", data?.image[0]);
+    formData.append("description", data?.description);
+    formData.append("subheading", data?.subHeading);
+    list.forEach((_, index) => {
+      const listKey = `list_${index + 1}`;
+      formData.append("list[]", data[listKey]);
+    });
+    editLeadDevelopment.mutate(formData);
   };
 
   return (
     <div className="sbdd_page">
       <PageWrapper slug="lead-development" name="Lead Development" />
       <div className="home_banner_input">
-        {false && (
+        {getLeadDevelopment?.isError && (
           <ErrorComponent message="OOPS ! something went wrong please try again later" />
         )}
-        {false ? (
+        {getLeadDevelopment?.isPending ? (
           <ComponentLoader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
@@ -110,7 +146,7 @@ export default function LeadDevelopment() {
               <TextEditor
                 control={control}
                 placeholder="Description"
-                defaultValue={""}
+                defaultValue={getLeadDevelopment?.data?.data?.description}
                 {...register("description", { required: true })}
               />
               {errors?.description && (
@@ -171,7 +207,7 @@ export default function LeadDevelopment() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            {false ? (
+            {editLeadDevelopment?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

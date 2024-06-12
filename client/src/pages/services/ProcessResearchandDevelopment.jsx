@@ -8,6 +8,7 @@ import {
   GetProcessMidSectionMutation,
   GetProcessTabsMutation,
 } from "rest/service";
+import { Banner } from "app/components/Ui/Banner";
 
 export default function ProcessResearchandDevelopment() {
   const [tabs, setTabs] = useState(false);
@@ -18,58 +19,26 @@ export default function ProcessResearchandDevelopment() {
 
   return (
     <div className="Process_research_page">
-      <div className="main_banner">
-        <div className="container-fluid">
-          <div className="bread_crup">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <ChevronRight />
-              </li>
-              <li>
-                <Link
-                  className="bread_active"
-                  to="/process-research-and-development"
-                >
-                  Process Research and Development
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Banner
+        heading={
+          getProcessBanner?.data?.data && getProcessBanner?.data?.data?.heading
+        }
+        background={`linear-gradient(rgba(52, 202, 255, 0.85), rgba(52, 202, 255, 0.85)),url(${
+          getProcessBanner?.data?.data && getProcessBanner?.data?.data?.image
+        })`}
+        extra="white_head process_top_banner"
+      />
       <div className="proces_section">
         <div className="container-fluid">
-          <div className="row process_top_section">
-            <div className="col-lg-6">
-              <div className="process_head_content">
-                <h1 className="main_top_heading">
-                  {getProcessBanner?.data?.data &&
-                    getProcessBanner?.data?.data?.heading}
-                </h1>
-                <p
-                  className="process_desc"
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      getProcessBanner?.data?.data &&
-                      getProcessBanner?.data?.data?.description,
-                  }}
-                />
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="process_featured_img">
-                <img
-                  src={
-                    getProcessBanner?.data?.data &&
-                    getProcessBanner?.data?.data?.image
-                  }
-                  alt="process-featured"
-                />
-              </div>
-            </div>
+          <div className="process_head_content">
+            <p
+              className="process_desc"
+              dangerouslySetInnerHTML={{
+                __html:
+                  getProcessBanner?.data?.data &&
+                  getProcessBanner?.data?.data?.description,
+              }}
+            />
           </div>
           <div className="process_box">
             <div className="process_inner_box">

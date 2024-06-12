@@ -448,18 +448,26 @@
 }
 
 .menu_li_active {
-  background-color: #34caff;
+  background-color: #2a3072;
   color: #fff;
 }
 
 .drop_ul_active {
   height: 100%;
   overflow: auto;
-  background-color: #34caff;
+  background-color: #2a3072;
 }
 
 .drop_ul_main a {
   display: block !important;
+}
+
+.drop_acor_m:hover {
+  color: #34caff;
+}
+
+.drop_ul_active a:hover {
+  color: #34caff !important;
 }
 
 /* dropdown */

@@ -178,4 +178,9 @@ export const API_ENDPOINTS = {
   deleteProcessTab: "/ProcessResearchDevelopment/delete",
   processMidSection: "/ProcessResearchDevelopmentoneAbout",
   processBanner: "/ProcessResearchDevelopmentBanner",
+  smallMoleculeBanner: "/smdd-bannerBanner",
+  smallHTS: "/smdd-hts",
+  smallSBDD: "/smdd-sbdd",
+  smallSAR: "/smdd-sar",
+  smallLeadDevelopment: "/smdd-lead_development",
 };

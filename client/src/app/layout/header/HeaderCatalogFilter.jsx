@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { FilterChemical } from "rest/catalog";
 import { SubChildCategory } from "rest/main";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { resetButtonVisibility } from "store/CatalogStore";
 

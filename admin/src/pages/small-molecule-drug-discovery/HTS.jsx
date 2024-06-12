@@ -9,6 +9,7 @@ import { ButtonLoader } from "components/Loader/ButtonLoader";
 
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import { EditHTSMutation, GetHTSMutation } from "rest/smallMolecule";
 
 export default function HTS() {
   const {
@@ -18,6 +19,9 @@ export default function HTS() {
     reset,
     control,
   } = useForm();
+
+  const createHTS = EditHTSMutation();
+  const getHts = GetHTSMutation();
 
   const [perviewImages, setPreviewImages] = useState({
     image1: "",
@@ -37,20 +41,36 @@ export default function HTS() {
     }
   };
 
-  // useEffect(() => {
-  //   const defaultValues = {};
-  //   defaultValues.heading = getBanner?.data?.data?.heading;
-  //   setDefaultImg(getBanner?.data?.data?.image);
-  //   reset(defaultValues);
-  // }, [getBanner?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getHts?.data?.data?.heading;
+    defaultValues.description = getHts?.data?.data?.description;
+    defaultValues.firstButton = getHts?.data?.data?.FirstButton;
+    defaultValues.secondButton = getHts?.data?.data?.SecondButton;
+    defaultValues.thirdButton = getHts?.data?.data?.ThirdButton;
+    defaultValues.fourthButton = getHts?.data?.data?.FourthButton;
+    defaultValues.fifthButton = getHts?.data?.data?.FifthButton;
+    defaultValues.imageSubHeading = getHts?.data?.data?.ImageSubHeading;
+    setDefaultImages({
+      img1: getHts?.data?.data?.Image1,
+      img2: getHts?.data?.data?.Image2,
+    });
+    reset(defaultValues);
+  }, [getHts?.data?.data]);
 
   const onSubmit = (data) => {
-    console.log(data);
     const formData = new FormData();
     formData.append("heading", data?.heading);
     formData.append("description", data?.description);
-    // formData.append("");
-    // createBanner.mutate(formData);
+    formData.append("FirstButton", data?.firstButton);
+    formData.append("SecondButton", data?.secondButton);
+    formData.append("ThirdButton", data?.thirdButton);
+    formData.append("FourthButton", data?.fourthButton);
+    formData.append("FifthButton", data?.fifthButton);
+    formData.append("Image1", data?.image1[0]);
+    formData.append("ImageSubHeading", data?.imageSubHeading);
+    formData.append("Image2", data?.image2[0]);
+    createHTS.mutate(formData);
   };
 
   return (
@@ -60,10 +80,10 @@ export default function HTS() {
         name="Process Research And Development Banner"
       />
       <div className="home_banner_input">
-        {false && (
+        {getHts?.isError && (
           <ErrorComponent message="OOPS ! something went wrong please try again later" />
         )}
-        {false ? (
+        {getHts?.isPending ? (
           <ComponentLoader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
@@ -88,7 +108,7 @@ export default function HTS() {
               <TextEditor
                 control={control}
                 placeholder="Description"
-                defaultValue={""}
+                defaultValue={getHts?.data?.data?.description}
                 {...register("description", { required: true })}
               />
               {errors?.description && (
@@ -205,7 +225,7 @@ export default function HTS() {
               <FormInput
                 type="text"
                 name="imageSubHeading"
-                placeholder="Fifth Button"
+                placeholder="Image Sub Heading"
                 {...register("imageSubHeading", { required: true })}
               />
               {errors?.image1SubHeading && (
@@ -245,7 +265,7 @@ export default function HTS() {
                 />
               )}
             </div>
-            {false ? (
+            {createHTS?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

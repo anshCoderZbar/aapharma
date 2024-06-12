@@ -9,6 +9,11 @@ import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 
+import {
+  EditSmallMoleculeBannerMutation,
+  GetSmallMoleculeBannerMutation,
+} from "rest/smallMolecule";
+
 export default function SmallMoleculeBanner() {
   const {
     register,
@@ -17,32 +22,32 @@ export default function SmallMoleculeBanner() {
     reset,
   } = useForm();
 
-  // useEffect(() => {
-  //   const defaultValues = {};
-  //   defaultValues.heading = getBanner?.data?.data?.heading;
-  //   setDefaultImg(getBanner?.data?.data?.image);
-  //   reset(defaultValues);
-  // }, [getBanner?.data?.data]);
+  const createBanner = EditSmallMoleculeBannerMutation();
+
+  const getBanner = GetSmallMoleculeBannerMutation();
+
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getBanner?.data?.data?.heading;
+    defaultValues.subHeading = getBanner?.data?.data?.subheading;
+    reset(defaultValues);
+  }, [getBanner?.data?.data]);
 
   const onSubmit = (data) => {
-    console.log(data);
     const formData = new FormData();
     formData.append("heading", data?.heading);
-    formData.append("subHeading", data?.subHeading);
-    // createBanner.mutate(formData);
+    formData.append("subheading", data?.subHeading);
+    createBanner.mutate(formData);
   };
 
   return (
     <div className="process_page">
-      <PageWrapper
-        slug="process-banner"
-        name="Process Research And Development Banner"
-      />
+      <PageWrapper slug="small-molecule-banner" name="Small Molecule Banner" />
       <div className="home_banner_input">
-        {false && (
+        {getBanner?.isError && (
           <ErrorComponent message="OOPS ! something went wrong please try again later" />
         )}
-        {false ? (
+        {getBanner?.isPending ? (
           <ComponentLoader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
@@ -74,7 +79,7 @@ export default function SmallMoleculeBanner() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            {false ? (
+            {createBanner?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

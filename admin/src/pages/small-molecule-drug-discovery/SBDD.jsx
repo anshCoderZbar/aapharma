@@ -11,6 +11,8 @@ import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { Plus, X } from "lucide-react";
 
+import { EditSBDDMutation, GetSBDDMutation } from "rest/smallMolecule";
+
 export default function SBDD() {
   const {
     register,
@@ -20,6 +22,9 @@ export default function SBDD() {
     control,
     getValues,
   } = useForm();
+
+  const editSdbb = EditSBDDMutation();
+  const getSdbb = GetSBDDMutation();
 
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
@@ -43,18 +48,44 @@ export default function SBDD() {
     }
   };
 
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getSdbb?.data?.data?.heading;
+    defaultValues.description = getSdbb?.data?.data?.description;
+    defaultValues.image = getSdbb?.data?.data?.image;
+    const defaultInputs =
+      getSdbb?.data?.data?.list?.map((elm) => ({
+        list: elm || "",
+      })) || [];
+
+    defaultInputs.length >= 1 && setList(defaultInputs);
+    defaultInputs?.map((elm, i) => {
+      defaultValues[`list_${i + 1}`] = elm.list;
+    });
+    setDefaultImg(getSdbb?.data?.data?.image);
+    reset(defaultValues);
+  }, [getSdbb?.data?.data]);
+
   const onSubmit = (data) => {
-    console.log(data);
+    const formData = new FormData();
+    formData.append("heading", data?.heading);
+    formData.append("image", data?.image[0]);
+    formData.append("description", data?.description);
+    list.forEach((_, index) => {
+      const listKey = `list_${index + 1}`;
+      formData.append("list[]", data[listKey]);
+    });
+    editSdbb.mutate(formData);
   };
 
   return (
     <div className="sbdd_page">
       <PageWrapper slug="sbdd" name="SBDD" />
       <div className="home_banner_input">
-        {false && (
+        {getSdbb?.isError && (
           <ErrorComponent message="OOPS ! something went wrong please try again later" />
         )}
-        {false ? (
+        {getSdbb?.isPending ? (
           <ComponentLoader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
@@ -110,7 +141,7 @@ export default function SBDD() {
               <TextEditor
                 control={control}
                 placeholder="Description"
-                defaultValue={""}
+                defaultValue={getSdbb?.data?.data?.description}
                 {...register("description", { required: true })}
               />
               {errors?.description && (
@@ -157,7 +188,7 @@ export default function SBDD() {
                 </div>
               ))}
             </div>
-            {false ? (
+            {editSdbb?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

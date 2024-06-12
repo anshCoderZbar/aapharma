@@ -11,6 +11,8 @@ import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { Plus, X } from "lucide-react";
 
+import { EditSARMutation, GetSARMutation } from "rest/smallMolecule";
+
 export default function SAR() {
   const {
     register,
@@ -20,6 +22,9 @@ export default function SAR() {
     control,
     getValues,
   } = useForm();
+
+  const editSar = EditSARMutation();
+  const getSar = GetSARMutation();
 
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
@@ -43,18 +48,43 @@ export default function SAR() {
     }
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getSar?.data?.data?.heading;
+    defaultValues.description = getSar?.data?.data?.description;
+    defaultValues.image = getSar?.data?.data?.image;
+    const defaultInputs =
+      getSar?.data?.data?.list?.map((elm) => ({
+        list: elm || "",
+      })) || [];
 
+    defaultInputs.length >= 1 && setList(defaultInputs);
+    defaultInputs?.map((elm, i) => {
+      defaultValues[`list_${i + 1}`] = elm.list;
+    });
+    setDefaultImg(getSar?.data?.data?.image);
+    reset(defaultValues);
+  }, [getSar?.data?.data]);
+
+  const onSubmit = (data) => {
+    const formData = new FormData();
+    formData.append("heading", data?.heading);
+    formData.append("image", data?.image[0]);
+    formData.append("description", data?.description);
+    list.forEach((_, index) => {
+      const listKey = `list_${index + 1}`;
+      formData.append("list[]", data[listKey]);
+    });
+    editSar.mutate(formData);
+  };
   return (
     <div className="sbdd_page">
       <PageWrapper slug="sar" name="SAR" />
       <div className="home_banner_input">
-        {false && (
+        {getSar?.isError && (
           <ErrorComponent message="OOPS ! something went wrong please try again later" />
         )}
-        {false ? (
+        {getSar?.isPending ? (
           <ComponentLoader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
@@ -110,7 +140,7 @@ export default function SAR() {
               <TextEditor
                 control={control}
                 placeholder="Description"
-                defaultValue={""}
+                defaultValue={getSar?.data?.data?.description}
                 {...register("description", { required: true })}
               />
               {errors?.description && (
@@ -157,7 +187,7 @@ export default function SAR() {
                 </div>
               ))}
             </div>
-            {false ? (
+            {editSar?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

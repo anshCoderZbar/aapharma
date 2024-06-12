@@ -412,6 +412,22 @@ class Client {
       HttpClient.post(API_ENDPOINTS.processBanner, params),
     getProcessBanner: () => HttpClient.get(API_ENDPOINTS.processBanner),
   };
+  smallMolecule = {
+    getSmallMoleculeBanner: () =>
+      HttpClient.get(API_ENDPOINTS.smallMoleculeBanner),
+    editSmallMoleculeBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.smallMoleculeBanner, params),
+    getHTS: () => HttpClient.get(API_ENDPOINTS.smallHTS),
+    editHTS: (params) => HttpClient.post(API_ENDPOINTS.smallHTS, params),
+    getSBDD: () => HttpClient.get(API_ENDPOINTS.smallSBDD),
+    editSBDD: (params) => HttpClient.post(API_ENDPOINTS.smallSBDD, params),
+    getSAR: () => HttpClient.get(API_ENDPOINTS.smallSAR),
+    editSAR: (params) => HttpClient.post(API_ENDPOINTS.smallSAR, params),
+    getLeadDevelopment: () =>
+      HttpClient.get(API_ENDPOINTS.smallLeadDevelopment),
+    editLeadDevelopment: (params) =>
+      HttpClient.post(API_ENDPOINTS.smallLeadDevelopment, params),
+  };
 }
 
 const client = new Client();
