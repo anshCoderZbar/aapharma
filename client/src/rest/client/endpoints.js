@@ -82,4 +82,9 @@ export const API_ENDPOINTS = {
   processMidSection: "/ProcessResearchDevelopmentoneAbout",
   processBanner: "/ProcessResearchDevelopmentBanner",
   getProcessTab: "/ProcessResearchDevelopment/all",
+  smallMoleculeBanner: "/smdd-bannerBanner",
+  smallHTS: "/smdd-hts",
+  smallSBDD: "/smdd-sbdd",
+  smallSAR: "/smdd-sar",
+  smallLeadDevelopment: "/smdd-lead_development",
 };

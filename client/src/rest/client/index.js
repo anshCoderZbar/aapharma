@@ -78,6 +78,13 @@ class Client {
     getProcessBanner: () => HttpClient.get(API_ENDPOINTS.processBanner),
     getProcessMidSection: () => HttpClient.get(API_ENDPOINTS.processMidSection),
     getProcessTabs: () => HttpClient.get(API_ENDPOINTS.getProcessTab),
+    getSmallMoleculeBanner: () =>
+      HttpClient.get(API_ENDPOINTS.smallMoleculeBanner),
+    getHTS: () => HttpClient.get(API_ENDPOINTS.smallHTS),
+    getSBDD: () => HttpClient.get(API_ENDPOINTS.smallSBDD),
+    getSAR: () => HttpClient.get(API_ENDPOINTS.smallSAR),
+    getLeadDevelopment: () =>
+      HttpClient.get(API_ENDPOINTS.smallLeadDevelopment),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

@@ -153,11 +153,52 @@ export const GetProcessMidSectionMutation = () => {
   return midSection;
 };
 
-
 export const GetProcessTabsMutation = () => {
   const getTabs = useQuery({
     queryKey: ["get-all-process-tabs"],
     queryFn: () => client.services.getProcessTabs(),
   });
   return getTabs;
+};
+
+// small-molecule-drug-discovery
+
+export const GetSmallMoleculeBannerMutation = () => {
+  const bannerSection = useQuery({
+    queryKey: ["get-small-molecule-banner-section"],
+    queryFn: () => client.services.getSmallMoleculeBanner(),
+  });
+  return bannerSection;
+};
+
+export const GetHTSMutation = () => {
+  const htsSection = useQuery({
+    queryKey: ["hts-section"],
+    queryFn: () => client.services.getHTS(),
+  });
+  return htsSection;
+};
+
+export const GetSBDDMutation = () => {
+  const sdbbSection = useQuery({
+    queryKey: ["sdbb-section"],
+    queryFn: () => client.services.getSBDD(),
+  });
+  return sdbbSection;
+};
+
+export const GetSARMutation = () => {
+  const sarSection = useQuery({
+    queryKey: ["sar-section"],
+    queryFn: () => client.services.getSAR(),
+  });
+  return sarSection;
+};
+
+export const GetLeadDevelopmentMutation = () => {
+  const leadDevelopmentSection = useQuery({
+    queryKey: ["lead-development-section"],
+    queryFn: () => client.smallMolecule.getLeadDevelopment(),
+  });
+  return leadDevelopmentSection;
 };
