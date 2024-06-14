@@ -1935,7 +1935,11 @@
   height: 100%;
 }
 
-.molecule_tab_content p {
+.molecule_tab_content ul {
+  list-style: circle;
+}
+
+.molecule_tab_content li {
   color: #666;
   font-family: "Product Sans";
   font-size: 24px;
@@ -1946,7 +1950,7 @@
   display: flex;
 }
 
-.molecule_tab_content p::before {
+.molecule_tab_content li::before {
   content: "\2022";
   color: #666;
   font-weight: bold;

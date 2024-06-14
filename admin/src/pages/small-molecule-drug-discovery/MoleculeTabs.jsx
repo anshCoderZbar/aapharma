@@ -9,10 +9,13 @@ import { useNavigate } from "react-router-dom";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { InfoComponent } from "components/Alerts/Info";
+import { GetAllSmallMoleculeTabs } from "rest/smallMolecule";
 
 export default function MoleculeTabs() {
   const navigate = useNavigate();
 
+  const getTabs = GetAllSmallMoleculeTabs();
+  console.log(getTabs);
   const tabs = [
     {
       name: "Title",
@@ -43,7 +46,7 @@ export default function MoleculeTabs() {
       cell: (row) => (
         <span
           className="editbtn"
-          onClick={() => navigate(`/edit-case-tabs/${row?.id}`)}
+          onClick={() => navigate(`/edit-molecule-tabs/${row?.id}`)}
         >
           <Edit2 row={row} />
         </span>
@@ -56,16 +59,18 @@ export default function MoleculeTabs() {
   return (
     <>
       <PageWrapper slug="molecule-tabs" name="Molecule Tabs" />
-      {false ? <InfoComponent message={"Please Add Data to Display"} /> : null}
-      {false && (
+      {getTabs?.data?.data?.length < 1 ? (
+        <InfoComponent message={"Please Add Data to Display"} />
+      ) : null}
+      {getTabs?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {getTabs?.isPending ? (
         <ComponentLoader />
       ) : (
         <DataTableExtensions
           columns={tabs}
-          data={[]}
+          data={getTabs?.data?.data}
           filterPlaceholder="Search"
         >
           <DataTable

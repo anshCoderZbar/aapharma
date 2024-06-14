@@ -1,23 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Banner } from "app/components/Ui/Banner";
 import { SmallMoleculesCard } from "app/common/services/SmallMoleculesCard";
 
 import "styles/Services.css";
 import {
+  GetAllSmallMoleculeTabs,
   GetHTSMutation,
   GetLeadDevelopmentMutation,
   GetSARMutation,
   GetSBDDMutation,
   GetSmallMoleculeBannerMutation,
 } from "rest/service";
+import { useEffect } from "react";
 
 export default function SmallMoleculesDrugDiscovery() {
+  const [tabId, setTabId] = useState();
+
   const getBanner = GetSmallMoleculeBannerMutation();
   const getHTS = GetHTSMutation();
   const getSDBB = GetSBDDMutation();
   const getSAR = GetSARMutation();
   const getLeadDevelopment = GetLeadDevelopmentMutation();
+  const getTabs = GetAllSmallMoleculeTabs();
+
+  useEffect(() => {
+    if (getTabs?.data?.data) {
+      setTabId(getTabs?.data?.data[0]?.id);
+    }
+  }, [getTabs?.data?.data]);
+
   return (
     <div className="small_molecules_page">
       <Banner
@@ -129,8 +141,8 @@ export default function SmallMoleculesDrugDiscovery() {
         <div className="process_box">
           <div className="process_inner_box mt-0">
             <p>
-              Preparing compounds fast and efficiently requires deep expertise
-              in a wide range of chemical transformations.
+              {getLeadDevelopment?.data?.data &&
+                getLeadDevelopment?.data?.data?.subheading}
             </p>
           </div>
         </div>
@@ -138,35 +150,41 @@ export default function SmallMoleculesDrugDiscovery() {
 
       <div className="container-fluid">
         <div className="moleucles_tab_buttons">
-          <button className="molecules_tab_active">
-            Heterocyclic Chemistry
-          </button>
-          <button>Transition Metal-Mediated Reactions</button>
-          <button>Specialize Purpose Reactions</button>
-          <button>Specialized Purpose Compounds</button>
+          {getTabs?.data?.data?.length >= 1 &&
+            getTabs?.data?.data?.map((elm) => {
+              return (
+                <button
+                  onClick={() => setTabId(elm?.id)}
+                  className={`${
+                    tabId === elm?.id ? "molecules_tab_active" : ""
+                  }`}
+                >
+                  {elm?.title}
+                </button>
+              );
+            })}
         </div>
         <div className="molecules_tab_content">
-          <div className="row tab_molecule_row ">
-            <div className="col-lg-4">
-              <div className="molecule_tab_img">
-                <img src={require("assets/small_page_img6.png")} />
-              </div>
-            </div>
-            <div className="col-lg-8">
-              <div className="molecule_tab_content">
-                <p>
-                  Synthesis and decoration of C-, N-, O- and S-containing
-                  heterocycles
-                </p>
-                <p>
-                  Synthesis and derivatizations of fused-heterocyclic systems
-                </p>
-                <p>
-                  Saturated heterocyclic systems with C-N, C-O and C-P bonds
-                </p>
-              </div>
-            </div>
-          </div>
+          {getTabs?.data?.data?.length >= 1 &&
+            getTabs?.data?.data?.map((tabs) => {
+              return (
+                tabId === tabs?.id && (
+                  <div className="row tab_molecule_row ">
+                    <div className="col-lg-4">
+                      <div className="molecule_tab_img">
+                        <img src={tabs?.image} />
+                      </div>
+                    </div>
+                    <div className="col-lg-8">
+                      <div
+                        className="molecule_tab_content"
+                        dangerouslySetInnerHTML={{ __html: tabs?.description }}
+                      />
+                    </div>
+                  </div>
+                )
+              );
+            })}
         </div>
       </div>
     </div>

@@ -87,4 +87,5 @@ export const API_ENDPOINTS = {
   smallSBDD: "/smdd-sbdd",
   smallSAR: "/smdd-sar",
   smallLeadDevelopment: "/smdd-lead_development",
+  getAllSmallMoleculeTabs: "/smdd-tabs/all",
 };

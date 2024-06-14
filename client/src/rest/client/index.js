@@ -85,6 +85,8 @@ class Client {
     getSAR: () => HttpClient.get(API_ENDPOINTS.smallSAR),
     getLeadDevelopment: () =>
       HttpClient.get(API_ENDPOINTS.smallLeadDevelopment),
+    getAllSmallTabs: () =>
+      HttpClient.get(API_ENDPOINTS.getAllSmallMoleculeTabs),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

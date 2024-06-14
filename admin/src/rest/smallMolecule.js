@@ -128,3 +128,38 @@ export const GetLeadDevelopmentMutation = () => {
   });
   return leadDevelopmentSection;
 };
+
+export const GetAllSmallMoleculeTabs = () => {
+  const allSmallMolecule = useQuery({
+    queryKey: ["all-small-molules"],
+    queryFn: () => client.smallMolecule.getAllSmallTabs(),
+  });
+  return allSmallMolecule;
+};
+
+export const GetSingleSmallTabsMutation = (data) => {
+  const singleSmallMolecule = useQuery({
+    queryKey: ["single-molules-tabs"],
+    queryFn: () => client.smallMolecule.singleSmallTabs(data),
+  });
+  return singleSmallMolecule;
+};
+
+export const EditSingleSmallTabsMutation = () => {
+  const { notify } = useNotifications();
+  const navigate = useNavigate();
+  const editSmallTab = useMutation({
+    mutationFn: (data) => client.smallMolecule.editAllSmallTabs(data),
+    onSuccess: () => {
+      notify("Details Updated Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["all-small-molules"],
+      });
+      navigate("/molecule-tabs");
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return editSmallTab;
+};

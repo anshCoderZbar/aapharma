@@ -198,7 +198,15 @@ export const GetSARMutation = () => {
 export const GetLeadDevelopmentMutation = () => {
   const leadDevelopmentSection = useQuery({
     queryKey: ["lead-development-section"],
-    queryFn: () => client.smallMolecule.getLeadDevelopment(),
+    queryFn: () => client.services.getLeadDevelopment(),
   });
   return leadDevelopmentSection;
+};
+
+export const GetAllSmallMoleculeTabs = () => {
+  const allSmallMolecule = useQuery({
+    queryKey: ["all-small-molules"],
+    queryFn: () => client.services.getAllSmallTabs(),
+  });
+  return allSmallMolecule;
 };

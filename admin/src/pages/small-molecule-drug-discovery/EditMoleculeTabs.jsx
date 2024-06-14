@@ -9,6 +9,11 @@ import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 
+import {
+  GetSingleSmallTabsMutation,
+  EditSingleSmallTabsMutation,
+} from "rest/smallMolecule";
+
 export default function EditMoleculeTabs() {
   const { id } = useParams();
   const {
@@ -20,20 +25,22 @@ export default function EditMoleculeTabs() {
   } = useForm();
 
   const formData = new FormData();
-  //   formData?.append("casestudymainId", id);
+  formData?.append("id", id);
 
+  const getSingleTab = GetSingleSmallTabsMutation(formData);
+  const editTab = EditSingleSmallTabsMutation();
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
 
-  //   useEffect(() => {
-  //     const defaultValues = {};
-  //     defaultValues.btnTitle = getSingleCaseStudyTabs?.data?.data?.title;
-  //     defaultValues.description = getSingleCaseStudyTabs?.data?.data?.description;
-  //     defaultValues.image = getSingleCaseStudyTabs?.data?.data?.image;
-  //     getSingleCaseStudyTabs?.data?.data?.image &&
-  //       setDefaultImg(getSingleCaseStudyTabs?.data?.data?.image);
-  //     reset(defaultValues);
-  //   }, [getSingleCaseStudyTabs?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.title = getSingleTab?.data?.data?.title;
+    defaultValues.description = getSingleTab?.data?.data?.description;
+    defaultValues.image = getSingleTab?.data?.data?.image;
+    getSingleTab?.data?.data?.image &&
+      setDefaultImg(getSingleTab?.data?.data?.image);
+    reset(defaultValues);
+  }, [getSingleTab?.data?.data]);
 
   const handleChange = (e) => {
     const files = e.target.files[0];
@@ -45,19 +52,19 @@ export default function EditMoleculeTabs() {
 
   const onSubmit = (data) => {
     const formData = new FormData();
-    // formData.append("casestudymainId", id);
-    // formData.append("title", data?.btnTitle);
-    // formData.append("heading", data?.heading);
-    // formData.append("description", data?.description);
-    // formData.append("image", data?.image[0]);
+    formData.append("id", id);
+    formData.append("title", data?.title);
+    formData.append("description", data?.description);
+    formData.append("image", data?.image[0]);
+    editTab.mutate(formData);
   };
   return (
     <>
       <PageWrapper slug="molecule-tabs" name="Molecule Tabs" />
-      {false && (
+      {getSingleTab?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {getSingleTab?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -122,7 +129,7 @@ export default function EditMoleculeTabs() {
               <TextEditor
                 control={control}
                 placeholder="Description"
-                defaultValue={""}
+                defaultValue={getSingleTab?.data?.data?.description}
                 {...register("description", { required: true })}
               />
               {errors?.description && (
@@ -130,7 +137,7 @@ export default function EditMoleculeTabs() {
               )}
             </div>
 
-            {false ? (
+            {editTab?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

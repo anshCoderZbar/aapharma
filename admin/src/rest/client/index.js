@@ -427,6 +427,12 @@ class Client {
       HttpClient.get(API_ENDPOINTS.smallLeadDevelopment),
     editLeadDevelopment: (params) =>
       HttpClient.post(API_ENDPOINTS.smallLeadDevelopment, params),
+    getAllSmallTabs: () =>
+      HttpClient.get(API_ENDPOINTS.getAllSmallMoleculeTabs),
+    singleSmallTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleSmallMoleculeTabs, params),
+    editAllSmallTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.editSmallMoleculeTabs, params),
   };
 }
 
