@@ -120,7 +120,7 @@ export const HeaderData = [
     id: 3,
     name: "Capabilities",
     slug: "#",
-    class: "service_mega_menu",
+    class: "  _mega_menu",
     menu: [
       {
         id: 1,

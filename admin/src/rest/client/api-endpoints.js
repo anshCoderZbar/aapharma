@@ -186,4 +186,6 @@ export const API_ENDPOINTS = {
   getAllSmallMoleculeTabs: "/smdd-tabs/all",
   singleSmallMoleculeTabs: "/smdd-tabs/one",
   editSmallMoleculeTabs: "/smdd-tabs/update",
+  isotopeBanner: "/isotope-banner",
+  isotopeAssessment: "/isotope-assessment",
 };

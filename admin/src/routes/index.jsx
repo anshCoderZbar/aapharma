@@ -124,6 +124,13 @@ import SAR from "pages/small-molecule-drug-discovery/SAR";
 import LeadDevelopment from "pages/small-molecule-drug-discovery/LeadDevelopment";
 import MoleculeTabs from "pages/small-molecule-drug-discovery/MoleculeTabs";
 import EditMoleculeTabs from "pages/small-molecule-drug-discovery/EditMoleculeTabs";
+import ServicesBanner from "pages/service-1/ServicesBanner";
+import ServiceAssessment from "pages/service-1/ServiceAssessment";
+import ServiceTable from "pages/service-1/ServiceTable";
+import ServiceDetails from "pages/service-1/ServiceDetails";
+import ServiceButtons from "pages/service-1/ServiceButtons";
+import AddElement from "pages/service-1/AddElement";
+import EditElement from "pages/service-1/EditElement";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -992,6 +999,62 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditMoleculeTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/services-banner",
+      element: (
+        <PrivateRoutes>
+          <ServicesBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/services-assessment",
+      element: (
+        <PrivateRoutes>
+          <ServiceAssessment />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/services-table",
+      element: (
+        <PrivateRoutes>
+          <ServiceTable />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/services-details",
+      element: (
+        <PrivateRoutes>
+          <ServiceDetails />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/services-buttons",
+      element: (
+        <PrivateRoutes>
+          <ServiceButtons />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-element",
+      element: (
+        <PrivateRoutes>
+          <AddElement />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-element/:id",
+      element: (
+        <PrivateRoutes>
+          <EditElement />
         </PrivateRoutes>
       ),
     },

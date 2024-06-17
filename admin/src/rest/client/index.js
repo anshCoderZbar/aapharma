@@ -434,6 +434,14 @@ class Client {
     editAllSmallTabs: (params) =>
       HttpClient.post(API_ENDPOINTS.editSmallMoleculeTabs, params),
   };
+  isotope = {
+    getIsotopeBanner: () => HttpClient.get(API_ENDPOINTS.isotopeBanner),
+    editIsotopeBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.isotopeBanner, params),
+    getIsotopeAssessment: () => HttpClient.get(API_ENDPOINTS.isotopeAssessment),
+    editIsotopeAssessment: (params) =>
+      HttpClient.post(API_ENDPOINTS.isotopeAssessment, params),
+  };
 }
 
 const client = new Client();

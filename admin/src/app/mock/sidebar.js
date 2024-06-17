@@ -18,6 +18,7 @@ import {
   PersonStanding,
   PersonStandingIcon,
   Search,
+  ServerIcon,
   Settings,
   ShoppingBag,
   StepForward,
@@ -356,7 +357,7 @@ export const SidebarData = [
   },
   {
     id: uuidv4(),
-    name: "small-molecule-drug-discovery",
+    name: "Small Molecule Drug Discovery",
     slug: "#",
     icon: <Biohazard />,
     subMenu: [
@@ -386,9 +387,42 @@ export const SidebarData = [
         slug: "lead-development",
       },
       {
-        id: 5,
+        id: 6,
         subMenuName: "Tabs",
         slug: "molecule-tabs",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Service-1",
+    slug: "#",
+    icon: <ServerIcon />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "services-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Assessment",
+        slug: "services-assessment",
+      },
+      {
+        id: 3,
+        subMenuName: "Table",
+        slug: "services-table",
+      },
+      {
+        id: 5,
+        subMenuName: "Detail",
+        slug: "services-details",
+      },
+      {
+        id: 6,
+        subMenuName: "Buttons",
+        slug: "services-buttons",
       },
     ],
   },

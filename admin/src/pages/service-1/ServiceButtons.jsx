@@ -7,11 +7,8 @@ import { PageWrapper } from "components/ui/PageWrapper";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
-import { TextEditor } from "components/ui/TextEditor";
-import { GetTherapeuticsSupport } from "rest/therapeutics";
-import { CreateTherapeuticsSupport } from "rest/therapeutics";
 
-export default function TherapeuticsSupports() {
+export default function ServiceButtons() {
   const {
     register,
     handleSubmit,
@@ -20,46 +17,51 @@ export default function TherapeuticsSupports() {
     control,
   } = useForm();
 
-  const getSupportData = GetTherapeuticsSupport();
-  const createSupportData = CreateTherapeuticsSupport();
+  //   const getSupportData = GetTherapeuticsSupport();
+  //   const createSupportData = CreateTherapeuticsSupport();
 
-  useEffect(() => {
-    const defaultValues = {};
-    defaultValues.heading = getSupportData?.data?.data?.heading;
-    defaultValues.description = getSupportData?.data?.data?.description;
-    defaultValues.firstButton = getSupportData?.data?.data?.button1;
-    defaultValues.secondButton = getSupportData?.data?.data?.button2;
-    defaultValues.thirdButton = getSupportData?.data?.data?.button3;
-    defaultValues.fourthButton = getSupportData?.data?.data?.button4;
-    defaultValues.fifthButton = getSupportData?.data?.data?.button5;
-    defaultValues.sixthButton = getSupportData?.data?.data?.button6;
-    reset(defaultValues);
-  }, [getSupportData?.data?.data]);
+  //   useEffect(() => {
+  //     const defaultValues = {};
+  //     defaultValues.heading = getSupportData?.data?.data?.heading;
+  //     defaultValues.firstButton = getSupportData?.data?.data?.button1;
+  //     defaultValues.secondButton = getSupportData?.data?.data?.button2;
+  //     defaultValues.thirdButton = getSupportData?.data?.data?.button3;
+  //     defaultValues.fourthButton = getSupportData?.data?.data?.button4;
+  //     defaultValues.fifthButton = getSupportData?.data?.data?.button5;
+  //     defaultValues.sixthButton = getSupportData?.data?.data?.button6;
+  //     defaultValues.seventhButton = getSupportData?.data?.data?.button7;
+  //     defaultValues.eighthButton = getSupportData?.data?.data?.button8;
+  //     defaultValues.subHeading = getSupportData?.data?.data?.description;
+  //     reset(defaultValues);
+  //   }, [getSupportData?.data?.data]);
 
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("heading", data.heading);
-    formData.append("description", data.description);
     formData.append("button1", data.firstButton);
     formData.append("button2", data.secondButton);
     formData.append("button3", data.thirdButton);
     formData.append("button4", data.fourthButton);
     formData.append("button5", data.fifthButton);
     formData.append("button6", data.sixthButton);
-    createSupportData.mutate(formData);
+    formData.append("button7", data.seventhButton);
+    formData.append("button8", data.eighthButton);
+    formData.append("subheading", data.subHeading);
+    // createSupportData.mutate(formData);
   };
   return (
-    <div className="therapeutics_page">
-      <PageWrapper slug="therapeutics-supports" name="Support" />
-      {getSupportData?.isError && (
+    <>
+      <PageWrapper slug="services-buttons" name="Buttons" />
+
+      {false && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {getSupportData?.isPending ? (
+      {false ? (
         <ComponentLoader />
       ) : (
         <div className="input_banners  mb-3">
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-12">
               <label htmlFor="heading" className="form-label">
                 Heading
               </label>
@@ -70,22 +72,6 @@ export default function TherapeuticsSupports() {
                 {...register("heading", { required: true })}
               />
               {errors?.heading && (
-                <p className="errorMessage">Field is required</p>
-              )}
-            </div>
-            <div className="mb-4 col-md-6">
-              <label htmlFor={`description`} className="form-label">
-                Description
-              </label>
-              <TextEditor
-                control={control}
-                name={`description`}
-                defaultValue={getSupportData?.data?.data?.description}
-                {...register(`description`, {
-                  required: true,
-                })}
-              />
-              {errors.description && (
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
@@ -173,7 +159,49 @@ export default function TherapeuticsSupports() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            {createSupportData?.isPending ? (
+            <div className="mb-3 col-md-6">
+              <label htmlFor="seventhButton" className="form-label">
+                Seventh Button
+              </label>
+              <FormInput
+                type="text"
+                name="seventhButton"
+                placeholder="Seventh Button"
+                {...register("seventhButton", { required: true })}
+              />
+              {errors?.seventhButton && (
+                <p className="errorMessage">Field is required</p>
+              )}
+            </div>
+            <div className="mb-3 col-md-6">
+              <label htmlFor="eighthButton" className="form-label">
+                Eighth Button
+              </label>
+              <FormInput
+                type="text"
+                name="eighthButton"
+                placeholder="Eighth Button"
+                {...register("eighthButton", { required: true })}
+              />
+              {errors?.eighthButton && (
+                <p className="errorMessage">Field is required</p>
+              )}
+            </div>
+            <div className="mb-3 col-md-12">
+              <label htmlFor="subHeading" className="form-label">
+                Sub Heading
+              </label>
+              <FormInput
+                type="text"
+                name="subHeading"
+                placeholder="Sub Heading"
+                {...register("subHeading", { required: true })}
+              />
+              {errors?.subHeading && (
+                <p className="errorMessage">Field is required</p>
+              )}
+            </div>
+            {false ? (
               <div>
                 <ButtonLoader />
               </div>
@@ -185,6 +213,6 @@ export default function TherapeuticsSupports() {
           </form>
         </div>
       )}
-    </div>
+    </>
   );
 }
