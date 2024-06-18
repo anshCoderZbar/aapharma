@@ -441,6 +441,21 @@ class Client {
     getIsotopeAssessment: () => HttpClient.get(API_ENDPOINTS.isotopeAssessment),
     editIsotopeAssessment: (params) =>
       HttpClient.post(API_ENDPOINTS.isotopeAssessment, params),
+    getIsotopeDetails: () => HttpClient.get(API_ENDPOINTS.isotopeDetails),
+    editIsotopeDetails: (params) =>
+      HttpClient.post(API_ENDPOINTS.isotopeDetails, params),
+    getIsotopeTable: () => HttpClient.get(API_ENDPOINTS.getIsotopeTable),
+    addIsotopeTable: (params) =>
+      HttpClient.post(API_ENDPOINTS.addIsotopeTable, params),
+    singleIsotopeTable: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleIsotopeTable, params),
+    updateIsotopeTable: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateIsotopeTable, params),
+    deleteIsotopeTable: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteIsotopeTable, params),
+    getIsotopeButton: () => HttpClient.get(API_ENDPOINTS.isotopeButtons),
+    editIsotopeButton: (params) =>
+      HttpClient.post(API_ENDPOINTS.isotopeButtons, params),
   };
 }
 

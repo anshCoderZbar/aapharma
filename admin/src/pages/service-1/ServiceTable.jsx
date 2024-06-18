@@ -14,23 +14,29 @@ import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { InfoComponent } from "components/Alerts/Info";
+import { GetIsotopeTableMutation } from "rest/isotope";
+import { DeleteIsotopeTableMutation } from "rest/isotope";
 
 export default function ServiceTable() {
   const navigate = useNavigate();
-  //   const getChemicalSynthesis = GetCustomChemicalSynthesisMutation();
-  //   const deleteChemicalSynthesis = DeleteChemicalSynthesisMutation();
+  const getTableData = GetIsotopeTableMutation();
+  const deleteElement = DeleteIsotopeTableMutation();
   const [id, setId] = useState("");
 
   const handleDelete = (id) => {
     const formData = new FormData();
     formData.append("id", id);
-    // deleteChemicalSynthesis.mutate(formData);
+    deleteElement.mutate(formData);
   };
 
   const tableColumns = [
     {
       name: "Element",
-      selector: (row) => row.element,
+      selector: (row) => row.elements,
+    },
+    {
+      name: "Atomic Number",
+      selector: (row) => row.atomicNumber,
     },
     {
       name: "Parent Atom",
@@ -59,7 +65,7 @@ export default function ServiceTable() {
     {
       name: "Delete",
       cell: (row) =>
-        row?.id === id && false ? (
+        row?.id === id && deleteElement?.isPending ? (
           <ButtonLoader />
         ) : (
           <span
@@ -78,13 +84,13 @@ export default function ServiceTable() {
   return (
     <>
       <PageWrapper slug="services-table" name="Services Table" />
-      {false < 1 ? (
+      {getTableData?.data?.data?.length < 1 ? (
         <InfoComponent message={"Please Add Data to Display"} />
       ) : null}
-      {false && (
+      {getTableData?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {getTableData?.isPending ? (
         <ComponentLoader />
       ) : (
         <>
@@ -95,7 +101,7 @@ export default function ServiceTable() {
           </div>
           <DataTableExtensions
             columns={tableColumns}
-            data={[]}
+            data={getTableData?.data?.data}
             filterPlaceholder="Search"
           >
             <DataTable

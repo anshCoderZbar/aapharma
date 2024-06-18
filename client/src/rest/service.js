@@ -210,3 +210,45 @@ export const GetAllSmallMoleculeTabs = () => {
   });
   return allSmallMolecule;
 };
+
+// isotope
+
+export const GetIsotopeBannerMutation = () => {
+  const isotopeBanner = useQuery({
+    queryKey: ["isotope-banner"],
+    queryFn: () => client.services.getIsotopeBanner(),
+  });
+  return isotopeBanner;
+};
+
+export const GetIsotopeAssessmentMutation = () => {
+  const isotopeAssessment = useQuery({
+    queryKey: ["isotope-assessment"],
+    queryFn: () => client.services.getIsotopeAssessment(),
+  });
+  return isotopeAssessment;
+};
+
+export const GetIsotopeTableMutation = () => {
+  const isotopeTable = useQuery({
+    queryKey: ["get-isotope-table"],
+    queryFn: () => client.services.getIsotopeTable(),
+  });
+  return isotopeTable;
+};
+
+export const GetIsotopeDetailsMutation = () => {
+  const isotopeDetails = useQuery({
+    queryKey: ["get-isotope-details"],
+    queryFn: () => client.services.getIsotopeDetails(),
+  });
+  return isotopeDetails;
+};
+
+export const GetIsotopeButtonMutation = () => {
+  const isotopeButton = useQuery({
+    queryKey: ["get-isotope-button"],
+    queryFn: () => client.services.getIsotopeButton(),
+  });
+  return isotopeButton;
+};

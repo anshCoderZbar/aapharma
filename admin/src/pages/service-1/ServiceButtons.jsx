@@ -7,6 +7,8 @@ import { PageWrapper } from "components/ui/PageWrapper";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import { GetIsotopeButtonMutation } from "rest/isotope";
+import { EditIsotopeButtonMutation } from "rest/isotope";
 
 export default function ServiceButtons() {
   const {
@@ -17,46 +19,46 @@ export default function ServiceButtons() {
     control,
   } = useForm();
 
-  //   const getSupportData = GetTherapeuticsSupport();
-  //   const createSupportData = CreateTherapeuticsSupport();
+  const getIsotopeButton = GetIsotopeButtonMutation();
+  const editIsotopeButton = EditIsotopeButtonMutation();
 
-  //   useEffect(() => {
-  //     const defaultValues = {};
-  //     defaultValues.heading = getSupportData?.data?.data?.heading;
-  //     defaultValues.firstButton = getSupportData?.data?.data?.button1;
-  //     defaultValues.secondButton = getSupportData?.data?.data?.button2;
-  //     defaultValues.thirdButton = getSupportData?.data?.data?.button3;
-  //     defaultValues.fourthButton = getSupportData?.data?.data?.button4;
-  //     defaultValues.fifthButton = getSupportData?.data?.data?.button5;
-  //     defaultValues.sixthButton = getSupportData?.data?.data?.button6;
-  //     defaultValues.seventhButton = getSupportData?.data?.data?.button7;
-  //     defaultValues.eighthButton = getSupportData?.data?.data?.button8;
-  //     defaultValues.subHeading = getSupportData?.data?.data?.description;
-  //     reset(defaultValues);
-  //   }, [getSupportData?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getIsotopeButton?.data?.data?.heading;
+    defaultValues.firstButton = getIsotopeButton?.data?.data?.firstButton;
+    defaultValues.secondButton = getIsotopeButton?.data?.data?.secondButton;
+    defaultValues.thirdButton = getIsotopeButton?.data?.data?.thirdButton;
+    defaultValues.fourthButton = getIsotopeButton?.data?.data?.fourthButton;
+    defaultValues.fifthButton = getIsotopeButton?.data?.data?.fifthButton;
+    defaultValues.sixthButton = getIsotopeButton?.data?.data?.sixthButton;
+    defaultValues.seventhButton = getIsotopeButton?.data?.data?.seventhButton;
+    defaultValues.eighthButton = getIsotopeButton?.data?.data?.eighthButton;
+    defaultValues.subHeading = getIsotopeButton?.data?.data?.subheading;
+    reset(defaultValues);
+  }, [getIsotopeButton?.data?.data]);
 
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("heading", data.heading);
-    formData.append("button1", data.firstButton);
-    formData.append("button2", data.secondButton);
-    formData.append("button3", data.thirdButton);
-    formData.append("button4", data.fourthButton);
-    formData.append("button5", data.fifthButton);
-    formData.append("button6", data.sixthButton);
-    formData.append("button7", data.seventhButton);
-    formData.append("button8", data.eighthButton);
+    formData.append("firstButton", data.firstButton);
+    formData.append("secondButton", data.secondButton);
+    formData.append("thirdButton", data.thirdButton);
+    formData.append("fourthButton", data.fourthButton);
+    formData.append("fifthButton", data.fifthButton);
+    formData.append("sixthButton", data.sixthButton);
+    formData.append("seventhButton", data.seventhButton);
+    formData.append("eighthButton", data.eighthButton);
     formData.append("subheading", data.subHeading);
-    // createSupportData.mutate(formData);
+    editIsotopeButton.mutate(formData);
   };
   return (
     <>
       <PageWrapper slug="services-buttons" name="Buttons" />
 
-      {false && (
+      {getIsotopeButton?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
-      {false ? (
+      {getIsotopeButton?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="input_banners  mb-3">
@@ -75,7 +77,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-3">
               <label htmlFor="firstButton" className="form-label">
                 First Button
               </label>
@@ -89,7 +91,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-3">
               <label htmlFor="secondButton" className="form-label">
                 Second Button
               </label>
@@ -103,7 +105,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-3">
               <label htmlFor="thirdButton" className="form-label">
                 Third Button
               </label>
@@ -117,7 +119,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-3">
               <label htmlFor="fourthButton" className="form-label">
                 Fourth Button
               </label>
@@ -131,7 +133,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-3">
               <label htmlFor="fifthButton" className="form-label">
                 Fifth Button
               </label>
@@ -145,7 +147,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-3">
               <label htmlFor="sixthButton" className="form-label">
                 Sixth Button
               </label>
@@ -159,7 +161,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-3">
               <label htmlFor="seventhButton" className="form-label">
                 Seventh Button
               </label>
@@ -173,7 +175,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-3">
               <label htmlFor="eighthButton" className="form-label">
                 Eighth Button
               </label>
@@ -201,7 +203,7 @@ export default function ServiceButtons() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            {false ? (
+            {editIsotopeButton?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

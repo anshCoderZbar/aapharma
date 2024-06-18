@@ -87,6 +87,11 @@ class Client {
       HttpClient.get(API_ENDPOINTS.smallLeadDevelopment),
     getAllSmallTabs: () =>
       HttpClient.get(API_ENDPOINTS.getAllSmallMoleculeTabs),
+    getIsotopeBanner: () => HttpClient.get(API_ENDPOINTS.isotopeBanner),
+    getIsotopeAssessment: () => HttpClient.get(API_ENDPOINTS.isotopeAssessment),
+    getIsotopeTable: () => HttpClient.get(API_ENDPOINTS.getIsotopeTable),
+    getIsotopeDetails: () => HttpClient.get(API_ENDPOINTS.isotopeDetails),
+    getIsotopeButton: () => HttpClient.get(API_ENDPOINTS.isotopeButtons),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

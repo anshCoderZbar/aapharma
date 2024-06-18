@@ -188,4 +188,11 @@ export const API_ENDPOINTS = {
   editSmallMoleculeTabs: "/smdd-tabs/update",
   isotopeBanner: "/isotope-banner",
   isotopeAssessment: "/isotope-assessment",
+  getIsotopeTable: "/isotope-table/all",
+  addIsotopeTable: "/isotope-table/new",
+  singleIsotopeTable: "/isotope-table/one",
+  updateIsotopeTable: "/isotope-table/update",
+  deleteIsotopeTable: "/isotope-table/delete",
+  isotopeDetails: "/isotope-details",
+  isotopeButtons: "/isotope-buttons",
 };

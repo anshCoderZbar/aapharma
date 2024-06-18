@@ -88,4 +88,9 @@ export const API_ENDPOINTS = {
   smallSAR: "/smdd-sar",
   smallLeadDevelopment: "/smdd-lead_development",
   getAllSmallMoleculeTabs: "/smdd-tabs/all",
+  isotopeBanner: "/isotope-banner",
+  isotopeAssessment: "/isotope-assessment",
+  getIsotopeTable: "/isotope-table/all",
+  isotopeDetails: "/isotope-details",
+  isotopeButtons: "/isotope-buttons",
 };

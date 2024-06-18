@@ -5,6 +5,7 @@ import "styles/main.css";
 
 import { useForm } from "react-hook-form";
 import { TableForm } from "components/Table-form";
+import { AddIsotopeTableMutation } from "rest/isotope";
 
 export default function AddElement() {
   const {
@@ -15,10 +16,16 @@ export default function AddElement() {
     control,
   } = useForm();
 
+  const addElementTable = AddIsotopeTableMutation();
+
   const onSubmit = (data) => {
     const formData = new FormData();
-    console.log(data);
-    // createSupportData.mutate(formData);
+    formData.append("elements", data?.elements);
+    formData.append("atomicNumber", data?.atomicNumber);
+    formData.append("parentAtom", data?.parentAtom);
+    formData.append("stableIsotope", data?.stableIsotope);
+    formData.append("abundance", data?.abundance);
+    addElementTable.mutate(formData);
   };
   return (
     <>
@@ -27,7 +34,7 @@ export default function AddElement() {
         <TableForm
           register={register}
           onSubmit={handleSubmit(onSubmit)}
-          isLoading={false}
+          isLoading={addElementTable?.isPending}
           errors={errors}
         />
       </div>
