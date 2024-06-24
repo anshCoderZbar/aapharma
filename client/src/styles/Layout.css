@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   gap: 40px;
-  flex: 0 48%;
+  flex: 0 40%;
 }
 
 .nav-colums img {
@@ -78,7 +78,7 @@
   justify-content: center;
   align-items: center;
   list-style: none;
-  gap: 33px;
+  gap: 30px;
 }
 
 .nav-right-li {
@@ -427,7 +427,7 @@
   font-weight: 500;
   color: #2e2e2e;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   padding: 5px;
   border-top-left-radius: 7px;
@@ -684,14 +684,15 @@
   }
 } */
 @media screen and (min-width: 2000px) {
+  .drop_acor_m,
   .nav-right > ul li a {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 1770px) {
-  .nav-left {
-    flex: 0 1 45%;
-  }
+  /* .nav-left {
+    flex: 0 1 35%;
+  } */
 }
 
 @media screen and (max-width: 1700px) {
@@ -719,7 +720,8 @@
   }
 
   .nav-left {
-    gap: 30px;
+    gap: 25px;
+    flex: 0 32%;
   }
 
   .search_input {
@@ -730,6 +732,7 @@
     gap: 20px;
   }
 
+  .drop_acor_m,
   .nav-right > ul li a {
     font-size: 16px;
   }
@@ -790,10 +793,6 @@
 }
 
 @media screen and (max-width: 1510px) {
-  .nav-left {
-    flex: 0 1 41%;
-  }
-
   .nav-right-li a span svg {
     width: 19px;
   }
@@ -812,22 +811,20 @@
   }
 
   .nav-left {
-    gap: 20px;
+    gap: 15px;
   }
 
   .nav-right > ul {
-    gap: 20px;
+    gap: 15px;
   }
 
+  .drop_acor_m,
   .nav-right > ul li a {
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 1330px) {
-  .nav-left {
-    flex: 0 1 37%;
-  }
 }
 
 @media screen and (max-width: 1250px) {
@@ -885,9 +882,7 @@
   .footer_links li {
     margin-bottom: 18px;
   }
-}
 
-@media only screen and (max-width: 1090px) {
   .nav-colums {
     display: block;
     position: relative;
@@ -1017,12 +1012,6 @@
     border-radius: 0px;
   }
 
-  .acc_bg {
-    border-radius: 0px !important;
-    padding: 7px 11px;
-    font-size: 14px;
-  }
-
   .acc_bdy_bg {
     padding: 7px 20px;
     font-size: 14px;
@@ -1043,6 +1032,12 @@
     color: #fff;
   }
 
+  .header {
+    padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 1090px) {
   .footer_banner {
     min-height: 300px;
   }

@@ -186,7 +186,7 @@ export const HeaderData = [
   },
   {
     id: 5,
-    name: "Research Tools Ca",
+    name: "Research Tools Catalog",
     slug: "/catalog",
     class: false,
   },

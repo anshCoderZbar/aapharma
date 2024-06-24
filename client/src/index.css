@@ -239,6 +239,9 @@ td {
   .primary_btn_outline {
     font-size: 20px;
   }
+  .primary_buttton {
+    font-size: 20px;
+  }
 }
 @media screen and (max-width: 1700px) {
   .container-fluid {

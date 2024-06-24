@@ -121,11 +121,11 @@ export const Header = () => {
                         >
                           {data?.name}
                         </Link>
-                        {data?.menu && (
-                          <span style={{ cursor: "pointer" }}>
-                            <ChevronDown onClick={() => handleMenuClick(i)} />
-                          </span>
-                        )}
+                        {/* {data?.menu && ( */}
+                        <span style={{ cursor: "pointer" }}>
+                          <ChevronDown onClick={() => handleMenuClick(i)} />
+                        </span>
+                        {/* )} */}
                       </div>
                       {data && selected !== -1 && (
                         <div ref={submenuRef} className="dropdown vP_csPc">
@@ -139,94 +139,87 @@ export const Header = () => {
                                 i <= 3 &&
                                 data?.menu?.map((menu, i) => {
                                   return (
-                                    <>
-                                      <li
-                                        key={i}
-                                        className={`dropdown__list-item ${
-                                          data?.id === 5 ? "" : "m_xLx"
-                                        }`}
-                                      >
-                                        {!menu?.subMenu && (
-                                          <Link
-                                            className={
-                                              window?.location?.pathname ===
-                                              menu?.slug
-                                                ? "active_color"
-                                                : ""
-                                            }
+                                    <li
+                                      key={i}
+                                      className={`dropdown__list-item ${
+                                        data?.id === 5 ? "" : "m_xLx"
+                                      }`}
+                                    >
+                                      {!menu?.subMenu && (
+                                        <Link
+                                          className={
+                                            window?.location?.pathname ===
+                                            menu?.slug
+                                              ? "active_color"
+                                              : ""
+                                          }
+                                          onClick={() => {
+                                            setActive(false);
+                                            setOpen(false);
+                                          }}
+                                          to={menu?.slug}
+                                        >
+                                          {menu?.name}
+                                        </Link>
+                                      )}
+                                      {menu?.subMenu?.length >= 1 && (
+                                        <>
+                                          <div
                                             onClick={() => {
-                                              setActive(false);
-                                              setOpen(false);
+                                              setDropMenu(
+                                                dropMenu === menu?.id
+                                                  ? -1
+                                                  : menu?.id
+                                              );
                                             }}
-                                            to={menu?.slug}
+                                            className={`drop_acor_m accordion accordion-flush ${
+                                              menu?.id === dropMenu
+                                                ? "menu_li_active"
+                                                : ""
+                                            }`}
                                           >
-                                            {menu?.name}
-                                          </Link>
-                                        )}
-                                        {menu?.subMenu?.length >= 1 && (
-                                          <>
-                                            <div
-                                              onClick={() => {
-                                                setDropMenu(
-                                                  dropMenu === menu?.id
-                                                    ? -1
-                                                    : menu?.id
-                                                );
-                                              }}
-                                              className={`drop_acor_m accordion accordion-flush ${
-                                                menu?.id === dropMenu
-                                                  ? "menu_li_active"
-                                                  : ""
-                                              }`}
-                                            >
-                                              {menu?.name}
-                                              <span>
-                                                <ChevronDown />
-                                              </span>
-                                            </div>
-                                            <div
-                                              className={`drop_ul_main ${
-                                                menu?.id === dropMenu
-                                                  ? "drop_ul_active"
-                                                  : ""
-                                              }`}
-                                            >
-                                              {menu?.subMenu?.map((sub) => {
-                                                console.log(
-                                                  window?.location?.pathname ===
-                                                    sub?.slug
-                                                );
-                                                return (
-                                                  <Link
-                                                    className={` ${
-                                                      menu?.id === dropMenu
-                                                        ? "text-white"
-                                                        : ""
-                                                    } ${
-                                                      window?.location
-                                                        ?.pathname === sub?.slug
-                                                        ? "active_color"
-                                                        : ""
-                                                    }`}
-                                                    onClick={() => {
-                                                      setActive(false);
-                                                      setOpen(false);
-                                                      setDropMenu(-1);
-                                                    }}
-                                                    to={sub?.slug}
-                                                  >
-                                                    {sub?.subMenu}
-                                                  </Link>
-                                                );
-                                              })}
-                                            </div>
-                                          </>
-                                        )}
-                                      </li>
-                                    </>
+                                            <span> {menu?.name}</span>
+                                            <span>
+                                              <ChevronDown />
+                                            </span>
+                                          </div>
+                                          <div
+                                            className={`drop_ul_main ${
+                                              menu?.id === dropMenu
+                                                ? "drop_ul_active"
+                                                : ""
+                                            }`}
+                                          >
+                                            {menu?.subMenu?.map((sub) => {
+                                              return (
+                                                <Link
+                                                  className={`${
+                                                    menu?.id === dropMenu
+                                                      ? "text-white"
+                                                      : ""
+                                                  } ${
+                                                    window?.location
+                                                      ?.pathname === sub?.slug
+                                                      ? "active_color"
+                                                      : ""
+                                                  }`}
+                                                  onClick={() => {
+                                                    setActive(false);
+                                                    setOpen(false);
+                                                    setDropMenu(-1);
+                                                  }}
+                                                  to={sub?.slug}
+                                                >
+                                                  {sub?.subMenu}
+                                                </Link>
+                                              );
+                                            })}
+                                          </div>
+                                        </>
+                                      )}
+                                    </li>
                                   );
                                 })}
-
                               {i === selected &&
                                 i === 4 &&
                                 masterCategory?.data?.data?.length >= 1 &&

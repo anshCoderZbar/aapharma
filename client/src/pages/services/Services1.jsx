@@ -200,7 +200,6 @@ export default function Services1() {
               {getButtons?.data?.data && getButtons?.data?.data?.eighthButton}
             </button>
           </div>
-
           <div className="service_desc">
             <p>
               {getButtons?.data?.data && getButtons?.data?.data?.subheading}
