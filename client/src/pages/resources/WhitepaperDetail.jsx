@@ -19,10 +19,7 @@ export default function WhitepaperDetail() {
           singleWhitepaper?.data?.data?.heading &&
           singleWhitepaper?.data?.data?.heading
         }
-        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${
-          singleWhitepaper?.data?.data?.image &&
-          singleWhitepaper?.data?.data?.image
-        })`}
+        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${require("assets/single_whitepaper.png")})`}
         extra="single_whitepaper_banner"
         breadCrum={"whitepaper"}
       />

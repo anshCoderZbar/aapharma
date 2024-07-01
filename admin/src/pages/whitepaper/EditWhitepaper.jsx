@@ -29,11 +29,11 @@ export const EditWhitepaper = () => {
     const defaultValues = {};
     defaultValues.heading = singleWhitepaper?.data?.data?.heading;
     defaultValues.description = singleWhitepaper?.data?.data?.description;
-    defaultValues.banner = singleWhitepaper?.data?.data?.image;
+    // defaultValues.banner = singleWhitepaper?.data?.data?.image;
     // defaultValues.date = dayjs(singleWhitepaper?.data?.data?.date).format(
     //   "MM/DD/YYYY"
     // );
-    setDefaultImg(singleWhitepaper?.data?.data?.image);
+    // setDefaultImg(singleWhitepaper?.data?.data?.image);
     reset(defaultValues);
   }, [singleWhitepaper?.data?.data]);
 
@@ -42,7 +42,7 @@ export const EditWhitepaper = () => {
     formData.append("id", id);
     formData.append("heading", data?.heading);
     formData.append("description", data?.description);
-    formData.append("image", data?.banner[0]);
+    // formData.append("image", data?.banner[0]);
     formData.append("date", dayjs(data?.date).format("MMMM-DD-YYYY"));
     editWhitepaper.mutate(formData);
   };
@@ -57,7 +57,7 @@ export const EditWhitepaper = () => {
           onSubmit={handleSubmit(onSubmit)}
           errors={errors}
           addedDescription={singleWhitepaper?.data?.data?.description}
-          defaultImg={defaultImg}
+          // defaultImg={defaultImg}
           defaultDate={dayjs(singleWhitepaper?.data?.data?.date)}
           isLoading={editWhitepaper?.isPending}
         />

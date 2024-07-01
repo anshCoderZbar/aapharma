@@ -10,25 +10,25 @@ export const WhitepaperForm = ({
   register,
   onSubmit,
   errors,
-  defaultImg,
+  // defaultImg,
   control,
   addedDescription,
   isLoading,
   defaultDate,
 }) => {
-  const [perviewImages, setPreviewImages] = useState("");
+  // const [perviewImages, setPreviewImages] = useState("");
 
-  const handleChange = (e) => {
-    const files = e.target.files[0];
-    if (files) {
-      const imageUrl = URL.createObjectURL(files);
-      setPreviewImages(imageUrl);
-    }
-  };
+  // const handleChange = (e) => {
+  //   const files = e.target.files[0];
+  //   if (files) {
+  //     const imageUrl = URL.createObjectURL(files);
+  //     setPreviewImages(imageUrl);
+  //   }
+  // };
 
   return (
     <form onSubmit={onSubmit} className="row mt-4 mb-3">
-      <div className="mb-3 col-md-12">
+      <div className="mb-3 col-md-6">
         <label htmlFor="heading" className="form-label">
           Heading
         </label>
@@ -56,7 +56,7 @@ export const WhitepaperForm = ({
         {errors?.date && <p className="errorMessage">Date is required</p>}
       </div>
 
-      <div className="mb-3 col-md-6">
+      {/* <div className="mb-3 col-md-6">
         <label htmlFor="banner" className="form-label">
           Banner (1540px * 305px)
         </label>
@@ -84,7 +84,7 @@ export const WhitepaperForm = ({
             style={{ maxWidth: "300px", marginTop: "10px" }}
           />
         )}
-      </div>
+      </div> */}
       <div className="mb-3 col-md-12">
         <label htmlFor="description" className="form-label">
           Description

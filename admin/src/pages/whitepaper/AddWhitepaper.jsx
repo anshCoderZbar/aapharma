@@ -20,7 +20,7 @@ export const AddWhitepaper = () => {
     const formData = new FormData();
     formData.append("heading", data?.heading);
     formData.append("description", data?.description);
-    formData.append("image", data?.banner[0]);
+    // formData.append("image", data?.banner[0]);
     formData.append("date", dayjs(data?.date).format("MMMM-DD-YYYY"));
     addWhitepaper.mutate(formData);
   };

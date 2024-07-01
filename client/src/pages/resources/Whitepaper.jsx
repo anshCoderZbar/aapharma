@@ -138,6 +138,7 @@ export default function Whitepaper() {
                         >
                           Read More
                         </button>
+                        p
                       </div>
                     </div>
                   </div>

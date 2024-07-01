@@ -700,12 +700,12 @@
 
 .tab_flex_row .case_tab_img {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .tab_rev_row .case_tab_img {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .case_tab_img img {
@@ -1427,7 +1427,7 @@
   font-size: 18px;
   font-weight: 400;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: baseline;
 }
 

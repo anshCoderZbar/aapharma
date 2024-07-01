@@ -68,7 +68,9 @@ export default function ResourcesOverview() {
               <TextEditor
                 control={control}
                 placeholder="Description"
-                defaultValue={""}
+                defaultValue={
+                  getHeading?.data?.data && getHeading?.data?.data?.description
+                }
                 {...register("description", { required: true })}
               />
               {errors?.description && (

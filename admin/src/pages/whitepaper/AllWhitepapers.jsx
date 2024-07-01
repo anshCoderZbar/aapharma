@@ -37,23 +37,23 @@ export const AllWhitepapers = () => {
       name: "Date",
       selector: (row) => row.date,
     },
-    {
-      name: "Description",
-      selector: (row) => (
-        <div
-          className="des_igfg"
-          dangerouslySetInnerHTML={{
-            __html: row.description?.substring(0, 50),
-          }}
-        />
-      ),
-    },
-    {
-      name: "Banner",
-      cell: (row) => (
-        <img src={row?.image} alt="client" style={{ maxWidth: "150px" }} />
-      ),
-    },
+    // {
+    //   name: "Description",
+    //   selector: (row) => (
+    //     <div
+    //       className="des_igfg"
+    //       dangerouslySetInnerHTML={{
+    //         __html: row.description?.substring(0, 50),
+    //       }}
+    //     />
+    //   ),
+    // },
+    // {
+    //   name: "Banner",
+    //   cell: (row) => (
+    //     <img src={row?.image} alt="client" style={{ maxWidth: "150px" }} />
+    //   ),
+    // },
     {
       name: "edit",
       cell: (row) => (
