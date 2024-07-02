@@ -38,6 +38,10 @@ export default function Carbohydrates() {
               <li>
                 <ChevronRight />
               </li>
+              <li>Research Tools</li>
+              <li>
+                <ChevronRight />
+              </li>
               <li>
                 <Link className="bread_active" to="/carbohydrates">
                   carbohydrates

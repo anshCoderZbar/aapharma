@@ -35,6 +35,7 @@ export default function SmallMoleculesDrugDiscovery() {
       <Banner
         heading={getBanner?.data?.data && getBanner?.data?.data?.heading}
         background={`linear-gradient(#2A3072, #2A3072)`}
+        subMenu="Medicinal Chemistry"
         description={getBanner?.data?.data && getBanner?.data?.data?.subheading}
         extra="white_head small_page_banner"
       />

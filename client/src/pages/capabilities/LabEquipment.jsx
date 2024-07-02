@@ -18,6 +18,7 @@ export default function LabEquipment() {
         background={`url(${
           getBanner?.data?.data?.image && getBanner?.data?.data?.image
         })`}
+        subMenu="Equipment"
         heading={
           getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
         }

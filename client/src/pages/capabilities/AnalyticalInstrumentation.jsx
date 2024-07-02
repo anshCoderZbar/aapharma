@@ -20,6 +20,10 @@ export default function AnalyticalInstrumentation() {
               <li>
                 <ChevronRight />
               </li>
+              <li>Equipment</li>
+              <li>
+                <ChevronRight />
+              </li>
               <li>
                 <Link className="bread_active" to="/analytical-instrumentation">
                   analytical instrumentation

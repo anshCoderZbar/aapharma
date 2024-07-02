@@ -16,6 +16,12 @@ export const Banner = (props) => {
             <li>
               <ChevronRight />
             </li>
+            {props?.subMenu && <li>{props?.subMenu}</li>}
+            {props?.subMenu && (
+              <li>
+                <ChevronRight />
+              </li>
+            )}
             <li>
               <Link
                 className="bread_active"

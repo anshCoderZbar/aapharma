@@ -33,6 +33,7 @@ export default function AntibodyDrugConjugates() {
           getBanner?.data?.data?.bannerHeading &&
           getBanner?.data?.data?.bannerHeading
         }
+        subMenu="Medicinal Chemistry"
         background={`url(${
           getBanner?.data?.data?.bannerImage &&
           getBanner?.data?.data?.bannerImage

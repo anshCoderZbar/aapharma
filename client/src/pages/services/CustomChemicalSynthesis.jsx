@@ -67,6 +67,10 @@ export default function CustomChemicalSynthesis() {
             <li>
               <ChevronRight />
             </li>
+            <li>Industrial Chemistry</li>
+            <li>
+              <ChevronRight />
+            </li>
             <li>
               <Link className="bread_active" to="/custom-chemical-synthesis">
                 custom chemical synthesis

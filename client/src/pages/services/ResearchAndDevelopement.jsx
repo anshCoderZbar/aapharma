@@ -30,6 +30,7 @@ export default function ResearchAndDevelopement() {
           getBanner?.data?.data?.image && getBanner?.data?.data?.image
         })`}
         extra="research_banner"
+        subMenu="Medicinal Chemistry"
         heading={
           getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
         }
