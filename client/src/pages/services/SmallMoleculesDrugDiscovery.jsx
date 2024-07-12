@@ -152,9 +152,10 @@ export default function SmallMoleculesDrugDiscovery() {
       <div className="container-fluid">
         <div className="moleucles_tab_buttons">
           {getTabs?.data?.data?.length >= 1 &&
-            getTabs?.data?.data?.map((elm) => {
+            getTabs?.data?.data?.map((elm, i) => {
               return (
                 <button
+                  key={i}
                   onClick={() => setTabId(elm?.id)}
                   className={`${
                     tabId === elm?.id ? "molecules_tab_active" : ""

@@ -35,6 +35,7 @@ import Conference from "pages/resources/Conference";
 import PaypalPayment from "pages/cart/Paypal";
 import ProcessResearchandDevelopment from "pages/services/ProcessResearchandDevelopment";
 import SmallMoleculesDrugDiscovery from "pages/services/SmallMoleculesDrugDiscovery";
+import ProjectManagement from "pages/services/ProjectManagement";
 
 export const AllRoutes = () => {
   return (
@@ -158,6 +159,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <SmallMoleculesDrugDiscovery />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/project-management"
+            element={
+              <PublicRoutes>
+                <ProjectManagement />
               </PublicRoutes>
             }
           />

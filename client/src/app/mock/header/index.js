@@ -107,7 +107,7 @@ export const HeaderData = [
       {
         id: 6,
         name: "Project Management",
-        slug: "#",
+        slug: "/project-management",
       },
       {
         id: 7,

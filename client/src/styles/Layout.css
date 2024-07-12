@@ -324,6 +324,11 @@
   background-color: #f8f8f8;
   color: #666666;
   padding: 6px 0px;
+  transition: 0.3s all;
+}
+
+.acc_bdy_1 div:hover {
+  color: #34caff;
 }
 
 .acc_bdy {
@@ -344,13 +349,13 @@
 }
 
 .change_top_color {
-  background: #34caff !important;
+  background: #2a3072 !important;
   color: #fff;
   transition: 0.3s ease-in-out;
 }
 
 .open_cat_acc .acc_bdy_1 {
-  background: #34caff !important;
+  background: #2a3072 !important;
   color: #fff;
   transition: 0.3s ease-in-out;
 }

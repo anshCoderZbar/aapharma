@@ -190,7 +190,7 @@ export const Header = () => {
                                                 : ""
                                             }`}
                                           >
-                                            {menu?.subMenu?.map((sub) => {
+                                            {menu?.subMenu?.map((sub, i) => {
                                               return (
                                                 <Link
                                                   className={`${
@@ -209,6 +209,7 @@ export const Header = () => {
                                                     setDropMenu(-1);
                                                   }}
                                                   to={sub?.slug}
+                                                  key={i}
                                                 >
                                                   {sub?.subMenu}
                                                 </Link>
