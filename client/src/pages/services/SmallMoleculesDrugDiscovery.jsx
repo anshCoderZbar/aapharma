@@ -91,6 +91,7 @@ export default function SmallMoleculesDrugDiscovery() {
           </div>
         </div>
       </div>
+      <hr />
       <div className="small_feature_section bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
@@ -103,6 +104,7 @@ export default function SmallMoleculesDrugDiscovery() {
           />
         </div>
       </div>
+      <hr />
       <div className="small_feature_section  bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
@@ -116,6 +118,7 @@ export default function SmallMoleculesDrugDiscovery() {
           />
         </div>
       </div>
+      <hr />
       <div className="small_feature_section bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
@@ -125,7 +128,7 @@ export default function SmallMoleculesDrugDiscovery() {
  part or a portion of the molecule is then replaced by a new scaffold which is able to retain the original
  binding groups of the molecule in their optimized binding orientation.</p> 
 <p>The process allows for the
- identification of new scaffolds which might impart better physicochemical properties or avoid existing
+identification of new scaffolds which might impart better physicochemical properties or avoid existing
  patent art.</p>
 `}
             buttons={[
@@ -137,6 +140,7 @@ export default function SmallMoleculesDrugDiscovery() {
           />
         </div>
       </div>
+      <hr />
       <div className="small_feature_section bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard

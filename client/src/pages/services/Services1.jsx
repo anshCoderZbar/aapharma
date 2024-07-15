@@ -140,29 +140,6 @@ export default function Services1() {
                 }}
               />
             </div>
-            {/* <div className="row serv_bhys">
-              <div className="col-lg-6">
-                <div className="service_bottom_featured_img">
-                  <img
-                    src={
-                      getDetails?.data?.data && getDetails?.data?.data?.image2
-                    }
-                    alt="featured-image"
-                  />
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="service_bottom_desc">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html:
-                        getDetails?.data?.data &&
-                        getDetails?.data?.data?.description2,
-                    }}
-                  />
-                </div>
-              </div>
-            </div> */}
             <div className=" serv_bhys row_rev_service">
               <div className="service_bottom_featured_img left_flow">
                 <img
