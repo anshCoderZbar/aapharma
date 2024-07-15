@@ -1458,26 +1458,32 @@
   row-gap: 5rem;
 }
 
-.serv_bhys {
-  justify-content: space-between;
+.service_bottom_featured_img {
+  text-align: center;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 80px 40px;
+  border-radius: 16px;
+  width: 50%;
+  float: right;
+  margin-left: 50px;
+}
+
+.left_flow {
+  float: left;
+  margin-right: 50px;
+  margin-left: 0;
 }
 
 .service_bottom_desc p {
   font-size: 20px;
   color: #2e2e2e;
   font-weight: 400;
-  line-height: 50px;
+  line-height: 40px;
+  text-align: justify;
 }
 
 .service_bottom_desc p a {
   text-decoration: none;
-}
-
-.service_bottom_featured_img {
-  text-align: center;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 40px;
-  border-radius: 16px;
 }
 
 .service_desc_button {
@@ -2947,6 +2953,15 @@
     line-height: 36px;
   }
 
+  .service_bottom_featured_img {
+    padding: 50px 30px;
+    margin-left: 35px;
+  }
+
+  .left_flow {
+    margin-right: 35px;
+  }
+
   .service_desc_button button {
     padding: 17px 15px;
     font-size: 18px;
@@ -3836,7 +3851,12 @@
   }
 
   .service_bottom_featured_img {
-    padding: 30px;
+    padding: 22px;
+    margin-left: 20px;
+  }
+
+  .left_flow {
+    margin-right: 20px;
   }
 
   .service_bottom_featured_img img {
@@ -4645,6 +4665,16 @@
 
   .process_acc_card {
     flex: 0 100%;
+  }
+
+  .service_bottom_featured_img {
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
+
+  .left_flow {
+    margin-right: 0;
   }
 }
 

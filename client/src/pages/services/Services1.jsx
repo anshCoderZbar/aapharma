@@ -124,30 +124,23 @@ export default function Services1() {
             <h3>{getDetails?.data?.data && getDetails?.data?.data?.heading}</h3>
           </div>
           <div className="service_bottom_details">
-            <div className="row serv_bhys row_rev_service">
-              <div className="col-lg-6">
-                <div className="service_bottom_desc ">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html:
-                        getDetails?.data?.data &&
-                        getDetails?.data?.data?.description1,
-                    }}
-                  />
-                </div>
+            <div className=" serv_bhys row_rev_service">
+              <div className="service_bottom_featured_img">
+                <img
+                  src={getDetails?.data?.data && getDetails?.data?.data?.image1}
+                  alt="featured-image"
+                />
               </div>
-              <div className="col-lg-6">
-                <div className="service_bottom_featured_img">
-                  <img
-                    src={
-                      getDetails?.data?.data && getDetails?.data?.data?.image1
-                    }
-                    alt="featured-image"
-                  />
-                </div>
-              </div>
+              <p
+                className="service_bottom_desc"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    getDetails?.data?.data &&
+                    getDetails?.data?.data?.description1,
+                }}
+              />
             </div>
-            <div className="row serv_bhys">
+            {/* <div className="row serv_bhys">
               <div className="col-lg-6">
                 <div className="service_bottom_featured_img">
                   <img
@@ -169,6 +162,22 @@ export default function Services1() {
                   />
                 </div>
               </div>
+            </div> */}
+            <div className=" serv_bhys row_rev_service">
+              <div className="service_bottom_featured_img left_flow">
+                <img
+                  src={getDetails?.data?.data && getDetails?.data?.data?.image2}
+                  alt="featured-image"
+                />
+              </div>
+              <p
+                className="service_bottom_desc"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    getDetails?.data?.data &&
+                    getDetails?.data?.data?.description2,
+                }}
+              />
             </div>
           </div>
           <div className="service_desc">
