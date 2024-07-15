@@ -78,14 +78,14 @@ export default function SmallMoleculesDrugDiscovery() {
             <div className="col-lg-6">
               <div className="small_main_image">
                 <img src={getHTS?.data?.data && getHTS?.data?.data?.Image1} />
-                <h4>
-                  {getHTS?.data?.data && getHTS?.data?.data?.ImageSubHeading}
-                </h4>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="small_main_image small_main_2_img">
                 <img src={getHTS?.data?.data && getHTS?.data?.data?.Image2} />
+                <h4>
+                  {getHTS?.data?.data && getHTS?.data?.data?.ImageSubHeading}
+                </h4>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function SmallMoleculesDrugDiscovery() {
         <div className="container-fluid">
           <SmallMoleculesCard
             heading={getSDBB?.data?.data && getSDBB?.data?.data?.heading}
-            description={
+            mainDescription={
               getSDBB?.data?.data && getSDBB?.data?.data?.description
             }
             buttons={getSDBB?.data?.data && getSDBB?.data?.data?.list}
@@ -113,6 +113,27 @@ export default function SmallMoleculesDrugDiscovery() {
             buttons={getSAR?.data?.data && getSAR?.data?.data?.list}
             image={getSAR?.data?.data && getSAR?.data?.data?.image}
             extraClass="flex-row-reverse"
+          />
+        </div>
+      </div>
+      <div className="small_feature_section bg-white">
+        <div className="container-fluid">
+          <SmallMoleculesCard
+            secondHead={"Scaffold-hopping"}
+            description={`<p>in drug-design is widely used in drug discovery. Scaffold-hopping requires an active
+ molecule with either an experimentally determined, or a hypothetical, binding conformation. A central
+ part or a portion of the molecule is then replaced by a new scaffold which is able to retain the original
+ binding groups of the molecule in their optimized binding orientation.</p> 
+<p>The process allows for the
+ identification of new scaffolds which might impart better physicochemical properties or avoid existing
+ patent art.</p>
+`}
+            buttons={[
+              "1.Preparation of relevant analogs",
+              "2.Intermediates",
+              "3.Exploration of chemical space",
+            ]}
+            image={require("assets/scaffold_img.png")}
           />
         </div>
       </div>
@@ -168,10 +189,10 @@ export default function SmallMoleculesDrugDiscovery() {
         </div>
         <div className="molecules_tab_content">
           {getTabs?.data?.data?.length >= 1 &&
-            getTabs?.data?.data?.map((tabs) => {
+            getTabs?.data?.data?.map((tabs, i) => {
               return (
                 tabId === tabs?.id && (
-                  <div className="row tab_molecule_row ">
+                  <div key={i} className="row tab_molecule_row ">
                     <div className="col-lg-4">
                       <div className="molecule_tab_img">
                         <img src={tabs?.image} />
