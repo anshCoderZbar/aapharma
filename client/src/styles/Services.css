@@ -289,25 +289,26 @@
 .text_content_service.vss_5 .abs_img {
   order: 2;
   position: relative;
-  top: 149px;
-  right: 322px;
+  top: 15rem;
+  right: 24rem;
   width: 137px;
 }
 
 .text_content_service.vss_5 .abs_content {
   position: relative;
-  top: 40px;
+  top: 90px;
 }
 
 .text_content_service.vss_5 .abs_content h2:nth-child(2) {
   position: absolute;
-  bottom: -14rem;
-  max-width: 158px;
-  left: -50px;
+  bottom: -13rem;
+  max-width: 110px;
+  left: -155px;
+  font-size: 17px;
 }
 
 .text_content_service.vss_5 .abs_img img {
-  width: 110px;
+  width: 150px;
 }
 
 .text_content_service.vss_6 .abs_content {
@@ -2787,12 +2788,12 @@
   }
 
   .text_content_service.vss_5 .abs_img {
-    top: 138px;
-    right: 338px;
+    top: 13rem;
+    right: 24rem;
   }
 
   .text_content_service.vss_5 .abs_content h2:nth-child(2) {
-    bottom: -11rem;
+    bottom: -10rem;
   }
 
   .text_content_service.vss_5 .abs_img {
@@ -3546,19 +3547,20 @@
     right: -11px;
   }
 
-  .text_content_service.vss_5 .abs_content {
-    position: relative;
-    top: -22px;
-  }
-
-  .text_content_service.vss_5 .abs_content p {
-    line-height: 23px;
-    width: 212px;
-  }
-
   .text_content_service.vss_5 .abs_img {
-    top: 85px;
-    right: 338px;
+    top: 6rem;
+    right: 22rem;
+  }
+
+  .text_content_service.vss_5 .abs_content h2:nth-child(2) {
+    bottom: -12rem;
+    left: -89px;
+    max-width: 104px;
+    font-size: 15px;
+  }
+
+  .text_content_service.vss_5 .abs_img img {
+    width: 130px;
   }
 
   .btn_cntnt p {

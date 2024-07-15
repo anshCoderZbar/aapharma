@@ -72,7 +72,7 @@ export default function SmallMoleculesDrugDiscovery() {
           </div>
         </div>
       </div>
-      <div className="small_feature_section">
+      <div className="small_feature_section  bg-white">
         <div className="container-fluid">
           <div className="row align-items-center">
             <div className="col-lg-6">
@@ -103,7 +103,7 @@ export default function SmallMoleculesDrugDiscovery() {
           />
         </div>
       </div>
-      <div className="small_feature_section">
+      <div className="small_feature_section  bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
             heading={getSAR?.data?.data && getSAR?.data?.data?.heading}
