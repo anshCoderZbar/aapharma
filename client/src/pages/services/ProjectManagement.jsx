@@ -28,7 +28,7 @@ export default function ProjectManagement() {
                     i % 2 === 0 && "project_list_reverse"
                   }`}
                 >
-                  <div className="col-lg-9">
+                  <div className="col-lg-7 col-xl-9">
                     <div className="project_card_details">
                       <h3>
                         {i + 1}. {details?.heading}
@@ -58,7 +58,7 @@ export default function ProjectManagement() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-3">
+                  <div className="col-lg-5 col-xl-3">
                     <div className="project_card_image1">
                       <img
                         src={require("assets/project_card_image1.png")}
@@ -84,6 +84,12 @@ export default function ProjectManagement() {
             methodical disciplined execution in the face of impinging
             “emergencies” are key determinants in the downfall many early-stage
             drug discovery programs.
+          </p>
+        </div>
+        <div className="bottom_mgt_content">
+          <p>
+            AAPharmaSyn personnel goes to great lengths to ensure that our
+            client receive superior consulting services.
           </p>
         </div>
       </div>
