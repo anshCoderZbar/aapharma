@@ -983,6 +983,10 @@
     padding: 35px;
   }
 
+  .carb_imgs_sec {
+    padding: 35px;
+  }
+
   .carb_second_img img {
     max-width: 205px;
   }
@@ -1141,6 +1145,10 @@
   }
 
   .card_chem_details {
+    padding: 30px;
+  }
+
+  .carb_imgs_sec {
     padding: 30px;
   }
 
@@ -1322,6 +1330,10 @@
   .card_chem_details {
     padding: 25px;
     margin-top: 23px;
+  }
+
+  .carb_imgs_sec {
+    padding: 25px;
   }
 
   .carb_inner_content h4 {
@@ -1718,6 +1730,10 @@
   .mob_res_image img {
     width: 100%;
     height: 100%;
+  }
+
+  .carb_imgs_sec {
+    padding: 20px;
   }
 
   .card_chem_details {

@@ -98,22 +98,21 @@ export default function Carbohydrates() {
           <div ref={diagramRef} className="carbohydrates_diagram_inner">
             {getDiagram?.data?.data?.map((elm, i) => {
               return (
-                <div key={i} className="carbo_diagram">
-                  <div
-                    onClick={() => {
-                      setId(elm?.id);
-                      setImgUrl(elm?.image);
+                <div
+                  key={i}
+                  onClick={() => {
+                    setId(elm?.id);
+                    setImgUrl(elm?.image);
+                  }}
+                  className="carbo_diagram"
+                >
+                  <button
+                    style={{
+                      backgroundColor: elm?.id === id ? "#34caff" : "#2a3072",
                     }}
-                    className={`carbo_digram_circle`}
                   >
-                    <button
-                      style={{
-                        backgroundColor: elm?.id === id ? "#34caff" : "#2a3072",
-                      }}
-                    >
-                      {elm?.year}
-                    </button>
-                  </div>
+                    {elm?.year}
+                  </button>
                 </div>
               );
             })}
@@ -124,8 +123,13 @@ export default function Carbohydrates() {
             elm?.id === id && (
               <div key={i} className="row carbs_diagaram">
                 <div className="col-lg-4 ">
-                  <div className="carb_img_chem">
-                    <img src={imgUrl} alt="chemical" className={``} />
+                  <div className="carb_imgs_sec">
+                    <div className="carb_inner_content">
+                      <h4 className="text-capitalize">{elm?.heading}:</h4>
+                    </div>
+                    <div className="carb_img_chem">
+                      <img src={imgUrl} alt="chemical" className={``} />
+                    </div>
                   </div>
                 </div>
                 <div className="col-lg-8">

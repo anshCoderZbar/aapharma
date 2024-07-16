@@ -1516,7 +1516,7 @@
   z-index: 9;
 }
 
-.carbo_digram_circle button {
+.carbo_diagram button {
   background-color: #2a3072;
   color: #fff;
   padding: 10px 45px;
@@ -1526,14 +1526,17 @@
   transition: 0.5s all;
 }
 
-.carbo_digram_circle button:hover {
+.carbo_diagram button:hover {
   background-color: #34caff;
 }
 
 .carbs_diagaram {
   justify-content: space-between;
-  align-items: center;
   padding: 80px 0;
+}
+
+.carb_imgs_sec {
+  padding: 40px;
 }
 
 .carb_img_chem img {
@@ -1541,7 +1544,7 @@
   height: 100%;
   max-width: 315px;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
 }
 
 .card_chem_details {
