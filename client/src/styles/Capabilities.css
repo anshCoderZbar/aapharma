@@ -760,65 +760,20 @@
     gap: 25px;
   }
 
-  .carbohydrates_diagram_inner {
-    width: 550px;
-    height: 550px;
-  }
-
-  .carbo_digram_circle svg {
-    height: 149px;
-    width: 115px;
-  }
-
-  .carbo_inner_circle {
-    width: 290px;
-    height: 290px;
-  }
-
-  .carbo_img_1 {
-    top: -10rem;
-  }
-
-  .carbo_img_2 {
-    top: -15rem;
-    right: -5rem;
-  }
-
-  .carbo_img_3 {
-    bottom: 16rem;
-    left: -3rem;
-  }
-
-  .carbo_img_4 {
-    bottom: 14rem;
-    left: -3rem;
-  }
-
-  .carbo_img_5 {
-    bottom: 10rem;
-    right: -1rem;
-  }
-
-  .carbo_img_6 {
-    bottom: 16rem;
-    right: -4rem;
-  }
-
-  .carbo_img_7 {
-    top: -15rem;
-    right: 4rem;
-  }
-
-  .carb_inner_content h4 {
-    font-size: 20px;
-  }
-
-  .carb_inner_content ul li {
+  .carbo_digram_circle button {
     font-size: 17px;
   }
 
-  .complex_year span {
-    font-size: 20px;
+  .carb_inner_content h4 {
+    font-size: 34px;
+  }
+
+  .carb_inner_content ul {
+    margin-top: 18px;
+  }
+
+  .carb_inner_content ul li {
+    font-size: 19px;
   }
 
   .carbohydrate_banner {
@@ -1003,67 +958,6 @@
     margin-bottom: 50px;
   }
 
-  .carbohydrates_diagram_inner {
-    width: 500px;
-    height: 500px;
-  }
-
-  .carbo_digram_circle svg {
-    height: 130px;
-    width: 108px;
-  }
-
-  .complex_year span {
-    font-size: 18px;
-  }
-
-  .carbo_inner_circle {
-    width: 270px;
-    height: 270px;
-  }
-
-  .carb_inner_content h4 {
-    font-size: 18px;
-  }
-
-  .carb_inner_content ul li {
-    font-size: 16px;
-  }
-
-  .carbo_img_1 {
-    top: -9rem;
-  }
-
-  .carbo_img_2 {
-    top: -12rem;
-    right: -4rem;
-  }
-
-  .carbo_img_3 {
-    bottom: 13rem;
-    left: -2rem;
-  }
-
-  .carbo_img_4 {
-    bottom: 11rem;
-    left: -2rem;
-  }
-
-  .carbo_img_5 {
-    bottom: 9rem;
-    right: -1rem;
-  }
-
-  .carbo_img_6 {
-    bottom: 12rem;
-    right: -4rem;
-  }
-
-  .carbo_img_7 {
-    top: -13rem;
-    right: 3rem;
-  }
-
   .carbohydrate_banner {
     margin-bottom: 35px;
   }
@@ -1071,6 +965,26 @@
   .carbohydrates_details_sec p {
     font-size: 16px;
     margin-bottom: 18px;
+  }
+
+  .carbs_diagaram {
+    padding: 70px 0;
+  }
+
+  .carb_inner_content h4 {
+    font-size: 32px;
+  }
+
+  .carb_inner_content ul li {
+    font-size: 18px;
+  }
+
+  .card_chem_details {
+    padding: 35px;
+  }
+
+  .carb_second_img img {
+    max-width: 205px;
   }
 }
 
@@ -1215,6 +1129,23 @@
 
   .carbohydrates_details_sec p {
     margin-bottom: 15px;
+  }
+
+  .carbo_digram_circle button {
+    font-size: 16px;
+    padding: 10px 40px;
+  }
+
+  .carbs_diagaram {
+    padding: 60px 0;
+  }
+
+  .card_chem_details {
+    padding: 30px;
+  }
+
+  .carb_inner_content h4 {
+    font-size: 29px;
   }
 }
 
@@ -1375,68 +1306,31 @@
   }
 
   .carbohydrates_diagram_inner {
-    width: 430px;
-    height: 430px;
-    border-image-slice: 112;
-    border-image-width: 29%;
+    flex-wrap: wrap;
+    justify-content: unset;
+    gap: 10px;
   }
 
-  .carbo_digram_circle svg {
-    height: 108px;
-    width: 94px;
+  .carbs_diagaram {
+    padding: 50px 0;
   }
 
-  .carbo_inner_circle {
-    width: 250px;
-    height: 250px;
-    top: 6px;
+  .carbohydrates_diagram_outer {
+    margin-top: -8em;
+  }
+
+  .card_chem_details {
+    padding: 25px;
+    margin-top: 23px;
   }
 
   .carb_inner_content h4 {
-    font-size: 17px;
+    font-size: 27px;
   }
 
-  .carb_inner_content ul li {
-    font-size: 15px;
-  }
-
-  .complex_year span {
-    font-size: 16px;
-    bottom: 10px;
-  }
-
-  .carbo_img_1 {
-    top: -8rem;
-  }
-
-  .carbo_img_2 {
-    top: -9rem;
-    right: -3rem;
-  }
-
-  .carbo_img_3 {
-    bottom: 9rem;
-    left: 0rem;
-  }
-
-  .carbo_img_4 {
-    bottom: 9rem;
-    left: -1rem;
-  }
-
-  .carbo_img_5 {
-    bottom: 7rem;
-    right: -1rem;
-  }
-
-  .carbo_img_6 {
-    bottom: 8rem;
-    right: 5rem;
-  }
-
-  .carbo_img_7 {
-    top: -8rem;
-    right: -4rem;
+  .carb_inner_content ul {
+    margin-top: 14px;
+    gap: 7px;
   }
 
   .carbohydrate_banner {
@@ -1620,66 +1514,6 @@
     margin-bottom: 11rem;
   }
 
-  .carbohydrates_diagram_inner {
-    width: 370px;
-    height: 370px;
-    border-image-slice: 106;
-    border-image-width: 28%;
-  }
-
-  .carb_inner_content h4 {
-    font-size: 16px;
-  }
-
-  .carb_inner_content ul li {
-    font-size: 14px;
-  }
-
-  .carbo_inner_circle {
-    width: 230px;
-    height: 230px;
-    top: 6px;
-  }
-
-  .carbo_digram_circle svg {
-    height: 91px;
-    width: 70px;
-  }
-
-  .complex_year span {
-    font-size: 15px;
-    bottom: 6px;
-  }
-
-  .carbo_img_1 {
-    top: -6rem;
-  }
-
-  .carbo_img_2 {
-    top: -7rem;
-    right: 4rem;
-  }
-
-  .carbo_img_3 {
-    bottom: 6rem;
-    left: 11rem;
-  }
-
-  .carbo_img_4 {
-    bottom: 8rem;
-    left: 2rem;
-  }
-
-  .carbo_img_6 {
-    bottom: 7rem;
-    right: 11rem;
-  }
-
-  .carbo_img_7 {
-    top: -6rem;
-    right: -6rem;
-  }
-
   .carbohydrate_banner {
     margin-bottom: 20px;
   }
@@ -1687,6 +1521,18 @@
   .carbohydrates_details_sec p {
     font-size: 15px;
     margin-bottom: 10px;
+  }
+
+  .carb_inner_content ul li {
+    font-size: 17px;
+  }
+
+  .carb_inner_content h4 {
+    font-size: 23px;
+  }
+
+  .carbs_diagaram {
+    padding: 40px 0;
   }
 }
 
@@ -1853,63 +1699,13 @@
     transition: all 1s;
   }
 
-  .carbohydrates_diagram_inner {
-    width: 100%;
-    height: 100%;
-    border-image-source: none;
-    flex-wrap: wrap;
-    border-image-slice: 0;
-    border-image-width: 0;
-    gap: 10px;
-  }
-
   .carbo_digram_circle {
     position: relative;
   }
-  .carb_circle_1,
-  .carb_circle_2,
-  .carb_circle_3,
-  .carb_circle_4,
-  .carb_circle_5,
-  .carb_circle_6,
-  .carb_circle_7 {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translate(0, 0) rotate(0);
-  }
-  .complex_year_2,
-  .complex_year_3,
-  .complex_year_4,
-  .complex_year_5,
-  .complex_year_6,
-  .complex_year_7 {
-    transform: rotate(0);
-  }
-
-  .carbo_inner_circle {
-    width: 230px;
-    height: 230px;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    margin-top: 20px;
-  }
 
   .carbohydrates_diagram_outer {
-    margin-bottom: 16em;
-  }
-
-  .carbo_img_1,
-  .carbo_img_2,
-  .carbo_img_3,
-  .carbo_img_4,
-  .carbo_img_5,
-  .carbo_img_6,
-  .carbo_img_7 {
-    display: none;
+    margin-top: 2em;
+    margin-bottom: 0;
   }
 
   .mob_res_image {
@@ -1922,6 +1718,31 @@
   .mob_res_image img {
     width: 100%;
     height: 100%;
+  }
+
+  .card_chem_details {
+    padding: 20px;
+    margin-top: 17px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 11px;
+  }
+
+  .carb_inner_content h4 {
+    font-size: 20px;
+  }
+
+  .carb_inner_content ul li {
+    font-size: 16px;
+  }
+
+  .carb_inner_content ul {
+    margin-top: 10px;
+    gap: 0px;
+  }
+
+  .carbs_diagaram {
+    padding: 30px 0;
   }
 }
 

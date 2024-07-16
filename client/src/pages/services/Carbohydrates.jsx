@@ -104,28 +104,35 @@ export default function Carbohydrates() {
                       setId(elm?.id);
                       setImgUrl(elm?.image);
                     }}
-                    className={`carbo_digram_circle carb_circle_${i + 1}`}
+                    className={`carbo_digram_circle`}
                   >
-                    <div className="complex_year">
-                      <span className={`complex_year_${i + 1}`}>
-                        {elm?.year}
-                      </span>
-                    </div>
-                    {elm?.id === id && (
-                      <div className={`complex_img carbo_img_${i + 1}`}>
-                        <img
-                          src={elm?.image}
-                          alt="chemical"
-                          className={`complex_year_${i + 1}`}
-                        />
-                      </div>
-                    )}
+                    <button
+                      style={{
+                        backgroundColor: elm?.id === id ? "#34caff" : "#2a3072",
+                      }}
+                    >
+                      {elm?.year}
+                    </button>
                   </div>
-
-                  {elm?.id === id && (
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        {getDiagram?.data?.data?.map((elm, i) => {
+          return (
+            elm?.id === id && (
+              <div key={i} className="row carbs_diagaram">
+                <div className="col-lg-4 ">
+                  <div className="carb_img_chem">
+                    <img src={imgUrl} alt="chemical" className={``} />
+                  </div>
+                </div>
+                <div className="col-lg-8">
+                  <div className="card_chem_details">
                     <div className="carbo_inner_circle">
                       <div className="carb_inner_content">
-                        <h4 className="text-capitalize">{elm?.heading}</h4>
+                        <h4 className="text-capitalize">{elm?.heading}:</h4>
                         <ul>
                           {elm?.list?.map((data, i) => {
                             return <li key={i}>{data}</li>;
@@ -133,17 +140,18 @@ export default function Carbohydrates() {
                         </ul>
                       </div>
                     </div>
-                  )}
+                    <div className="carb_second_img">
+                      <img
+                        src={require("assets/carb_second_img.png")}
+                        alt="carbohydrate"
+                      />
+                    </div>
+                  </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-        {imgUrl && (
-          <div className={`mob_res_image`}>
-            <img src={imgUrl} alt="chemical" className={``} />
-          </div>
-        )}
+              </div>
+            )
+          );
+        })}
       </div>
     </div>
   );

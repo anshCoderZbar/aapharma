@@ -1504,136 +1504,59 @@
 }
 
 /* carbohydrates-diagram */
-.carbohydrates_diagram_outer {
-  display: flex;
-  justify-content: center;
-  margin-top: 5em;
-  margin-bottom: 15em;
-}
 
 .carbohydrates_diagram_inner {
-  width: 600px;
-  height: 600px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.carbohydrates_diagram_outer {
+  margin-top: -7em;
   position: relative;
-  border-image-slice: 100;
-  border-image-width: 28%;
-  border-image-source: url("../assets/complex_diagrm_border.png");
+  z-index: 9;
 }
 
-.carbo_digram_circle {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.carb_circle_1 {
-  top: 7%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.carb_circle_2 {
-  top: 24%;
-  right: -7%;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.carb_circle_3 {
-  bottom: 9%;
-  right: -2%;
-  transform: translate(0%, -50%) rotate(112deg);
-}
-
-.carb_circle_4 {
-  bottom: -4%;
-  right: 10%;
-  transform: translate(-50%, -0%) rotate(138deg);
-}
-
-.carb_circle_5 {
-  bottom: -4%;
-  left: 20%;
-  transform: translate(0%, -0%) rotate(215deg);
-}
-
-.carb_circle_6 {
-  top: 62%;
-  left: -2%;
-  transform: translate(-1%, -50%) rotate(246deg);
-}
-
-.carb_circle_7 {
-  top: 10%;
-  left: 14%;
-  transform: translate(-50%, -0%) rotate(300deg);
-}
-
-.complex_year {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.complex_year span {
+.carbo_digram_circle button {
+  background-color: #2a3072;
   color: #fff;
-  font-size: 22px;
-  position: relative;
-  bottom: 14px;
+  padding: 10px 45px;
+  font-size: 18px;
+  border: none;
+  border-radius: 11px;
+  transition: 0.5s all;
 }
 
-.carbo_inner_circle {
-  width: 316px;
-  height: 316px;
+.carbo_digram_circle button:hover {
   background-color: #34caff;
-  border-radius: 50%;
-  position: relative;
-  top: 10%;
 }
 
-.complex_year_2 {
-  transform: rotate(313deg);
+.carbs_diagaram {
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 0;
 }
 
-.complex_year_3 {
-  transform: rotate(248deg);
-}
-
-.complex_year_4 {
-  transform: rotate(220deg);
-}
-
-.complex_year_5 {
-  transform: rotate(145deg);
-}
-
-.complex_year_6 {
-  transform: rotate(115deg);
-}
-
-.complex_year_7 {
-  transform: rotate(60deg);
-}
-
-.carb_inner_content {
+.carb_img_chem img {
   width: 100%;
   height: 100%;
+  max-width: 315px;
+  display: block;
+  margin: 0 auto;
+}
+
+.card_chem_details {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 50px;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #2a3072;
+  padding: 40px;
+  border-radius: 11px;
 }
 
 .carb_inner_content h4 {
   color: #000;
   font-family: "Product Sans";
-  font-size: 22px;
+  font-size: 36px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -1642,63 +1565,27 @@
 
 .carb_inner_content ul {
   list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .carb_inner_content ul li {
   color: #000;
   font-family: "Product Sans";
-  font-size: 18px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 27px;
 }
 
-.complex_img {
-  position: absolute;
+.carb_second_img img {
+  max-width: 230px;
   width: 100%;
-  height: 100%;
-  display: flex;
-  z-index: -1;
-  justify-content: center;
-  padding: 10px;
-}
-
-.carbo_img_1 {
-  top: -11rem;
-}
-
-.carbo_img_2 {
-  top: -19rem;
-  right: -7rem;
-}
-
-.carbo_img_3 {
-  bottom: 20rem;
-  left: -5rem;
-}
-
-.carbo_img_4 {
-  bottom: 15rem;
-  left: -5rem;
-}
-
-.carbo_img_5 {
-  bottom: 15rem;
-  right: -5rem;
-}
-
-.carbo_img_6 {
-  bottom: 21rem;
-  right: -6rem;
-}
-
-.carbo_img_7 {
-  top: -20rem;
-  right: 7rem;
 }
 
 /* process-research-development */
-
 .process_top_banner h1 {
   text-align: center;
   max-width: 100%;
