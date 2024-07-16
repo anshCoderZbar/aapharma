@@ -19,9 +19,9 @@ export default function WhitepaperDetail() {
           singleWhitepaper?.data?.data?.heading &&
           singleWhitepaper?.data?.data?.heading
         }
-        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${require("assets/single_whitepaper.png")})`}
-        extra="single_whitepaper_banner"
+        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
         breadCrum={"whitepaper"}
+        extra="white_head white_paper_single"
       />
       <div className="container-fluid">
         <div

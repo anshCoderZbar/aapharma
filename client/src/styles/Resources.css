@@ -210,6 +210,11 @@
   text-decoration: none;
 }
 
+.white_paper_single h1 {
+  max-width: 100%;
+  text-align: center;
+}
+
 /* resources */
 
 .resources_page {

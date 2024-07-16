@@ -106,7 +106,6 @@ export default function Carbohydrates() {
                     }}
                     className={`carbo_digram_circle carb_circle_${i + 1}`}
                   >
-                    <ComplexShape1 color={elm?.id === id && "#34caff"} />
                     <div className="complex_year">
                       <span className={`complex_year_${i + 1}`}>
                         {elm?.year}
