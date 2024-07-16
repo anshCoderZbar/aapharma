@@ -92,7 +92,14 @@ export default function Carbohydrates() {
           />
         </div> */}
       </div>
-
+      <div className="container-fluid">
+        <div className="carbohydrates_details_sec kjsjIuy">
+          <p>
+            Development of Sialic Acid Mimetics as High-Affinity Ligands for
+            Sialic Acid Binding Immunoglobulin-Like Lectin 2
+          </p>
+        </div>
+      </div>
       <div className="container-fluid">
         <div className="carbohydrates_diagram_outer">
           <div ref={diagramRef} className="carbohydrates_diagram_inner">
