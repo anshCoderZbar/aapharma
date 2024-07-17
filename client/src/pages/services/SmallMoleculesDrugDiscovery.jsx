@@ -143,7 +143,6 @@ identification of new scaffolds which might impart better physicochemical proper
       <hr />
       <div className="small_feature_section bg-white">
         <div className="container-fluid">
-          v vvvvvvvvvvvvvvv
           <SmallMoleculesCard
             heading={
               getLeadDevelopment?.data?.data &&
