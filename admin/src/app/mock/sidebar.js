@@ -7,6 +7,7 @@ import {
   FlaskConical,
   FlaskConicalOff,
   FlaskRound,
+  FolderKanban,
   HeartHandshake,
   Image,
   ImagePlus,
@@ -575,6 +576,24 @@ export const SidebarData = [
         id: 2,
         subMenuName: "Coupons",
         slug: "all-coupons",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Project Management",
+    slug: "#",
+    icon: <FolderKanban />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "project-management-banner",
+      },
+      {
+        id: 3,
+        subMenuName: "Bottom Description",
+        slug: "project-management-bottom-description",
       },
     ],
   },

@@ -195,4 +195,6 @@ export const API_ENDPOINTS = {
   deleteIsotopeTable: "/isotope-table/delete",
   isotopeDetails: "/isotope-details",
   isotopeButtons: "/isotope-buttons",
+  projectManagementBanner: "/project_management-banner",
+  projectManagementBottomDesc: "/project-management-footer",
 };

@@ -457,6 +457,16 @@ class Client {
     editIsotopeButton: (params) =>
       HttpClient.post(API_ENDPOINTS.isotopeButtons, params),
   };
+  projectManagement = {
+    getProjectManagementBanner: () =>
+      HttpClient.get(API_ENDPOINTS.projectManagementBanner),
+    editProjectManagementBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.projectManagementBanner, params),
+    getProjectManagementBottomDesc: () =>
+      HttpClient.get(API_ENDPOINTS.projectManagementBottomDesc),
+    editProjectManagementBottomDesc: (params) =>
+      HttpClient.post(API_ENDPOINTS.projectManagementBottomDesc, params),
+  };
 }
 
 const client = new Client();

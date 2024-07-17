@@ -131,6 +131,8 @@ import ServiceDetails from "pages/service-1/ServiceDetails";
 import ServiceButtons from "pages/service-1/ServiceButtons";
 import AddElement from "pages/service-1/AddElement";
 import EditElement from "pages/service-1/EditElement";
+import ProjectManagementBanner from "pages/project-management/ProjectManagementBanner";
+import ProjectManagementBottomDescription from "pages/project-management/ProjectManagementBottomDescription";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -1087,6 +1089,22 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditLabEquipment />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/project-management-banner",
+      element: (
+        <PrivateRoutes>
+          <ProjectManagementBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/project-management-bottom-description",
+      element: (
+        <PrivateRoutes>
+          <ProjectManagementBottomDescription />
         </PrivateRoutes>
       ),
     },
