@@ -29,3 +29,29 @@ export const GetProjectManagementBanner = () => {
   });
   return getBanner;
 };
+
+export const EditProjectManagementDescription = () => {
+  const { notify } = useNotifications();
+  const editDesc = useMutation({
+    mutationFn: (data) =>
+      client.projectManagement.editProjectManagementBottomDesc(data),
+    onSuccess: () => {
+      notify("Details Added Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-project-management-description"],
+      });
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return editDesc;
+};
+
+export const GetProjectManagementDescription = () => {
+  const getDesc = useQuery({
+    queryKey: ["get-project-management-description"],
+    queryFn: () => client.projectManagement.getProjectManagementBottomDesc(),
+  });
+  return getDesc;
+};

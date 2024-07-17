@@ -8,6 +8,10 @@ import { TextEditor } from "components/ui/TextEditor";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
+import {
+  EditProjectManagementDescription,
+  GetProjectManagementDescription,
+} from "rest/projectManagement";
 
 export default function ProjectManagementBottomDescription() {
   const {
@@ -18,22 +22,21 @@ export default function ProjectManagementBottomDescription() {
     control,
   } = useForm();
 
-  const createDesc = false;
-  const getDesc = false;
+  const createDesc = EditProjectManagementDescription();
+  const getDesc = GetProjectManagementDescription();
 
-  // useEffect(() => {
-  //   const defaultValues = {};
-  //   defaultValues.heading = getDesc?.data?.data?.heading;
-  //   defaultValues.description = getDesc?.data?.data?.description;
-  //   reset(defaultValues);
-  // }, [getDesc?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getDesc?.data?.data?.heading;
+    defaultValues.description = getDesc?.data?.data?.description;
+    reset(defaultValues);
+  }, [getDesc?.data?.data]);
 
   const onSubmit = (data) => {
-    // const formData = new FormData();
-    // formData.append("heading", data?.heading);
-    // formData.append("description", data?.description);
-    // formData.append("image", data?.bannerImage[0]);
-    // createBanner.mutate(formData);
+    const formData = new FormData();
+    formData.append("heading", data?.heading);
+    formData.append("description", data?.description);
+    createDesc.mutate(formData);
   };
 
   return (
@@ -57,7 +60,7 @@ export default function ProjectManagementBottomDescription() {
               <TextEditor
                 control={control}
                 name={`description`}
-                defaultValue={"getPersonnelBanner?.data?.data?.description"}
+                defaultValue={getDesc?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}
