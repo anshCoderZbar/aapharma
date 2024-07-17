@@ -1,0 +1,135 @@
+/* banner */
+.main_banner {
+  padding-top: 25px;
+}
+
+.banner_head {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 304px;
+  border-radius: 40px;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner_head h1 {
+  color: #2e2e2e;
+  font-size: 56px;
+  font-weight: 700;
+  text-transform: capitalize;
+  max-width: 295px;
+}
+
+.white_head h1 {
+  color: #fff;
+}
+
+.banner_head p {
+  max-width: 650px;
+  color: #2e2e2e;
+  font-family: "Product Sans";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 29px;
+}
+
+.white_head p {
+  color: #fff;
+}
+
+/* banner */
+
+@media screen and (min-width: 1900px) {
+  .banner_head {
+    height: calc(50vh - 17vh);
+  }
+}
+@media screen and (max-width: 1600px) {
+  .banner_head {
+    padding: 36px 52px;
+    height: 290px;
+  }
+
+  .banner_head h1 {
+    font-size: 50px;
+  }
+
+  .banner_head p {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .banner_head {
+    padding: 33px 40px;
+    height: 250px;
+  }
+
+  .banner_head h1 {
+    font-size: 45px;
+  }
+
+  .banner_head p {
+    font-size: 16px;
+    max-width: 520px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .banner_head {
+    padding: 27px 31px;
+  }
+
+  .banner_head h1 {
+    font-size: 40px;
+  }
+
+  .banner_head p {
+    max-width: 500px;
+    line-height: 25px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .banner_head h1 {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .banner_head {
+    padding: 23px 26px;
+  }
+
+  .banner_head h1 {
+    font-size: 35px;
+  }
+
+  .banner_head p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .banner_head {
+    padding: 20px 22px;
+  }
+
+  .banner_head h1 {
+    font-size: 27px;
+  }
+
+  .banner_head p {
+    font-size: 14px;
+    line-height: 23px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .main_banner {
+    padding-top: 7px;
+  }
+}
