@@ -466,6 +466,16 @@ class Client {
       HttpClient.get(API_ENDPOINTS.projectManagementBottomDesc),
     editProjectManagementBottomDesc: (params) =>
       HttpClient.post(API_ENDPOINTS.projectManagementBottomDesc, params),
+    getAllProjectManagementList: () =>
+      HttpClient.get(API_ENDPOINTS.getAllProjectManagementList),
+    addProjectManagementList: (params) =>
+      HttpClient.post(API_ENDPOINTS.addProjectManagementList, params),
+    singleProjectManagementList: (params) =>
+      HttpClient.post(API_ENDPOINTS.getSingleProjectManagementList, params),
+    updateProjectManagementList: (params) =>
+      HttpClient.post(API_ENDPOINTS.updateProjectManagementList, params),
+    deleteProjectManagementList: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteProjectManagementList, params),
   };
 }
 

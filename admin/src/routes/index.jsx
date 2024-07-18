@@ -133,6 +133,9 @@ import AddElement from "pages/service-1/AddElement";
 import EditElement from "pages/service-1/EditElement";
 import ProjectManagementBanner from "pages/project-management/ProjectManagementBanner";
 import ProjectManagementBottomDescription from "pages/project-management/ProjectManagementBottomDescription";
+import ProjectManagementTabsDetails from "pages/project-management/ProjectManagementTabsDetails";
+import AddProjectManagementTabs from "pages/project-management/AddProjectManagementDetails";
+import EditProjectManagementTabs from "pages/project-management/EditProjectManagementDetails";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -1105,6 +1108,30 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ProjectManagementBottomDescription />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/project-management-Lists",
+      element: (
+        <PrivateRoutes>
+          <ProjectManagementTabsDetails />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-lists",
+      element: (
+        <PrivateRoutes>
+          <AddProjectManagementTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-project-lists/:id",
+      element: (
+        <PrivateRoutes>
+          <EditProjectManagementTabs />
         </PrivateRoutes>
       ),
     },

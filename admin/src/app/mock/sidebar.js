@@ -591,6 +591,11 @@ export const SidebarData = [
         slug: "project-management-banner",
       },
       {
+        id: 2,
+        subMenuName: "Lists",
+        slug: "project-management-Lists",
+      },
+      {
         id: 3,
         subMenuName: "Bottom Description",
         slug: "project-management-bottom-description",

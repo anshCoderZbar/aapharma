@@ -197,4 +197,9 @@ export const API_ENDPOINTS = {
   isotopeButtons: "/isotope-buttons",
   projectManagementBanner: "/project_management-banner",
   projectManagementBottomDesc: "/project-management-footer",
+  getAllProjectManagementList: "/project-management/all",
+  addProjectManagementList: "/project-management/new",
+  getSingleProjectManagementList: "/project-management/one",
+  updateProjectManagementList: "/project-management/update",
+  deleteProjectManagementList: "/project-management/delete",
 };
