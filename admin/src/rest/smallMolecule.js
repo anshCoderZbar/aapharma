@@ -163,3 +163,28 @@ export const EditSingleSmallTabsMutation = () => {
   });
   return editSmallTab;
 };
+
+export const GetScaffHoppingMutation = (data) => {
+  const scallHopping = useQuery({
+    queryKey: ["scaff-hopping-list"],
+    queryFn: () => client.smallMolecule.getScaffHolding(data),
+  });
+  return scallHopping;
+};
+
+export const EditScaffHoppingMutation = () => {
+  const { notify } = useNotifications();
+  const scallHopping = useMutation({
+    mutationFn: (data) => client.smallMolecule.editScaffHolding(data),
+    onSuccess: () => {
+      notify("Details Updated Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["scaff-hopping-list"],
+      });
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return scallHopping;
+};

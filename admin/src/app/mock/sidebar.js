@@ -379,16 +379,21 @@ export const SidebarData = [
       },
       {
         id: 4,
+        subMenuName: "Scaffold Hopping",
+        slug: "scaffold-hopping",
+      },
+      {
+        id: 5,
         subMenuName: "SAR",
         slug: "sar",
       },
       {
-        id: 5,
+        id: 6,
         subMenuName: "Lead Development",
         slug: "lead-development",
       },
       {
-        id: 6,
+        id: 7,
         subMenuName: "Tabs",
         slug: "molecule-tabs",
       },

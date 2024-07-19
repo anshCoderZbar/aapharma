@@ -86,6 +86,7 @@ export const API_ENDPOINTS = {
   smallHTS: "/smdd-hts",
   smallSBDD: "/smdd-sbdd",
   smallSAR: "/smdd-sar",
+  scaffHolding: "/scaffold-hopping",
   smallLeadDevelopment: "/smdd-lead_development",
   getAllSmallMoleculeTabs: "/smdd-tabs/all",
   isotopeBanner: "/isotope-banner",

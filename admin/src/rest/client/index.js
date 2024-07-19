@@ -423,6 +423,9 @@ class Client {
     editSBDD: (params) => HttpClient.post(API_ENDPOINTS.smallSBDD, params),
     getSAR: () => HttpClient.get(API_ENDPOINTS.smallSAR),
     editSAR: (params) => HttpClient.post(API_ENDPOINTS.smallSAR, params),
+    getScaffHolding: () => HttpClient.get(API_ENDPOINTS.scaffHolding),
+    editScaffHolding: (params) =>
+      HttpClient.post(API_ENDPOINTS.scaffHolding, params),
     getLeadDevelopment: () =>
       HttpClient.get(API_ENDPOINTS.smallLeadDevelopment),
     editLeadDevelopment: (params) =>

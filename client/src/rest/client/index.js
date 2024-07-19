@@ -83,6 +83,7 @@ class Client {
     getHTS: () => HttpClient.get(API_ENDPOINTS.smallHTS),
     getSBDD: () => HttpClient.get(API_ENDPOINTS.smallSBDD),
     getSAR: () => HttpClient.get(API_ENDPOINTS.smallSAR),
+    getScaffHolding: () => HttpClient.get(API_ENDPOINTS.scaffHolding),
     getLeadDevelopment: () =>
       HttpClient.get(API_ENDPOINTS.smallLeadDevelopment),
     getAllSmallTabs: () =>

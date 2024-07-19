@@ -211,6 +211,14 @@ export const GetAllSmallMoleculeTabs = () => {
   return allSmallMolecule;
 };
 
+export const GetScaffHoppingMutation = (data) => {
+  const scallHopping = useQuery({
+    queryKey: ["scaff-hopping-list"],
+    queryFn: () => client.services.getScaffHolding(data),
+  });
+  return scallHopping;
+};
+
 // isotope
 
 export const GetIsotopeBannerMutation = () => {

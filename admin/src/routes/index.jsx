@@ -121,6 +121,7 @@ import SmallMoleculeBanner from "pages/small-molecule-drug-discovery/SmallMolecu
 import HTS from "pages/small-molecule-drug-discovery/HTS";
 import SBDD from "pages/small-molecule-drug-discovery/SBDD";
 import SAR from "pages/small-molecule-drug-discovery/SAR";
+import ScaffoldHopping from "pages/small-molecule-drug-discovery/ScaffoldHopping";
 import LeadDevelopment from "pages/small-molecule-drug-discovery/LeadDevelopment";
 import MoleculeTabs from "pages/small-molecule-drug-discovery/MoleculeTabs";
 import EditMoleculeTabs from "pages/small-molecule-drug-discovery/EditMoleculeTabs";
@@ -980,6 +981,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <SAR />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/scaffold-hopping",
+      element: (
+        <PrivateRoutes>
+          <ScaffoldHopping />
         </PrivateRoutes>
       ),
     },

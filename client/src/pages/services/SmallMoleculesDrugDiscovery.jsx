@@ -10,6 +10,7 @@ import {
   GetLeadDevelopmentMutation,
   GetSARMutation,
   GetSBDDMutation,
+  GetScaffHoppingMutation,
   GetSmallMoleculeBannerMutation,
 } from "rest/service";
 import { useEffect } from "react";
@@ -22,7 +23,10 @@ export default function SmallMoleculesDrugDiscovery() {
   const getSDBB = GetSBDDMutation();
   const getSAR = GetSARMutation();
   const getLeadDevelopment = GetLeadDevelopmentMutation();
+  const getScaffoldHopping = GetScaffHoppingMutation();
   const getTabs = GetAllSmallMoleculeTabs();
+
+  console.log();
 
   useEffect(() => {
     if (getTabs?.data?.data) {
@@ -122,21 +126,22 @@ export default function SmallMoleculesDrugDiscovery() {
       <div className="small_feature_section bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
-            secondHead={"Scaffold-hopping"}
-            description={`<p>in drug-design is widely used in drug discovery. Scaffold-hopping requires an active
- molecule with either an experimentally determined, or a hypothetical, binding conformation. A central
- part or a portion of the molecule is then replaced by a new scaffold which is able to retain the original
- binding groups of the molecule in their optimized binding orientation.</p> 
-<p>The process allows for the
-identification of new scaffolds which might impart better physicochemical properties or avoid existing
- patent art.</p>
-`}
-            buttons={[
-              "1.Preparation of relevant analogs",
-              "2.Intermediates",
-              "3.Exploration of chemical space",
-            ]}
-            image={require("assets/scaffold_img.jpg")}
+            secondHead={
+              getScaffoldHopping?.data?.data &&
+              getScaffoldHopping?.data?.data?.heading
+            }
+            description={
+              getScaffoldHopping?.data?.data &&
+              getScaffoldHopping?.data?.data?.description
+            }
+            buttons={
+              getScaffoldHopping?.data?.data &&
+              getScaffoldHopping?.data?.data?.list
+            }
+            image={
+              getScaffoldHopping?.data?.data &&
+              getScaffoldHopping?.data?.data?.image
+            }
           />
         </div>
       </div>
