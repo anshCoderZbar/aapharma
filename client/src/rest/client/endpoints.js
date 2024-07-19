@@ -93,4 +93,7 @@ export const API_ENDPOINTS = {
   getIsotopeTable: "/isotope-table/all",
   isotopeDetails: "/isotope-details",
   isotopeButtons: "/isotope-buttons",
+  projectManagementBanner: "/project_management-banner",
+  getAllProjectManagementList: "/project-management/all",
+  projectManagementBottomDesc: "/project-management-footer",
 };

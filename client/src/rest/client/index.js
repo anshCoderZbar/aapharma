@@ -92,6 +92,12 @@ class Client {
     getIsotopeTable: () => HttpClient.get(API_ENDPOINTS.getIsotopeTable),
     getIsotopeDetails: () => HttpClient.get(API_ENDPOINTS.isotopeDetails),
     getIsotopeButton: () => HttpClient.get(API_ENDPOINTS.isotopeButtons),
+    getProjectManagementBanner: () =>
+      HttpClient.get(API_ENDPOINTS.projectManagementBanner),
+    getProjectManagementBottomDesc: () =>
+      HttpClient.get(API_ENDPOINTS.projectManagementBottomDesc),
+    getAllProjectManagementList: () =>
+      HttpClient.get(API_ENDPOINTS.getAllProjectManagementList),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

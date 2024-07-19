@@ -252,3 +252,29 @@ export const GetIsotopeButtonMutation = () => {
   });
   return isotopeButton;
 };
+
+// project management
+
+export const GetProjectManagementBanner = () => {
+  const getBanner = useQuery({
+    queryKey: ["get-project-management-banner"],
+    queryFn: () => client.services.getProjectManagementBanner(),
+  });
+  return getBanner;
+};
+
+export const GetProjectManagementDescription = () => {
+  const getDesc = useQuery({
+    queryKey: ["get-project-management-description"],
+    queryFn: () => client.services.getProjectManagementBottomDesc(),
+  });
+  return getDesc;
+};
+
+export const GetProjectManagementLists = () => {
+  const getDesc = useQuery({
+    queryKey: ["get-project-management-lists"],
+    queryFn: () => client.services.getAllProjectManagementList(),
+  });
+  return getDesc;
+};

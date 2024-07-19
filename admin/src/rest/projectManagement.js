@@ -55,3 +55,77 @@ export const GetProjectManagementDescription = () => {
   });
   return getDesc;
 };
+
+export const AddProjectManagementList = () => {
+  const { notify } = useNotifications();
+  const navigate = useNavigate();
+  const addList = useMutation({
+    mutationFn: (data) =>
+      client.projectManagement.addProjectManagementList(data),
+    onSuccess: () => {
+      notify("Details Added Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-project-management-lists"],
+      });
+      navigate("/project-management-Lists");
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return addList;
+};
+
+export const GetProjectManagementLists = () => {
+  const getDesc = useQuery({
+    queryKey: ["get-project-management-lists"],
+    queryFn: () => client.projectManagement.getAllProjectManagementList(),
+  });
+  return getDesc;
+};
+
+export const DeleteProjectManagementList = () => {
+  const { notify } = useNotifications();
+  const addList = useMutation({
+    mutationFn: (data) =>
+      client.projectManagement.deleteProjectManagementList(data),
+    onSuccess: () => {
+      notify("Details Deleted Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-project-management-lists"],
+      });
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return addList;
+};
+
+export const SingleProjectManagementLists = (data) => {
+  const singleList = useQuery({
+    queryKey: ["get-project-management-lists"],
+    queryFn: () => client.projectManagement.singleProjectManagementList(data),
+  });
+  return singleList;
+};
+
+export const EditProjectManagementList = () => {
+  const { notify } = useNotifications();
+  const navigate = useNavigate();
+  const editList = useMutation({
+    mutationFn: (data) =>
+      client.projectManagement.updateProjectManagementList(data),
+    onSuccess: () => {
+      notify("Details Added Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-project-management-lists"],
+      });
+      navigate("/project-management-Lists");
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return editList;
+};

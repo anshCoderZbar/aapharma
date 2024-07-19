@@ -11,6 +11,11 @@ import { ErrorComponent } from "components/Alerts/Error";
 import { X } from "lucide-react";
 import { useParams } from "react-router-dom";
 
+import {
+  SingleProjectManagementLists,
+  EditProjectManagementList,
+} from "rest/projectManagement";
+
 export default function EditProjectManagementTabs() {
   const { id } = useParams();
   const {
@@ -18,7 +23,6 @@ export default function EditProjectManagementTabs() {
     handleSubmit,
     formState: { errors },
     reset,
-    control,
     getValues,
   } = useForm();
 
@@ -31,9 +35,32 @@ export default function EditProjectManagementTabs() {
     },
   ]);
 
-  const singleTab = { isError: false, isPending: false };
+  const formData = new FormData();
+  formData.append("id", id);
+  const singleTab = SingleProjectManagementLists(formData);
+  const editTab = EditProjectManagementList();
 
-  const editTab = { isError: false, isPending: false };
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = singleTab?.data?.data?.heading;
+    defaultValues.image = singleTab?.data?.data?.image;
+
+    const defaultInputs =
+      singleTab?.data?.data?.headings &&
+      singleTab?.data?.data?.headings?.map((_, i) => ({
+        heading: singleTab?.data?.data?.headings[i],
+        description: singleTab?.data?.data?.descriptions[i],
+      }));
+
+    setInputs(defaultInputs);
+    defaultInputs?.map((elm, i) => {
+      defaultValues[`tabHeading_${i + 1}`] = elm?.heading;
+      defaultValues[`description_${i + 1}`] = elm?.description;
+    });
+
+    setDefaultImg(singleTab?.data?.data?.image);
+    reset(defaultValues);
+  }, [singleTab?.data?.data]);
 
   const handleChange = (e) => {
     const files = e?.target?.files[0];
@@ -60,18 +87,18 @@ export default function EditProjectManagementTabs() {
   };
 
   const onSubmit = (data) => {
-    // const formData = new FormData();
-    // formData.append("heading", data?.heading);
-    // formData.append("image", data?.image[0]);
-    // inputs.forEach((_, index) => {
-    //   const tabHeadingKey = `tabHeading_${index + 1}`;
-    //   const descriptionKey = `description_${index + 1}`;
-    //   formData.append("heading[]", data[tabHeadingKey]);
-    //   formData.append("description[]", data[descriptionKey]);
-    // });
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("heading", data?.heading);
+    formData.append("image", data?.image[0]);
+    inputs.forEach((_, index) => {
+      const tabHeadingKey = `tabHeading_${index + 1}`;
+      const descriptionKey = `description_${index + 1}`;
+      formData.append("headings[]", data[tabHeadingKey]);
+      formData.append("descriptions[]", data[descriptionKey]);
+    });
 
-    console.log(data);
-    // editTab.mutate(formData);
+    editTab.mutate(formData);
   };
 
   return (
@@ -176,13 +203,9 @@ export default function EditProjectManagementTabs() {
                         >
                           Description
                         </label>
-                        <TextEditor
-                          control={control}
+                        <FormInput
+                          type="text"
                           placeholder="Description"
-                          defaultValue={
-                            singleTab?.data?.data?.combinedData[index]
-                              ?.description
-                          }
                           {...register(`description_${index + 1}`, {
                             required: true,
                           })}

@@ -1128,7 +1128,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/edit-project-lists/:id",
+      path: "/edit-project-list/:id",
       element: (
         <PrivateRoutes>
           <EditProjectManagementTabs />

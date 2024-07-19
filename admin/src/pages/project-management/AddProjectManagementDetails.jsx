@@ -7,6 +7,7 @@ import { TextEditor } from "components/ui/TextEditor";
 import { PageWrapper } from "components/ui/PageWrapper";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { X } from "lucide-react";
+import { AddProjectManagementList } from "rest/projectManagement";
 
 export default function AddProjectManagementTabs() {
   const {
@@ -27,9 +28,7 @@ export default function AddProjectManagementTabs() {
     },
   ]);
 
-  const singleTab = { isError: false, isPending: false };
-
-  const editTab = { isError: false, isPending: false };
+  const addLists = AddProjectManagementList();
 
   const handleChange = (e) => {
     const files = e?.target?.files[0];
@@ -56,18 +55,17 @@ export default function AddProjectManagementTabs() {
   };
 
   const onSubmit = (data) => {
-    // const formData = new FormData();
-    // formData.append("heading", data?.heading);
-    // formData.append("image", data?.image[0]);
-    // inputs.forEach((_, index) => {
-    //   const tabHeadingKey = `tabHeading_${index + 1}`;
-    //   const descriptionKey = `description_${index + 1}`;
-    //   formData.append("heading[]", data[tabHeadingKey]);
-    //   formData.append("description[]", data[descriptionKey]);
-    // });
+    const formData = new FormData();
+    formData.append("heading", data?.heading);
+    formData.append("image", data?.image[0]);
+    inputs.forEach((_, index) => {
+      const tabHeadingKey = `tabHeading_${index + 1}`;
+      const descriptionKey = `description_${index + 1}`;
+      formData.append("headings[]", data[tabHeadingKey]);
+      formData.append("descriptions[]", data[descriptionKey]);
+    });
 
-    console.log(data);
-    // editTab.mutate(formData);
+    addLists.mutate(formData);
   };
 
   return (
@@ -167,13 +165,9 @@ export default function AddProjectManagementTabs() {
                       >
                         Description
                       </label>
-                      <TextEditor
-                        control={control}
+                      <FormInput
+                        type="text"
                         placeholder="Description"
-                        defaultValue={
-                          singleTab?.data?.data?.combinedData[index]
-                            ?.description
-                        }
                         {...register(`description_${index + 1}`, {
                           required: true,
                         })}
@@ -188,7 +182,7 @@ export default function AddProjectManagementTabs() {
           </div>
           <div className="row">
             <div className="col-6">
-              {editTab?.isPending ? (
+              {addLists?.isPending ? (
                 <ButtonLoader />
               ) : (
                 <div className="mb-3 col-12">
