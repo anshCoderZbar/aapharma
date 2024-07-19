@@ -41,18 +41,14 @@ export default function ProjectManagement() {
                         <h3>
                           {i + 1}. {details?.heading}
                         </h3>
-                        <div className="project_card_content">
-                          <div className="proj_flex">
-                            {details?.headings?.map((elm) => (
-                              <h4>{elm}</h4>
-                            ))}
-                          </div>
-                          <div className="proj_flex">
-                            {details?.descriptions?.map((elm) => (
-                              <p>{elm}</p>
-                            ))}
-                          </div>
-                        </div>
+                        {details?.arrayOfObject?.map((elm) => {
+                          return (
+                            <div className="project_card_content">
+                              <h4>{elm?.headings}</h4>
+                              <p>{elm?.descriptions}</p>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                     <div className="col-lg-5 col-xl-3">

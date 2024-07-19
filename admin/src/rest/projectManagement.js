@@ -104,7 +104,7 @@ export const DeleteProjectManagementList = () => {
 
 export const SingleProjectManagementLists = (data) => {
   const singleList = useQuery({
-    queryKey: ["get-project-management-lists"],
+    queryKey: ["get-project-single-management-lists"],
     queryFn: () => client.projectManagement.singleProjectManagementList(data),
   });
   return singleList;
