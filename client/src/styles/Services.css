@@ -1778,6 +1778,7 @@
 
 .small_main_image img {
   max-width: 650px;
+  max-height: 550px;
   width: 100%;
 }
 
@@ -1895,6 +1896,11 @@
   font-size: 26px;
 }
 
+.hrshadow hr {
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.25);
+  margin: 0;
+}
+
 /* project-management */
 
 .project_mgt_content p {
@@ -1906,7 +1912,7 @@
 
 .list_inner_cards {
   background-color: #eaeaea;
-  padding: 40px;
+  padding: 30px;
 }
 
 .project_management_lists {
@@ -1987,17 +1993,12 @@
 /* Handle */
 .project_management_lists::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background: rgba(102, 102, 102, 0.2);
-}
-
-/* Handle on hover */
-.project_management_lists::-webkit-scrollbar-thumb:hover {
-  background: rgba(102, 102, 102, 0.3);
+  background: #2a3072;
 }
 
 .bottom_mgt_content p {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 26px;
   margin-bottom: 40px;
 }
 
@@ -2149,6 +2150,10 @@
 
   .process_acc_card p {
     font-size: 22px;
+  }
+
+  .carbohydrates_diagram_inner {
+    max-width: 1500px;
   }
 }
 
@@ -2587,11 +2592,11 @@
   }
 
   .list_inner_cards {
-    padding: 35px;
+    padding: 27px;
   }
 
   .bottom_mgt_content p {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 35px;
   }
 }
@@ -3112,7 +3117,7 @@
   }
 
   .list_inner_cards {
-    padding: 30px;
+    padding: 24px;
   }
 
   .project_card_details h3 {
@@ -3124,7 +3129,7 @@
   }
 
   .bottom_mgt_content p {
-    font-size: 18px;
+    font-size: 22px;
     margin-bottom: 30px;
   }
 }
@@ -3566,7 +3571,7 @@
   }
 
   .list_inner_cards {
-    padding: 25px;
+    padding: 20px;
   }
 
   .project_card_content {
@@ -4038,6 +4043,10 @@
     padding: 0;
   }
 
+  .list_inner_cards {
+    padding: 17px;
+  }
+
   .molecule_tab_content p {
     font-size: 17px;
   }
@@ -4054,6 +4063,7 @@
   }
 
   .bottom_mgt_content p {
+    font-size: 20px;
     margin-bottom: 27px;
   }
 }
@@ -5166,7 +5176,7 @@
   }
 
   .bottom_mgt_content p {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 20px;
   }
 

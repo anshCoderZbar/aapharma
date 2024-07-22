@@ -24,14 +24,16 @@ export default function WhitepaperDetail() {
         extra="white_head white_paper_single"
       />
       <div className="container-fluid">
-        <div
-          className="whitepaper_single_content"
-          dangerouslySetInnerHTML={{
-            __html:
-              singleWhitepaper?.data?.data?.description &&
-              singleWhitepaper?.data?.data?.description,
-          }}
-        />
+        <div className="max-container">
+          <div
+            className="whitepaper_single_content"
+            dangerouslySetInnerHTML={{
+              __html:
+                singleWhitepaper?.data?.data?.description &&
+                singleWhitepaper?.data?.data?.description,
+            }}
+          />
+        </div>
       </div>
     </div>
   );

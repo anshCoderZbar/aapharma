@@ -80,8 +80,11 @@ export default function SmallMoleculesDrugDiscovery() {
         <div className="container-fluid">
           <div className="row align-items-center">
             <div className="col-lg-6">
-              <div className="small_main_image">
+              <div className="small_main_image small_main_2_img">
                 <img src={getHTS?.data?.data && getHTS?.data?.data?.Image1} />
+                <h4>
+                  Diverse libraries compared with focused libraries diagram
+                </h4>
               </div>
             </div>
             <div className="col-lg-6">
@@ -95,7 +98,9 @@ export default function SmallMoleculesDrugDiscovery() {
           </div>
         </div>
       </div>
-      <hr />
+      <div className="container-fluid hrshadow ">
+        <hr />
+      </div>
       <div className="small_feature_section bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
@@ -108,7 +113,9 @@ export default function SmallMoleculesDrugDiscovery() {
           />
         </div>
       </div>
-      <hr />
+      <div className="container-fluid hrshadow ">
+        <hr />
+      </div>
       <div className="small_feature_section  bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
@@ -122,7 +129,9 @@ export default function SmallMoleculesDrugDiscovery() {
           />
         </div>
       </div>
-      <hr />
+      <div className="container-fluid hrshadow ">
+        <hr />
+      </div>
       <div className="small_feature_section bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
@@ -145,7 +154,9 @@ export default function SmallMoleculesDrugDiscovery() {
           />
         </div>
       </div>
-      <hr />
+      <div className="container-fluid hrshadow ">
+        <hr />
+      </div>
       <div className="small_feature_section bg-white">
         <div className="container-fluid">
           <SmallMoleculesCard
@@ -178,7 +189,6 @@ export default function SmallMoleculesDrugDiscovery() {
           </div>
         </div>
       </div>
-
       <div className="container-fluid">
         <div className="moleucles_tab_buttons">
           {getTabs?.data?.data?.length >= 1 &&

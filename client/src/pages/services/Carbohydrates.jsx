@@ -80,7 +80,9 @@ export default function Carbohydrates() {
         />
       </div>
       <div className="container-fluid">
-        <Timeline />
+        <div className="max-container">
+          <Timeline />
+        </div>
         {/* <div className="container-fluid">
           <div
             dangerouslySetInnerHTML={{
@@ -143,11 +145,13 @@ export default function Carbohydrates() {
                   <div className="card_chem_details">
                     <div className="carbo_inner_circle">
                       <div className="carb_inner_content">
-                        <h4 className="text-capitalize">{elm?.heading}:</h4>
+                        <h4 className="text-capitalize">Natural-Sialoside:</h4>
                         <ul>
-                          {elm?.list?.map((data, i) => {
-                            return <li key={i}>{data}</li>;
-                          })}
+                          <li>H2: Galactose-glycan </li>
+                          <li>R3: H </li>
+                          <li>R4: OH </li>
+                          <li>R5: AC </li>
+                          <li>R6: OH </li>
                         </ul>
                       </div>
                     </div>

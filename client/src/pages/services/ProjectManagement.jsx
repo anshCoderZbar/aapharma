@@ -17,14 +17,16 @@ export default function ProjectManagement() {
     <div className="project_management_page">
       <Banner
         heading={getBanner?.data?.data && getBanner?.data?.data?.heading}
-        background={`linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),url(${
+        background={`linear-gradient( rgba(48, 48, 114, 0.85), rgba(48, 48, 114, 0.85)),url(${
           getBanner?.data?.data && getBanner?.data?.data?.image
         })`}
         extra="white_head process_top_banner"
       />
       <div className="container-fluid">
         <div className="project_mgt_content">
-          <p>{getBanner?.data?.data && getBanner?.data?.data?.description}</p>
+          <p className="fw-semibold">
+            {getBanner?.data?.data && getBanner?.data?.data?.description}
+          </p>
         </div>
         <div className="project_management_lists">
           {getLists?.data?.data?.length >= 1 &&
@@ -41,9 +43,9 @@ export default function ProjectManagement() {
                         <h3>
                           {i + 1}. {details?.heading}
                         </h3>
-                        {details?.arrayOfObject?.map((elm) => {
+                        {details?.arrayOfObject?.map((elm, i) => {
                           return (
-                            <div className="project_card_content">
+                            <div key={i} className="project_card_content">
                               <h4>{elm?.headings}</h4>
                               <p>{elm?.descriptions}</p>
                             </div>

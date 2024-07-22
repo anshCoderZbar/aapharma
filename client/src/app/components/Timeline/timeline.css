@@ -12,7 +12,6 @@
 
 .timeline .time_vv {
   font-size: 0;
-  width: 100vw;
   padding: 30rem 0 40rem 0;
   transition: all 1s;
 }
@@ -666,18 +665,15 @@
 
 @media only screen and (max-width: 1800px) {
   .timeline .swiper-slide::before {
-    left: 6%;
+    left: 25%;
   }
   .ccrical-a {
-    left: 53%;
+    left: 62%;
   }
 }
 @media only screen and (max-width: 1700px) {
   .timeline .swiper-slide::before {
-    left: 13%;
-  }
-  .ccrical-a {
-    left: 57%;
+    left: 25%;
   }
 }
 @media only screen and (max-width: 1600px) {
@@ -685,7 +681,7 @@
     left: 20%;
   }
   .ccrical-a {
-    left: 60%;
+    left: 62%;
   }
 }
 @media only screen and (max-width: 1300px) {
