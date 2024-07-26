@@ -94,79 +94,83 @@ export default function Carbohydrates() {
           />
         </div> */}
       </div>
-      <div className="container-fluid">
-        <div className="carbohydrates_details_sec kjsjIuy">
-          <p>
-            Development of Sialic Acid Mimetics as High-Affinity Ligands for
-            Sialic Acid Binding Immunoglobulin-Like Lectin 2
-          </p>
-        </div>
-      </div>
-      <div className="container-fluid">
-        <div className="carbohydrates_diagram_outer">
-          <div ref={diagramRef} className="carbohydrates_diagram_inner">
-            {getDiagram?.data?.data?.map((elm, i) => {
-              return (
-                <div
-                  key={i}
-                  onClick={() => {
-                    setId(elm?.id);
-                    setImgUrl(elm?.image);
-                  }}
-                  className="carbo_diagram"
-                >
-                  <button
-                    style={{
-                      backgroundColor: elm?.id === id ? "#34caff" : "#2a3072",
-                    }}
-                  >
-                    {elm?.year}
-                  </button>
-                </div>
-              );
-            })}
+      <div className="max-container">
+        <div className="container-fluid">
+          <div className="carbohydrates_details_sec kjsjIuy">
+            <p>
+              Development of Sialic Acid Mimetics as High-Affinity Ligands for
+              Sialic Acid Binding Immunoglobulin-Like Lectin 2
+            </p>
           </div>
         </div>
-        {getDiagram?.data?.data?.map((elm, i) => {
-          return (
-            elm?.id === id && (
-              <div key={i} className="row carbs_diagaram">
-                <div className="col-lg-4 ">
-                  <div className="carb_imgs_sec">
-                    <div className="carb_inner_content">
-                      <h4 className="text-capitalize">{elm?.heading}:</h4>
-                    </div>
-                    <div className="carb_img_chem">
-                      <img src={imgUrl} alt="chemical" className={``} />
-                    </div>
+        <div className="container-fluid">
+          <div className="carbohydrates_diagram_outer">
+            <div ref={diagramRef} className="carbohydrates_diagram_inner">
+              {getDiagram?.data?.data?.map((elm, i) => {
+                return (
+                  <div
+                    key={i}
+                    onClick={() => {
+                      setId(elm?.id);
+                      setImgUrl(elm?.image);
+                    }}
+                    className="carbo_diagram"
+                  >
+                    <button
+                      style={{
+                        backgroundColor: elm?.id === id ? "#34caff" : "#2a3072",
+                      }}
+                    >
+                      {elm?.year}
+                    </button>
                   </div>
-                </div>
-                <div className="col-lg-8">
-                  <div className="card_chem_details">
-                    <div className="carbo_inner_circle">
+                );
+              })}
+            </div>
+          </div>
+          {getDiagram?.data?.data?.map((elm, i) => {
+            return (
+              elm?.id === id && (
+                <div key={i} className="row carbs_diagaram">
+                  <div className="col-lg-4 ">
+                    <div className="carb_imgs_sec">
                       <div className="carb_inner_content">
-                        <h4 className="text-capitalize">Natural-Sialoside:</h4>
-                        <ul>
-                          <li>H2: Galactose-glycan </li>
-                          <li>R3: H </li>
-                          <li>R4: OH </li>
-                          <li>R5: AC </li>
-                          <li>R6: OH </li>
-                        </ul>
+                        <h4 className="text-capitalize">{elm?.heading}:</h4>
+                      </div>
+                      <div className="carb_img_chem">
+                        <img src={imgUrl} alt="chemical" className={``} />
                       </div>
                     </div>
-                    <div className="carb_second_img">
-                      <img
-                        src={require("assets/carb_second_img.png")}
-                        alt="carbohydrate"
-                      />
+                  </div>
+                  <div className="col-lg-8">
+                    <div className="card_chem_details">
+                      <div className="carbo_inner_circle">
+                        <div className="carb_inner_content">
+                          <h4 className="text-capitalize">
+                            Natural-Sialoside:
+                          </h4>
+                          <ul>
+                            <li>H2: Galactose-glycan </li>
+                            <li>R3: H </li>
+                            <li>R4: OH </li>
+                            <li>R5: AC </li>
+                            <li>R6: OH </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="carb_second_img">
+                        <img
+                          src={require("assets/carb_second_img.png")}
+                          alt="carbohydrate"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )
-          );
-        })}
+              )
+            );
+          })}
+        </div>
       </div>
     </div>
   );

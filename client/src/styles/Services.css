@@ -1972,6 +1972,7 @@
 .project_card_content p {
   font-size: 18px;
   line-height: normal;
+  flex: 0 1 85%;
 }
 
 .project_management_lists {
@@ -2152,8 +2153,56 @@
     font-size: 22px;
   }
 
-  .carbohydrates_diagram_inner {
-    max-width: 1500px;
+  .carbohydrates_details_sec p {
+    font-size: 22px;
+  }
+
+  .carb_inner_content h4 {
+    font-size: 40px;
+  }
+
+  .carbo_diagram button {
+    font-size: 22px;
+  }
+
+  .carb_inner_content ul li {
+    font-size: 22px;
+  }
+
+  .carb_img_chem img {
+    max-width: 420px;
+  }
+
+  .project_mgt_content p {
+    font-size: 22px;
+  }
+
+  .project_card_details h3 {
+    font-size: 26px;
+  }
+
+  .project_card_content h4 {
+    font-size: 24px;
+    flex: 0 1 18%;
+  }
+
+  .project_card_content p {
+    font-size: 22px;
+    line-height: normal;
+    flex: 0 78%;
+  }
+
+  .bottom_mgt_content p {
+    font-size: 28px;
+  }
+
+  .large_contdw p {
+    font-size: 26px;
+  }
+
+  .project_management_lists {
+    height: 50vh;
+    overflow: auto;
   }
 }
 
