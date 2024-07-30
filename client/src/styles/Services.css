@@ -1381,7 +1381,7 @@
   border: 0;
 }
 
-.table > thead {
+.table>thead {
   vertical-align: middle;
 }
 
@@ -1389,7 +1389,7 @@
   text-align: center;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) > * {
+.table-striped>tbody>tr:nth-of-type(odd)>* {
   background-color: #efefef;
 }
 
@@ -1809,6 +1809,7 @@
 .drug_card_image {
   text-align: center;
 }
+
 .drug_card_image img {
   max-width: 500px;
   width: 100%;
@@ -2001,6 +2002,41 @@
   font-weight: 600;
   font-size: 26px;
   margin-bottom: 40px;
+}
+
+/* others */
+
+.icons_card_outer {
+  background-color: #f7f7f7;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 70px;
+}
+
+.icon_card_body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.icons_card_inner {
+  background-color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+.icons_card_inner img {
+  width: 64px;
+  height: 64px;
+  margin: auto;
+}
+
+
+.icons_card_inner h3 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 25px;
 }
 
 @media only screen and (min-width: 2000px) {
@@ -2203,6 +2239,11 @@
   .project_management_lists {
     height: 50vh;
     overflow: auto;
+  }
+
+
+  .icon_card_body {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -2647,6 +2688,15 @@
   .bottom_mgt_content p {
     font-size: 24px;
     margin-bottom: 35px;
+  }
+
+  .icons_card_inner h3 {
+    font-size: 21px;
+    margin-top: 25px;
+  }
+
+  .icons_card_outer {
+    margin-bottom: 60px;
   }
 }
 
@@ -3181,6 +3231,10 @@
     font-size: 22px;
     margin-bottom: 30px;
   }
+
+  .icons_card_outer {
+    margin-bottom: 50px;
+  }
 }
 
 @media only screen and (max-width: 1199px) {
@@ -3625,6 +3679,10 @@
 
   .project_card_content {
     margin-top: 17px;
+  }
+
+  .icons_card_outer {
+    margin-bottom: 40px;
   }
 }
 
@@ -4114,6 +4172,24 @@
   .bottom_mgt_content p {
     font-size: 20px;
     margin-bottom: 27px;
+  }
+
+  .icons_card_outer {
+    padding: 25px;
+  }
+
+  .icon_card_body {
+    grid-template-columns: repeat(auto-fit, minmax(273px, 1fr));
+  }
+
+  .icons_card_inner h3 {
+    font-size: 19px;
+    margin-top: 21px;
+  }
+
+
+  .icons_card_outer {
+    margin-bottom: 30px;
   }
 }
 
@@ -4644,6 +4720,15 @@
   .kjsjIuy {
     position: relative;
     top: -138px;
+  }
+
+  .icons_card_outer {
+    padding: 25px;
+  }
+
+
+  .icons_card_outer {
+    margin-bottom: 25px;
   }
 }
 
@@ -5232,5 +5317,14 @@
   .kjsjIuy {
     position: relative;
     top: 19px;
+  }
+
+  .icons_card_inner h3 {
+    font-size: 17px;
+    margin-top: 17px;
+  }
+
+  .icons_card_outer {
+    margin-bottom: 20px;
   }
 }

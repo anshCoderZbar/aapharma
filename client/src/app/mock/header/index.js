@@ -88,7 +88,7 @@ export const HeaderData = [
           {
             id: 3,
             subMenu: "Other",
-            slug: "#",
+            slug: "/others",
           },
         ],
       },
