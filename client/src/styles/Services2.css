@@ -1,0 +1,112 @@
+/* research collaborations */
+.research_boxes {
+    padding: 25px;
+    background-color: #f7f7f7;
+    margin: 50px 0;
+}
+
+.reserach_head {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #000;
+    font-style: normal;
+}
+
+.research_inner_box {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px;
+    gap: 20px;
+}
+
+.box_inner_content {
+    padding: 25px;
+    border-radius: 10px;
+    flex: 0 33%;
+}
+
+.box_inner_content p {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+}
+
+.collaboration_tabs {
+    border: 1px solid #000;
+    border-radius: 13px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.reserach_collab_tab_btn {
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+    border: 1px solid #000;
+
+}
+
+.collaboration_tabs button {
+    width: 100%;
+    border: none;
+    padding: 15px 0;
+    background-color: #fff;
+    color: #000;
+    outline: none;
+    transition: .3s all;
+    font-size: 18px;
+}
+
+.collaboration_tabs button:hover {
+    background-color: #2a3072;
+    color: #fff;
+
+}
+
+.collaboration_tabs_btn_active {
+    background-color: #2a3072;
+    color: #fff;
+
+}
+
+.collab_tab_body {
+    padding: 20px;
+}
+
+.collab_tab_body h2 {
+    font-weight: 700;
+    text-align: center;
+    font-size: 48px;
+    margin-top: 20px;
+}
+
+.collab_diagram_box {
+    width: 148px;
+    height: 263px;
+}
+
+.inner_box_cont {
+    width: 126px;
+    height: 222px;
+    box-shadow: 2px 3px 5px 1px rgba(30, 30, 30, 0.2);
+    border-radius: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 20px;
+    padding: 10px;
+}
+
+.inner_box_cont p {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 700;
+}

@@ -36,6 +36,7 @@ import PaypalPayment from "pages/cart/Paypal";
 import ProcessResearchandDevelopment from "pages/services/ProcessResearchandDevelopment";
 import SmallMoleculesDrugDiscovery from "pages/services/SmallMoleculesDrugDiscovery";
 import ProjectManagement from "pages/services/ProjectManagement";
+import ResearchCollaboration from "pages/services/ResearchCollaboration";
 import Others from "pages/services/Others";
 
 export const AllRoutes = () => {
@@ -176,6 +177,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <Others />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/research-collaboration"
+            element={
+              <PublicRoutes>
+                <ResearchCollaboration />
               </PublicRoutes>
             }
           />
