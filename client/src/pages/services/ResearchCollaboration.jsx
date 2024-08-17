@@ -3,6 +3,10 @@ import { Banner } from "app/components/Ui/Banner";
 import "styles/Services2.css";
 import conical from "assets/conical.svg";
 
+import circleShape from "assets/resource_circle2.svg";
+
+import cursiveLine from "assets/resource_cursive_line.svg";
+
 export default function ResearchCollaboration() {
   return (
     <div className="research_page">
@@ -67,13 +71,40 @@ export default function ResearchCollaboration() {
           </div>
         </div>
       </div>
-      <div className="container-fluid">
+      <div className="container-fluid max-container">
         <div className="collaboration_tabs">
           <div className="reserach_collab_tab_btn">
             <button>Academia</button>
             <button>Private / Public Company</button>
           </div>
           <Acadmia />
+        </div>
+      </div>
+      <div className="container-fluid">
+        <div className="page_shadow_box">
+          <p>
+            The penultimate objective of AAPharmaSyn Research Collaboration is
+            to bridge translational research funding gap. We believe that many
+            breakthrough therapies never reach the clinic because for reasons
+            that have little to do with fundamental science and a lot to do with
+            misallocation of scarce resources.
+          </p>
+        </div>
+      </div>
+      <div className="container-fluid max-container">
+        <div className="resource_progress">
+          <div className="position-relative">
+            <div className="top_line_progress" />
+            <div className="bottom_line_progress" />
+            <div className="resource_cursive_line">
+              <img src={cursiveLine} alt="cursive-line" />
+            </div>
+          </div>
+        </div>
+        <div className="resource_cursive_diagram_btns">
+          <button className="primary_buttton">Basic Science</button>
+          <button className="primary_buttton">Translational Science</button>
+          <button className="primary_buttton">Clinical Science</button>
         </div>
       </div>
     </div>
@@ -85,12 +116,32 @@ const Acadmia = () => {
     <div className="collab_tab_body">
       <h2>Academia</h2>
       <div className="collab_diagram">
-        <div className="collab_diagram_box">
-          <div className="inner_box_cont">
-            <img src={conical} alt="academia" />
-            <p>RO1, R03, R021 / STTR / Other Grant</p>
-          </div>
-        </div>
+        {new Array(6).fill(true).map((_, i) => {
+          return (
+            <>
+              <div key={i} className="collab_diagram_box">
+                <img src={circleShape} alt="shape" />
+                <div className="inner_box_cont">
+                  <img src={conical} alt="academia" />
+                  <p>RO1, R03, R021 / STTR / Other Grant</p>
+                </div>
+              </div>
+              <div
+                className={`arrow_res ${
+                  i + 1 === 6 || i + 1 == 3 ? "d-none" : "d-block"
+                }`}
+              />
+              {i + 1 === 3 && (
+                <div className="funding_mid_sec">
+                  <img src={require("assets/funding_gap.png")} alt="funding" />
+                  <h3>
+                    Funding <br /> Gap
+                  </h3>
+                </div>
+              )}
+            </>
+          );
+        })}
       </div>
     </div>
   );

@@ -73,7 +73,7 @@
   line-height: normal;
 }
 
-.nav-right > ul {
+.nav-right>ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +89,7 @@
   width: 20px;
 }
 
-.nav-right > ul li a {
+.nav-right>ul li a {
   text-decoration: none;
   color: #2e2e2e;
   font-size: 17px;
@@ -101,7 +101,7 @@
   padding: 5px;
 }
 
-.nav-right > ul li a:hover {
+.nav-right>ul li a:hover {
   color: #34caff;
   transition: 0.3s;
 }
@@ -345,7 +345,7 @@
   opacity: 1;
   visibility: visible;
   overflow: auto;
-  background: #34caff !important;
+  background: #2a3072 !important;
 }
 
 .change_top_color {
@@ -689,11 +689,13 @@
   }
 } */
 @media screen and (min-width: 2000px) {
+
   .drop_acor_m,
-  .nav-right > ul li a {
+  .nav-right>ul li a {
     font-size: 20px;
   }
 }
+
 @media screen and (max-width: 1770px) {
   /* .nav-left {
     flex: 0 1 35%;
@@ -701,7 +703,7 @@
 }
 
 @media screen and (max-width: 1700px) {
-  .nav-right > ul {
+  .nav-right>ul {
     gap: 20px;
   }
 
@@ -733,12 +735,12 @@
     width: 100%;
   }
 
-  .nav-right > ul {
+  .nav-right>ul {
     gap: 20px;
   }
 
   .drop_acor_m,
-  .nav-right > ul li a {
+  .nav-right>ul li a {
     font-size: 16px;
   }
 
@@ -762,14 +764,14 @@
   }
 
   .acc_bdy_bg {
-    background-color: #34caff;
+    background-color: #2a3072;
     color: #fff;
     padding: 11px 20px;
   }
 
   .acc_bdy_1 {
-    background-color: #34caff;
-    padding: 6px 20px;
+    background-color: #2a3072;
+    padding: 6px 0;
   }
 
   .acc_input_label {
@@ -819,21 +821,20 @@
     gap: 15px;
   }
 
-  .nav-right > ul {
+  .nav-right>ul {
     gap: 15px;
   }
 
   .drop_acor_m,
-  .nav-right > ul li a {
+  .nav-right>ul li a {
     font-size: 16px;
   }
 }
 
-@media screen and (max-width: 1330px) {
-}
+@media screen and (max-width: 1330px) {}
 
 @media screen and (max-width: 1250px) {
-  .nav-right > ul {
+  .nav-right>ul {
     gap: 6px;
   }
 }
@@ -902,7 +903,7 @@
     margin-right: 35px;
   }
 
-  .nav-right > ul {
+  .nav-right>ul {
     display: block;
     position: fixed;
     background-color: #2a3072;
@@ -983,7 +984,7 @@
     border-bottom: 1px solid #494d79;
   }
 
-  .nav-right > ul li .contact_btn {
+  .nav-right>ul li .contact_btn {
     background-color: #34caff;
     padding: 14px 30px;
     width: 88%;
@@ -992,7 +993,7 @@
     display: block;
   }
 
-  .nav-right > ul li a {
+  .nav-right>ul li a {
     display: block;
   }
 
@@ -1033,7 +1034,7 @@
     border-bottom-left-radius: 0px !important;
   }
 
-  .nav-right > ul li a {
+  .nav-right>ul li a {
     color: #fff;
   }
 
@@ -1079,7 +1080,7 @@
     cursor: pointer;
   }
 
-  .nav-right > ul {
+  .nav-right>ul {
     min-width: 77%;
     padding-top: 1em;
     padding-bottom: 1em;

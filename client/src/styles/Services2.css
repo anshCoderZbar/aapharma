@@ -18,6 +18,7 @@
     justify-content: space-between;
     max-width: 1300px;
     gap: 20px;
+    margin: auto;
 }
 
 .box_inner_content {
@@ -86,15 +87,20 @@
     margin-top: 20px;
 }
 
+.collab_diagram {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
 .collab_diagram_box {
-    width: 148px;
-    height: 263px;
+    position: relative;
 }
 
 .inner_box_cont {
     width: 126px;
     height: 222px;
-    box-shadow: 2px 3px 5px 1px rgba(30, 30, 30, 0.2);
     border-radius: 80px;
     display: flex;
     flex-direction: column;
@@ -103,10 +109,132 @@
     margin: auto;
     gap: 20px;
     padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .inner_box_cont p {
     font-size: 14px;
     text-align: center;
     font-weight: 700;
+}
+
+.arrow_res::after {
+    content: "\2192";
+    font-size: 52px;
+    position: relative;
+    top: -15px;
+}
+
+.funding_mid_sec {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.funding_mid_sec h3 {
+    text-align: center;
+    line-height: 40px;
+    font-weight: 700;
+    color: #000;
+    font-size: 28px;
+}
+
+.page_shadow_box {
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, 0.2);
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.page_shadow_box p {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.resource_progress {
+    position: relative;
+}
+
+.top_line_progress {
+    background-color: #000;
+    width: 3px;
+    height: 30rem;
+    position: relative;
+}
+
+.top_line_progress::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: -6px;
+    background-color: #000;
+    top: -7px;
+    border-radius: 10px;
+}
+
+.bottom_line_progress {
+    background-color: #000;
+    height: 2px;
+    width: 100%;
+    position: relative;
+}
+
+.bottom_line_progress::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: -6px;
+    background-color: #000;
+    top: -7px;
+    border-radius: 10px;
+}
+
+
+
+.resource_cursive_line img {
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: contain;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.resource_cursive_line::after {
+    content: "";
+    position: absolute;
+    background-color: #2a3072;
+    width: 6px;
+    height: 15rem;
+    left: 50%;
+    /* top: 0; */
+    bottom: 33px;
+    border-radius: 11px;
+}
+
+.resource_cursive_diagram_btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 40px 0;
+}
+
+@media only screen and (max-width:1600px) {
+    /* .collab_diagram_box {
+        width: 148px;
+        height: 263px;
+    } */
 }
