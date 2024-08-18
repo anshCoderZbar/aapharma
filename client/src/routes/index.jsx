@@ -38,6 +38,8 @@ import SmallMoleculesDrugDiscovery from "pages/services/SmallMoleculesDrugDiscov
 import ProjectManagement from "pages/services/ProjectManagement";
 import ResearchCollaboration from "pages/services/ResearchCollaboration";
 import Others from "pages/services/Others";
+import Overview from "pages/capabilities/Overview";
+import Synthesis from "pages/capabilities/Synthesis";
 
 export const AllRoutes = () => {
   return (
@@ -253,13 +255,22 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/overview"
+            path="/capabilities"
             element={
               <PublicRoutes>
                 <Capabilities />
               </PublicRoutes>
             }
           />
+          <Route
+            path="/overview"
+            element={
+              <PublicRoutes>
+                <Overview />
+              </PublicRoutes>
+            }
+          />
+
           <Route
             path="/chemistry-expertise"
             element={
@@ -273,6 +284,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <LabEquipment />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/synthesis"
+            element={
+              <PublicRoutes>
+                <Synthesis />
               </PublicRoutes>
             }
           />

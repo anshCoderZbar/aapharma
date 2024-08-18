@@ -6,8 +6,11 @@ import conical from "assets/conical.svg";
 import circleShape from "assets/resource_circle2.svg";
 
 import cursiveLine from "assets/resource_cursive_line.svg";
+import { useState } from "react";
 
 export default function ResearchCollaboration() {
+  const [tabs, setTabs] = useState({ academia: true, privatePublic: false });
+
   return (
     <div className="research_page">
       <Banner
@@ -74,10 +77,27 @@ export default function ResearchCollaboration() {
       <div className="container-fluid max-container">
         <div className="collaboration_tabs">
           <div className="reserach_collab_tab_btn">
-            <button>Academia</button>
-            <button>Private / Public Company</button>
+            <button
+              onClick={() => setTabs({ academia: true, privatePublic: false })}
+              style={{
+                backgroundColor: tabs.academia && "#2a3072",
+                color: tabs.academia && "white",
+              }}
+            >
+              Academia
+            </button>
+            <button
+              onClick={() => setTabs({ academia: false, privatePublic: true })}
+              style={{
+                backgroundColor: tabs.privatePublic && "#2a3072",
+                color: tabs.privatePublic && "white",
+              }}
+            >
+              Private / Public Company
+            </button>
           </div>
-          <Acadmia />
+          {tabs.academia && <Acadmia />}
+          {tabs.privatePublic && <PrivatePublicCompany />}
         </div>
       </div>
       <div className="container-fluid">
@@ -94,10 +114,19 @@ export default function ResearchCollaboration() {
       <div className="container-fluid max-container">
         <div className="resource_progress">
           <div className="position-relative">
-            <div className="top_line_progress" />
-            <div className="bottom_line_progress" />
-            <div className="resource_cursive_line">
-              <img src={cursiveLine} alt="cursive-line" />
+            <h2 className="text_res">Resources</h2>
+            <div className=" ms-sm-5">
+              <div className="top_line_progress" />
+              <div className="bottom_line_progress" />
+              <h2 className="time_txt">Time</h2>
+              <div className="resource_cursive_line">
+                <h3 className="text_font">Academia</h3>
+                <button className="btn_center_reasource">
+                  Valley of Death
+                </button>
+                <img src={cursiveLine} alt="cursive-line" />
+                <h3 className="text_font dsk_uh">Industry</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -132,6 +161,42 @@ const Acadmia = () => {
                 }`}
               />
               {i + 1 === 3 && (
+                <div className="funding_mid_sec">
+                  <img src={require("assets/funding_gap.png")} alt="funding" />
+                  <h3>
+                    Funding <br /> Gap
+                  </h3>
+                </div>
+              )}
+            </>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const PrivatePublicCompany = () => {
+  return (
+    <div className="collab_tab_body">
+      <h2>Private / Public Company</h2>
+      <div className="collab_diagram">
+        {new Array(6).fill(true).map((_, i) => {
+          return (
+            <>
+              <div key={i} className="collab_diagram_box">
+                <img src={circleShape} alt="shape" />
+                <div className="inner_box_cont">
+                  <img src={conical} alt="academia" />
+                  <p>RO1, R03, R021 / STTR / Other Grant</p>
+                </div>
+              </div>
+              <div
+                className={`arrow_res ${
+                  i + 1 === 6 || i + 1 == 2 ? "d-none" : "d-block"
+                }`}
+              />
+              {i + 1 === 2 && (
                 <div className="funding_mid_sec">
                   <img src={require("assets/funding_gap.png")} alt="funding" />
                   <h3>
