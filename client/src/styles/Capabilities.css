@@ -588,6 +588,63 @@
   display: none;
 }
 
+/* overview */
+
+.overview_tabs_body {
+  background-color: #f7f7f7;
+  padding: 30px;
+  border-radius: 12px;
+  position: relative;
+  margin-bottom: 60px;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.overview_tabs_body::after {
+  content: "";
+  background-color: #fff;
+  height: 100%;
+  margin: 15px;
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  bottom: 0;
+  border-radius: 11px;
+}
+
+.overview_btn {
+  width: 90%;
+  position: relative;
+  background-color: #f7f7f7;
+  padding: 10px 25px;
+  border: 1px solid #0000001e;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.overview_arrow {
+  position: absolute;
+  right: -16%;
+  color: #34caff;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 78px;
+  width: 100px;
+}
+
+.overview_text {
+  padding: 20px;
+  background: #34caff;
+  border-radius: 11px;
+  font-size: 18px;
+}
+
 @media only screen and (min-width: 1925px) {
   .experties_left_filter button {
     padding: 17px;
@@ -783,6 +840,13 @@
   .carbohydrates_details_sec p {
     font-size: 17px;
     margin-bottom: 20px;
+  }
+
+  .overview_text {
+    padding: 20px;
+    background: #34caff;
+    border-radius: 11px;
+    font-size: 16px;
   }
 }
 

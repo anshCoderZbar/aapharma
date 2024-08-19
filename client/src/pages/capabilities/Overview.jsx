@@ -20,6 +20,37 @@ export default function Overview() {
           </p>
         </div>
       </div>
+      <div className="max-container">
+        <div className="container-fluid">
+          <div className="overview_tabs_body">
+            {new Array(15).fill(true).map((_, i) => {
+              return (
+                <div key={i} className="row">
+                  <div className="col-lg-4">
+                    <div className="position-relative">
+                      <button className="overview_btn">Custom Synthesis</button>
+                      <img
+                        src={require("assets/right_arrow.png")}
+                        alt="arrow"
+                        className="overview_arrow"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-8">
+                    <p className="overview_text">
+                      We offer custom synthesis services to produce
+                      high-quality, pure compounds tailored to your
+                      specifications. Whether you need milligram to kilogram
+                      quantities, our team can deliver precise and reproducible
+                      results.
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
       <div className="container-fluid">
         <div className="page_shadow_box">
           <p>
