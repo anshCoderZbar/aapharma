@@ -25,7 +25,7 @@ export default function Overview() {
           <div className="overview_tabs_body">
             {new Array(15).fill(true).map((_, i) => {
               return (
-                <div key={i} className="row">
+                <div key={i} className="row row-gap-5">
                   <div className="col-lg-4">
                     <div className="position-relative">
                       <button className="overview_btn">Custom Synthesis</button>

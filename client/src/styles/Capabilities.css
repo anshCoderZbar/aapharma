@@ -600,14 +600,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-height: 80vh;
-  overflow-y: auto;
+  /* max-height: 80vh;
+  overflow-y: auto; */
 }
 
 .overview_tabs_body::after {
   content: "";
   background-color: #fff;
-  height: 100%;
+  height: 97%;
   margin: 15px;
   width: 30%;
   position: absolute;
@@ -630,10 +630,10 @@
 
 .overview_arrow {
   position: absolute;
-  right: -16%;
+  right: 0;
   color: #34caff;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(24%, -50%);
   font-size: 78px;
   width: 100px;
 }
@@ -1412,6 +1412,27 @@
   .carbohydrate_banner {
     margin-bottom: 26px;
   }
+
+  .overview_arrow {
+    left: 50%;
+    top: 100%;
+  }
+
+  .overview_tabs_body::after {
+    width: 96.5%;
+  }
+
+  .overview_btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .overview_arrow {
+    left: 48%;
+    width: 30px;
+    top: 110%;
+    transform: rotate(89deg);
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -1609,6 +1630,10 @@
 
   .carbs_diagaram {
     padding: 40px 0;
+  }
+
+  .overview_text {
+    font-size: 15px;
   }
 }
 
@@ -1824,6 +1849,14 @@
   .carbs_diagaram {
     padding: 30px 0;
   }
+
+  .overview_text {
+    font-size: 16px;
+  }
+
+  .overview_tabs_body::after {
+    width: 93.5%;
+}
 }
 
 @media only screen and (max-width: 350px) {
