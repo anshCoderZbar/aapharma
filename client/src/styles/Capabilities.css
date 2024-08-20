@@ -848,6 +848,10 @@
     border-radius: 11px;
     font-size: 16px;
   }
+
+  .overview_tabs_body {
+    margin-bottom: 50px;
+  }
 }
 
 @media only screen and (max-width: 1400px) {
@@ -1054,6 +1058,10 @@
   .carb_second_img img {
     max-width: 205px;
   }
+
+  .overview_tabs_body {
+    margin-bottom: 45px;
+  }
 }
 
 @media only screen and (max-width: 1199px) {
@@ -1218,6 +1226,10 @@
 
   .carb_inner_content h4 {
     font-size: 29px;
+  }
+
+  .overview_tabs_body {
+    margin-bottom: 40px;
   }
 }
 
@@ -1433,6 +1445,10 @@
     top: 131%;
     transform: rotate(90deg);
   }
+
+  .overview_tabs_body {
+    margin-bottom: 30px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -1635,6 +1651,10 @@
   .overview_text {
     padding: 15px;
     font-size: 15px;
+  }
+
+  .overview_tabs_body {
+    margin-bottom: 25px;
   }
 }
 
@@ -1866,6 +1886,10 @@
     left: 40%;
     width: 54px;
     top: 125%;
+  }
+
+  .overview_tabs_body {
+    margin-bottom: 20px;
   }
 }
 
