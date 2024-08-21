@@ -99,6 +99,8 @@ class Client {
       HttpClient.get(API_ENDPOINTS.projectManagementBottomDesc),
     getAllProjectManagementList: () =>
       HttpClient.get(API_ENDPOINTS.getAllProjectManagementList),
+    getOtherBanner: () => HttpClient.get(API_ENDPOINTS.othersBanner),
+    allOtherList: () => HttpClient.get(API_ENDPOINTS.allOthersList),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),
@@ -134,6 +136,9 @@ class Client {
     getLabEquipmentBanner: () =>
       HttpClient.get(API_ENDPOINTS.labEquipmentBanner),
     allLabEquipment: () => HttpClient.get(API_ENDPOINTS.allLabEquipments),
+    getOverviewBanner: (params) =>
+      HttpClient.get(API_ENDPOINTS.overviewBanner, params),
+    allOverviewTabs: () => HttpClient.get(API_ENDPOINTS.allOverviewTab),
   };
   resources = {
     getResourceHeading: () => HttpClient.get(API_ENDPOINTS.resourceHeading),

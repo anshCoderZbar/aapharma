@@ -286,3 +286,21 @@ export const GetProjectManagementLists = () => {
   });
   return getDesc;
 };
+
+// others
+
+export const GetOthersBannerMutation = () => {
+  const othersBanner = useQuery({
+    queryKey: ["get-others-banner"],
+    queryFn: () => client.services.getOtherBanner(),
+  });
+  return othersBanner;
+};
+
+export const GetOthersListMutation = () => {
+  const othersList = useQuery({
+    queryKey: ["get-all-others-list"],
+    queryFn: () => client.services.allOtherList(),
+  });
+  return othersList;
+};

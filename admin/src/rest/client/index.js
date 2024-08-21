@@ -480,6 +480,35 @@ class Client {
     deleteProjectManagementList: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteProjectManagementList, params),
   };
+  others = {
+    createOtherBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.othersBanner, params),
+    getOtherBanner: () => HttpClient.get(API_ENDPOINTS.othersBanner),
+    allOtherList: () => HttpClient.get(API_ENDPOINTS.allOthersList),
+    addOtherList: (params) =>
+      HttpClient.post(API_ENDPOINTS.addOtherList, params),
+    deleteOtherList: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteOtherList, params),
+    singleOtherList: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleOtherList, params),
+    editOtherList: (params) =>
+      HttpClient.post(API_ENDPOINTS.editOtherList, params),
+  };
+  overview = {
+    createOverviewBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.overviewBanner, params),
+    getOverviewBanner: (params) =>
+      HttpClient.get(API_ENDPOINTS.overviewBanner, params),
+    allOverviewTabs: () => HttpClient.get(API_ENDPOINTS.allOverviewTab),
+    addOverviewTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.addOverviewTab, params),
+    deleteOverviewTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteOverviewTab, params),
+    singleOverviewTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleOverviewTab, params),
+    editOverviewTabs: (params) =>
+      HttpClient.post(API_ENDPOINTS.editOverviewTab, params),
+  };
 }
 
 const client = new Client();

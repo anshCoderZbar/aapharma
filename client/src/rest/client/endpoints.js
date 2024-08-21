@@ -97,4 +97,8 @@ export const API_ENDPOINTS = {
   projectManagementBanner: "/project_management-banner",
   getAllProjectManagementList: "/project-management/all",
   projectManagementBottomDesc: "/project-management-footer",
+  othersBanner: "/others-banner",
+  allOthersList: "/others/all",
+  overviewBanner: "/overview",
+  allOverviewTab: "/overview-main/all",
 };

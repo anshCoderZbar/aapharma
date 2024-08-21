@@ -137,7 +137,14 @@ import ProjectManagementBottomDescription from "pages/project-management/Project
 import ProjectManagementTabsDetails from "pages/project-management/ProjectManagementTabsDetails";
 import AddProjectManagementTabs from "pages/project-management/AddProjectManagementDetails";
 import EditProjectManagementTabs from "pages/project-management/EditProjectManagementDetails";
-
+import OtherBanner from "pages/others/OtherBanner";
+import OtherBannerList from "pages/others/OtherBannerList";
+import AddOtherList from "pages/others/AddOtherList";
+import EditOtherList from "pages/others/EditOtherList";
+import OverviewBanner from "pages/overview/OverviewBanner";
+import OverviewTabs from "pages/overview/OverviewTabs";
+import AddOverviewTabs from "pages/overview/AddOverviewTabs";
+import EditOverviewTabs from "pages/overview/EditOverviewTabs";
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
     {
@@ -1157,6 +1164,70 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <AnalyticalInstrumentation />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/others-banner",
+      element: (
+        <PrivateRoutes>
+          <OtherBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/others-list",
+      element: (
+        <PrivateRoutes>
+          <OtherBannerList />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-other-list",
+      element: (
+        <PrivateRoutes>
+          <AddOtherList />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-other-list/:id",
+      element: (
+        <PrivateRoutes>
+          <EditOtherList />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/overview-banner",
+      element: (
+        <PrivateRoutes>
+          <OverviewBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/overview-tabs",
+      element: (
+        <PrivateRoutes>
+          <OverviewTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-overview-tabs",
+      element: (
+        <PrivateRoutes>
+          <AddOverviewTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-overview-tabs/:id",
+      element: (
+        <PrivateRoutes>
+          <EditOverviewTabs />
         </PrivateRoutes>
       ),
     },

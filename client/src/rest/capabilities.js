@@ -116,3 +116,21 @@ export const AllLabEquipmentMutation = () => {
   });
   return allLabEquipment;
 };
+
+// overview
+
+export const GetOverviewBannerMutation = () => {
+  const overviewBanner = useQuery({
+    queryKey: ["get-overview-banner"],
+    queryFn: () => client.capabilities.getOverviewBanner(),
+  });
+  return overviewBanner;
+};
+
+export const AllOverviewTabsMutation = () => {
+  const overviewTabs = useQuery({
+    queryKey: ["get-all-overview-tabs"],
+    queryFn: () => client.capabilities.allOverviewTabs(),
+  });
+  return overviewTabs;
+};
