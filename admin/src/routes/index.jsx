@@ -145,6 +145,12 @@ import OverviewBanner from "pages/overview/OverviewBanner";
 import OverviewTabs from "pages/overview/OverviewTabs";
 import AddOverviewTabs from "pages/overview/AddOverviewTabs";
 import EditOverviewTabs from "pages/overview/EditOverviewTabs";
+import AllAnalyticalInstrument from "pages/analytical-instrumentation/AllAnalyticalInstrument";
+import AddAnalyticalInstrument from "pages/analytical-instrumentation/AddAnalyticalInstrument";
+import EditAnalyticalInstrument from "pages/analytical-instrumentation/EditAnalyticalInstrument";
+import AddSynthesis from "pages/synthesis/AddSynthesis";
+import AllSynthesis from "pages/synthesis/AllSynthesis";
+import EditSynthesis from "pages/synthesis/EditSynthesis";
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
     {
@@ -1228,6 +1234,54 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditOverviewTabs />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/all-analytical-instruments",
+      element: (
+        <PrivateRoutes>
+          <AllAnalyticalInstrument />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-analytical-instruments",
+      element: (
+        <PrivateRoutes>
+          <AddAnalyticalInstrument />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-analytical-instruments/:id",
+      element: (
+        <PrivateRoutes>
+          <EditAnalyticalInstrument />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-synthesis",
+      element: (
+        <PrivateRoutes>
+          <AddSynthesis />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/all-synthesis",
+      element: (
+        <PrivateRoutes>
+          <AllSynthesis />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-synthesis/:id",
+      element: (
+        <PrivateRoutes>
+          <EditSynthesis />
         </PrivateRoutes>
       ),
     },

@@ -509,6 +509,29 @@ class Client {
     editOverviewTabs: (params) =>
       HttpClient.post(API_ENDPOINTS.editOverviewTab, params),
   };
+  analyticalInstruments = {
+    addAnalyticalInstrument: (params) =>
+      HttpClient.post(API_ENDPOINTS.addAnalyticalInstrument, params),
+    allAnalyticalInstrument: () =>
+      HttpClient.get(API_ENDPOINTS.allAnalyticalInstrument),
+    singleAnalyticalInstrument: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleAnalyticalInstrument, params),
+    editAnalyticalInstrument: (params) =>
+      HttpClient.post(API_ENDPOINTS.editAnalyticalInstrument, params),
+    deleteAnalyticalInstrument: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteAnalyticalInstrument, params),
+  };
+  synthesis = {
+    addSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.addSynthesis, params),
+    allSynthesis: () => HttpClient.get(API_ENDPOINTS.allSynthesis),
+    singleSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleSynthesis, params),
+    editSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.editSynthesis, params),
+    deleteSynthesis: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteSynthesis, params),
+  };
 }
 
 const client = new Client();

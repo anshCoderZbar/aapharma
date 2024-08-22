@@ -101,4 +101,6 @@ export const API_ENDPOINTS = {
   allOthersList: "/others/all",
   overviewBanner: "/overview",
   allOverviewTab: "/overview-main/all",
+  allAnalyticalInstrument: "/analytical-instrumentation-main/all",
+  allSynthesis: "/synthesis-main/all",
 };

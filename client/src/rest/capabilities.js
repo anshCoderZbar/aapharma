@@ -89,6 +89,14 @@ export const GetAnalyticalInstrumentationMutation = () => {
   return analyticalInstrumentation;
 };
 
+export const AllAnalyticalInstrumentMutation = () => {
+  const allAnalyticalInstrument = useQuery({
+    queryKey: ["get-all-analytical-instruments"],
+    queryFn: () => client.capabilities.allAnalyticalInstrument(),
+  });
+  return allAnalyticalInstrument;
+};
+
 // accredation
 
 export const GetAccredationMutation = () => {
@@ -133,4 +141,13 @@ export const AllOverviewTabsMutation = () => {
     queryFn: () => client.capabilities.allOverviewTabs(),
   });
   return overviewTabs;
+};
+
+// synthesis
+export const AllSynthesisMutation = () => {
+  const allSynthesis = useQuery({
+    queryKey: ["get-all-synthesis"],
+    queryFn: () => client.capabilities.allSynthesis(),
+  });
+  return allSynthesis;
 };

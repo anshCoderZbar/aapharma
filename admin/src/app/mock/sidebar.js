@@ -648,9 +648,29 @@ export const SidebarData = [
   },
   {
     id: uuidv4(),
-    name: "Analytical Instrumentation",
-    slug: "analytical-instrumentation",
+    name: "Analytical Instruments",
+    // slug: "analytical-instrumentation",
     icon: <Beaker />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Instruments",
+        slug: "all-analytical-instruments",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "Synthesis",
+    // slug: "analytical-instrumentation",
+    icon: <Biohazard />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Synthesis",
+        slug: "all-synthesis",
+      },
+    ],
   },
   {
     id: uuidv4(),

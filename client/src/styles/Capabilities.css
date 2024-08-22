@@ -626,6 +626,19 @@
   border: 1px solid #0000001e;
   text-align: left;
   border-radius: 10px;
+  transition: 0.3s all;
+}
+
+.overview_btn:hover {
+  background-color: #2a3072;
+  color: #fff;
+  border: 1px solid #2a3072;
+}
+
+.overview_active_btn {
+  background-color: #2a3072;
+  color: #fff;
+  border: 1px solid #2a3072;
 }
 
 .overview_arrow {

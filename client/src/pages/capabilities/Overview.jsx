@@ -1,4 +1,5 @@
 import { Banner } from "app/components/Ui/Banner";
+import { useState } from "react";
 import {
   AllOverviewTabsMutation,
   GetOverviewBannerMutation,
@@ -7,6 +8,9 @@ import {
 export default function Overview() {
   const getOverviewBanner = GetOverviewBannerMutation();
   const getAllTabs = AllOverviewTabsMutation();
+
+  const [tab, setTab] = useState(-1);
+
   return (
     <div className="research_page">
       <Banner
@@ -38,24 +42,35 @@ export default function Overview() {
                   <div key={i} className="row row-gap-5">
                     <div className="col-lg-4">
                       <div className="position-relative">
-                        <button className="overview_btn">
+                        <button
+                          onClick={() => setTab(tabs?.id)}
+                          className={`overview_btn ${
+                            i === 0 || tab === tabs.id
+                              ? "overview_active_btn"
+                              : ""
+                          }`}
+                        >
                           {tabs?.heading}
                         </button>
-                        <img
-                          src={require("assets/right_arrow.png")}
-                          alt="arrow"
-                          className="overview_arrow"
-                        />
+                        {(i === 0 || tab === tabs.id) && (
+                          <img
+                            src={require("assets/right_arrow.png")}
+                            alt="arrow"
+                            className="overview_arrow"
+                          />
+                        )}
                       </div>
                     </div>
-                    <div className="col-lg-8">
-                      <p
-                        className="overview_text"
-                        dangerouslySetInnerHTML={{
-                          __html: tabs.description,
-                        }}
-                      />
-                    </div>
+                    {(i === 0 || tab === tabs.id) && (
+                      <div className="col-lg-8">
+                        <p
+                          className="overview_text"
+                          dangerouslySetInnerHTML={{
+                            __html: tabs.description,
+                          }}
+                        />
+                      </div>
+                    )}
                   </div>
                 );
               })}

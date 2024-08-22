@@ -139,6 +139,9 @@ class Client {
     getOverviewBanner: (params) =>
       HttpClient.get(API_ENDPOINTS.overviewBanner, params),
     allOverviewTabs: () => HttpClient.get(API_ENDPOINTS.allOverviewTab),
+    allAnalyticalInstrument: () =>
+      HttpClient.get(API_ENDPOINTS.allAnalyticalInstrument),
+    allSynthesis: () => HttpClient.get(API_ENDPOINTS.allSynthesis),
   };
   resources = {
     getResourceHeading: () => HttpClient.get(API_ENDPOINTS.resourceHeading),
