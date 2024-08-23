@@ -56,7 +56,7 @@ export default function AllOrders() {
   return (
     <>
       <PageWrapper slug="orders" name="Orders" />
-      {orders?.error ? (
+      {orders?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
 

@@ -56,7 +56,7 @@ export default function PartnerBanner() {
   return (
     <div className="partner_page">
       <PageWrapper slug="partner-banner" name="Partner Banner" />
-      {getBanner?.error ? (
+      {getBanner?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {getBanner?.isPending ? (

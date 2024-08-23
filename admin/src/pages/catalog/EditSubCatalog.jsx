@@ -43,7 +43,7 @@ export default function EditSubCatalog() {
   return (
     <div>
       <PageWrapper slug="catalogL2" name="Catalog Edit Sub Menu" />
-      {fetchSubSingleCatalog?.error ? (
+      {fetchSubSingleCatalog?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {fetchSubSingleCatalog?.isPending ? (

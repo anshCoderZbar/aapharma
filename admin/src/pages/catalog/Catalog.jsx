@@ -76,7 +76,7 @@ export const Catalog = () => {
   return (
     <div className="catalog_page">
       <PageWrapper slug="catalogL1" name="Catalog" />
-      {fetchCatalogs?.error ? (
+      {fetchCatalogs?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {fetchCatalogs?.data?.data.length < 1 ? (

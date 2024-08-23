@@ -40,7 +40,7 @@ export default function EditCatalog() {
   return (
     <div className="edit_catalog_page">
       <PageWrapper slug="Catalog" name="Catalog" />
-      {fetchSingleCatalog?.error ? (
+      {fetchSingleCatalog?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {fetchSingleCatalog?.isPending ? (

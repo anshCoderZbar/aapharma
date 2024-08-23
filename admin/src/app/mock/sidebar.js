@@ -674,6 +674,39 @@ export const SidebarData = [
   },
   {
     id: uuidv4(),
+    name: "Research Collaboration",
+    // slug: "analytical-instrumentation",
+    icon: <Search />,
+    subMenu: [
+      {
+        id: 1,
+        subMenuName: "Banner",
+        slug: "research-collaboration-banner",
+      },
+      {
+        id: 2,
+        subMenuName: "Mid Section",
+        slug: "research-collaboration-mid-section",
+      },
+      {
+        id: 3,
+        subMenuName: "Academia",
+        slug: "research-collaboration-academia",
+      },
+      {
+        id: 4,
+        subMenuName: "Private / Public Company",
+        slug: "research-collaboration-company",
+      },
+      {
+        id: 5,
+        subMenuName: "Diagram",
+        slug: "research-collaboration-diagram",
+      },
+    ],
+  },
+  {
+    id: uuidv4(),
     name: "Accreditations",
     slug: "accreditations",
     icon: <FlaskConical />,

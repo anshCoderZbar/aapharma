@@ -45,7 +45,7 @@ export default function OverviewBanner() {
   return (
     <div className="others_page">
       <PageWrapper slug="overview-banner" name="Overview Banner" />
-      {getBanner?.error ? (
+      {getBanner?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {getBanner?.isPending ? (

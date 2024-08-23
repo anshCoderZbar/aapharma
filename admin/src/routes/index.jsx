@@ -151,6 +151,11 @@ import EditAnalyticalInstrument from "pages/analytical-instrumentation/EditAnaly
 import AddSynthesis from "pages/synthesis/AddSynthesis";
 import AllSynthesis from "pages/synthesis/AllSynthesis";
 import EditSynthesis from "pages/synthesis/EditSynthesis";
+import ResearchCollaborationBanner from "pages/research-collaboration/ResearchCollaborationBanner";
+import ResearchCollaborationMidSection from "pages/research-collaboration/ResearchCollaborationMidSection";
+import ResearchCollaborationDiagram from "pages/research-collaboration/ResearchCollaborationDiagram";
+import ResearchCollaborationAcademia from "pages/research-collaboration/ResearchCollaborationAcademia";
+import ResearchCollaborationCompany from "pages/research-collaboration/ResearchCollaborationCompany";
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
     {
@@ -1282,6 +1287,46 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditSynthesis />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-collaboration-banner",
+      element: (
+        <PrivateRoutes>
+          <ResearchCollaborationBanner />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-collaboration-mid-section",
+      element: (
+        <PrivateRoutes>
+          <ResearchCollaborationMidSection />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-collaboration-diagram",
+      element: (
+        <PrivateRoutes>
+          <ResearchCollaborationDiagram />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-collaboration-academia",
+      element: (
+        <PrivateRoutes>
+          <ResearchCollaborationAcademia />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/research-collaboration-company",
+      element: (
+        <PrivateRoutes>
+          <ResearchCollaborationCompany />
         </PrivateRoutes>
       ),
     },

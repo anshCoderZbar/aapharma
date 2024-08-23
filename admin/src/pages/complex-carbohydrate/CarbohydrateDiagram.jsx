@@ -53,7 +53,7 @@ export default function CarbohydrateDiagram() {
   return (
     <>
       <PageWrapper slug="carbohydrate-diagram" name="Carbohydrate Diagram" />
-      {getDiagram?.error ? (
+      {getDiagram?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {getDiagram?.isPending ? (

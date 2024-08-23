@@ -43,7 +43,7 @@ export default function OtherBanner() {
   return (
     <div className="others_page">
       <PageWrapper slug="others-banner" name="Others Banner" />
-      {getBanner?.error ? (
+      {getBanner?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {getBanner?.isPending ? (

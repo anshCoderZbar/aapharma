@@ -157,7 +157,7 @@ export default function ChemicalPage() {
           Add Product
         </Button>
       </div>
-      {fetchChemical?.error ? (
+      {fetchChemical?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : (
         ""

@@ -88,7 +88,7 @@ export default function CarbohydateTimeline() {
   return (
     <>
       <PageWrapper slug="carbohydrate-timeline" name="Carbohydrate Timeline" />
-      {allTimelines?.error ? (
+      {allTimelines?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
 

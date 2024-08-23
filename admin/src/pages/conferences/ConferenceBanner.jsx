@@ -55,7 +55,7 @@ export default function ConferenceBanner() {
   return (
     <>
       <PageWrapper slug="conference-banner" name="Conference Banner" />
-      {conferenceBanner?.error ? (
+      {conferenceBanner?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {conferenceBanner?.isPending ? (

@@ -75,7 +75,7 @@ export const CatalogSubMenu = () => {
   return (
     <div className="catalog_page">
       <PageWrapper slug="catalogL2" name="Catalog Sub Menu" />
-      {fetchSubCatalogs?.error ? (
+      {fetchSubCatalogs?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {fetchSubCatalogs?.data?.data.length < 1 ? (

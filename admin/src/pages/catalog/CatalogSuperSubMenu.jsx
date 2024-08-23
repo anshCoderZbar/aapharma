@@ -84,7 +84,7 @@ export default function CatalogSuperSubMenu() {
   return (
     <div className="catalog_page">
       <PageWrapper slug="catalogL2" name="Catalog Super Sub Menu" />
-      {fetchSuperSubCatalog?.error ? (
+      {fetchSuperSubCatalog?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
       {fetchSuperSubCatalog?.data?.data.length < 1 ? (
