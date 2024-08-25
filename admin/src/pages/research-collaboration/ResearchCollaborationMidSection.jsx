@@ -8,6 +8,8 @@ import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 
 import "styles/main.css";
+import { CreateResearchCollaborationMidSection } from "rest/researchCollaboration";
+import { GetResearchCollaborationMidSection } from "rest/researchCollaboration";
 
 export default function ResearchCollaborationMidSection() {
   const {
@@ -18,15 +20,20 @@ export default function ResearchCollaborationMidSection() {
     control,
   } = useForm();
 
-  const createBanner = { isPending: false, isError: false };
-  const getBanner = { isPending: false, isError: false };
+  const createSection = CreateResearchCollaborationMidSection();
+  const getSection = GetResearchCollaborationMidSection();
 
-  // useEffect(() => {
-  //   const defaultValues = {};
-  //   defaultValues.description = getBanner?.data?.data?.description;
-  //   defaultValues.heading = getBanner?.data?.data?.heading;
-  //   reset(defaultValues);
-  // }, [getBanner?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getSection?.data?.data?.heading;
+    defaultValues.firstAccomplishment =
+      getSection?.data?.data?.firstAccomplishment;
+    defaultValues.secondAccomplishment =
+      getSection?.data?.data?.secondAccomplishment;
+    defaultValues.thirdAccomplishment =
+      getSection?.data?.data?.thirdAccomplishment;
+    reset(defaultValues);
+  }, [getSection?.data?.data]);
 
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -34,9 +41,7 @@ export default function ResearchCollaborationMidSection() {
     formData.append("firstAccomplishment", data?.firstAccomplishment);
     formData.append("secondAccomplishment", data?.secondAccomplishment);
     formData.append("thirdAccomplishment", data?.thirdAccomplishment);
-    formData.append("bottomDescription", data?.bottomDescription);
-    // createBanner?.mutate(formData);
-    console.log(data);
+    createSection?.mutate(formData);
   };
 
   return (
@@ -45,10 +50,10 @@ export default function ResearchCollaborationMidSection() {
         slug="research-collaboration-mid-section"
         name="Mid Section"
       />
-      {getBanner?.isError ? (
+      {getSection?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
-      {getBanner?.isPending ? (
+      {getSection?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -67,7 +72,7 @@ export default function ResearchCollaborationMidSection() {
                 <p className="errorMessage">Heading is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-4">
+            <div className="mb-3 col-md-12">
               <label htmlFor="firstAccomplishment" className="form-label">
                 First Accomplishment
               </label>
@@ -81,7 +86,7 @@ export default function ResearchCollaborationMidSection() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-4">
+            <div className="mb-3 col-md-12">
               <label htmlFor="secondAccomplishment" className="form-label">
                 Second Accomplishment
               </label>
@@ -95,7 +100,7 @@ export default function ResearchCollaborationMidSection() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-4">
+            <div className="mb-3 col-md-12">
               <label htmlFor="thirdAccomplishment" className="form-label">
                 Third Accomplishment
               </label>
@@ -110,7 +115,7 @@ export default function ResearchCollaborationMidSection() {
               )}
             </div>
 
-            {createBanner?.isPending ? (
+            {createSection?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

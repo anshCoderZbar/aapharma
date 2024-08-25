@@ -9,6 +9,8 @@ import { ErrorComponent } from "components/Alerts/Error";
 import { TextEditor } from "components/ui/TextEditor";
 
 import "styles/main.css";
+import { CreateResearchCollaborationBanner } from "rest/researchCollaboration";
+import { GetResearchCollaborationBanner } from "rest/researchCollaboration";
 
 export default function ResearchCollaborationBanner() {
   const {
@@ -19,27 +21,31 @@ export default function ResearchCollaborationBanner() {
     control,
   } = useForm();
 
-  const createBanner = { isPending: false, isError: false };
-  const getBanner = { isPending: false, isError: false };
+  const createBanner = CreateResearchCollaborationBanner();
+  const getBanner = GetResearchCollaborationBanner();
 
-  // useEffect(() => {
-  //   const defaultValues = {};
-  //   defaultValues.description = getBanner?.data?.data?.description;
-  //   defaultValues.heading = getBanner?.data?.data?.heading;
-  //   reset(defaultValues);
-  // }, [getBanner?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.heading = getBanner?.data?.data?.heading;
+    defaultValues.description = getBanner?.data?.data?.description;
+    defaultValues.firstButton = getBanner?.data?.data?.FirstButton;
+    defaultValues.secondButton = getBanner?.data?.data?.SecondButton;
+    defaultValues.thirdButton = getBanner?.data?.data?.ThirdButton;
+    defaultValues.fourthButton = getBanner?.data?.data?.FourthButton;
+    defaultValues.fifthButton = getBanner?.data?.data?.FifthButton;
+    reset(defaultValues);
+  }, [getBanner?.data?.data]);
 
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("heading", data?.heading);
     formData.append("description", data?.description);
-    formData.append("firstButton", data?.firstButton);
-    formData.append("secondButton", data?.secondButton);
-    formData.append("thirdButton", data?.thirdButton);
-    formData.append("fourthButton", data?.fourthButton);
-    formData.append("fifthButton", data?.fifthButton);
-    // createBanner?.mutate(formData);
-    console.log(data);
+    formData.append("FirstButton", data?.firstButton);
+    formData.append("SecondButton", data?.secondButton);
+    formData.append("ThirdButton", data?.thirdButton);
+    formData.append("FourthButton", data?.fourthButton);
+    formData.append("FifthButton", data?.fifthButton);
+    createBanner?.mutate(formData);
   };
 
   return (

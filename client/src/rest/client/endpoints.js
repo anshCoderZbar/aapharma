@@ -103,4 +103,9 @@ export const API_ENDPOINTS = {
   allOverviewTab: "/overview-main/all",
   allAnalyticalInstrument: "/analytical-instrumentation-main/all",
   allSynthesis: "/synthesis-main/all",
+  researchCollaborationBanner: "/research-collaboration-banner",
+  researchCollaborationMidSection: "/research-collaboration-mid-section",
+  allResearchCollaborationAcademia: "/research-collaboration-academia/all",
+  allResearchCollaborationCompany: "/research-collaboration-company/all",
+  researchCollaborationDiagram: "/research-collaboration-diagram",
 };

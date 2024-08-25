@@ -101,6 +101,16 @@ class Client {
       HttpClient.get(API_ENDPOINTS.getAllProjectManagementList),
     getOtherBanner: () => HttpClient.get(API_ENDPOINTS.othersBanner),
     allOtherList: () => HttpClient.get(API_ENDPOINTS.allOthersList),
+    getResearchCollaborationBanner: () =>
+      HttpClient.get(API_ENDPOINTS.researchCollaborationBanner),
+    getResearchCollaborationMidSection: () =>
+      HttpClient.get(API_ENDPOINTS.researchCollaborationMidSection),
+    getResearchCollaborationDiagram: () =>
+      HttpClient.get(API_ENDPOINTS.researchCollaborationDiagram),
+    getAllResearchCollaborationAcademia: () =>
+      HttpClient.get(API_ENDPOINTS.allResearchCollaborationAcademia),
+    getAllResearchCollaborationCompany: () =>
+      HttpClient.get(API_ENDPOINTS.allResearchCollaborationCompany),
   };
   contact = {
     contactUs: (params) => HttpClient.post(API_ENDPOINTS.contactUs, params),

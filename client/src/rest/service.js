@@ -304,3 +304,45 @@ export const GetOthersListMutation = () => {
   });
   return othersList;
 };
+
+// Research Collaboration
+
+export const GetResearchCollaborationBanner = () => {
+  const getBanner = useQuery({
+    queryKey: ["get-research-collaboration-banner"],
+    queryFn: () => client.services.getResearchCollaborationBanner(),
+  });
+  return getBanner;
+};
+
+export const GetResearchCollaborationMidSection = () => {
+  const midSection = useQuery({
+    queryKey: ["get-research-collaboration-mid-section"],
+    queryFn: () => client.services.getResearchCollaborationMidSection(),
+  });
+  return midSection;
+};
+
+export const GetAllResearchCollaborationAcademia = () => {
+  const academia = useQuery({
+    queryKey: ["get-all-research-collaboration-academia"],
+    queryFn: () => client.services.getAllResearchCollaborationAcademia(),
+  });
+  return academia;
+};
+
+export const GetAllResearchCollaborationCompany = () => {
+  const company = useQuery({
+    queryKey: ["get-all-research-collaboration-company"],
+    queryFn: () => client.services.getAllResearchCollaborationCompany(),
+  });
+  return company;
+};
+
+export const GetResearchCollaborationDiagram = () => {
+  const diagram = useQuery({
+    queryKey: ["get-research-collaboration-diagram"],
+    queryFn: () => client.services.getResearchCollaborationDiagram(),
+  });
+  return diagram;
+};

@@ -9,6 +9,8 @@ import { ErrorComponent } from "components/Alerts/Error";
 
 import "styles/main.css";
 import { TextEditor } from "components/ui/TextEditor";
+import { CreateResearchCollaborationDiagram } from "rest/researchCollaboration";
+import { GetResearchCollaborationDiagram } from "rest/researchCollaboration";
 
 export default function ResearchCollaborationDiagram() {
   const {
@@ -19,27 +21,35 @@ export default function ResearchCollaborationDiagram() {
     control,
   } = useForm();
 
-  const createBanner = { isPending: false, isError: false };
-  const getBanner = { isPending: false, isError: false };
+  const createDiagram = CreateResearchCollaborationDiagram();
+  const getDiagram = GetResearchCollaborationDiagram();
 
-  // useEffect(() => {
-  //   const defaultValues = {};
-  //   defaultValues.description = getBanner?.data?.data?.description;
-  //   defaultValues.heading = getBanner?.data?.data?.heading;
-  //   reset(defaultValues);
-  // }, [getBanner?.data?.data]);
+  useEffect(() => {
+    const defaultValues = {};
+    defaultValues.description = getDiagram?.data?.data?.description;
+    defaultValues.leftHeading = getDiagram?.data?.data?.leftHeading;
+    defaultValues.rightHeading = getDiagram?.data?.data?.rightHeading;
+    defaultValues.leftText = getDiagram?.data?.data?.leftText;
+    defaultValues.blueButton = getDiagram?.data?.data?.blueButton;
+    defaultValues.rightText = getDiagram?.data?.data?.rightText;
+    defaultValues.firstButton = getDiagram?.data?.data?.firstButton;
+    defaultValues.secondButton = getDiagram?.data?.data?.secondButton;
+    defaultValues.thirdButton = getDiagram?.data?.data?.thirdButton;
+    reset(defaultValues);
+  }, [getDiagram?.data?.data]);
 
   const onSubmit = (data) => {
     const formData = new FormData();
-    formData.append("heading", data?.heading);
     formData.append("description", data?.description);
+    formData.append("leftHeading", data?.leftHeading);
+    formData.append("rightHeading", data?.rightHeading);
+    formData.append("leftText", data?.leftText);
+    formData.append("blueButton", data?.blueButton);
+    formData.append("rightText", data?.rightText);
     formData.append("firstButton", data?.firstButton);
     formData.append("secondButton", data?.secondButton);
     formData.append("thirdButton", data?.thirdButton);
-    formData.append("fourthButton", data?.fourthButton);
-    formData.append("fifthButton", data?.fifthButton);
-    // createBanner?.mutate(formData);
-    console.log(data);
+    createDiagram?.mutate(formData);
   };
 
   return (
@@ -48,10 +58,10 @@ export default function ResearchCollaborationDiagram() {
         slug="research-collaboration-diagram"
         name="Research Collaboration Diagram"
       />
-      {getBanner?.isError ? (
+      {getDiagram?.isError ? (
         <ErrorComponent message="OOPS ! something went wrong" />
       ) : null}
-      {getBanner?.isPending ? (
+      {getDiagram?.isPending ? (
         <ComponentLoader />
       ) : (
         <div className="home_banner_input">
@@ -63,7 +73,7 @@ export default function ResearchCollaborationDiagram() {
               <TextEditor
                 control={control}
                 name={`description`}
-                // defaultValue={getBanner?.data?.data?.description}
+                defaultValue={getDiagram?.data?.data?.description}
                 {...register(`description`, {
                   required: true,
                 })}
@@ -184,7 +194,7 @@ export default function ResearchCollaborationDiagram() {
                 <p className="errorMessage">Field is required</p>
               )}
             </div>
-            {createBanner?.isPending ? (
+            {createDiagram?.isPending ? (
               <div>
                 <ButtonLoader />
               </div>

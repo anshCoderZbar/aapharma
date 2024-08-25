@@ -225,4 +225,13 @@ export const API_ENDPOINTS = {
   singleSynthesis: "/synthesis-main/one",
   editSynthesis: "/synthesis-main/update",
   deleteSynthesis: "/synthesis-main/delete",
+  researchCollaborationBanner: "/research-collaboration-banner",
+  researchCollaborationMidSection: "/research-collaboration-mid-section",
+  researchCollaborationDiagram: "/research-collaboration-diagram",
+  allResearchCollaborationAcademia: "/research-collaboration-academia/all",
+  singleResearchCollaborationAcademia: "/research-collaboration-academia/one",
+  editResearchCollaborationAcademia: "/research-collaboration-academia/update",
+  allResearchCollaborationCompany: "/research-collaboration-company/all",
+  singleResearchCollaborationCompany: "/research-collaboration-company/one",
+  editResearchCollaborationCompany: "/research-collaboration-company/update",
 };

@@ -532,6 +532,35 @@ class Client {
     deleteSynthesis: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteSynthesis, params),
   };
+  researchCollaboration = {
+    createResearchCollaborationBanner: (params) =>
+      HttpClient.post(API_ENDPOINTS.researchCollaborationBanner, params),
+    getResearchCollaborationBanner: () =>
+      HttpClient.get(API_ENDPOINTS.researchCollaborationBanner),
+    createResearchCollaborationMidSection: (params) =>
+      HttpClient.post(API_ENDPOINTS.researchCollaborationMidSection, params),
+    getResearchCollaborationMidSection: () =>
+      HttpClient.get(API_ENDPOINTS.researchCollaborationMidSection),
+    createResearchCollaborationDiagram: (params) =>
+      HttpClient.post(API_ENDPOINTS.researchCollaborationDiagram, params),
+    getResearchCollaborationDiagram: () =>
+      HttpClient.get(API_ENDPOINTS.researchCollaborationDiagram),
+    getAllResearchCollaborationAcademia: () =>
+      HttpClient.get(API_ENDPOINTS.allResearchCollaborationAcademia),
+    singleResearchCollaborationAcademia: (params) =>
+      HttpClient.post(
+        API_ENDPOINTS.singleResearchCollaborationAcademia,
+        params
+      ),
+    editResearchCollaborationAcademia: (params) =>
+      HttpClient.post(API_ENDPOINTS.editResearchCollaborationAcademia, params),
+    getAllResearchCollaborationCompany: () =>
+      HttpClient.get(API_ENDPOINTS.allResearchCollaborationCompany),
+    singleResearchCollaborationCompany: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleResearchCollaborationCompany, params),
+    editResearchCollaborationCompany: (params) =>
+      HttpClient.post(API_ENDPOINTS.editResearchCollaborationCompany, params),
+  };
 }
 
 const client = new Client();

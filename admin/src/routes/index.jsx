@@ -156,6 +156,8 @@ import ResearchCollaborationMidSection from "pages/research-collaboration/Resear
 import ResearchCollaborationDiagram from "pages/research-collaboration/ResearchCollaborationDiagram";
 import ResearchCollaborationAcademia from "pages/research-collaboration/ResearchCollaborationAcademia";
 import ResearchCollaborationCompany from "pages/research-collaboration/ResearchCollaborationCompany";
+import EditResearchCollaborationAcademia from "pages/research-collaboration/EditResearchCollaborationAcademia";
+import EditResearchCollaborationCompany from "pages/research-collaboration/EditResearchCollaborationCompany";
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
     {
@@ -1327,6 +1329,22 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <ResearchCollaborationCompany />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-research-collaboration-academia/:id",
+      element: (
+        <PrivateRoutes>
+          <EditResearchCollaborationAcademia />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-research-collaboration-company/:id",
+      element: (
+        <PrivateRoutes>
+          <EditResearchCollaborationCompany />
         </PrivateRoutes>
       ),
     },
