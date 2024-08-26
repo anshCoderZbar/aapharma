@@ -228,10 +228,15 @@
   bottom: 0;
 }
 
+.dsscds {
+  overflow: hidden;
+}
+
 .service_img img {
   height: 650px;
   width: 100%;
-  max-width: 475px;
+  width: 421px;
+  border-radius: 25px;
 }
 .vs_jj > img {
   object-fit: cover;
