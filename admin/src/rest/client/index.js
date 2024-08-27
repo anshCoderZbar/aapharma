@@ -6,6 +6,14 @@ class Client {
     login: ({ ...params }) =>
       HttpClient.post(API_ENDPOINTS.login, { ...params }),
   };
+  routes = {
+    createRoute: (params) => HttpClient.post(API_ENDPOINTS.addRoute, params),
+    getAllRoutes: () => HttpClient.get(API_ENDPOINTS.allRoutes),
+    singleRoute: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleRoutes, params),
+    editRoute: (params) => HttpClient.post(API_ENDPOINTS.editRoute, params),
+    deleteRoute: (params) => HttpClient.post(API_ENDPOINTS.deleteRoute, params),
+  };
   catalog = {
     addCatalogL1: ({ ...params }) =>
       HttpClient.post(API_ENDPOINTS.addCatalogL1, { ...params }),

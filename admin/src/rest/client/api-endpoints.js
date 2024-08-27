@@ -1,5 +1,10 @@
 export const API_ENDPOINTS = {
   login: "/login",
+  addRoute: "/manage-sidebar/new",
+  allRoutes: "/manage-sidebar/all",
+  singleRoutes: "/manage-sidebar/one",
+  editRoute: "/manage-sidebar/update",
+  deleteRoute: "/manage-sidebar/delete",
   addCatalogL1: "/addCatalog",
   catalogsL1: "/catalogs",
   singleCatalogL1: "/singleCatalog",

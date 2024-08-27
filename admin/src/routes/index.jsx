@@ -158,11 +158,38 @@ import ResearchCollaborationAcademia from "pages/research-collaboration/Research
 import ResearchCollaborationCompany from "pages/research-collaboration/ResearchCollaborationCompany";
 import EditResearchCollaborationAcademia from "pages/research-collaboration/EditResearchCollaborationAcademia";
 import EditResearchCollaborationCompany from "pages/research-collaboration/EditResearchCollaborationCompany";
+import AddRoutes from "pages/all-routes/AddRoutes";
+import AllAddedRoutes from "pages/all-routes/AllAddedRoutes";
+import EditRoutes from "pages/all-routes/EditRoutes";
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Navigate to="/dashboard" />,
+    },
+    {
+      path: "/all-routes",
+      element: (
+        <PrivateRoutes>
+          <AllAddedRoutes />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-routes",
+      element: (
+        <PrivateRoutes>
+          <AddRoutes />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-routes/:id",
+      element: (
+        <PrivateRoutes>
+          <EditRoutes />
+        </PrivateRoutes>
+      ),
     },
     {
       path: "/dashboard",

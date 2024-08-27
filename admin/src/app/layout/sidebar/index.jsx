@@ -1,6 +1,6 @@
 import { Layout } from "app/images";
 import { SidebarData } from "app/mock/sidebar";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Link2 } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -22,6 +22,21 @@ export const Sidebar = () => {
       </Link>
 
       <div className="nav-links">
+        <p>Pages</p>
+        <ul className="nav-items">
+          <li
+            className={`${
+              window?.location?.pathname?.toLowerCase()?.includes("all-routes")
+                ? "side_active"
+                : ""
+            }`}
+          >
+            <Link to={`/all-routes`}>
+              <Link2 />
+              Page Routes
+            </Link>
+          </li>
+        </ul>
         <p>Main</p>
         <ul className="nav-items">
           <div>
