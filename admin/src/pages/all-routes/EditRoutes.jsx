@@ -48,6 +48,7 @@ export default function EditRoutes() {
 
   useEffect(() => {
     const defaultValues = {};
+
     defaultValues.sortNo = singleRoutes?.data?.data?.sortNo;
     defaultValues.name = singleRoutes?.data?.data?.Name;
     defaultValues.image = singleRoutes?.data?.data?.Icon;

@@ -63,7 +63,7 @@ export const SidebarData = [
       },
       {
         id: 4,
-        subMenuName: "Add Services ",
+        subMenuName: "Add Services",
         slug: "home-services",
       },
       {
