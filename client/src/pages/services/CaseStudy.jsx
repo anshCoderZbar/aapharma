@@ -1,3 +1,4 @@
+import { Banner } from "app/components/Ui/Banner";
 import React, { useEffect, useState } from "react";
 import {
   GetCaseStudyDiagramMutation,
@@ -33,10 +34,19 @@ export default function CaseStudy() {
 
   return (
     <div className="case_study_page">
+      <Banner
+        // background={`url(${
+        //   getBanner?.data?.data?.image && getBanner?.data?.data?.image
+        // })`}
+        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
+        heading={"Case Study"}
+        // extra="lab_equipment_banner"
+        extra=" white_head process_top_banner"
+      />
       <div className="container-fluid">
-        <div className="case_study_head">
+        {/* <div className="case_study_head">
           <h1 className="main_top_heading text-center">Case Study</h1>
-        </div>
+        </div> */}
         <div className="case_tabs_button">
           {allCaseTabs?.data?.data?.map((elm, i) => {
             return (
@@ -94,7 +104,7 @@ export default function CaseStudy() {
           )}
         </div>
 
-        <div className="case_bottom_banner">
+        {/* <div className="case_bottom_banner">
           <div className="case_study_diagram">
             <div className="outer_diagram_case">
               {getCaseStudyDiagram?.data?.data?.length >= 1 &&
@@ -214,7 +224,7 @@ export default function CaseStudy() {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

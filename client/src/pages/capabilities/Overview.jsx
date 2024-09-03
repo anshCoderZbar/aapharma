@@ -1,5 +1,5 @@
 import { Banner } from "app/components/Ui/Banner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   AllOverviewTabsMutation,
   GetOverviewBannerMutation,
@@ -8,8 +8,6 @@ import {
 export default function Overview() {
   const getOverviewBanner = GetOverviewBannerMutation();
   const getAllTabs = AllOverviewTabsMutation();
-
-  const [tab, setTab] = useState(-1);
 
   return (
     <div className="research_page">
@@ -38,41 +36,7 @@ export default function Overview() {
           <div className="overview_tabs_body">
             {getAllTabs?.data?.data?.length >= 1 &&
               getAllTabs?.data?.data.map((tabs, i) => {
-                return (
-                  <div key={i} className="row row-gap-5">
-                    <div className="col-lg-4">
-                      <div className="position-relative">
-                        <button
-                          onClick={() => setTab(tabs?.id)}
-                          className={`overview_btn ${
-                            i === 0 || tab === tabs.id
-                              ? "overview_active_btn"
-                              : ""
-                          }`}
-                        >
-                          {tabs?.heading}
-                        </button>
-                        {(i === 0 || tab === tabs.id) && (
-                          <img
-                            src={require("assets/right_arrow.png")}
-                            alt="arrow"
-                            className="overview_arrow"
-                          />
-                        )}
-                      </div>
-                    </div>
-                    {(i === 0 || tab === tabs.id) && (
-                      <div className="col-lg-8">
-                        <p
-                          className="overview_text"
-                          dangerouslySetInnerHTML={{
-                            __html: tabs.description,
-                          }}
-                        />
-                      </div>
-                    )}
-                  </div>
-                );
+                return <OverviewTabs tabs={tabs} key={i} index={i} />;
               })}
           </div>
         </div>
@@ -91,3 +55,43 @@ export default function Overview() {
     </div>
   );
 }
+
+const OverviewTabs = ({ tabs, index }) => {
+  const [tab, setTab] = useState(false);
+
+  useEffect(() => {
+    index === 0 && setTab(true);
+  }, []);
+
+  return (
+    <div className="row row-gap-5">
+      <div className="col-lg-4">
+        <div className="position-relative">
+          <button
+            onClick={() => setTab(!tab)}
+            className={`overview_btn ${tab ? "overview_active_btn" : ""}`}
+          >
+            {tabs?.heading}
+          </button>
+          {tab && (
+            <img
+              src={require("assets/right_arrow.png")}
+              alt="arrow"
+              className="overview_arrow"
+            />
+          )}
+        </div>
+      </div>
+      {tab && (
+        <div className="col-lg-8">
+          <p
+            className="overview_text"
+            dangerouslySetInnerHTML={{
+              __html: tabs.description,
+            }}
+          />
+        </div>
+      )}
+    </div>
+  );
+};

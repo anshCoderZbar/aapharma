@@ -15,14 +15,16 @@ export default function LabEquipment() {
   return (
     <div className="lab_equipments">
       <Banner
-        background={`url(${
-          getBanner?.data?.data?.image && getBanner?.data?.data?.image
-        })`}
+        // background={`url(${
+        //   getBanner?.data?.data?.image && getBanner?.data?.data?.image
+        // })`}
+        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
         subMenu="Equipment"
         heading={
           getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
         }
-        extra="lab_equipment_banner"
+        // extra="lab_equipment_banner"
+        extra=" white_head process_top_banner"
       />
       <div className="container-fluid">
         <div className="row equipments">

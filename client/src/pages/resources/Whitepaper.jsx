@@ -18,7 +18,6 @@ export default function Whitepaper() {
   const [formData, setFormData] = useState({ year: "", month: "" });
 
   const filterResources = FilterWhitepaperMutation();
-  console.log();
   const handleChange = (e) => {
     const { name, value } = e.target;
     const newFormData = { ...formData, [name]: value };
@@ -90,7 +89,8 @@ export default function Whitepaper() {
       <div className="container-fluid">
         <div className="paper_page_filter">
           <select name="year" onChange={handleChange}>
-            <option value="">Select Year</option>
+            <option disabled>Select Year</option>
+            <option value="">All Years</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
             <option value="2022">2022</option>
@@ -127,9 +127,7 @@ export default function Whitepaper() {
                 return (
                   <div key={i} className="whitepaper_card">
                     <div className="card_details">
-                      <p className="whitepaper_year">
-                        {elm?.date?.replaceAll("-", " ")}
-                      </p>
+                      <p className="whitepaper_year">{elm?.date}</p>
                       <h2 className="whitepaper_data">{elm?.heading}</h2>
                       <div className="d-flex justify-content-center whitepaper_btn">
                         <button
@@ -138,7 +136,6 @@ export default function Whitepaper() {
                         >
                           Read More
                         </button>
-                        p
                       </div>
                     </div>
                   </div>
@@ -148,9 +145,7 @@ export default function Whitepaper() {
                 return (
                   <div key={i} className="whitepaper_card">
                     <div className="card_details">
-                      <p className="whitepaper_year">
-                        {elm?.date?.replaceAll("-", " ")}
-                      </p>
+                      <p className="whitepaper_year">{elm?.date}</p>
                       <h2 className="whitepaper_data">{elm?.heading}</h2>
                       <div className="d-flex justify-content-center whitepaper_btn">
                         <button

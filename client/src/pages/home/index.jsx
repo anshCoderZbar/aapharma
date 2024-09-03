@@ -19,8 +19,10 @@ import "styles/Home.css";
 import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
 import { Autoplay } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useNavigate();
   const [allDetails] = useAtom(allSettings);
 
   const bannerData = GetBannerApi();
@@ -165,7 +167,10 @@ export const Home = () => {
               />
               <Services />
               <div className="service_btn">
-                <button className="primary_btn_outline d-flex align-items-center">
+                <button
+                  onClick={() => navigate("/overview")}
+                  className="primary_btn_outline d-flex align-items-center"
+                >
                   View All
                   <span>
                     <MoveRightIcon />

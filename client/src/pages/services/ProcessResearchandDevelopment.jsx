@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ChevronRight, Plus } from "lucide-react";
+import { ChevronRight, Minus, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 import "styles/Services.css";
 import {
@@ -89,7 +89,7 @@ export default function ProcessResearchandDevelopment() {
                         }}
                         className="text-white"
                       >
-                        <Plus />
+                        {tabId === elm?.id ? <Minus /> : <Plus />}
                       </span>
                     </div>
                     <p dangerouslySetInnerHTML={{ __html: elm?.description }} />
