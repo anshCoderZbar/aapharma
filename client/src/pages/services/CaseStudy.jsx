@@ -72,34 +72,34 @@ export default function CaseStudy() {
                 isEven === true ? "tab_rev_row" : ""
               }`}
             >
-              <div className="col-md-4">
-                <div className="case_tab_img">
-                  <img
-                    src={
-                      getSingleCaseStudyTabs?.data?.data?.image
-                        ? getSingleCaseStudyTabs?.data?.data?.image
-                        : allCaseTabs?.data?.data[0]?.image
-                    }
-                    alt="tabs"
-                  />
-                </div>
+              {/* <div className="col-md-4"> */}
+              <div className="case_tab_img">
+                <img
+                  src={
+                    getSingleCaseStudyTabs?.data?.data?.image
+                      ? getSingleCaseStudyTabs?.data?.data?.image
+                      : allCaseTabs?.data?.data[0]?.image
+                  }
+                  alt="tabs"
+                />
               </div>
-              <div className="col-md-8">
-                <div className="case_tab_content">
-                  <h5>
-                    {getSingleCaseStudyTabs?.data?.data?.heading
-                      ? getSingleCaseStudyTabs?.data?.data?.heading
-                      : allCaseTabs?.data?.data[0]?.heading}
-                  </h5>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: getSingleCaseStudyTabs?.data?.data?.description
-                        ? getSingleCaseStudyTabs?.data?.data?.description
-                        : allCaseTabs?.data?.data[0]?.description,
-                    }}
-                  />
-                </div>
+              {/* </div>
+              <div className="col-md-8"> */}
+              <div className="case_tab_content">
+                <h5>
+                  {getSingleCaseStudyTabs?.data?.data?.heading
+                    ? getSingleCaseStudyTabs?.data?.data?.heading
+                    : allCaseTabs?.data?.data[0]?.heading}
+                </h5>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: getSingleCaseStudyTabs?.data?.data?.description
+                      ? getSingleCaseStudyTabs?.data?.data?.description
+                      : allCaseTabs?.data?.data[0]?.description,
+                  }}
+                />
               </div>
+              {/* </div> */}
             </div>
           )}
         </div>

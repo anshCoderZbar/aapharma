@@ -151,16 +151,23 @@ export default function OperatingPhilosophy() {
                 return (
                   <React.Fragment key={i}>
                     {elm?.id === id ? (
-                      <p>{elm?.description && elm?.description}</p>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: elm?.description && elm?.description,
+                        }}
+                      />
                     ) : null}
                   </React.Fragment>
                 );
               })}
               {!id && (
-                <p>
-                  {getOperatingPhilosophy?.data?.data?.diagramDescription &&
-                    getOperatingPhilosophy?.data?.data?.diagramDescription}
-                </p>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      getOperatingPhilosophy?.data?.data?.diagramDescription &&
+                      getOperatingPhilosophy?.data?.data?.diagramDescription,
+                  }}
+                />
               )}
             </div>
           </div>

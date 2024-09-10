@@ -713,18 +713,19 @@
 
 .tab_flex_row .case_tab_img {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
-.tab_rev_row .case_tab_img {
+/* .tab_rev_row .case_tab_img {
   display: flex;
   justify-content: flex-start;
-}
+} */
 
 .case_tab_img img {
   width: 100%;
   max-width: 400px;
   height: 100%;
+  margin-bottom: 30px;
 }
 
 .tab_flex_row {
@@ -739,33 +740,29 @@
 .case_tab_content h5 {
   color: #666;
   font-family: "Product Sans";
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   line-height: 38px;
-  max-width: 796px;
   margin: 0 auto 15px auto;
 }
 
 .case_tab_content p {
   color: #666;
   font-family: "Product Sans";
-  font-size: 24px;
-  line-height: 38px;
+  font-size: 20px;
+  line-height: 35px;
   font-weight: 400;
-  max-width: 796px;
-  margin: 0 auto;
+  margin: 0 auto 15px auto;
   display: flex;
   justify-content: baseline;
 }
 
-/* .case_tab_content p::before {
-  content: "\2022";
-  color: #666;
-  font-weight: bold;
-  display: inline-block;
-  min-width: 25px;
-  font-size: 26px;
-} */
+.case_tab_content ul,
+ol li strong {
+  white-space: nowrap;
+  margin-right: 10px;
+  display: contents;
+}
 
 .case_bottom_banner {
   border-radius: 40px;
@@ -2038,6 +2035,12 @@
   margin-top: 25px;
 }
 
+.process_tabs_det p,
+.process_tabs_det ul li,
+.process_tabs_det ul li span {
+  font-family: "Product Sans" !important;
+}
+
 @media only screen and (min-width: 2000px) {
   .dia_left:before {
     width: 37%;
@@ -2327,13 +2330,12 @@
   .case_tab_content h5 {
     font-size: 22px;
     line-height: 36px;
-    max-width: 790px;
     margin: 0 auto 13px auto;
   }
 
   .case_tab_content p {
-    font-size: 22px;
-    line-height: 36px;
+    font-size: 18px;
+    line-height: 32px;
   }
 
   .case_bottom_banner img {
@@ -2850,8 +2852,8 @@
   }
 
   .case_tab_content p {
-    font-size: 20px;
-    line-height: 34px;
+    font-size: 17px;
+    line-height: 28px;
   }
 
   .case_bottom_banner {
@@ -3313,7 +3315,7 @@
   }
 
   .case_tab_content p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 30px;
   }
 
@@ -3740,7 +3742,7 @@
   }
 
   .case_tab_content p {
-    font-size: 17px;
+    font-size: 15px;
     line-height: 27px;
   }
 
@@ -3761,7 +3763,7 @@
   }
 
   .case_tab_content p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 25px;
   }
 

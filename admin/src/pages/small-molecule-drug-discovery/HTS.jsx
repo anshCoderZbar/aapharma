@@ -51,6 +51,7 @@ export default function HTS() {
     defaultValues.fourthButton = getHts?.data?.data?.FourthButton;
     defaultValues.fifthButton = getHts?.data?.data?.FifthButton;
     defaultValues.imageSubHeading = getHts?.data?.data?.ImageSubHeading;
+    defaultValues.imageSubHeading2 = getHts?.data?.data?.ImageSubHeading2;
     setDefaultImages({
       img1: getHts?.data?.data?.Image1,
       img2: getHts?.data?.data?.Image2,
@@ -69,6 +70,7 @@ export default function HTS() {
     formData.append("FifthButton", data?.fifthButton);
     formData.append("Image1", data?.image1[0]);
     formData.append("ImageSubHeading", data?.imageSubHeading);
+    formData.append("ImageSubHeading2", data?.imageSubHeading2);
     formData.append("Image2", data?.image2[0]);
     createHTS.mutate(formData);
   };
@@ -263,6 +265,20 @@ export default function HTS() {
                   className="mt-2"
                   style={{ maxWidth: "500px" }}
                 />
+              )}
+            </div>
+            <div className="mb-3 col-md-6">
+              <label htmlFor="imageSubHeading2" className="form-label">
+                Image Sub Heading
+              </label>
+              <FormInput
+                type="text"
+                name="imageSubHeading2"
+                placeholder="Image Sub Heading"
+                {...register("imageSubHeading2", { required: true })}
+              />
+              {errors?.image1SubHeading && (
+                <p className="errorMessage">Field is required</p>
               )}
             </div>
             {createHTS?.isPending ? (

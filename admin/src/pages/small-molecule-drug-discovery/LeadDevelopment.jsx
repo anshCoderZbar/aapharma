@@ -55,7 +55,7 @@ export default function LeadDevelopment() {
     const defaultValues = {};
     defaultValues.heading = getLeadDevelopment?.data?.data?.heading;
     defaultValues.description = getLeadDevelopment?.data?.data?.description;
-    defaultValues.subHeading = getLeadDevelopment?.data?.data?.subheading;
+    // defaultValues.subHeading = getLeadDevelopment?.data?.data?.subheading;
     defaultValues.image = getLeadDevelopment?.data?.data?.image;
     const defaultInputs =
       getLeadDevelopment?.data?.data?.list?.map((elm) => ({
@@ -75,7 +75,6 @@ export default function LeadDevelopment() {
     formData.append("heading", data?.heading);
     formData.append("image", data?.image[0]);
     formData.append("description", data?.description);
-    formData.append("subheading", data?.subHeading);
     list.forEach((_, index) => {
       const listKey = `list_${index + 1}`;
       formData.append("list[]", data[listKey]);
@@ -193,20 +192,7 @@ export default function LeadDevelopment() {
                 </div>
               ))}
             </div>
-            <div className="mb-3 col-12">
-              <label htmlFor="subHeading" className="form-label">
-                Sub Heading
-              </label>
-              <FormInput
-                type="text"
-                name="subHeading"
-                placeholder="subHeading"
-                {...register("subHeading", { required: true })}
-              />
-              {errors?.subHeading && (
-                <p className="errorMessage">Field is required</p>
-              )}
-            </div>
+
             {editLeadDevelopment?.isPending ? (
               <div>
                 <ButtonLoader />

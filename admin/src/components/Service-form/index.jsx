@@ -44,7 +44,7 @@ export const ServiceForm = ({
             <p className="errorMessage"> Heading is required</p>
           )}
         </div>
-        <div className="mb-3 col-md-6">
+        {/* <div className="mb-3 col-md-6">
           <label htmlFor="icon" className="form-label">
             Icon (150px * 180px)
           </label>
@@ -80,7 +80,7 @@ export const ServiceForm = ({
               )}
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="mb-3 col-md-6">
           <label htmlFor="featuredImage" className="form-label">
             Background Image (475px * 650px)

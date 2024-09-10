@@ -83,7 +83,7 @@ export default function SmallMoleculesDrugDiscovery() {
               <div className="small_main_image small_main_2_img">
                 <img src={getHTS?.data?.data && getHTS?.data?.data?.Image1} />
                 <h4>
-                  Diverse libraries compared with focused libraries diagram
+                  {getHTS?.data?.data && getHTS?.data?.data?.ImageSubHeading}
                 </h4>
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function SmallMoleculesDrugDiscovery() {
               <div className="small_main_image small_main_2_img">
                 <img src={getHTS?.data?.data && getHTS?.data?.data?.Image2} />
                 <h4>
-                  {getHTS?.data?.data && getHTS?.data?.data?.ImageSubHeading}
+                  {getHTS?.data?.data && getHTS?.data?.data?.ImageSubHeading2}
                 </h4>
               </div>
             </div>
@@ -182,10 +182,10 @@ export default function SmallMoleculesDrugDiscovery() {
       <div className="container-fluid">
         <div className="process_box">
           <div className="process_inner_box mt-0">
-            <p>
-              {getLeadDevelopment?.data?.data &&
-                getLeadDevelopment?.data?.data?.subheading}
-            </p>
+            {getTabs?.data?.data?.length >= 1 &&
+              getTabs?.data?.data?.map((elm, i) => {
+                return tabId === elm?.id && <p>{elm && elm?.topDescription}</p>;
+              })}
           </div>
         </div>
       </div>

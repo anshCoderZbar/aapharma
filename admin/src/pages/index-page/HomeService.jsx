@@ -44,15 +44,15 @@ export default function HomeService() {
       name: "heading",
       selector: (row) => row.heading,
     },
-    {
-      name: "Icon",
-      cell: (row) => (
-        <img
-          src={`${allServices?.data?.baseUrl}/${row?.icon}`}
-          style={{ maxWidth: "50px" }}
-        />
-      ),
-    },
+    // {
+    //   name: "Icon",
+    //   cell: (row) => (
+    //     <img
+    //       src={`${allServices?.data?.baseUrl}/${row?.icon}`}
+    //       style={{ maxWidth: "50px" }}
+    //     />
+    //   ),
+    // },
     {
       name: "image",
       cell: (row) => (

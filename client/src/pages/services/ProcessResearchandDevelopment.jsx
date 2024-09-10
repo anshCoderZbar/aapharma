@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-import { ChevronRight, Minus, Plus } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Minus, Plus } from "lucide-react";
 import "styles/Services.css";
 import {
   GetProcessBannerMutation,
@@ -89,10 +88,13 @@ export default function ProcessResearchandDevelopment() {
                         }}
                         className="text-white"
                       >
-                        {tabId === elm?.id ? <Minus /> : <Plus />}
+                        {tabs && tabId === elm?.id ? <Minus /> : <Plus />}
                       </span>
                     </div>
-                    <p dangerouslySetInnerHTML={{ __html: elm?.description }} />
+                    <p
+                      dangerouslySetInnerHTML={{ __html: elm?.description }}
+                      className="process_tabs_det"
+                    />
                   </div>
                 );
               })}
