@@ -65,7 +65,7 @@ export const API_ENDPOINTS = {
   paymentSuccess: "/payment-success",
   paymentCancel: "/payment-cancel",
   conferenceBanner: "/conferencebanner",
-  conferenceCards: "/conferencecards",
+  conferenceCards: "/conferences/all",
   partnerBanner: "/partnersbanner",
   getAllPartnerCards: "/partnercasestudycard/all",
   partnersbottom: "/partnersbottom",

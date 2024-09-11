@@ -352,9 +352,16 @@ class Client {
     getConferenceBanner: () => HttpClient.get(API_ENDPOINTS.conferenceBanner),
     editConferenceBanner: (params) =>
       HttpClient.post(API_ENDPOINTS.conferenceBanner, params),
-    getConferenceCards: () => HttpClient.get(API_ENDPOINTS.conferenceCards),
+    getAllConferenceCards: () =>
+      HttpClient.get(API_ENDPOINTS.getAllConferencesCard),
+    createConferenceCards: (params) =>
+      HttpClient.post(API_ENDPOINTS.addConferencesCard, params),
+    singleConferenceCards: (params) =>
+      HttpClient.post(API_ENDPOINTS.singleConferencesCard, params),
+    deleteConferenceCards: (params) =>
+      HttpClient.post(API_ENDPOINTS.deleteConferencesCard, params),
     editConferenceCards: (params) =>
-      HttpClient.post(API_ENDPOINTS.conferenceCards, params),
+      HttpClient.post(API_ENDPOINTS.editConferencesCard, params),
   };
   partner = {
     getPartnerBanner: () => HttpClient.get(API_ENDPOINTS.partnerBanner),

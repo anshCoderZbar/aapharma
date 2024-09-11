@@ -44,65 +44,43 @@ export default function Conference() {
           </div>
           <div className="confrenct_btm_section">
             <div className="row ">
-              <div className="col-lg-6">
-                <div className="confrence_card">
-                  <div className="confrence_card_img">
-                    <div className="top_blue_line">
-                      <h2>
-                        {getCards?.data?.data?.card1heading &&
-                          getCards?.data?.data?.card1heading}
-                      </h2>
+              {getCards?.data?.data &&
+                getCards?.data?.data?.map((data) => {
+                  return (
+                    <div className="col-lg-6">
+                      <div className="confrence_card">
+                        <div className="confrence_card_img">
+                          <div className="top_blue_line">
+                            <h2>{data?.imageHeading}</h2>
+                          </div>
+                          <img src={data?.image} alt="conference" />
+                        </div>
+                        <div className="confrence_card_body">
+                          <div className="confrence_card_logo">
+                            <img src={data?.logo} alt="logo" />
+                          </div>
+                          <h3 className="card_body_head">{data?.heading}</h3>
+                          <div
+                            className="confrence_card_content"
+                            dangerouslySetInnerHTML={{
+                              __html: data?.description,
+                            }}
+                          />
+                          <p className="confrence_loacation">
+                            <span>Location:</span>
+                            {data?.location}
+                          </p>
+                        </div>
+                        <div className="navigate_link">
+                          <a href={data?.url} target="_blank">
+                            <ChevronRight />
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                    <img
-                      src={
-                        getCards?.data?.data?.card1image &&
-                        getCards?.data?.data?.card1image
-                      }
-                      alt="conference"
-                    />
-                  </div>
-                  <div className="confrence_card_body">
-                    <div className="confrence_card_logo">
-                      <img
-                        src={
-                          getCards?.data?.data?.card1logo &&
-                          getCards?.data?.data?.card1logo
-                        }
-                        alt="logo"
-                      />
-                    </div>
-                    <h3 className="card_body_head">
-                      {getCards?.data?.data?.card1subheading &&
-                        getCards?.data?.data?.card1subheading}
-                    </h3>
-                    <div
-                      className="confrence_card_content"
-                      dangerouslySetInnerHTML={{
-                        __html:
-                          getCards?.data?.data?.card1description &&
-                          getCards?.data?.data?.card1description,
-                      }}
-                    />
-                    <p className="confrence_loacation">
-                      <span>Location:</span>
-                      {getCards?.data?.data?.card1location &&
-                        getCards?.data?.data?.card1location}
-                    </p>
-                  </div>
-                  <div className="navigate_link">
-                    <a
-                      href={
-                        getCards?.data?.data?.card1link &&
-                        getCards?.data?.data?.card1link
-                      }
-                      target="_blank"
-                    >
-                      <ChevronRight />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6  kuj_ihy">
+                  );
+                })}
+              {/* <div className="col-lg-6  kuj_ihy">
                 <div className="confrence_card">
                   <div className="confrence_card_img">
                     <div className="top_blue_line">
@@ -159,7 +137,7 @@ export default function Conference() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -98,7 +98,6 @@ import AllCoupons from "pages/orders/AllCoupons";
 import CreateCoupon from "pages/orders/CreateCoupon";
 import EditCoupon from "pages/orders/EditCoupon";
 import ConferenceBanner from "pages/conferences/ConferenceBanner";
-import ConferenceCards from "pages/conferences/ConferenceCards";
 import PartnerBanner from "pages/partners/PartnerBanner";
 import PartnerCards from "pages/partners/PartnerCards";
 import EditPartnerCard from "pages/partners/EditPartnerCard";
@@ -161,6 +160,9 @@ import EditResearchCollaborationCompany from "pages/research-collaboration/EditR
 import AddRoutes from "pages/all-routes/AddRoutes";
 import AllAddedRoutes from "pages/all-routes/AllAddedRoutes";
 import EditRoutes from "pages/all-routes/EditRoutes";
+import CreateConferenceCard from "pages/conferences/CreateConferenceCard";
+import ConferenceCardDetails from "pages/conferences/ConferenceCardDetail";
+import EditConferenceCard from "pages/conferences/EditConferenceCard";
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
     {
@@ -907,7 +909,23 @@ export const AllRoutes = (props) => {
       path: "/conference-cards",
       element: (
         <PrivateRoutes>
-          <ConferenceCards />
+          <ConferenceCardDetails />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-conference-cards",
+      element: (
+        <PrivateRoutes>
+          <CreateConferenceCard />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-conference-cards/:id",
+      element: (
+        <PrivateRoutes>
+          <EditConferenceCard />
         </PrivateRoutes>
       ),
     },
