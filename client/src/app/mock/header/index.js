@@ -68,7 +68,7 @@ export const HeaderData = [
       {
         id: 3,
         name: "Storage and Inventory Management",
-        slug: "/case-study",
+        slug: "/storage-inventory-management-case-study",
       },
       {
         id: 4,
@@ -112,7 +112,7 @@ export const HeaderData = [
       {
         id: 7,
         name: "Basic Research",
-        slug: "#",
+        slug: "/research-collaboration",
       },
     ],
   },

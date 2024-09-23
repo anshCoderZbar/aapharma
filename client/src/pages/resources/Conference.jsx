@@ -20,18 +20,19 @@ export default function Conference() {
         heading={
           getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
         }
-        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${
-          getBanner?.data?.data?.image && getBanner?.data?.data?.image
-        })`}
-        extra="white_head"
+        // background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 0%, rgba(48, 48, 114, 0) 100%), url(${
+        //   getBanner?.data?.data?.image && getBanner?.data?.data?.image
+        // })`}
+        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
+        extra="white_head text-center"
       />
       <div className="confrences_content">
         <div className="container-fluid">
           <div className="confrence_head">
-            <h2 className="main_top_heading">
+            {/* <h2 className="main_top_heading">
               {getBanner?.data?.data?.subheading &&
                 getBanner?.data?.data?.subheading}
-            </h2>
+            </h2> */}
 
             <p
               className="confrence_top_content"

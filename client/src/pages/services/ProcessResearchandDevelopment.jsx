@@ -10,8 +10,6 @@ import {
 import { Banner } from "app/components/Ui/Banner";
 
 export default function ProcessResearchandDevelopment() {
-  const [tabs, setTabs] = useState(false);
-  const [tabId, setTabId] = useState(-1);
   const getProcessBanner = GetProcessBannerMutation();
   const getMidSection = GetProcessMidSectionMutation();
   const getTabs = GetProcessTabsMutation();
@@ -72,31 +70,7 @@ export default function ProcessResearchandDevelopment() {
           <div className="process_accordion">
             {getTabs?.data?.data?.length >= 1 &&
               getTabs?.data?.data?.map((elm) => {
-                return (
-                  <div
-                    key={elm?.id}
-                    className={`process_acc_card ${
-                      tabs && tabId === elm?.id ? "process_acc_card_active" : ""
-                    } `}
-                  >
-                    <div className="d-flex justify-content-between align-items-center head_top_card">
-                      <h2>{elm?.heading}</h2>
-                      <span
-                        onClick={() => {
-                          setTabId(elm?.id);
-                          setTabs(tabId === elm?.id ? !tabs : true);
-                        }}
-                        className="text-white"
-                      >
-                        {tabs && tabId === elm?.id ? <Minus /> : <Plus />}
-                      </span>
-                    </div>
-                    <p
-                      dangerouslySetInnerHTML={{ __html: elm?.description }}
-                      className="process_tabs_det"
-                    />
-                  </div>
-                );
+                return <ResearchCard elm={elm} key={elm?.id} />;
               })}
           </div>
         </div>
@@ -104,3 +78,27 @@ export default function ProcessResearchandDevelopment() {
     </div>
   );
 }
+
+const ResearchCard = ({ elm }) => {
+  const [tabs, setTabs] = useState(false);
+
+  return (
+    <div className={`process_acc_card ${tabs && "process_acc_card_active"} `}>
+      <div className="d-flex justify-content-between align-items-center head_top_card">
+        <h2>{elm?.heading}</h2>
+        <span
+          onClick={() => {
+            setTabs(!tabs);
+          }}
+          className="text-white"
+        >
+          {tabs ? <Minus /> : <Plus />}
+        </span>
+      </div>
+      <p
+        dangerouslySetInnerHTML={{ __html: elm?.description }}
+        className="process_tabs_det"
+      />
+    </div>
+  );
+};

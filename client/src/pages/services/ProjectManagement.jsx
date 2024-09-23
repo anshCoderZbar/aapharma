@@ -17,9 +17,10 @@ export default function ProjectManagement() {
     <div className="project_management_page">
       <Banner
         heading={getBanner?.data?.data && getBanner?.data?.data?.heading}
-        background={`linear-gradient( rgba(48, 48, 114, 0.85), rgba(48, 48, 114, 0.85)),url(${
-          getBanner?.data?.data && getBanner?.data?.data?.image
-        })`}
+        // background={`linear-gradient( rgba(48, 48, 114, 0.85), rgba(48, 48, 114, 0.85)),url(${
+        //   getBanner?.data?.data && getBanner?.data?.data?.image
+        // })`}
+        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
         extra="white_head process_top_banner"
       />
       <div className="container-fluid">

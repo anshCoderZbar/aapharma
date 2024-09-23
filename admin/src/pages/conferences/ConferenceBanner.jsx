@@ -28,10 +28,10 @@ export default function ConferenceBanner() {
   useEffect(() => {
     const defaultValues = {};
     defaultValues.heading = conferenceBanner?.data?.data?.heading;
-    defaultValues.banner = conferenceBanner?.data?.data?.image;
+    // defaultValues.banner = conferenceBanner?.data?.data?.image;
     defaultValues.description = conferenceBanner?.data?.data?.description;
-    defaultValues.subHeading = conferenceBanner?.data?.data?.subheading;
-    setDefaultImg(conferenceBanner?.data?.data?.image);
+    // defaultValues.subHeading = conferenceBanner?.data?.data?.subheading;
+    // setDefaultImg(conferenceBanner?.data?.data?.image);
     reset(defaultValues);
   }, [conferenceBanner?.data?.data]);
 
@@ -46,8 +46,8 @@ export default function ConferenceBanner() {
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("heading", data?.heading);
-    formData.append("subheading", data?.subHeading);
-    formData.append("image", data?.banner[0]);
+    // formData.append("subheading", data?.subHeading);
+    // formData.append("image", data?.banner[0]);
     formData.append("description", data?.description);
     editBanner?.mutate(formData);
   };
@@ -77,7 +77,7 @@ export default function ConferenceBanner() {
                 <p className="errorMessage">Heading is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            {/* <div className="mb-3 col-md-6">
               <label htmlFor="banner" className="form-label">
                 Conference Banner (1540px * 305px)
               </label>
@@ -107,8 +107,8 @@ export default function ConferenceBanner() {
                   style={{ maxWidth: "300px", marginTop: "10px" }}
                 />
               )}
-            </div>
-            <div className="mb-3 col-md-6">
+            </div> */}
+            {/* <div className="mb-3 col-md-6">
               <label htmlFor="subHeading" className="form-label">
                 Sub Heading
               </label>
@@ -121,7 +121,7 @@ export default function ConferenceBanner() {
               {errors?.subHeading && (
                 <p className="errorMessage">Sub Heading is required</p>
               )}
-            </div>
+            </div> */}
 
             <div className="mb-3 col-md-12">
               <label htmlFor="description" className="form-label">

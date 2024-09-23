@@ -38,7 +38,7 @@ export default function ProjectManagementBanner() {
     const defaultValues = {};
     defaultValues.heading = getBanner?.data?.data?.heading;
     defaultValues.description = getBanner?.data?.data?.description;
-    setDefaultImg(getBanner?.data?.data?.image);
+    // setDefaultImg(getBanner?.data?.data?.image);
     reset(defaultValues);
   }, [getBanner?.data?.data]);
 
@@ -46,7 +46,7 @@ export default function ProjectManagementBanner() {
     const formData = new FormData();
     formData.append("heading", data?.heading);
     formData.append("description", data?.description);
-    formData.append("image", data?.bannerImage[0]);
+    // formData.append("image", data?.bannerImage[0]);
     createBanner.mutate(formData);
   };
   return (
@@ -77,7 +77,7 @@ export default function ProjectManagementBanner() {
                 <p className="errorMessage">Heading is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            {/* <div className="mb-3 col-md-6">
               <label htmlFor="bannerImage" className="form-label">
                 Banner Image (1540px * 305px)
               </label>
@@ -107,7 +107,7 @@ export default function ProjectManagementBanner() {
                   style={{ maxWidth: "300px", marginTop: "10px" }}
                 />
               )}
-            </div>
+            </div> */}
 
             <div className="mb-3 col-12">
               <label htmlFor="description" className="form-label">

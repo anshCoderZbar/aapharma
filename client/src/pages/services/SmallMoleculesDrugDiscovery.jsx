@@ -182,10 +182,10 @@ export default function SmallMoleculesDrugDiscovery() {
       <div className="container-fluid">
         <div className="process_box">
           <div className="process_inner_box mt-0">
-            {getTabs?.data?.data?.length >= 1 &&
-              getTabs?.data?.data?.map((elm, i) => {
-                return tabId === elm?.id && <p>{elm && elm?.topDescription}</p>;
-              })}
+            <p>
+              Preparing compounds fast and efficiently requires deep expertise
+              in a wide range of chemical transformations.
+            </p>
           </div>
         </div>
       </div>

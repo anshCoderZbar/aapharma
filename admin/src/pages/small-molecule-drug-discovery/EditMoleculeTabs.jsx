@@ -34,7 +34,7 @@ export default function EditMoleculeTabs() {
 
   useEffect(() => {
     const defaultValues = {};
-    defaultValues.topHeading = getSingleTab?.data?.data?.topDescription;
+    // defaultValues.topHeading = getSingleTab?.data?.data?.topDescription;
     defaultValues.title = getSingleTab?.data?.data?.title;
     defaultValues.description = getSingleTab?.data?.data?.description;
     defaultValues.image = getSingleTab?.data?.data?.image;
@@ -54,7 +54,7 @@ export default function EditMoleculeTabs() {
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("id", id);
-    formData.append("topDescription", data?.topHeading);
+    // formData.append("topDescription", data?.topHeading);
     formData.append("title", data?.title);
     formData.append("description", data?.description);
     formData.append("image", data?.image[0]);
@@ -71,7 +71,7 @@ export default function EditMoleculeTabs() {
       ) : (
         <div className="home_banner_input">
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
-            <div className="mb-3 col-md-12">
+            {/* <div className="mb-3 col-md-12">
               <label htmlFor="topHeading" className="form-label">
                 Top Heading
               </label>
@@ -84,7 +84,7 @@ export default function EditMoleculeTabs() {
               {errors?.topHeading && (
                 <p className="errorMessage">Field is required</p>
               )}
-            </div>
+            </div> */}
             <div className="mb-3 col-md-6">
               <label htmlFor="title" className="form-label">
                 Title
