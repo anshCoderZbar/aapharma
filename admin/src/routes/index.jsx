@@ -163,6 +163,8 @@ import EditRoutes from "pages/all-routes/EditRoutes";
 import CreateConferenceCard from "pages/conferences/CreateConferenceCard";
 import ConferenceCardDetails from "pages/conferences/ConferenceCardDetail";
 import EditConferenceCard from "pages/conferences/EditConferenceCard";
+import ProcessResearchDiagram from "pages/process-research-and-development/ProcessResearchDiagram";
+
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
     {
@@ -985,6 +987,15 @@ export const AllRoutes = (props) => {
         </PrivateRoutes>
       ),
     },
+    {
+      path: "/process-diagram",
+      element: (
+        <PrivateRoutes>
+          <ProcessResearchDiagram />
+        </PrivateRoutes>
+      ),
+    },
+
     {
       path: "/process-mid-section",
       element: (

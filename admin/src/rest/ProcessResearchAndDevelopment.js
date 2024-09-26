@@ -124,3 +124,28 @@ export const GetProcessBannerMutation = () => {
   });
   return bannerSection;
 };
+
+export const EditProcessDiagramMutation = () => {
+  const { notify } = useNotifications();
+  const editDiagram = useMutation({
+    mutationFn: (data) => client.process.editProcessResearchDiagram(data),
+    onSuccess: () => {
+      notify("Details Edited Successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-process-diagram"],
+      });
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return editDiagram;
+};
+
+export const GetProcessDiagramMutation = () => {
+  const getDiagram = useQuery({
+    queryKey: ["get-process-diagram"],
+    queryFn: () => client.process.getProcessResearchDiagram(),
+  });
+  return getDiagram;
+};

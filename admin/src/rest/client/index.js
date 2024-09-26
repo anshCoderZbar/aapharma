@@ -426,6 +426,10 @@ class Client {
     editProcessBanner: (params) =>
       HttpClient.post(API_ENDPOINTS.processBanner, params),
     getProcessBanner: () => HttpClient.get(API_ENDPOINTS.processBanner),
+    getProcessResearchDiagram: () =>
+      HttpClient.get(API_ENDPOINTS.processResearchDiagram),
+    editProcessResearchDiagram: (params) =>
+      HttpClient.post(API_ENDPOINTS.processResearchDiagram, params),
   };
   smallMolecule = {
     getSmallMoleculeBanner: () =>
