@@ -82,6 +82,7 @@ export const API_ENDPOINTS = {
   processMidSection: "/ProcessResearchDevelopmentoneAbout",
   processBanner: "/ProcessResearchDevelopmentBanner",
   getProcessTab: "/ProcessResearchDevelopment/all",
+  processResearchDiagram: "/ProcessResearchDiagram",
   smallMoleculeBanner: "/smdd-bannerBanner",
   smallHTS: "/smdd-hts",
   smallSBDD: "/smdd-sbdd",

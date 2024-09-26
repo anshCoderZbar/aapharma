@@ -1,0 +1,86 @@
+.diagram_image {
+  margin: 30px auto;
+  position: relative;
+  max-width: max-content;
+}
+
+.diagram_image p {
+  position: absolute;
+  color: #2a3072;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+  width: 145px;
+}
+
+.process_heading_1 {
+  top: 12% !important;
+}
+
+.process_heading_2 {
+  top: 23% !important;
+  left: 76% !important;
+}
+
+.process_heading_3 {
+  left: 87% !important;
+}
+.process_heading_4 {
+  top: 76% !important;
+  left: 76% !important;
+}
+
+.process_heading_5 {
+  top: 87% !important;
+}
+
+.process_heading_6 {
+  top: 76% !important;
+  left: 23% !important;
+}
+
+.process_heading_7 {
+  left: 12% !important;
+}
+
+.process_heading_8 {
+  top: 24% !important;
+  left: 24% !important;
+}
+
+@media screen and (max-width: 1400px) {
+  .diagram_image p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .diagram_image p {
+    width: 125px;
+    font-size: 16px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .diagram_image p {
+    width: 115px;
+    font-size: 15px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .diagram_image p {
+    width: 109px;
+    font-size: 14px;
+    line-height: 12px;
+  }
+}

@@ -2,8 +2,11 @@ import React, { useState } from "react";
 
 import { Minus, Plus } from "lucide-react";
 import "styles/Services.css";
+import "styles/ProcessDiagram.css";
+import diagramOutline from "assets/process_diagram.svg";
 import {
   GetProcessBannerMutation,
+  GetProcessDiagramMutation,
   GetProcessMidSectionMutation,
   GetProcessTabsMutation,
 } from "rest/service";
@@ -13,6 +16,7 @@ export default function ProcessResearchandDevelopment() {
   const getProcessBanner = GetProcessBannerMutation();
   const getMidSection = GetProcessMidSectionMutation();
   const getTabs = GetProcessTabsMutation();
+  const getDiagram = GetProcessDiagramMutation();
 
   return (
     <div className="Process_research_page">
@@ -53,12 +57,31 @@ export default function ProcessResearchandDevelopment() {
               </p>
             </div>
             <div className="diagram_image">
-              <img
-                src={
-                  getMidSection?.data?.data && getMidSection?.data?.data?.image
-                }
-                alt="process diagram"
-              />
+              <img src={diagramOutline} alt="process diagram" />
+              <p className="process_heading_1">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading1}
+              </p>
+              <p className="process_heading_2">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading2}
+              </p>
+              <p className="process_heading_3">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading3}
+              </p>
+              <p className="process_heading_4">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading4}
+              </p>
+              <p className="process_heading_5">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading5}
+              </p>
+              <p className="process_heading_6">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading6}
+              </p>
+              <p className="process_heading_7">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading7}
+              </p>
+              <p className="process_heading_8">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading8}
+              </p>
             </div>
             <div className="process_diagram_bottom_content">
               <p>

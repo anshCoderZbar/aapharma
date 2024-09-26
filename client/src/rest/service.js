@@ -161,6 +161,14 @@ export const GetProcessTabsMutation = () => {
   return getTabs;
 };
 
+export const GetProcessDiagramMutation = () => {
+  const getDiagram = useQuery({
+    queryKey: ["get-process-diagram"],
+    queryFn: () => client.services.getProcessResearchDiagram(),
+  });
+  return getDiagram;
+};
+
 // small-molecule-drug-discovery
 
 export const GetSmallMoleculeBannerMutation = () => {

@@ -77,6 +77,8 @@ class Client {
     getAllResearchTabs: () => HttpClient.get(API_ENDPOINTS.getResearchTab),
     getProcessBanner: () => HttpClient.get(API_ENDPOINTS.processBanner),
     getProcessMidSection: () => HttpClient.get(API_ENDPOINTS.processMidSection),
+    getProcessResearchDiagram: () =>
+      HttpClient.get(API_ENDPOINTS.processResearchDiagram),
     getProcessTabs: () => HttpClient.get(API_ENDPOINTS.getProcessTab),
     getSmallMoleculeBanner: () =>
       HttpClient.get(API_ENDPOINTS.smallMoleculeBanner),

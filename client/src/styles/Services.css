@@ -1961,10 +1961,11 @@ ol li strong {
 }
 
 .project_card_content h4::after {
-  content: ":";
+  /* content: ":";
   position: absolute;
   top: 0;
-  right: -7px;
+  right: -7px; */
+  display: none;
 }
 
 .project_card_content p {
@@ -3103,7 +3104,7 @@ ol li strong {
   }
 
   .diagram_image img {
-    max-width: 650px;
+    max-width: 730px;
   }
 
   .process_acc_card {
@@ -3602,7 +3603,7 @@ ol li strong {
   }
 
   .diagram_image img {
-    max-width: 500px;
+    max-width: 650px;
   }
 
   .head_top_card h2 {
@@ -4078,7 +4079,7 @@ ol li strong {
   }
 
   .diagram_image img {
-    max-width: 450px;
+    max-width: 610px;
   }
 
   .process_acc_card p {
@@ -4594,7 +4595,7 @@ ol li strong {
   }
 
   .diagram_image img {
-    max-width: 400px;
+    max-width: 590px;
   }
 
   .head_top_card h2 {
@@ -5167,7 +5168,7 @@ ol li strong {
   }
 
   .diagram_image img {
-    max-width: 300px;
+    max-width: 450px;
     width: 100%;
   }
 

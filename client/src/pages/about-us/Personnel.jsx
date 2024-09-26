@@ -104,7 +104,7 @@ export default function Personnel() {
       </div>
       <div className="team_section">
         <div className="container-fluid">
-          <h2 className="main_top_heading text-center">Our Team</h2>
+          <h2 className="main_top_heading text-center">Our Management Team</h2>
           <div className="team_details">
             {getTeamMembers?.data?.data?.map((data) => {
               return (
