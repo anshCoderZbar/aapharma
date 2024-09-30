@@ -83,6 +83,33 @@ export default function ProcessResearchandDevelopment() {
                 {getDiagram?.data?.data && getDiagram?.data?.data?.heading8}
               </p>
             </div>
+            <div className="mobile_diagram_box">
+              <h2>AAPharmaSyn</h2>
+              <p className="mobile_process_heading_1">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading1}
+              </p>
+              <p className="mobile_process_heading_2">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading2}
+              </p>
+              <p className="mobile_process_heading_3">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading3}
+              </p>
+              <p className="mobile_process_heading_4">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading4}
+              </p>
+              <p className="mobile_process_heading_5">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading5}
+              </p>
+              <p className="mobile_process_heading_6">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading6}
+              </p>
+              <p className="mobile_process_heading_7">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading7}
+              </p>
+              <p className="mobile_process_heading_8">
+                {getDiagram?.data?.data && getDiagram?.data?.data?.heading8}
+              </p>
+            </div>
             <div className="process_diagram_bottom_content">
               <p>
                 {getMidSection?.data?.data &&

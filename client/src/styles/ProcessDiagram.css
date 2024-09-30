@@ -4,6 +4,58 @@
   max-width: max-content;
 }
 
+.mobile_diagram_box {
+  display: none;
+  margin: 15px 0;
+}
+
+.mobile_diagram_box p {
+  padding: 10px;
+  border-radius: 11px;
+}
+
+.mobile_diagram_box h2 {
+  text-align: center;
+  font-weight: 600;
+  color: #2a3072;
+  font-size: 22px;
+  margin-bottom: 0;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.mobile_process_heading_1 {
+  border: 3px solid #fca728;
+}
+
+.mobile_process_heading_2 {
+  border: 3px solid #f74646;
+}
+
+.mobile_process_heading_3 {
+  border: 3px solid #ca3030;
+}
+
+.mobile_process_heading_4 {
+  border: 3px solid #525357;
+}
+
+.mobile_process_heading_5 {
+  border: 3px solid #8c48cb;
+}
+
+.mobile_process_heading_6 {
+  border: 3px solid #435dab;
+}
+
+.mobile_process_heading_7 {
+  border: 3px solid #65b7e7;
+}
+
+.mobile_process_heading_8 {
+  border: 3px solid #a9d021;
+}
+
 .diagram_image p {
   position: absolute;
   color: #2a3072;
@@ -78,9 +130,13 @@
 }
 
 @media screen and (max-width: 575px) {
-  .diagram_image p {
-    width: 109px;
-    font-size: 14px;
-    line-height: 12px;
+  .diagram_image {
+    display: none;
+  }
+
+  .mobile_diagram_box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }

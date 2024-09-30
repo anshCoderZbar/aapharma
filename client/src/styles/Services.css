@@ -2000,6 +2000,10 @@ ol li strong {
   font-weight: 600;
   font-size: 26px;
   margin-bottom: 40px;
+  border: 1px solid #2a3072;
+  padding: 25px;
+  border-radius: 11px;
+  text-align: center;
 }
 
 /* others */
@@ -2233,6 +2237,7 @@ ol li strong {
 
   .bottom_mgt_content p {
     font-size: 28px;
+    padding: 22px;
   }
 
   .large_contdw p {
@@ -2689,6 +2694,7 @@ ol li strong {
   .bottom_mgt_content p {
     font-size: 24px;
     margin-bottom: 35px;
+    padding: 20px;
   }
 
   .icons_card_inner h3 {
@@ -3231,6 +3237,7 @@ ol li strong {
   .bottom_mgt_content p {
     font-size: 22px;
     margin-bottom: 30px;
+    padding: 18px;
   }
 
   .icons_card_outer {
@@ -4173,6 +4180,7 @@ ol li strong {
   .bottom_mgt_content p {
     font-size: 20px;
     margin-bottom: 27px;
+    padding: 15px;
   }
 
   .icons_card_outer {
@@ -5311,6 +5319,7 @@ ol li strong {
   .bottom_mgt_content p {
     font-size: 18px;
     margin-bottom: 20px;
+    padding: 12px;
   }
 
   .kjsjIuy {
