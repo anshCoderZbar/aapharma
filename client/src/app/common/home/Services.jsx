@@ -24,7 +24,7 @@ export const Services = () => {
         <ul>
           {getAllServices?.data?.data?.slice(0, 6).map((data, i) => {
             return (
-              <Link to={data?.url}>
+              <Link to={data?.url} style={{ textDecoration: "none" }}>
                 <li
                   key={i}
                   onMouseOver={() => {
