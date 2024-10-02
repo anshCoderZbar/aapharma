@@ -183,8 +183,8 @@ export default function SmallMoleculesDrugDiscovery() {
         <div className="process_box">
           <div className="process_inner_box mt-0">
             <p>
-              Preparing compounds fast and efficiently requires deep expertise
-              in a wide range of chemical transformations.
+              {getLeadDevelopment?.data?.data &&
+                getLeadDevelopment?.data?.data?.subheading}
             </p>
           </div>
         </div>

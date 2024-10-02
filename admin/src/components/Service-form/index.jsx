@@ -17,7 +17,7 @@ export const ServiceForm = ({
   });
 
   const handleFileChange = (event, type) => {
-    const file = event.target.files[0];
+    const file = event.target?.files[0];
     if (file) {
       const previewURL = URL.createObjectURL(file);
       setFilePreviews((prevState) => ({

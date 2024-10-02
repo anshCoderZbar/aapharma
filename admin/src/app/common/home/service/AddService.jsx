@@ -18,7 +18,7 @@ export default function AddService() {
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("heading", data?.heading);
-    formData.append("icon", data?.icon[0]);
+    // formData.append("icon", data?.icon[0]);
     formData.append("featuredImage", data?.featuredImage[0]);
     addServiceMutation.mutate(formData);
   };
