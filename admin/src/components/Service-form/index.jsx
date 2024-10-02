@@ -44,6 +44,18 @@ export const ServiceForm = ({
             <p className="errorMessage"> Heading is required</p>
           )}
         </div>
+        <div className="mb-3 col-md-6">
+          <label htmlFor="url" className="form-label">
+            URL
+          </label>
+          <FormInput
+            type="text"
+            name="url"
+            placeholder="URL"
+            {...register("url", { required: true })}
+          />
+          {errors?.url && <p className="errorMessage">URL is required</p>}
+        </div>
         {/* <div className="mb-3 col-md-6">
           <label htmlFor="icon" className="form-label">
             Icon (150px * 180px)

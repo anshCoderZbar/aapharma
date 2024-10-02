@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { GetHomeAddServices } from "rest/home";
 
@@ -23,25 +24,27 @@ export const Services = () => {
         <ul>
           {getAllServices?.data?.data?.slice(0, 6).map((data, i) => {
             return (
-              <li
-                key={i}
-                onMouseOver={() => {
-                  setServiceBg(
-                    `${getAllServices?.data?.baseUrl}/${data?.featuredImage}`
-                  );
-                  // setIcon(`${getAllServices?.data?.baseUrl}/${data?.icon}`);
-                }}
-                onMouseLeave={() => {
-                  setServiceBg(
-                    `${getAllServices?.data?.baseUrl}/${getAllServices?.data?.data[0]?.featuredImage}`
-                  );
-                  // setIcon(
-                  //   `${getAllServices?.data?.baseUrl}/${getAllServices?.data?.data[0]?.icon}`
-                  // );
-                }}
-              >
-                {data?.heading}
-              </li>
+              <Link to={data?.url}>
+                <li
+                  key={i}
+                  onMouseOver={() => {
+                    setServiceBg(
+                      `${getAllServices?.data?.baseUrl}/${data?.featuredImage}`
+                    );
+                    // setIcon(`${getAllServices?.data?.baseUrl}/${data?.icon}`);
+                  }}
+                  onMouseLeave={() => {
+                    setServiceBg(
+                      `${getAllServices?.data?.baseUrl}/${getAllServices?.data?.data[0]?.featuredImage}`
+                    );
+                    // setIcon(
+                    //   `${getAllServices?.data?.baseUrl}/${getAllServices?.data?.data[0]?.icon}`
+                    // );
+                  }}
+                >
+                  {data?.heading}
+                </li>
+              </Link>
             );
           })}
         </ul>

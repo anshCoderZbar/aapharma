@@ -23,6 +23,7 @@ export default function EditService() {
   useEffect(() => {
     const defaultValues = {};
     defaultValues.heading = getSingleService?.data?.data[0]?.heading;
+    defaultValues.heading = getSingleService?.data?.data[0]?.url;
     defaultValues.icon = getSingleService?.data?.data[0]?.icon;
     defaultValues.featuredImage =
       getSingleService?.data?.data[0]?.featuredImage;
@@ -41,6 +42,7 @@ export default function EditService() {
     const formData = new FormData();
     formData.append("serviceId", id);
     formData.append("heading", data?.heading);
+    formData.append("url", data?.url);
     // formData.append("icon", data?.icon[0]);
     formData.append("featuredImage", data?.featuredImage[0]);
     updateService.mutate(formData);
