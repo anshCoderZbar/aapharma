@@ -33,16 +33,16 @@ export const Timeline = () => {
             slidesPerGroup: 3,
           },
           991: {
-            slidesPerView: 5,
+            slidesPerView: 4,
           },
           1199: {
-            slidesPerView: 7,
+            slidesPerView: 5,
           },
           1300: {
-            slidesPerView: 8,
+            slidesPerView: 6,
           },
-          1500: {
-            slidesPerView: 9,
+          1800: {
+            slidesPerView: 7,
           },
         }}
         className="time_vv"
