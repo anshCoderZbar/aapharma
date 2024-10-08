@@ -171,7 +171,7 @@
 }
 
 .top-div {
-  top: -406px !important;
+  top: -387px !important;
 }
 
 .bottom-div {
@@ -180,7 +180,7 @@
 }
 
 .timeline .swiper-wrapper .swiper-slide:nth-child(2):before {
-  height: 213px;
+  height: 195px;
   background-color: #02b5f9;
   top: auto !important;
   bottom: 0;
