@@ -16,7 +16,7 @@ import CustomChemicalSynthesis from "pages/services/CustomChemicalSynthesis";
 import CaseStudy from "pages/services/CaseStudy";
 import ResearchAndDevelopement from "pages/services/ResearchAndDevelopement";
 import Carbohydrates from "pages/services/Carbohydrates";
-import Services1 from "pages/services/Services1";
+import StableIsotopeCompounds from "pages/services/StableIsotopeCompounds";
 import Whitepaper from "pages/resources/Whitepaper";
 import Employement from "pages/contact/Employement";
 import Resources from "pages/resources/Resources";
@@ -199,10 +199,10 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/services-1"
+            path="/stable-isotope-compounds"
             element={
               <PublicRoutes>
-                <Services1 />
+                <StableIsotopeCompounds />
               </PublicRoutes>
             }
           />

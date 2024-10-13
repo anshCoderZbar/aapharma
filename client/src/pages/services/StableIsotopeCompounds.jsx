@@ -11,7 +11,7 @@ import {
   GetIsotopeTableMutation,
 } from "rest/service";
 
-export default function Services1() {
+export default function StableIsotopeCompounds() {
   const getBanner = GetIsotopeBannerMutation();
   const getAssessment = GetIsotopeAssessmentMutation();
   const getTableData = GetIsotopeTableMutation();

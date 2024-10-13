@@ -78,7 +78,7 @@ export const HeaderData = [
           {
             id: 1,
             subMenu: "Stable Isotope Compounds",
-            slug: "#",
+            slug: "/stable-isotope-compounds",
           },
           {
             id: 2,

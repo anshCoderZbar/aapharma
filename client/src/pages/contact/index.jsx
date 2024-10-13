@@ -57,13 +57,13 @@ export const Contact = () => {
           }}
         />
         <div className="contact_details">
-          <div className="contact_tabs">
+          {/* <div className="contact_tabs">
             <button className="tab_btn">Project Quotes</button>
             <button className="tab_btn">Joint Collaboration Opportnity</button>
             <button className="tab_btn">Consulting Assignment</button>
             <button className="tab_btn">All Other Inquiries</button>
             <button className="tab_btn">Commnets/Suggestions</button>
-          </div>
+          </div> */}
           <div className="contact-data">
             <ul className="details_content">
               <li>

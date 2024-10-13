@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "./timeline.css";
 import "swiper/css/scrollbar";
 import { AllCarbohydrateTimeline } from "rest/service";
-import { Scrollbar } from "swiper/modules";
+import { Navigation, Scrollbar } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Timeline = () => {
+  const swiperRef = useRef();
   const allTimelines = AllCarbohydrateTimeline();
   const [id, setId] = useState(null);
 
@@ -18,11 +20,28 @@ export const Timeline = () => {
 
   return (
     <section className="timeline">
+      <div className="timeline_arrow catalog_nav_arows">
+        <span
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="left_arrow"
+        >
+          <ChevronLeft />
+        </span>
+        <span
+          onClick={() => swiperRef.current?.slideNext()}
+          className="right_arrow"
+        >
+          <ChevronRight />
+        </span>
+      </div>
       <Swiper
         slidesPerView={1}
         scrollbar
         loop={false}
-        modules={[Scrollbar]}
+        modules={[Scrollbar, Navigation]}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
         breakpoints={{
           470: {
             slidesPerView: 2,
