@@ -48,7 +48,7 @@ export default function Conference() {
               {getCards?.data?.data &&
                 getCards?.data?.data?.map((data) => {
                   return (
-                    <div className="col-lg-6">
+                    <div className="col_xxl col-lg-6">
                       <div className="confrence_card">
                         <div className="confrence_card_img">
                           <div className="top_blue_line">

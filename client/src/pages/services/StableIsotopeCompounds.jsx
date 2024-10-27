@@ -140,7 +140,7 @@ export default function StableIsotopeCompounds() {
                 }}
               />
             </div>
-            <div className=" serv_bhys row_rev_service">
+            <div className=" serv_bhys row_rev_service diff_bg">
               <div className="service_bottom_featured_img left_flow">
                 <img
                   src={getDetails?.data?.data && getDetails?.data?.data?.image2}

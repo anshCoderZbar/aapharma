@@ -1336,9 +1336,12 @@ ol li strong {
   display: block;
   color: #2e2e2e;
   font-family: "Product Sans";
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 600;
   margin: 50px 0;
+  border: 1px solid #2a3072;
+  padding: 15px;
+  border-radius: 11px;
 }
 
 .isotope_banner h1 {
@@ -1464,6 +1467,16 @@ ol li strong {
   width: 50%;
   float: right;
   margin-left: 50px;
+}
+
+.diff_bg {
+  background-color: #34caff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.diff_bg .left_flow {
+  background-color: #fff;
 }
 
 .left_flow {
@@ -2119,7 +2132,7 @@ ol li strong {
   }
 
   .service_desc p {
-    font-size: 21px;
+    font-size: 24px;
   }
 
   .service_list_card_body h3 {
@@ -2428,7 +2441,7 @@ ol li strong {
   }
 
   .service_desc p {
-    font-size: 17px;
+    font-size: 20px;
     margin: 40px 0;
   }
 
@@ -2983,7 +2996,7 @@ ol li strong {
   }
 
   .service_desc p {
-    font-size: 16px;
+    font-size: 19px;
     margin: 35px 0;
   }
 
@@ -3421,6 +3434,7 @@ ol li strong {
   }
 
   .service_desc p {
+    font-size: 18px;
     margin: 25px 0;
   }
 
@@ -4412,7 +4426,7 @@ ol li strong {
   }
 
   .service_desc p {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .table_desc {
@@ -4923,7 +4937,7 @@ ol li strong {
   }
 
   .service_desc p {
-    font-size: 14px;
+    padding: 12px;
     margin: 15px 0;
   }
 

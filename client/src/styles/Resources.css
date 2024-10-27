@@ -465,6 +465,11 @@
   padding-top: 50px;
 }
 
+@media screen and (min-width: 2000px) {
+  .col_xxl {
+    width: 33%;
+  }
+}
 @media screen and (max-width: 1600px) {
   .whitepaper_banner_section {
     padding-top: 30px;

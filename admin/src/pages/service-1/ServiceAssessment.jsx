@@ -1,9 +1,7 @@
 import { PageWrapper } from "components/ui/PageWrapper";
-import { FormInput } from "components/ui/FormInput";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Plus, X } from "lucide-react";
-import { CreateAboutCardMutation } from "rest/about";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 
@@ -12,6 +10,7 @@ import {
   GetIsotopeAssessmentMutation,
   EditIsotopeAssessmentMutation,
 } from "rest/isotope";
+import { TextEditor } from "components/ui/TextEditor";
 
 export default function ServiceAssessment() {
   const {
@@ -20,6 +19,7 @@ export default function ServiceAssessment() {
     formState: { errors },
     getValues,
     reset,
+    control,
   } = useForm();
 
   const [list1, setList1] = useState([{ list: "" }]);
@@ -174,8 +174,9 @@ export default function ServiceAssessment() {
                 <label htmlFor="subHeading" className="form-label">
                   Sub Heading
                 </label>
-                <FormInput
-                  type="text"
+                <TextEditor
+                  control={control}
+                  defaultValue={getAssessment?.data?.data?.subheading}
                   name="subHeading"
                   placeholder="Sub Heading"
                   {...register("subHeading", {
@@ -190,8 +191,9 @@ export default function ServiceAssessment() {
                 <label htmlFor="heading1" className="form-label">
                   Heading 1
                 </label>
-                <FormInput
-                  type="text"
+                <TextEditor
+                  control={control}
+                  defaultValue={getAssessment?.data?.data?.heading1}
                   name="heading1"
                   placeholder="Heading 1"
                   {...register("heading1", {
@@ -210,9 +212,10 @@ export default function ServiceAssessment() {
                   {list1.map((item, index) => (
                     <div className="mt-2" key={index}>
                       <div key={index} className="d-flex align-items-center">
-                        <FormInput
-                          type="text"
+                        <TextEditor
+                          control={control}
                           name={`list1_${index + 1}`}
+                          defaultValue={getAssessment.data.data.list1[index]}
                           placeholder="List"
                           {...register(`list1_${index + 1}`, {
                             required: true,
@@ -249,9 +252,9 @@ export default function ServiceAssessment() {
                 <label htmlFor="heading2" className="form-label">
                   Heading 2
                 </label>
-                <FormInput
-                  type="text"
-                  name="heading2"
+                <TextEditor
+                  control={control}
+                  defaultValue={getAssessment?.data?.data?.heading2}
                   placeholder="Heading 2"
                   {...register("heading2", {
                     required: true,
@@ -270,9 +273,10 @@ export default function ServiceAssessment() {
                   {list2.map((item, index) => (
                     <div className="mt-2" key={index}>
                       <div className="d-flex align-items-center">
-                        <FormInput
-                          type="text"
+                        <TextEditor
+                          control={control}
                           name={`list2_${index + 1}`}
+                          defaultValue={getAssessment.data.data.list2[index]}
                           placeholder="List"
                           {...register(`list2_${index + 1}`, {
                             required: true,
@@ -308,9 +312,9 @@ export default function ServiceAssessment() {
                 <label htmlFor="heading3" className="form-label">
                   Heading 3
                 </label>
-                <FormInput
-                  type="text"
-                  name="heading3"
+                <TextEditor
+                  control={control}
+                  defaultValue={getAssessment?.data?.data?.heading3}
                   placeholder="Heading 3"
                   {...register("heading3", {
                     required: true,
@@ -329,9 +333,10 @@ export default function ServiceAssessment() {
                   {list3.map((item, index) => (
                     <div className="mt-2" key={index}>
                       <div key={index} className="d-flex align-items-center">
-                        <FormInput
-                          type="text"
+                        <TextEditor
+                          control={control}
                           name={`list3_${index + 1}`}
+                          defaultValue={getAssessment.data.data.list3[index]}
                           placeholder="List"
                           {...register(`list3_${index + 1}`, {
                             required: true,
