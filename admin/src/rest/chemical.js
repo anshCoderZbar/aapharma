@@ -134,6 +134,22 @@ export const GetChemicalStock = () => {
   return stock;
 };
 
+// display chemical to home page
+export const FeaturedStatus = () => {
+  const { notify } = useNotifications();
+  const status = useMutation({
+    mutationFn: (data) => client.chemical.featuredStatus(data),
+    onSuccess: () => {
+      notify("Successfully updated", "success");
+      queryClient.invalidateQueries({ queryKey: ["fetch-chemical"] });
+    },
+    onError: (error) => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return status;
+};
+
 export const DublicateChemicalMutation = () => {
   const { notify } = useNotifications();
   const chemical = useMutation({

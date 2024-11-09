@@ -5,6 +5,7 @@ export const API_ENDPOINTS = {
   singleRoutes: "/manage-sidebar/one",
   editRoute: "/manage-sidebar/update",
   deleteRoute: "/manage-sidebar/delete",
+  featuredStatus: "/product_featured",
   addCatalogL1: "/addCatalog",
   catalogsL1: "/catalogs",
   singleCatalogL1: "/singleCatalog",

@@ -64,6 +64,9 @@ class Client {
       HttpClient.post(API_ENDPOINTS.chemicalInStock, params),
     dublicateChemical: (params) =>
       HttpClient.post(API_ENDPOINTS.dublicateChemical, params),
+    featuredStatus: (params) => {
+      HttpClient.post(API_ENDPOINTS.featuredStatus, params);
+    },
   };
   home = {
     createBanner: (params) =>

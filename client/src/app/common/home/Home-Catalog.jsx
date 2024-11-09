@@ -63,12 +63,14 @@ export const HomeCatalog = () => {
       >
         {allChemicals?.data?.data?.map((items) => {
           return (
-            <SwiperSlide key={items?.id}>
-              <CatalogHomeCard
-                items={items}
-                baseUrl={allChemicals?.data?.baseUrl}
-              />
-            </SwiperSlide>
+            items?.featured === 1 && (
+              <SwiperSlide key={items?.id}>
+                <CatalogHomeCard
+                  items={items}
+                  baseUrl={allChemicals?.data?.baseUrl}
+                />
+              </SwiperSlide>
+            )
           );
         })}
       </Swiper>

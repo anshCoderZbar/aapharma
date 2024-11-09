@@ -21,6 +21,7 @@ import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { GetChemicalStock } from "rest/chemical";
 import { DublicateChemicalMutation } from "rest/chemical";
+import { FeaturedStatus } from "rest/chemical";
 
 export default function ChemicalPage() {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ export default function ChemicalPage() {
   const deleteChemical = DeleteChemical();
   const getStock = GetChemicalStock();
   const createDublicateChemical = DublicateChemicalMutation();
+  const featured = FeaturedStatus();
 
   const handleDelete = (id) => {
     deleteChemical.mutate(id);
@@ -43,6 +45,14 @@ export default function ChemicalPage() {
     formData.append("id", id);
     formData.append("inStock", checked);
     getStock.mutate(formData);
+  };
+
+  const handleFeaturedCheck = (e, id) => {
+    const { checked } = e?.target;
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("featured", checked ? 1 : 0);
+    featured.mutate(formData);
   };
 
   const dublicateChemical = (id) => {
@@ -80,6 +90,21 @@ export default function ChemicalPage() {
             id="flexSwitchCheckDefault"
             onChange={(e) => handleStockCheck(e, row?.id)}
             defaultChecked={row?.inStock === "true"}
+          />
+        </div>
+      ),
+    },
+    {
+      name: "Featured",
+      cell: (row) => (
+        <div className="form-check form-switch">
+          <input
+            className="form-check-input inp_swip"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchCheckDefault"
+            onChange={(e) => handleFeaturedCheck(e, row?.id)}
+            defaultChecked={row?.featured === 1}
           />
         </div>
       ),
