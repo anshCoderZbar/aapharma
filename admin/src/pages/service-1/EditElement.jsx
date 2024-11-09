@@ -62,6 +62,8 @@ export default function EditElement() {
             onSubmit={handleSubmit(onSubmit)}
             isLoading={editIstopeElement?.isPending}
             errors={errors}
+            control={control}
+            defaultValue={getSingleElement?.data?.data}
           />
         )}
       </div>

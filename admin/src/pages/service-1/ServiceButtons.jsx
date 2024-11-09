@@ -9,6 +9,7 @@ import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { GetIsotopeButtonMutation } from "rest/isotope";
 import { EditIsotopeButtonMutation } from "rest/isotope";
+import { TextEditor } from "components/ui/TextEditor";
 
 export default function ServiceButtons() {
   const {
@@ -67,7 +68,9 @@ export default function ServiceButtons() {
               <label htmlFor="heading" className="form-label">
                 Heading
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.heading}
                 type="text"
                 name="heading"
                 placeholder="Heading"
@@ -81,7 +84,9 @@ export default function ServiceButtons() {
               <label htmlFor="firstButton" className="form-label">
                 First Button
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.firstButton}
                 type="text"
                 name="firstButton"
                 placeholder="First Button"
@@ -95,7 +100,9 @@ export default function ServiceButtons() {
               <label htmlFor="secondButton" className="form-label">
                 Second Button
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.secondButton}
                 type="text"
                 name="secondButton"
                 placeholder="Second Button"
@@ -109,7 +116,9 @@ export default function ServiceButtons() {
               <label htmlFor="thirdButton" className="form-label">
                 Third Button
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.thirdButton}
                 type="text"
                 name="thirdButton"
                 placeholder="Third Button"
@@ -123,7 +132,9 @@ export default function ServiceButtons() {
               <label htmlFor="fourthButton" className="form-label">
                 Fourth Button
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.fourthButton}
                 type="text"
                 name="fourthButton"
                 placeholder="Fourth Button"
@@ -137,7 +148,9 @@ export default function ServiceButtons() {
               <label htmlFor="fifthButton" className="form-label">
                 Fifth Button
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.fifthButton}
                 type="text"
                 name="fifthButton"
                 placeholder="Fifth Button"
@@ -151,7 +164,9 @@ export default function ServiceButtons() {
               <label htmlFor="sixthButton" className="form-label">
                 Sixth Button
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.sixthButton}
                 type="text"
                 name="sixthButton"
                 placeholder="Sixth Button"
@@ -165,7 +180,9 @@ export default function ServiceButtons() {
               <label htmlFor="seventhButton" className="form-label">
                 Seventh Button
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.seventhButton}
                 type="text"
                 name="seventhButton"
                 placeholder="Seventh Button"
@@ -179,7 +196,9 @@ export default function ServiceButtons() {
               <label htmlFor="eighthButton" className="form-label">
                 Eighth Button
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.eighthButton}
                 type="text"
                 name="eighthButton"
                 placeholder="Eighth Button"
@@ -193,7 +212,9 @@ export default function ServiceButtons() {
               <label htmlFor="subHeading" className="form-label">
                 Sub Heading
               </label>
-              <FormInput
+              <TextEditor
+                control={control}
+                defaultValue={getIsotopeButton?.data?.data?.subheading}
                 type="text"
                 name="subHeading"
                 placeholder="Sub Heading"

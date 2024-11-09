@@ -1332,6 +1332,13 @@ ol li strong {
   margin: 50px 0;
 }
 
+.sas_uihu > p {
+  margin: 50px 0 !important;
+  font-size: 40px !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
 .service_desc p {
   display: block;
   color: #2e2e2e;
@@ -2432,8 +2439,13 @@ ol li strong {
   }
 
   .service_desc h3 {
-    font-size: 36px;
     margin: 40px auto 40px auto;
+    font-size: 36px;
+  }
+
+  .sas_uihu > p {
+    margin: 40px auto 40px auto !important;
+    font-size: 36px !important;
   }
 
   .isotope_banner h1 {
@@ -2968,6 +2980,11 @@ ol li strong {
     margin: 35px auto 35px auto;
   }
 
+  .sas_uihu > p {
+    margin: 35px auto 35px auto !important;
+    font-size: 32px !important;
+  }
+
   .table {
     max-width: 800px;
   }
@@ -3447,6 +3464,10 @@ ol li strong {
     margin: 35px auto 35px auto;
   }
 
+  .sas_uihu > p {
+    font-size: 28px !important;
+  }
+
   .table_desc {
     font-size: 18px;
     margin-top: 20px;
@@ -3874,6 +3895,11 @@ ol li strong {
   .service_desc h3 {
     font-size: 24px;
     margin: 25px auto 25px auto;
+  }
+
+  .sas_uihu > p {
+    font-size: 24px !important;
+    margin: 25px auto 25px auto !important;
   }
 
   .isotope_banner h1 {
@@ -4407,6 +4433,10 @@ ol li strong {
     margin: 25px auto 25px auto;
   }
 
+  .sas_uihu > p {
+    font-size: 20px !important;
+  }
+
   .service_bottom_featured_img img {
     max-width: 400px;
   }
@@ -4912,6 +4942,11 @@ ol li strong {
   .service_desc h3 {
     font-size: 18px;
     margin: 20px auto 20px auto;
+  }
+
+  .sas_uihu > p {
+    font-size: 18px !important;
+    margin: 20px auto 20px auto !important;
   }
 
   .service_bottom_featured_img {

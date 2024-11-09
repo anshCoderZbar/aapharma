@@ -28,26 +28,35 @@ export default function StableIsotopeCompounds() {
           extra="white_head isotope_banner"
         />
         <div className="container-fluid">
-          <div className="service_desc">
-            <p>
-              {getAssessment?.data?.data &&
-                getAssessment?.data?.data?.subheading}
-            </p>
-          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                getAssessment?.data?.data &&
+                getAssessment?.data?.data?.subheading,
+            }}
+            className="service_desc"
+          />
           <div className="sevice_detail">
             <div className="container-fluid">
               <div className="row detail_b">
                 <div className="col-sm-6 col-xl-4">
                   <div className="service_list_card">
                     <div className="service_list_card_body">
-                      <h3>
-                        {getAssessment?.data?.data &&
-                          getAssessment?.data?.data?.heading1}
-                      </h3>
+                      <h3
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            getAssessment?.data?.data &&
+                            getAssessment?.data?.data?.heading1,
+                        }}
+                      />
+
                       <ul>
                         {getAssessment?.data?.data &&
                           getAssessment?.data?.data?.list1?.map((list, i) => (
-                            <li key={i}>{list}</li>
+                            <li
+                              key={i}
+                              dangerouslySetInnerHTML={{ __html: list }}
+                            />
                           ))}
                       </ul>
                     </div>
@@ -56,14 +65,20 @@ export default function StableIsotopeCompounds() {
                 <div className="col-sm-6 col-xl-4">
                   <div className="service_list_card">
                     <div className="service_list_card_body">
-                      <h3>
-                        {getAssessment?.data?.data &&
-                          getAssessment?.data?.data?.heading2}
-                      </h3>
+                      <h3
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            getAssessment?.data?.data &&
+                            getAssessment?.data?.data?.heading2,
+                        }}
+                      />
                       <ul>
                         {getAssessment?.data?.data &&
                           getAssessment?.data?.data?.list2?.map((list, i) => (
-                            <li key={i}>{list}</li>
+                            <li
+                              key={i}
+                              dangerouslySetInnerHTML={{ __html: list }}
+                            />
                           ))}
                       </ul>
                     </div>
@@ -72,14 +87,20 @@ export default function StableIsotopeCompounds() {
                 <div className="col-sm-6 col-xl-4">
                   <div className="service_list_card">
                     <div className="service_list_card_body">
-                      <h3>
-                        {getAssessment?.data?.data &&
-                          getAssessment?.data?.data?.heading3}
-                      </h3>
+                      <h3
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            getAssessment?.data?.data &&
+                            getAssessment?.data?.data?.heading3,
+                        }}
+                      />
                       <ul>
                         {getAssessment?.data?.data &&
                           getAssessment?.data?.data?.list3?.map((list, i) => (
-                            <li key={i}>{list}</li>
+                            <li
+                              key={i}
+                              dangerouslySetInnerHTML={{ __html: list }}
+                            />
                           ))}
                       </ul>
                     </div>
@@ -109,11 +130,31 @@ export default function StableIsotopeCompounds() {
                   getTableData?.data?.data?.map((elm) => {
                     return (
                       <tr className="service_table_body">
-                        <td>{elm?.elements}</td>
-                        <td>{elm?.atomicNumber}</td>
-                        <td>{elm?.parentAtom}</td>
-                        <td>{elm?.stableIsotope}</td>
-                        <td>{elm?.abundance}</td>
+                        <td
+                          dangerouslySetInnerHTML={{
+                            __html: elm?.elements,
+                          }}
+                        />
+                        <td
+                          dangerouslySetInnerHTML={{
+                            __html: elm?.atomicNumber,
+                          }}
+                        />
+                        <td
+                          dangerouslySetInnerHTML={{
+                            __html: elm?.parentAtom,
+                          }}
+                        />
+                        <td
+                          dangerouslySetInnerHTML={{
+                            __html: elm?.stableIsotope,
+                          }}
+                        />
+                        <td
+                          dangerouslySetInnerHTML={{
+                            __html: elm?.abundance,
+                          }}
+                        />
                       </tr>
                     );
                   })}
@@ -121,7 +162,13 @@ export default function StableIsotopeCompounds() {
             </table>
           </div>
           <div className="service_desc">
-            <h3>{getDetails?.data?.data && getDetails?.data?.data?.heading}</h3>
+            <h3
+              dangerouslySetInnerHTML={{
+                __html:
+                  getDetails?.data?.data && getDetails?.data?.data?.heading,
+              }}
+              className="sas_uihu"
+            />
           </div>
           <div className="service_bottom_details">
             <div className=" serv_bhys row_rev_service">
@@ -158,39 +205,75 @@ export default function StableIsotopeCompounds() {
             </div>
           </div>
           <div className="service_desc">
-            <h3>{getButtons?.data?.data && getButtons?.data?.data?.heading}</h3>
+            <h3
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data && getButtons?.data?.data?.heading,
+              }}
+              className="sas_uihu"
+            />
           </div>
           <div className="service_desc_button">
-            <button>
-              {getButtons?.data?.data && getButtons?.data?.data?.firstButton}
-            </button>
-            <button>
-              {getButtons?.data?.data && getButtons?.data?.data?.secondButton}
-            </button>
-            <button>
-              {getButtons?.data?.data && getButtons?.data?.data?.thirdButton}
-            </button>
-            <button>
-              {getButtons?.data?.data && getButtons?.data?.data?.fourthButton}
-            </button>
-            <button>
-              {getButtons?.data?.data && getButtons?.data?.data?.fifthButton}
-            </button>
-            <button>
-              {getButtons?.data?.data && getButtons?.data?.data?.sixthButton}
-            </button>
-            <button>
-              {getButtons?.data?.data && getButtons?.data?.data?.seventhButton}
-            </button>
-            <button>
-              {getButtons?.data?.data && getButtons?.data?.data?.eighthButton}
-            </button>
+            <button
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data && getButtons?.data?.data?.firstButton,
+              }}
+            />
+            <button
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data &&
+                  getButtons?.data?.data?.secondButton,
+              }}
+            />
+            <button
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data && getButtons?.data?.data?.thirdButton,
+              }}
+            />
+            <button
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data &&
+                  getButtons?.data?.data?.fourthButton,
+              }}
+            />
+            <button
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data && getButtons?.data?.data?.fifthButton,
+              }}
+            />
+            <button
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data && getButtons?.data?.data?.sixthButton,
+              }}
+            />
+            <button
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data &&
+                  getButtons?.data?.data?.seventhButton,
+              }}
+            />
+            <button
+              dangerouslySetInnerHTML={{
+                __html:
+                  getButtons?.data?.data &&
+                  getButtons?.data?.data?.eighthButton,
+              }}
+            />
           </div>
-          <div className="service_desc">
-            <p>
-              {getButtons?.data?.data && getButtons?.data?.data?.subheading}
-            </p>
-          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                getButtons?.data?.data && getButtons?.data?.data?.subheading,
+            }}
+            className="service_desc"
+          />
         </div>
       </div>
     </div>

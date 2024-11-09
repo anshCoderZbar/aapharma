@@ -32,23 +32,33 @@ export default function ServiceTable() {
   const tableColumns = [
     {
       name: "Element",
-      selector: (row) => row.elements,
+      selector: (row) => (
+        <div dangerouslySetInnerHTML={{ __html: row.elements }} />
+      ),
     },
     {
       name: "Atomic Number",
-      selector: (row) => row.atomicNumber,
+      selector: (row) => (
+        <div dangerouslySetInnerHTML={{ __html: row.atomicNumber }} />
+      ),
     },
     {
       name: "Parent Atom",
-      selector: (row) => row.parentAtom,
+      selector: (row) => (
+        <div dangerouslySetInnerHTML={{ __html: row.parentAtom }} />
+      ),
     },
     {
       name: "Stable Isotope",
-      selector: (row) => row.stableIsotope,
+      selector: (row) => (
+        <div dangerouslySetInnerHTML={{ __html: row.stableIsotope }} />
+      ),
     },
     {
       name: "Abundance",
-      selector: (row) => row.abundance,
+      selector: (row) => (
+        <div dangerouslySetInnerHTML={{ __html: row.abundance }} />
+      ),
     },
     {
       name: "edit",

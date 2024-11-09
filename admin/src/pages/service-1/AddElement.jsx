@@ -36,6 +36,7 @@ export default function AddElement() {
           onSubmit={handleSubmit(onSubmit)}
           isLoading={addElementTable?.isPending}
           errors={errors}
+          control={control}
         />
       </div>
     </>

@@ -12,6 +12,7 @@ import {
   GetIsotopeBannerMutation,
   EditIsotopeBannerMutation,
 } from "rest/isotope";
+import { TextEditor } from "components/ui/TextEditor";
 
 export default function ServicesBanner() {
   const {
@@ -62,7 +63,7 @@ export default function ServicesBanner() {
           <ComponentLoader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-12">
               <label htmlFor="serviceBanner" className="form-label">
                 Service Banner (1540px * 545 px)
               </label>
@@ -92,14 +93,16 @@ export default function ServicesBanner() {
                 />
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-12">
               <label htmlFor="heading" className="form-label">
                 Heading
               </label>
-              <FormInput
-                type="text"
+              <TextEditor
                 name="heading"
-                placeholder="heading"
+                control={control}
+                defaultValue={
+                  getBanner?.data?.data && getBanner?.data?.data?.heading
+                }
                 {...register("heading", { required: true })}
               />
               {errors?.heading && (

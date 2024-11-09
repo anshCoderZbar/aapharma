@@ -79,9 +79,12 @@ export default function ServiceDetails() {
               <label htmlFor="heading" className="form-label">
                 Heading
               </label>
-              <FormInput
+              <TextEditor
                 name="heading"
-                placeholder="Heading"
+                control={control}
+                defaultValue={
+                  getDetails?.data?.data && getDetails?.data?.data?.heading
+                }
                 {...register("heading", { required: true })}
               />
               {errors?.heading && (

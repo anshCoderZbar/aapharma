@@ -44,7 +44,7 @@ export const Banner = (props) => {
           style={{ backgroundImage: props.background }}
           className={`banner_head ${props.extra}`}
         >
-          <h1>{props.heading}</h1>
+          <h1 dangerouslySetInnerHTML={{ __html: props.heading }} />
 
           <p dangerouslySetInnerHTML={{ __html: props?.description }} />
         </div>
