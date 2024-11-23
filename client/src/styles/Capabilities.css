@@ -321,6 +321,7 @@
 .accreditations_img img {
   width: 100%;
   max-width: 500px;
+  border-radius: 13px;
 }
 
 .accreditations_main_content p {
@@ -332,6 +333,23 @@
   font-weight: 400;
   line-height: 38px;
   margin-top: 15px;
+}
+
+.accrediation_btm_card img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.accrediation_btm_card {
+  padding: 15px;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, 0.2);
 }
 
 /* partners */
@@ -1555,10 +1573,6 @@
   .accreditations_content,
   .analytical_content {
     padding: 25px 0;
-  }
-
-  .accreditations_img {
-    text-align: left;
   }
 
   .accreditations_img img {
