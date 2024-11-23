@@ -83,7 +83,8 @@ export default function Carbohydrates() {
         <div className="max-container">
           <Timeline />
         </div>
-        {/* <div className="container-fluid">
+      </div>
+      {/* <div className="container-fluid">
           <div
             dangerouslySetInnerHTML={{
               __html:
@@ -93,7 +94,6 @@ export default function Carbohydrates() {
             className="carbohydrates_details_sec"
           />
         </div> */}
-      </div>
       <div className="max-container">
         <div className="container-fluid">
           <div className="carbohydrates_details_sec kjsjIuy">

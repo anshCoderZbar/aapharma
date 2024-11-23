@@ -8,17 +8,20 @@
   -ms-user-select: none;
   user-select: none;
   position: relative;
+  box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, 0.2);
+  border-radius: 11px;
+  padding: 20px;
 }
 
 .timeline_arrow {
   position: absolute;
-  right: 0 !important;
+  right: 25px !important;
   z-index: 10;
 }
 
 .timeline .time_vv {
   font-size: 0;
-  padding: 30rem 0 40rem 0;
+  padding: 25rem 0 30rem 0;
   transition: all 1s;
 }
 
@@ -633,7 +636,7 @@
 
 .swiper-horizontal > .swiper-scrollbar,
 .swiper-scrollbar.swiper-scrollbar-horizontal {
-  bottom: var(--swiper-scrollbar-bottom, 14%) !important;
+  bottom: var(--swiper-scrollbar-bottom, 0%) !important;
   height: var(--swiper-scrollbar-size, 2px) !important;
 }
 
@@ -672,97 +675,3 @@
   height: 0 !important;
   width: 0 !important;
 }
-
-@media only screen and (max-width: 575px) {
-  .swiper-horizontal > .swiper-scrollbar,
-  .swiper-scrollbar.swiper-scrollbar-horizontal {
-    bottom: var(--swiper-scrollbar-bottom, 0%) !important;
-    height: var(--swiper-scrollbar-size, 2px) !important;
-  }
-}
-
-/* @media only screen and (max-width: 1800px) {
-  .timeline .swiper-slide::before {
-    left: 25%;
-  }
-  .ccrical-a {
-    left: 62%;
-  }
-}
-@media only screen and (max-width: 1700px) {
-  .timeline .swiper-slide::before {
-    left: 25%;
-  }
-}
-@media only screen and (max-width: 1600px) {
-  .timeline .swiper-slide::before {
-    left: 20%;
-  }
-  .ccrical-a {
-    left: 62%;
-  }
-} */
-/* @media only screen and (max-width: 1300px) {
-  .timeline .swiper-slide::before {
-    left: 25%;
-  }
-  .ccrical-a {
-    left: 63%;
-  }
-}
-@media only screen and (max-width: 1100px) {
-  .timeline .swiper-slide::before {
-    left: -3%;
-  }
-  .ccrical-a {
-    left: 48%;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .timeline .swiper-slide::before {
-    left: -29%;
-  }
-  .ccrical-a {
-    left: 36%;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .timeline .swiper-slide::before {
-    left: -39%;
-  }
-  .ccrical-a {
-    left: 31%;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .timeline .swiper-slide::before {
-    left: -29%;
-  }
-  .ccrical-a {
-    left: 36%;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .timeline .swiper-slide::before {
-    left: -15%;
-  }
-  .ccrical-a {
-    left: 43%;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .timeline .swiper-slide::before {
-    left: -186px;
-  }
-  .ccrical-a {
-    left: 27%;
-  }
-}
-@media only screen and (max-width: 350px) {
-  .timeline .swiper-slide::before {
-    left: -39%;
-  }
-  .ccrical-a {
-    left: 31%;
-  }
-} */

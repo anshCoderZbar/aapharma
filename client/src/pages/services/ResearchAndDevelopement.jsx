@@ -26,9 +26,10 @@ export default function ResearchAndDevelopement() {
   return (
     <div className="research_and_development_page">
       <Banner
-        background={`url(${
-          getBanner?.data?.data?.image && getBanner?.data?.data?.image
-        })`}
+        background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
+        // background={`url(${
+        //   getBanner?.data?.data?.image && getBanner?.data?.data?.image
+        // })`}
         extra="research_banner"
         subMenu="Medicinal Chemistry"
         heading={

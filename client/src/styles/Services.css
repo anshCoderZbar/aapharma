@@ -1317,6 +1317,7 @@ ol li strong {
   font-style: normal;
   font-weight: 400;
   margin-bottom: 25px;
+  margin-top: 30px;
 }
 
 /* carbohydrates */
@@ -1337,6 +1338,7 @@ ol li strong {
   font-size: 40px !important;
   border: none !important;
   padding: 0 !important;
+  box-shadow: none !important;
 }
 
 .service_desc p {
@@ -1349,6 +1351,7 @@ ol li strong {
   border: 1px solid #2a3072;
   padding: 15px;
   border-radius: 11px;
+  box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, 0.2);
 }
 
 .isotope_banner h1 {
@@ -1477,9 +1480,10 @@ ol li strong {
 }
 
 .diff_bg {
-  background-color: #34caff;
+  background-color: #2a3072;
   padding: 20px;
   border-radius: 12px;
+  box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, 0.2);
 }
 
 .diff_bg .left_flow {
@@ -1498,6 +1502,10 @@ ol li strong {
   font-weight: 400;
   line-height: 40px;
   text-align: justify;
+}
+
+.diff_bg p {
+  color: #fff;
 }
 
 .service_bottom_desc p a {
@@ -1531,7 +1539,6 @@ ol li strong {
 }
 
 .carbohydrates_diagram_outer {
-  margin-top: -7em;
   position: relative;
   z-index: 9;
 }
@@ -1552,7 +1559,7 @@ ol li strong {
 
 .carbs_diagaram {
   justify-content: space-between;
-  padding: 80px 0;
+  padding: 50px 0;
 }
 
 .carb_imgs_sec {
@@ -1606,11 +1613,6 @@ ol li strong {
 .carb_second_img img {
   max-width: 230px;
   width: 100%;
-}
-
-.kjsjIuy {
-  position: relative;
-  top: -129px;
 }
 
 /* process-research-development */
@@ -2730,6 +2732,10 @@ ol li strong {
   .icons_card_outer {
     margin-bottom: 60px;
   }
+
+  .carbohydrates_details_sec {
+    margin-top: 25px;
+  }
 }
 
 @media only screen and (max-width: 1400px) {
@@ -3726,6 +3732,10 @@ ol li strong {
 
   .icons_card_outer {
     margin-bottom: 40px;
+  }
+
+  .carbohydrates_details_sec {
+    margin-top: 20px;
   }
 }
 
@@ -4769,11 +4779,6 @@ ol li strong {
     margin-right: 0;
   }
 
-  .kjsjIuy {
-    position: relative;
-    top: -138px;
-  }
-
   .icons_card_outer {
     padding: 25px;
   }
@@ -5371,11 +5376,6 @@ ol li strong {
     padding: 12px;
   }
 
-  .kjsjIuy {
-    position: relative;
-    top: 19px;
-  }
-
   .icons_card_inner h3 {
     font-size: 17px;
     margin-top: 17px;
@@ -5383,5 +5383,9 @@ ol li strong {
 
   .icons_card_outer {
     margin-bottom: 20px;
+  }
+
+  .carbohydrates_details_sec {
+    margin-top: 15px;
   }
 }
