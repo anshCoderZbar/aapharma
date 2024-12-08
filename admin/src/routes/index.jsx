@@ -164,6 +164,8 @@ import CreateConferenceCard from "pages/conferences/CreateConferenceCard";
 import ConferenceCardDetails from "pages/conferences/ConferenceCardDetail";
 import EditConferenceCard from "pages/conferences/EditConferenceCard";
 import ProcessResearchDiagram from "pages/process-research-and-development/ProcessResearchDiagram";
+import CreateAccreditations from "pages/accreditations/CreateAccreditations";
+import EditAccreditations from "pages/accreditations/EditAccreditations";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -1409,6 +1411,22 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <Accreditations />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-accreditations",
+      element: (
+        <PrivateRoutes>
+          <CreateAccreditations />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-accreditations/:id",
+      element: (
+        <PrivateRoutes>
+          <EditAccreditations />
         </PrivateRoutes>
       ),
     },

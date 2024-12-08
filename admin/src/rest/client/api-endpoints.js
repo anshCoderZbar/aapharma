@@ -169,7 +169,6 @@ export const API_ENDPOINTS = {
   deletePartnersLogo: "/partnerslogos/delete",
   capabilitiesOverview: "/overviewbanner",
   analyticalInstrumentation: "/analytical-instrumentation",
-  accreditations: "/accreditations",
   labEquipmentBanner: "/lab-equipment-banner",
   allLabEquipments: "/lab-equipment/all",
   singleLabEquipment: "/lab-equipment/one",
@@ -245,4 +244,9 @@ export const API_ENDPOINTS = {
   allResearchCollaborationCompany: "/research-collaboration-company/all",
   singleResearchCollaborationCompany: "/research-collaboration-company/one",
   editResearchCollaborationCompany: "/research-collaboration-company/update",
+  accreditations: "/accreditations",
+  addAccreditations: "add-accreditations",
+  singleAccreditatios: "/edit-accreditations",
+  editAccreditations: "/accreditations-status",
+  deleteAccreditations: "/delete-accreditations",
 };

@@ -15,7 +15,7 @@ export default function Accreditations() {
       />
       <div className="container-fluid">
         <div className="max-container">
-          <div className="row accreditations_content">
+          {/* <div className="row accreditations_content">
             <div className="col-md-6">
               <div className="accreditations_img">
                 <img
@@ -29,10 +29,10 @@ export default function Accreditations() {
             </div>
             <div className="col-md-6">
               <div className="accreditations_main_content">
-                {/* <h1 className="main_top_heading">
-                {getAccreditation?.data?.data?.heading &&
-                  getAccreditation?.data?.data?.heading}
-              </h1> */}
+              // <h1 className="main_top_heading">
+              //   {getAccreditation?.data?.data?.heading &&
+              //     getAccreditation?.data?.data?.heading}
+              // </h1> 
                 <div
                   dangerouslySetInnerHTML={{
                     __html:
@@ -42,53 +42,18 @@ export default function Accreditations() {
                 />
               </div>
             </div>
-          </div>
-          <div className="row mb-5">
-            <div className="col-12 col-sm-6 col-md-4">
-              <div className="accrediation_btm_card">
-                <img
-                  src={require("assets/accrediation_card_img.png")}
-                  alt="accrediation image"
-                />
-                <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
-                </p>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-4">
-              <div className="accrediation_btm_card">
-                <img
-                  src={require("assets/accrediation_card_img.png")}
-                  alt="accrediation image"
-                />
-                <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
-                </p>
-              </div>
-            </div>
-            <div className="col-12 col-sm-6 col-md-4">
-              <div className="accrediation_btm_card">
-                <img
-                  src={require("assets/accrediation_card_img.png")}
-                  alt="accrediation image"
-                />
-                <p>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using 'Content
-                  here, content here', making it look like readable English.
-                </p>
-              </div>
-            </div>
+          </div> */}
+          <div className="row mt-5 mb-5">
+            {getAccreditation?.data?.data?.map((elm) => {
+              return (
+                <div className="col-12 col-sm-6 col-md-4">
+                  <div className="accrediation_btm_card">
+                    <img src={elm?.image} alt="accrediation image" />
+                    <p dangerouslySetInnerHTML={{ __html: elm?.description }} />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
