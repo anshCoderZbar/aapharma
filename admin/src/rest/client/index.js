@@ -594,6 +594,26 @@ class Client {
     deleteAccreditations: (id) =>
       HttpClient.post(API_ENDPOINTS.deleteAccreditations + "/" + id),
   };
+  footer = {
+    getAllusefullLinks: () => HttpClient.get(API_ENDPOINTS.footerUsefulLinks),
+    createAllUsefullLink: (params) =>
+      HttpClient.post(API_ENDPOINTS.footerUsefulLinks, params),
+    getSingleusefullLinks: (id) =>
+      HttpClient.get(API_ENDPOINTS.footerUsefulLinks + "/" + id),
+    editusefullLinks: (params, id) =>
+      HttpClient.put(API_ENDPOINTS.footerUsefulLinks + "/" + id, params),
+    deleteusefullLinks: (id) =>
+      HttpClient.delete(API_ENDPOINTS.footerUsefulLinks + "/" + id),
+    getAllMenuItems: () => HttpClient.get(API_ENDPOINTS.footerMenuLinks),
+    createAllMenuItems: (params) =>
+      HttpClient.post(API_ENDPOINTS.footerMenuLinks + "?" + params),
+    getSingleMenuItems: (id) =>
+      HttpClient.get(API_ENDPOINTS.footerMenuLinks + "/" + id),
+    editMenuItems: (params, id) =>
+      HttpClient.put(API_ENDPOINTS.footerMenuLinks + "?" + id, params),
+    deleteMenuItems: (id) =>
+      HttpClient.delete(API_ENDPOINTS.footerMenuLinks + "/" + id),
+  };
 }
 
 const client = new Client();

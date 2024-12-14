@@ -30,6 +30,7 @@ class Client {
   };
   main = {
     getSettings: () => HttpClient.get(API_ENDPOINTS.getSettings),
+    getFooterLinks: () => HttpClient.get(API_ENDPOINTS.footerLinks),
   };
   about = {
     getAboutBanner: () => HttpClient.get(API_ENDPOINTS.getAboutBanner),

@@ -249,4 +249,6 @@ export const API_ENDPOINTS = {
   singleAccreditatios: "/edit-accreditations",
   editAccreditations: "/accreditations-status",
   deleteAccreditations: "/delete-accreditations",
+  footerUsefulLinks: "/menu-titles",
+  footerMenuLinks: "/menu-items",
 };

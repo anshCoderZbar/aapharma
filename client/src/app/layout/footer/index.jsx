@@ -13,9 +13,14 @@ import { allSettings } from "store/SettingsStore";
 import { useAtom } from "jotai";
 import { CartModal } from "app/components/Cart-Modal";
 import { Link } from "react-router-dom";
+import { GetFooterLinksMutation } from "rest/main";
 
 export const Footer = () => {
   const [allDetails] = useAtom(allSettings);
+
+  const footerLinks = GetFooterLinksMutation();
+
+  console.log(footerLinks);
 
   return (
     <>
@@ -88,51 +93,22 @@ export const Footer = () => {
                 </Link>
                 <p className="comp_desc">{allDetails?.footerText}</p>
               </div>
-              <div className="col-6 col-md-6 col-lg-3 mx-auto ">
-                <h4 className=" footer_sec_head">Useful Links</h4>
-                <ul className="footer_links">
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/about-AAPharmaSyn">About us</Link>
-                  </li>
-                  <li>
-                    <Link to="/overview">Capabilities</Link>
-                  </li>
-                  <li>
-                    <Link to="/catalog">Catalogs</Link>
-                  </li>
-                  <li>
-                    <Link to="/resources">Resources</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="col-6 col-md-6 col-lg-3 mx-auto ">
-                <h4 className="footer_sec_head">Services</h4>
-                <ul className="footer_links">
-                  <li>
-                    <Link to="/custom-chemical-synthesis">
-                      Custom Chemical Synthesis
-                    </Link>
-                  </li>
-                  <li>
-                    <a href="#!">Chemical Manufacturing</a>
-                  </li>
-                  <li>
-                    <a href="#!">Medical Chemistry</a>
-                  </li>
-                  <li>
-                    <a href="#!">Process Development</a>
-                  </li>
-                  <li>
-                    <a href="#!">Consulting</a>
-                  </li>
-                  <li>
-                    <a href="#!">Inventory Management</a>
-                  </li>
-                </ul>
-              </div>
+              {footerLinks?.data?.data?.map((links) => {
+                return (
+                  <div className="col-6 col-md-6 col-lg-3 mx-auto ">
+                    <h4 className=" footer_sec_head">{links?.title}</h4>
+                    <ul className="footer_links">
+                      {links?.items?.map((elm) => {
+                        return (
+                          <li>
+                            <Link to={elm?.url}>{elm?.label}</Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
               <div className="col-12 col-md-6 col-lg-3 mx-auto mb-md-0 ">
                 <h4 className="footer_sec_head">Address</h4>
                 <ul className="footer_links">

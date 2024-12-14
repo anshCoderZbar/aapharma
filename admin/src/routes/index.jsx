@@ -166,6 +166,12 @@ import EditConferenceCard from "pages/conferences/EditConferenceCard";
 import ProcessResearchDiagram from "pages/process-research-and-development/ProcessResearchDiagram";
 import CreateAccreditations from "pages/accreditations/CreateAccreditations";
 import EditAccreditations from "pages/accreditations/EditAccreditations";
+import AllUsefullLink from "pages/footer/AllUsefulLinks";
+import AddUsefullLinks from "pages/footer/AddUsefullLinks";
+import EditUsefullLinks from "pages/footer/EditUsefullLinks";
+import AddLinksMenuItems from "pages/footer/AddLinksMenuItems";
+import AllLinksMenuItems from "pages/footer/AllLinksMenuItems";
+import EditLinksMenuItems from "pages/footer/EditLinksMenuItems";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -1427,6 +1433,54 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <EditAccreditations />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/all-usefull-links",
+      element: (
+        <PrivateRoutes>
+          <AllUsefullLink />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-usefull-links",
+      element: (
+        <PrivateRoutes>
+          <AddUsefullLinks />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-usefull-links/:id",
+      element: (
+        <PrivateRoutes>
+          <EditUsefullLinks />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/all-menu-items",
+      element: (
+        <PrivateRoutes>
+          <AllLinksMenuItems />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-menu-items",
+      element: (
+        <PrivateRoutes>
+          <AddLinksMenuItems />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-menu-items/:id",
+      element: (
+        <PrivateRoutes>
+          <EditLinksMenuItems />
         </PrivateRoutes>
       ),
     },

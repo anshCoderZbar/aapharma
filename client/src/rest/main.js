@@ -83,3 +83,13 @@ export const GetEmploymentResponsibilities = () => {
   });
   return getResponsibilities;
 };
+
+// footer links
+
+export const GetFooterLinksMutation = () => {
+  const footerLinks = useQuery({
+    queryKey: ["get-all-footer-links"],
+    queryFn: () => client.main.getFooterLinks(),
+  });
+  return footerLinks;
+};
