@@ -20,8 +20,6 @@ export const Footer = () => {
 
   const footerLinks = GetFooterLinksMutation();
 
-  console.log(footerLinks);
-
   return (
     <>
       <footer className="footer">

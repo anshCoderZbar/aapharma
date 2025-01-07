@@ -6,7 +6,6 @@ import { AllTestimonialMutation } from "rest/home";
 
 export const Testimonials = () => {
   const allTestimonail = AllTestimonialMutation();
-
   return (
     <Swiper
       slidesPerView={2}

@@ -106,11 +106,20 @@ export const TestimonialsPage = () => {
                       <div
                         dangerouslySetInnerHTML={{ __html: data?.description }}
                       />
-                      <div className="client_profile">
-                        <span className="client_name">{data?.authorName}</span>
-                        <span className="client_designation">
-                          {data?.authorPosition}
-                        </span>
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="">
+                          <span className="client_name">
+                            {data?.authorName}
+                          </span>
+                          <span className="client_designation">
+                            {data?.authorPosition}
+                          </span>
+                        </div>
+                        <img
+                          src={filterTestimonial[0].clientImage}
+                          alt="client-image"
+                          width={70}
+                        />
                       </div>
                     </div>
                   </SwiperSlide>

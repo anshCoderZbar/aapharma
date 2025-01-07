@@ -570,6 +570,10 @@
   height: auto !important;
 }
 
+.clients_details .swiper-wrapper {
+  justify-content: center;
+}
+
 @media only screen and (min-width: 1930px) {
   .sevices_bg {
     width: calc(100% - 30%);
