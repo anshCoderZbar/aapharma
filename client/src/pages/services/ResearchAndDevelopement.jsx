@@ -30,17 +30,25 @@ export default function ResearchAndDevelopement() {
         // background={`url(${
         //   getBanner?.data?.data?.image && getBanner?.data?.data?.image
         // })`}
-        extra="research_banner"
+        extra="research_banner white_head text-center"
         subMenu="Medicinal Chemistry"
         heading={
           getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
         }
-        description={
-          getBanner?.data?.data?.description &&
-          getBanner?.data?.data?.description
-        }
+        // description={
+        // getBanner?.data?.data?.description &&
+        // getBanner?.data?.data?.description
+        // }
       />
       <div className="container-fluid">
+        <div
+          className="research_content mt-4"
+          dangerouslySetInnerHTML={{
+            __html:
+              getBanner?.data?.data?.description &&
+              getBanner?.data?.data?.description,
+          }}
+        />
         <div className="research_btn_section">
           <button>
             {getSort?.data?.data?.button1 && getSort?.data?.data?.button1}

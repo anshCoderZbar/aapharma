@@ -5,6 +5,7 @@ import { Pagination } from "swiper/modules";
 
 import "swiper/css/pagination";
 import { AllArticlesMutation } from "rest/home";
+import { useNavigate } from "react-router-dom";
 
 export const Articles = () => {
   const allArticles = AllArticlesMutation();
@@ -12,6 +13,7 @@ export const Articles = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [imageHeights, setImageHeights] = useState([]);
   const swiperRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleSlideChange = () => {
     const heights = imageRefs.current.map((ref) => {
@@ -64,7 +66,10 @@ export const Articles = () => {
                       />
                     </div>
                     <div className="read_blog_btn">
-                      <button className="primary_btn_outline d-flex">
+                      <button
+                        onClick={() => navigate("/whitepaper")}
+                        className="primary_btn_outline d-flex"
+                      >
                         Read More
                         <span>
                           <MoveUpRight />
@@ -85,7 +90,10 @@ export const Articles = () => {
               </SwiperSlide>
             );
           })}
-        <button className="primary_buttton btn_papers">
+        <button
+          onClick={() => navigate("/whitepaper")}
+          className="primary_buttton btn_papers"
+        >
           Additional Papers
         </button>
       </Swiper>

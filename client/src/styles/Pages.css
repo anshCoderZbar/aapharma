@@ -30,6 +30,12 @@
   font-weight: 700;
 }
 
+.test-swiper .swiper-wrapper {
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
 .clients_details {
   width: 100%;
   background: #f7f7f7;

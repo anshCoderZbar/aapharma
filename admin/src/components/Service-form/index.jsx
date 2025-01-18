@@ -127,6 +127,7 @@ export const ServiceForm = ({
             />
           )}
         </div>
+
         {isLoading ? (
           <div>
             <ButtonLoader />
@@ -138,5 +139,9 @@ export const ServiceForm = ({
         )}
       </form>
     </div>
+  );
+  console.log(
+    "🚀 ~ filePreviews.featuredImagePreview && images?.defaultImage:",
+    filePreviews.featuredImagePreview && images?.defaultImage
   );
 };
