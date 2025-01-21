@@ -92,3 +92,46 @@ export const UpdateTestimonialMutation2 = () => {
   });
   return updateTestimonial;
 };
+
+export const CreateTestimonialClientMutation = (reset) => {
+  const { notify } = useNotifications();
+  const createClient = useMutation({
+    mutationFn: (data) => client.testimonialPage.addClientImg(data),
+    onSuccess: () => {
+      notify("Data successfully Added", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-all-testimonial-clients"],
+      });
+      reset({ image: "" });
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return createClient;
+};
+
+export const AllTestimonialClientMutation = () => {
+  const allClients = useQuery({
+    queryKey: ["get-all-testimonial-clients"],
+    queryFn: () => client.testimonialPage.allClientsImg(),
+  });
+  return allClients;
+};
+
+export const DeleteTestimonialClientMutation = () => {
+  const { notify } = useNotifications();
+  const deleteClient = useMutation({
+    mutationFn: (id) => client.testimonialPage.deleteClientsImg(id),
+    onSuccess: () => {
+      notify("Client Deleted successfully", "success");
+      queryClient.invalidateQueries({
+        queryKey: ["get-all-testimonial-clients"],
+      });
+    },
+    onError: () => {
+      notify("OOPS! some error occured", "error");
+    },
+  });
+  return deleteClient;
+};

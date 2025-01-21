@@ -251,4 +251,7 @@ export const API_ENDPOINTS = {
   deleteAccreditations: "/delete-accreditations",
   footerUsefulLinks: "/menu-titles",
   footerMenuLinks: "/menu-items",
+  addTestimonialClient: "/add-testimonial-logo",
+  getTestimonialClient: "/logo-listing",
+  deleteTestimonialClient: "/delete-testimonial-logo",
 };

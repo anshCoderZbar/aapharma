@@ -172,6 +172,7 @@ import EditUsefullLinks from "pages/footer/EditUsefullLinks";
 import AddLinksMenuItems from "pages/footer/AddLinksMenuItems";
 import AllLinksMenuItems from "pages/footer/AllLinksMenuItems";
 import EditLinksMenuItems from "pages/footer/EditLinksMenuItems";
+import AllClients from "pages/testimonial/AllClients";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -592,6 +593,14 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <AllTestimonial />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/testimonial-client",
+      element: (
+        <PrivateRoutes>
+          <AllClients />
         </PrivateRoutes>
       ),
     },

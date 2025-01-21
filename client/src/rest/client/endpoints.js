@@ -110,4 +110,5 @@ export const API_ENDPOINTS = {
   allResearchCollaborationCompany: "/research-collaboration-company/all",
   researchCollaborationDiagram: "/research-collaboration-diagram",
   footerLinks: "/menu-titles",
+  getTestimonialClient: "/logo-listing",
 };

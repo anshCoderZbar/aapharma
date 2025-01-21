@@ -86,3 +86,11 @@ export const AllTestimonialMutation2 = () => {
   });
   return allTestimonial;
 };
+
+export const AllTestimonialClientMutation = () => {
+  const allClients = useQuery({
+    queryKey: ["get-all-testimonial-clients"],
+    queryFn: () => client.about.allClientsImg(),
+  });
+  return allClients;
+};

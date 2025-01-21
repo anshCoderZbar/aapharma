@@ -3,11 +3,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "styles/Pages.css";
 import { Autoplay } from "swiper/modules";
-import { AllTestimonialMutation2, GetTestimonialPageHeading } from "rest/about";
+import {
+  AllTestimonialClientMutation,
+  AllTestimonialMutation2,
+  GetTestimonialPageHeading,
+} from "rest/about";
 import { Banner } from "app/components/Ui/Banner";
 
 export const TestimonialsPage = () => {
   const allTestimonial = AllTestimonialMutation2();
+  const allClientImages = AllTestimonialClientMutation();
+
   const getHeadings = GetTestimonialPageHeading();
   const [selected, setSelected] = useState(null);
 
@@ -66,8 +72,8 @@ export const TestimonialsPage = () => {
               },
             }}
           >
-            {allTestimonial?.data?.data?.length >= 1 &&
-              allTestimonial?.data?.data?.map((clients, i) => {
+            {allClientImages?.data?.data?.length >= 1 &&
+              allClientImages?.data?.data?.map((clients, i) => {
                 return (
                   <SwiperSlide key={i}>
                     <div
@@ -78,7 +84,11 @@ export const TestimonialsPage = () => {
                       }`}
                     >
                       <img
-                        src={clients?.clientImage}
+                        src={
+                          "https://coderzbar.net/pharmacy_dev" +
+                          "/" +
+                          clients?.test_logo
+                        }
                         alt="clients logos"
                         className="w-100"
                       />

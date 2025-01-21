@@ -19,10 +19,6 @@ export default function EditService() {
 
   const getSingleService = GetSingleAddedServices(id);
   const [images, setImages] = useState({ defaultImage: "", defaultIcon: "" });
-  console.log(
-    "🚀 ~ EditService ~ images:",
-    getSingleService?.data?.data[0].featuredImage
-  );
 
   useEffect(() => {
     const defaultValues = {};

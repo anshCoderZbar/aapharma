@@ -47,6 +47,7 @@ class Client {
     getTestimonialPageHeading: () =>
       HttpClient.get(API_ENDPOINTS.testimonialPageHeading),
     getAllTestimonial2: () => HttpClient.get(API_ENDPOINTS.getAllTestimonial2),
+    allClientsImg: () => HttpClient.get(API_ENDPOINTS.getTestimonialClient),
   };
   services = {
     getCustomChemicalSynthesis: () =>

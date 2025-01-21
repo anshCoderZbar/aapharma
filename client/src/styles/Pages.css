@@ -31,9 +31,9 @@
 }
 
 .test-swiper .swiper-wrapper {
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
 }
 
 .clients_details {

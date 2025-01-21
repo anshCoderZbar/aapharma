@@ -211,6 +211,11 @@ class Client {
       HttpClient.post(API_ENDPOINTS.editTestimonial2, params),
     deleteTestimonial2: (params) =>
       HttpClient.post(API_ENDPOINTS.deleteTestimonial2, params),
+    addClientImg: (params) =>
+      HttpClient.post(API_ENDPOINTS.addTestimonialClient, params),
+    allClientsImg: () => HttpClient.get(API_ENDPOINTS.getTestimonialClient),
+    deleteClientsImg: (id) =>
+      HttpClient.post(API_ENDPOINTS.deleteTestimonialClient + "/" + id),
   };
 
   therapeutics = {
