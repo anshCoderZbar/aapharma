@@ -550,6 +550,10 @@
   margin-right: 15px;
 }
 
+.client_brand img {
+  max-width: 100px;
+}
+
 .test-name span {
   display: block;
   color: #666;
@@ -572,6 +576,8 @@
 
 .clients_details .swiper-wrapper {
   justify-content: center;
+  align-items: center;
+  gap: 13px;
 }
 
 @media only screen and (min-width: 1930px) {
@@ -1253,10 +1259,6 @@
 
   .test-name {
     font-size: 16px;
-  }
-
-  .client_brand img {
-    width: 150px;
   }
 }
 

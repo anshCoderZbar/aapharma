@@ -14,19 +14,19 @@ export const TestimonialForm = ({
   selectedClient,
   isLoading,
   testimonalDesc,
-  // authorImg,
+  authorImg,
 }) => {
   const allClients = AllClientMutation();
 
-  // const [previewImage, setPreviewImage] = useState("");
+  const [previewImage, setPreviewImage] = useState("");
 
-  // const handleChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     const filePreviewUrl = URL.createObjectURL(file);
-  //     setPreviewImage(filePreviewUrl);
-  //   }
-  // };
+  const handleChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const filePreviewUrl = URL.createObjectURL(file);
+      setPreviewImage(filePreviewUrl);
+    }
+  };
 
   useEffect(() => {
     setSelectedClient(allClients?.data?.data[0]?.id);
@@ -37,7 +37,7 @@ export const TestimonialForm = ({
   };
   return (
     <form onSubmit={onSubmit} className="row mt-4 mb-3">
-      <div className="mb-3 col-12">
+      {/* <div className="mb-3 col-12">
         <label htmlFor="client" className="form-label">
           Client
         </label>
@@ -67,10 +67,10 @@ export const TestimonialForm = ({
           })}
         </div>
         {errors?.client && <p className="errorMessage">client is required</p>}
-      </div>
-      {/* <div className="mb-3 col-md-6">
+      </div> */}
+      <div className="mb-3 col-md-12">
         <label htmlFor="authorImage" className="form-label">
-          Author Image (50px * 50px)
+          Client Image
         </label>
         <FormInput
           type="file"
@@ -102,7 +102,7 @@ export const TestimonialForm = ({
             />
           </div>
         )}
-      </div> */}
+      </div>
       <div className="mb-3 col-md-6">
         <label htmlFor="authorName" className="form-label">
           Author Name

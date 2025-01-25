@@ -49,15 +49,23 @@
   margin-top: 90px;
 }
 
-.clients_logos img {
+.clients_logos {
   border-radius: 11px;
   width: 105px;
-  height: 70px;
+  height: 100px;
   cursor: pointer;
+  overflow: hidden;
+  background-color: #fff;
 }
 
-.client_active img {
-  background-color: #2a3072 !important;
+.clients_logos img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.client_active {
+  border: 3px solid #2a3072 !important;
   padding: 2px !important;
   border-radius: 11px;
 }

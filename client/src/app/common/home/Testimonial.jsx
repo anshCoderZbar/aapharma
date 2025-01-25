@@ -8,7 +8,7 @@ export const Testimonials = () => {
   const allTestimonail = AllTestimonialMutation();
   return (
     <Swiper
-      slidesPerView={2}
+      slidesPerView={1}
       spaceBetween={30}
       loop={true}
       breakpoints={{

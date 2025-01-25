@@ -16,7 +16,7 @@ export const TestimonialCard = ({ testimonials }) => {
             {testimonials?.authorPosition}
           </div>
           <div className="client_brand">
-            <img src={testimonials?.clientImage} alt="brand" />
+            <img src={testimonials?.authorImage} alt="brand" />
           </div>
         </div>
       </div>
