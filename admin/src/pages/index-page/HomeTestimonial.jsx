@@ -42,7 +42,7 @@ export default function HomeTestimonial() {
     {
       name: "Clients Image",
       cell: (row) => (
-        <img src={row?.clientImage} alt="client" style={{ maxWidth: "50px" }} />
+        <img src={row?.authorImage} alt="client" style={{ maxWidth: "50px" }} />
       ),
     },
     {
