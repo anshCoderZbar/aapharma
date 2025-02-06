@@ -33,8 +33,8 @@ export const TestimonialsPage = () => {
           getHeadings?.data?.data && getHeadings?.data?.data?.description
         }
       />
-      {/* <div className="test-swiper"> */}
-      <div className="clients_details">
+      <div className="test-swiper">
+        {/* <div className="clients_details"> */}
         <div className="container-fluid">
           <Swiper
             slidesPerView={2}
@@ -74,11 +74,18 @@ export const TestimonialsPage = () => {
                     <div
                       onClick={() => setSelected(clients?.id)}
                       key={i}
-                      className={`clients_logos ${
+                      // className={`clients_logos ${
+                      //   selected === clients?.id ? "client_active" : ""
+                      // }`}
+                      className={` ${
                         selected === clients?.id ? "client_active" : ""
                       }`}
                     >
-                      <img src={clients?.clientImage} alt="clients logos" />
+                      <img
+                        src={clients?.clientImage}
+                        alt="clients logos"
+                        className="w-100"
+                      />
                     </div>
                   </SwiperSlide>
                 );
