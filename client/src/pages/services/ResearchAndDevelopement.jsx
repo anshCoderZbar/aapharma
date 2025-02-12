@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Services.css";
@@ -15,6 +15,7 @@ export default function ResearchAndDevelopement() {
   const getBanner = GetResearchDevelopmentBanner();
   const getSort = GetResearchDevelopmentSort();
   const getResearchTabs = GetResearchDevelopmentTabs();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (getResearchTabs?.data?.data) {
@@ -132,7 +133,13 @@ export default function ResearchAndDevelopement() {
               execute synthesis of a complex lipid or a library of lipids. For
               more information, please contact us.
             </p>
-            <button className="primary_buttton">Contact Us</button>
+
+            <button
+              onClick={() => navigate("/contact-us")}
+              className="primary_buttton"
+            >
+              Contact Us
+            </button>
           </div>
         </div>
       </div>

@@ -134,7 +134,7 @@ export default function OperatingPhilosophy() {
                 control={control}
                 name={`diagramHeading`}
                 defaultValue={
-                  getOperatingPhilosophy?.data?.data?.diagramDescription
+                  getOperatingPhilosophy?.data?.data?.diagramHeading
                 }
                 {...register(`diagramHeading`, {
                   required: true,
