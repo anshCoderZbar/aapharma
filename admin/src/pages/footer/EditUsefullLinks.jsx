@@ -62,7 +62,7 @@ export default function EditUsefullLinks() {
           </div>
           <div className="row">
             <div className="col-6">
-              {createRoutes?.isPending ? (
+              {editUsefullLink?.isPending ? (
                 <ButtonLoader />
               ) : (
                 <div className="mb-3 col-12">

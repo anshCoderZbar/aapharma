@@ -111,7 +111,7 @@ export const HeaderData = [
       },
       {
         id: 7,
-        name: "Basic Research",
+        name: "Research Collaboration",
         slug: "/research-collaboration",
       },
     ],

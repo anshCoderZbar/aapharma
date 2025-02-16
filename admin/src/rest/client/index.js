@@ -606,7 +606,7 @@ class Client {
     getSingleusefullLinks: (id) =>
       HttpClient.get(API_ENDPOINTS.footerUsefulLinks + "/" + id),
     editusefullLinks: (params, id) =>
-      HttpClient.put(API_ENDPOINTS.footerUsefulLinks + "/" + id, params),
+      HttpClient.post(API_ENDPOINTS.footerUsefulLinks + "/" + id, params),
     deleteusefullLinks: (id) =>
       HttpClient.delete(API_ENDPOINTS.footerUsefulLinks + "/" + id),
     getAllMenuItems: () => HttpClient.get(API_ENDPOINTS.footerMenuLinks),

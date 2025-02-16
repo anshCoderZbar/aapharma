@@ -20,9 +20,7 @@ export default function LabEquipment() {
         // })`}
         background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
         subMenu="Equipment"
-        heading={
-          getBanner?.data?.data?.heading && getBanner?.data?.data?.heading
-        }
+        heading={"Large Walk-In Fume Hoods For Process Development"}
         // extra="lab_equipment_banner"
         extra=" white_head process_top_banner"
       />

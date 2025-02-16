@@ -18,7 +18,7 @@ export default function LabEquipmentBanner() {
   } = useForm();
 
   const [perviewImages, setPreviewImages] = useState("");
-  const [defaultImg, setDefaultImg] = useState("");
+  // const [defaultImg, setDefaultImg] = useState("");
 
   const createBanner = EditLabEquipmentBannerMutation();
   const getBanner = GetLabEquipmentBannerMutation();
@@ -34,14 +34,14 @@ export default function LabEquipmentBanner() {
   useEffect(() => {
     const defaultValues = {};
     defaultValues.heading = getBanner?.data?.data?.heading;
-    setDefaultImg(getBanner?.data?.data?.image);
+    // setDefaultImg(getBanner?.data?.data?.image);
     reset(defaultValues);
   }, [getBanner?.data?.data]);
 
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("heading", data?.heading);
-    formData.append("image", data?.bannerImage[0]);
+    // formData.append("image", data?.bannerImage[0]);
     createBanner.mutate(formData);
   };
   return (
@@ -69,7 +69,7 @@ export default function LabEquipmentBanner() {
                 <p className="errorMessage">Heading is required</p>
               )}
             </div>
-            <div className="mb-3 col-md-6">
+            {/* <div className="mb-3 col-md-6">
               <label htmlFor="bannerImage" className="form-label">
                 Banner Image (1540px * 305px)
               </label>
@@ -99,7 +99,7 @@ export default function LabEquipmentBanner() {
                   style={{ maxWidth: "300px", marginTop: "10px" }}
                 />
               )}
-            </div>
+            </div> */}
 
             {createBanner?.isPending ? (
               <div>

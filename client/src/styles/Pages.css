@@ -33,7 +33,7 @@
 .test-swiper .swiper-wrapper {
   justify-content: center;
   align-items: center;
-  gap: 25px;
+  gap: 35px;
 }
 
 .clients_details {
@@ -65,7 +65,7 @@
 }
 
 .client_active {
-  border: 3px solid #2a3072 !important;
+  border: 1px solid #2a3072 !important;
   padding: 2px !important;
   border-radius: 11px;
 }
@@ -74,7 +74,7 @@
   display: flex;
   max-width: 700px;
   justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
   cursor: grab;
   background-color: #fff;
   padding-bottom: 280px;
