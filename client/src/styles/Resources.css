@@ -467,7 +467,7 @@
 
 @media screen and (min-width: 2000px) {
   .col_xxl {
-    width: 33%;
+    width: 25%;
   }
 }
 @media screen and (max-width: 1600px) {

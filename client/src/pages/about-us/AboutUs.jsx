@@ -222,9 +222,10 @@ export const AboutUs = () => {
             {getTimeLine?.data?.data?.length >= 1 &&
               getTimeLine?.data?.data?.map((data, i) => {
                 return (
-                  <SwiperSlide key={i}>
+                  <SwiperSlide key={i} className="timeline_swiper">
                     <div className="timeline_card">
                       <div
+                        style={{ marginBottom: "3rem" }}
                         dangerouslySetInnerHTML={{ __html: data?.description }}
                       />
                       <div className="year">

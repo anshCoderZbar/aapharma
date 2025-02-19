@@ -77,7 +77,7 @@ export const TestimonialsPage = () => {
                       // className={`clients_logos ${
                       //   selected === clients?.id ? "client_active" : ""
                       // }`}
-                      className={` ${
+                      className={`test_height ${
                         selected === clients?.id ? "client_active" : ""
                       }`}
                     >
