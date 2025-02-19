@@ -44,7 +44,7 @@ export default function CreateAccreditations() {
           <div className="row">
             <div className="mb-3 col-md-12">
               <label htmlFor="image" className="form-label">
-                Image (410px * 260px)
+                Image (518px * 326px)
               </label>
               <FormInput
                 type="file"

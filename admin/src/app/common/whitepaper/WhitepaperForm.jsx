@@ -5,6 +5,7 @@ import { TextEditor } from "components/ui/TextEditor";
 import { ButtonLoader } from "components/Loader/ButtonLoader";
 import { CustomeDate } from "components/date-picker";
 import dayjs from "dayjs";
+import TextEditorNew from "components/ui/TextEditorNew";
 
 export const WhitepaperForm = ({
   register,
@@ -89,10 +90,17 @@ export const WhitepaperForm = ({
         <label htmlFor="description" className="form-label">
           Description
         </label>
-        <TextEditor
+        {/* <TextEditor
           control={control}
           name={`description`}
           defaultValue={addedDescription}
+          {...register(`description`, {
+            required: true,
+          })}
+        /> */}
+        <TextEditorNew
+          name="description"
+          control={control}
           {...register(`description`, {
             required: true,
           })}
