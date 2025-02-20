@@ -67,7 +67,7 @@ export const Articles = () => {
                     </div>
                     <div className="read_blog_btn">
                       <button
-                        onClick={() => navigate("/whitepaper")}
+                        onClick={() => navigate(`/article/${article?.id}`)}
                         className="primary_btn_outline d-flex"
                       >
                         Read More

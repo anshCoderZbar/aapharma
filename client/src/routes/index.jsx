@@ -40,6 +40,7 @@ import ResearchCollaboration from "pages/services/ResearchCollaboration";
 import Others from "pages/services/Others";
 import Overview from "pages/capabilities/Overview";
 import Synthesis from "pages/capabilities/Synthesis";
+import ArticlePage from "pages/home/ArticlePage";
 
 export const AllRoutes = () => {
   return (
@@ -51,6 +52,14 @@ export const AllRoutes = () => {
             element={
               <PublicRoutes>
                 <Home />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path="/article/:id"
+            element={
+              <PublicRoutes>
+                <ArticlePage />
               </PublicRoutes>
             }
           />
