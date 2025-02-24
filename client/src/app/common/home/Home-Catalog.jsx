@@ -18,7 +18,7 @@ export const HomeCatalog = () => {
     <div className="catalog">
       <div className="d-flex justify-content-between">
         <h2>Catalog</h2>
-        <div className=" catalog_nav_arows">
+        <div className="catalog_nav_arows">
           <span
             onClick={() => swiperRef.current?.slidePrev()}
             className="left_arrow"

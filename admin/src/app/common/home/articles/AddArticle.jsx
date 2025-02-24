@@ -20,7 +20,7 @@ export default function AddArticle() {
     formData.append("heading", data?.heading);
     formData.append("description", data?.description);
     formData.append("featuredImage", data?.articleImage[0]);
-
+    formData.append("readmorelink", data?.readMoreLink);
     createArticle.mutate(formData);
   };
   return (

@@ -5,7 +5,7 @@ import { Pagination } from "swiper/modules";
 
 import "swiper/css/pagination";
 import { AllArticlesMutation } from "rest/home";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Articles = () => {
   const allArticles = AllArticlesMutation();
@@ -66,15 +66,15 @@ export const Articles = () => {
                       />
                     </div>
                     <div className="read_blog_btn">
-                      <button
-                        onClick={() => navigate(`/article/${article?.id}`)}
+                      <Link
+                        to={article.readmorelink}
                         className="primary_btn_outline d-flex"
                       >
                         Read More
                         <span>
                           <MoveUpRight />
                         </span>
-                      </button>
+                      </Link>
                     </div>
                   </div>
                   <div className="col-lg-6">

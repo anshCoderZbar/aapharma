@@ -64,7 +64,6 @@ export default function ResearchCollaboration() {
               style={{ backgroundColor: "#2A3072" }}
             >
               <p>
-                1.
                 {getMidSection?.data?.data &&
                   getMidSection?.data?.data?.firstAccomplishment}
               </p>
@@ -74,7 +73,6 @@ export default function ResearchCollaboration() {
               style={{ backgroundColor: "#73C5EF" }}
             >
               <p>
-                2.
                 {getMidSection?.data?.data &&
                   getMidSection?.data?.data?.secondAccomplishment}
               </p>
@@ -84,7 +82,6 @@ export default function ResearchCollaboration() {
               style={{ backgroundColor: "#9EC22E" }}
             >
               <p>
-                3.
                 {getMidSection?.data?.data &&
                   getMidSection?.data?.data?.thirdAccomplishment}
               </p>

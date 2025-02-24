@@ -89,7 +89,20 @@ export const ArticleForm = ({
           <p className="errorMessage">Description is required</p>
         )}
       </div>
-
+      <div className="mb-3 col-md-6">
+        <label htmlFor="readMoreLink" className="form-label">
+          Read More Link
+        </label>
+        <FormInput
+          type="text"
+          name="readMoreLink"
+          placeholder="Read More Link"
+          {...register("readMoreLink", { required: true })}
+        />
+        {errors?.readMoreLink && (
+          <p className="errorMessage"> Read More Link is required</p>
+        )}
+      </div>
       {isLoading ? (
         <div>
           <ButtonLoader />

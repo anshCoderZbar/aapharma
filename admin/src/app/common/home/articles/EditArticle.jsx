@@ -28,6 +28,7 @@ export default function EditArticle() {
     defaultValues.heading = singleArticle?.data?.data?.heading;
     defaultValues.description = singleArticle?.data?.data?.description;
     defaultValues.articleImage = singleArticle?.data?.data?.featuredImage;
+    defaultValues.readMoreLink = singleArticle?.data?.data?.readmorelink;
     setArticleImage(singleArticle?.data?.data?.featuredImage);
     reset(defaultValues);
   }, [singleArticle?.data?.data]);
@@ -40,6 +41,7 @@ export default function EditArticle() {
     formData?.append("articalId", id);
     formData.append("description", data?.description);
     formData.append("featuredImage", data?.articleImage[0]);
+    formData.append("readmorelink", data?.readMoreLink);
     editArticle.mutate(formData);
   };
   return (
