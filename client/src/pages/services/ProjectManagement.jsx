@@ -67,7 +67,7 @@ export default function ProjectManagement() {
           </div>
         </div>
         <div
-          className="project_mgt_content"
+          className="project_mgt_content "
           dangerouslySetInnerHTML={{
             __html:
               getBottomDesc?.data?.data &&

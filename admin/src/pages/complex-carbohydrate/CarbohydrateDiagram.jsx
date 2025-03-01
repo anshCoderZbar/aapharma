@@ -26,10 +26,10 @@ export default function CarbohydrateDiagram() {
       name: "Year",
       selector: (row) => row.year,
     },
-    {
-      name: "Heading",
-      selector: (row) => row.heading,
-    },
+    // {
+    //   name: "Heading",
+    //   selector: (row) => row.heading,
+    // },
     {
       name: "Image",
       cell: (row) => (

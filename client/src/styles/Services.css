@@ -1248,7 +1248,8 @@ ol li strong {
 .research_img img {
   width: 100%;
   display: block;
-  margin: auto;
+  margin: 40px auto;
+  max-width: 700px;
 }
 
 .research_tabs {
@@ -1566,6 +1567,8 @@ ol li strong {
 .carbs_diagaram {
   justify-content: space-between;
   padding: 50px 0;
+  max-width: 66rem;
+  margin: 0 auto;
 }
 
 .carb_imgs_sec {
@@ -1933,7 +1936,7 @@ ol li strong {
   color: #000;
   font-size: 20px;
   line-height: 39px;
-  margin: 40px 0 70px 0;
+  margin: 40px 0 20px 0;
 }
 
 .list_inner_cards {
@@ -2025,6 +2028,10 @@ ol li strong {
 .project_management_lists::-webkit-scrollbar-thumb {
   border-radius: 50px;
   background: #2a3072;
+}
+
+.bottom_mgt_content {
+  padding-top: 20px;
 }
 
 .bottom_mgt_content p {
@@ -2708,7 +2715,7 @@ ol li strong {
   .project_mgt_content p {
     font-size: 18px;
     line-height: 33px;
-    margin: 35px 0 60px 0;
+    margin: 35px 0 20px 0;
   }
 
   .project_card_details h3 {
@@ -3264,7 +3271,7 @@ ol li strong {
   }
 
   .project_mgt_content p {
-    margin: 30px 0 50px 0;
+    margin: 30px 0 20px 0;
   }
 
   .list_inner_cards {
@@ -3430,10 +3437,6 @@ ol li strong {
 
   .research_details_sec {
     padding: 50px 0;
-  }
-
-  .research_img img {
-    max-width: 700px;
   }
 
   .research_content h2 {
@@ -3726,7 +3729,7 @@ ol li strong {
   }
 
   .project_mgt_content p {
-    margin: 25px 0 40px 0;
+    margin: 25px 0 20px 0;
     font-size: 17px;
     line-height: 30px;
   }
@@ -4749,7 +4752,7 @@ ol li strong {
 
   .project_mgt_content p {
     line-height: 26px;
-    margin: 20px 0 30px 0;
+    margin: 20px 0 15px 0;
   }
 
   .project_card_content p {
@@ -5345,7 +5348,7 @@ ol li strong {
 
   .project_mgt_content p {
     line-height: 23px;
-    margin: 15px 0 25px 0;
+    margin: 15px 0 15px 0;
     font-size: 14px;
   }
 

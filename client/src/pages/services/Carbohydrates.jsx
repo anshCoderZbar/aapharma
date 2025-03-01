@@ -134,9 +134,9 @@ export default function Carbohydrates() {
                 <div key={i} className="row carbs_diagaram">
                   <div className="col-lg-4 ">
                     <div className="carb_imgs_sec">
-                      <div className="carb_inner_content">
+                      {/* <div className="carb_inner_content">
                         <h4 className="text-capitalize">{elm?.heading}:</h4>
-                      </div>
+                      </div> */}
                       <div className="carb_img_chem">
                         <img src={imgUrl} alt="chemical" className={``} />
                       </div>

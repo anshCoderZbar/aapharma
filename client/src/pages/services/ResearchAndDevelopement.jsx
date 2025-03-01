@@ -80,12 +80,13 @@ export default function ResearchAndDevelopement() {
       <div className="research_details_sec">
         <div className="container-fluid">
           <div className="row res_sec">
-            <div className="col-xl-6">
+            <div className="col-12">
               <div className="research_content">
                 <h2>
                   {getSort?.data?.data?.heading && getSort?.data?.data?.heading}
                 </h2>
-                <div className="col-xl-6 d-xl-none">
+                {/* <div className="col-xl-6 d-xl-none"> */}
+                <div className="col-12">
                   <div className="research_img">
                     <img
                       src={
@@ -104,14 +105,14 @@ export default function ResearchAndDevelopement() {
                 />
               </div>
             </div>
-            <div className="col-xl-6 d-none d-xl-block">
+            {/* <div className="col-xl-6 d-none d-xl-block">
               <div className="research_img">
                 <img
                   src={getSort?.data?.data?.image && getSort?.data?.data?.image}
                   alt="research_banner"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
