@@ -288,19 +288,20 @@ export const AllRoutes = () => {
               </PublicRoutes>
             }
           />
-          <Route
+          {/* <Route
             path="/lab-equipment"
             element={
               <PublicRoutes>
                 <LabEquipment />
               </PublicRoutes>
             }
-          />
+          /> */}
           <Route
             path="/synthesis"
             element={
               <PublicRoutes>
-                <Synthesis />
+                {/* <Synthesis /> */}
+                <LabEquipment />
               </PublicRoutes>
             }
           />

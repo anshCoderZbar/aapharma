@@ -132,7 +132,7 @@ export default function Carbohydrates() {
             return (
               elm?.id === id && (
                 <div key={i} className="row carbs_diagaram">
-                  <div className="col-lg-4 ">
+                  <div className="col-lg-5 ">
                     <div className="carb_imgs_sec">
                       {/* <div className="carb_inner_content">
                         <h4 className="text-capitalize">{elm?.heading}:</h4>
@@ -142,7 +142,7 @@ export default function Carbohydrates() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-8">
+                  <div className="col-lg-7">
                     <div className="card_chem_details">
                       <div className="carbo_inner_circle">
                         <div className="carb_inner_content">
