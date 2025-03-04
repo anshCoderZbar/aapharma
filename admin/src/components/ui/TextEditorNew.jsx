@@ -17,6 +17,9 @@ const TextEditorNew = ({ name, control, config = {} }) => {
           config={{
             minHeight: 300,
             readonly: false,
+            uploader: {
+              insertImageAsBase64URI: true,
+            },
             ...config,
           }}
         />

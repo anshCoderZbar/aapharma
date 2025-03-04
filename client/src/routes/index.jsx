@@ -297,7 +297,7 @@ export const AllRoutes = () => {
             }
           /> */}
           <Route
-            path="/synthesis"
+            path="/synthesis-equipments"
             element={
               <PublicRoutes>
                 {/* <Synthesis /> */}

@@ -140,7 +140,7 @@ export const HeaderData = [
           {
             id: 1,
             subMenu: "Synthesis",
-            slug: "/synthesis",
+            slug: "/synthesis-equipments",
           },
           {
             id: 2,
