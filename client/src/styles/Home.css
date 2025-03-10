@@ -1174,7 +1174,7 @@
   }
 
   .service_img img {
-    height: 350px;
+    height: 100%;
     width: 100%;
   }
 
@@ -1362,7 +1362,7 @@
   }
 
   .service_img img {
-    height: 370px;
+    height: 100%;
   }
 
   .service_img {

@@ -384,9 +384,8 @@
 .confrence_card_img img {
   width: 100%;
   height: 100%;
-  /* max-width: 677px; */
   max-height: 434px;
-  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .top_blue_line {

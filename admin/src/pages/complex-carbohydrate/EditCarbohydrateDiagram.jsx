@@ -33,7 +33,7 @@ export default function EditCarbohydrateDiagram() {
     const defaultValues = {};
     defaultValues.sortNo = getSingleDiagram?.data?.data?.sortNo;
     defaultValues.year = getSingleDiagram?.data?.data?.year;
-    // defaultValues.heading = getSingleDiagram?.data?.data?.heading;
+    defaultValues.heading = getSingleDiagram?.data?.data?.heading;
     setDefaultImg(getSingleDiagram?.data?.data?.image);
     const defaultInputs =
       getSingleDiagram?.data?.data?.list?.map((elm) => ({
@@ -70,7 +70,7 @@ export default function EditCarbohydrateDiagram() {
     formData.append("id", id);
     formData.append("sortNo", data?.sortNo);
     formData.append("year", data?.year);
-    // formData.append("heading", data?.heading);
+    formData.append("heading", data?.heading);
     formData.append("image", data?.image[0]);
     list.forEach((_, index) => {
       const listKey = `list_${index + 1}`;
@@ -148,7 +148,7 @@ export default function EditCarbohydrateDiagram() {
                 />
               )}
             </div>
-            {/* <div className="mb-3 col-md-6">
+            <div className="mb-3 col-md-6">
               <label htmlFor="heading" className="form-label">
                 Diagram Heading
               </label>
@@ -161,7 +161,7 @@ export default function EditCarbohydrateDiagram() {
               {errors?.heading && (
                 <p className="errorMessage">Heading is required</p>
               )}
-            </div> */}
+            </div>
             <div className="mb-3 col-md-6">
               <label htmlFor="list" className="form-label">
                 List

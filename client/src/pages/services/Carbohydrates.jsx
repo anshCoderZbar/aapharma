@@ -134,9 +134,9 @@ export default function Carbohydrates() {
                 <div key={i} className="row carbs_diagaram">
                   <div className="col-lg-5 ">
                     <div className="carb_imgs_sec">
-                      {/* <div className="carb_inner_content">
+                      <div className="carb_inner_content">
                         <h4 className="text-capitalize">{elm?.heading}:</h4>
-                      </div> */}
+                      </div>
                       <div className="carb_img_chem">
                         <img src={imgUrl} alt="chemical" className={``} />
                       </div>
@@ -150,11 +150,13 @@ export default function Carbohydrates() {
                             Natural-Sialoside:
                           </h4>
                           <ul>
-                            <li>H2: Galactose-glycan </li>
-                            <li>R3: H </li>
-                            <li>R4: OH </li>
-                            <li>R5: AC </li>
-                            <li>R6: OH </li>
+                            <li style={{ color: "grey" }}>
+                              H2: Galactose-glycan{" "}
+                            </li>
+                            <li style={{ color: "black" }}>R3: H </li>
+                            <li style={{ color: "darkgoldenrod" }}>R4: OH </li>
+                            <li style={{ color: "rebeccapurple" }}>R5: AC </li>
+                            <li style={{ color: "crimson" }}>R6: OH </li>
                           </ul>
                         </div>
                       </div>
