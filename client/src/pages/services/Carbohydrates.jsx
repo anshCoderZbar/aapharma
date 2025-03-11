@@ -14,11 +14,13 @@ export default function Carbohydrates() {
   const getDiagram = GetCarbohydrateDiagram();
   const [id, setId] = useState(null);
   const [imgUrl, setImgUrl] = useState("");
+  const [staticImgUrl, setStaticImgUrl] = useState("");
 
   useEffect(() => {
     if (getDiagram?.data?.data) {
       setId(getDiagram?.data?.data[0]?.id);
       setImgUrl(getDiagram?.data?.data[0]?.image);
+      setStaticImgUrl(getDiagram?.data?.data[0]?.staticImage);
     }
   }, [getDiagram?.data?.data]);
 
@@ -113,6 +115,7 @@ export default function Carbohydrates() {
                     onClick={() => {
                       setId(elm?.id);
                       setImgUrl(elm?.image);
+                      setStaticImgUrl(elm?.staticImage);
                     }}
                     className="carbo_diagram"
                   >
@@ -161,10 +164,7 @@ export default function Carbohydrates() {
                         </div>
                       </div>
                       <div className="carb_second_img">
-                        <img
-                          src={require("assets/carb_second_img.png")}
-                          alt="carbohydrate"
-                        />
+                        <img src={staticImgUrl} alt="carbohydrate" />
                       </div>
                     </div>
                   </div>

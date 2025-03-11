@@ -23,6 +23,8 @@ export default function EditCarbohydrateDiagram() {
   const [list, setList] = useState([{ list: "" }]);
   const [perviewImages, setPreviewImages] = useState("");
   const [defaultImg, setDefaultImg] = useState("");
+  const [perviewStaticImages, setPreviewStaticImages] = useState("");
+  const [defaultStaticImg, setDefaultStaticImg] = useState("");
 
   const formData = new FormData();
   formData.append("id", id);
@@ -35,6 +37,7 @@ export default function EditCarbohydrateDiagram() {
     defaultValues.year = getSingleDiagram?.data?.data?.year;
     defaultValues.heading = getSingleDiagram?.data?.data?.heading;
     setDefaultImg(getSingleDiagram?.data?.data?.image);
+    setDefaultStaticImg(getSingleDiagram?.data?.data?.staticImage);
     const defaultInputs =
       getSingleDiagram?.data?.data?.list?.map((elm) => ({
         list: elm || "",
@@ -55,6 +58,14 @@ export default function EditCarbohydrateDiagram() {
     }
   };
 
+  const handleStaticChange = (e) => {
+    const files = e.target.files[0];
+    if (files) {
+      const imageUrl = URL.createObjectURL(files);
+      setPreviewStaticImages(imageUrl);
+    }
+  };
+
   const handleDeleteInput = (index) => {
     const newArray = [...list];
     newArray.splice(index, 1);
@@ -72,6 +83,7 @@ export default function EditCarbohydrateDiagram() {
     formData.append("year", data?.year);
     formData.append("heading", data?.heading);
     formData.append("image", data?.image[0]);
+    formData.append("staticImage", data?.staticImage[0]);
     list.forEach((_, index) => {
       const listKey = `list_${index + 1}`;
       formData.append("list[]", data[listKey]);
@@ -201,6 +213,37 @@ export default function EditCarbohydrateDiagram() {
                   )}
                 </div>
               ))}
+            </div>
+            <div className="mb-3 col-12">
+              <label htmlFor="staticImage" className="form-label">
+                Box Image
+              </label>
+              <FormInput
+                type="file"
+                name="image"
+                placeholder="staticImage"
+                {...register("staticImage", {
+                  required: !perviewStaticImages && !defaultStaticImg,
+                  onChange: (e) => handleStaticChange(e),
+                })}
+              />
+              {errors?.image && (
+                <p className="errorMessage">Field is required</p>
+              )}
+              {perviewStaticImages && (
+                <img
+                  src={perviewStaticImages}
+                  alt=" image Preview"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
+                />
+              )}
+              {!perviewStaticImages && defaultStaticImg && (
+                <img
+                  src={defaultStaticImg}
+                  alt="image Preview"
+                  style={{ maxWidth: "300px", marginTop: "10px" }}
+                />
+              )}
             </div>
             {editDiagram?.isPending ? (
               <div>
