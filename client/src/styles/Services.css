@@ -723,7 +723,7 @@
 
 .case_tab_img img {
   width: 100%;
-  max-width: 400px;
+  max-width: 90rem;
   height: 100%;
   margin-bottom: 30px;
 }
@@ -2907,9 +2907,9 @@ ol li strong {
     padding: 10px;
   }
 
-  .case_tab_img img {
+  /* .case_tab_img img {
     max-width: 300px;
-  }
+  } */
 
   .case_tab_content h5 {
     font-size: 20px;
@@ -3390,9 +3390,9 @@ ol li strong {
     line-height: 30px;
   }
 
-  .case_tab_img img {
+  /* .case_tab_img img {
     max-width: 250px;
-  }
+  } */
 
   .case_bottom_banner img {
     max-width: 800px;
@@ -4405,7 +4405,7 @@ ol li strong {
   }
 
   .case_tab_img img {
-    max-width: 250px;
+    /* max-width: 250px; */
     display: block;
     margin: auto;
   }

@@ -163,7 +163,8 @@ export default function Carbohydrates() {
                           </ul>
                         </div>
                       </div>
-                      <div className="carb_second_img">
+                      {/* <div className="carb_second_img"> */}
+                      <div className="carb_img_chem">
                         <img src={staticImgUrl} alt="carbohydrate" />
                       </div>
                     </div>
