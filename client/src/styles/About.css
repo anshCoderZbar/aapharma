@@ -340,7 +340,7 @@
   transition: transform 0.3s;
   margin: auto;
   display: block;
-  max-height: 300px;
+  max-height: 400px;
   object-fit: cover;
 }
 
