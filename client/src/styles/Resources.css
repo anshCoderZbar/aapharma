@@ -163,7 +163,8 @@
 }
 
 .whitepaper_single_content p {
-  color: #666;
+  color: #000;
+  /* color: #666; */
   font-size: 20px;
   font-weight: 400;
   line-height: 32px;
@@ -200,7 +201,7 @@
 .whitepaper_single_content ol li,
 .whitepaper_single_content ul li {
   font-size: 18px;
-  color: #666;
+  color: #000;
   font-weight: 400;
   margin-bottom: 15px;
 }

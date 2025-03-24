@@ -153,13 +153,21 @@ export default function Carbohydrates() {
                             Natural-Sialoside:
                           </h4>
                           <ul>
-                            <li style={{ color: "grey" }}>
-                              H2: Galactose-glycan{" "}
+                            <li style={{ color: "#969696" }}>
+                              R<sub>2</sub>: Galactose-glycan{" "}
                             </li>
-                            <li style={{ color: "black" }}>R3: H </li>
-                            <li style={{ color: "darkgoldenrod" }}>R4: OH </li>
-                            <li style={{ color: "rebeccapurple" }}>R5: AC </li>
-                            <li style={{ color: "crimson" }}>R6: OH </li>
+                            <li style={{ color: "#000000" }}>
+                              R<sub>3</sub>: H{" "}
+                            </li>
+                            <li style={{ color: "#7e7419" }}>
+                              R<sub>4</sub>: OH{" "}
+                            </li>
+                            <li style={{ color: "#2200fa" }}>
+                              R<sub>5</sub>: AC{" "}
+                            </li>
+                            <li style={{ color: "#cd1317" }}>
+                              R<sub>6</sub>: OH{" "}
+                            </li>
                           </ul>
                         </div>
                       </div>
