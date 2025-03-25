@@ -591,14 +591,14 @@
 
 .odd_class {
   position: absolute;
-  bottom: -400px;
+  bottom: -340px;
   border: 4px solid #02b5f9;
   /* left: -147px; */
 }
 
 .comp_img.comp_3 {
   position: absolute;
-  bottom: -400px;
+  bottom: -340px;
   border: 4px solid #fccd45;
   left: 0;
 }
@@ -612,7 +612,7 @@
 
 .comp_img.comp_5 {
   position: absolute;
-  bottom: -400px;
+  bottom: -340px;
   border: 4px solid #d8a5f3;
   left: 0;
 }
@@ -626,7 +626,7 @@
 
 .comp_img.comp_7 {
   position: absolute;
-  bottom: -400px;
+  bottom: -340px;
   border: 4px solid #f3ae77;
   left: 0;
 }

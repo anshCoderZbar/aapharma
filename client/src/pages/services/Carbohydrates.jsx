@@ -166,7 +166,7 @@ export default function Carbohydrates() {
                               R<sub>5</sub>: AC{" "}
                             </li>
                             <li style={{ color: "#cd1317" }}>
-                              R<sub>6</sub>: OH{" "}
+                              R<sub>9</sub>: OH{" "}
                             </li>
                           </ul>
                         </div>
