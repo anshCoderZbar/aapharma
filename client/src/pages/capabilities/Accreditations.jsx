@@ -43,13 +43,20 @@ export default function Accreditations() {
               </div>
             </div>
           </div> */}
-          <div className="row mt-5 mb-5">
-            {getAccreditation?.data?.data?.map((elm) => {
+          <div className="row g-4 mt-5 mb-5">
+            {getAccreditation?.data?.data?.map((elm, index) => {
               return (
-                <div className="col-12 col-sm-6 col-md-4">
-                  <div className="accrediation_btm_card">
-                    <img src={elm?.image} alt="accrediation image" />
-                    <p dangerouslySetInnerHTML={{ __html: elm?.description }} />
+                <div key={index} className="col-12 col-sm-6 col-md-4">
+                  <div className="accrediation_btm_card d-flex flex-column h-100">
+                    <img
+                      src={elm?.image}
+                      alt="accreditation image"
+                      className="img-fluid"
+                    />
+                    <p
+                      className="mt-auto"
+                      dangerouslySetInnerHTML={{ __html: elm?.description }}
+                    />
                   </div>
                 </div>
               );
