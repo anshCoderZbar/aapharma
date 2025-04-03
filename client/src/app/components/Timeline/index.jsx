@@ -114,7 +114,7 @@ export const Timeline = () => {
                       classIndex % 2 === 0 ? "even_class" : "odd_class"
                     }  comp_${classIndex}`}
                   >
-                    <img src={elm?.image ? elm?.image : elm?.image2} />
+                  {(elm?.image || elm?.image2) && <img src={elm?.image ? elm?.image : elm?.image2} />}
                   </picture>
                 )}
                 {/* {elm?.image && (
