@@ -8,6 +8,7 @@ import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { EditLabEquipmentBannerMutation } from "rest/capabilities";
 import { GetLabEquipmentBannerMutation } from "rest/capabilities";
+import { TextEditor } from "components/ui/TextEditor";
 
 export default function LabEquipmentBanner() {
   const {
@@ -15,6 +16,7 @@ export default function LabEquipmentBanner() {
     handleSubmit,
     formState: { errors },
     reset,
+    control,
   } = useForm();
 
   const [perviewImages, setPreviewImages] = useState("");
@@ -46,7 +48,10 @@ export default function LabEquipmentBanner() {
   };
   return (
     <>
-      <PageWrapper slug="lab-equipment-banner" name="Lab Equipment Banner" />
+      <PageWrapper
+        slug="lab-equipment-description"
+        name="Lab Equipment description"
+      />
       {getBanner?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
       )}
@@ -55,14 +60,15 @@ export default function LabEquipmentBanner() {
       ) : (
         <div className="home_banner_input">
           <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
-            <div className="mb-3 col-md-6">
+            <div className="mb-3 col-12">
               <label htmlFor="mainHeading" className="form-label">
-                Main Heading
+                Description
               </label>
-              <FormInput
+              <TextEditor
                 type="text"
                 name="heading"
                 placeholder="heading"
+                control={control}
                 {...register("heading", { required: true })}
               />
               {errors?.heading && (

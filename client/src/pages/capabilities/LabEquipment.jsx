@@ -25,6 +25,14 @@ export default function LabEquipment() {
         extra=" white_head process_top_banner"
       />
       <div className="container-fluid">
+        <p
+          className="project_mgt_content"
+          dangerouslySetInnerHTML={{
+            __html:
+              getBanner?.data?.data?.heading && getBanner?.data?.data?.heading,
+          }}
+        />
+
         <div className="row equipments">
           {getEquipments?.data?.data?.length >= 1 &&
             getEquipments?.data?.data?.map((data) => {

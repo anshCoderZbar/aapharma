@@ -49,7 +49,7 @@ export default function ConferenceForm(props) {
 
           <div className="mb-3 col-md-6">
             <label htmlFor="image" className="form-label">
-              Image
+              Image (444px * 296 px)
             </label>
             <FormInput
               type="file"

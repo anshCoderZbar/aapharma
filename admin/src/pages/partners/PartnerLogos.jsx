@@ -91,7 +91,7 @@ export default function PartnerLogos() {
         <form onSubmit={handleSubmit(onSubmit)} className="row mt-4 mb-3">
           <div className="mb-3 col-md-6">
             <label htmlFor="logo" className="form-label">
-              Logo
+              Logo (274px * 150 px)
             </label>
             <FormInput
               type="file"

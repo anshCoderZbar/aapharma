@@ -1166,7 +1166,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/lab-equipment-banner",
+      path: "/lab-equipment-description",
       element: (
         <PrivateRoutes>
           <LabEquipmentBanner />
@@ -1246,7 +1246,7 @@ export const AllRoutes = (props) => {
       ),
     },
     {
-      path: "/analytical-instrumentation",
+      path: "/analytical-instrumentation-description",
       element: (
         <PrivateRoutes>
           <AnalyticalInstrumentation />

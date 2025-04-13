@@ -9,6 +9,7 @@ import { ComponentLoader } from "components/Loader/ComponentLoader";
 import { ErrorComponent } from "components/Alerts/Error";
 import { GetAnalyticalInstrumentationMutation } from "rest/capabilities";
 import { EditAnalyticalInstrumentationMutation } from "rest/capabilities";
+import { TextEditor } from "components/ui/TextEditor";
 
 export default function AnalyticalInstrumentation() {
   const {
@@ -74,8 +75,8 @@ export default function AnalyticalInstrumentation() {
   return (
     <>
       <PageWrapper
-        slug="analytical-instrumentation"
-        name="Analytical Instrumentation"
+        slug="analytical-instrumentation-description"
+        name="Analytical Instrumentation Description"
       />
       {getAnalyticalInstruments?.isError && (
         <ErrorComponent message="OOPS ! something went wrong please try again later" />
@@ -86,14 +87,15 @@ export default function AnalyticalInstrumentation() {
         <div className="home_banner_input">
           <form onSubmit={handleSubmit(onSubmit)} className=" mt-4 mb-3">
             <div className="row">
-              <div className="mb-3 col-md-6">
+              <div className="mb-3 col-12">
                 <label htmlFor="heading" className="form-label">
-                  Heading
+                  Description
                 </label>
-                <FormInput
+                <TextEditor
                   type="text"
                   name="heading"
                   placeholder="Heading "
+                  control={control}
                   {...register("heading", {
                     required: true,
                   })}
@@ -102,7 +104,7 @@ export default function AnalyticalInstrumentation() {
                   <p className="errorMessage">Field is required</p>
                 )}
               </div>
-              <div className="mb-3 col-md-6">
+              <div className="mb-3 col-md-6 d-none">
                 <label htmlFor="image" className="form-label">
                   Image (840px * 470px)
                 </label>
@@ -133,7 +135,7 @@ export default function AnalyticalInstrumentation() {
                   />
                 )}
               </div>
-              <div className="mb-3 col-md-6">
+              <div className="mb-3 col-md-6 d-none">
                 <label htmlFor="list" className="form-label">
                   List
                 </label>

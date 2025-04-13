@@ -66,10 +66,14 @@ import React from "react";
 import { Banner } from "app/components/Ui/Banner";
 
 import "styles/Capabilities.css";
-import { AllAnalyticalInstrumentMutation } from "rest/capabilities";
+import {
+  AllAnalyticalInstrumentMutation,
+  GetAnalyticalInstrumentationMutation,
+} from "rest/capabilities";
 
 export default function AnalyticalInstrumentation() {
   const getEquipments = AllAnalyticalInstrumentMutation();
+  const getAnalyticalInstrument = GetAnalyticalInstrumentationMutation();
 
   return (
     <div className="lab_equipments">
@@ -80,6 +84,14 @@ export default function AnalyticalInstrumentation() {
         extra="white_head process_top_banner"
       />
       <div className="container-fluid">
+        <p
+          className="project_mgt_content"
+          dangerouslySetInnerHTML={{
+            __html:
+              getAnalyticalInstrument?.data?.data?.heading &&
+              getAnalyticalInstrument?.data?.data?.heading,
+          }}
+        />
         <div className="row equipments">
           {getEquipments?.data?.data?.length >= 1 &&
             getEquipments?.data?.data?.map((data) => {
