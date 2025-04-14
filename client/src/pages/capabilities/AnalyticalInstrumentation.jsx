@@ -85,7 +85,7 @@ export default function AnalyticalInstrumentation() {
       />
       <div className="container-fluid">
         <p
-          className="project_mgt_content"
+          className="project_mgt_content text-center"
           dangerouslySetInnerHTML={{
             __html:
               getAnalyticalInstrument?.data?.data?.heading &&

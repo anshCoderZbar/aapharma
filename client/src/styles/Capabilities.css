@@ -527,12 +527,13 @@
 }
 
 .partner_btm_img img {
-  margin: 0 auto;
-  width: 88%;
-  height: 22rem;
   border-radius: 50px;
-  object-fit: inherit;
-  box-shadow: 0 2px 5px rgba(30, 30, 30, 0.19), 0 3px 3px rgba(30, 30, 30, 0.23);
+  box-shadow: 0 2px 5px #1e1e1e30, 0 3px 3px #1e1e1e3b;
+  height: 22rem;
+  margin: 0 auto;
+  object-fit: contain;
+  width: auto;
+  background: #fff;
 }
 
 .partner_fix_bg {

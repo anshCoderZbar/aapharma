@@ -26,7 +26,7 @@ export default function LabEquipment() {
       />
       <div className="container-fluid">
         <p
-          className="project_mgt_content"
+          className="project_mgt_content text-center"
           dangerouslySetInnerHTML={{
             __html:
               getBanner?.data?.data?.heading && getBanner?.data?.data?.heading,
