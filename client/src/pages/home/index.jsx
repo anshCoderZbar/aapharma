@@ -144,8 +144,13 @@ export const Home = () => {
                   <p>{getHomeCompanyMission?.data?.data?.heading3}</p>
                 </div>
               </div>
-              <button className="primary_buttton btn_mrg">
-                Company Mission
+              <button
+                onClick={() =>
+                  navigate(getHomeCompanyMission?.data?.data?.btnLink)
+                }
+                className="primary_buttton btn_mrg"
+              >
+                {getHomeCompanyMission?.data?.data?.btnText}
               </button>
             </div>
           </div>

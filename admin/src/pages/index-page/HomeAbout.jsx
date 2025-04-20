@@ -55,6 +55,8 @@ export default function HomeAbout() {
     defaultValues.icon1 = getHomeCompanyMission?.data?.data?.icon1;
     defaultValues.icon2 = getHomeCompanyMission?.data?.data?.icon2;
     defaultValues.icon3 = getHomeCompanyMission?.data?.data?.icon3;
+    defaultValues.btnText = getHomeCompanyMission?.data?.data?.btnText;
+    defaultValues.btnLink = getHomeCompanyMission?.data?.data?.btnLink;
     defaultValues.featuredImage =
       getHomeCompanyMission?.data?.data?.featuredImage;
     getHomeCompanyMission?.data?.data?.icon1 &&
@@ -83,6 +85,8 @@ export default function HomeAbout() {
     formData.append("icon2", data?.icon2[0]);
     formData.append("heading3", data?.heading3);
     formData.append("icon3", data?.icon3[0]);
+    formData.append("btnText", data?.btnText);
+    formData.append("btnLink", data?.btnLink);
     companyMisson.mutate(formData);
   };
 
@@ -317,6 +321,34 @@ export default function HomeAbout() {
                   )}
                 </div>
               </div>
+            </div>
+            <div className="mb-3 col-md-6">
+              <label htmlFor="btnText" className="form-label">
+                Button Text
+              </label>
+              <FormInput
+                type="text"
+                name="btnText"
+                placeholder="Button Text"
+                {...register("btnText", { required: true })}
+              />
+              {errors?.btnText && (
+                <p className="errorMessage">Text is required</p>
+              )}
+            </div>
+            <div className="mb-3 col-md-6">
+              <label htmlFor="btnLink" className="form-label">
+                Button Link
+              </label>
+              <FormInput
+                type="text"
+                name="btnLink"
+                placeholder="Button Text"
+                {...register("btnLink", { required: true })}
+              />
+              {errors?.btnLink && (
+                <p className="errorMessage">Text is required</p>
+              )}
             </div>
             {companyMisson?.isPending ? (
               <div>
