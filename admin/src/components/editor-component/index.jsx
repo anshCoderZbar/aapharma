@@ -36,23 +36,37 @@ export const EditorComponent = ({
     }, 2500);
   }, [initialMolecule]);
 
-  useEffect(() => {
-    setInterval(async () => {
-      const updatedMolecule = await ketcherRef.current.getMolfile();
-      const updatedSmiles = await ketcherRef.current.getSmiles();
-      setCurrentMolecule(
-        updatedMolecule.length >= 1 ? updatedMolecule : initialMolecule
-      );
-      setCurrentSmilie(
-        updatedSmiles.length >= 1 ? updatedSmiles : initialSmilie
-      );
+  // useEffect(() => {
+  //   setInterval(async () => {
+  //     const updatedMolecule = await ketcherRef.current.getMolfile();
+  //     const updatedSmiles = await ketcherRef.current.getSmiles();
+  //     setCurrentMolecule(
+  //       updatedMolecule.length >= 1 ? updatedMolecule : initialMolecule
+  //     );
+  //     setCurrentSmilie(
+  //       updatedSmiles.length >= 1 ? updatedSmiles : initialSmilie
+  //     );
 
-      if (updatedMolecule) {
-        let promise = await ketcherRef.current.generateImage(updatedMolecule);
-        setImg(promise);
-      }
-    }, 1000);
-  }, [setCurrentMolecule, setCurrentSmilie, setImg]);
+  //     if (updatedMolecule) {
+  //       let promise = await ketcherRef.current.generateImage(updatedMolecule);
+  //       setImg(promise);
+  //     }
+  //   }, 1000);
+  // }, [setCurrentMolecule, setCurrentSmilie, setImg]);
+
+  const save = async () => {
+    const updatedMolecule = await ketcherRef.current.getMolfile();
+    const updatedSmiles = await ketcherRef.current.getSmiles();
+    setCurrentMolecule(
+      updatedMolecule.length >= 1 ? updatedMolecule : initialMolecule
+    );
+    setCurrentSmilie(updatedSmiles.length >= 1 ? updatedSmiles : initialSmilie);
+
+    if (updatedMolecule) {
+      let promise = await ketcherRef.current.generateImage(updatedMolecule);
+      setImg(promise);
+    }
+  };
 
   return (
     <>
@@ -71,6 +85,10 @@ export const EditorComponent = ({
           onInit={handleOnInit}
         />
       </div>
+
+      <button className="input_submit" onClick={save}>
+        save
+      </button>
     </>
   );
 };
