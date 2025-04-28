@@ -86,7 +86,7 @@ export const EditorComponent = ({
         />
       </div>
 
-      <button className="input_submit" onClick={save}>
+      <button className="input_submit mt-3 mb-4" onClick={save}>
         save
       </button>
     </>
