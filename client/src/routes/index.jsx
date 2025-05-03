@@ -232,7 +232,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/whitepaper"
+            path="/whitepapers"
             element={
               <PublicRoutes>
                 <Whitepaper />
@@ -248,7 +248,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/conference"
+            path="/conferences"
             element={
               <PublicRoutes>
                 <Conference />

@@ -431,7 +431,7 @@
 }
 
 .operating_content p {
-  margin: 50px auto 90px auto;
+  margin: 50px auto 10px auto;
   text-align: center;
   max-width: 1320px;
   color: #666;
@@ -744,7 +744,7 @@
   }
 
   .operating_content p {
-    margin: 45px auto 80px auto;
+    margin: 45px auto 10px auto;
     font-size: 22px;
     line-height: 35px;
   }
@@ -859,7 +859,7 @@
   }
 
   .operating_content p {
-    margin: 40px auto 70px auto;
+    margin: 40px auto 10px auto;
     font-size: 20px;
     line-height: 32px;
     max-width: 1100px;
@@ -942,7 +942,7 @@
   }
 
   .operating_content p {
-    margin: 35px auto 60px auto;
+    margin: 35px auto 10px auto;
     font-size: 18px;
     line-height: 28px;
     max-width: 930px;
@@ -998,7 +998,7 @@
   }
 
   .operating_content p {
-    margin: 30px auto 48px auto;
+    margin: 30px auto 10px auto;
     font-size: 17px;
     line-height: 25px;
     max-width: 733px;
@@ -1075,7 +1075,7 @@
   }
 
   .operating_content p {
-    margin: 25px auto 40px auto;
+    margin: 25px auto 10px auto;
     font-size: 16px;
     line-height: 23px;
     max-width: 100%;
@@ -1247,7 +1247,7 @@
   }
 
   .operating_content p {
-    margin: 20px auto 30px auto;
+    margin: 20px auto 10px auto;
     font-size: 15px;
   }
 }

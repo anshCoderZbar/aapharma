@@ -80,7 +80,7 @@ export default function ConferenceForm(props) {
           </div>
           <div className="mb-3 col-md-6">
             <label htmlFor="logo" className="form-label">
-              Logo
+              Logo (200px * 48px)
             </label>
             <FormInput
               type="file"

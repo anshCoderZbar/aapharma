@@ -175,12 +175,12 @@ export const HeaderData = [
       {
         id: 2,
         name: "Whitepapers",
-        slug: "/whitepaper",
+        slug: "/whitepapers",
       },
       {
         id: 3,
         name: "Conferences",
-        slug: "/conference",
+        slug: "/conferences",
       },
     ],
   },

@@ -35,7 +35,7 @@ export default function Conference() {
             </h2> */}
 
             <p
-              className="confrence_top_content"
+              className="confrence_top_content w-full"
               dangerouslySetInnerHTML={{
                 __html:
                   getBanner?.data?.data?.description &&
@@ -44,11 +44,11 @@ export default function Conference() {
             />
           </div>
           <div className="confrenct_btm_section">
-            <div className="row ">
+            <div className="row conf_col_gap">
               {getCards?.data?.data &&
                 getCards?.data?.data?.map((data) => {
                   return (
-                    <div className="col_xxl col-sm-6 col-lg-4">
+                    <div className="col_xxl col-sm-6 col-lg-4 mt-2">
                       <div className="confrence_card">
                         <div className="confrence_card_img">
                           <div className="top_blue_line">

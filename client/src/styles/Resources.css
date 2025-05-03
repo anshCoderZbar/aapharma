@@ -363,7 +363,6 @@
   color: #808080;
   font-size: 24px;
   line-height: 37px;
-  max-width: 1440px;
   margin-top: 39px;
 }
 
@@ -391,7 +390,7 @@
 
 .top_blue_line {
   width: 100%;
-  background-color: #2a3072;
+  background-color: #2a3072c4;
   position: absolute;
   height: 50px;
   top: 0;
@@ -480,6 +479,10 @@
   padding: 0 !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+
+.conf_col_gap {
+  row-gap: 30px;
 }
 
 @media screen and (min-width: 2000px) {
@@ -628,7 +631,6 @@
   .confrence_top_content {
     font-size: 22px;
     line-height: 33px;
-    max-width: 1105px;
     margin-top: 26px;
   }
 

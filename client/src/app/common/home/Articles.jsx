@@ -91,7 +91,7 @@ export const Articles = () => {
             );
           })}
         <button
-          onClick={() => navigate("/whitepaper")}
+          onClick={() => navigate("/whitepapers")}
           className="primary_buttton btn_papers"
         >
           Additional Papers

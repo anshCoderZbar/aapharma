@@ -212,7 +212,7 @@
 }
 
 .service_card ul li:hover {
-  background-color: #34caff;
+  /* background-color: #34caff !important; */
 }
 
 .service_btn {

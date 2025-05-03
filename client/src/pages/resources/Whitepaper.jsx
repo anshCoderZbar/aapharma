@@ -38,8 +38,8 @@ export default function Whitepaper() {
                 <ChevronRight />
               </li>
               <li>
-                <Link className="bread_active" to="/whitepaper">
-                  whitepaper
+                <Link className="bread_active" to="/whitepapers">
+                  Whitepapers
                 </Link>
               </li>
             </ul>
