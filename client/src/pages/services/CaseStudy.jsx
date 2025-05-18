@@ -39,7 +39,7 @@ export default function CaseStudy() {
         //   getBanner?.data?.data?.image && getBanner?.data?.data?.image
         // })`}
         background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
-        heading={"Storage Inventory Management Case Study"}
+        heading={"Storage Inventory Management"}
         // extra="lab_equipment_banner"
         extra=" white_head process_top_banner"
       />

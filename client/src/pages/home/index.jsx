@@ -51,7 +51,12 @@ export const Home = () => {
                 ? bannerData?.data?.data?.description
                 : "Superior Chemistry Services"}
             </h1>
-            <button className="primary_buttton">Get a Quote</button>
+            <button
+              className="primary_buttton"
+              onClick={() => navigate("/contact-us")}
+            >
+              Contact Us
+            </button>
           </div>
           <div className="home_banner_social">
             <ul>

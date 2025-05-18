@@ -56,7 +56,7 @@ export const HeaderData = [
           {
             id: 3,
             subMenu: "Lipids",
-            slug: "/research-and-development",
+            slug: "/lipids",
           },
         ],
       },
@@ -68,7 +68,7 @@ export const HeaderData = [
       {
         id: 3,
         name: "Storage and Inventory Management",
-        slug: "/storage-inventory-management-case-study",
+        slug: "/storage-inventory-management",
       },
       {
         id: 4,
@@ -170,7 +170,7 @@ export const HeaderData = [
       {
         id: 1,
         name: "Useful Guides",
-        slug: "/resources",
+        slug: "/useful-guides",
       },
       {
         id: 2,

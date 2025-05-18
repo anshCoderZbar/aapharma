@@ -144,7 +144,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/storage-inventory-management-case-study"
+            path="/storage-inventory-management"
             element={
               <PublicRoutes>
                 <CaseStudy />
@@ -152,7 +152,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/research-and-development"
+            path="/lipids"
             element={
               <PublicRoutes>
                 <ResearchAndDevelopement />
@@ -224,7 +224,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/resources"
+            path="/useful-guides"
             element={
               <PublicRoutes>
                 <Resources />

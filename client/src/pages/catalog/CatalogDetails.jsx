@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "styles/Catalog.css";
 import { ChevronsRight } from "lucide-react";
 import { AddtoCart } from "app/components/Ui/AddtoCart ";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { GetUtility, SingleChemical } from "rest/catalog";
 
 export const CatalogDetails = () => {
@@ -42,7 +42,10 @@ export const CatalogDetails = () => {
           <div className="catalog_banner_heading_single">
             <div className="catalog_banner_content">
               <p className="d-flex justify-content-center align-items-center gap-2">
-                Catalogs <ChevronsRight />
+                <Link to="/" className="text-white text-decoration-none">
+                  Home
+                </Link>{" "}
+                <ChevronsRight /> Catalogs
               </p>
               <h1>{singleChemical?.data?.data?.heading}</h1>
             </div>

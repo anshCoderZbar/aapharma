@@ -34,8 +34,8 @@ export default function Resources() {
               <ChevronRight />
             </li>
             <li>
-              <Link className="bread_active" to="/resources">
-                resources
+              <Link className="bread_active" to="/useful-guides">
+                Useful Guides
               </Link>
             </li>
           </ul>

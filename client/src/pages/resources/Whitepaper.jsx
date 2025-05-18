@@ -39,7 +39,7 @@ export default function Whitepaper() {
               </li>
               <li>
                 <Link className="bread_active" to="/whitepapers">
-                  Whitepapers
+                  White Papers
                 </Link>
               </li>
             </ul>

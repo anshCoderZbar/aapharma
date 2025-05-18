@@ -24,7 +24,7 @@ export default function Conference() {
         //   getBanner?.data?.data?.image && getBanner?.data?.data?.image
         // })`}
         background={`linear-gradient(90deg, rgba(48, 48, 114, 1) 100%, rgba(48, 48, 114, 0) 100%)`}
-        extra="white_head text-center"
+        extra="white_head white_paper_single"
       />
       <div className="confrences_content">
         <div className="container-fluid">
