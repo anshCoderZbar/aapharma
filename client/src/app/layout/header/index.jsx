@@ -76,13 +76,13 @@ export const Header = () => {
                   className="logo"
                 />
               </Link>
-              <div className="d-flex position-relative search_input">
+              {/* <div className="d-flex position-relative search_input">
                 <input type="text" placeholder="Search" />
                 <div className="position-absolute top-50 end-0 translate-middle-y search_icon">
                   <Search />
                 </div>
-              </div>
-              <div className="search_icon_md">
+              </div> */}
+              {/* <div className="search_icon_md">
                 <div onClick={() => setOpenInput(true)} className="full_search">
                   <Search />
                 </div>
@@ -97,7 +97,7 @@ export const Header = () => {
                   placeholder="Search"
                   className={`${openInput ? "full_input" : "input_none"}`}
                 />
-              </div>
+              </div> */}
             </div>
             <div className="nav-right">
               <ul className={`${active ? "nav_active" : ""} nav-ri-ul`}>

@@ -11,6 +11,14 @@ import { Loader } from "app/components/Ui/Loader";
 import { ChevronRight } from "lucide-react";
 
 export default function Whitepaper() {
+  const currentYear = new Date().getFullYear();
+  const startYear = 2021;
+  const years = [];
+
+  for (let year = currentYear; year >= startYear; year--) {
+    years.push(year);
+  }
+
   const navigate = useNavigate();
   const getBanner = GetWhitePaperBanner();
   const getWhitepaper = GetAllWhitePapers();
@@ -89,12 +97,15 @@ export default function Whitepaper() {
       <div className="container-fluid">
         <div className="paper_page_filter">
           <select name="year" onChange={handleChange}>
-            <option disabled>Select Year</option>
+            <option disabled selected>
+              Select Year
+            </option>
             <option value="">All Years</option>
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
           </select>
           <select name="month" onChange={handleChange}>
             <option value="">Month</option>

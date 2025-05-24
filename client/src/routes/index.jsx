@@ -144,7 +144,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/storage-inventory-management"
+            path="/storage-and-inventory-management"
             element={
               <PublicRoutes>
                 <CaseStudy />
@@ -184,7 +184,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/others"
+            path="/other"
             element={
               <PublicRoutes>
                 <Others />

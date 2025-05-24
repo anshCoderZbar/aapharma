@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "styles/Catalog.css";
 import { CatalogMainCard } from "app/components/CatalogCard/CatalogMainCard";
@@ -12,7 +12,7 @@ import {
   CatalogCategory3,
   FilterChemical,
 } from "rest/catalog";
-import { X } from "lucide-react";
+import { ChevronsRight, X } from "lucide-react";
 
 export const Catalog = () => {
   const navigte = useNavigate();
@@ -73,7 +73,15 @@ export const Catalog = () => {
       <div className="catalog_banner">
         <div className="container-fluid">
           <div className="catalog_banner_heading">
-            <h1>Catalogs</h1>
+            <div className="catalog_banner_content">
+              <p className="d-flex justify-content-center align-items-center gap-2">
+                <Link to="/" className="text-white text-decoration-none">
+                  Home
+                </Link>{" "}
+                <ChevronsRight /> Catalogs
+              </p>
+              <h1>Research Tools Catalog</h1>
+            </div>
             <div className="catalog_filter_outer">
               <div className=" catalog_inner">
                 <div className="filter_left">
