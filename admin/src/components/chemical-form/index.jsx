@@ -303,7 +303,7 @@ export const ChemicalForm = ({
               <>
                 <div className="mb-3 col-md-6">
                   <label htmlFor="chemicalImage" className="form-label">
-                    Chemical Image
+                    Chemical Image (293px * 180 px)
                   </label>
                   <FormInput
                     type="file"
