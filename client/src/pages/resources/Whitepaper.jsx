@@ -86,7 +86,7 @@ export default function Whitepaper() {
           <p>
             {getBanner?.data?.data?.slogan && getBanner?.data?.data?.slogan}
             <span>
-              -
+              -{"  "}
               {getBanner?.data?.data?.sloganBy &&
                 getBanner?.data?.data?.sloganBy}
             </span>
