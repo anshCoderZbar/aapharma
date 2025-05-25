@@ -78,7 +78,7 @@ export const Catalog = () => {
                 <Link to="/" className="text-white text-decoration-none">
                   Home
                 </Link>{" "}
-                <ChevronsRight /> Catalogs
+                <ChevronsRight /> Research Tools Catalog
               </p>
               <h1>Research Tools Catalog</h1>
             </div>

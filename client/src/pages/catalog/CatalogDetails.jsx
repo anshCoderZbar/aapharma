@@ -46,10 +46,13 @@ export const CatalogDetails = () => {
                   Home
                 </Link>{" "}
                 <ChevronsRight />
-                <Link to="/catalog" className="text-white text-decoration-none">
+                <Link
+                  to="/research-tools-catalog"
+                  className="text-white text-decoration-none"
+                >
                   Back
                 </Link>{" "}
-                <ChevronsRight /> Catalogs
+                <ChevronsRight /> Research Tools Catalog
               </p>
               <h1>{singleChemical?.data?.data?.heading}</h1>
             </div>

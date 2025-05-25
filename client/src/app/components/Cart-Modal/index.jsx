@@ -80,7 +80,7 @@ export const CartModal = ({ id }) => {
             <div className="cart_buttons_bsg">
               <button
                 onClick={() => {
-                  navigate("/catalog");
+                  navigate("/research-tools-catalog");
                   closeModal();
                 }}
                 className="primary_buttton"

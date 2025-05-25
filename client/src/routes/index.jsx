@@ -64,7 +64,7 @@ export const AllRoutes = () => {
             }
           />
           <Route
-            path="/catalog"
+            path="/research-tools-catalog"
             element={
               <PublicRoutes>
                 <Catalog />

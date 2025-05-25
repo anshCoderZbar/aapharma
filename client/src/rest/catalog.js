@@ -63,7 +63,7 @@ export const FilterChemical = () => {
       }),
     onSuccess: (data) => {
       setFilteredData(data);
-      navigate("/catalog");
+      navigate("/research-tools-catalog");
     },
   });
   return filterChemicalMutation;
@@ -76,7 +76,7 @@ export const ChemicalsFilterExact = () => {
     mutationFn: (data) => client.chemical.chemicalsFilterExact(data),
     onSuccess: (data) => {
       setFilteredData(data);
-      navigate("/catalog");
+      navigate("/research-tools-catalog");
     },
   });
   return exactChemical;

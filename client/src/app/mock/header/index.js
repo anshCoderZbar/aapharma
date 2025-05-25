@@ -174,7 +174,7 @@ export const HeaderData = [
       },
       {
         id: 2,
-        name: "Whitepapers",
+        name: "White Papers",
         slug: "/whitepapers",
       },
       {
@@ -187,7 +187,7 @@ export const HeaderData = [
   {
     id: 5,
     name: "Research Tools Catalog",
-    slug: "/catalog",
+    slug: "/research-tools-catalog",
     class: false,
   },
 ];

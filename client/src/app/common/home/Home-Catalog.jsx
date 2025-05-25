@@ -76,7 +76,7 @@ export const HomeCatalog = () => {
       </Swiper>
       <div className="d-flex justify-content-center mt-5">
         <button
-          onClick={() => navigate("/catalog")}
+          onClick={() => navigate("/research-tools-catalog")}
           className="primary_buttton"
         >
           View All
