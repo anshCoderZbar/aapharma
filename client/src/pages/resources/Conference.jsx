@@ -68,7 +68,7 @@ export default function Conference() {
                             }}
                           />
                           <p className="confrence_loacation">
-                            <span>Location:</span>
+                            <span>Location : </span>
                             {data?.location}
                           </p>
                         </div>
