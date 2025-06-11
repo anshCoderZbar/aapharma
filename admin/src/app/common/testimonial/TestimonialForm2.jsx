@@ -53,7 +53,7 @@ export const TestimonialForm2 = ({
         <div className="col-12">
           <div className="mb-3 col-6">
             <label htmlFor="client" className="form-label">
-              Client Logo
+              Client Logo (200*200)
             </label>
             <FormInput
               type="file"
