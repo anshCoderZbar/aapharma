@@ -90,6 +90,12 @@ export const Footer = () => {
                   />
                 </Link>
                 <p className="comp_desc">{allDetails?.footerText}</p>
+                <a href="https://www.bbb.org/us/mi/ann-arbor/profile/pharmaceutical-consultants/aapharmasyn-llc-0372-90053894/#sealclick"
+                  target="_blank"
+                  rel="nofollow">
+                <img src="https://seal-westernmichigan.bbb.org/seals/blue-seal-293-61-whitetxt-bbb-90053894.png"
+                style={{ border: 0 }}
+                alt="AAPharmaSyn, LLC BBB Business Review"/></a>
               </div>
               {footerLinks?.data?.data?.map((links) => {
                 return (
