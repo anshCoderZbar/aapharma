@@ -688,6 +688,36 @@
     margin: 0 auto;
   }
 } */
+
+.search-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 99;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-results li {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-results li:hover {
+  background-color: #f4f4f4;
+}
+
 @media screen and (min-width: 2000px) {
   .drop_acor_m,
   .nav-right > ul li a {

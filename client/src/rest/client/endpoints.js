@@ -111,4 +111,5 @@ export const API_ENDPOINTS = {
   researchCollaborationDiagram: "/research-collaboration-diagram",
   footerLinks: "/menu-titles",
   getTestimonialClient: "/logo-listing",
+  headerSearch: "/search",
 };

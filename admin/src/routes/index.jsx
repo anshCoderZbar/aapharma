@@ -173,6 +173,9 @@ import AddLinksMenuItems from "pages/footer/AddLinksMenuItems";
 import AllLinksMenuItems from "pages/footer/AllLinksMenuItems";
 import EditLinksMenuItems from "pages/footer/EditLinksMenuItems";
 import AllClients from "pages/testimonial/AllClients";
+import CreateAdmin from "pages/admin/CreateAdmin";
+import AllAdmin from "pages/admin/AllAdmin";
+import EditAdmin from "pages/admin/EditAdmin";
 
 export const AllRoutes = (props) => {
   const router = createBrowserRouter([
@@ -1498,6 +1501,30 @@ export const AllRoutes = (props) => {
       element: (
         <PrivateRoutes>
           <Settings />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/add-admin",
+      element: (
+        <PrivateRoutes>
+          <CreateAdmin />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/all-admin",
+      element: (
+        <PrivateRoutes>
+          <AllAdmin />
+        </PrivateRoutes>
+      ),
+    },
+    {
+      path: "/edit-admin/:id",
+      element: (
+        <PrivateRoutes>
+          <EditAdmin />
         </PrivateRoutes>
       ),
     },

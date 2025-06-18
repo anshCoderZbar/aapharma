@@ -8,7 +8,7 @@ import { HeaderData } from "app/mock/header";
 import { useOutsideClick } from "lib/hooks/useOutsideClick";
 import { useAtom } from "jotai";
 import { allSettings } from "store/SettingsStore";
-import { MasterCategory, SubCategory } from "rest/main";
+import { GetHeaderSearchQuery, MasterCategory, SubCategory } from "rest/main";
 
 import { HeaderCatalogFilter } from "./HeaderCatalogFilter";
 
@@ -21,7 +21,10 @@ export const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(-1);
+  const [trigger, setTrigger] = useState(false);
   const [dropMenu, setDropMenu] = useState(-1);
+  const [searchText, setSearchText] = useState("");
+
   const masterCategory = MasterCategory();
   const subCategory = SubCategory();
 
@@ -61,6 +64,20 @@ export const Header = () => {
     setActive(false);
   });
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!e.target.closest(".search_input")) {
+        setTrigger(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  const { data: searchResults, isLoading } = GetHeaderSearchQuery(
+    searchText.trim()
+  );
+
   return (
     <>
       <header ref={navRef} className="header jh_lop">
@@ -76,18 +93,48 @@ export const Header = () => {
                   className="logo"
                 />
               </Link>
-              {/* <div className="d-flex position-relative search_input">
-                <input type="text" placeholder="Search" />
+              <div className="d-flex position-relative search_input">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  onChange={(e) => setSearchText(e.target.value)}
+                  value={searchText}
+                />
                 <div className="position-absolute top-50 end-0 translate-middle-y search_icon">
                   <Search />
                 </div>
-              </div> */}
-              {/* <div className="search_icon_md">
+                {searchResults?.data?.length > 0 && (
+                  <div className="search-popover">
+                    <ul className="search-results">
+                      {searchResults?.data?.map((item, index) => {
+                        const id = item.detail_url.split("/").pop();
+
+                        return (
+                          <li
+                            key={index}
+                            onClick={() => {
+                              navigate(`/catalog/${id}`);
+                              setTrigger(false);
+                              setSearchText("");
+                            }}
+                          >
+                            {item.title}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div className="search_icon_md">
                 <div onClick={() => setOpenInput(true)} className="full_search">
                   <Search />
                 </div>
                 <div
-                  onClick={() => setOpenInput(false)}
+                  onClick={() => {
+                    setOpenInput(false);
+                    setSearchText("");
+                  }}
                   className={`close_Icon ${openInput ? "d-block" : "d-none"}`}
                 >
                   <X />
@@ -96,8 +143,31 @@ export const Header = () => {
                   type="text"
                   placeholder="Search"
                   className={`${openInput ? "full_input" : "input_none"}`}
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
                 />
-              </div> */}
+              </div>
+              {openInput && searchResults?.data?.length > 0 && (
+                <div className="search-popover">
+                  <ul className="search-results">
+                    {searchResults?.data?.map((item, index) => {
+                      const id = item.detail_url.split("/").pop();
+                      return (
+                        <li
+                          key={index}
+                          onClick={() => {
+                            navigate(`/catalog/${id}`);
+                            setTrigger(false);
+                            setSearchText("");
+                          }}
+                        >
+                          {item.title}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
             </div>
             <div className="nav-right">
               <ul className={`${active ? "nav_active" : ""} nav-ri-ul`}>
