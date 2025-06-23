@@ -243,6 +243,7 @@
   max-width: 150px;
   word-wrap: break-word;
   width: 100%;
+  max-width: 300px;
 }
 
 .acc_compound_desc_actvie_bv {
