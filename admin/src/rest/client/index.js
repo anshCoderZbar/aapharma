@@ -619,6 +619,11 @@ class Client {
     deleteMenuItems: (id) =>
       HttpClient.delete(API_ENDPOINTS.footerMenuLinks + "/" + id),
   };
+  admin = {
+    getAllAdmin: () => HttpClient.get(API_ENDPOINTS.allAdmin),
+    deleteAdmin: (id) => HttpClient.post(API_ENDPOINTS.deleteAdmin + "/" + id),
+    createAdmin: (data) => HttpClient.post(API_ENDPOINTS.createAdmin, data),
+  };
 }
 
 const client = new Client();

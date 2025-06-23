@@ -93,3 +93,14 @@ export const GetFooterLinksMutation = () => {
   });
   return footerLinks;
 };
+
+export const GetHeaderSearchQuery = (searchText) => {
+  return useQuery({
+    queryKey: ["header-search", searchText],
+    queryFn: () => client.main.getHeaderSearch(searchText),
+    enabled: !!searchText,
+    onError: () => {
+      toast.error("OOPS! Some error occurred");
+    },
+  });
+};

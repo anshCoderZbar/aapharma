@@ -254,4 +254,8 @@ export const API_ENDPOINTS = {
   addTestimonialClient: "/add-testimonial-logo",
   getTestimonialClient: "/logo-listing",
   deleteTestimonialClient: "/delete-testimonial-logo",
+  allAdmin: "/list",
+  createAdmin: "/create",
+  deleteAdmin: "/delete",
+  updateAdmin: "/update",
 };

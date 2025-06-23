@@ -1,6 +1,6 @@
 import { Layout } from "app/images";
 import { SidebarData } from "app/mock/sidebar";
-import { ChevronLeft, Link2 } from "lucide-react";
+import { ChevronLeft, Link2, Users2Icon } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GetAllRoutesMutation } from "rest/allRoutes";
@@ -35,6 +35,18 @@ export const Sidebar = () => {
             <Link to={`/all-routes`}>
               <Link2 />
               Page Routes
+            </Link>
+          </li>
+          <li
+            className={`${
+              window?.location?.pathname?.toLowerCase()?.includes("all-admin")
+                ? "side_active"
+                : ""
+            }`}
+          >
+            <Link to={`/all-admin`}>
+              <Users2Icon />
+              Admin
             </Link>
           </li>
         </ul>
